@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Resizer - Free Online Image Resize Tool | PicFlow</title>
+    <meta name="description" content="Free online image resizer tool. Quickly resize images to your desired dimensions. Supports width/height scaling, aspect ratio preservation, batch processing, no registration required, local processing for privacy.">
+    <meta name="keywords" content="image resizer, resize image, image dimension changer, online image editor, batch resize, free tool">
+    <link rel="canonical" href="https://picflow.tools/resize-image/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picflow.tools/resize-image/">
+    <meta property="og:title" content="Image Resizer - Free Online Image Resize Tool">
+    <meta property="og:description" content="Free online image resizer tool. Quickly resize images to your desired dimensions.">
+    <meta property="og:image" content="https://picflow.tools/og-resize-image.jpg">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Image Resizer Tool",
+        "description": "Free online image resizer tool",
+        "url": "https://picflow.tools/resize-image",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://picflow.tools/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Image Resizer",
+            "item": "https://picflow.tools/resize-image/"
+        }]
+    }
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="../" style="text-decoration: none; color: inherit;">PicFlow</a></h1>
+                <p class="tagline">Image Resizer Tool</p>
+            </div>
+            <nav class="nav">
+                <a href="../" class="nav-link">Home</a>
+                <a href="../#tools" class="nav-link">More Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Ad Slot 1 - Leaderboard (top of content) -->
+        <div class="ad-container leaderboard">
+            <div class="ad-placeholder">Advertisement</div>
+        </div>
+
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../">Home</a> <span>&gt;</span> Image Resizer
+            </div>
+        </div>
+
+        <section class="hero">
+            <div class="container">
+                <h2 class="hero-title">Online Image Resizer</h2>
+                <p class="hero-subtitle">Quickly resize images with proportional scaling or custom dimensions.</p>
+
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p class="upload-text">Drop images here</p>
+                    <p class="upload-subtext">Supports JPG, PNG, WebP and other formats</p>
+                    <input type="file" id="fileInput" accept="image/*" multiple hidden>
+                    <button class="btn-primary" id="selectBtn">Select Images</button>
+                </div>
+
+                <div class="processing-area" id="processingArea" style="display: none;">
+                    <div class="preview-section">
+                        <h3>Selected Images</h3>
+                        <div class="preview-grid" id="previewGrid"></div>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Resize Options</h4>
+                        <div class="resize-options">
+                            <div class="input-group">
+                                <label>Width (pixels)</label>
+                                <input type="number" id="widthInput" placeholder="Original width">
+                            </div>
+                            <div class="input-group">
+                                <label>Height (pixels)</label>
+                                <input type="number" id="heightInput" placeholder="Original height">
+                            </div>
+                            <label class="checkbox-group">
+                                <input type="checkbox" id="maintainAspect" checked>
+                                <span>Maintain aspect ratio</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Common Sizes</h4>
+                        <div class="format-options">
+                            <button class="btn-secondary" onclick="setPreset(1920, 1080)">1920×1080</button>
+                            <button class="btn-secondary" onclick="setPreset(1280, 720)">1280×720</button>
+                            <button class="btn-secondary" onclick="setPreset(800, 600)">800×600</button>
+                            <button class="btn-secondary" onclick="setPreset(400, 400)">400×400</button>
+                        </div>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Output Format</h4>
+                        <div class="format-options">
+                            <label class="format-option">
+                                <input type="radio" name="format" value="original" checked>
+                                <span>Keep original</span>
+                            </label>
+                            <label class="format-option">
+                                <input type="radio" name="format" value="jpeg">
+                                <span>JPG</span>
+                            </label>
+                            <label class="format-option">
+                                <input type="radio" name="format" value="png">
+                                <span>PNG</span>
+                            </label>
+                            <label class="format-option">
+                                <input type="radio" name="format" value="webp">
+                                <span>WebP</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn-primary" id="resizeBtn">Resize</button>
+                        <button class="btn-secondary" id="resetBtn">Choose Again</button>
+                    </div>
+                </div>
+
+                <div class="download-section" id="downloadSection" style="display: none;">
+                    <h3>Resize Complete!</h3>
+                    <div class="download-grid" id="downloadGrid"></div>
+                    <button class="btn-primary" id="downloadAllBtn">Download All</button>
+                    <button class="btn-link" id="startOverBtn">Process More Images</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">Why Use the Image Resizer</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">📏</div>
+                        <h3>Precise Control</h3>
+                        <p>Set exact width and height values, with support for proportional scaling or custom dimensions.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Keep Proportions</h3>
+                        <p>Automatically maintain aspect ratio to prevent image distortion.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Fast Processing</h3>
+                        <p>Leveraging Canvas technology for millisecond-fast processing.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📦</div>
+                        <h3>Batch Processing</h3>
+                        <p>Resize multiple images simultaneously to improve your workflow.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Ad Slot 2 - In-content (between sections) -->
+    <div class="ad-container in-content">
+        <div class="ad-placeholder">Advertisement</div>
+    </div>
+
+    <!-- Ad Slot 3 - Rectangle (bottom, before footer) -->
+    <div class="ad-container rectangle">
+        <div class="ad-placeholder">Advertisement</div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>More Tools</h4>
+                    <ul>
+                        <li><a href="../png-to-jpg/">PNG to JPG</a></li>
+                        <li><a href="../jpg-to-png/">JPG to PNG</a></li>
+                        <li><a href="../compress-image/">Image Compressor</a></li>
+                        <li><a href="../png-to-webp/">PNG to WebP</a></li>
+                        <li><a href="../webp-to-png/">WebP to PNG</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="../">Back to Home</a></li>
+                        <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicFlow. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Image resize dedicated script
+        const state = { uploadedFiles: [], resizedImages: [], originalDims: [] };
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const selectBtn = document.getElementById('selectBtn');
+        const processingArea = document.getElementById('processingArea');
+        const previewGrid = document.getElementById('previewGrid');
+        const downloadSection = document.getElementById('downloadSection');
+        const downloadGrid = document.getElementById('downloadGrid');
+        const resizeBtn = document.getElementById('resizeBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const widthInput = document.getElementById('widthInput');
+        const heightInput = document.getElementById('heightInput');
+        const maintainAspect = document.getElementById('maintainAspect');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        const startOverBtn = document.getElementById('startOverBtn');
+
+        selectBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => handleFiles(Array.from(e.target.files)));
+        uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+        uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            handleFiles(Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/')));
+        });
+        widthInput.addEventListener('input', () => { if (maintainAspect.checked) updateHeight(); });
+        heightInput.addEventListener('input', () => { if (maintainAspect.checked) updateWidth(); });
+        resizeBtn.addEventListener('click', resizeImages);
+        resetBtn.addEventListener('click', reset);
+        downloadAllBtn.addEventListener('click', downloadAll);
+        startOverBtn.addEventListener('click', reset);
+
+        window.setPreset = function(w, h) {
+            widthInput.value = w;
+            heightInput.value = h;
+        };
+
+        function handleFiles(files) {
+            if (files.length === 0) return alert('Please select images');
+            state.uploadedFiles = files;
+            state.originalDims = [];
+            Promise.all(files.map(f => loadImage(f))).then(images => {
+                displayPreviews(images);
+                uploadArea.style.display = 'none';
+                processingArea.style.display = 'block';
+                widthInput.placeholder = state.originalDims[0].width;
+                heightInput.placeholder = state.originalDims[0].height;
+            }).catch(() => alert('Failed to load images'));
+        }
+
+        function loadImage(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        state.originalDims.push({ width: img.width, height: img.height });
+                        resolve({ img, file, src: e.target.result });
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function displayPreviews(images) {
+            previewGrid.innerHTML = images.map(({ img, file, src }, i) => `
+                <div class="preview-item">
+                    <img src="${src}" alt="${file.name}">
+                    <div class="file-info">
+                        <strong>${file.name}</strong><br>${img.width} × ${img.height}px
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateHeight() {
+            if (!state.originalDims.length) return;
+            const width = parseInt(widthInput.value);
+            if (!width) return;
+            const original = state.originalDims[0];
+            const aspectRatio = original.height / original.width;
+            heightInput.value = Math.round(width * aspectRatio);
+        }
+
+        function updateWidth() {
+            if (!state.originalDims.length) return;
+            const height = parseInt(heightInput.value);
+            if (!height) return;
+            const original = state.originalDims[0];
+            const aspectRatio = original.width / original.height;
+            widthInput.value = Math.round(height * aspectRatio);
+        }
+
+        function resizeImages() {
+            const width = parseInt(widthInput.value) || state.originalDims[0].width;
+            const height = parseInt(heightInput.value) || state.originalDims[0].height;
+            const format = document.querySelector('input[name="format"]:checked').value;
+
+            state.resizedImages = [];
+            let processed = 0;
+
+            state.uploadedFiles.forEach((file, i) => {
+                loadImage(file).then(({ img }) => {
+                    const canvas = document.createElement('canvas');
+                    const original = state.originalDims[i];
+
+                    let newWidth = width;
+                    let newHeight = height;
+
+                    if (maintainAspect.checked) {
+                        const aspectRatio = original.width / original.height;
+                        if (width && !height) {
+                            newHeight = Math.round(width / aspectRatio);
+                        } else if (!width && height) {
+                            newWidth = Math.round(height * aspectRatio);
+                        }
+                    }
+
+                    canvas.width = newWidth;
+                    canvas.height = newHeight;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, newWidth, newHeight);
+
+                    const outputFormat = format === 'original' ? file.type.split('/')[1] : format;
+                    const mimeTypes = { 'jpeg': 'image/jpeg', 'png': 'image/png', 'webp': 'image/webp' };
+                    const mimeType = mimeTypes[outputFormat] || 'image/jpeg';
+
+                    canvas.toBlob(blob => {
+                        const url = URL.createObjectURL(blob);
+                        const ext = outputFormat === 'jpeg' ? 'jpg' : outputFormat;
+                        state.resizedImages[i] = {
+                            url,
+                            name: file.name.replace(/\.[^/.]+$/, '') + '.' + ext,
+                            size: blob.size,
+                            width: newWidth,
+                            height: newHeight
+                        };
+                        if (++processed === state.uploadedFiles.length) displayDownloads();
+                    }, mimeType, 0.92);
+                });
+            });
+        }
+
+        function displayDownloads() {
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'block';
+            downloadGrid.innerHTML = state.resizedImages.map((img, i) => `
+                <div class="download-item">
+                    <img src="${img.url}" alt="${img.name}">
+                    <h4>${img.name}</h4>
+                    <p>${img.width} × ${img.height}px | ${(img.size / 1024).toFixed(1)} KB</p>
+                    <button class="btn-primary" onclick="downloadOne(${i})">Download</button>
+                </div>
+            `).join('');
+        }
+
+        window.downloadOne = function(i) {
+            const a = document.createElement('a');
+            a.href = state.resizedImages[i].url;
+            a.download = state.resizedImages[i].name;
+            a.click();
+        };
+
+        function downloadAll() {
+            state.resizedImages.forEach((img, i) => setTimeout(() => window.downloadOne(i), i * 500));
+        }
+
+        function reset() {
+            state.uploadedFiles = [];
+            state.resizedImages = [];
+            state.originalDims = [];
+            fileInput.value = '';
+            widthInput.value = '';
+            heightInput.value = '';
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'none';
+            uploadArea.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

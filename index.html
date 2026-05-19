@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PicFlow - Free Online Image Tools | Format Converter, Resizer, Compressor</title>
+    <meta name="description" content="PicFlow offers professional online image processing tools: PNG to JPG, JPG to PNG, WebP conversion, image resizing, image compression. Completely free, no registration required, local processing for privacy.">
+    <meta name="keywords" content="image converter online, image resizer, png to jpg, webp to png, free online image tools">
+    <link rel="canonical" href="https://picflow.tools/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picflow.tools/">
+    <meta property="og:title" content="PicFlow - Free Online Image Tools | Format Converter, Resizer, Compressor">
+    <meta property="og:description" content="Professional online image processing tools supporting format conversion, resizing, and compression. Completely free, local processing for privacy.">
+    <meta property="og:image" content="https://picflow.tools/og-image.jpg">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PicFlow",
+        "description": "Free online image processing tools supporting format conversion, resizing, and compression",
+        "url": "https://picflow.tools",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <!-- Schema.org Breadcrumb -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://picflow.tools/"
+        }]
+    }
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>PicFlow</h1>
+                <p class="tagline">Professional Online Image Tools</p>
+            </div>
+            <nav class="nav">
+                <a href="#tools" class="nav-link">Tools</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Ad Slot 1 - Leaderboard (top of content) -->
+        <div class="ad-container leaderboard">
+            <div class="ad-placeholder">Advertisement</div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h2 class="hero-title">All-in-One Online Image Processing Tools</h2>
+                <p class="hero-subtitle">Format conversion, resizing, compression - one-stop solution for all your image needs</p>
+
+                <!-- Upload Area -->
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p class="upload-text">Drop images here</p>
+                    <p class="upload-subtext">or click to select files</p>
+                    <input type="file" id="fileInput" accept="image/*" multiple hidden>
+                    <button class="btn-primary" id="selectBtn">Select Images</button>
+                </div>
+
+                <!-- Processing Area -->
+                <div class="processing-area" id="processingArea" style="display: none;">
+                    <div class="preview-section">
+                        <h3>Image Preview</h3>
+                        <div class="preview-grid" id="previewGrid"></div>
+                    </div>
+
+                    <div class="tools-section">
+                        <!-- Format Converter -->
+                        <div class="tool-card">
+                            <h4>Format Conversion</h4>
+                            <div class="format-options">
+                                <label class="format-option">
+                                    <input type="radio" name="format" value="jpeg">
+                                    <span>JPG</span>
+                                </label>
+                                <label class="format-option">
+                                    <input type="radio" name="format" value="png">
+                                    <span>PNG</span>
+                                </label>
+                                <label class="format-option">
+                                    <input type="radio" name="format" value="webp">
+                                    <span>WebP</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Resize Tool -->
+                        <div class="tool-card">
+                            <h4>Resize</h4>
+                            <div class="resize-options">
+                                <div class="input-group">
+                                    <label>Width</label>
+                                    <input type="number" id="widthInput" placeholder="Auto">
+                                </div>
+                                <div class="input-group">
+                                    <label>Height</label>
+                                    <input type="number" id="heightInput" placeholder="Auto">
+                                </div>
+                                <label class="checkbox-group">
+                                    <input type="checkbox" id="maintainAspect" checked>
+                                    <span>Maintain aspect ratio</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Compression Tool -->
+                        <div class="tool-card">
+                            <h4>Compression Quality</h4>
+                            <div class="compression-options">
+                                <input type="range" id="qualitySlider" min="10" max="100" value="85">
+                                <div class="quality-value">
+                                    <span id="qualityValue">85</span>%
+                                </div>
+                                <div class="quality-labels">
+                                    <span>Smaller file</span>
+                                    <span>Higher quality</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="btn-primary" id="processBtn">Process Images</button>
+                            <button class="btn-secondary" id="resetBtn">Choose Again</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Download Section -->
+                <div class="download-section" id="downloadSection" style="display: none;">
+                    <h3>Processing Complete!</h3>
+                    <div class="download-grid" id="downloadGrid"></div>
+                    <button class="btn-secondary" id="downloadAllBtn">Download All</button>
+                    <button class="btn-link" id="startOverBtn">Process More Images</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ad Slot 2 - In-content (between hero and tools grid) -->
+        <div class="ad-container in-content">
+            <div class="ad-placeholder">Advertisement</div>
+        </div>
+
+        <!-- Tools Grid -->
+        <section id="tools" class="tools-section">
+            <div class="container">
+                <h2 class="section-title">Professional Image Tools</h2>
+                <div class="tools-grid">
+                    <a href="png-to-jpg/" class="tool-item">
+                        <div class="tool-icon">📐</div>
+                        <h3>PNG to JPG</h3>
+                        <p>Convert PNG images to JPG format</p>
+                    </a>
+                    <a href="jpg-to-png/" class="tool-item">
+                        <div class="tool-icon">🖼️</div>
+                        <h3>JPG to PNG</h3>
+                        <p>Convert JPG images to PNG format</p>
+                    </a>
+                    <a href="webp-to-png/" class="tool-item">
+                        <div class="tool-icon">🔄</div>
+                        <h3>WebP to PNG</h3>
+                        <p>Convert WebP images to PNG format</p>
+                    </a>
+                    <a href="png-to-webp/" class="tool-item">
+                        <div class="tool-icon">⚡</div>
+                        <h3>PNG to WebP</h3>
+                        <p>Convert PNG to modern WebP format</p>
+                    </a>
+                    <a href="jpg-to-webp/" class="tool-item">
+                        <div class="tool-icon">🎯</div>
+                        <h3>JPG to WebP</h3>
+                        <p>Convert JPG to WebP format</p>
+                    </a>
+                    <a href="resize-image/" class="tool-item">
+                        <div class="tool-icon">📏</div>
+                        <h3>Image Resizer</h3>
+                        <p>Resize images to your desired dimensions</p>
+                    </a>
+                    <a href="compress-image/" class="tool-item">
+                        <div class="tool-icon">🗜️</div>
+                        <h3>Image Compressor</h3>
+                        <p>Compress images to reduce file size</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2 class="section-title">Why Choose PicFlow</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Privacy Protection</h3>
+                        <p>All image processing is done locally in your browser. No files are uploaded to any server, ensuring your privacy and image security.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Lightning Fast</h3>
+                        <p>Leveraging modern browser Canvas technology for millisecond-fast processing with no waiting.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💎</div>
+                        <h3>High Quality Output</h3>
+                        <p>Smart algorithms ensure image quality, preserving maximum detail during compression and conversion.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎨</div>
+                        <h3>Batch Processing</h3>
+                        <p>Upload and process multiple images simultaneously to dramatically improve your workflow.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💰</div>
+                        <h3>Completely Free</h3>
+                        <p>All features are permanently free, no registration required, no usage limits.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📱</div>
+                        <h3>Responsive Design</h3>
+                        <p>Perfectly adapts to desktop, tablet, and mobile devices for image processing on the go.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>Is image processing secure?</h3>
+                        <p>Absolutely secure. All processing is done locally in your browser. Images are never uploaded to any server, ensuring your privacy and data security.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What image formats are supported?</h3>
+                        <p>We support all major image formats: JPG, JPEG, PNG, WebP, GIF, BMP, SVG, covering most image processing needs.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Is there a file size limit?</h3>
+                        <p>There is no hard limit, but very large images (over 100MB) may be affected by browser memory limitations. We recommend keeping individual images under 50MB for the best experience.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I process multiple images at once?</h3>
+                        <p>Yes! You can select multiple images at once for batch processing. Each image is processed independently, and you can download them individually or all at once.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Ad Slot 3 - Rectangle (bottom, before footer) -->
+    <div class="ad-container rectangle">
+        <div class="ad-placeholder">Advertisement</div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>PicFlow</h4>
+                    <p>Professional online image processing tools</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Image Conversion</h4>
+                    <ul>
+                        <li><a href="png-to-jpg/">PNG to JPG</a></li>
+                        <li><a href="jpg-to-png/">JPG to PNG</a></li>
+                        <li><a href="webp-to-png/">WebP to PNG</a></li>
+                        <li><a href="png-to-webp/">PNG to WebP</a></li>
+                        <li><a href="jpg-to-webp/">JPG to WebP</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Image Editing</h4>
+                    <ul>
+                        <li><a href="resize-image/">Image Resizer</a></li>
+                        <li><a href="compress-image/">Image Compressor</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicFlow. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

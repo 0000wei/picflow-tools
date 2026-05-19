@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebP to PNG - Free Online WebP to PNG Converter | PicFlow</title>
+    <meta name="description" content="Free online WebP to PNG converter. Quickly convert WebP images to PNG format. Supports batch conversion, high-quality output, no registration required, local processing for privacy.">
+    <meta name="keywords" content="WebP to PNG, online converter, batch conversion, free tool, image format converter">
+    <link rel="canonical" href="https://picflow.tools/webp-to-png/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picflow.tools/webp-to-png/">
+    <meta property="og:title" content="WebP to PNG - Free Online WebP to PNG Converter">
+    <meta property="og:description" content="Free online WebP to PNG converter, quickly convert WebP images to PNG format.">
+    <meta property="og:image" content="https://picflow.tools/og-webp-to-png.jpg">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "WebP to PNG Converter",
+        "description": "Free online WebP to PNG conversion tool",
+        "url": "https://picflow.tools/webp-to-png",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://picflow.tools/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "WebP to PNG",
+            "item": "https://picflow.tools/webp-to-png/"
+        }]
+    }
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="../" style="text-decoration: none; color: inherit;">PicFlow</a></h1>
+                <p class="tagline">WebP to PNG Converter</p>
+            </div>
+            <nav class="nav">
+                <a href="../" class="nav-link">Home</a>
+                <a href="../#tools" class="nav-link">More Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Ad Slot 1 - Leaderboard (top of content) -->
+        <div class="ad-container leaderboard">
+            <div class="ad-placeholder">Advertisement</div>
+        </div>
+
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../">Home</a> <span>&gt;</span> WebP to PNG
+            </div>
+        </div>
+
+        <section class="hero">
+            <div class="container">
+                <h2 class="hero-title">WebP to PNG Online Converter</h2>
+                <p class="hero-subtitle">Quickly convert WebP images to PNG format, compatible with all devices and applications.</p>
+
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p class="upload-text">Drop WebP images here</p>
+                    <p class="upload-subtext">or click to select files, supports multiple selection</p>
+                    <input type="file" id="fileInput" accept="image/webp" multiple hidden>
+                    <button class="btn-primary" id="selectBtn">Select WebP Images</button>
+                </div>
+
+                <div class="processing-area" id="processingArea" style="display: none;">
+                    <div class="preview-section">
+                        <h3>Selected WebP Images</h3>
+                        <div class="preview-grid" id="previewGrid"></div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn-primary" id="convertBtn">Convert to PNG</button>
+                        <button class="btn-secondary" id="resetBtn">Choose Again</button>
+                    </div>
+                </div>
+
+                <div class="download-section" id="downloadSection" style="display: none;">
+                    <h3>Conversion Complete!</h3>
+                    <div class="download-grid" id="downloadGrid"></div>
+                    <button class="btn-primary" id="downloadAllBtn">Download All PNG</button>
+                    <button class="btn-link" id="startOverBtn">Convert More Images</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">Why Use the WebP to PNG Converter</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Perfect Compatibility</h3>
+                        <p>PNG format is supported by all browsers, image editors, and applications.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎨</div>
+                        <h3>High Quality</h3>
+                        <p>PNG uses lossless compression, perfectly preserving all details of the original image.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Fast Conversion</h3>
+                        <p>Leveraging browser Canvas technology for millisecond-fast conversion.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Privacy Protection</h3>
+                        <p>Local processing - images are never uploaded to any server.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Ad Slot 2 - In-content (between sections) -->
+    <div class="ad-container in-content">
+        <div class="ad-placeholder">Advertisement</div>
+    </div>
+
+    <!-- Ad Slot 3 - Rectangle (bottom, before footer) -->
+    <div class="ad-container rectangle">
+        <div class="ad-placeholder">Advertisement</div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>More Tools</h4>
+                    <ul>
+                        <li><a href="../png-to-jpg/">PNG to JPG</a></li>
+                        <li><a href="../jpg-to-png/">JPG to PNG</a></li>
+                        <li><a href="../png-to-webp/">PNG to WebP</a></li>
+                        <li><a href="../jpg-to-webp/">JPG to WebP</a></li>
+                        <li><a href="../compress-image/">Image Compressor</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="../">Back to Home</a></li>
+                        <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicFlow. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // WebP to PNG dedicated script
+        const state = { uploadedFiles: [], convertedImages: [] };
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const selectBtn = document.getElementById('selectBtn');
+        const processingArea = document.getElementById('processingArea');
+        const previewGrid = document.getElementById('previewGrid');
+        const downloadSection = document.getElementById('downloadSection');
+        const downloadGrid = document.getElementById('downloadGrid');
+        const convertBtn = document.getElementById('convertBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        const startOverBtn = document.getElementById('startOverBtn');
+
+        selectBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => handleFiles(Array.from(e.target.files)));
+        uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+        uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            handleFiles(Array.from(e.dataTransfer.files).filter(f => f.type === 'image/webp'));
+        });
+        convertBtn.addEventListener('click', convertImages);
+        resetBtn.addEventListener('click', reset);
+        downloadAllBtn.addEventListener('click', downloadAll);
+        startOverBtn.addEventListener('click', reset);
+
+        function handleFiles(files) {
+            if (files.length === 0) return alert('Please select WebP images');
+            state.uploadedFiles = files;
+            Promise.all(files.map(f => loadImage(f))).then(images => {
+                displayPreviews(images);
+                uploadArea.style.display = 'none';
+                processingArea.style.display = 'block';
+            }).catch(() => alert('Failed to load images'));
+        }
+
+        function loadImage(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => resolve({ img, file, src: e.target.result });
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function displayPreviews(images) {
+            previewGrid.innerHTML = images.map(({ img, file, src }) => `
+                <div class="preview-item">
+                    <img src="${src}" alt="${file.name}">
+                    <div class="file-info">
+                        <strong>${file.name}</strong><br>${img.width} × ${img.height}px
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function convertImages() {
+            state.convertedImages = [];
+            let processed = 0;
+
+            state.uploadedFiles.forEach((file, i) => {
+                loadImage(file).then(({ img }) => {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+
+                    canvas.toBlob(blob => {
+                        const url = URL.createObjectURL(blob);
+                        state.convertedImages[i] = {
+                            url,
+                            name: file.name.replace('.webp', '.png'),
+                            size: blob.size
+                        };
+                        if (++processed === state.uploadedFiles.length) displayDownloads();
+                    }, 'image/png');
+                });
+            });
+        }
+
+        function displayDownloads() {
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'block';
+            downloadGrid.innerHTML = state.convertedImages.map((img, i) => `
+                <div class="download-item">
+                    <img src="${img.url}" alt="${img.name}">
+                    <h4>${img.name}</h4>
+                    <p>${(img.size / 1024).toFixed(1)} KB</p>
+                    <button class="btn-primary" onclick="downloadOne(${i})">Download</button>
+                </div>
+            `).join('');
+        }
+
+        window.downloadOne = function(i) {
+            const a = document.createElement('a');
+            a.href = state.convertedImages[i].url;
+            a.download = state.convertedImages[i].name;
+            a.click();
+        };
+
+        function downloadAll() {
+            state.convertedImages.forEach((img, i) => setTimeout(() => window.downloadOne(i), i * 500));
+        }
+
+        function reset() {
+            state.uploadedFiles = [];
+            state.convertedImages = [];
+            fileInput.value = '';
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'none';
+            uploadArea.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

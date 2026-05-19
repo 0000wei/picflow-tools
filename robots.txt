@@ -1,0 +1,7 @@
+# robots.txt for PicFlow
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://picflow.tools/sitemap.xml
