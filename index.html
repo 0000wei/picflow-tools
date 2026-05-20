@@ -57,6 +57,44 @@
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "Is image processing secure?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely secure. All processing is done locally in your browser. Images are never uploaded to any server, ensuring your privacy and data security."
+            }
+        }, {
+            "@type": "Question",
+            "name": "What image formats are supported?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We support all major image formats: JPG, JPEG, PNG, WebP, GIF, BMP, SVG, covering most image processing needs."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Is there a file size limit?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "There is no hard limit, but very large images (over 100MB) may be affected by browser memory limitations. We recommend keeping individual images under 50MB for the best experience."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Can I process multiple images at once?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! You can select multiple images at once for batch processing. Each image is processed independently, and you can download them individually or all at once."
+            }
+        }]
+    }
+    </script>
+    
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
