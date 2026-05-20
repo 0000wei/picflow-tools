@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PicEte Launch Copy</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, system-ui, sans-serif; background: #f5f5f5; padding: 2rem; color: #333; line-height: 1.7; }
+.container { max-width: 800px; margin: 0 auto; }
+h1 { font-size: 1.5rem; margin-bottom: 1.5rem; }
+h2 { font-size: 1.125rem; margin: 2rem 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 2px solid #6366F1; }
+.card { background: white; border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.card h3 { font-size: 1rem; margin-bottom: 0.75rem; color: #4338ca; }
+.card .copy { background: #f8f8f8; border-radius: 0.5rem; padding: 1.25rem; font-size: 0.9375rem; white-space: pre-wrap; border: 1px solid #e5e7eb; }
+.card .copy strong { color: #1f2937; }
+.copy-note { font-size: 0.8rem; color: #6b7280; margin-top: 0.5rem; }
+.tip { background: #eef2ff; border-left: 4px solid #6366F1; padding: 1rem 1.25rem; border-radius: 0 0.5rem 0.5rem 0; margin-top: 1.5rem; line-height: 1.7; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>📝 PicEte — 发布文案</h1>
+
+  <div class="card">
+    <h3>1. Reddit r/SideProject — 发布帖</h3>
+    <div class="copy"><strong>Title:</strong>
+I built a free image converter & compressor that runs entirely in your browser
+
+<strong>Body:</strong>
+
+Been working on this as a side project for a while — PicEte (https://picete.com).
+
+It covers the basics:
+• PNG ↔ JPG ↔ WebP conversions
+• Image resizing with aspect ratio lock
+• Compression with a quality slider (60-90%)
+
+The whole thing runs in your browser via Canvas API. Images never hit a server — everything stays local. Handy if you are dealing with sensitive client work or just don't want your files uploaded somewhere.
+
+Batch processing works too — drag in a folder's worth and it handles them at once.
+
+Would love feedback on the UI, the processing speed, or anything that feels janky on your end. Built this pure HTML/CSS/JS, no framework.</div>
+    <div class="copy-note">💡 注意：Reddit 发帖时，链接放在 body 里而非标题。先把号养好（有 karma），再发帖。</div>
+  </div>
+
+  <div class="card">
+    <h3>2. Reddit r/webdev — 发布帖（偏技术）</h3>
+    <div class="copy"><strong>Title:</strong>
+Show & Tell – PicEte: pure client-side image processing tool (Canvas API, no uploads)
+
+<strong>Body:</strong>
+
+Built a little tool that processes images entirely in-browser:
+
+https://picete.com
+
+7 tools on one site — format conversion, resizing, compression. All done with Canvas API. No server, no uploads, no backend.
+
+Tech stack: vanilla HTML/CSS/JS, deployed on Vercel. Kept it simple on purpose — no framework, no dependencies beyond the browser's own APIs.
+
+Would especially appreciate a code review eye on the batch processing logic and the canvas quality handling. Thanks!</div>
+  </div>
+
+  <div class="card">
+    <h3>3. Product Hunt — 发布简介</h3>
+    <div class="copy"><strong>Tagline (一行介绍):</strong>
+Free online image tools — convert, resize, and compress in your browser. No uploads.
+
+<strong>Description (详情):</strong>
+
+PicEte is a free, privacy-first image processing toolkit that runs entirely in your browser.
+
+• 7 tools in one place: PNG to JPG, JPG to PNG, WebP conversion, image resizing, and compression
+• All processing happens locally via Canvas API — zero uploads to any server
+• Batch support: process dozens of images at once
+• No registration, no limits, no ads yet
+• Works on desktop and mobile
+• Built with pure HTML/CSS/JS — no framework overhead
+
+Whether you are a developer optimizing assets, a designer prepping images for a client, or just someone who needs a quick format conversion, PicEte does the job without sending your files anywhere.
+
+<strong>准备的素材:</strong>
+• Logo: https://picete.com/images/picete-logo.svg
+• 截图: 截 2-3 张工具页面的使用截图（上传界面、处理中、下载）
+• Maker: 你的名字 + 一小段自我介绍</div>
+    <div class="copy-note">💡 ProductHunt 注册后，点 "Submit a product" 按提示填写。哥飞技巧：评论区再发一次链接，可以获得外链。</div>
+  </div>
+
+  <div class="card">
+    <h3>4. Hacker News — Show HN</h3>
+    <div class="copy"><strong>Title:</strong>
+Show HN: PicEte – free, client-side image converter that respects your privacy
+
+<strong>Comment (第一个评论, 因 Show HN 正文不可编辑):</strong>
+
+Built a collection of image processing tools that run entirely in your browser:
+
+https://picete.com
+
+Core functionality:
+- Format conversion (PNG/JPG/WebP)
+- Image resizing with aspect ratio lock
+- Compression with quality slider (60-90%)
+- Batch processing
+
+The whole thing uses Canvas API — nothing gets uploaded to a server. Privacy by design.
+
+Built with vanilla HTML/CSS/JS (no framework), deployed on Vercel. Would love HN's feedback on performance and any edge cases I might have missed.</div>
+    <div class="copy-note">💡 HN 需要先把号养好（有足够 karma），不然 Show HN 容易被 flag。</div>
+  </div>
+
+  <div class="card">
+    <h3>5. Indie Hackers — 产品介绍</h3>
+    <div class="copy"><strong>Title:</strong>
+Building PicEte — a privacy-first image tools site, from idea to launch
+
+<strong>Body:</strong>
+
+Launched PicEte (https://picete.com) a few weeks ago — a collection of free online image tools that process everything locally in the browser.
+
+The idea was simple: image converters and compressors exist, but most upload your files to a server. PicEte does everything client-side with Canvas API.
+
+Tech stack: HTML/CSS/JS, Vercel for hosting. Revenue model: Adsense once traffic picks up.
+
+Currently at [X] visitors/day. Next steps:
+- Submitting to tool directories for backlinks
+- Building sister sites (mockup generator, palette tool) for a content network
+- Maybe blog posts on image optimization tips
+
+Happy to answer questions about the build process or the SEO strategy.</div>
+    <div class="copy-note">💡 Indie Hackers 不需要很多 karma，适合早期发布。</div>
+  </div>
+
+  <div class="tip">
+    <strong>📋 发布顺序建议：</strong><br>
+    1. <strong>Indie Hackers</strong> — 最简单，直接发<br>
+    2. <strong>Reddit r/SideProject</strong> — 回复里加链接，别在标题里放<br>
+    3. <strong>Product Hunt</strong> — 提前 1-2 天"Schedule"，选好时间<br>
+    4. <strong>Reddit r/webdev</strong> — 等 SideProject 帖有反馈后再发<br>
+    5. <strong>Hacker News</strong> — 账号养好 karma 再发<br><br>
+    <strong>哥飞特别提醒：</strong> Reddit 的帖子可能会被删，但链接依然有价值。记得在 ProductHunt 评论区再发一次链接——这样能拿到 PH 的外链。
+  </div>
+</div>
+</body>
+</html>
