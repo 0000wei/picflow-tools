@@ -1,0 +1,20 @@
+# PicEte — Free Online Image Tools
+
+> All-in-one online image processing. Convert, resize, and compress images entirely in your browser. No uploads, no servers, no sign-ups.
+
+## Core Tools
+
+- **PNG ↔ JPG** — https://picete.com/png-to-jpg/ | https://picete.com/jpg-to-png/
+- **WebP ↔ PNG** — https://picete.com/webp-to-png/ | https://picete.com/png-to-webp/
+- **JPG → WebP** — https://picete.com/jpg-to-webp/
+- **Image Resizer** — https://picete.com/resize-image/
+- **Image Compressor** — https://picete.com/compress-image/
+
+## Key Facts
+
+- All processing: client-side Canvas API only
+- Images never uploaded to any server
+- Supported formats: JPEG, PNG, WebP
+- Quality range: 10-100
+- Hosted on Vercel
+- Canonical: https://picete.com

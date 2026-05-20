@@ -1,0 +1,74 @@
+openapi: 3.1.0
+info:
+  title: PicEte Image Processing API
+  description: |
+    PicEte is a client-side image processing tool. There is no server-side API.
+    All processing is done via the browser's Canvas API.
+
+    An AI agent can use PicEte by controlling a headless browser (Playwright, Puppeteer, etc.)
+    to navigate to the tool pages, upload images, configure options, and download results.
+
+    The steps are the same for all tools:
+    1. Navigate to the tool page
+    2. Upload an image via file input
+    3. Configure options (format, quality, dimensions)
+    4. Click process button
+    5. Wait for the download section to appear
+    6. Download the processed image
+  version: 1.0.0
+servers:
+  - url: https://picete.com
+    description: Production
+
+paths:
+  /:
+    summary: Home page — general image converter
+    description: Drop zone with format selector (JPEG/PNG/WebP), quality slider (10-100), width/height inputs with aspect ratio lock, and process/download buttons.
+    browser_steps:
+      - upload: click select button (#selectBtn) or drag-and-drop onto #uploadArea
+      - config_format: click one of format-option labels (jpeg/png/webp)
+      - config_quality: drag #qualitySlider or set .value
+      - config_size: fill #widthInput and #heightInput, check #maintainAspect
+      - process: click #processBtn
+      - download: wait for #downloadSection to appear, click download buttons
+
+  /png-to-jpg/:
+    summary: Convert PNG to JPG
+    description: Upload PNG files and download as JPEG. Quality slider controls JPG compression.
+
+  /jpg-to-png/:
+    summary: Convert JPG to PNG
+    description: Upload JPG files and download as PNG (lossless).
+
+  /webp-to-png/:
+    summary: Convert WebP to PNG
+    description: Upload WebP files and download as PNG. Preserves transparency.
+
+  /png-to-webp/:
+    summary: Convert PNG to WebP
+    description: Upload PNG files and download as WebP. Smaller file size, good web format.
+
+  /jpg-to-webp/:
+    summary: Convert JPG to WebP
+    description: Upload JPG files and download as WebP. Good compression for web use.
+
+  /resize-image/:
+    summary: Resize images
+    description: Upload images and set custom width/height. Maintain aspect ratio option.
+
+  /compress-image/:
+    summary: Compress images
+    description: Upload images and adjust quality slider to reduce file size while maintaining quality.
+
+x-claude-model-description: >
+  PicEte is a free online image processing toolkit. All operations run client-side
+  in the browser using Canvas API. No images are ever uploaded to any server.
+
+  To use PicEte programmatically, control a headless browser instance and:
+  1. Navigate to the desired tool page
+  2. Upload the image file via the file input element (#fileInput)
+  3. Set options via the UI controls (radio buttons, sliders, number inputs)
+  4. Click the process button
+  5. Download the result
+
+  All tool pages follow the same interaction pattern.
