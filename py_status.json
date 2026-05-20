@@ -1,1 +1,0 @@
-{"script": "import subprocess, os; os.chdir('/home/wu/projects/image-tools'); r = subprocess.run(['git', 'status'], capture_output=True, text=True); print(r.stdout[:3000])"}
