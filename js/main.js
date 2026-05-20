@@ -1,4 +1,4 @@
-// PicFlow - Main JavaScript File
+// PicEte - Main JavaScript File
 
 // Global state
 const state = {

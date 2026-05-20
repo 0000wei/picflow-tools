@@ -4,4 +4,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://picflow.tools/sitemap.xml
+Sitemap: https://picete.com/sitemap.xml
