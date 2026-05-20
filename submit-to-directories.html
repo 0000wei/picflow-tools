@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PicEte - Submit to Directories</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, system-ui, sans-serif; background: #f5f5f5; padding: 2rem; color: #333; }
+.container { max-width: 800px; margin: 0 auto; }
+h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+p.sub { color: #666; margin-bottom: 2rem; line-height: 1.6; }
+.cat { margin-bottom: 2.5rem; }
+.cat h2 { font-size: 1.125rem; margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 2px solid #6366F1; color: #1f2937; }
+.site { display: flex; align-items: center; padding: 0.75rem 1rem; background: white; border-radius: 0.5rem; margin-bottom: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.15s; }
+.site:hover { transform: translateX(4px); }
+.site .name { flex: 1; font-weight: 600; }
+.site .url { color: #6366F1; text-decoration: none; font-size: 0.875rem; }
+.site .url:hover { text-decoration: underline; }
+.site .badge { font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 0.25rem; margin-right: 0.75rem; }
+.badge-easy { background: #d1fae5; color: #065f46; }
+.badge-medium { background: #fef3c7; color: #92400e; }
+.badge-hard { background: #fee2e2; color: #991b1b; }
+.tip { background: #eef2ff; border-left: 4px solid #6366F1; padding: 1rem 1.25rem; border-radius: 0 0.5rem 0.5rem 0; margin-top: 2rem; line-height: 1.7; }
+.tip strong { color: #4338ca; }
+.checkbox { margin-right: 0.75rem; width: 18px; height: 18px; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>📋 PicEte — 导航站推广清单</h1>
+  <p class="sub">按难度分类，逐个提交 PicEte（https://picete.com）到以下目录站。<br>
+  建议顺序：先 Easy → Medium → Hard。完成后勾选 ☑️ 跟踪进度。</p>
+
+  <div class="cat">
+    <h2>🟢 Easy（直接提交，无需审核）</h2>
+    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Awesome Web Design Tools</span><a class="url" href="https://awesometalks.party/web-design-tools/" target="_blank">Submit →</a></div>
+    <div class="site"><input type="checkbox" class="checkbox"><span class="name">AlternativeTo</span><a class="url" href="https://alternativeto.net/" target="_blank">Submit →</a></div>
+    <div class="site"><input type="checkbox" class="checkbox"><span class="name">SaaSHub</span><a class="url" href="https://www.saashub.com/" target="_blank">Submit →</a></div>
+    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Pagination</span><a class="url" href="https://pagination.com/" target="_blank">Submit →</a></div>
+    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Futurepedia</span><a class="url" href="https://www.futurepedia.io/" target="_blank">Submit →</a></div>
+  </div>
+
+  <div class="cat">
+    <h2>🟡 Medium（需注册账号）</h2>
+    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Product Hunt</span><a class="url" href="https://www.producthunt.com/posts/new" target="_blank">Submit →</a></div>
+    <div class="site"><input type="checkbox" class="checkbox"><span class="name">BetaList</span><a class="url" href="https://betalist.com/submit" target="_blank">Submit →</a></div>
+    <div class="site"><input type="checkbox" class="checkbox"><span class="name">HotHunt</span><a class="url" href="https://hothunt.com/" target="_blank">Submit →</a></div>
+    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Toolify</span><a class="url" href="https://www.toolify.ai/" target="_blank">Submit →</a></div>
+    <div class="site"><input type="checkbox" class="checkbox"><span class="name">TopAI.tools</span><a class="url" href="https://topai.tools/" target="_blank">Submit →</a></div>
+  </div>
+
+  <div class="cat">
+    <h2>🔴 Hard（需外链或审核）</h2>
+    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Hacker News — Show HN</span><a class="url" href="https://news.ycombinator.com/show" target="_blank">Post →</a></div>
+    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Reddit — r/SideProject</span><a class="url" href="https://www.reddit.com/r/SideProject/" target="_blank">Post →</a></div>
+    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Reddit — r/webdev</span><a class="url" href="https://www.reddit.com/r/webdev/" target="_blank">Post →</a></div>
+    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Reddit — r/InternetIsBeautiful</span><a class="url" href="https://www.reddit.com/r/InternetIsBeautiful/" target="_blank">Post →</a></div>
+    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Indie Hackers</span><a class="url" href="https://www.indiehackers.com/" target="_blank">Post →</a></div>
+  </div>
+
+  <div class="tip">
+    <strong>💡 哥飞的批量外链方法：</strong><br>
+    1. 先收集 10 个 AI/工具导航站，把已收录的域名全部抓下来（约 1 万个域名）<br>
+    2. 查这 1 万个域名的外链，找到共同的发外链来源<br>
+    3. 去重后得到一份"可发外链域名大全"<br>
+    4. 批量提交 PicEte 到所有这些来源<br><br>
+    <strong>SEO 外链技巧：</strong> 在新页面获取外链，从有流量的页面获取外链。不要找存在很久的无关页面。
+  </div>
+</div>
+</body>
+</html>
