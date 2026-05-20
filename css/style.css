@@ -567,6 +567,13 @@ body {
     margin-bottom: 2rem;
 }
 
+.footer-logo {
+    height: 28px;
+    width: auto;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
 .footer-section h4 {
     font-size: 1.125rem;
     font-weight: 600;
