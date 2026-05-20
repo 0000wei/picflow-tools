@@ -36,6 +36,14 @@
       "dest": "/$1"
     }
   ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.picete.com" }],
+      "destination": "https://picete.com/$1",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
