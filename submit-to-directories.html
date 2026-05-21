@@ -17,55 +17,209 @@ p.sub { color: #666; margin-bottom: 2rem; line-height: 1.6; }
 .site .name { flex: 1; font-weight: 600; }
 .site .url { color: #6366F1; text-decoration: none; font-size: 0.875rem; }
 .site .url:hover { text-decoration: underline; }
-.site .badge { font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 0.25rem; margin-right: 0.75rem; }
+.site .badge { font-size: 0.7rem; padding: 0.2rem 0.4rem; border-radius: 0.25rem; margin-right: 0.5rem; font-weight: 600; }
+.badge-free { background: #d1fae5; color: #065f46; }
+.badge-paid { background: #fef3c7; color: #92400e; }
+.badge-note { background: #e0e7ff; color: #3730a3; }
 .badge-easy { background: #d1fae5; color: #065f46; }
 .badge-medium { background: #fef3c7; color: #92400e; }
 .badge-hard { background: #fee2e2; color: #991b1b; }
+.site .note { font-size: 0.75rem; color: #888; margin-right: 0.5rem; }
+.checkbox { margin-right: 0.75rem; width: 18px; height: 18px; cursor: pointer; }
 .tip { background: #eef2ff; border-left: 4px solid #6366F1; padding: 1rem 1.25rem; border-radius: 0 0.5rem 0.5rem 0; margin-top: 2rem; line-height: 1.7; }
 .tip strong { color: #4338ca; }
-.checkbox { margin-right: 0.75rem; width: 18px; height: 18px; cursor: pointer; }
+.status-new { background: #fef3c7; color: #92400e; font-size: 0.7rem; padding: 0.2rem 0.4rem; border-radius: 0.25rem; margin-left: 0.5rem; }
+hr { border: none; border-top: 1px solid #ddd; margin: 1.5rem 0; }
+.prep-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 0.5rem; padding: 1.25rem; margin-top: 1.5rem; }
+.prep-box h3 { font-size: 1rem; margin-bottom: 0.75rem; color: #166534; }
+.prep-box code { background: #dcfce7; padding: 0.1rem 0.4rem; border-radius: 0.25rem; font-size: 0.85rem; }
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>📋 PicEte — 导航站推广清单</h1>
-  <p class="sub">按难度分类，逐个提交 PicEte（https://picete.com）到以下目录站。<br>
-  建议顺序：先 Easy → Medium → Hard。完成后勾选 ☑️ 跟踪进度。</p>
+  <h1>📋 PicEte — 导航站推广清单（已修正）</h1>
+  <p class="sub">提交 PicEte（<strong>https://picete.com</strong>）到各目录站。<br>
+  <strong>⚠️ 2026-05-20 调研更新：</strong>原清单部分信息有误，以下为修正后版本。</p>
 
   <div class="cat">
-    <h2>🟢 Easy（直接提交，无需审核）</h2>
-    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Awesome Web Design Tools</span><a class="url" href="https://awesometalks.party/web-design-tools/" target="_blank">Submit →</a></div>
-    <div class="site"><input type="checkbox" class="checkbox"><span class="name">AlternativeTo</span><a class="url" href="https://alternativeto.net/" target="_blank">Submit →</a></div>
-    <div class="site"><input type="checkbox" class="checkbox"><span class="name">SaaSHub</span><a class="url" href="https://www.saashub.com/" target="_blank">Submit →</a></div>
-    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Pagination</span><a class="url" href="https://pagination.com/" target="_blank">Submit →</a></div>
-    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Futurepedia</span><a class="url" href="https://www.futurepedia.io/" target="_blank">Submit →</a></div>
+    <h2>🟢 可直接提交（免费 + 无需复杂注册）</h2>
+
+    <div class="site">
+      <input type="checkbox" class="checkbox"><span class="name">TopAI.tools</span>
+      <span class="badge badge-paid">$47</span>
+      <span class="note">只有付费提交，无免费选项</span>
+      <a class="url" href="https://topai.tools/submit" target="_blank">提交 →</a>
+    </div>
+
+    <div class="site">
+      <input type="checkbox" class="checkbox"><span class="name">Toolify</span>
+      <span class="badge badge-free">免费</span>
+      <span class="note">需注册 + Cloudflare 验证</span>
+      <a class="url" href="https://www.toolify.ai/submit" target="_blank">提交 →</a>
+    </div>
+
+    <div class="site">
+      <input type="checkbox" class="checkbox"><span class="name">AlternativeTo</span>
+      <span class="badge badge-free">免费</span>
+      <span class="note">需注册账号后 "Suggest new application"</span>
+      <a class="url" href="https://alternativeto.net/" target="_blank">提交 →</a>
+    </div>
+
+    <div class="site">
+      <input type="checkbox" class="checkbox"><span class="name">SaaSHub</span>
+      <span class="badge badge-free">免费</span>
+      <span class="note">需注册，需填写竞品</span>
+      <a class="url" href="https://www.saashub.com/services/submit" target="_blank">提交 →</a>
+    </div>
+
+    <div class="site">
+      <input type="checkbox" class="checkbox"><span class="name">BetaList</span>
+      <span class="badge badge-free">免费</span>
+      <span class="note">需注册，审核排队中（数周）</span>
+      <a class="url" href="https://betalist.com/submit" target="_blank">提交 →</a>
+    </div>
   </div>
 
   <div class="cat">
-    <h2>🟡 Medium（需注册账号）</h2>
-    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Product Hunt</span><a class="url" href="https://www.producthunt.com/posts/new" target="_blank">Submit →</a></div>
-    <div class="site"><input type="checkbox" class="checkbox"><span class="name">BetaList</span><a class="url" href="https://betalist.com/submit" target="_blank">Submit →</a></div>
-    <div class="site"><input type="checkbox" class="checkbox"><span class="name">HotHunt</span><a class="url" href="https://hothunt.com/" target="_blank">Submit →</a></div>
-    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Toolify</span><a class="url" href="https://www.toolify.ai/" target="_blank">Submit →</a></div>
-    <div class="site"><input type="checkbox" class="checkbox"><span class="name">TopAI.tools</span><a class="url" href="https://topai.tools/" target="_blank">Submit →</a></div>
+    <h2>🟡 需注册账号 + 人工审核</h2>
+
+    <div class="site">
+      <input type="checkbox" class="checkbox"><span class="name">Product Hunt</span>
+      <span class="badge badge-free">免费</span>
+      <span class="note">最佳 launch 平台，需做好预热</span>
+      <a class="url" href="https://www.producthunt.com/" target="_blank">提交 →</a>
+    </div>
+
+    <div class="site">
+      <input type="checkbox" class="checkbox"><span class="name">HotHunt</span>
+      <span class="badge badge-free">免费</span>
+      <span class="note">Product Hunt 替代品，需注册</span>
+      <a class="url" href="https://hothunt.com/" target="_blank">提交 →</a>
+    </div>
+
+    <div class="site">
+      <input type="checkbox" class="checkbox"><span class="name">Indie Hackers</span>
+      <span class="badge badge-free">免费</span>
+      <span class="note">需注册，可发布产品帖</span>
+      <a class="url" href="https://www.indiehackers.com/" target="_blank">提交 →</a>
+    </div>
   </div>
 
   <div class="cat">
-    <h2>🔴 Hard（需外链或审核）</h2>
-    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Hacker News — Show HN</span><a class="url" href="https://news.ycombinator.com/show" target="_blank">Post →</a></div>
-    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Reddit — r/SideProject</span><a class="url" href="https://www.reddit.com/r/SideProject/" target="_blank">Post →</a></div>
-    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Reddit — r/webdev</span><a class="url" href="https://www.reddit.com/r/webdev/" target="_blank">Post →</a></div>
-    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Reddit — r/InternetIsBeautiful</span><a class="url" href="https://www.reddit.com/r/InternetIsBeautiful/" target="_blank">Post →</a></div>
-    <div class="site"><input type="checkbox" class="checkbox"><span class="name">Indie Hackers</span><a class="url" href="https://www.indiehackers.com/" target="_blank">Post →</a></div>
+    <h2>🔴 需社区声望 / 内容策略</h2>
+
+    <div class="site">
+      <input type="checkbox" class="checkbox"><span class="name">Hacker News — Show HN</span>
+      <span class="badge badge-hard">需 Karma</span>
+      <span class="note">账号需有一定历史/karma，否则可能被 flag</span>
+      <a class="url" href="https://news.ycombinator.com/show" target="_blank">提交 →</a>
+    </div>
+
+    <div class="site">
+      <input type="checkbox" class="checkbox"><span class="name">Reddit — r/SideProject</span>
+      <span class="badge badge-hard">需 Karma</span>
+      <span class="note">可自荐，但需有社区参与记录</span>
+      <a class="url" href="https://www.reddit.com/r/SideProject/" target="_blank">提交 →</a>
+    </div>
+
+    <div class="site">
+      <input type="checkbox" class="checkbox"><span class="name">Reddit — r/webdev</span>
+      <span class="badge badge-hard">需 Karma</span>
+      <span class="note">展示类帖子更易被接受</span>
+      <a class="url" href="https://www.reddit.com/r/webdev/" target="_blank">提交 →</a>
+    </div>
+
+    <div class="site">
+      <input type="checkbox" class="checkbox"><span class="name">Reddit — r/InternetIsBeautiful</span>
+      <span class="badge badge-hard">需 Karma</span>
+      <span class="note">审核极严，需真正"美"的体验</span>
+      <a class="url" href="https://www.reddit.com/r/InternetIsBeautiful/" target="_blank">提交 →</a>
+    </div>
   </div>
+
+  <div class="cat">
+    <h2>❌ 已移除（原清单有误）</h2>
+
+    <div class="site" style="opacity: 0.6;">
+      <span class="badge badge-note">已移除</span>
+      <span class="name">Awesome Web Design Tools</span>
+      <span class="note">awesometalks.party 已失效，无活跃替代</span>
+    </div>
+
+    <div class="site" style="opacity: 0.6;">
+      <span class="badge badge-note">已移除</span>
+      <span class="name">Pagination.com</span>
+      <span class="note">企业文档平台，不是目录站</span>
+    </div>
+
+    <div class="site" style="opacity: 0.6;">
+      <span class="badge badge-note">已移除</span>
+      <span class="name">Futurepedia</span>
+      <span class="note">免费 Basic 已 Sold Out，Verified $497</span>
+    </div>
+  </div>
+
+  <div class="cat">
+    <h2>➕ 建议新增（免费 + 高 ROI）</h2>
+
+    <div class="site">
+      <input type="checkbox" class="checkbox"><span class="name">LaunchBoosts</span>
+      <span class="badge badge-free">免费</span>
+      <span class="note">2026 新兴 AI 工具目录，AI 友好</span>
+      <a class="url" href="https://launchboosts.com/" target="_blank">提交 →</a>
+    </div>
+
+    <div class="site">
+      <input type="checkbox" class="checkbox"><span class="name">AIBase / AI Parabellum</span>
+      <span class="badge badge-free">免费</span>
+      <span class="note">中文 AI 工具目录</span>
+      <a class="url" href="https://www.aibase.com/" target="_blank">提交 →</a>
+    </div>
+
+    <div class="site">
+      <input type="checkbox" class="checkbox"><span class="name">Crazy Egg / Hotjar 类站点提交</span>
+      <span class="badge badge-free">免费</span>
+      <span class="note">工具类 SEO 外链机会</span>
+      <span class="note">自行搜索</span>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="prep-box">
+    <h3>📝 PicEte 提交素材（各站通用）</h3>
+    <p><strong>标题:</strong> PicEte - Free Online Image Processing Tools</p>
+    <p><strong>简短描述 (30字):</strong> Free online image converter, resizer, and compressor — all in-browser, no upload needed.</p>
+    <p><strong>详细描述:</strong> PicEte is a free all-in-one online image processing tool that supports format conversion (PNG, JPG, WebP, GIF, BMP, SVG), resizing, and compression. All processing happens locally in your browser using Canvas API — no files are uploaded to any server, ensuring complete privacy. Batch processing supported.</p>
+    <p><strong>分类标签:</strong> image processing, image converter, image resizer, image compressor, free online tool, privacy-first</p>
+    <p><strong>URL:</strong> https://picete.com</p>
+    <p><strong>Logo:</strong> /home/wu/下载/PicEte.svg</p>
+    <p><strong>竞品:</strong> TinyPNG, Compressor.io, iloveimg, Squoosh, ImageOptim</p>
+  </div>
+
+  <hr>
 
   <div class="tip">
-    <strong>💡 哥飞的批量外链方法：</strong><br>
-    1. 先收集 10 个 AI/工具导航站，把已收录的域名全部抓下来（约 1 万个域名）<br>
-    2. 查这 1 万个域名的外链，找到共同的发外链来源<br>
-    3. 去重后得到一份"可发外链域名大全"<br>
-    4. 批量提交 PicEte 到所有这些来源<br><br>
-    <strong>SEO 外链技巧：</strong> 在新页面获取外链，从有流量的页面获取外链。不要找存在很久的无关页面。
+    <strong>💡 行动建议（按优先级排序）：</strong><br>
+    <strong>Phase 1 — 免费快速提交（几分钟）：</strong><br>
+    1. Toolify.ai — 免费，注册即可提交<br>
+    2. BetaList — 免费，排队审核<br>
+    3. IndieHackers — 免费，发帖展示<br>
+    4. LaunchBoosts — 免费，新目录<br><br>
+
+    <strong>Phase 2 — 需做内容准备：</strong><br>
+    5. Product Hunt — 准备 launch 文案 + 截图 + 预热<br>
+    6. Hacker News Show HN — 需要有 HN 账号 + 写引人注目的展示文<br>
+    7. Reddit 三站 — 在各 sub 发帖，注意遵守各 sub 规则<br><br>
+
+    <strong>Phase 3 — 付费/长期：</strong><br>
+    8. TopAI.tools — $47 一次性，考虑 ROI<br>
+    9. AlternativeTo + SaaSHub — 注册后补充竞品信息<br><br>
+
+    <strong>原清单错误已修正：</strong><br>
+    原 "Awesome Web Design Tools" (awesometalks.party) → 站点已失效，移除<br>
+    原 "Pagination" (pagination.com) → 不是目录站，移除<br>
+    原 "Futurepedia" → 只有 $497 付费选项，移除
   </div>
 </div>
 </body>

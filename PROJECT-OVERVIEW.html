@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PicEte 项目全景 — 已做 & 待做清单</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, system-ui, sans-serif; background: #0f172a; color: #e2e8f0; padding: 2rem; line-height: 1.7; }
+.container { max-width: 1000px; margin: 0 auto; }
+h1 { font-size: 1.75rem; margin-bottom: 0.5rem; color: #f1f5f9; letter-spacing: -0.02em; }
+.subtitle { color: #94a3b8; margin-bottom: 2.5rem; font-size: 0.9375rem; }
+.subtitle strong { color: #60a5fa; }
+.section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.125rem; padding-bottom: 0.5rem; border-bottom: 2px solid #334155; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+.section-title .count { font-size: 0.75rem; background: #1e293b; padding: 0.15rem 0.5rem; border-radius: 1rem; color: #94a3b8; font-weight: normal; }
+.badge { display: inline-block; font-size: 0.65rem; padding: 0.15rem 0.45rem; border-radius: 0.25rem; font-weight: 600; margin-right: 0.4rem; vertical-align: middle; }
+.badge-green { background: #065f46; color: #6ee7b7; }
+.badge-blue { background: #1e3a5f; color: #93c5fd; }
+.badge-amber { background: #5c3800; color: #fcd34d; }
+.badge-red { background: #5c1a1a; color: #fca5a5; }
+.badge-purple { background: #3b1f5c; color: #d8b4fe; }
+.badge-gray { background: #1e293b; color: #cbd5e1; }
+.item { background: #1e293b; border-radius: 0.5rem; padding: 0.75rem 1rem; margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.75rem; border: 1px solid #334155; transition: border-color 0.15s; }
+.item:hover { border-color: #475569; }
+.item-icon { font-size: 1rem; line-height: 1.5; flex-shrink: 0; width: 1.25rem; text-align: center; }
+.item-body { flex: 1; min-width: 0; }
+.item-title { font-weight: 600; font-size: 0.9375rem; color: #f1f5f9; }
+.item-meta { font-size: 0.8rem; color: #94a3b8; margin-top: 0.1rem; }
+.item-meta .tag { display: inline-block; background: #0f172a; padding: 0.05rem 0.35rem; border-radius: 0.25rem; margin-right: 0.3rem; font-family: ui-monospace, monospace; font-size: 0.7rem; color: #64748b; }
+.item-dl { margin-top: 0.3rem; font-size: 0.8rem; }
+.item-dl dt { color: #94a3b8; float: left; clear: left; width: 5rem; }
+.item-dl dd { color: #cbd5e1; margin-left: 5rem; }
+.future-item { }
+.future-item .item-title { color: #cbd5e1; }
+.priority { display: inline-block; font-size: 0.6rem; padding: 0.1rem 0.35rem; border-radius: 2rem; font-weight: 700; margin-left: 0.4rem; vertical-align: middle; }
+.p1 { background: #dc2626; color: white; }
+.p2 { background: #ea580c; color: white; }
+.p3 { background: #d97706; color: white; }
+.p4 { background: #4b5563; color: #d1d5db; }
+.stat-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; margin-bottom: 2rem; }
+.stat-card { background: #1e293b; border-radius: 0.75rem; padding: 1rem 1.25rem; border: 1px solid #334155; }
+.stat-card .num { font-size: 1.75rem; font-weight: 700; color: #60a5fa; line-height: 1.1; }
+.stat-card .label { font-size: 0.75rem; color: #94a3b8; margin-top: 0.2rem; }
+.stat-card.green .num { color: #34d399; }
+.stat-card.amber .num { color: #fbbf24; }
+.stat-card.purple .num { color: #a78bfa; }
+.stat-card.red .num { color: #f87171; }
+.details-btn { font-size: 0.7rem; color: #60a5fa; cursor: pointer; background: none; border: 1px solid #334155; padding: 0.2rem 0.5rem; border-radius: 0.25rem; }
+.details-btn:hover { background: #334155; }
+.collapsible { display: none; }
+.collapsible.open { display: block; }
+hr { border: none; border-top: 1px solid #1e293b; margin: 2rem 0; }
+.roadmap { background: #1e293b; border-radius: 0.75rem; padding: 1.25rem; margin-top: 1rem; border: 1px solid #334155; }
+.roadmap h4 { font-size: 0.9375rem; margin-bottom: 0.75rem; color: #f1f5f9; }
+.roadmap ol { padding-left: 1.25rem; }
+.roadmap li { margin-bottom: 0.5rem; font-size: 0.875rem; color: #cbd5e1; }
+.roadmap li strong { color: #f1f5f9; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>PicEte Project Canvas</h1>
+<p class="subtitle">工具矩阵站群的完整规划 · 更新于 2026-05-21 · 由 <strong>Hermes Agent</strong> 维护</p>
+
+<div class="stat-cards">
+  <div class="stat-card">
+    <div class="num">7</div>
+    <div class="label">已上线工具页面</div>
+  </div>
+  <div class="stat-card green">
+    <div class="num">1</div>
+    <div class="label">已部署站点 (picete.com)</div>
+  </div>
+  <div class="stat-card amber">
+    <div class="num">2</div>
+    <div class="label">待部署站点</div>
+  </div>
+  <div class="stat-card purple">
+    <div class="num">36</div>
+    <div class="label">未来规划项</div>
+  </div>
+  <div class="stat-card red">
+    <div class="num">7</div>
+    <div class="label">P1/P2 待办</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 1: 已完成 -->
+<!-- ============================================================ -->
+<div class="section">
+<h2 class="section-title">✓ 已完成 <span class="count">20</span></h2>
+
+<div class="item">
+  <div class="item-icon">🌐</div>
+  <div class="item-body">
+    <div class="item-title">域名注册 & 上线</div>
+    <div class="item-meta"><span class="tag">域名</span>picete.com + www.picete.com (301 → @)</div>
+    <div class="item-dl">
+      <dt>DNS</dt><dd>A 记录 216.198.79.1 + CNAME cname.vercel-dns.com</dd>
+      <dt>注册商</dt><dd>阿里云</dd>
+    </div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">⚡</div>
+  <div class="item-body">
+    <div class="item-title">Vercel 部署</div>
+    <div class="item-meta"><span class="tag">部署</span>GitHub → Vercel 自动部署 · 静态站点 · 安全头配置</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">🔄</div>
+  <div class="item-body">
+    <div class="item-title">品牌更名: PicFlow → PicEte</div>
+    <div class="item-meta"><span class="tag">品牌</span>所有文件替换 · SVG logo · 配色更新</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">🛠️</div>
+  <div class="item-body">
+    <div class="item-title">工具：PNG → JPG</div>
+    <div class="item-meta">/png-to-jpg/ · Canvas API · 质量滑块 · 批量处理</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">🛠️</div>
+  <div class="item-body">
+    <div class="item-title">工具：JPG → PNG</div>
+    <div class="item-meta">/jpg-to-png/</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">🛠️</div>
+  <div class="item-body">
+    <div class="item-title">工具：WebP → PNG</div>
+    <div class="item-meta">/webp-to-png/</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">🛠️</div>
+  <div class="item-body">
+    <div class="item-title">工具：PNG → WebP</div>
+    <div class="item-meta">/png-to-webp/</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">🛠️</div>
+  <div class="item-body">
+    <div class="item-title">工具：JPG → WebP</div>
+    <div class="item-meta">/jpg-to-webp/</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">🛠️</div>
+  <div class="item-body">
+    <div class="item-title">工具：缩放图片</div>
+    <div class="item-meta">/resize-image/ · 宽高输入 · 锁定比例</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">🛠️</div>
+  <div class="item-body">
+    <div class="item-title">工具：压缩图片</div>
+    <div class="item-meta">/compress-image/ · 质量滑块 10-100</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">📊</div>
+  <div class="item-body">
+    <div class="item-title">Google Analytics 4</div>
+    <div class="item-meta"><span class="tag">统计</span>G-H72N80TEBW · 所有页面已添加</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">🔍</div>
+  <div class="item-body">
+    <div class="item-title">Google Search Console</div>
+    <div class="item-meta"><span class="tag">SEO</span>已验证域名所有权 · sitemap.xml 已提交</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">🔍</div>
+  <div class="item-body">
+    <div class="item-title">Bing Webmaster</div>
+    <div class="item-meta"><span class="tag">SEO</span>meta 验证标签 · Bing 提交指南页面</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">📋</div>
+  <div class="item-body">
+    <div class="item-title">SEO 结构化数据</div>
+    <div class="item-meta"><span class="tag">SEO</span>Schema.org WebApplication · FAQPage · BreadcrumbList · OG tags</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">🤖</div>
+  <div class="item-body">
+    <div class="item-title">AI Agent 友好</div>
+    <div class="item-meta"><span class="tag">AI</span>llms.txt · .well-known/llms.txt · .well-known/ai-plugin.json · mcp.json</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">📄</div>
+  <div class="item-body">
+    <div class="item-title">隐私政策页面</div>
+    <div class="item-meta">/privacy-policy.html</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">📢</div>
+  <div class="item-body">
+    <div class="item-title">外链提交清单 & 发布文案</div>
+    <div class="item-meta">submit-to-directories.html · launch-copy.html · 含 Reddit/PH/HN/IH 文案模板</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">📝</div>
+  <div class="item-body">
+    <div class="item-title">子页面长尾内容优化</div>
+    <div class="item-meta"><span class="tag">SEO</span>每个工具页 500-800 字 SEO 文章 · 自然语调改写</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">⬇️</div>
+  <div class="item-body">
+    <div class="item-title">Favicon</div>
+    <div class="item-meta">SVG + ICO · 32px logo</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">📝</div>
+  <div class="item-body">
+    <div class="item-title">ScreenPrint Filter Spec</div>
+    <div class="item-meta"><span class="tag">待实现</span>半色调网点滤镜 · spec 已写 · 代码未实现</div>
+  </div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 2: 进行中 / 待部署 -->
+<!-- ============================================================ -->
+<div class="section">
+<h2 class="section-title">⟳ 进行中 / 待部署 <span class="count">2</span></h2>
+
+<div class="item">
+  <div class="item-icon">🖼️</div>
+  <div class="item-body">
+    <div class="item-title">MockupShot — 浏览器截图美化工具</div>
+    <div class="item-meta"><span class="tag">待部署</span>代码已完成 · 缺 Firefox/Edge/MacBook 框架页面</div>
+    <div class="item-dl">
+      <dt>子页面</dt><dd>/chrome-browser-frame/ ✓ /safari-browser-frame/ ✓ — 缺 firefox, edge, macbook</dd>
+      <dt>Vercel</dt><dd>配置已写 · 未部署到线上</dd>
+    </div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">🎨</div>
+  <div class="item-body">
+    <div class="item-title">PaletteFlow — 色彩工具站</div>
+    <div class="item-meta"><span class="tag">待部署</span>代码已完成 · 缺 color-scheme-generator / tailwind-color-palette 子页面</div>
+    <div class="item-dl">
+      <dt>子页面</dt><dd>/gradient-generator/ ✓ /color-contrast-checker/ ✓ — 缺 2 个</dd>
+      <dt>Vercel</dt><dd>配置已写 · 未部署到线上</dd>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 3: 未来计划 -->
+<!-- ============================================================ -->
+<div class="section">
+<h2 class="section-title">📋 未来计划 <span class="count">36</span></h2>
+
+<!-- === PHASE 1 === -->
+<div class="roadmap">
+<h4>Phase 1 — 基础夯实 (P1-P2) <span class="badge badge-red">立即做</span></h4>
+<ol>
+  <li><strong>填充 OG Image</strong> — index.html 第 25 行 og:image content="" 空着</li>
+  <li><strong>部署 MockupShot</strong> — 补全缺失的 Firefox/Edge/MacBook 框架页面 → 推 GitHub → Vercel 部署</li>
+  <li><strong>部署 PaletteFlow</strong> — 补全 color-scheme-generator, tailwind-color-palette → 部署</li>
+  <li><strong>实现 ScreenPrint Filter</strong> — 按 spec 做第一个页面，作为 PicEte 的子工具或独立站</li>
+  <li><strong>外链提交</strong> — 按 submit-to-directories.html 逐个提交到 Toolify, BetaList, IndieHackers 等</li>
+  <li><strong>更新 sitemap.xml</strong> — lastmod 日期全写 2024-01-01，应该更新为真实上线时间</li>
+</ol>
+</div>
+
+<!-- === PHASE 2 === -->
+<div class="roadmap" style="margin-top: 1rem;">
+<h4>Phase 2 — 站群 & 增长 (P2-P3) <span class="badge badge-amber">尽快做</span></h4>
+<ol>
+  <li><strong>工具站矩阵互链</strong> — PicEte / MockupShot / PaletteFlow 站间内链网络</li>
+  <li><strong>Product Hunt Launch</strong> — 准备截图 + 预热 + 选定日期发布</li>
+  <li><strong>Hacker News Show HN</strong> — 养好 karma 后发帖</li>
+  <li><strong>Reddit 发帖</strong> — r/SideProject + r/webdev + r/InternetIsBeautiful</li>
+  <li><strong>工具：裁剪图片</strong> — /crop-image/ 新的高流量工具页面</li>
+  <li><strong>工具：旋转图片</strong> — /rotate-image/</li>
+  <li><strong>工具：添加水印</strong> — /add-watermark/</li>
+  <li><strong>工具：GIF 转 MP4</strong> — /gif-to-mp4/</li>
+  <li><strong>工具：图片转 Base64</strong> — /image-to-base64/</li>
+  <li><strong>工具：HEIC 转 JPG</strong> — /heic-to-jpg/ (需引入 libheif-wasm)</li>
+  <li><strong>工具：SVG 转 PNG</strong> — /svg-to-png/</li>
+  <li><strong>工具：去除背景</strong> — /remove-background/ (需引入 wasm 模型)</li>
+  <li><strong>工具：DPI 查看/修改</strong> — /image-dpi/</li>
+</ol>
+</div>
+
+<!-- === PHASE 3 === -->
+<div class="roadmap" style="margin-top: 1rem;">
+<h4>Phase 3 — 产品化 & 变现 (P3) <span class="badge badge-blue">后续做</span></h4>
+<ol>
+  <li><strong>Adsense 申请 & 部署</strong> — 流量够后挂真实广告（当前是占位符）</li>
+  <li><strong>批量下载支持</strong> — 多文件批量下载（zip 打包）</li>
+  <li><strong>博客/知识库</strong> — blog.picete.com 或 /blog/ 路径，图片优化技巧文章获取长尾流量</li>
+  <li><strong>图片压缩前后对比动图</strong> — 首页 hero 区域增加视觉吸引力</li>
+  <li><strong>多语言支持</strong> — 至少增加中文版 /zh/ (哥飞用户群体)</li>
+  <li><strong>NPS/反馈收集</strong> — 简单的小调研组件</li>
+  <li><strong>拖拽排序 + 批量操作 UI 优化</strong> — 提升用户体验</li>
+  <li><strong>注册/付费功能</strong> — 非必要，但可考虑付费去广告</li>
+  <li><strong>API 化</strong> — 提供简单的 REST API（目前纯客户端）</li>
+</ol>
+</div>
+
+<!-- === PHASE 4 === -->
+<div class="roadmap" style="margin-top: 1rem;">
+<h4>Phase 4 — 站群扩展 (P3-P4) <span class="badge badge-gray">长期</span></h4>
+<ol>
+  <li><strong>新站：PDF 工具站</strong> — 合并/分割/压缩/转换 PDF (pdf端工具 SEO 竞争激烈)</li>
+  <li><strong>新站：音频工具站</strong> — 格式转换 / 裁剪 / 变速</li>
+  <li><strong>新站：视频工具站</strong> — 格式转换 / 压缩 / GIF 制作</li>
+  <li><strong>新站：文本工具站</strong> — 字数统计 / 大小写转换 / diff 对比</li>
+  <li><strong>新站：图标搜索站</strong> — SVG 图标搜索 + 打包下载</li>
+  <li><strong>新站：Emoji 工具站</strong> — 表情符号搜索 / 复制 / 组合</li>
+  <li><strong>新站：二维码工具站</strong> — 生成 / 美化 / 扫码统计</li>
+  <li><strong>新站：JSON 工具站</strong> — 格式化 / 验证 / 转换</li>
+  <li><strong>统一 AI agent 接口</strong> — 所有站统一 llms.txt + .well-known 格式</li>
+  <li><strong>监控大屏</strong> — 所有站的 GA 数据聚合到一张看板</li>
+  <li><strong>自动化外链建设</strong> — 定时在各平台发布内容获取反向链接</li>
+</ol>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- 文件目录 -->
+<!-- ============================================================ -->
+<div class="section">
+<h2 class="section-title">📂 项目文件目录</h2>
+
+<div class="item">
+  <div class="item-icon">📁</div>
+  <div class="item-body">
+    <div class="item-title">/home/wu/picete-site/ <span class="badge badge-green">已上线</span></div>
+    <div class="item-meta">PicEte 主站 · GitHub: picflow-tools · Vercel: 已部署</div>
+    <div class="item-dl">
+      <dt>核心文件</dt><dd>index.html · vercel.json · robots.txt · sitemap.xml · llms.txt · mcp.json</dd>
+      <dt>子页</dt><dd>png-to-jpg/, jpg-to-png/, webp-to-png/, png-to-webp/, jpg-to-webp/, resize-image/, compress-image/</dd>
+      <dt>其他</dt><dd>privacy-policy.html · submit-to-directories.html · launch-copy.html · screenprint-filter-spec.md</dd>
+    </div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">📁</div>
+  <div class="item-body">
+    <div class="item-title">/home/wu/projects/mockupshot/ <span class="badge badge-amber">待部署</span></div>
+    <div class="item-meta">MockupShot · 浏览器截图美化 · 代码完整</div>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-icon">📁</div>
+  <div class="item-body">
+    <div class="item-title">/home/wu/projects/paletteflow/ <span class="badge badge-amber">待部署</span></div>
+    <div class="item-meta">PaletteFlow · 色彩工具 · 代码完整</div>
+  </div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- 备注 -->
+<!-- ============================================================ -->
+<div class="section">
+<h2 class="section-title">📌 备注</h2>
+<div class="item">
+  <div class="item-icon">💡</div>
+  <div class="item-body">
+    <div class="item-title">工作模式说明</div>
+    <div class="item-meta">Hermes Agent 负责规划/监督/测试验证 · Claude Code (background 模式) 负责编码执行</div>
+  </div>
+</div>
+<div class="item">
+  <div class="item-icon">📊</div>
+  <div class="item-body">
+    <div class="item-title">Google Analytics 数据</div>
+    <div class="item-meta">G-H72N80TEBW · 建议每天查看 GSC 的收录情况和 GA 流量变化</div>
+  </div>
+</div>
+<div class="item">
+  <div class="item-icon">⚠️</div>
+  <div class="item-body">
+    <div class="item-title">已知问题</div>
+    <div class="item-meta">OG Image 未设置 · sitemap lastmod 日期未更新 · 广告位为占位符（未接入 Adsense）</div>
+  </div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
