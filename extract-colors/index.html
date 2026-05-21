@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette Extractor — Extract Colors from Image Online Free | PicEte</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H72N80TEBW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+    <meta name="description" content="Free online color palette extractor. Upload any image and extract its dominant colors. Get HEX, RGB, HSL values with visual swatches and percentages. No upload, private.">
+    <meta name="keywords" content="color palette extractor, extract colors from image, image color palette generator, color picker from image, dominant color extractor">
+    <link rel="canonical" href="https://picete.com/extract-colors/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/extract-colors/">
+    <meta property="og:title" content="Color Palette Extractor — Extract Colors from Image Online Free">
+    <meta property="og:description" content="Upload any image and extract its dominant colors. Get HEX, RGB, HSL values with visual swatches. No upload, runs in your browser.">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Color Palette Extractor",
+        "description": "Free online color palette extractor from images",
+        "url": "https://picete.com/extract-colors",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://picete.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Color Palette Extractor",
+            "item": "https://picete.com/extract-colors/"
+        }]
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="llms" href="../llms.txt" title="PicEte LLM Context">
+    <link rel="mcp" href="../mcp.json" title="PicEte MCP Tools">
+    <meta name="msvalidate.01" content="F2859D0614981562217BF497BEF4002A" />
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../">
+                    <img src="../images/picete-logo.svg" alt="PicEte" class="logo-img">
+                </a>
+                <p class="tagline">Color Palette Extractor</p>
+            </div>
+            <nav class="nav">
+                <a href="../" class="nav-link">Home</a>
+                <a href="../#tools" class="nav-link">More Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+
+
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../">Home</a> <span>&gt;</span> Color Palette Extractor
+            </div>
+        </div>
+
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">Color Palette Extractor — Pull Colors From Any Image</h1>
+                <p class="hero-subtitle">Upload a photo and get its dominant colors instantly. See HEX, RGB, and HSL values with proportional swatches. All processing happens in your browser — nothing gets uploaded.</p>
+
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p class="upload-text">Drop an image here</p>
+                    <p class="upload-subtext">or click to select — JPG, PNG, WebP all work</p>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                    <button class="btn-primary" id="selectBtn">Select Image</button>
+                </div>
+
+                <div class="processing-area" id="processingArea" style="display: none;">
+                    <div class="preview-section">
+                        <h3>Your Image</h3>
+                        <div class="preview-grid" id="previewGrid" style="justify-content: center;"></div>
+                    </div>
+
+                    <div class="tool-card" style="margin-top: 1.5rem;">
+                        <h4>Palette Settings</h4>
+                        <div style="margin-top: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.875rem;">
+                                Number of Colors: <span id="colorCountValue">8</span>
+                            </label>
+                            <input type="range" id="colorCountSlider" min="3" max="20" value="8" style="width: 100%; cursor: pointer;">
+                            <div style="display: flex; justify-content: space-between; margin-top: 0.25rem; font-size: 0.75rem; color: var(--text-light);">
+                                <span>3</span>
+                                <span>20</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons" style="margin-top: 1.5rem;">
+                        <button class="btn-primary" id="extractBtn">Extract Palette</button>
+                        <button class="btn-secondary" id="resetBtn">Choose Another Image</button>
+                    </div>
+                </div>
+
+                <div class="download-section" id="resultsSection" style="display: none;">
+                    <h3>Extracted Color Palette</h3>
+
+                    <!-- Proportional stacked bar -->
+                    <div id="proportionalBar" style="display: flex; width: 100%; height: 60px; border-radius: 8px; overflow: hidden; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></div>
+
+                    <!-- Detailed color rows -->
+                    <div id="paletteDetails" style="margin-bottom: 2rem;"></div>
+
+                    <div style="margin-top: 2rem; display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; align-items: center;">
+                        <div style="position: relative;">
+                            <button class="btn-primary" id="exportBtn">Export Palette ▼</button>
+                            <div id="exportDropdown" style="display: none; position: absolute; top: 100%; left: 0; right: 0; margin-top: 0.5rem; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 0.375rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 10;">
+                                <button class="export-option" data-format="css">Copy as CSS Variables</button>
+                                <button class="export-option" data-format="tailwind">Copy as Tailwind Colors</button>
+                                <button class="export-option" data-format="png">Export as PNG Image</button>
+                            </div>
+                        </div>
+                        <button class="btn-link" id="startOverBtn">Extract Another Image</button>
+                    </div>
+
+                    <!-- PaletteFlow integration banner -->
+                    <div id="paletteflowBanner" style="margin-top: 2.5rem; padding: 1.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 0.5rem; text-align: center; color: white;">
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🎨</div>
+                        <h4 style="color: white; margin-bottom: 0.5rem; font-size: 1.125rem;">Want to refine this palette?</h4>
+                        <p style="color: rgba(255,255,255,0.9); margin-bottom: 1rem; font-size: 0.9375rem;">PaletteFlow lets you tweak colors, generate harmonies, and export to Figma/Tailwind.</p>
+                        <a href="https://paletteflow.app" target="_blank" rel="noopener" style="display: inline-block; padding: 0.625rem 1.5rem; background: white; color: #667eea; text-decoration: none; border-radius: 0.375rem; font-weight: 600; font-size: 0.9375rem; transition: transform 0.2s;">Try PaletteFlow →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container" style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+            <a href="../" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; font-size: 1.125rem; text-decoration: none;">← Back to PicEte Home</a>
+        </div>
+
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">Why Extract a Color Palette From an Image</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🎨</div>
+                        <h3>Design Inspiration</h3>
+                        <p>Found a photo with colors that work together? Pull the palette and use it in your next project. Photographers, illustrators, and brand designers often stumble on color combinations in the wild that are hard to replicate from scratch.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💻</div>
+                        <h3>Web Development</h3>
+                        <p>Match your website's color scheme to a client's brand photo or product shot. Extract the exact colors from a reference image and export them as CSS variables or Tailwind config entries.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📱</div>
+                        <h3>UI/UX Work</h3>
+                        <p>Create cohesive interfaces by pulling palettes from mood boards or screenshot references. When the buttons, backgrounds, and accents all trace back to the same source image, the design feels intentional.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <h3>100% Private</h3>
+                        <p>Your image never leaves your browser. The extractor runs entirely on Canvas — everything stays local. No uploads, no servers, no privacy concerns.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" style="padding-top: 0;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">How the Palette Extraction Works</h2>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Upload Your Image</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Drag and drop any photo or click to select. JPG, PNG, and WebP all work. The image loads directly into your browser's memory — nothing gets sent to a server, so it stays private and processes instantly.</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Choose Your Color Count</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Use the slider to pick how many colors you want. The default is 8, which works well for most photos. Go lower (3-5) for bold, minimal palettes. Go higher (up to 20) if you need subtle variations and secondary tones.</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Get Your Palette</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Click extract and the algorithm analyzes every pixel. It groups similar colors together and finds the dominant shades. The results show each color's proportion, plus HEX and RGB values you can copy directly or export for use in design tools.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Tips for Getting Better Palettes</h2>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Start With Images That Have Strong Color Identity</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Photos with clear, distinct color themes give cleaner palettes. A sunset with oranges and purples, a forest scene with greens and browns, or a product shot with a limited color palette all work better than a cluttered street scene with random colors scattered everywhere.</p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Crop to the Area That Matters</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">If your image has a background that's throwing off the palette, crop it first. You don't need the whole frame — just the part with the colors you actually want to use. A tight crop of a flower petal gives a very different palette than the full garden photo.</p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Adjust the Color Count Based on Your Use Case</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">For brand colors and primary UI elements, stick to 3-5 colors. Too many options make it hard to maintain consistency. For illustration work or data visualization, 8-12 colors give you room for accents and variations without overwhelming the palette.</p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Check the Proportions</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">The percentage next to each color tells you how dominant it is in the image. A color that appears 40% of the time is probably your primary. Something at 5% might be an accent or highlight — use it sparingly or it stops being an accent.</p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Grayscale and Low-Contrast Images Need Care</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Black and white photos or images with a muted color range can give you very similar colors that are hard to distinguish. If your palette looks like five shades of gray, try a different image with more saturation and contrast.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" id="faq">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>Does this tool upload my image anywhere?</h3>
+                        <p>No. Everything happens in your browser using Canvas. Your image is processed locally and never leaves your computer. That's why it works offline after the page loads.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What image formats work?</h3>
+                        <p>JPG, PNG, and WebP are all supported. If your image is in another format like GIF or BMP, convert it to one of these first using PicEte's format converter tools.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How many colors should I extract?</h3>
+                        <p>Start with 8 — that's the default for a reason. It gives you enough variety to work with without overwhelming your palette. Drop to 3-5 for minimal designs, or go up to 12-15 if you need nuanced shades for detailed work.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Why do some colors look very similar?</h3>
+                        <p>Images often have subtle gradients and shadows that register as distinct colors but look close to the eye. If you see colors that are too similar, reduce the color count or try a different image with more contrast.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I use these colors in commercial projects?</h3>
+                        <p>Yes. The colors themselves aren't copyrightable — they're just RGB values extracted from an image. Whether you can use the underlying image depends on where you got it, but the palette output is yours to use however you want.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What's the difference between HEX, RGB, and HSL?</h3>
+                        <p>HEX is a 6-digit code like #FF5733, common in web design. RGB expresses colors as red, green, and blue values (0-255). HSL uses hue, saturation, and lightness — useful when you want to adjust brightness or saturation programmatically.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>More Tools</h4>
+                    <ul>
+                        <li><a href="../png-to-jpg/">PNG to JPG</a></li>
+                        <li><a href="../jpg-to-png/">JPG to PNG</a></li>
+                        <li><a href="../webp-to-png/">WebP to PNG</a></li>
+                        <li><a href="../png-to-webp/">PNG to WebP</a></li>
+                        <li><a href="../jpg-to-webp/">JPG to WebP</a></li>
+                        <li><a href="../resize-image/">Image Resizer</a></li>
+                        <li><a href="../image-to-base64/">Image to Base64</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="../">Back to Home</a></li>
+                        <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Color Palette Extractor — Median Cut Quantization
+        const state = { image: null, palette: [] };
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const selectBtn = document.getElementById('selectBtn');
+        const processingArea = document.getElementById('processingArea');
+        const previewGrid = document.getElementById('previewGrid');
+        const resultsSection = document.getElementById('resultsSection');
+        const colorCountSlider = document.getElementById('colorCountSlider');
+        const colorCountValue = document.getElementById('colorCountValue');
+        const extractBtn = document.getElementById('extractBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const startOverBtn = document.getElementById('startOverBtn');
+        const exportBtn = document.getElementById('exportBtn');
+        const exportDropdown = document.getElementById('exportDropdown');
+        const proportionalBar = document.getElementById('proportionalBar');
+        const paletteDetails = document.getElementById('paletteDetails');
+
+        // Events
+        selectBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', handleFile);
+        uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+        uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+        uploadArea.addEventListener('drop', e => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+            if (files.length) loadImage(files[0]);
+        });
+        uploadArea.addEventListener('click', (e) => {
+            if (e.target === uploadArea || e.target.closest('.upload-icon') || e.target.closest('.upload-text')) {
+                fileInput.click();
+            }
+        });
+
+        colorCountSlider.addEventListener('input', () => {
+            colorCountValue.textContent = colorCountSlider.value;
+        });
+
+        extractBtn.addEventListener('click', extractPalette);
+        resetBtn.addEventListener('click', resetAll);
+        startOverBtn.addEventListener('click', resetAll);
+
+        exportBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            exportDropdown.style.display = exportDropdown.style.display === 'none' ? 'block' : 'none';
+        });
+
+        document.addEventListener('click', () => {
+            exportDropdown.style.display = 'none';
+        });
+
+        exportDropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        document.querySelectorAll('.export-option').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const format = e.target.dataset.format;
+                handleExport(format);
+                exportDropdown.style.display = 'none';
+            });
+        });
+
+        function handleFile(e) {
+            const files = Array.from(e.target.files).filter(f => f.type.startsWith('image/'));
+            if (files.length) loadImage(files[0]);
+        }
+
+        function loadImage(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    state.image = { img, file, src: e.target.result };
+                    showProcessing(img);
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function showProcessing(img) {
+            uploadArea.style.display = 'none';
+            processingArea.style.display = 'block';
+            resultsSection.style.display = 'none';
+            previewGrid.innerHTML = `<div class="preview-item" style="max-width: 300px;">
+                <img src="${img.src}" alt="Uploaded image" style="max-height: 300px; object-fit: contain; border-radius: 8px;">
+                <div class="file-info" style="margin-top: 0.75rem;">
+                    <strong>${state.image.file.name}</strong><br>
+                    ${img.width} × ${img.height}px
+                </div>
+            </div>`;
+        }
+
+        function extractPalette() {
+            const img = state.image.img;
+            const colorCount = parseInt(colorCountSlider.value);
+
+            // Sample pixels from canvas
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            // Resize for faster processing (max 200px on longest side)
+            const maxDim = 200;
+            const scale = Math.min(maxDim / img.width, maxDim / img.height, 1);
+            canvas.width = Math.floor(img.width * scale);
+            canvas.height = Math.floor(img.height * scale);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const pixels = [];
+
+            // Sample pixels, skip transparent ones
+            for (let i = 0; i < imageData.data.length; i += 4) {
+                const r = imageData.data[i];
+                const g = imageData.data[i + 1];
+                const b = imageData.data[i + 2];
+                const a = imageData.data[i + 3];
+
+                if (a > 128) { // Skip mostly transparent pixels
+                    pixels.push([r, g, b]);
+                }
+            }
+
+            if (pixels.length === 0) {
+                alert('Unable to extract colors from this image. Try a different image.');
+                return;
+            }
+
+            // Median cut quantization
+            const palette = medianCut(pixels, colorCount);
+
+            // Sort by proportion (most dominant first)
+            palette.sort((a, b) => b.proportion - a.proportion);
+
+            state.palette = palette;
+            showResults();
+        }
+
+        function medianCut(pixels, colorCount) {
+            // Initial bucket contains all pixels
+            let buckets = [{ pixels }];
+
+            // Keep splitting until we have enough buckets
+            while (buckets.length < colorCount) {
+                // Find the bucket with the largest color range
+                let maxRange = -1;
+                let splitIndex = -1;
+                let splitAxis = -1;
+
+                for (let i = 0; i < buckets.length; i++) {
+                    const bucket = buckets[i];
+                    if (bucket.pixels.length < 2) continue;
+
+                    const ranges = getColorRange(bucket.pixels);
+                    for (let axis = 0; axis < 3; axis++) {
+                        if (ranges[axis] > maxRange) {
+                            maxRange = ranges[axis];
+                            splitIndex = i;
+                            splitAxis = axis;
+                        }
+                    }
+                }
+
+                if (splitIndex === -1) break; // Can't split anymore
+
+                // Split the bucket
+                const bucket = buckets[splitIndex];
+                const sorted = [...bucket.pixels].sort((a, b) => a[splitAxis] - b[splitAxis]);
+                const median = Math.floor(sorted.length / 2);
+
+                buckets.splice(splitIndex, 1,
+                    { pixels: sorted.slice(0, median) },
+                    { pixels: sorted.slice(median) }
+                );
+            }
+
+            // Average colors in each bucket
+            return buckets.map(bucket => {
+                const sum = [0, 0, 0];
+                for (const pixel of bucket.pixels) {
+                    sum[0] += pixel[0];
+                    sum[1] += pixel[1];
+                    sum[2] += pixel[2];
+                }
+
+                const count = bucket.pixels.length;
+                const color = {
+                    r: Math.round(sum[0] / count),
+                    g: Math.round(sum[1] / count),
+                    b: Math.round(sum[2] / count)
+                };
+
+                return {
+                    ...color,
+                    hex: rgbToHex(color.r, color.g, color.b),
+                    rgb: `rgb(${color.r}, ${color.g}, ${color.b})`,
+                    hsl: rgbToHsl(color.r, color.g, color.b),
+                    proportion: count / pixels.length
+                };
+            });
+        }
+
+        function getColorRange(pixels) {
+            const min = [255, 255, 255];
+            const max = [0, 0, 0];
+
+            for (const pixel of pixels) {
+                for (let i = 0; i < 3; i++) {
+                    min[i] = Math.min(min[i], pixel[i]);
+                    max[i] = Math.max(max[i], pixel[i]);
+                }
+            }
+
+            return [max[0] - min[0], max[1] - min[1], max[2] - min[2]];
+        }
+
+        function rgbToHex(r, g, b) {
+            return '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('').toUpperCase();
+        }
+
+        function rgbToHsl(r, g, b) {
+            r /= 255; g /= 255; b /= 255;
+            const max = Math.max(r, g, b), min = Math.min(r, g, b);
+            let h, s, l = (max + min) / 2;
+
+            if (max === min) {
+                h = s = 0;
+            } else {
+                const d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                switch (max) {
+                    case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+                    case g: h = ((b - r) / d + 2) / 6; break;
+                    case b: h = ((r - g) / d + 4) / 6; break;
+                }
+            }
+
+            return `hsl(${Math.round(h * 360)}, ${Math.round(s * 100)}%, ${Math.round(l * 100)}%)`;
+        }
+
+        function showResults() {
+            processingArea.style.display = 'none';
+            resultsSection.style.display = 'block';
+
+            const palette = state.palette;
+
+            // Proportional bar
+            proportionalBar.innerHTML = palette.map(color =>
+                `<div style="flex: ${color.proportion}; background-color: ${color.hex}; transition: transform 0.2s;" title="${color.hex}"></div>`
+            ).join('');
+
+            // Detailed rows
+            paletteDetails.innerHTML = palette.map((color, i) => `
+                <div class="palette-row" style="display: flex; align-items: center; padding: 0.75rem; border-bottom: 1px solid var(--border-color); transition: background 0.2s; cursor: pointer;" onclick="copyColor(${i})">
+                    <div style="width: 50px; height: 50px; background-color: ${color.hex}; border-radius: 8px; flex-shrink: 0; margin-right: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+                    <div style="flex: 1;">
+                        <div style="font-family: monospace; font-size: 1.125rem; font-weight: 600; color: ${color.hex};">${color.hex}</div>
+                        <div style="font-size: 0.875rem; color: var(--text-light); margin-top: 0.25rem;">${color.rgb} · ${color.hsl}</div>
+                    </div>
+                    <div style="font-size: 1.125rem; font-weight: 600; color: var(--text-color);">${(color.proportion * 100).toFixed(1)}%</div>
+                    <div style="margin-left: 1rem; color: var(--text-light); font-size: 0.875rem;">Click to copy</div>
+                </div>
+            `).join('');
+        }
+
+        window.copyColor = function(index) {
+            const color = state.palette[index].hex;
+            navigator.clipboard.writeText(color).then(() => {
+                // Show brief feedback
+                const rows = document.querySelectorAll('.palette-row');
+                const originalBg = rows[index].style.background;
+                rows[index].style.background = 'var(--bg-secondary)';
+                setTimeout(() => {
+                    rows[index].style.background = originalBg;
+                }, 200);
+            });
+        };
+
+        function handleExport(format) {
+            const palette = state.palette;
+
+            if (format === 'css') {
+                const css = `:root {\n${palette.map((color, i) => `  --color-${i + 1}: ${color.hex}; /* ${(color.proportion * 100).toFixed(1)}% */`).join('\n')}\n}`;
+                navigator.clipboard.writeText(css).then(() => {
+                    alert('CSS variables copied to clipboard!');
+                });
+            } else if (format === 'tailwind') {
+                const tailwind = `module.exports = {\n  theme: {\n    extend: {\n      colors: {\n${palette.map((color, i) => `        'brand-${i + 1}': '${color.hex}', // ${(color.proportion * 100).toFixed(1)}%`).join('\n')}\n      }\n    }\n  }\n}`;
+                navigator.clipboard.writeText(tailwind).then(() => {
+                    alert('Tailwind config copied to clipboard!');
+                });
+            } else if (format === 'png') {
+                // Create a PNG palette image
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                const swatchWidth = 100;
+                const swatchHeight = 80;
+                canvas.width = swatchWidth * palette.length;
+                canvas.height = swatchHeight;
+
+                palette.forEach((color, i) => {
+                    ctx.fillStyle = color.hex;
+                    ctx.fillRect(i * swatchWidth, 0, swatchWidth, swatchHeight);
+
+                    // Add hex text
+                    ctx.fillStyle = getContrastColor(color.r, color.g, color.b);
+                    ctx.font = 'bold 14px monospace';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(color.hex, i * swatchWidth + swatchWidth / 2, swatchHeight / 2 + 5);
+                });
+
+                canvas.toBlob(blob => {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'palette.png';
+                    a.click();
+                    URL.revokeObjectURL(url);
+                });
+            }
+        }
+
+        function getContrastColor(r, g, b) {
+            // Calculate luminance
+            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+            return luminance > 0.5 ? '#000000' : '#FFFFFF';
+        }
+
+        function resetAll() {
+            state.image = null;
+            state.palette = [];
+            fileInput.value = '';
+            resultsSection.style.display = 'none';
+            processingArea.style.display = 'none';
+            uploadArea.style.display = 'block';
+            colorCountSlider.value = 8;
+            colorCountValue.textContent = '8';
+        }
+    </script>
+</body>
+</html>
