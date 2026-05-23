@@ -1,0 +1,45 @@
+PicEte 长尾词扩展 — 按哥飞"保小图大"策略
+
+当前页面: 首页 + 10 个子页
+新增: 以下三级长尾词页面，每个聚焦一个具体搜索需求
+
+## 新增页面
+
+### Resize 系列 (长尾方向: 具体尺寸)
+1. /resize-image-to-1080x1080/ - "resize image to 1080x1080" (Instagram尺寸)
+2. /resize-image-to-1920x1080/ - "resize image to 1920x1080" (壁纸/视频封面)
+3. /resize-image-to-800x800/ - "resize image to 800x800" (电商产品图)
+4. /resize-image-to-1200x630/ - "resize image to 1200x630" (OG Image尺寸)
+
+### Compress 系列 (长尾方向: 具体大小)
+5. /compress-image-to-100kb/ - "compress image to 100kb" 
+6. /compress-image-to-50kb/ - "compress image to 50kb"
+7. /compress-jpg-to-200kb/ - "compress jpg to 200kb"
+
+### Format 系列 (长尾方向: 具体使用场景)
+8. /png-to-jpg-for-email/ - "convert png to jpg for email"
+9. /webp-to-png-for-website/ - "convert webp to png for website"
+10. /png-to-webp-for-wordpress/ - "convert png to webp for wordpress"
+
+### Image Splitter 系列
+11. /split-image-into-3x3/ - "split image into 3x3 grid"
+12. /split-image-into-4-parts/ - "split image into 4 equal parts"
+
+## 模板要求
+
+每个页面是独立 HTML 文件，放在 /home/wu/picete-site/ 的子目录中。
+
+结构参考: /home/wu/picete-site/png-to-jpg/index.html
+
+要点:
+- Title/H1/Description 聚焦该长尾关键词
+- 内容 200-300 字自然语言，解释这个具体需求怎么用 PicEte 解决
+- 页面底部有一个大按钮 "Use PicEte [Tool] Free →" 链接到 PicEte 的核心工具页
+- 内链到相关页面（resize 系列互相链接、compress 系列互相链接）
+- Header/footer 跟现有 PicEte 页面一致
+- 品牌 PicEte + 域名 picete.com
+- 面包屑: Home › [Tool Category] › [Specific Use]
+- Schema ld+json (WebApplication)
+- OG 标签
+
+直接创建文件。不要用交互模式。
