@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>استخراج لوحة الألوان - أداة استخراج الألوان المجانية عبر الإنترنت | PicEte</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H72N80TEBW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+    <meta name="description" content="أداة استخراج الألوان المجانية عبر الإنترنت. استخراج الألوان الرئيسية من أي صورة. احصل على رموز الألوان HEX و RGB.">
+    <link rel="canonical" href="https://picete.com/ar/extract-colors/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/ar/extract-colors/">
+    <meta property="og:title" content="استخراج لوحة الألوان - أداة استخراج الألوان المجانية عبر الإنترنت">
+    <meta property="og:description" content="أداة استخراج الألوان المجانية عبر الإنترنت، استخراج الألوان الرئيسية من أي صورة.">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/ar/">
+                    <img src="/images/picete-logo.svg" alt="PicEte" class="logo-img">
+                </a>
+                <p class="tagline">استخراج لوحة الألوان</p>
+            </div>
+            <nav class="nav">
+                <a href="/ar/" class="nav-link">الرئيسية</a>
+                <a href="/ar/#tools" class="nav-link">المزيد من الأدوات</a>
+            
+    <!-- Language Switcher -->
+    <style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+        .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+    </style>
+    <div class="lang-switcher">
+        <select onchange="switchLanguage(this.value)" aria-label="Switch language">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+            <option value="ja">日本語</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="pt">Português</option>
+            <option value="ar" selected>العربية</option>
+        </select>
+    </div>
+    <script>
+    function switchLanguage(code) {
+        var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+        
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+        
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+        
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/ar/">الرئيسية</a><span class="separator">›</span><span class="current">استخراج لوحة الألوان</span></div>
+                <h2 class="hero-title">استخراج لوحة الألوان</h2>
+                <p class="hero-subtitle">استخراج الألوان الرئيسية من أي صورة. احصل على رموز الألوان HEX و RGB.</p>
+
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p class="upload-text">اسحب الصورة هنا</p>
+                    <p class="upload-subtext">أو انقر لاختيار ملف</p>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                    <button class="btn-primary" id="selectBtn">اختر صورة</button>
+                </div>
+
+                <div class="processing-area" id="processingArea" style="display: none;">
+                    <div class="preview-section">
+                        <h3>الصورة المحددة</h3>
+                        <div class="preview-grid" id="previewGrid"></div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn-primary" id="extractBtn">استخراج الألوان</button>
+                        <button class="btn-secondary" id="resetBtn">اختر مرة أخرى</button>
+                    </div>
+                </div>
+
+                <div class="download-section" id="downloadSection" style="display: none;">
+                    <h3>الألوان المستخرجة</h3>
+                    <div class="download-grid" id="downloadGrid"></div>
+                    <button class="btn-link" id="startOverBtn">استخراج من صورة أخرى</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="container" style="text-align: center; margin: 2rem 0;">
+            <a href="/ar/" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; font-size: 1.125rem; text-decoration: none;">→ العودة إلى الرئيسية PicEte</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>المزيد من الأدوات</h4>
+                    <ul>
+                        <li><a href="/ar/png-to-jpg/">PNG إلى JPG</a></li>
+                        <li><a href="/ar/jpg-to-png/">JPG إلى PNG</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const state = { uploadedFile: null, extractedColors: [] };
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const selectBtn = document.getElementById('selectBtn');
+        const processingArea = document.getElementById('processingArea');
+        const previewGrid = document.getElementById('previewGrid');
+        const downloadSection = document.getElementById('downloadSection');
+        const downloadGrid = document.getElementById('downloadGrid');
+        const extractBtn = document.getElementById('extractBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const startOverBtn = document.getElementById('startOverBtn');
+
+        selectBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
+        uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+        uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('image/')) {
+                handleFile(file);
+            }
+        });
+        extractBtn.addEventListener('click', extractColors);
+        resetBtn.addEventListener('click', reset);
+        startOverBtn.addEventListener('click', reset);
+
+        function handleFile(file) {
+            if (!file) return alert('الرجاء اختيار صورة');
+            state.uploadedFile = file;
+            loadImage(file).then(({ img, src }) => {
+                displayPreview({ img, file, src });
+                uploadArea.style.display = 'none';
+                processingArea.style.display = 'block';
+            }).catch(() => alert('فشل في تحميل الصورة'));
+        }
+
+        function loadImage(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => resolve({ img, file, src: e.target.result });
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function displayPreview({ img, file, src }) {
+            previewGrid.innerHTML = `
+                <div class="preview-item">
+                    <img src="${src}" alt="${file.name}">
+                    <div class="file-info">
+                        <strong>${file.name}</strong><br>${img.width} × ${img.height}px
+                    </div>
+                </div>
+            `;
+        }
+
+        function extractColors() {
+            if (!state.uploadedFile) return;
+
+            loadImage(state.uploadedFile).then(({ img }) => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+
+                const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                const pixels = imageData.data;
+                const colorMap = {};
+
+                for (let i = 0; i < pixels.length; i += 4) {
+                    const r = pixels[i];
+                    const g = pixels[i + 1];
+                    const b = pixels[i + 2];
+                    const a = pixels[i + 3];
+
+                    if (a < 128) continue;
+
+                    const hex = rgbToHex(r, g, b);
+                    colorMap[hex] = (colorMap[hex] || 0) + 1;
+                }
+
+                const sortedColors = Object.entries(colorMap)
+                    .sort((a, b) => b[1] - a[1])
+                    .slice(0, 10)
+                    .map(([hex]) => hex);
+
+                state.extractedColors = sortedColors;
+                displayColorPalette(sortedColors);
+                processingArea.style.display = 'none';
+                downloadSection.style.display = 'block';
+            });
+        }
+
+        function rgbToHex(r, g, b) {
+            return '#' + [r, g, b].map(x => {
+                const hex = x.toString(16);
+                return hex.length === 1 ? '0' + hex : hex;
+            }).join('');
+        }
+
+        function hexToRgb(hex) {
+            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? {
+                r: parseInt(result[1], 16),
+                g: parseInt(result[2], 16),
+                b: parseInt(result[3], 16)
+            } : null;
+        }
+
+        function displayColorPalette(colors) {
+            downloadGrid.innerHTML = colors.map((color, i) => {
+                const rgb = hexToRgb(color);
+                return `
+                    <div class="download-item" style="text-align: center;">
+                        <div style="width: 100%; height: 150px; background-color: ${color}; border-radius: 8px; margin-bottom: 1rem;"></div>
+                        <h4 style="margin-bottom: 0.5rem;">اللون ${i + 1}</h4>
+                        <p style="margin-bottom: 0.25rem;"><strong>HEX:</strong> ${color}</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>RGB:</strong> rgb(${rgb.r}, ${rgb.g}, ${rgb.b})</p>
+                        <button class="btn-primary" onclick="copyColor('${color}')" style="margin: 0.25rem;">نسخ HEX</button>
+                        <button class="btn-primary" onclick="copyColor('rgb(${rgb.r}, ${rgb.g}, ${rgb.b})')" style="margin: 0.25rem;">نسخ RGB</button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        window.copyColor = function(color) {
+            navigator.clipboard.writeText(color).then(() => {
+                alert('تم نسخ اللون إلى الحافظة: ' + color);
+            }).catch(() => {
+                alert('فشل في نسخ اللون');
+            });
+        };
+
+        function reset() {
+            state.uploadedFile = null;
+            state.extractedColors = [];
+            fileInput.value = '';
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'none';
+            uploadArea.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

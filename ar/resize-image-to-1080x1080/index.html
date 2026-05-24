@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تغيير حجم الصورة إلى 1080x1080 - محول Instagram | PicEte</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H72N80TEBW"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-H72N80TEBW');</script>
+    <meta name="description" content="تغيير حجم الصور إلى 1080x1080 بكسل لمنشورات Instagram. أداة مجانية لتحويل أي صورة إلى تنسيق مربع مثالي.">
+    <link rel="canonical" href="https://picete.com/ar/resize-image-to-1080x1080/">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/ar/"><img src="/images/picete-logo.svg" alt="PicEte" class="logo-img"></a>
+                <p class="tagline">تغيير حجم الصورة إلى 1080x1080</p>
+            </div>
+            <nav class="nav">
+                <a href="/ar/" class="nav-link">الرئيسية</a>
+                <a href="/ar/#tools" class="nav-link">المزيد من الأدوات</a>
+            
+    <!-- Language Switcher -->
+    <style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+        .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+    </style>
+    <div class="lang-switcher">
+        <select onchange="switchLanguage(this.value)" aria-label="Switch language">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+            <option value="ja">日本語</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="pt">Português</option>
+            <option value="ar" selected>العربية</option>
+        </select>
+    </div>
+    <script>
+    function switchLanguage(code) {
+        var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+        
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+        
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+        
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/ar/">الرئيسية</a><span class="separator">›</span><span class="current">1080x1080</span></div>
+                <h2 class="hero-title">تغيير حجم الصورة إلى 1080x1080 بكسل</h2>
+                <p class="hero-subtitle">تغيير حجم الصور إلى 1080x1080 بكسل لمنشورات Instagram المثالية.</p>
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    <p class="upload-text">اسحب الصور هنا</p>
+                    <p class="upload-subtext">أو انقر لاختيار الملفات</p>
+                    <input type="file" id="fileInput" accept="image/*" multiple hidden>
+                    <button class="btn-primary" id="selectBtn">اختر الصور</button>
+                </div>
+                <div class="processing-area" id="processingArea" style="display:none">
+                    <div class="preview-section"><h3>الصور المحددة</h3><div class="preview-grid" id="previewGrid"></div></div>
+                    <div class="action-buttons"><button class="btn-primary" id="resizeBtn">تغيير الحجم إلى 1080x1080</button><button class="btn-secondary" id="resetBtn">اختر مرة أخرى</button></div>
+                </div>
+                <div class="download-section" id="downloadSection" style="display:none">
+                    <h3>تم تغيير الحجم بنجاح!</h3><div class="download-grid" id="downloadGrid"></div>
+                    <button class="btn-primary" id="downloadAllBtn">تنزيل الكل</button><button class="btn-link" id="startOverBtn">تغيير حجم المزيد</button>
+                </div>
+            </div>
+        </section>
+        <div class="container" style="text-align:center;margin:2rem 0"><a href="/ar/" class="btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.875rem 2rem;font-size:1.125rem;text-decoration:none">→ العودة إلى الرئيسية</a></div>
+    </main>
+    <script>
+        const state={uploadedFiles:[],resizedImages:[]},uploadArea=document.getElementById('uploadArea'),fileInput=document.getElementById('fileInput'),selectBtn=document.getElementById('selectBtn'),processingArea=document.getElementById('processingArea'),previewGrid=document.getElementById('previewGrid'),downloadSection=document.getElementById('downloadSection'),downloadGrid=document.getElementById('downloadGrid'),resizeBtn=document.getElementById('resizeBtn'),resetBtn=document.getElementById('resetBtn'),downloadAllBtn=document.getElementById('downloadAllBtn'),startOverBtn=document.getElementById('startOverBtn');
+        selectBtn.addEventListener('click',()=>fileInput.click());
+        fileInput.addEventListener('change',e=>handleFiles(Array.from(e.target.files)));
+        uploadArea.addEventListener('dragover',e=>{e.preventDefault();uploadArea.classList.add('dragover')});
+        uploadArea.addEventListener('dragleave',()=>uploadArea.classList.remove('dragover'));
+        uploadArea.addEventListener('drop',e=>{e.preventDefault();uploadArea.classList.remove('dragover');handleFiles(Array.from(e.dataTransfer.files).filter(f=>f.type.startsWith('image/')))});
+        resizeBtn.addEventListener('click',resizeImages);
+        resetBtn.addEventListener('click',reset);
+        downloadAllBtn.addEventListener('click',downloadAll);
+        startOverBtn.addEventListener('click',reset);
+        function handleFiles(files){if(0===files.length)return alert('الرجاء اختيار الصور');state.uploadedFiles=files;Promise.all(files.map(f=>loadImage(f))).then(images=>{displayPreviews(images);uploadArea.style.display='none';processingArea.style.display='block'}).catch(()=>alert('فشل في تحميل الصور'))}
+        function loadImage(file){return new Promise((resolve,reject)=>{const reader=new FileReader;reader.onload=e=>{const img=new Image;img.onload=()=>resolve({img,file,src:e.target.result});img.src=e.target.result};reader.readAsDataURL(file)})}
+        function displayPreviews(images){previewGrid.innerHTML=images.map(({img,file,src})=>`<div class="preview-item"><img src="${src}" alt="${file.name}"><div class="file-info"><strong>${file.name}</strong><br>${img.width} × ${img.height}px</div></div>`).join('')}
+        function resizeImages(){const targetWidth=1080,targetHeight=1080;state.resizedImages=[];let processed=0;state.uploadedFiles.forEach((file,i)=>{loadImage(file).then(({img})=>{const canvas=document.createElement('canvas');canvas.width=targetWidth;canvas.height=targetHeight;const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0,targetWidth,targetHeight);canvas.toBlob(blob=>{const url=URL.createObjectURL(blob);state.resizedImages[i]={url,name:file.name,size:blob.size,width:targetWidth,height:targetHeight};if(++processed===state.uploadedFiles.length)displayDownloads()},file.type)})})}
+        function displayDownloads(){processingArea.style.display='none';downloadSection.style.display='block';downloadGrid.innerHTML=state.resizedImages.map((img,i)=>`<div class="download-item"><img src="${img.url}" alt="${img.name}"><h4>${img.name}</h4><p>${img.width} × ${img.height}px (${(img.size/1024).toFixed(1)} KB)</p><button class="btn-primary" onclick="downloadOne(${i})">تنزيل</button></div>`).join('')}
+        window.downloadOne=function(i){const a=document.createElement('a');a.href=state.resizedImages[i].url;a.download=state.resizedImages[i].name;a.click()};
+        function downloadAll(){state.resizedImages.forEach((img,i)=>setTimeout(()=>window.downloadOne(i),500*i))}
+        function reset(){state.uploadedFiles=[];state.resizedImages=[];fileInput.value='';processingArea.style.display='none';downloadSection.style.display='none';uploadArea.style.display='block'}
+    </script>
+</body>
+</html>

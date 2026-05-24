@@ -7,6 +7,22 @@
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H72N80TEBW"></script>
     <script>
+    // Auto-redirect based on browser language (only on first visit)
+    (function() {
+        if (localStorage.getItem('picete_lang_choice')) return;
+        
+        var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        var target = 'en';
+        
+['            if (lang.startsWith("zh")) return "zh";', '            if (lang.startsWith("zh-CN")) return "zh";', '            if (lang.startsWith("zh-TW")) return "zh";', '            if (lang.startsWith("zh-HK")) return "zh";', '            if (lang.startsWith("ja")) return "ja";', '            if (lang.startsWith("ja-JP")) return "ja";', '            if (lang.startsWith("de")) return "de";', '            if (lang.startsWith("de-DE")) return "de";', '            if (lang.startsWith("de-AT")) return "de";', '            if (lang.startsWith("de-CH")) return "de";', '            if (lang.startsWith("fr")) return "fr";', '            if (lang.startsWith("fr-FR")) return "fr";', '            if (lang.startsWith("fr-CA")) return "fr";', '            if (lang.startsWith("fr-BE")) return "fr";', '            if (lang.startsWith("fr-CH")) return "fr";', '            if (lang.startsWith("es")) return "es";', '            if (lang.startsWith("es-ES")) return "es";', '            if (lang.startsWith("es-MX")) return "es";', '            if (lang.startsWith("es-AR")) return "es";', '            if (lang.startsWith("pt")) return "pt";', '            if (lang.startsWith("pt-PT")) return "pt";', '            if (lang.startsWith("pt-BR")) return "pt";', '            if (lang.startsWith("ar")) return "ar";', '            if (lang.startsWith("ar-SA")) return "ar";', '            if (lang.startsWith("ar-AE")) return "ar";', '            if (lang.startsWith("ar-EG")) return "ar";']
+        
+        if (target !== 'en') {
+            localStorage.setItem('picete_lang_choice', target);
+            window.location.href = '/{target}/'.replace('{target}', target);
+        }
+    })();
+    </script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -125,6 +141,79 @@
                 <a href="#tools" class="nav-link">Tools</a>
                 <a href="#features" class="nav-link">Features</a>
                 <a href="#faq" class="nav-link">FAQ</a>
+            
+    <!-- Language Switcher -->
+    <style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+        .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+    </style>
+    <div class="lang-switcher">
+        <select onchange="switchLanguage(this.value)" aria-label="Switch language">
+            <option value="en" selected>English</option>
+            <option value="zh">中文</option>
+            <option value="ja">日本語</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="pt">Português</option>
+            <option value="ar">العربية</option>
+        </select>
+    </div>
+    <script>
+    function switchLanguage(code) {
+        var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+        
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+        
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+        
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
             </nav>
         </div>
     </header>

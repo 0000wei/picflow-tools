@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir PNG en WebP pour WordPress - Optimiseur de performance gratuit | PicEte</title>
+    <meta name="description" content="Convertissez PNG en WebP pour WordPress. Outil en ligne gratuit pour optimiser les images des sites WordPress. Réduisez la taille du fichier de 80% tout en maintenant la qualité.">
+    <meta name="keywords" content="PNG en WebP pour WordPress, convertir PNG en WebP, optimisation d'images WordPress, convertisseur WebP">
+    <link rel="canonical" href="https://picete.com/fr/png-to-webp-for-wordpress/">
+    <!-- hreflang 标签 -->
+    <link rel="alternate" hreflang="en" href="https://picete.com/png-to-webp-for-wordpress/" />
+    <link rel="alternate" hreflang="zh" href="https://picete.com/zh/png-to-webp-for-wordpress/" />
+    <link rel="alternate" hreflang="ja" href="https://picete.com/ja/png-to-webp-for-wordpress/" />
+    <link rel="alternate" hreflang="de" href="https://picete.com/de/png-to-webp-for-wordpress/" />
+    <link rel="alternate" hreflang="fr" href="https://picete.com/fr/png-to-webp-for-wordpress/" />
+    <link rel="alternate" hreflang="es" href="https://picete.com/es/png-to-webp-for-wordpress/" />
+    <link rel="alternate" hreflang="pt" href="https://picete.com/pt/png-to-webp-for-wordpress/" />
+    <link rel="alternate" hreflang="ar" href="https://picete.com/ar/png-to-webp-for-wordpress/" />
+    <link rel="alternate" hreflang="x-default" href="https://picete.com/png-to-webp-for-wordpress/" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/fr/png-to-webp-for-wordpress/">
+    <meta property="og:title" content="Convertir PNG en WebP pour WordPress - Optimiseur de performance">
+    <meta property="og:description" content="Outil en ligne gratuit pour convertir PNG en WebP pour des sites WordPress plus rapides.">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PNG en WebP pour WordPress",
+        "description": "Outil en ligne gratuit pour convertir les images PNG en format WebP pour l'optimisation WordPress",
+        "url": "https://picete.com/fr/png-to-webp-for-wordpress",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "WordPress supporte-t-il WebP nativement ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Oui, WordPress supporte WebP depuis la version 5.8. Vous pouvez télécharger des images WebP directement dans la médiathèque. Certains fournisseurs d'hébergement peuvent avoir besoin d'une mise à jour mineure de la configuration du serveur, mais la plupart des hôtes WordPress modernes gèrent WebP sans aucun configuration supplémentaire."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "De combien la conversion de PNG en WebP accélérera-t-elle mon site WordPress ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Les images WebP sont typiquement 25-35% plus petites que les PNG. Pour un site WordPress avec 50+ images par page (courant dans les galeries et portfolios), cela signifie des temps de chargement 30-50% plus rapides. Les scores Core Web Vitals s'améliorent significativement — surtout LCP (Largest Contentful Paint)."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Ai-je besoin d'un plugin pour servir WebP sur WordPress ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Non. WordPress 5.8+ accepte les téléchargements WebP nativement. Téléchargez simplement vos fichiers WebP convertis directement. Pour une conversion automatique au téléchargement ou servir WebP uniquement aux navigateurs compatibles, des plugins comme WebP Express ou EWWW Image Optimizer sont utiles mais non requis."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "La conversion affectera-t-elle la transparence des images pour WordPress ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WebP supporte pleinement la transparence alpha, donc vos logos et graphiques PNG transparents fonctionneront parfaitement en tant que WebP sur WordPress. La transparence est préservée lors de la conversion, et WordPress l'affiche correctement à la fois dans le panneau d'administration et sur le frontend."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/fr/">
+                    <img src="/images/picete-logo.svg" alt="PicEte" class="logo-img">
+                </a>
+                <p class="tagline">Convertisseur de format</p>
+            </div>
+            <nav class="nav">
+                <a href="/fr/" class="nav-link">Accueil</a>
+                <a href="/fr/#tools" class="nav-link">Plus d'outils</a>
+            
+    <!-- Language Switcher -->
+    <style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+        .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+    </style>
+    <div class="lang-switcher">
+        <select onchange="switchLanguage(this.value)" aria-label="Switch language">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+            <option value="ja">日本語</option>
+            <option value="de">Deutsch</option>
+            <option value="fr" selected>Français</option>
+            <option value="es">Español</option>
+            <option value="pt">Português</option>
+            <option value="ar">العربية</option>
+        </select>
+    </div>
+    <script>
+    function switchLanguage(code) {
+        var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+        
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+        
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+        
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/fr/">Accueil</a><span class="separator">›</span><a href="/fr/png-to-webp/">PNG en WebP</a><span class="separator">›</span><span class="current">Pour WordPress</span></div>
+                <h1 class="hero-title">Convertir PNG en WebP pour WordPress</h1>
+                <h2 class="hero-subtitle">Accélérez votre site WordPress</h2>
+                <p style="font-size: 1.125rem; color: var(--text-light); max-width: 700px; margin: 1.5rem auto; line-height: 1.8;">
+                    Les grandes images PNG ralentissent les sites WordPress. La conversion en WebP peut réduire la taille du fichier de 70-90% tout en maintenant la même qualité visuelle. Des pages plus rapides signifient de meilleurs classements Google, une expérience utilisateur améliorée et des coûts d'hébergement réduits. PicEte convertit PNG en WebP instantanément — téléchargez simplement, convertissez, et utilisez dans WordPress avec n'importe quel plugin WebP ou support natif.
+                </p>
+
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">Pourquoi utiliser WebP pour WordPress ?</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        WordPress supporte nativement WebP depuis la version 5.8, en faisant le format recommandé par défaut pour les nouveaux téléchargements. Les plugins modernes comme ShortPixel, Smush et EWWW convertissent automatiquement les images en WebP pour de meilleures performances. Les facteurs de classement Core Web Vitals de Google récompensent directement les pages plus rapides — les grands fichiers d'images sont la cause la plus courante de scores LCP (Largest Contentful Paint) lents. Convertir les captures d'écran PNG, graphiques et photos en WebP est l'optimisation d'image la plus efficace pour la plupart des sites WordPress.
+                    </p>
+
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">Support WebP dans WordPress</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        WordPress 5.8+ génère automatiquement les versions WebP lorsque vous téléchargez des images. Les navigateurs qui supportent WebP reçoivent le fichier plus petit ; les navigateurs plus anciens obtiennent les replis PNG/JPG. Cette compatibilité transparente signifie qu'aucun utilisateur ne voit d'images brisées. Pour les thèmes et constructeurs de pages qui ne gèrent pas automatiquement WebP, des plugins comme LiteSpeed Cache ou WP Rocket ajoutent le support. La conversion de PicEte préserve la transparence dans les fichiers PNG, la convertissant en canal alpha WebP donc vos graphiques s'affichent correctement avec des arrière-plans transparents.
+                    </p>
+
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">Avantages de performance WordPress</h3>
+                    <ul style="line-height: 1.8; color: var(--text-light); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>Tailles de fichier 70-90% plus petites réduisent l'utilisation de bande passante et les coûts d'hébergement</li>
+                        <li>Chargement de page plus rapide améliore les classements de recherche Google</li>
+                        <li>Meilleure expérience mobile conduit à un engagement et des conversions plus élevés</li>
+                        <li>Le stockage CDN va plus loin, permettant plus d'images pour le même budget</li>
+                        <li>Les scores Core Web Vitals s'améliorent, impactant directement les performances SEO</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin: 3rem 0;">
+                    <a href="/fr/png-to-webp/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                        Utiliser le convertisseur PNG en WebP de PicEte gratuitement →
+                    </a>
+                    <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.875rem;">Gratuit • Pas d'inscription • Sortie prête pour WordPress</p>
+                </div>
+
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--text-color);">Outils WordPress associés</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                        <div>
+                            <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Optimisation d'images</h4>
+                            <ul style="line-height: 1.8; color: var(--text-light);">
+                                <li><a href="/fr/compress-image/">Compresseur d'images</a> — Réduction de taille supplémentaire</li>
+                                <li><a href="/fr/resize-image-to-1200x630/">Redimensionner à 1200x630</a> — Partage social</li>
+                                <li><a href="/fr/png-to-jpg/">PNG en JPG</a> — Format alternatif</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Questions fréquentes</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">WordPress supporte-t-il WebP nativement ?</summary>
+                    <p class="faq-answer">Oui, WordPress supporte WebP depuis la version 5.8. Vous pouvez télécharger des images WebP directement dans la médiathèque. Certains fournisseurs d'hébergement peuvent avoir besoin d'une mise à jour mineure de la configuration du serveur, mais la plupart des hôtes WordPress modernes gèrent WebP sans aucun configuration supplémentaire.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">De combien la conversion de PNG en WebP accélérera-t-elle mon site WordPress ?</summary>
+                    <p class="faq-answer">Les images WebP sont typiquement 25-35% plus petites que les PNG. Pour un site WordPress avec 50+ images par page (courant dans les galeries et portfolios), cela signifie des temps de chargement 30-50% plus rapides. Les scores Core Web Vitals s'améliorent significativement — surtout LCP (Largest Contentful Paint).</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Ai-je besoin d'un plugin pour servir WebP sur WordPress ?</summary>
+                    <p class="faq-answer">Non. WordPress 5.8+ accepte les téléchargements WebP nativement. Téléchargez simplement vos fichiers WebP convertis directement. Pour une conversion automatique au téléchargement ou servir WebP uniquement aux navigateurs compatibles, des plugins comme WebP Express ou EWWW Image Optimizer sont utiles mais non requis.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">La conversion affectera-t-elle la transparence des images pour WordPress ?</summary>
+                    <p class="faq-answer">WebP supporte pleinement la transparence alpha, donc vos logos et graphiques PNG transparents fonctionneront parfaitement en tant que WebP sur WordPress. La transparence est préservée lors de la conversion, et WordPress l'affiche correctement à la fois dans le panneau d'administration et sur le frontend.</p>
+                </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Plus d'outils</h4>
+                    <ul>
+                        <li><a href="/fr/png-to-webp/">PNG en WebP</a></li>
+                        <li><a href="/fr/webp-to-png/">WebP en PNG</a></li>
+                        <li><a href="/fr/compress-image/">Compresseur d'images</a></li>
+                        <li><a href="/fr/resize-image/">Redimensionneur d'images</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>À propos</h4>
+                    <ul>
+                        <li><a href="/fr/">Retour à l'accueil</a></li>
+                        <li><a href="/privacy-policy.html">Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Sites partenaires</h4>
+                    <ul>
+                        <li><a href="https://mockupshot.online/">MockupShot - Mockup de captures d'écran</a></li>
+                        <li><a href="https://ilovepalette.com/">ILovePalette - Outils de couleur</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

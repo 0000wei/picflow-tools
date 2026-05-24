@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redimensionar imagen - Redimensionador de imágenes en línea gratis | PicEte</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H72N80TEBW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+    <meta name="description" content="Redimensiona imágenes en línea gratis. Cambia el tamaño de imágenes a dimensiones personalizadas. Admite procesamiento por lotes, mantiene relación de aspecto, alta calidad.">
+    <meta name="keywords" content="image resizer, resize image, image dimension changer, online image editor, batch resize, free tool">
+    <link rel="canonical" href="https://picete.com/es/resize-image/">
+
+    <!-- hreflang 标签 -->
+    <link rel="alternate" hreflang="en" href="https://picete.com/resize-image/" />
+    <link rel="alternate" hreflang="zh" href="https://picete.com/zh/resize-image/" />
+    <link rel="alternate" hreflang="ja" href="https://picete.com/ja/resize-image/" />
+    <link rel="alternate" hreflang="de" href="https://picete.com/de/resize-image/" />
+    <link rel="alternate" hreflang="fr" href="https://picete.com/fr/resize-image/" />
+    <link rel="alternate" hreflang="es" href="https://picete.com/es/resize-image/" />
+    <link rel="alternate" hreflang="pt" href="https://picete.com/pt/resize-image/" />
+    <link rel="alternate" hreflang="ar" href="https://picete.com/ar/resize-image/" />
+    <link rel="alternate" hreflang="x-default" href="https://picete.com/resize-image/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/es/resize-image/">
+    <meta property="og:title" content="Redimensionador de imágenes - Free Online Image Resize Tool">
+    <meta property="og:description" content="Gratis en línea image resizer tool. Quickly resize images to your desired dimensions.">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Redimensionador de imágenes Tool",
+        "description": "Gratis en línea image resizer tool",
+        "url": "https://picete.com/resize-image",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://picete.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Redimensionador de imágenes",
+            "item": "https://picete.com/resize-image/"
+        }]
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="llms" href="../llms.txt" title="PicEte LLM Context">
+    <link rel="mcp" href="../mcp.json" title="PicEte MCP Herramientas">
+    <meta name="msvalidate.01" content="F2859D0614981562217BF497BEF4002A" />
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- Preguntas frecuentes Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Does resizing an image affect its quality?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Downscaling (making the image smaller) typically preserves perceived quality well because excess pixels are merged. Upscaling (making it larger) causes quality loss because the software has to invent pixels. For best results, always start with the largest source image available when you need to upscale."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What dimensions can I resize my image to?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can enter any width and height in pixels. The tool supports custom dimensions and maintains aspect ratio by default. Common presets include 1080\u00d71080 (Instagram square), 1920\u00d71080 (HD wallpaper), 800\u00d7800 (product photos), and 1200\u00d7630 (social share images)."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will metadata be preserved after resizing?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Basic image metadata may be stripped during resizing as the tool regenerates the image. For most web and social media use, this is fine. If you need to preserve EXIF data like camera settings or GPS coordinates, save a copy of the original before resizing."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How many images can I resize at once?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "There is no limit. Upload multiple images and resize them all to the same dimensions in one batch operation. Each image is processed independently, and you can download them individually or use the 'Descargar todo' button for efficient bulk processing."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* Preguntas frecuentes Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/es/">
+                    <img src="../images/picete-logo.svg" alt="PicEte" class="logo-img">
+                </a>
+                <p class="tagline">Redimensionador de imágenes Tool</p>
+            </div>
+            <nav class="nav">
+                <a href="/es/" class="nav-link">Inicio</a>
+                <a href="../#tools" class="nav-link">Más herramientas</a>
+            
+    <!-- Language Switcher -->
+    <style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+        .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+    </style>
+    <div class="lang-switcher">
+        <select onchange="switchLanguage(this.value)" aria-label="Switch language">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+            <option value="ja">日本語</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="es" selected>Español</option>
+            <option value="pt">Português</option>
+            <option value="ar">العربية</option>
+        </select>
+    </div>
+    <script>
+    function switchLanguage(code) {
+        var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+        
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+        
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+        
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/">Inicio</a><span class="separator">›</span><span class="current">Redimensionador de imágenes</span></div>
+                <h2 class="hero-title">Online Redimensionador de imágenes</h2>
+                <p class="hero-subtitle">Quickly resize images with proportional scaling or custom dimensions.</p>
+
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p class="upload-text">Arrastra imágenes aquí</p>
+                    <p class="upload-subtext">Supports JPG, PNG, WebP and other formats</p>
+                    <input type="file" id="fileInput" accept="image/*" multiple hidden>
+                    <button class="btn-primary" id="selectBtn">Seleccionar imágenes</button>
+                </div>
+
+                <div class="processing-area" id="processingArea" style="display: none;">
+                    <div class="preview-section">
+                        <h3>Imágenes seleccionadas</h3>
+                        <div class="preview-grid" id="previewGrid"></div>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Opciones de redimensionamiento</h4>
+                        <div class="resize-options">
+                            <div class="input-group">
+                                <label>Ancho (pixels)</label>
+                                <input type="number" id="widthInput" placeholder="Original width">
+                            </div>
+                            <div class="input-group">
+                                <label>Alto (pixels)</label>
+                                <input type="number" id="heightInput" placeholder="Original height">
+                            </div>
+                            <label class="checkbox-group">
+                                <input type="checkbox" id="maintainAspect" checked>
+                                <span>Maintain aspect ratio</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Common Sizes</h4>
+                        <div class="format-options">
+                            <button class="btn-secondary" onclick="setPreset(1920, 1080)">1920×1080</button>
+                            <button class="btn-secondary" onclick="setPreset(1280, 720)">1280×720</button>
+                            <button class="btn-secondary" onclick="setPreset(800, 600)">800×600</button>
+                            <button class="btn-secondary" onclick="setPreset(400, 400)">400×400</button>
+                        </div>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Output Format</h4>
+                        <div class="format-options">
+                            <label class="format-option">
+                                <input type="radio" name="format" value="original" checked>
+                                <span>Keep original</span>
+                            </label>
+                            <label class="format-option">
+                                <input type="radio" name="format" value="jpeg">
+                                <span>JPG</span>
+                            </label>
+                            <label class="format-option">
+                                <input type="radio" name="format" value="png">
+                                <span>PNG</span>
+                            </label>
+                            <label class="format-option">
+                                <input type="radio" name="format" value="webp">
+                                <span>WebP</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn-primary" id="resizeBtn">Resize</button>
+                        <button class="btn-secondary" id="resetBtn">Elegir nuevamente</button>
+                    </div>
+                </div>
+
+                <div class="download-section" id="downloadSection" style="display: none;">
+                    <h3>¡Redimensionamiento completo!</h3>
+                    <div class="download-grid" id="downloadGrid"></div>
+                    <button class="btn-primary" id="downloadAllBtn">Descargar todo</button>
+                    <button class="btn-link" id="startOverBtn">Process More Images</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="container" style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+            <a href="/es/" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; font-size: 1.125rem; text-decoration: none;">← Back to PicEte Inicio</a>
+        </div>
+
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">Why Use the Redimensionador de imágenes</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">📏</div>
+                        <h3>Precise Control</h3>
+                        <p>Set exact width and height values, with support for proportional scaling or custom dimensions.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Keep Proportions</h3>
+                        <p>Automatically maintain aspect ratio to prevent image distortion.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Fast Processing</h3>
+                        <p>Leveraging Canvas technology for millisecond-fast processing.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📦</div>
+                        <h3>Procesamiento por lotes</h3>
+                        <p>Resize multiple images simultaneously to improve your workflow.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" style="padding-top: 0;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">How to Redimensionar imágenes Online Free</h2>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Drop Your Images</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Click the upload area or drag images into the browser. This image resizer works with JPG, PNG, WebP, and other common formats. Upload multiple files for batch processing. A single photo or an entire collection — no problem. Everything stays local in your browser, private and secure. No file size limits either, so high-res camera shots are fine.</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Set Dimensions and Preserve Proportions</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Enter width and height values, or pick from presets like 1920x1080 (Full HD), 1280x720 (HD), 800x600, or 400x400 (square). The aspect ratio lock keeps images from distorting — enter one dimension and the other adjusts automatically. You can also change the output format at the same time, converting to JPG, PNG, or WebP while resizing. One tool, two jobs.</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Download Resized Images</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Each resized image shows its new dimensions and file size. Download individually or batch-save everything. High-quality resampling keeps images sharp and detailed. Ready for websites, social media, email campaigns — anywhere specific dimensions are required.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Image Resizing Tips</h2>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Sizing Images for Social Media</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Each platform has its sweet spot. Instagram feed posts: 1080x1080 (square) or 1080x1350 (portrait). Twitter/X in-feed images: 1200x675. Facebook posts: 1200x630. LinkedIn shared links: 1200x627. Pinterest pins: 1000x1500 (2:3 ratio). Matching these exact dimensions means your content never gets awkwardly cropped or stretched. Better visuals, better engagement.</p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Resizing vs Cropping</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">They serve different purposes. Resizing scales the whole image up or down — you keep everything, just smaller or bigger. Cropping removes parts of the image to change composition or aspect ratio. Use resizing when you need to fit a layout without losing content. Use cropping when you want to reframe the shot or remove edge elements. For best results, crop first in a dedicated editor, then resize to your target dimensions.</p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Right Dimensions for Every Use Case</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Website hero banners: 1920x1080. E-commerce product thumbnails: 800x800 to 1200x1200. Full product shots: 800x1200. Email newsletter images: 600px max width. YouTube thumbnails: 1280x720. Blog featured images: 1200x630. Using the right dimensions improves visual quality, cuts bandwidth waste, and makes your content look professional everywhere.</p>
+                </div>
+            </div>
+        </section>
+            <!-- Preguntas frecuentes Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Preguntas frecuentes</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">Does resizing an image affect its quality?</summary>
+                    <p class="faq-answer">Downscaling (making the image smaller) typically preserves perceived quality well because excess pixels are merged. Upscaling (making it larger) causes quality loss because the software has to invent pixels. For best results, always start with the largest source image available when you need to upscale.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">What dimensions can I resize my image to?</summary>
+                    <p class="faq-answer">You can enter any width and height in pixels. The tool supports custom dimensions and maintains aspect ratio by default. Common presets include 1080×1080 (Instagram square), 1920×1080 (HD wallpaper), 800×800 (product photos), and 1200×630 (social share images).</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Will metadata be preserved after resizing?</summary>
+                    <p class="faq-answer">Basic image metadata may be stripped during resizing as the tool regenerates the image. For most web and social media use, this is fine. If you need to preserve EXIF data like camera settings or GPS coordinates, save a copy of the original before resizing.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">How many images can I resize at once?</summary>
+                    <p class="faq-answer">There is no limit. Upload multiple images and resize them all to the same dimensions in one batch operation. Each image is processed independently, and you can download them individually or use the 'Descargar todo' button for efficient bulk processing.</p>
+                </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Más herramientas</h4>
+                    <ul>
+                        <li><a href="/es/png-to-jpg/">PNG to JPG</a></li>
+                        <li><a href="/es/jpg-to-png/">JPG to PNG</a></li>
+                        <li><a href="/es/compress-image/">Compresor de imágenes</a></li>
+                        <li><a href="/es/png-to-webp/">PNG a WebP</a></li>
+                        <li><a href="/es/webp-to-png/">WebP a PNG</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Acerca de</h4>
+                    <ul>
+                        <li><a href="/es/">Back to Inicio</a></li>
+                        <li><a href="../privacy-policy.html">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Más herramientas</h4>
+                    <ul>
+                        <li><a href="https://mockupshot.online/">MockupShot - Screenshot Mockup</a></li>
+                        <li><a href="https://ilovepalette.com/">ILovePalette - Color Herramientas</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Image resize dedicated script
+        const state = { uploadedFiles: [], resizedImages: [], originalDims: [] };
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const selectBtn = document.getElementById('selectBtn');
+        const processingArea = document.getElementById('processingArea');
+        const previewGrid = document.getElementById('previewGrid');
+        const downloadSection = document.getElementById('downloadSection');
+        const downloadGrid = document.getElementById('downloadGrid');
+        const resizeBtn = document.getElementById('resizeBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const widthInput = document.getElementById('widthInput');
+        const heightInput = document.getElementById('heightInput');
+        const maintainAspect = document.getElementById('maintainAspect');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        const startOverBtn = document.getElementById('startOverBtn');
+
+        selectBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => handleFiles(Array.from(e.target.files)));
+        uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+        uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            handleFiles(Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/')));
+        });
+        widthInput.addEventListener('input', () => { if (maintainAspect.checked) updateAlto(); });
+        heightInput.addEventListener('input', () => { if (maintainAspect.checked) updateAncho(); });
+        resizeBtn.addEventListener('click', resizeImages);
+        resetBtn.addEventListener('click', reset);
+        downloadAllBtn.addEventListener('click', downloadAll);
+        startOverBtn.addEventListener('click', reset);
+
+        window.setPreset = function(w, h) {
+            widthInput.value = w;
+            heightInput.value = h;
+        };
+
+        function handleFiles(files) {
+            if (files.length === 0) return alert('Please select images');
+            state.uploadedFiles = files;
+            state.originalDims = [];
+            Promise.all(files.map(f => loadImage(f))).then(images => {
+                displayPreviews(images);
+                uploadArea.style.display = 'none';
+                processingArea.style.display = 'block';
+                widthInput.placeholder = state.originalDims[0].width;
+                heightInput.placeholder = state.originalDims[0].height;
+            }).catch(() => alert('Failed to load images'));
+        }
+
+        function loadImage(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        state.originalDims.push({ width: img.width, height: img.height });
+                        resolve({ img, file, src: e.target.result });
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function displayPreviews(images) {
+            previewGrid.innerHTML = images.map(({ img, file, src }, i) => `
+                <div class="preview-item">
+                    <img src="${src}" alt="${file.name}">
+                    <div class="file-info">
+                        <strong>${file.name}</strong><br>${img.width} × ${img.height}px
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateAlto() {
+            if (!state.originalDims.length) return;
+            const width = parseInt(widthInput.value);
+            if (!width) return;
+            const original = state.originalDims[0];
+            const aspectRatio = original.height / original.width;
+            heightInput.value = Math.round(width * aspectRatio);
+        }
+
+        function updateAncho() {
+            if (!state.originalDims.length) return;
+            const height = parseInt(heightInput.value);
+            if (!height) return;
+            const original = state.originalDims[0];
+            const aspectRatio = original.width / original.height;
+            widthInput.value = Math.round(height * aspectRatio);
+        }
+
+        function resizeImages() {
+            const width = parseInt(widthInput.value) || state.originalDims[0].width;
+            const height = parseInt(heightInput.value) || state.originalDims[0].height;
+            const format = document.querySelector('input[name="format"]:checked').value;
+
+            state.resizedImages = [];
+            let processed = 0;
+
+            state.uploadedFiles.forEach((file, i) => {
+                loadImage(file).then(({ img }) => {
+                    const canvas = document.createElement('canvas');
+                    const original = state.originalDims[i];
+
+                    let newAncho = width;
+                    let newAlto = height;
+
+                    if (maintainAspect.checked) {
+                        const aspectRatio = original.width / original.height;
+                        if (width && !height) {
+                            newAlto = Math.round(width / aspectRatio);
+                        } else if (!width && height) {
+                            newAncho = Math.round(height * aspectRatio);
+                        }
+                    }
+
+                    canvas.width = newAncho;
+                    canvas.height = newAlto;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, newAncho, newAlto);
+
+                    const outputFormat = format === 'original' ? file.type.split('/')[1] : format;
+                    const mimeTypes = { 'jpeg': 'image/jpeg', 'png': 'image/png', 'webp': 'image/webp' };
+                    const mimeType = mimeTypes[outputFormat] || 'image/jpeg';
+
+                    canvas.toBlob(blob => {
+                        const url = URL.createObjectURL(blob);
+                        const ext = outputFormat === 'jpeg' ? 'jpg' : outputFormat;
+                        state.resizedImages[i] = {
+                            url,
+                            name: file.name.replace(/\.[^/.]+$/, '') + '.' + ext,
+                            size: blob.size,
+                            width: newAncho,
+                            height: newAlto
+                        };
+                        if (++processed === state.uploadedFiles.length) displayDownloads();
+                    }, mimeType, 0.92);
+                });
+            });
+        }
+
+        function displayDownloads() {
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'block';
+            downloadGrid.innerHTML = state.resizedImages.map((img, i) => `
+                <div class="download-item">
+                    <img src="${img.url}" alt="${img.name}">
+                    <h4>${img.name}</h4>
+                    <p>${img.width} × ${img.height}px | ${(img.size / 1024).toFixed(1)} KB</p>
+                    <button class="btn-primary" onclick="downloadOne(${i})">Download</button>
+                </div>
+            `).join('');
+        }
+
+        window.downloadOne = function(i) {
+            const a = document.createElement('a');
+            a.href = state.resizedImages[i].url;
+            a.download = state.resizedImages[i].name;
+            a.click();
+        };
+
+        function downloadAll() {
+            state.resizedImages.forEach((img, i) => setTimeout(() => window.downloadOne(i), i * 500));
+        }
+
+        function reset() {
+            state.uploadedFiles = [];
+            state.resizedImages = [];
+            state.originalDims = [];
+            fileInput.value = '';
+            widthInput.value = '';
+            heightInput.value = '';
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'none';
+            uploadArea.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

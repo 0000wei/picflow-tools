@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PicEte - Outils d'Image en Ligne Gratuits | Convertisseur de Format, Redimensionnement, Compression</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H72N80TEBW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+    <meta name="description" content="PicEte propose des outils professionnels de traitement d'image en ligne : PNG vers JPG, JPG vers PNG, conversion WebP, redimensionnement d'image, compression d'image. Entièrement gratuit, aucune inscription requise, traitement local pour la confidentialité.">
+    <meta name="keywords" content="convertisseur d'image en ligne, redimensionnement d'image, png vers jpg, webp vers png, outils d'image en ligne gratuits">
+    <meta name="msvalidate.01" content="F2859D0614981562217BF497BEF4002A" />
+    <link rel="canonical" href="https://picete.com/fr/">
+
+    <!-- hreflang 标签 -->
+    <link rel="alternate" hreflang="en" href="https://picete.com/" />
+    <link rel="alternate" hreflang="zh" href="https://picete.com/zh/" />
+    <link rel="alternate" hreflang="ja" href="https://picete.com/ja/" />
+    <link rel="alternate" hreflang="de" href="https://picete.com/de/" />
+    <link rel="alternate" hreflang="fr" href="https://picete.com/fr/" />
+    <link rel="alternate" hreflang="es" href="https://picete.com/es/" />
+    <link rel="alternate" hreflang="pt" href="https://picete.com/pt/" />
+    <link rel="alternate" hreflang="ar" href="https://picete.com/ar/" />
+    <link rel="alternate" hreflang="x-default" href="https://picete.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/fr/">
+    <meta property="og:title" content="PicEte - Outils d'Image en Ligne Gratuits | Convertisseur de Format, Redimensionnement, Compression">
+    <meta property="og:description" content="Outils professionnels de traitement d'image en ligne prenant en charge la conversion de format, le redimensionnement et la compression. Entièrement gratuit, traitement local pour la confidentialité.">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PicEte",
+        "description": "Outils gratuits de traitement d'image en ligne prenant en charge la conversion de format, le redimensionnement et la compression",
+        "url": "https://picete.com",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <!-- Schema.org Breadcrumb -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://picete.com/fr/"
+        }]
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="llms" href="/llms.txt" title="PicEte LLM Context">
+    <link rel="mcp" href="/mcp.json" title="PicEte MCP Tools">
+
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "Le traitement d'image est-il sécurisé ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolument sécurisé. Tout le traitement est effectué localement dans votre navigateur. Les images ne sont jamais téléchargées sur un serveur, garantissant votre confidentialité et la sécurité de vos données."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Quels formats d'image sont pris en charge ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nous prenons en charge tous les principaux formats d'image : JPG, JPEG, PNG, WebP, GIF, BMP, SVG, couvrant la plupart des besoins de traitement d'image."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Y a-t-il une limite de taille de fichier ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Il n'y a pas de limite stricte, mais les très grandes images (plus de 100 Mo) peuvent être affectées par les limitations de mémoire du navigateur. Nous recommandons de garder les images individuelles sous 50 Mo pour une expérience optimale."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Puis-je traiter plusieurs images à la fois ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Oui ! Vous pouvez sélectionner plusieurs images à la fois pour un traitement par lot. Chaque image est traitée indépendamment, et vous pouvez les télécharger individuellement ou toutes à la fois."
+            }
+        }]
+    }
+    </script>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/fr/">
+                    <img src="/images/picete-logo.svg" alt="PicEte" class="logo-img">
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="#tools" class="nav-link">Outils</a>
+                <a href="#features" class="nav-link">Fonctionnalités</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            
+    <!-- Language Switcher -->
+    <style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+        .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+    </style>
+    <div class="lang-switcher">
+        <select onchange="switchLanguage(this.value)" aria-label="Switch language">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+            <option value="ja">日本語</option>
+            <option value="de">Deutsch</option>
+            <option value="fr" selected>Français</option>
+            <option value="es">Español</option>
+            <option value="pt">Português</option>
+            <option value="ar">العربية</option>
+        </select>
+    </div>
+    <script>
+    function switchLanguage(code) {
+        var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+        
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+        
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+        
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/fr/">Accueil</a></div>
+                <h1 class="hero-title">Outils de Traitement d'Image en Ligne Tout-en-Un</h1>
+                <p class="hero-subtitle">Conversion de format, redimensionnement, compression - solution tout-en-un pour tous vos besoins d'image</p>
+
+                <!-- Upload Area -->
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p class="upload-text">Déposez les images ici</p>
+                    <p class="upload-subtext">ou cliquez pour sélectionner des fichiers</p>
+                    <input type="file" id="fileInput" accept="image/*" multiple hidden>
+                    <button class="btn-primary" id="selectBtn">Sélectionner des Images</button>
+                </div>
+
+                <!-- Processing Area -->
+                <div class="processing-area" id="processingArea" style="display: none;">
+                    <div class="preview-section">
+                        <h3>Aperçu de l'Image</h3>
+                        <div class="preview-grid" id="previewGrid"></div>
+                    </div>
+
+                    <div class="tools-section">
+                        <!-- Format Converter -->
+                        <div class="tool-card">
+                            <h4>Conversion de Format</h4>
+                            <div class="format-options">
+                                <label class="format-option">
+                                    <input type="radio" name="format" value="jpeg">
+                                    <span>JPG</span>
+                                </label>
+                                <label class="format-option">
+                                    <input type="radio" name="format" value="png">
+                                    <span>PNG</span>
+                                </label>
+                                <label class="format-option">
+                                    <input type="radio" name="format" value="webp">
+                                    <span>WebP</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Resize Tool -->
+                        <div class="tool-card">
+                            <h4>Redimensionnement</h4>
+                            <div class="resize-options">
+                                <div class="input-group">
+                                    <label>Largeur</label>
+                                    <input type="number" id="widthInput" placeholder="Auto">
+                                </div>
+                                <div class="input-group">
+                                    <label>Hauteur</label>
+                                    <input type="number" id="heightInput" placeholder="Auto">
+                                </div>
+                                <label class="checkbox-group">
+                                    <input type="checkbox" id="maintainAspect" checked>
+                                    <span>Maintenir le rapport d'aspect</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Compression Tool -->
+                        <div class="tool-card">
+                            <h4>Qualité de Compression</h4>
+                            <div class="compression-options">
+                                <input type="range" id="qualitySlider" min="10" max="100" value="85">
+                                <div class="quality-value">
+                                    <span id="qualityValue">85</span>%
+                                </div>
+                                <div class="quality-labels">
+                                    <span>Fichier plus petit</span>
+                                    <span>Qualité supérieure</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="btn-primary" id="processBtn">Traiter les Images</button>
+                            <button class="btn-secondary" id="resetBtn">Choisir à Nouveau</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Download Section -->
+                <div class="download-section" id="downloadSection" style="display: none;">
+                    <h3>Traitement Terminé !</h3>
+                    <div class="download-grid" id="downloadGrid"></div>
+                    <button class="btn-secondary" id="downloadAllBtn">Tout Télécharger</button>
+                    <button class="btn-link" id="startOverBtn">Traiter d'Autres Images</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Grid -->
+        <section id="tools" class="tools-section">
+            <div class="container">
+                <h2 class="section-title">Outils d'Image Professionnels</h2>
+                <div class="tools-grid">
+                    <a href="/fr/png-to-jpg/" class="tool-item">
+                        <div class="tool-icon">📐</div>
+                        <h3>PNG vers JPG</h3>
+                        <p>Convertir les images PNG au format JPG</p>
+                    </a>
+                    <a href="/fr/jpg-to-png/" class="tool-item">
+                        <div class="tool-icon">🖼️</div>
+                        <h3>JPG vers PNG</h3>
+                        <p>Convertir les images JPG au format PNG</p>
+                    </a>
+                    <a href="/fr/webp-to-png/" class="tool-item">
+                        <div class="tool-icon">🔄</div>
+                        <h3>WebP vers PNG</h3>
+                        <p>Convertir les images WebP au format PNG</p>
+                    </a>
+                    <a href="/fr/png-to-webp/" class="tool-item">
+                        <div class="tool-icon">⚡</div>
+                        <h3>PNG vers WebP</h3>
+                        <p>Convertir PNG au format WebP moderne</p>
+                    </a>
+                    <a href="/fr/jpg-to-webp/" class="tool-item">
+                        <div class="tool-icon">🎯</div>
+                        <h3>JPG vers WebP</h3>
+                        <p>Convertir JPG au format WebP</p>
+                    </a>
+                    <a href="/fr/resize-image/" class="tool-item">
+                        <div class="tool-icon">📏</div>
+                        <h3>Redimensionnement d'Image</h3>
+                        <p>Redimensionner les images aux dimensions souhaitées</p>
+                    </a>
+                    <a href="/fr/compress-image/" class="tool-item">
+                        <div class="tool-icon">🗜️</div>
+                        <h3>Compresseur d'Image</h3>
+                        <p>Compresser les images pour réduire la taille du fichier</p>
+                    </a>
+                    <a href="/fr/image-splitter/" class="tool-item">
+                        <div class="tool-icon">🧩</div>
+                        <h3>Diviseur d'Image en Grille</h3>
+                        <p>Découper les images en grilles prêtes pour Instagram</p>
+                    </a>
+                    <a href="/fr/extract-colors/" class="tool-item">
+                        <div class="tool-icon">🎨</div>
+                        <h3>Extracteur de Palette de Couleurs</h3>
+                        <p>Extraire les couleurs dominantes de n'importe quelle image</p>
+                    </a>
+                    <a href="/fr/image-to-base64/" class="tool-item">
+                        <div class="tool-icon">📦</div>
+                        <h3>Image vers Base64</h3>
+                        <p>Encoder les images en chaînes Base64 instantanément</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2 class="section-title">Pourquoi Choisir PicEte</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Protection de la Confidentialité</h3>
+                        <p>Tout le traitement d'image est effectué localement dans votre navigateur. Aucun fichier n'est téléchargé sur un serveur, garantissant votre confidentialité et la sécurité de vos images.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Rapide comme l'Éclair</h3>
+                        <p>Exploitant la technologie Canvas moderne des navigateurs pour un traitement en quelques millisecondes sans attente.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💎</div>
+                        <h3>Sortie Haute Qualité</h3>
+                        <p>Des algorithmes intelligents assurent la qualité de l'image, préservant un maximum de détails lors de la compression et de la conversion.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎨</div>
+                        <h3>Traitement par Lot</h3>
+                        <p>Téléchargez et traitez plusieurs images simultanément pour améliorer considérablement votre flux de travail.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💰</div>
+                        <h3>Entièrement Gratuit</h3>
+                        <p>Toutes les fonctionnalités sont gratuitement permanentes, aucune inscription requise, aucune limite d'utilisation.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📱</div>
+                        <h3>Design Réactif</h3>
+                        <p>S'adapte parfaitement aux ordinateurs de bureau, tablettes et appareils mobiles pour le traitement d'image en déplacement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Questions Fréquentes</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>Le traitement d'image est-il sécurisé ?</h3>
+                        <p>Absolument sécurisé. Tout le traitement est effectué localement dans votre navigateur. Les images ne sont jamais téléchargées sur un serveur, garantissant votre confidentialité et la sécurité de vos données.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Quels formats d'image sont pris en charge ?</h3>
+                        <p>Nous prenons en charge tous les principaux formats d'image : JPG, JPEG, PNG, WebP, GIF, BMP, SVG, couvrant la plupart des besoins de traitement d'image.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Y a-t-il une limite de taille de fichier ?</h3>
+                        <p>Il n'y a pas de limite stricte, mais les très grandes images (plus de 100 Mo) peuvent être affectées par les limitations de mémoire du navigateur. Nous recommandons de garder les images individuelles sous 50 Mo pour une expérience optimale.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Puis-je traiter plusieurs images à la fois ?</h3>
+                        <p>Oui ! Vous pouvez sélectionner plusieurs images à la fois pour un traitement par lot. Chaque image est traitée indépendamment, et vous pouvez les télécharger individuellement ou toutes à la fois.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="/images/picete-logo.svg" alt="PicEte" class="footer-logo">
+                    <p>Outils professionnels de traitement d'image en ligne</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Conversion d'Image</h4>
+                    <ul>
+                        <li><a href="/fr/png-to-jpg/">PNG vers JPG</a></li>
+                        <li><a href="/fr/jpg-to-png/">JPG vers PNG</a></li>
+                        <li><a href="/fr/webp-to-png/">WebP vers PNG</a></li>
+                        <li><a href="/fr/png-to-webp/">PNG vers WebP</a></li>
+                        <li><a href="/fr/jpg-to-webp/">JPG vers WebP</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Édition d'Image</h4>
+                    <ul>
+                        <li><a href="/fr/resize-image/">Redimensionnement d'Image</a></li>
+                        <li><a href="/fr/compress-image/">Compresseur d'Image</a></li>
+                        <li><a href="/fr/image-splitter/">Diviseur d'Image en Grille</a></li>
+                        <li><a href="/fr/extract-colors/">Extracteur de Palette de Couleurs</a></li>
+                        <li><a href="/fr/image-to-base64/">Image vers Base64</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>À Propos</h4>
+                    <ul>
+                        <li><a href="/privacy-policy.html">Politique de Confidentialité</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Plus d'Outils</h4>
+                    <ul>
+                        <li><a href="https://mockupshot.online/">MockupShot - Mockup de Capture d'Écran</a></li>
+                        <li><a href="https://ilovepalette.com/">ILovePalette - Outils de Couleur</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
