@@ -25,6 +25,82 @@
     </script>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Why is 1200\u00d7630 the recommended social share size?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "1200\u00d7630 pixels is the Open Graph (OG) image standard recommended by Facebook, LinkedIn, and most social platforms. It's a 1.91:1 aspect ratio that displays well both in feeds and when shared as a link preview. Twitter also displays this ratio for its summary card with large image."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will my image be cropped on different social platforms?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Each platform handles OG images slightly differently. 1200\u00d7630 is the safest standard \u2014 it centers the image and most platforms show the full width. Keep critical content (text, logos) within the center-safe zone (roughly 600\u00d7630) to avoid clipping on any platform."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What happens if my image isn't 1.91:1 ratio?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The tool preserves aspect ratio. Non-1.91:1 images will fit within 1200\u00d7630 with letterboxing. For the best social sharing experience, crop your image to approximately 1.91:1 before resizing so the preview fills the entire card without black bars."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -92,6 +168,26 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">Why is 1200×630 the recommended social share size?</summary>
+                    <p class="faq-answer">1200×630 pixels is the Open Graph (OG) image standard recommended by Facebook, LinkedIn, and most social platforms. It's a 1.91:1 aspect ratio that displays well both in feeds and when shared as a link preview. Twitter also displays this ratio for its summary card with large image.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Will my image be cropped on different social platforms?</summary>
+                    <p class="faq-answer">Each platform handles OG images slightly differently. 1200×630 is the safest standard — it centers the image and most platforms show the full width. Keep critical content (text, logos) within the center-safe zone (roughly 600×630) to avoid clipping on any platform.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">What happens if my image isn't 1.91:1 ratio?</summary>
+                    <p class="faq-answer">The tool preserves aspect ratio. Non-1.91:1 images will fit within 1200×630 with letterboxing. For the best social sharing experience, crop your image to approximately 1.91:1 before resizing so the preview fills the entire card without black bars.</p>
+                </details>
                 </div>
             </div>
         </section>

@@ -62,6 +62,90 @@
     <link rel="mcp" href="../mcp.json" title="PicEte MCP Tools">
     <meta name="msvalidate.01" content="F2859D0614981562217BF497BEF4002A" />
     <link rel="stylesheet" href="../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Is WebP to PNG conversion lossless?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, converting WebP to PNG with our tool preserves the original quality. PNG is a lossless format, so all pixel data from the WebP source is retained. The output PNG will be larger in file size than the original WebP, but you get full compatibility with all platforms and editing software."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Why would I convert WebP to PNG?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WebP is great for web performance, but not all software supports it. Convert to PNG when you need to open WebP files in legacy image editors, upload to platforms that don't support WebP, or share files with people who may not have modern browsers. PNG works everywhere."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does WebP transparency transfer to PNG?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Both WebP and PNG support alpha transparency channels. When you convert a transparent WebP to PNG, all transparency information is preserved perfectly. This makes it safe to convert WebP graphics, logos, and icons with transparent backgrounds to PNG."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I convert WebP to PNG in bulk?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Simply drag and drop multiple WebP files onto the upload area or select them all at once. The tool processes each file in parallel and displays previews with file size comparisons. Download individual PNGs or use 'Download All' for the complete batch."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -183,6 +267,30 @@
                 <div style="margin-bottom: 1.5rem;">
                     <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">When PNG Is the Only Choice</h3>
                     <p style="line-height: 1.8; color: var(--text-light);">Pick PNG when you need guaranteed compatibility everywhere. PNG works on everything — legacy browsers, every version of Windows, macOS, and Linux. Print services typically require PNG or TIFF. Academic submissions, documentation, and technical illustrations all demand PNG for pixel-perfect fidelity. While WebP is excellent for web performance, PNG remains the format of choice when you cannot control the viewer's environment and need absolute certainty.</p>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">Is WebP to PNG conversion lossless?</summary>
+                    <p class="faq-answer">Yes, converting WebP to PNG with our tool preserves the original quality. PNG is a lossless format, so all pixel data from the WebP source is retained. The output PNG will be larger in file size than the original WebP, but you get full compatibility with all platforms and editing software.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Why would I convert WebP to PNG?</summary>
+                    <p class="faq-answer">WebP is great for web performance, but not all software supports it. Convert to PNG when you need to open WebP files in legacy image editors, upload to platforms that don't support WebP, or share files with people who may not have modern browsers. PNG works everywhere.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Does WebP transparency transfer to PNG?</summary>
+                    <p class="faq-answer">Yes. Both WebP and PNG support alpha transparency channels. When you convert a transparent WebP to PNG, all transparency information is preserved perfectly. This makes it safe to convert WebP graphics, logos, and icons with transparent backgrounds to PNG.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">How do I convert WebP to PNG in bulk?</summary>
+                    <p class="faq-answer">Simply drag and drop multiple WebP files onto the upload area or select them all at once. The tool processes each file in parallel and displays previews with file size comparisons. Download individual PNGs or use 'Download All' for the complete batch.</p>
+                </details>
                 </div>
             </div>
         </section>

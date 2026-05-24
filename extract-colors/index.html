@@ -62,6 +62,90 @@
     <link rel="mcp" href="../mcp.json" title="PicEte MCP Tools">
     <meta name="msvalidate.01" content="F2859D0614981562217BF497BEF4002A" />
     <link rel="stylesheet" href="../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How many colors can the extractor detect?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our tool can extract 5, 10, 15, or 20 dominant colors from any image. It uses a median cut quantization algorithm to identify the most representative colors. More colors give finer detail, while fewer gives a simplified palette perfect for branding and design work."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I copy the hex codes from the extracted palette?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Each extracted color displays with its hex code. Click the code to copy it to your clipboard instantly. You can also copy the complete palette as a comma-separated list of hex codes for importing into design tools like Figma, Adobe, or Tailwind CSS projects."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What image formats work with the color extractor?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "All major image formats are supported: JPG, JPEG, PNG, WebP, GIF, and BMP. The extraction algorithm works on the pixel data after the image loads in the browser. Higher resolution images produce more accurate results, so upload the highest quality version available."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How accurate is the color extraction?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The median cut algorithm is very reliable for identifying dominant colors. It analyzes every pixel to find the most frequent color clusters. However, images with thousands of subtle shades (like sunsets) may produce a simplified palette because the tool reduces the image to a limited number of color groups."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -260,6 +344,30 @@
                         <h3>What's the difference between HEX, RGB, and HSL?</h3>
                         <p>HEX is a 6-digit code like #FF5733, common in web design. RGB expresses colors as red, green, and blue values (0-255). HSL uses hue, saturation, and lightness — useful when you want to adjust brightness or saturation programmatically.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">How many colors can the extractor detect?</summary>
+                    <p class="faq-answer">Our tool can extract 5, 10, 15, or 20 dominant colors from any image. It uses a median cut quantization algorithm to identify the most representative colors. More colors give finer detail, while fewer gives a simplified palette perfect for branding and design work.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Can I copy the hex codes from the extracted palette?</summary>
+                    <p class="faq-answer">Yes. Each extracted color displays with its hex code. Click the code to copy it to your clipboard instantly. You can also copy the complete palette as a comma-separated list of hex codes for importing into design tools like Figma, Adobe, or Tailwind CSS projects.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">What image formats work with the color extractor?</summary>
+                    <p class="faq-answer">All major image formats are supported: JPG, JPEG, PNG, WebP, GIF, and BMP. The extraction algorithm works on the pixel data after the image loads in the browser. Higher resolution images produce more accurate results, so upload the highest quality version available.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">How accurate is the color extraction?</summary>
+                    <p class="faq-answer">The median cut algorithm is very reliable for identifying dominant colors. It analyzes every pixel to find the most frequent color clusters. However, images with thousands of subtle shades (like sunsets) may produce a simplified palette because the tool reduces the image to a limited number of color groups.</p>
+                </details>
                 </div>
             </div>
         </section>

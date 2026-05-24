@@ -25,6 +25,90 @@
     </script>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Why convert PNG to JPG for email?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Email services often have attachment size limits (10-25MB total). PNGs from phone screenshots can be 3-5MB each. Converting to JPG typically reduces file sizes by 80-90%, making it easy to attach multiple images without hitting limits. Recipients also download email faster."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How small should images be for email attachments?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Aim for under 500KB per image. Set JPG quality to 70-85% \u2014 this keeps the image looking good on screens while keeping attachments manageable. For very large original PNGs (over 5MB), also consider resizing to 1920px on the longest side before converting."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will image quality be acceptable for email recipients?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Most email clients display images at screen resolution (72-96 DPI), so JPG compression at 80% quality looks excellent. Recipients viewing on phones won't notice any difference from the original PNG, and they get the benefit of faster download and smaller attachment size."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I batch convert multiple PNGs for email?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. Select all the screenshots or images you want to email and convert them in one batch. The tool processes everything simultaneously, and you can download each converted JPG individually or grab them all at once for easy drag-and-drop into your email."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -92,6 +176,30 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">Why convert PNG to JPG for email?</summary>
+                    <p class="faq-answer">Email services often have attachment size limits (10-25MB total). PNGs from phone screenshots can be 3-5MB each. Converting to JPG typically reduces file sizes by 80-90%, making it easy to attach multiple images without hitting limits. Recipients also download email faster.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">How small should images be for email attachments?</summary>
+                    <p class="faq-answer">Aim for under 500KB per image. Set JPG quality to 70-85% — this keeps the image looking good on screens while keeping attachments manageable. For very large original PNGs (over 5MB), also consider resizing to 1920px on the longest side before converting.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Will image quality be acceptable for email recipients?</summary>
+                    <p class="faq-answer">Yes. Most email clients display images at screen resolution (72-96 DPI), so JPG compression at 80% quality looks excellent. Recipients viewing on phones won't notice any difference from the original PNG, and they get the benefit of faster download and smaller attachment size.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Can I batch convert multiple PNGs for email?</summary>
+                    <p class="faq-answer">Absolutely. Select all the screenshots or images you want to email and convert them in one batch. The tool processes everything simultaneously, and you can download each converted JPG individually or grab them all at once for easy drag-and-drop into your email.</p>
+                </details>
                 </div>
             </div>
         </section>

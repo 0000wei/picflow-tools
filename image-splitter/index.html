@@ -62,6 +62,90 @@
     <link rel="mcp" href="../mcp.json" title="PicEte MCP Tools">
     <meta name="msvalidate.01" content="F2859D0614981562217BF497BEF4002A" />
     <link rel="stylesheet" href="../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What grid layouts are supported?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our splitter supports custom rows and columns. The most common layouts are 3\u00d73 (Instagram 9-grid), 2\u00d72 (4 parts for mosaic), and horizontal/vertical strips. You can split any image into virtually any grid size \u2014 try 3\u00d71 for a triptych, 4\u00d71 for a story strip, or 2\u00d73 for a 6-part grid."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will splitting an image reduce its quality?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Each split piece retains the full quality of the original image at its native resolution. Since each tile covers a portion of the original canvas, the individual piece dimensions are smaller, but the pixel density and quality remain identical."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is splitting an image used for?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Image splitting is popular for: Instagram grid posts (split a panorama into 9 tiles), creating before/after comparisons, making image puzzles, dividing large infographics into digestible parts, and designing multi-part social media content that looks seamless when viewed on a profile grid."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I download all the split pieces?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "After splitting, every tile displays with a preview and file size. You can download each piece individually or click 'Download All' to save every tile at once. Files are numbered sequentially (e.g., image_1x1.jpg, image_1x2.jpg) to help reassemble them later."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -261,6 +345,30 @@
                         <h3>Do I need to download each piece one by one?</h3>
                         <p>No. Click "Download All as ZIP" and you get every slice in a single ZIP file. The files are named by position (slice-1-1.png, slice-1-2.png, etc.) so you know the exact order when posting.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">What grid layouts are supported?</summary>
+                    <p class="faq-answer">Our splitter supports custom rows and columns. The most common layouts are 3×3 (Instagram 9-grid), 2×2 (4 parts for mosaic), and horizontal/vertical strips. You can split any image into virtually any grid size — try 3×1 for a triptych, 4×1 for a story strip, or 2×3 for a 6-part grid.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Will splitting an image reduce its quality?</summary>
+                    <p class="faq-answer">No. Each split piece retains the full quality of the original image at its native resolution. Since each tile covers a portion of the original canvas, the individual piece dimensions are smaller, but the pixel density and quality remain identical.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">What is splitting an image used for?</summary>
+                    <p class="faq-answer">Image splitting is popular for: Instagram grid posts (split a panorama into 9 tiles), creating before/after comparisons, making image puzzles, dividing large infographics into digestible parts, and designing multi-part social media content that looks seamless when viewed on a profile grid.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">How do I download all the split pieces?</summary>
+                    <p class="faq-answer">After splitting, every tile displays with a preview and file size. You can download each piece individually or click 'Download All' to save every tile at once. Files are numbered sequentially (e.g., image_1x1.jpg, image_1x2.jpg) to help reassemble them later.</p>
+                </details>
                 </div>
             </div>
         </section>

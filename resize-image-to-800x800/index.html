@@ -25,6 +25,82 @@
     </script>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "When would I need 800\u00d7800 images?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "800\u00d7800 is the standard for e-commerce product photos (Amazon, Shopify, eBay), avatar/profile images, square product thumbnails, listing images on marketplace platforms, and mobile app icons. It's large enough to show detail but small enough to load quickly."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I batch resize product photos to 800\u00d7800?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, upload all your product images at once and resize them all to 800\u00d7800 in a single batch operation. Each image maintains its aspect ratio. Ideal for e-commerce sellers who need consistent image dimensions across their entire catalog."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will 800\u00d7800 be sharp on Retina displays?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "800\u00d7800 appears as 400\u00d7400 on 2x Retina screens (like iPhones with Retina displays). For true Retina sharpness at a 400\u00d7400 display size, 800\u00d7800 is perfect \u2014 double the pixel density for crisp rendering."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -92,6 +168,26 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">When would I need 800×800 images?</summary>
+                    <p class="faq-answer">800×800 is the standard for e-commerce product photos (Amazon, Shopify, eBay), avatar/profile images, square product thumbnails, listing images on marketplace platforms, and mobile app icons. It's large enough to show detail but small enough to load quickly.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Can I batch resize product photos to 800×800?</summary>
+                    <p class="faq-answer">Yes, upload all your product images at once and resize them all to 800×800 in a single batch operation. Each image maintains its aspect ratio. Ideal for e-commerce sellers who need consistent image dimensions across their entire catalog.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Will 800×800 be sharp on Retina displays?</summary>
+                    <p class="faq-answer">800×800 appears as 400×400 on 2x Retina screens (like iPhones with Retina displays). For true Retina sharpness at a 400×400 display size, 800×800 is perfect — double the pixel density for crisp rendering.</p>
+                </details>
                 </div>
             </div>
         </section>

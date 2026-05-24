@@ -25,6 +25,90 @@
     </script>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Why is 1080\u00d71080 a common image size?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "1080\u00d71080 pixels is the ideal square format for Instagram posts, profile pictures, and social media grid layouts. Most platforms optimize display at this resolution \u2014 sharp on Retina displays without being unnecessarily large. It also works well as a standard product photo square."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will my image be cropped or stretched to fit 1080\u00d71080?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The tool resizes while maintaining aspect ratio. If your original image isn't a perfect square, it will fit within 1080\u00d71080 boundaries with its original proportions preserved. Non-square images get letterboxed (blank space on the sides or top/bottom). For a true square crop, crop your image to square first."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How fast is batch resizing to 1080\u00d71080?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Extremely fast. Canvas-based processing means each image resizes in milliseconds. Upload multiple images at once and the tool processes them all in parallel. You can resize an entire folder of images to 1080\u00d71080 in seconds."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is this resize tool free?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, completely free with no usage limits, registration, or watermarks. All processing runs locally in your browser \u2014 nothing is uploaded to any server."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -92,6 +176,30 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">Why is 1080×1080 a common image size?</summary>
+                    <p class="faq-answer">1080×1080 pixels is the ideal square format for Instagram posts, profile pictures, and social media grid layouts. Most platforms optimize display at this resolution — sharp on Retina displays without being unnecessarily large. It also works well as a standard product photo square.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Will my image be cropped or stretched to fit 1080×1080?</summary>
+                    <p class="faq-answer">The tool resizes while maintaining aspect ratio. If your original image isn't a perfect square, it will fit within 1080×1080 boundaries with its original proportions preserved. Non-square images get letterboxed (blank space on the sides or top/bottom). For a true square crop, crop your image to square first.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">How fast is batch resizing to 1080×1080?</summary>
+                    <p class="faq-answer">Extremely fast. Canvas-based processing means each image resizes in milliseconds. Upload multiple images at once and the tool processes them all in parallel. You can resize an entire folder of images to 1080×1080 in seconds.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Is this resize tool free?</summary>
+                    <p class="faq-answer">Yes, completely free with no usage limits, registration, or watermarks. All processing runs locally in your browser — nothing is uploaded to any server.</p>
+                </details>
                 </div>
             </div>
         </section>

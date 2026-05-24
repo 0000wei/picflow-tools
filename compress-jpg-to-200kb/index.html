@@ -25,6 +25,82 @@
     </script>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What quality does a 200KB JPG give me?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For a 1920\u00d71080 image, 200KB typically corresponds to 70-85% JPEG quality \u2014 a good balance: visually near-lossless but with significant compression. For smaller images, you can use even higher quality and still stay under 200KB."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is 200KB good for website images?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "200KB per image is a reasonable target for blog posts, portfolio items, and product pages. A page with 5-10 images at 200KB each loads smoothly on most connections. For hero images and banners, aim lower (100-150KB) since they're often full-width and critical to first impressions."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I batch compress JPGs to 200KB?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Simply upload all your JPG files and adjust the quality slider until the previews show file sizes near 200KB. Since compression depends on image content, start with 75% quality and adjust up or down. Download individual images or use batch download for all at once."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -92,6 +168,26 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">What quality does a 200KB JPG give me?</summary>
+                    <p class="faq-answer">For a 1920×1080 image, 200KB typically corresponds to 70-85% JPEG quality — a good balance: visually near-lossless but with significant compression. For smaller images, you can use even higher quality and still stay under 200KB.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Is 200KB good for website images?</summary>
+                    <p class="faq-answer">200KB per image is a reasonable target for blog posts, portfolio items, and product pages. A page with 5-10 images at 200KB each loads smoothly on most connections. For hero images and banners, aim lower (100-150KB) since they're often full-width and critical to first impressions.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">How do I batch compress JPGs to 200KB?</summary>
+                    <p class="faq-answer">Simply upload all your JPG files and adjust the quality slider until the previews show file sizes near 200KB. Since compression depends on image content, start with 75% quality and adjust up or down. Download individual images or use batch download for all at once.</p>
+                </details>
                 </div>
             </div>
         </section>

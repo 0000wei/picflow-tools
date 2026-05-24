@@ -25,6 +25,82 @@
     </script>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is 1920\u00d71080 used for?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "1920\u00d71080 (Full HD / 1080p) is the standard desktop wallpaper resolution, YouTube thumbnail size, presentation slide dimensions, and widescreen display format. It's also commonly used for hero images on websites, blog featured images, and video cover art."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will resizing to 1920\u00d71080 maintain the original aspect ratio?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, the tool preserves aspect ratio automatically. Images that aren't 16:9 will fit within the 1920\u00d71080 box with their original proportions. For a perfect 16:9 crop, manually crop the image before resizing, or use a dedicated cropping tool."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How much will the file size change?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Resizing significantly reduces file size if your original is larger than 1920\u00d71080 \u2014 most photos from modern cameras and smartphones exceed this resolution. The exact change depends on the original dimensions and compression settings."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -92,6 +168,26 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">What is 1920×1080 used for?</summary>
+                    <p class="faq-answer">1920×1080 (Full HD / 1080p) is the standard desktop wallpaper resolution, YouTube thumbnail size, presentation slide dimensions, and widescreen display format. It's also commonly used for hero images on websites, blog featured images, and video cover art.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Will resizing to 1920×1080 maintain the original aspect ratio?</summary>
+                    <p class="faq-answer">Yes, the tool preserves aspect ratio automatically. Images that aren't 16:9 will fit within the 1920×1080 box with their original proportions. For a perfect 16:9 crop, manually crop the image before resizing, or use a dedicated cropping tool.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">How much will the file size change?</summary>
+                    <p class="faq-answer">Resizing significantly reduces file size if your original is larger than 1920×1080 — most photos from modern cameras and smartphones exceed this resolution. The exact change depends on the original dimensions and compression settings.</p>
+                </details>
                 </div>
             </div>
         </section>

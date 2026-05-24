@@ -25,6 +25,90 @@
     </script>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How do I get an image under 100KB?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Start with a reasonable resolution (under 2000px wide). Use the quality slider between 50-70% for most images. Photos with lots of detail may need lower quality settings, while simple graphics with solid colors can stay crisp even at higher compression."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What's the best quality setting to stay under 100KB?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For a 1920\u00d71080 photo, 40-60% quality usually lands under 100KB. For smaller images like 800\u00d7800, 60-80% works. The tool shows the output file size in real time, so experiment with the slider to find the best quality that keeps you under the limit."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Why does my image need to be under 100KB?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "100KB is a common limit for email attachments, forum uploads, job application portals, and some CMS platforms. Smaller images also improve page load speed \u2014 every 100KB saved makes your page load noticeably faster, especially on mobile networks."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I batch compress images to under 100KB?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, upload multiple images and the tool processes them all simultaneously. Since each image needs different compression levels to hit 100KB, adjust the quality slider for your batch and preview the results before downloading."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -92,6 +176,30 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">How do I get an image under 100KB?</summary>
+                    <p class="faq-answer">Start with a reasonable resolution (under 2000px wide). Use the quality slider between 50-70% for most images. Photos with lots of detail may need lower quality settings, while simple graphics with solid colors can stay crisp even at higher compression.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">What's the best quality setting to stay under 100KB?</summary>
+                    <p class="faq-answer">For a 1920×1080 photo, 40-60% quality usually lands under 100KB. For smaller images like 800×800, 60-80% works. The tool shows the output file size in real time, so experiment with the slider to find the best quality that keeps you under the limit.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Why does my image need to be under 100KB?</summary>
+                    <p class="faq-answer">100KB is a common limit for email attachments, forum uploads, job application portals, and some CMS platforms. Smaller images also improve page load speed — every 100KB saved makes your page load noticeably faster, especially on mobile networks.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Can I batch compress images to under 100KB?</summary>
+                    <p class="faq-answer">Yes, upload multiple images and the tool processes them all simultaneously. Since each image needs different compression levels to hit 100KB, adjust the quality slider for your batch and preview the results before downloading.</p>
+                </details>
                 </div>
             </div>
         </section>

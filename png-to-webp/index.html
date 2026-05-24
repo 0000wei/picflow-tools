@@ -62,6 +62,90 @@
     <link rel="mcp" href="../mcp.json" title="PicEte MCP Tools">
     <meta name="msvalidate.01" content="F2859D0614981562217BF497BEF4002A" />
     <link rel="stylesheet" href="../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How much smaller is WebP compared to PNG?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WebP typically reduces file size by 25-35% compared to PNG while maintaining the same visual quality. For photos with lossy WebP compression, savings reach 80-90%. For lossless WebP (preserving transparency), you still get roughly 30% smaller files. WebP is designed specifically for web performance."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does WebP support transparency like PNG?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, WebP fully supports alpha transparency channels. You can convert transparent PNGs to WebP and the transparency is preserved perfectly. This makes WebP an ideal replacement for PNG on the web \u2014 same visual quality with transparency, but significantly smaller file sizes."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is WebP supported in all browsers?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WebP is supported by all modern browsers including Chrome (since 2010), Firefox (since 2018), Safari (since 2020), and Edge (since 2018). Over 97% of web users can view WebP images. For edge cases, you can use a fallback strategy with the <picture> element."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Should I convert all my PNGs to WebP?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For web use, yes \u2014 replacing PNG with WebP improves page load speed without quality loss, especially beneficial for mobile users on slow connections. For images you need to edit or share outside the web, keep the original PNG. WebP is still not universally supported in offline tools like Photoshop without plugins."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -198,6 +282,30 @@
                 <div style="margin-bottom: 1.5rem;">
                     <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Browser Support Is a Non-Issue Now</h3>
                     <p style="line-height: 1.8; color: var(--text-light);">All major browsers support WebP — Chrome, Firefox, Edge, Safari, Opera. Over 95% of web users globally can view WebP images as of 2024. For the tiny fraction on older browsers, use the HTML picture element with PNG fallback. Most CMS platforms like WordPress handle this automatically through plugins. Our converter makes it easy to generate both formats so everyone sees optimized images.</p>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">How much smaller is WebP compared to PNG?</summary>
+                    <p class="faq-answer">WebP typically reduces file size by 25-35% compared to PNG while maintaining the same visual quality. For photos with lossy WebP compression, savings reach 80-90%. For lossless WebP (preserving transparency), you still get roughly 30% smaller files. WebP is designed specifically for web performance.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Does WebP support transparency like PNG?</summary>
+                    <p class="faq-answer">Yes, WebP fully supports alpha transparency channels. You can convert transparent PNGs to WebP and the transparency is preserved perfectly. This makes WebP an ideal replacement for PNG on the web — same visual quality with transparency, but significantly smaller file sizes.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Is WebP supported in all browsers?</summary>
+                    <p class="faq-answer">WebP is supported by all modern browsers including Chrome (since 2010), Firefox (since 2018), Safari (since 2020), and Edge (since 2018). Over 97% of web users can view WebP images. For edge cases, you can use a fallback strategy with the <picture> element.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Should I convert all my PNGs to WebP?</summary>
+                    <p class="faq-answer">For web use, yes — replacing PNG with WebP improves page load speed without quality loss, especially beneficial for mobile users on slow connections. For images you need to edit or share outside the web, keep the original PNG. WebP is still not universally supported in offline tools like Photoshop without plugins.</p>
+                </details>
                 </div>
             </div>
         </section>

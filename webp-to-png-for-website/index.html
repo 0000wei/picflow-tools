@@ -25,6 +25,90 @@
     </script>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Why would a website need WebP converted to PNG?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not all platforms and CMS systems support WebP uploads. Convert WebP to PNG when: your website's media library rejects WebP, you're uploading to an older CMS, your CDN doesn't serve WebP correctly, or your contributors use browsers that don't handle WebP uploads reliably."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does converting WebP to PNG preserve image quality for web use?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, PNG is lossless so the conversion preserves every pixel. The trade-off is file size \u2014 PNG will be 3-5x larger than the original WebP. For web use, consider re-compressing with a tool like TinyPNG after conversion, or keep WebP format where your CMS supports it."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does the conversion retain transparency for web graphics?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, both WebP and PNG support alpha transparency. Logos, icons, and graphics with transparent backgrounds convert perfectly. The PNG output is ready for immediate use in your website's design assets and image directories."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I batch convert multiple WebP images for my website?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, upload all your WebP assets at once. The tool batch processes them and preserves filenames with the .png extension for easy website integration \u2014 just download and upload to your CMS or copy to your assets folder."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -92,6 +176,30 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">Why would a website need WebP converted to PNG?</summary>
+                    <p class="faq-answer">Not all platforms and CMS systems support WebP uploads. Convert WebP to PNG when: your website's media library rejects WebP, you're uploading to an older CMS, your CDN doesn't serve WebP correctly, or your contributors use browsers that don't handle WebP uploads reliably.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Does converting WebP to PNG preserve image quality for web use?</summary>
+                    <p class="faq-answer">Yes, PNG is lossless so the conversion preserves every pixel. The trade-off is file size — PNG will be 3-5x larger than the original WebP. For web use, consider re-compressing with a tool like TinyPNG after conversion, or keep WebP format where your CMS supports it.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Does the conversion retain transparency for web graphics?</summary>
+                    <p class="faq-answer">Yes, both WebP and PNG support alpha transparency. Logos, icons, and graphics with transparent backgrounds convert perfectly. The PNG output is ready for immediate use in your website's design assets and image directories.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Can I batch convert multiple WebP images for my website?</summary>
+                    <p class="faq-answer">Yes, upload all your WebP assets at once. The tool batch processes them and preserves filenames with the .png extension for easy website integration — just download and upload to your CMS or copy to your assets folder.</p>
+                </details>
                 </div>
             </div>
         </section>

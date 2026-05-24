@@ -62,6 +62,90 @@
     <link rel="mcp" href="../mcp.json" title="PicEte MCP Tools">
     <meta name="msvalidate.01" content="F2859D0614981562217BF497BEF4002A" />
     <link rel="stylesheet" href="../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Does converting JPG to PNG lose quality?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. JPG to PNG conversion is lossless \u2014 PNG is a lossless format, so the output preserves every detail of the original JPG. However, converting a compressed JPG to PNG will not restore detail lost during the original JPG compression. The file size will also increase significantly because PNG retains full pixel data."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Why would I convert JPG to PNG?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Convert JPG to PNG when you need lossless quality for editing, when your design workflow requires PNG format, or when the output will be edited and re-saved multiple times. PNG also supports transparency, allowing you to remove backgrounds later. It's ideal for screenshots, graphics, and any content requiring crisp edges."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will the file size be larger after conversion?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, expect PNG files to be 5-10x larger than the original JPG files. PNG's lossless compression preserves every pixel without quality loss, so it demands more storage. For photos on websites, JPG is often more practical. Use PNG when quality preservation matters more than file size."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I convert multiple JPG images at once?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. Select multiple JPG files and our tool batch converts them all simultaneously. Each image gets its own preview showing the new file size. Download converted PNGs one by one or click 'Download All' for bulk download \u2014 no waiting between conversions."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -183,6 +267,30 @@
                 <div style="margin-bottom: 1.5rem;">
                     <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Batch Convert a Whole Folder</h3>
                     <p style="line-height: 1.8; color: var(--text-light);">Converting JPG files one at a time is a waste of time. Batch conversion processes all uploaded images at once with real-time progress. Developers migrating asset libraries, photographers converting portfolios, designers prepping multiple graphics — this is where the time saving hits hardest. The consistent quality across files and the one-click download-all option turn hours of manual work into seconds or minutes.</p>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">Does converting JPG to PNG lose quality?</summary>
+                    <p class="faq-answer">No. JPG to PNG conversion is lossless — PNG is a lossless format, so the output preserves every detail of the original JPG. However, converting a compressed JPG to PNG will not restore detail lost during the original JPG compression. The file size will also increase significantly because PNG retains full pixel data.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Why would I convert JPG to PNG?</summary>
+                    <p class="faq-answer">Convert JPG to PNG when you need lossless quality for editing, when your design workflow requires PNG format, or when the output will be edited and re-saved multiple times. PNG also supports transparency, allowing you to remove backgrounds later. It's ideal for screenshots, graphics, and any content requiring crisp edges.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Will the file size be larger after conversion?</summary>
+                    <p class="faq-answer">Yes, expect PNG files to be 5-10x larger than the original JPG files. PNG's lossless compression preserves every pixel without quality loss, so it demands more storage. For photos on websites, JPG is often more practical. Use PNG when quality preservation matters more than file size.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Can I convert multiple JPG images at once?</summary>
+                    <p class="faq-answer">Absolutely. Select multiple JPG files and our tool batch converts them all simultaneously. Each image gets its own preview showing the new file size. Download converted PNGs one by one or click 'Download All' for bulk download — no waiting between conversions.</p>
+                </details>
                 </div>
             </div>
         </section>

@@ -25,6 +25,82 @@
     </script>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is splitting an image into 4 parts used for?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A 2\u00d72 split creates 4 equal tiles \u2014 great for before/after showcases, product feature displays, puzzle-style reveals, large infographics divided into readable chunks, and mosaic wall art previews. It's simpler than a 9-grid but still creates an engaging multi-post layout."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does a 4-part split mean 2\u00d72 grid?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, the 4-part split is a 2\u00d72 grid: 2 columns \u00d7 2 rows. Each tile is a quarter of the original image. The tiles are numbered sequentially left-to-right, top-to-bottom for easy reassembly. You can also choose different grid configurations in our full splitter tool."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I use 4-part split for print projects?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. Splitting a large image into 4 printable sections is useful for posters, banners, and large-format prints that need to be printed on standard-sized paper. Each tile retains full quality from the original, so the assembled print looks seamless."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -92,6 +168,26 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">What is splitting an image into 4 parts used for?</summary>
+                    <p class="faq-answer">A 2×2 split creates 4 equal tiles — great for before/after showcases, product feature displays, puzzle-style reveals, large infographics divided into readable chunks, and mosaic wall art previews. It's simpler than a 9-grid but still creates an engaging multi-post layout.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Does a 4-part split mean 2×2 grid?</summary>
+                    <p class="faq-answer">Yes, the 4-part split is a 2×2 grid: 2 columns × 2 rows. Each tile is a quarter of the original image. The tiles are numbered sequentially left-to-right, top-to-bottom for easy reassembly. You can also choose different grid configurations in our full splitter tool.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Can I use 4-part split for print projects?</summary>
+                    <p class="faq-answer">Absolutely. Splitting a large image into 4 printable sections is useful for posters, banners, and large-format prints that need to be printed on standard-sized paper. Each tile retains full quality from the original, so the assembled print looks seamless.</p>
+                </details>
                 </div>
             </div>
         </section>

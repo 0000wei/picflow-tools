@@ -25,6 +25,90 @@
     </script>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Does WordPress support WebP natively?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, WordPress has supported WebP since version 5.8. You can upload WebP images directly in the Media Library. Some hosting providers may need a minor server config update, but most modern WordPress hosts handle WebP without any extra setup."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How much will converting PNG to WebP speed up my WordPress site?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WebP images are typically 25-35% smaller than PNGs. For a WordPress site with 50+ images per page (common in galleries and portfolios), this means 30-50% faster load times. Core Web Vitals scores improve significantly \u2014 especially LCP (Largest Contentful Paint)."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do I need a plugin to serve WebP on WordPress?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. WordPress 5.8+ accepts WebP uploads natively. Just upload your converted WebP files directly. For automatic conversion at upload time or serving WebP only to compatible browsers, plugins like WebP Express or EWWW Image Optimizer are helpful but not required."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will conversion affect image transparency for WordPress?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WebP fully supports alpha transparency, so your transparent PNG logos and graphics will work perfectly as WebP on WordPress. The transparency is preserved during conversion, and WordPress displays it correctly in both the admin panel and on the frontend."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -92,6 +176,30 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">Does WordPress support WebP natively?</summary>
+                    <p class="faq-answer">Yes, WordPress has supported WebP since version 5.8. You can upload WebP images directly in the Media Library. Some hosting providers may need a minor server config update, but most modern WordPress hosts handle WebP without any extra setup.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">How much will converting PNG to WebP speed up my WordPress site?</summary>
+                    <p class="faq-answer">WebP images are typically 25-35% smaller than PNGs. For a WordPress site with 50+ images per page (common in galleries and portfolios), this means 30-50% faster load times. Core Web Vitals scores improve significantly — especially LCP (Largest Contentful Paint).</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Do I need a plugin to serve WebP on WordPress?</summary>
+                    <p class="faq-answer">No. WordPress 5.8+ accepts WebP uploads natively. Just upload your converted WebP files directly. For automatic conversion at upload time or serving WebP only to compatible browsers, plugins like WebP Express or EWWW Image Optimizer are helpful but not required.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Will conversion affect image transparency for WordPress?</summary>
+                    <p class="faq-answer">WebP fully supports alpha transparency, so your transparent PNG logos and graphics will work perfectly as WebP on WordPress. The transparency is preserved during conversion, and WordPress displays it correctly in both the admin panel and on the frontend.</p>
+                </details>
                 </div>
             </div>
         </section>

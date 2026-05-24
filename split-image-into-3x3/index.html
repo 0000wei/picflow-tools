@@ -25,6 +25,90 @@
     </script>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is a 3\u00d73 grid split used for?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A 3\u00d73 grid creates 9 equal tiles from one image \u2014 the classic Instagram carousel grid. When posted across 9 consecutive Instagram posts, the tiles reassemble into a single seamless image on your profile grid. It's popular for announcements, reveal campaigns, and artistic photo displays."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will the 3\u00d73 grid crop my image?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "If your original image is square, all 9 tiles will be perfect squares. If your image is rectangular (e.g., 3:2 or 16:9), the tool fits it within the 3\u00d73 boundaries and each tile maintains the overall proportions. For a true Instagram 3\u00d73 grid, start with a square image."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I post the 3\u00d73 grid on Instagram?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "After splitting, you get 9 separate image files numbered 1-9 (top-left to bottom-right). Post them in order to your Instagram feed \u2014 tile 1 in position 1, tile 2 in position 2, etc. On your profile grid, they automatically align to form one cohesive image. Use a scheduling tool to arrange the order."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I split any image into a 3\u00d73 grid?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, any image format supported by our tool (JPG, PNG, WebP, GIF, BMP) can be split into a 3\u00d73 grid. The tool handles the math automatically \u2014 just upload your image and select the 3\u00d73 option. Each tile is saved at the same quality and resolution as the original."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -92,6 +176,30 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">What is a 3×3 grid split used for?</summary>
+                    <p class="faq-answer">A 3×3 grid creates 9 equal tiles from one image — the classic Instagram carousel grid. When posted across 9 consecutive Instagram posts, the tiles reassemble into a single seamless image on your profile grid. It's popular for announcements, reveal campaigns, and artistic photo displays.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Will the 3×3 grid crop my image?</summary>
+                    <p class="faq-answer">If your original image is square, all 9 tiles will be perfect squares. If your image is rectangular (e.g., 3:2 or 16:9), the tool fits it within the 3×3 boundaries and each tile maintains the overall proportions. For a true Instagram 3×3 grid, start with a square image.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">How do I post the 3×3 grid on Instagram?</summary>
+                    <p class="faq-answer">After splitting, you get 9 separate image files numbered 1-9 (top-left to bottom-right). Post them in order to your Instagram feed — tile 1 in position 1, tile 2 in position 2, etc. On your profile grid, they automatically align to form one cohesive image. Use a scheduling tool to arrange the order.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Can I split any image into a 3×3 grid?</summary>
+                    <p class="faq-answer">Yes, any image format supported by our tool (JPG, PNG, WebP, GIF, BMP) can be split into a 3×3 grid. The tool handles the math automatically — just upload your image and select the 3×3 option. Each tile is saved at the same quality and resolution as the original.</p>
+                </details>
                 </div>
             </div>
         </section>
