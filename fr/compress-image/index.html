@@ -14,7 +14,30 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://picete.com/"},{"@type":"ListItem","position":2,"name":"Compresseur d'images","item":"https://picete.com/fr/compress-image/"}]}</script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/css/style.css">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Combien puis-je compresser une image sans perte de qualité visible ?","acceptedAnswer":{"@type":"Answer","text":"La plupart des images peuvent être compressées de 50 à 80 % avant que la perte de qualité ne devienne perceptible. Les photos avec des dégradés lisses se compressent bien à 60 à 70 % de qualité. Les captures d'écran avec beaucoup de texte ont besoin d'une qualité plus élevée (85 à 90 %) pour garder les bords nets. Notre curseur vous permet de trouver le point idéal pour chaque image."}},{"@type":"Question","name":"La compression est-elle avec ou sans perte ?","acceptedAnswer":{"@type":"Answer","text":"Notre outil utilise la compression avec perte (réencodage JPEG/WebP) par défaut, qui atteint des tailles de fichier beaucoup plus petites que les méthodes sans perte. Le curseur de qualité contrôle le compromis. Pour les images PNG, nous recommandons de convertir en JPEG ou WebP pendant la compression pour une réduction maximale de la taille du fichier."}},{"@type":"Question","name":"Mes images sont-elles téléchargées sur un serveur pendant la compression ?","acceptedAnswer":{"@type":"Answer","text":"Non. Toute la compression se produit localement dans votre navigateur en utilisant l'API Canvas. Vos images ne quittent jamais votre appareil. Cela garantit votre confidentialité et rend notre compresseur sûr pour le contenu sensible ou confidentiel."}},{"@type":"Question","name":"Quels types de fichiers puis-je compresser ?","acceptedAnswer":{"@type":"Answer","text":"Notre compresseur prend en charge JPG, JPEG, PNG, WebP, GIF et BMP. La compression fonctionne mieux sur les formats JPG et WebP. Pour les images PNG, associez la compression à la conversion de format en JPG ou WebP pour une réduction maximale de la taille du fichier — souvent 80 à 90 % plus petit avec un impact minimal sur la qualité."}}]}</script>
-    <style>.faq-list{display:flex;flex-direction:column;gap:.75rem}.faq-item{background:var(--bg-primary,#fff);border:1px solid var(--border-color,#e5e7eb);border-radius:8px;overflow:hidden;transition:box-shadow .2s}.faq-item:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}.faq-question{padding:1rem 1.25rem;font-weight:600;font-size:1rem;color:var(--text-color,#1f2937);cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}.faq-question::after{content:'+';font-size:1.25rem;color:var(--primary-color,#2563eb);transition:transform .2s}details[open] .faq-question::after{content:'−'}.faq-answer{padding:0 1.25rem 1rem 1.25rem;line-height:1.7;color:var(--text-light,#6b7280)}</style>
+    <style>.faq-list{display:flex;flex-direction:column;gap:.75rem}.faq-item{background:var(--bg-primary,#fff);border:1px solid var(--border-color,#e5e7eb);border-radius:8px;overflow:hidden;transition:box-shadow .2s}.faq-item:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}.faq-question{padding:1rem 1.25rem;font-weight:600;font-size:1rem;color:var(--text-color,#1f2937);cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}.faq-question::after{content:'+';font-size:1.25rem;color:var(--primary-color,#2563eb);transition:transform .2s}details[open] .faq-question::after{content:'−'}.faq-answer{padding:0 1.25rem 1rem 1.25rem;line-height:1.7;color:var(--text-light,#6b7280)}
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
 </head>
 <body>
     <header class="header"><div class="container"><div class="logo"><a href="/fr/"><img src="/images/picete-logo.svg" alt="PicEte" class="logo-img"></a><p class="tagline">Outil de compresseur d'images</p></div><nav class="nav"><a href="/fr/" class="nav-link">Accueil</a><a href="/fr/#tools" class="nav-link">Plus d'outils</a>
@@ -42,8 +65,7 @@
             background-size: 12px;
             min-width: 120px;
         }
-        @media (prefers-color-scheme: dark) {
-            .lang-switcher select {
+        [data-theme="dark"] .lang-switcher select {
                 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
             }
         }
@@ -59,11 +81,33 @@
             background-position: left 0.5rem center;
             padding: 0.375rem 0.75rem 0.375rem 2rem;
         }
-        @media (prefers-color-scheme: dark) {
-            [dir="rtl"] .lang-switcher select {
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
                 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
             }
         }
+    
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
     </style>
     <div class="lang-switcher">
         <select onchange="switchLanguage(this.value)" aria-label="Switch language">

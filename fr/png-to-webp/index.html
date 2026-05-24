@@ -14,7 +14,30 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://picete.com/"},{"@type":"ListItem","position":2,"name":"PNG en WebP","item":"https://picete.com/fr/png-to-webp/"}]}</script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/css/style.css">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"De combien WebP est-il plus petit que PNG ?","acceptedAnswer":{"@type":"Answer","text":"WebP réduit généralement la taille du fichier de 25 à 35 % par rapport à PNG tout en maintenant la même qualité visuelle. Pour les photos avec la compression WebP avec perte, les économies atteignent 80 à 90 %. Pour WebP sans perte (préservant la transparence), vous obtenez toujours environ 30 % de fichiers plus petits. WebP est conçu spécifiquement pour les performances web."}},{"@type":"Question","name":"WebP prend-il en charge la transparence comme PNG ?","acceptedAnswer":{"@type":"Answer","text":"Oui, WebP prend entièrement en charge les canaux de transparence alpha. Vous pouvez convertir des PNG transparents en WebP et la transparence est parfaitement préservée. Cela fait de WebP un remplacement idéal pour PNG sur le web — même qualité visuelle avec transparence, mais avec des tailles de fichier nettement plus petites."}},{"@type":"Question","name":"WebP est-il pris en charge dans tous les navigateurs ?","acceptedAnswer":{"@type":"Answer","text":"WebP est pris en charge par tous les navigateurs modernes, y compris Chrome (depuis 2010), Firefox (depuis 2018), Safari (depuis 2020) et Edge (depuis 2018). Plus de 97 % des utilisateurs web peuvent visualiser les images WebP. Pour les cas particuliers, vous pouvez utiliser une stratégie de repli avec l'élément <picture>."}},{"@type":"Question","name":"Dois-je convertir tous mes PNG en WebP ?","acceptedAnswer":{"@type":"Answer","text":"Pour une utilisation web, oui — remplacer PNG par WebP améliore la vitesse de chargement des pages sans perte de qualité, ce qui est particulièrement bénéfique pour les utilisateurs mobiles sur des connexions lentes. Pour les images que vous devez modifier ou partager en dehors du web, gardez le PNG d'origine. WebP n'est toujours pas universellement pris en charge dans les outils hors ligne comme Photoshop sans plugins."}}]}</script>
-    <style>.faq-list{display:flex;flex-direction:column;gap:.75rem}.faq-item{background:var(--bg-primary,#fff);border:1px solid var(--border-color,#e5e7eb);border-radius:8px;overflow:hidden;transition:box-shadow .2s}.faq-item:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}.faq-question{padding:1rem 1.25rem;font-weight:600;font-size:1rem;color:var(--text-color,#1f2937);cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}.faq-question::after{content:'+';font-size:1.25rem;color:var(--primary-color,#2563eb);transition:transform .2s}details[open] .faq-question::after{content:'−'}.faq-answer{padding:0 1.25rem 1rem 1.25rem;line-height:1.7;color:var(--text-light,#6b7280)}</style>
+    <style>.faq-list{display:flex;flex-direction:column;gap:.75rem}.faq-item{background:var(--bg-primary,#fff);border:1px solid var(--border-color,#e5e7eb);border-radius:8px;overflow:hidden;transition:box-shadow .2s}.faq-item:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}.faq-question{padding:1rem 1.25rem;font-weight:600;font-size:1rem;color:var(--text-color,#1f2937);cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}.faq-question::after{content:'+';font-size:1.25rem;color:var(--primary-color,#2563eb);transition:transform .2s}details[open] .faq-question::after{content:'−'}.faq-answer{padding:0 1.25rem 1rem 1.25rem;line-height:1.7;color:var(--text-light,#6b7280)}
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
 </head>
 <body>
     <header class="header"><div class="container"><div class="logo"><a href="/fr/"><img src="/images/picete-logo.svg" alt="PicEte" class="logo-img"></a><p class="tagline">Convertisseur PNG en WebP</p></div><nav class="nav"><a href="/fr/" class="nav-link">Accueil</a><a href="/fr/#tools" class="nav-link">Plus d'outils</a>
@@ -42,8 +65,7 @@
             background-size: 12px;
             min-width: 120px;
         }
-        @media (prefers-color-scheme: dark) {
-            .lang-switcher select {
+        [data-theme="dark"] .lang-switcher select {
                 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
             }
         }
@@ -59,11 +81,33 @@
             background-position: left 0.5rem center;
             padding: 0.375rem 0.75rem 0.375rem 2rem;
         }
-        @media (prefers-color-scheme: dark) {
-            [dir="rtl"] .lang-switcher select {
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
                 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
             }
         }
+    
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
     </style>
     <div class="lang-switcher">
         <select onchange="switchLanguage(this.value)" aria-label="Switch language">

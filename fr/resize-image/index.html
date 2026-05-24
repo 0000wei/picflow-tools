@@ -14,7 +14,30 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://picete.com/"},{"@type":"ListItem","position":2,"name":"Redimensionneur d'images","item":"https://picete.com/fr/resize-image/"}]}</script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/css/style.css">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Le redimensionnement d'une image affecte-t-il sa qualité ?","acceptedAnswer":{"@type":"Answer","text":"La réduction (rendre l'image plus petite) préserve généralement bien la qualité perdue car les pixels excédentaires sont fusionnés. L'augmentation (rendre plus grand) cause une perte de qualité car le logiciel doit inventer des pixels. Pour de meilleurs résultats, commencez toujours avec l'image source la plus grande disponible lorsque vous devez augmenter."}},{"@type":"Question","name":"Quelles dimensions puis-je redimensionner mon image ?","acceptedAnswer":{"@type":"Answer","text":"Vous pouvez entrer n'importe quelle largeur et hauteur en pixels. L'outil prend en charge les dimensions personnalisées et maintient le rapport d'aspect par défaut. Les préréglages courants incluent 1080×1080 (carré Instagram), 1920×1080 (fond d'écran HD), 800×800 (photos de produits) et 1200×630 (images de partage social)."}},{"@type":"Question","name":"Les métadonnées seront-elles préservées après redimensionnement ?","acceptedAnswer":{"@type":"Answer","text":"Les métadonnées d'image de base peuvent être supprimées lors du redimensionnement car l'outil régénère l'image. Pour la plupart des utilisations web et des réseaux sociaux, cela convient. Si vous devez conserver les données EXIF comme les paramètres de l'appareil photo ou les coordonnées GPS, enregistrez une copie de l'original avant le redimensionnement."}},{"@type":"Question","name":"Combien d'images puis-je redimensionner à la fois ?","acceptedAnswer":{"@type":"Answer","text":"Il n'y a pas de limite. Téléchargez plusieurs images et redimensionnez-les toutes aux mêmes dimensions en une seule opération de lot. Chaque image est traitée indépendamment, et vous pouvez les télécharger individuellement ou utiliser le bouton « Télécharger tout » pour un traitement par lot efficace."}}]}</script>
-    <style>.faq-list{display:flex;flex-direction:column;gap:.75rem}.faq-item{background:var(--bg-primary,#fff);border:1px solid var(--border-color,#e5e7eb);border-radius:8px;overflow:hidden;transition:box-shadow .2s}.faq-item:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}.faq-question{padding:1rem 1.25rem;font-weight:600;font-size:1rem;color:var(--text-color,#1f2937);cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}.faq-question::after{content:'+';font-size:1.25rem;color:var(--primary-color,#2563eb);transition:transform .2s}details[open] .faq-question::after{content:'−'}.faq-answer{padding:0 1.25rem 1rem 1.25rem;line-height:1.7;color:var(--text-light,#6b7280)}</style>
+    <style>.faq-list{display:flex;flex-direction:column;gap:.75rem}.faq-item{background:var(--bg-primary,#fff);border:1px solid var(--border-color,#e5e7eb);border-radius:8px;overflow:hidden;transition:box-shadow .2s}.faq-item:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}.faq-question{padding:1rem 1.25rem;font-weight:600;font-size:1rem;color:var(--text-color,#1f2937);cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}.faq-question::after{content:'+';font-size:1.25rem;color:var(--primary-color,#2563eb);transition:transform .2s}details[open] .faq-question::after{content:'−'}.faq-answer{padding:0 1.25rem 1rem 1.25rem;line-height:1.7;color:var(--text-light,#6b7280)}
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
 </head>
 <body>
     <header class="header"><div class="container"><div class="logo"><a href="/fr/"><img src="/images/picete-logo.svg" alt="PicEte" class="logo-img"></a><p class="tagline">Outil de redimensionnement d'images</p></div><nav class="nav"><a href="/fr/" class="nav-link">Accueil</a><a href="/fr/#tools" class="nav-link">Plus d'outils</a>
@@ -42,8 +65,7 @@
             background-size: 12px;
             min-width: 120px;
         }
-        @media (prefers-color-scheme: dark) {
-            .lang-switcher select {
+        [data-theme="dark"] .lang-switcher select {
                 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
             }
         }
@@ -59,11 +81,33 @@
             background-position: left 0.5rem center;
             padding: 0.375rem 0.75rem 0.375rem 2rem;
         }
-        @media (prefers-color-scheme: dark) {
-            [dir="rtl"] .lang-switcher select {
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
                 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
             }
         }
+    
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
     </style>
     <div class="lang-switcher">
         <select onchange="switchLanguage(this.value)" aria-label="Switch language">
