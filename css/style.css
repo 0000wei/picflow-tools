@@ -20,7 +20,7 @@
 }
 
 /* Dark Mode */
-[data-theme="dark"] {
+html[data-theme="dark"] {
     --text-color: #F1F5F9;
     --text-light: #94A3B8;
     --bg-color: #0B1121;
@@ -35,165 +35,165 @@
     --primary-light: #A5B4FC;
 }
 
-[data-theme="dark"] .header {
+html[data-theme="dark"] .header {
     background-color: rgba(20, 29, 46, 0.85);
     box-shadow: 0 1px 0 0 #1E293B;
     backdrop-filter: blur(12px);
 }
 
-[data-theme="dark"] .hero {
+html[data-theme="dark"] .hero {
     background: linear-gradient(180deg, var(--bg-color) 0%, rgba(11, 17, 33, 0.95) 100%);
 }
 
-[data-theme="dark"] .nav-link:hover {
+html[data-theme="dark"] .nav-link:hover {
     color: var(--primary-light);
 }
 
-[data-theme="dark"] .upload-area {
+html[data-theme="dark"] .upload-area {
     background-color: rgba(20, 29, 46, 0.6);
     border-color: var(--border-color);
 }
 
-[data-theme="dark"] .upload-area:hover,
-[data-theme="dark"] .upload-area.dragover {
+html[data-theme="dark"] .upload-area:hover,
+html[data-theme="dark"] .upload-area.dragover {
     background-color: rgba(129, 140, 248, 0.08);
     border-color: var(--primary-color);
 }
 
-[data-theme="dark"] .btn-primary {
+html[data-theme="dark"] .btn-primary {
     background-color: var(--primary-color);
 }
 
-[data-theme="dark"] .btn-primary:hover {
+html[data-theme="dark"] .btn-primary:hover {
     background-color: var(--primary-dark);
 }
 
-[data-theme="dark"] .btn-secondary {
+html[data-theme="dark"] .btn-secondary {
     background-color: var(--bg-secondary);
     color: var(--text-color);
     border-color: var(--border-color);
 }
 
-[data-theme="dark"] .btn-secondary:hover {
+html[data-theme="dark"] .btn-secondary:hover {
     background-color: rgba(30, 41, 59, 0.8);
     border-color: var(--primary-color);
 }
 
-[data-theme="dark"] .tool-card {
+html[data-theme="dark"] .tool-card {
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
 }
 
-[data-theme="dark"] .tool-item {
+html[data-theme="dark"] .tool-item {
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
 }
 
-[data-theme="dark"] .tool-item:hover {
+html[data-theme="dark"] .tool-item:hover {
     border-color: var(--primary-color);
 }
 
-[data-theme="dark"] .feature-item {
+html[data-theme="dark"] .feature-item {
     background-color: var(--bg-secondary);
     border-radius: 1rem;
     padding: 2rem;
 }
 
-[data-theme="dark"] .faq-item {
+html[data-theme="dark"] .faq-item {
     background-color: var(--bg-secondary);
     padding: 1.5rem;
     border-radius: 0.75rem;
     border: 1px solid var(--border-color);
 }
 
-[data-theme="dark"] .download-item {
+html[data-theme="dark"] .download-item {
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
 }
 
-[data-theme="dark"] .preview-item {
+html[data-theme="dark"] .preview-item {
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
 }
 
-[data-theme="dark"] .input-group input,
-[data-theme="dark"] input[type="text"],
-[data-theme="dark"] input[type="number"],
-[data-theme="dark"] input[type="email"],
-[data-theme="dark"] textarea,
-[data-theme="dark"] select {
+html[data-theme="dark"] .input-group input,
+html[data-theme="dark"] input[type="text"],
+html[data-theme="dark"] input[type="number"],
+html[data-theme="dark"] input[type="email"],
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
     background-color: #0B1121;
     color: var(--text-color);
     border-color: var(--border-color);
 }
 
-[data-theme="dark"] .input-group input:focus,
-[data-theme="dark"] input:focus,
-[data-theme="dark"] textarea:focus,
-[data-theme="dark"] select:focus {
+html[data-theme="dark"] .input-group input:focus,
+html[data-theme="dark"] input:focus,
+html[data-theme="dark"] textarea:focus,
+html[data-theme="dark"] select:focus {
     border-color: var(--primary-color);
     outline: none;
 }
 
-[data-theme="dark"] .format-option {
+html[data-theme="dark"] .format-option {
     background-color: #0B1121;
     border-color: var(--border-color);
 }
 
-[data-theme="dark"] .format-option:hover {
+html[data-theme="dark"] .format-option:hover {
     border-color: var(--primary-color);
     background-color: rgba(129, 140, 248, 0.08);
 }
 
-[data-theme="dark"] .format-option:has(input:checked) {
+html[data-theme="dark"] .format-option:has(input:checked) {
     background-color: rgba(129, 140, 248, 0.15);
 }
 
-[data-theme="dark"] .footer {
+html[data-theme="dark"] .footer {
     background-color: var(--bg-secondary);
 }
 
-[data-theme="dark"] .footer-section a {
+html[data-theme="dark"] .footer-section a {
     color: var(--text-light);
 }
 
-[data-theme="dark"] .footer-section a:hover {
+html[data-theme="dark"] .footer-section a:hover {
     color: var(--primary-light);
 }
 
-[data-theme="dark"] .breadcrumb {
+html[data-theme="dark"] .breadcrumb {
     color: var(--text-light);
 }
 
-[data-theme="dark"] .breadcrumb a {
+html[data-theme="dark"] .breadcrumb a {
     color: var(--text-light);
 }
 
-[data-theme="dark"] .breadcrumb a:hover {
+html[data-theme="dark"] .breadcrumb a:hover {
     color: var(--primary-light);
 }
 
-[data-theme="dark"] .breadcrumb .separator {
+html[data-theme="dark"] .breadcrumb .separator {
     color: var(--text-light);
 }
 
-[data-theme="dark"] .breadcrumb .current {
+html[data-theme="dark"] .breadcrumb .current {
     color: var(--text-color);
 }
 
-[data-theme="dark"] .section-title {
+html[data-theme="dark"] .section-title {
     color: var(--text-color);
 }
 
-[data-theme="dark"] .checkbox-group {
+html[data-theme="dark"] .checkbox-group {
     color: var(--text-color);
 }
 
-[data-theme="dark"] .quality-labels {
+html[data-theme="dark"] .quality-labels {
     color: var(--text-light);
 }
 
-[data-theme="dark"] .compression-options input[type="range"] {
+html[data-theme="dark"] .compression-options input[type="range"] {
     background: var(--border-color);
 }
 
@@ -231,11 +231,11 @@
     display: none;
 }
 
-[data-theme="dark"] .sun-icon {
+html[data-theme="dark"] .sun-icon {
     display: none;
 }
 
-[data-theme="dark"] .moon-icon {
+html[data-theme="dark"] .moon-icon {
     display: inline;
 }
 
