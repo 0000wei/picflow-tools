@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bild aufteilen - Kostenloser Online Bildteiler | PicEte</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H72N80TEBW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+    <meta name="description" content="Kostenloser Online Bildteiler. Teilen Sie Bilder in mehrere Teile auf. Unterstützt benutzerdefinierte Zeilen und Spalten für Social-Media-Grids.">>
+    <meta name="keywords" content="image grid splitter, photo slicer, instagram grid maker, split image into grid, photo grid maker, online image splitter">
+    <link rel="canonical" href="https://picete.com/de/image-splitter/">
+    <!-- hreflang 标签 -->
+    <link rel="alternate" hreflang="en" href="https://picete.com/image-splitter/" />
+    <link rel="alternate" hreflang="zh" href="https://picete.com/zh/image-splitter/" />
+    <link rel="alternate" hreflang="ja" href="https://picete.com/ja/image-splitter/" />
+    <link rel="alternate" hreflang="de" href="https://picete.com/de/image-splitter/" />
+    <link rel="alternate" hreflang="fr" href="https://picete.com/fr/image-splitter/" />
+    <link rel="alternate" hreflang="es" href="https://picete.com/es/image-splitter/" />
+    <link rel="alternate" hreflang="pt" href="https://picete.com/pt/image-splitter/" />
+    <link rel="alternate" hreflang="ar" href="https://picete.com/ar/image-splitter/" />
+    <link rel="alternate" hreflang="x-default" href="https://picete.com/image-splitter/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/de/image-splitter/">
+    <meta property="og:title" content="Image Grid Splitter - Free Online Photo Slicer for Instagram">
+    <meta property="og:description" content="Kostenloses Online image grid splitter. Slice any photo into a grid. Custom rows, columns, formats. No upload, runs in your browser.">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Image Grid Splitter",
+        "description": "Kostenloses Online image grid splitter for Instagram and social media",
+        "url": "https://picete.com/image-splitter",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Startseite",
+            "item": "https://picete.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Image Grid Splitter",
+            "item": "https://picete.com/image-splitter/"
+        }]
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="llms" href="../../llms.txt" title="PicEte LLM Context">
+    <link rel="mcp" href="../../mcp.json" title="PicEte MCP Tools">
+    <meta name="msvalidate.01" content="F2859D0614981562217BF497BEF4002A" />
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What grid layouts are supported?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our splitter supports custom rows and columns. The most common layouts are 3\u00d73 (Instagram 9-grid), 2\u00d72 (4 parts for mosaic), and horizontal/vertical strips. You can split any image into virtually any grid size \u2014 try 3\u00d71 for a triptych, 4\u00d71 for a story strip, or 2\u00d73 for a 6-part grid."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will splitting an image reduce its quality?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Each split piece retains the full quality of the original image at its native resolution. Since each tile covers a portion of the original canvas, the individual piece dimensions are smaller, but the pixel density and quality remain identical."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is splitting an image used for?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Image splitting is popular for: Instagram grid posts (split a panorama into 9 tiles), creating before/after comparisons, making image puzzles, dividing large infographics into digestible parts, and designing multi-part social media content that looks seamless when viewed on a profile grid."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I download all the split pieces?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "After splitting, every tile displays with a preview and file size. You can download each piece individually or click 'Alle herunterladen' to save every tile at once. Files are numbered sequentially (e.g., image_1x1.jpg, image_1x2.jpg) to help reassemble them later."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/de/">
+                    <img src="../../images/picete-logo.svg" alt="PicEte" class="logo-img">
+                </a>
+                <p class="tagline">Image Grid Splitter</p>
+            </div>
+            <nav class="nav">
+                <a href="/de/" class="nav-link">Startseite</a>
+                <a href="/de/#tools" class="nav-link">Weitere Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/">Startseite</a><span class="separator">›</span><span class="current">Image Grid Splitter</span></div>
+                <h1 class="hero-title">Image Grid Splitter — Slice a Photo into a Grid</h1>
+                <p class="hero-subtitle">Pick any image, choose your grid, and get perfectly sliced pieces for Instagram carousels, puzzle posts, or multi-panel layouts. All in your browser, nothing uploaded.</p>
+
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p class="upload-text">Drop an image here</p>
+                    <p class="upload-subtext">or click to select — JPG, PNG, WebP all work</p>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                    <button class="btn-primary" id="selectBtn">Bild auswählen</button>
+                </div>
+
+                <div class="processing-area" id="processingArea" style="display: none;">
+                    <div class="preview-section">
+                        <h3>Your Image</h3>
+                        <div class="preview-grid" id="previewGrid" style="justify-content: center;"></div>
+                    </div>
+
+                    <div class="tool-card" style="margin-top: 1.5rem;">
+                        <h4>Grid Settings</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem;">
+                            <div style="flex: 1; min-width: 140px;">
+                                <label style="display: block; margin-bottom: 0.4rem; font-weight: 500; font-size: 0.875rem;">Spalten</label>
+                                <input type="number" id="colsInput" value="3" min="1" max="10" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 0.375rem; background: var(--bg-primary); color: var(--text-color); font-size: 1rem;">
+                            </div>
+                            <div style="flex: 1; min-width: 140px;">
+                                <label style="display: block; margin-bottom: 0.4rem; font-weight: 500; font-size: 0.875rem;">Zeilen</label>
+                                <input type="number" id="rowsInput" value="3" min="1" max="10" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 0.375rem; background: var(--bg-primary); color: var(--text-color); font-size: 1rem;">
+                            </div>
+                            <div style="flex: 1; min-width: 140px;">
+                                <label style="display: block; margin-bottom: 0.4rem; font-weight: 500; font-size: 0.875rem;">Format</label>
+                                <select id="formatSelect" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 0.375rem; background: var(--bg-primary); color: var(--text-color); font-size: 1rem;">
+                                    <option value="png">PNG</option>
+                                    <option value="jpeg">JPG</option>
+                                    <option value="webp">WebP</option>
+                                </select>
+                            </div>
+                            <div style="flex: 1; min-width: 140px;">
+                                <label style="display: block; margin-bottom: 0.4rem; font-weight: 500; font-size: 0.875rem;">Presets</label>
+                                <select id="presetSelect" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 0.375rem; background: var(--bg-primary); color: var(--text-color); font-size: 1rem;">
+                                    <option value="">Custom</option>
+                                    <option value="3x1">Carousel (3x1)</option>
+                                    <option value="3x3" selected>Instagram Grid (3x3)</option>
+                                    <option value="2x2">Collage (2x2)</option>
+                                    <option value="4x3">Panorama (4x3)</option>
+                                    <option value="3x4">Portrait Strip (3x4)</option>
+                                    <option value="2x3">Feed Layout (2x3)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div style="margin-top: 0.75rem;">
+                            <label style="font-size: 0.875rem; color: var(--text-light);">
+                                <input type="checkbox" id="gapCheckbox"> Add a small gap between slices (helps see the grid in preview)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons" style="margin-top: 1.5rem;">
+                        <button class="btn-primary" id="splitBtn">Slice Into Grid</button>
+                        <button class="btn-secondary" id="resetBtn">Choose Another Image</button>
+                    </div>
+                </div>
+
+                <div class="download-section" id="downloadSection" style="display: none;">
+                    <h3>Your Grid Slices Are Ready</h3>
+                    <p style="margin-bottom: 1rem; color: var(--text-light);" id="sliceCount"></p>
+                    <div class="download-grid" id="downloadGrid"></div>
+                    <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center;">
+                        <button class="btn-primary" id="downloadAllBtn">Alle herunterladen as ZIP</button>
+                        <button class="btn-link" id="startOverBtn">Split Another Image</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container" style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+            <a href="/de/" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; font-size: 1.125rem; text-decoration: none;">← Back to PicEte Startseite</a>
+        </div>
+
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">Why Use an Image Grid Splitter</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">📱</div>
+                        <h3>Instagram Puzzle Posts</h3>
+                        <p>Slice a panoramic photo into a 3x3 grid and post each piece separately. When people visit your profile, the full image stitches together across the grid — a classic engagement trick that makes followers stop and look.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎠</div>
+                        <h3>Carousel Creation</h3>
+                        <p>Split a single wide image into a 3x1 or 4x1 carousel that tells a visual story. Each swipe reveals the next panel. Works great for before-and-after comparisons, step-by-step guides, and product reveals.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <h3>100% Private</h3>
+                        <p>Your image never leaves your browser. The grid splitter runs entirely on Canvas — everything stays local. No uploads, no servers, no privacy concerns.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Instant Results</h3>
+                        <p>Processing happens in milliseconds. Choose your grid size, click slice, and every piece is ready to download individually or as a batch ZIP.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" style="padding-top: 0;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">How to Split an Image Into a Grid</h2>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Drop or Pick Your Image</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Click the upload area or drag a photo straight in. JPG, PNG, WebP all work. The image won't go anywhere near a server — everything stays inside your browser tab. If you're slicing for Instagram, a square or slightly wide image works best for the classic 3x3 puzzle grid.</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Set Your Grid</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Choose how many columns and rows you want. 3x3 gives the Instagram puzzle grid. 3x1 is a horizontal carousel. 2x2 works for a simple collage. If you're not sure, the presets dropdown has common layouts ready. Each piece is an equal-sized slice of the original — your photo is divided evenly.</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Download Everything at Once</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Hit "Slice Into Grid" and every piece appears as a preview. Download them one by one or grab the whole batch as a ZIP. Each slice is named consistently so you know the exact order when posting — slice-1-1 is top-left, slice-1-2 is second column first row, and so on.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Grid Splitter Tips & Tricks</h2>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">The Instagram Grid Puzzle Hack</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Posting a multi-slice image where each piece is a separate Instagram post creates a puzzle effect — visitors see a fragmented image on your profile that snaps together into a full picture. This works best with bold, high-contrast images where the subject spans multiple grid cells. Keep the grid to 3x3 max (9 posts) so the full profile view stays readable. Accounts using this consistently report 2-3x more profile visits from the curiosity gap alone.</p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Match Image Composition to Grid Size</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Not every photo works as a grid. Wide landscapes that look great as a single shot often get awkward when chopped into tiles. The best results come from images where the main subject is central and large enough that each slice has a recognizable fragment. Product shots, portraits with clean backgrounds, and geometric patterns handle splitting the best. Test with different aspect ratios — a 2:1 or 3:2 original often tiles more naturally than a tight square crop.</p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Carousel Posts Work Differently</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">For Instagram carousels (swipeable posts), the puzzle effect doesn't apply the same way. Instead, each slice becomes a separate slide. This is a natural format for tutorials, product feature reveals, or photo series where you want the viewer to swipe through step by step. A 3x1 or 4x1 split works best — vertical slices that read left to right as a narrative. Use a consistent style across all slices so the carousel feels cohesive.</p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">File Format Matters for Posting</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Instagram accepts JPG and PNG. JPG works for photos and keeps file sizes small — good when you're posting 9 pieces from a single image. PNG is better if your image has text overlays, sharp edges, or transparent elements that would show compression artifacts as JPG. WebP isn't directly supported by Instagram's uploader, but you can use it if you're posting slices to a website or blog instead of social media.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" id="faq">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Häufig gestellte Fragen</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>Does this tool upload my image to a server?</h3>
+                        <p>No. The entire splitter runs in your browser using Canvas. Your image never leaves your computer. That's why it works even if you disconnect from the internet after the page loads.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What's the maximum image size?</h3>
+                        <p>There's no hard cap, but very large images (over 50MB) may hit browser memory limits. For typical social media images — anything under 20MB — it works fine. If your file is huge, try resizing it with PicEte's image resizer first.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I split multiple images at once?</h3>
+                        <p>Not yet — this tool processes one image at a time. But the split happens instantly, so you can queue up images one after another without any waiting.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What are the best grid sizes for Instagram?</h3>
+                        <p>3x3 is the classic profile puzzle grid. 3x1 or 4x1 works for carousel posts. 2x2 is good for a simple quadrant split. Anything beyond 4 rows or columns creates pieces that are too small to be useful on mobile screens.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Will Instagram compress my grid pieces?</h3>
+                        <p>Yes — Instagram recompresses everything you upload, same as any other image. The quality loss is usually invisible for photos, but if your image has fine text or thin lines, PNG output preserves details better through Instagram's recompression pipeline.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Do I need to download each piece one by one?</h3>
+                        <p>No. Click "Alle herunterladen as ZIP" and you get every slice in a single ZIP file. The files are named by position (slice-1-1.png, slice-1-2.png, etc.) so you know the exact order when posting.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Häufig gestellte Fragen</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">What grid layouts are supported?</summary>
+                    <p class="faq-answer">Our splitter supports custom rows and columns. The most common layouts are 3×3 (Instagram 9-grid), 2×2 (4 parts for mosaic), and horizontal/vertical strips. You can split any image into virtually any grid size — try 3×1 for a triptych, 4×1 for a story strip, or 2×3 for a 6-part grid.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Will splitting an image reduce its quality?</summary>
+                    <p class="faq-answer">No. Each split piece retains the full quality of the original image at its native resolution. Since each tile covers a portion of the original canvas, the individual piece dimensions are smaller, but the pixel density and quality remain identical.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">What is splitting an image used for?</summary>
+                    <p class="faq-answer">Image splitting is popular for: Instagram grid posts (split a panorama into 9 tiles), creating before/after comparisons, making image puzzles, dividing large infographics into digestible parts, and designing multi-part social media content that looks seamless when viewed on a profile grid.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">How do I download all the split pieces?</summary>
+                    <p class="faq-answer">After splitting, every tile displays with a preview and file size. You can download each piece individually or click 'Alle herunterladen' to save every tile at once. Files are numbered sequentially (e.g., image_1x1.jpg, image_1x2.jpg) to help reassemble them later.</p>
+                </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Weitere Tools</h4>
+                    <ul>
+                        <li><a href="/de/png-to-jpg/">PNG to JPG</a></li>
+                        <li><a href="/de/jpg-to-png/">JPG to PNG</a></li>
+                        <li><a href="/de/webp-to-png/">WebP zu PNG</a></li>
+                        <li><a href="/de/png-to-webp/">PNG zu WebP</a></li>
+                        <li><a href="/de/jpg-to-webp/">JPG zu WebP</a></li>
+                        <li><a href="/de/resize-image/">Bildgrößenänderung</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Image Editing</h4>
+                    <ul>
+                        <li><a href="/de/compress-image/">Bildkomprimierung</a></li>
+                        <li><a href="/de/extract-colors/">Color Palette Extractor</a></li>
+                        <li><a href="/de/image-to-base64/">Image to Base64</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Über uns</h4>
+                    <ul>
+                        <li><a href="/de/">Back to Startseite</a></li>
+                        <li><a href="/de/privacy-policy.html">Datenschutzerklärung</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Weitere Tools</h4>
+                    <ul>
+                        <li><a href="https://mockupshot.online/">MockupShot - Screenshot Mockup</a></li>
+                        <li><a href="https://ilovepalette.com/">ILovePalette - Color Tools</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Image Grid Splitter — full logic
+        const state = { image: null, slices: [] };
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const selectBtn = document.getElementById('selectBtn');
+        const processingArea = document.getElementById('processingArea');
+        const previewGrid = document.getElementById('previewGrid');
+        const downloadSection = document.getElementById('downloadSection');
+        const downloadGrid = document.getElementById('downloadGrid');
+        const splitBtn = document.getElementById('splitBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        const startOverBtn = document.getElementById('startOverBtn');
+        const colsInput = document.getElementById('colsInput');
+        const rowsInput = document.getElementById('rowsInput');
+        const formatSelect = document.getElementById('formatSelect');
+        const presetSelect = document.getElementById('presetSelect');
+        const gapCheckbox = document.getElementById('gapCheckbox');
+        const sliceCount = document.getElementById('sliceCount');
+
+        // Events
+        selectBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', handleFile);
+        uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+        uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+        uploadArea.addEventListener('drop', e => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+            if (files.length) loadImage(files[0]);
+        });
+        uploadArea.addEventListener('click', (e) => {
+            if (e.target === uploadArea || e.target.closest('.upload-icon') || e.target.closest('.upload-text')) {
+                fileInput.click();
+            }
+        });
+
+        // Preset → auto-fill cols/rows
+        presetSelect.addEventListener('change', () => {
+            const val = presetSelect.value;
+            if (val) {
+                const [c, r] = val.split('x').map(Number);
+                colsInput.value = c;
+                rowsInput.value = r;
+            }
+        });
+
+        splitBtn.addEventListener('click', splitImage);
+        resetBtn.addEventListener('click', resetAll);
+        downloadAllBtn.addEventListener('click', downloadAll);
+        startOverBtn.addEventListener('click', resetAll);
+
+        function handleFile(e) {
+            const files = Array.from(e.target.files).filter(f => f.type.startsWith('image/'));
+            if (files.length) loadImage(files[0]);
+        }
+
+        function loadImage(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    state.image = { img, file, src: e.target.result };
+                    showProcessing(img);
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function showProcessing(img) {
+            uploadArea.style.display = 'none';
+            processingArea.style.display = 'block';
+            previewGrid.innerHTML = `<div class="preview-item" style="max-width: 400px;">
+                <img src="${img.src}" alt="Uploaded image" style="max-height: 400px; object-fit: contain;">
+                <div class="file-info">
+                    <strong>${state.image.file.name}</strong><br>
+                    ${img.width} × ${img.height}px
+                </div>
+            </div>`;
+        }
+
+        function splitImage() {
+            const cols = parseInt(colsInput.value) || 3;
+            const rows = parseInt(rowsInput.value) || 3;
+            const format = formatSelect.value;
+            const img = state.image.img;
+            const sliceW = Math.floor(img.width / cols);
+            const sliceH = Math.floor(img.height / rows);
+            const addGap = gapCheckbox.checked;
+
+            const mimeMap = { png: 'image/png', jpeg: 'image/jpeg', webp: 'image/webp' };
+            const extMap = { png: 'png', jpeg: 'jpg', webp: 'webp' };
+            const mime = mimeMap[format] || 'image/png';
+
+            state.slices = [];
+
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    const canvas = document.createElement('canvas');
+                    const gap = addGap ? 2 : 0;
+                    canvas.width = sliceW - gap;
+                    canvas.height = sliceH - gap;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, c * sliceW + gap / 2, r * sliceH + gap / 2, sliceW - gap, sliceH - gap, 0, 0, sliceW - gap, sliceH - gap);
+
+                    const dataUrl = canvas.toDataURL(mime);
+                    const name = `slice-${r + 1}-${c + 1}.${extMap[format]}`;
+
+                    // Convert dataURL to blob
+                    const byteString = atob(dataUrl.split(',')[1]);
+                    const ab = new ArrayBuffer(byteString.length);
+                    const ia = new Uint8Array(ab);
+                    for (let i = 0; i < byteString.length; i++) ia[i] = byteString.charCodeAt(i);
+                    const blob = new Blob([ab], { type: mime });
+                    const url = URL.createObjectURL(blob);
+
+                    state.slices.push({ url, blob, name, row: r, col: c });
+                }
+            }
+
+            showResults();
+        }
+
+        function showResults() {
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'block';
+            const total = state.slices.length;
+            sliceCount.textContent = `${total} slices from a ${colsInput.value}×${rowsInput.value} grid`;
+            downloadGrid.innerHTML = '';
+
+            // Sort by position
+            state.slices.sort((a, b) => a.row === b.row ? a.col - b.col : a.row - b.row);
+
+            // Show as a grid preview
+            const gridDiv = document.createElement('div');
+            gridDiv.style.cssText = 'display: grid; grid-template-columns: repeat(' + colsInput.value + ', 1fr); gap: 4px; margin-bottom: 1.5rem;';
+            state.slices.forEach((s, i) => {
+                const div = document.createElement('div');
+                div.style.cssText = 'position: relative;';
+                div.innerHTML = `<img src="${s.url}" alt="${s.name}" style="width: 100%; display: block; border-radius: 4px;">
+                    <div class="download-item" style="padding: 0.5rem; text-align: center;">
+                        <button class="btn-primary" onclick="downloadOne(${i})" style="font-size: 0.75rem; padding: 0.3rem 0.75rem;">${s.name}</button>
+                    </div>`;
+                gridDiv.appendChild(div);
+            });
+            downloadGrid.appendChild(gridDiv);
+        }
+
+        window.downloadOne = function(i) {
+            const s = state.slices[i];
+            const a = document.createElement('a');
+            a.href = s.url;
+            a.download = s.name;
+            a.click();
+        };
+
+        function downloadAll() {
+            if (state.slices.length === 0) return;
+
+            // Load JSZip from CDN and generate ZIP
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+            script.onload = () => {
+                try {
+                    const zip = new JSZip();
+                    state.slices.forEach(s => zip.file(s.name, s.blob));
+                    zip.generateAsync({ type: 'blob' }).then(blob => {
+                        const a = document.createElement('a');
+                        a.href = URL.createObjectURL(blob);
+                        a.download = 'grid-slices.zip';
+                        a.click();
+                    });
+                } catch (e) {
+                    // Fallback: download one by one if JSZip fails
+                    state.slices.forEach((s, i) => setTimeout(() => {
+                        const a = document.createElement('a');
+                        a.href = s.url;
+                        a.download = s.name;
+                        a.click();
+                    }, i * 400));
+                }
+            };
+            script.onerror = () => {
+                // Fallback if CDN is unreachable
+                state.slices.forEach((s, i) => setTimeout(() => {
+                    const a = document.createElement('a');
+                    a.href = s.url;
+                    a.download = s.name;
+                    a.click();
+                }, i * 400));
+            };
+            document.head.appendChild(script);
+        }
+
+        function resetAll() {
+            state.image = null;
+            state.slices = [];
+            fileInput.value = '';
+            downloadSection.style.display = 'none';
+            processingArea.style.display = 'none';
+            uploadArea.style.display = 'block';
+            presetSelect.value = '3x3';
+            colsInput.value = 3;
+            rowsInput.value = 3;
+            formatSelect.value = 'png';
+        }
+    </script>
+</body>
+</html>

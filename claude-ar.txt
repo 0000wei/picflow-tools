@@ -1,0 +1,50 @@
+为 PicEte 网站 (https://picete.com) 生成阿拉伯语 (ar) 版。
+
+项目路径: /home/wu/picete-site/
+原文: 英文 HTML（首页 + 22个子页目录）
+
+## 输出结构
+
+在项目下创建 /ar/ 目录，保持原有结构：
+  /ar/index.html
+  /ar/png-to-jpg/index.html
+  /ar/jpg-to-png/index.html
+  /ar/webp-to-png/index.html
+  /ar/png-to-webp/index.html
+  /ar/jpg-to-webp/index.html
+  /ar/resize-image/index.html
+  /ar/compress-image/index.html
+  /ar/image-splitter/index.html
+  /ar/extract-colors/index.html
+  /ar/image-to-base64/index.html
+  /ar/resize-image-to-1080x1080/index.html
+  /ar/resize-image-to-1920x1080/index.html
+  /ar/resize-image-to-800x800/index.html
+  /ar/resize-image-to-1200x630/index.html
+  /ar/compress-image-to-100kb/index.html
+  /ar/compress-image-to-50kb/index.html
+  /ar/compress-jpg-to-200kb/index.html
+  /ar/png-to-jpg-for-email/index.html
+  /ar/webp-to-png-for-website/index.html
+  /ar/png-to-webp-for-wordpress/index.html
+  /ar/split-image-into-3x3/index.html
+  /ar/split-image-into-4-parts/index.html
+
+## 翻译规则
+
+1. 品牌名 "PicEte" 保持不翻译
+2. 技术术语 (Canvas, Base64, WebP, Schema, GA, OG 等) 保持英文
+3. 代码块 <script> 内容不翻译
+4. URL、路径、CSS class 名、id 名保持原样
+5. <html lang="ar" dir="rtl"> 设置 lang 和 dir
+6. Schema ld+json 中的 name/description 翻译
+7. FAQPage schema 问答全部翻译
+8. 外部链接 (mockupshot.online, ilovepalette.com) 不变
+9. 不需要加 hreflang 标签（已经在英文页面上加好了）
+
+## 内链路径处理
+
+- 首页 /ar/index.html: 内链加 /ar/ 前缀，静态资源路径不变
+- 子页: ../css/style.css → ../../css/style.css，内链用 /ar/xxx/
+
+请开始执行。完成后告诉我。
