@@ -291,6 +291,10 @@ body {
     display: block;
 }
 
+html[data-theme="dark"] .logo-img {
+    content: url("/images/picete-logo-white.svg");
+}
+
 .logo-text {
     font-size: 1.5rem;
     font-weight: 700;
@@ -782,6 +786,10 @@ body {
     width: auto;
     display: block;
     margin-bottom: 0.75rem;
+}
+
+html[data-theme="dark"] .footer-logo {
+    content: url("/images/picete-logo-white.svg");
 }
 
 .footer-section h4 {
