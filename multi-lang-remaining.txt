@@ -1,0 +1,79 @@
+任务：完成 PicEte 网站的多语言剩余工作。
+
+项目路径: /home/wu/picete-site/
+
+## 已完成
+
+- 中文版（zh）所有 23 页已生成并上线
+- 英文原文已加 hreflang 标签（9种语言 + x-default）
+- extract-colors 横幅 paletteflow.app → ilovepalette.com
+
+## 待完成
+
+### 第1步：生成剩余 6 种语言
+
+为以下每种语言创建完整的 /lang/ 目录（首页 + 22 个子页），
+目标是让 Claude Code 逐个翻译，每种语言的提示词格式与之前中文版相同。
+
+语言（请按顺序处理）：
+1. ja（日本語）
+2. de（Deutsch）
+3. fr（Français）
+4. es（Español）
+5. pt（Português）
+6. ar（العربية，注意 dir="rtl"）
+
+**语言切换器和自动跳转先不做**，先完成所有语言的页面生成。
+
+### 翻译规则（与中文版一致）
+
+- 品牌名 "PicEte" 保持不翻译
+- 技术术语 (Canvas, Base64, WebP, Schema, GA 等) 保持英文
+- 代码块 <script> 内容不翻译
+- URL、路径、CSS class 名、id 名保持原样
+- <html lang="xx"> 设置对应语言代码，阿拉伯语设置 dir="rtl"
+- Schema ld+json 中的 name/description/FAQ 翻译
+- 外部链接 (mockupshot.online, ilovepalette.com) 不变
+- 静态资源路径调整（子目录深一层: ../css/ → ../../css/）
+- 内链加语言前缀: /ja/png-to-jpg/ 等
+- hreflang 标签已经由中文版时一次性添加好了，不需重复加
+
+### 输出结构
+
+每个语言创建独立子目录：
+```
+/ja/index.html
+/ja/png-to-jpg/index.html
+...
+/de/index.html
+/de/png-to-jpg/index.html
+...
+```
+
+### 执行方式
+
+每次只处理一种语言。逐个完成后提交到 git，触发 Vercel 部署。
+
+### 每个语言的执行步骤
+
+1. 用 read_file 读英文首页 index.html，理解完整结构
+2. 创建 /语言代码/ 目录
+3. 写中文版 /语言代码/index.html（完整翻译的首页）
+4. 逐个读英文子页 → 写中文版 /语言代码/子目录/index.html
+5. 验证：随机检查 2-3 个页面的 title/hreflang/链接正确性
+
+### 验证检查清单
+
+- title 翻译了
+- meta description 翻译了
+- OG tags 翻译了
+- hero-title / hero-subtitle 翻译了
+- schema ld+json name/description 翻译了
+- FAQ 翻译了
+- 内链都加 /语言代码/ 前缀
+- 静态资源路径正确（../../css/style.css）
+- 外部链接不变（mockupshot, ilovepalette）
+- <html lang="xx"> 正确
+- 阿拉伯语 <html lang="ar" dir="rtl">
+
+完成后告诉我每种语言的文件变更数。

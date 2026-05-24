@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像からBase64 - 無料オンラインBase64エンコーダーツール | PicEte</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H72N80TEBW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+    <meta name="description" content="無料オンライン画像からBase64変換ツール。画像をアップロードまたはURLを貼り付けて即座にBase64エンコーディングを取得。Data URL、HTML、CSS、またはMarkdownとしてコピー。アップロードなし、100%プライベート。">
+    <meta name="keywords" content="画像からBase64, Base64エンコーダ, 画像からBase64変換, Data URL生成, 画像をBase64にエンコード">
+    <link rel="canonical" href="https://picete.com/ja/image-to-base64/">
+    <!-- hreflang 标签 -->
+    <link rel="alternate" hreflang="en" href="https://picete.com/image-to-base64/" />
+    <link rel="alternate" hreflang="zh" href="https://picete.com/zh/image-to-base64/" />
+    <link rel="alternate" hreflang="ja" href="https://picete.com/ja/image-to-base64/" />
+    <link rel="alternate" hreflang="de" href="https://picete.com/de/image-to-base64/" />
+    <link rel="alternate" hreflang="fr" href="https://picete.com/fr/image-to-base64/" />
+    <link rel="alternate" hreflang="es" href="https://picete.com/es/image-to-base64/" />
+    <link rel="alternate" hreflang="pt" href="https://picete.com/pt/image-to-base64/" />
+    <link rel="alternate" hreflang="ar" href="https://picete.com/ar/image-to-base64/" />
+    <link rel="alternate" hreflang="x-default" href="https://picete.com/image-to-base64/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/ja/image-to-base64/">
+    <meta property="og:title" content="画像からBase64 - 無料オンライン画像Base64変換ツール | PicEte">
+    <meta property="og:description" content="無料オンライン画像からBase64変換ツール。画像をアップロードまたはURLを貼り付けて即座にBase64エンコーディングを取得。Data URL、HTML、CSS、またはMarkdownとしてコピー。アップロードなし、100%プライベート。">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "画像からBase64変換ツール",
+        "description": "フォーマットオプション付き無料オンライン画像からBase64変換ツール",
+        "url": "https://picete.com/ja/image-to-base64/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "ホーム",
+            "item": "https://picete.com/ja/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "画像からBase64変換ツール",
+            "item": "https://picete.com/ja/image-to-base64/"
+        }]
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="/ja/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/ja/favicon.ico">
+    <link rel="llms" href="/ja/llms.txt" title="PicEte LLM Context">
+    <link rel="mcp" href="/ja/mcp.json" title="PicEte MCP Tools">
+    <meta name="msvalidate.01" content="F2859D0614981562217BF497BEF4002A" />
+    <link rel="stylesheet" href="/ja/css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is Base64 encoding used for?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Base64 encoding converts binary image data into text format that can be embedded directly in HTML, CSS, or JavaScript. Common uses include: embedding small icons in CSS without HTTP requests, creating data URIs for single-file HTML pages, storing images in databases as text, and working with APIs that accept Base64 input."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How much larger is the Base64 output compared to the original?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Base64 encoding increases file size by approximately 33% compared to the original binary file. For small images (under 10KB), this overhead is acceptable for the convenience of embedding. For larger images, Base64 is inefficient \u2014 loading via URL is better for file sizes over 20KB."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I convert multiple images to Base64 at once?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, upload multiple images and each one gets converted to Base64 independently. All results are displayed with copy buttons for easy retrieval. This is particularly useful when you need multiple Base64 strings for different icons or assets in a single project."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What format is the Base64 output?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The output includes the data URI prefix (e.g., 'data:image/png;base64,...') so the string works immediately in HTML src attributes, CSS background-image properties, or JavaScript Image objects. Just paste the complete string \u2014 no formatting needed."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/ja/">
+                    <img src="/ja/images/picete-logo.svg" alt="PicEte" class="logo-img">
+                </a>
+                <p class="tagline">Image to Base64 Converter</p>
+            </div>
+            <nav class="nav">
+                <a href="/ja/" class="nav-link">Home</a>
+                <a href="/ja/#tools" class="nav-link">More Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/ja/image-to-base64/">Home</a><span class="separator">›</span><span class="current">Image to Base64 Converter</span></div>
+                <h1 class="hero-title">Image to Base64 Converter — Encode Images Instantly</h1>
+                <p class="hero-subtitle">Upload an image or paste a URL to get Base64 encoding immediately. Copy as Data URL, HTML img tag, CSS background, or Markdown. All processing happens in your browser — nothing gets uploaded.</p>
+
+                <!-- Tab Switcher -->
+                <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-color);">
+                    <button id="uploadTabBtn" class="tab-btn active" style="flex: 1; padding: 0.75rem 1rem; background: transparent; border: none; border-bottom: 3px solid var(--primary-color); color: var(--text-color); font-weight: 600; cursor: pointer; font-size: 1rem;">Upload</button>
+                    <button id="urlTabBtn" class="tab-btn" style="flex: 1; padding: 0.75rem 1rem; background: transparent; border: none; border-bottom: 3px solid transparent; color: var(--text-light); font-weight: 600; cursor: pointer; font-size: 1rem;">URL</button>
+                </div>
+
+                <!-- Upload Tab Content -->
+                <div id="uploadTab" class="tab-content">
+                    <div class="upload-area" id="uploadArea">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p class="upload-text">Drop an image here</p>
+                        <p class="upload-subtext">or click to select — JPG, PNG, WebP, GIF all work</p>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                        <button class="btn-primary" id="selectBtn">Select Image</button>
+                    </div>
+                </div>
+
+                <!-- URL Tab Content -->
+                <div id="urlTab" class="tab-content" style="display: none;">
+                    <div class="upload-area" style="padding: 2.5rem 2rem;">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                        </svg>
+                        <p class="upload-text">Paste an image URL</p>
+                        <p class="upload-subtext">Enter the URL of any publicly accessible image</p>
+                        <input type="url" id="urlInput" placeholder="https://example.com/image.jpg" style="width: 100%; max-width: 500px; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 0.375rem; background: var(--bg-primary); color: var(--text-color); font-size: 1rem; margin: 1rem 0;">
+                        <button class="btn-primary" id="loadUrlBtn">Load from URL</button>
+                        <p id="urlError" style="margin-top: 1rem; color: #e74c3c; display: none;"></p>
+                    </div>
+                </div>
+
+                <div class="processing-area" id="processingArea" style="display: none;">
+                    <div class="preview-section">
+                        <h3>Your Image</h3>
+                        <div class="preview-grid" id="previewGrid" style="justify-content: center;"></div>
+                    </div>
+
+                    <div class="tool-card" style="margin-top: 1.5rem;">
+                        <h4>Options</h4>
+                        <div style="margin-top: 1rem;">
+                            <label style="display: flex; align-items: center; margin-bottom: 0.75rem; cursor: pointer; font-weight: 500; font-size: 0.9375rem;">
+                                <input type="checkbox" id="includePrefix" checked style="margin-right: 0.5rem; width: 1.125rem; height: 1.125rem; cursor: pointer;">
+                                Include Data URL prefix (data:image/...;base64,)
+                            </label>
+                            <label style="display: flex; align-items: center; cursor: pointer; font-weight: 500; font-size: 0.9375rem;">
+                                <input type="checkbox" id="lineWrap" style="margin-right: 0.5rem; width: 1.125rem; height: 1.125rem; cursor: pointer;">
+                                Wrap lines at 76 characters (for email/MIME compatibility)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons" style="margin-top: 1.5rem;">
+                        <button class="btn-primary" id="convertBtn">Convert to Base64</button>
+                        <button class="btn-secondary" id="resetBtn">Choose Another Image</button>
+                    </div>
+                </div>
+
+                <div class="download-section" id="resultsSection" style="display: none;">
+                    <h3>Base64 Output</h3>
+
+                    <div class="tool-card" style="margin-bottom: 1.5rem;">
+                        <textarea id="base64Output" readonly style="width: 100%; min-height: 120px; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 0.375rem; background: var(--bg-primary); color: var(--text-color); font-family: monospace; font-size: 0.875rem; resize: vertical; white-space: pre; overflow-x: auto;"></textarea>
+                        <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+                            <span style="font-size: 0.875rem; color: var(--text-light);"><strong>Length:</strong> <span id="charCount">0</span> characters</span>
+                            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <button class="btn-primary" id="copyBtn">Copy Base64</button>
+                                <button class="btn-secondary" id="downloadBtn">Download as .txt</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 style="margin: 2rem 0 1rem 0;">Copy as Other Formats</h4>
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center;">
+                        <button class="btn-primary" id="copyHtmlBtn">&lt;img&gt; Tag</button>
+                        <button class="btn-primary" id="copyCssBtn">CSS Background</button>
+                        <button class="btn-primary" id="copyMarkdownBtn">Markdown</button>
+                    </div>
+
+                    <div style="margin-top: 2rem; display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center;">
+                        <button class="btn-link" id="startOverBtn">Convert Another Image</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container" style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+            <a href="/ja/" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; font-size: 1.125rem; text-decoration: none;">← Back to PicEte Home</a>
+        </div>
+
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">Why Convert an Image to Base64</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">📦</div>
+                        <h3>Single File Delivery</h3>
+                        <p>Embed images directly in HTML or CSS and eliminate separate HTTP requests. Base64 encoded images travel as part of the document, reducing network calls and simplifying asset management.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📧</div>
+                        <h3>Email Templates</h3>
+                        <p>Email clients block external images and treat attachments differently. Base64 inline images display consistently across Gmail, Outlook, and Apple Mail without broken image links.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <h3>100% Private</h3>
+                        <p>Your image never leaves your browser. The converter runs entirely using FileReader and Canvas APIs — everything stays local. No uploads, no servers, no privacy concerns.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Instant Encoding</h3>
+                        <p>No waiting for uploads or processing. Base64 encoding happens in milliseconds on your machine. Copy the result and paste it directly into your code.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" style="padding-top: 0;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">How to Use This Tool</h2>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Choose Your Input Method</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Upload an image file from your device or paste a URL. The upload option handles any image format your browser supports — JPG, PNG, WebP, GIF, SVG. URL mode fetches publicly accessible images from the web, though CORS restrictions may prevent some sources from loading.</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Configure Your Output</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Decide whether to include the Data URL prefix (the `data:image/png;base64,` part). Most use cases need it, but if you only want the raw encoded string, uncheck that option. Line wrapping at 76 characters is useful for email attachments and MIME standards, but web applications typically omit it.</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Copy or Download</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Click convert and the Base64 string appears instantly. Copy it directly or download as a text file for safekeeping. The format buttons give you ready-to-paste HTML img tags, CSS background-image declarations, or Markdown image syntax — all with the Data URL pre-filled.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">When to Use Base64 (and When Not To)</h2>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Good: Small Icons and UI Elements</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);"> Favicons, social media icons, status indicators — anything under 10KB is a solid candidate. The Base64 string fits comfortably inline and saves an HTTP request. You avoid the waterfall delay where the browser waits for the CSS file, then waits again for each background image.</p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Good: Email Templates and Newsletters</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Email clients are aggressive about blocking external images. Base64 images render reliably because they're part of the message body, not separate resources. This is why you see logo images that actually display in promotional emails instead of showing as broken links.</p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Avoid: Large Photos and Background Images</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">Base64 encoding increases file size by about 33%. A 100KB photo becomes a 133KB string — and that's before browser parsing overhead. For anything beyond small assets, external image files are more efficient. They cache separately, transfer with gzip compression, and don't bloat your HTML or CSS.</p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Avoid: Images That Change Frequently</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">User avatars, dynamically generated content, or anything that updates per user should stay as external URLs. Base64 strings are hard to cache granularly — changing the image means redeploying the entire HTML file. External images let you update assets independently and leverage CDN caching.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" id="faq">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>Does this tool upload my image anywhere?</h3>
+                        <p>No. Everything happens in your browser using the FileReader and Canvas APIs. Your image is processed locally and never leaves your computer. That's why it works offline after the page loads.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What's the difference between Data URL and raw Base64?</h3>
+                        <p>A Data URL includes the prefix like `data:image/png;base64,` followed by the encoded string. This tells the browser the data type and encoding. Raw Base64 is just the encoded characters without the prefix. Use Data URLs for web development — raw Base64 for systems that expect the string only.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Why would I use line wrapping?</h3>
+                        <p>Line wrapping at 76 characters is the MIME standard for email attachments and some legacy systems. Modern web applications don't need it — in fact, unwrapped strings are slightly smaller. Only enable wrapping if you're embedding images in email templates or working with systems that require it.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I paste a URL from any website?</h3>
+                        <p>Only if the server allows cross-origin requests. Many websites block hotlinking and don't send CORS headers, which prevents the browser from reading the image data. If URL mode fails, try downloading the image and using the upload option instead.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How large of an image can I convert?</h3>
+                        <p>Technically, the browser can handle very large images, but the Base64 string grows by 33% and becomes unwieldy. A 5MB image turns into a 6.7MB text string — that's millions of characters. For practical purposes, keep your images under 500KB. Large photos and backgrounds should stay as external image files.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Does Base64 encoding work with animated GIFs?</h3>
+                        <p>Yes. The encoder preserves the entire file, including all frames and timing data. When you embed the Data URL in an `<img>` tag, the animation plays just like the original GIF. The same goes for PNG transparency and WebP features — nothing is lost in the encoding process.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">What is Base64 encoding used for?</summary>
+                    <p class="faq-answer">Base64 encoding converts binary image data into text format that can be embedded directly in HTML, CSS, or JavaScript. Common uses include: embedding small icons in CSS without HTTP requests, creating data URIs for single-file HTML pages, storing images in databases as text, and working with APIs that accept Base64 input.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">How much larger is the Base64 output compared to the original?</summary>
+                    <p class="faq-answer">Base64 encoding increases file size by approximately 33% compared to the original binary file. For small images (under 10KB), this overhead is acceptable for the convenience of embedding. For larger images, Base64 is inefficient — loading via URL is better for file sizes over 20KB.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Can I convert multiple images to Base64 at once?</summary>
+                    <p class="faq-answer">Yes, upload multiple images and each one gets converted to Base64 independently. All results are displayed with copy buttons for easy retrieval. This is particularly useful when you need multiple Base64 strings for different icons or assets in a single project.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">What format is the Base64 output?</summary>
+                    <p class="faq-answer">The output includes the data URI prefix (e.g., 'data:image/png;base64,...') so the string works immediately in HTML src attributes, CSS background-image properties, or JavaScript Image objects. Just paste the complete string — no formatting needed.</p>
+                </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>More Tools</h4>
+                    <ul>
+                        <li><a href="/ja/png-to-jpg/">PNG to JPG</a></li>
+                        <li><a href="/ja/jpg-to-png/">JPG to PNG</a></li>
+                        <li><a href="/ja/webp-to-png/">WebP to PNG</a></li>
+                        <li><a href="/ja/png-to-webp/">PNG to WebP</a></li>
+                        <li><a href="/ja/jpg-to-webp/">JPG to WebP</a></li>
+                        <li><a href="/ja/resize-image/">Image Resizer</a></li>
+                        <li><a href="/ja/image-to-base64/">Image to Base64</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="/ja/">Back to Home</a></li>
+                        <li><a href="/ja/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>More Tools</h4>
+                    <ul>
+                        <li><a href="https://mockupshot.online/">MockupShot - Screenshot Mockup</a></li>
+                        <li><a href="https://ilovepalette.com/">ILovePalette - Color Tools</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Image to Base64 Converter
+        const state = { image: null, base64: '' };
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const selectBtn = document.getElementById('selectBtn');
+        const processingArea = document.getElementById('processingArea');
+        const previewGrid = document.getElementById('previewGrid');
+        const resultsSection = document.getElementById('resultsSection');
+        const convertBtn = document.getElementById('convertBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const startOverBtn = document.getElementById('startOverBtn');
+        const base64Output = document.getElementById('base64Output');
+        const charCount = document.getElementById('charCount');
+        const copyBtn = document.getElementById('copyBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const copyHtmlBtn = document.getElementById('copyHtmlBtn');
+        const copyCssBtn = document.getElementById('copyCssBtn');
+        const copyMarkdownBtn = document.getElementById('copyMarkdownBtn');
+        const includePrefix = document.getElementById('includePrefix');
+        const lineWrap = document.getElementById('lineWrap');
+
+        // Tab switching
+        const uploadTabBtn = document.getElementById('uploadTabBtn');
+        const urlTabBtn = document.getElementById('urlTabBtn');
+        const uploadTab = document.getElementById('uploadTab');
+        const urlTab = document.getElementById('urlTab');
+        const urlInput = document.getElementById('urlInput');
+        const loadUrlBtn = document.getElementById('loadUrlBtn');
+        const urlError = document.getElementById('urlError');
+
+        // Events
+        selectBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', handleFile);
+        uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+        uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+        uploadArea.addEventListener('drop', e => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+            if (files.length) loadImage(files[0]);
+        });
+        uploadArea.addEventListener('click', (e) => {
+            if (e.target === uploadArea || e.target.closest('.upload-icon') || e.target.closest('.upload-text')) {
+                fileInput.click();
+            }
+        });
+
+        // Tab events
+        uploadTabBtn.addEventListener('click', () => switchTab('upload'));
+        urlTabBtn.addEventListener('click', () => switchTab('url'));
+
+        // URL mode events
+        loadUrlBtn.addEventListener('click', loadFromUrl);
+        urlInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') loadFromUrl();
+        });
+
+        convertBtn.addEventListener('click', convertToBase64);
+        resetBtn.addEventListener('click', resetAll);
+        startOverBtn.addEventListener('click', resetAll);
+
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(base64Output.value).then(() => {
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => copyBtn.textContent = originalText, 1500);
+            });
+        });
+
+        downloadBtn.addEventListener('click', () => {
+            const blob = new Blob([base64Output.value], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'image-base64.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+
+        copyHtmlBtn.addEventListener('click', () => {
+            const dataUrl = includePrefix.checked ? state.base64 : state.base64.split(',')[1] || state.base64;
+            const fullDataUrl = dataUrl.startsWith('data:') ? dataUrl : `data:${state.image.type};base64,${dataUrl}`;
+            const html = `<img src="${fullDataUrl}" alt="Image">`;
+            navigator.clipboard.writeText(html).then(() => {
+                const originalText = copyHtmlBtn.textContent;
+                copyHtmlBtn.textContent = 'Copied!';
+                setTimeout(() => copyHtmlBtn.textContent = originalText, 1500);
+            });
+        });
+
+        copyCssBtn.addEventListener('click', () => {
+            const dataUrl = includePrefix.checked ? state.base64 : state.base64.split(',')[1] || state.base64;
+            const fullDataUrl = dataUrl.startsWith('data:') ? dataUrl : `data:${state.image.type};base64,${dataUrl}`;
+            const css = `background-image: url(${fullDataUrl});`;
+            navigator.clipboard.writeText(css).then(() => {
+                const originalText = copyCssBtn.textContent;
+                copyCssBtn.textContent = 'Copied!';
+                setTimeout(() => copyCssBtn.textContent = originalText, 1500);
+            });
+        });
+
+        copyMarkdownBtn.addEventListener('click', () => {
+            const dataUrl = includePrefix.checked ? state.base64 : state.base64.split(',')[1] || state.base64;
+            const fullDataUrl = dataUrl.startsWith('data:') ? dataUrl : `data:${state.image.type};base64,${dataUrl}`;
+            const markdown = `![Image](${fullDataUrl})`;
+            navigator.clipboard.writeText(markdown).then(() => {
+                const originalText = copyMarkdownBtn.textContent;
+                copyMarkdownBtn.textContent = 'Copied!';
+                setTimeout(() => copyMarkdownBtn.textContent = originalText, 1500);
+            });
+        });
+
+        function switchTab(tab) {
+            if (tab === 'upload') {
+                uploadTabBtn.classList.add('active');
+                uploadTabBtn.style.borderBottomColor = 'var(--primary-color)';
+                uploadTabBtn.style.color = 'var(--text-color)';
+                urlTabBtn.classList.remove('active');
+                urlTabBtn.style.borderBottomColor = 'transparent';
+                urlTabBtn.style.color = 'var(--text-light)';
+                uploadTab.style.display = 'block';
+                urlTab.style.display = 'none';
+            } else {
+                urlTabBtn.classList.add('active');
+                urlTabBtn.style.borderBottomColor = 'var(--primary-color)';
+                urlTabBtn.style.color = 'var(--text-color)';
+                uploadTabBtn.classList.remove('active');
+                uploadTabBtn.style.borderBottomColor = 'transparent';
+                uploadTabBtn.style.color = 'var(--text-light)';
+                urlTab.style.display = 'block';
+                uploadTab.style.display = 'none';
+            }
+        }
+
+        function handleFile(e) {
+            const files = Array.from(e.target.files).filter(f => f.type.startsWith('image/'));
+            if (files.length) loadImage(files[0]);
+        }
+
+        function loadImage(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    state.image = { img, file, src: e.target.result, type: file.type };
+                    state.base64 = e.target.result;
+                    showProcessing(img);
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function loadFromUrl() {
+            const url = urlInput.value.trim();
+            if (!url) {
+                showUrlError('Please enter an image URL');
+                return;
+            }
+
+            // Reset error
+            urlError.style.display = 'none';
+
+            // Try fetching as blob first
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) throw new Error('Failed to fetch image');
+                    return response.blob();
+                })
+                .then(blob => {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const img = new Image();
+                        img.onload = () => {
+                            state.image = { img, file: { name: url.split('/').pop() || 'image' }, src: e.target.result, type: blob.type };
+                            state.base64 = e.target.result;
+                            showProcessing(img);
+                        };
+                        img.src = e.target.result;
+                    };
+                    reader.readAsDataURL(blob);
+                })
+                .catch(() => {
+                    // Fallback: try loading via Image with CORS
+                    const img = new Image();
+                    img.crossOrigin = 'anonymous';
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0);
+                        const dataUrl = canvas.toDataURL('image/png');
+                        state.image = { img, file: { name: url.split('/').pop() || 'image' }, src: dataUrl, type: 'image/png' };
+                        state.base64 = dataUrl;
+                        showProcessing(img);
+                    };
+                    img.onerror = () => {
+                        showUrlError('Unable to load image from URL. The image may not be publicly accessible, or the server may block cross-origin requests. Try downloading the image and using the upload option instead.');
+                    };
+                    img.src = url;
+                });
+        }
+
+        function showUrlError(message) {
+            urlError.textContent = message;
+            urlError.style.display = 'block';
+        }
+
+        function showProcessing(img) {
+            uploadTab.style.display = 'none';
+            urlTab.style.display = 'none';
+            processingArea.style.display = 'block';
+            resultsSection.style.display = 'none';
+            previewGrid.innerHTML = `<div class="preview-item" style="max-width: 300px;">
+                <img src="${img.src}" alt="Loaded image" style="max-height: 300px; object-fit: contain; border-radius: 8px;">
+                <div class="file-info" style="margin-top: 0.75rem;">
+                    <strong>${state.image.file.name}</strong><br>
+                    ${img.width} × ${img.height}px
+                </div>
+            </div>`;
+        }
+
+        function convertToBase64() {
+            let base64 = state.base64;
+
+            // Remove prefix if unchecked
+            if (!includePrefix.checked) {
+                const parts = base64.split(',');
+                base64 = parts[1] || parts[0];
+            }
+
+            // Apply line wrap if checked
+            if (lineWrap.checked) {
+                base64 = base64.replace(/.{76}/g, '$&\n');
+            }
+
+            base64Output.value = base64;
+            charCount.textContent = base64.length.toLocaleString();
+
+            processingArea.style.display = 'none';
+            resultsSection.style.display = 'block';
+        }
+
+        function resetAll() {
+            state.image = null;
+            state.base64 = '';
+            fileInput.value = '';
+            urlInput.value = '';
+            urlError.style.display = 'none';
+            resultsSection.style.display = 'none';
+            processingArea.style.display = 'none';
+            switchTab('upload');
+            includePrefix.checked = true;
+            lineWrap.checked = false;
+        }
+    </script>
+</body>
+</html>

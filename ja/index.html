@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PicEte - 無料オンライン画像ツール | フォーマット変換、リサイズ、圧縮</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H72N80TEBW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+    <meta name="description" content="PicEteはプロフェッショナルなオンライン画像処理ツールを提供します：PNGからJPG、JPGからPNG、WebP変換、画像リサイズ、画像圧縮。完全無料、登録不要、プライバシーを保護するローカル処理。">
+    <meta name="keywords" content="画像変換オンライン, 画像リサイズ, pngからjpg, webpからpng, 無料オンライン画像ツール">
+    <meta name="msvalidate.01" content="F2859D0614981562217BF497BEF4002A" />
+    <link rel="canonical" href="https://picete.com/ja/">
+
+    <!-- hreflang 标签 -->
+    <link rel="alternate" hreflang="en" href="https://picete.com/" />
+    <link rel="alternate" hreflang="zh" href="https://picete.com/zh/" />
+    <link rel="alternate" hreflang="ja" href="https://picete.com/ja/" />
+    <link rel="alternate" hreflang="de" href="https://picete.com/de/" />
+    <link rel="alternate" hreflang="fr" href="https://picete.com/fr/" />
+    <link rel="alternate" hreflang="es" href="https://picete.com/es/" />
+    <link rel="alternate" hreflang="pt" href="https://picete.com/pt/" />
+    <link rel="alternate" hreflang="ar" href="https://picete.com/ar/" />
+    <link rel="alternate" hreflang="x-default" href="https://picete.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/ja/">
+    <meta property="og:title" content="PicEte - 無料オンライン画像ツール | フォーマット変換、リサイズ、圧縮">
+    <meta property="og:description" content="フォーマット変換、リサイズ、圧縮をサポートするプロフェッショナルなオンライン画像処理ツール。完全無料、プライバシーを保護するローカル処理。">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PicEte",
+        "description": "フォーマット変換、リサイズ、圧縮をサポートする無料オンライン画像処理ツール",
+        "url": "https://picete.com",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <!-- Schema.org Breadcrumb -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "ホーム",
+            "item": "https://picete.com/ja/"
+        }]
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="llms" href="/llms.txt" title="PicEte LLM Context">
+    <link rel="mcp" href="/mcp.json" title="PicEte MCP Tools">
+
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "画像処理は安全ですか？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "完全に安全です。すべての処理はブラウザ内でローカルに行われます。画像はいかなるサーバーにもアップロードされないため、プライバシーとデータセキュリティが保証されます。"
+            }
+        }, {
+            "@type": "Question",
+            "name": "どの画像フォーマットがサポートされていますか？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "JPG、JPEG、PNG、WebP、GIF、BMP、SVGなど、すべての主要な画像フォーマットをサポートしており、ほとんどの画像処理ニーズをカバーしています。"
+            }
+        }, {
+            "@type": "Question",
+            "name": "ファイルサイズの制限はありますか？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "厳密な制限はありませんが、非常に大きな画像（100MB以上）はブラウザのメモリ制限の影響を受ける可能性があります。最高のエクスペリエンスのため、個々の画像は50MB以下にすることをお勧めします。"
+            }
+        }, {
+            "@type": "Question",
+            "name": "複数の画像を一度に処理できますか？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "はい！複数の画像を一度に選択してバッチ処理を行うことができます。各画像は独立して処理され、個別にまたは一括でダウンロードできます。"
+            }
+        }]
+    }
+    </script>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/ja/">
+                    <img src="/images/picete-logo.svg" alt="PicEte" class="logo-img">
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="#tools" class="nav-link">ツール</a>
+                <a href="#features" class="nav-link">機能</a>
+                <a href="#faq" class="nav-link">よくある質問</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/ja/">ホーム</a></div>
+                <h1 class="hero-title">オールインワンオンライン画像処理ツール</h1>
+                <p class="hero-subtitle">フォーマット変換、リサイズ、圧縮 - 画像に関するすべてのニーズに対応するワンストップソリューション</p>
+
+                <!-- Upload Area -->
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p class="upload-text">ここに画像をドロップ</p>
+                    <p class="upload-subtext">またはクリックしてファイルを選択</p>
+                    <input type="file" id="fileInput" accept="image/*" multiple hidden>
+                    <button class="btn-primary" id="selectBtn">画像を選択</button>
+                </div>
+
+                <!-- Processing Area -->
+                <div class="processing-area" id="processingArea" style="display: none;">
+                    <div class="preview-section">
+                        <h3>画像プレビュー</h3>
+                        <div class="preview-grid" id="previewGrid"></div>
+                    </div>
+
+                    <div class="tools-section">
+                        <!-- Format Converter -->
+                        <div class="tool-card">
+                            <h4>フォーマット変換</h4>
+                            <div class="format-options">
+                                <label class="format-option">
+                                    <input type="radio" name="format" value="jpeg">
+                                    <span>JPG</span>
+                                </label>
+                                <label class="format-option">
+                                    <input type="radio" name="format" value="png">
+                                    <span>PNG</span>
+                                </label>
+                                <label class="format-option">
+                                    <input type="radio" name="format" value="webp">
+                                    <span>WebP</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Resize Tool -->
+                        <div class="tool-card">
+                            <h4>リサイズ</h4>
+                            <div class="resize-options">
+                                <div class="input-group">
+                                    <label>幅</label>
+                                    <input type="number" id="widthInput" placeholder="自動">
+                                </div>
+                                <div class="input-group">
+                                    <label>高さ</label>
+                                    <input type="number" id="heightInput" placeholder="自動">
+                                </div>
+                                <label class="checkbox-group">
+                                    <input type="checkbox" id="maintainAspect" checked>
+                                    <span>アスペクト比を維持</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Compression Tool -->
+                        <div class="tool-card">
+                            <h4>圧縮品質</h4>
+                            <div class="compression-options">
+                                <input type="range" id="qualitySlider" min="10" max="100" value="85">
+                                <div class="quality-value">
+                                    <span id="qualityValue">85</span>%
+                                </div>
+                                <div class="quality-labels">
+                                    <span>ファイルサイズを小さく</span>
+                                    <span>高品質</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="btn-primary" id="processBtn">画像を処理</button>
+                            <button class="btn-secondary" id="resetBtn">再選択</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Download Section -->
+                <div class="download-section" id="downloadSection" style="display: none;">
+                    <h3>処理完了！</h3>
+                    <div class="download-grid" id="downloadGrid"></div>
+                    <button class="btn-secondary" id="downloadAllBtn">すべてダウンロード</button>
+                    <button class="btn-link" id="startOverBtn">さらに画像を処理</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Grid -->
+        <section id="tools" class="tools-section">
+            <div class="container">
+                <h2 class="section-title">プロフェッショナル画像ツール</h2>
+                <div class="tools-grid">
+                    <a href="/ja/png-to-jpg/" class="tool-item">
+                        <div class="tool-icon">📐</div>
+                        <h3>PNGからJPG</h3>
+                        <p>PNG画像をJPGフォーマットに変換</p>
+                    </a>
+                    <a href="/ja/jpg-to-png/" class="tool-item">
+                        <div class="tool-icon">🖼️</div>
+                        <h3>JPGからPNG</h3>
+                        <p>JPG画像をPNGフォーマットに変換</p>
+                    </a>
+                    <a href="/ja/webp-to-png/" class="tool-item">
+                        <div class="tool-icon">🔄</div>
+                        <h3>WebPからPNG</h3>
+                        <p>WebP画像をPNGフォーマットに変換</p>
+                    </a>
+                    <a href="/ja/png-to-webp/" class="tool-item">
+                        <div class="tool-icon">⚡</div>
+                        <h3>PNGからWebP</h3>
+                        <p>PNGをモダンなWebPフォーマットに変換</p>
+                    </a>
+                    <a href="/ja/jpg-to-webp/" class="tool-item">
+                        <div class="tool-icon">🎯</div>
+                        <h3>JPGからWebP</h3>
+                        <p>JPGをWebPフォーマットに変換</p>
+                    </a>
+                    <a href="/ja/resize-image/" class="tool-item">
+                        <div class="tool-icon">📏</div>
+                        <h3>画像リサイズ</h3>
+                        <p>画像を希望の寸法にリサイズ</p>
+                    </a>
+                    <a href="/ja/compress-image/" class="tool-item">
+                        <div class="tool-icon">🗜️</div>
+                        <h3>画像圧縮</h3>
+                        <p>画像を圧縮してファイルサイズを削減</p>
+                    </a>
+                    <a href="/ja/image-splitter/" class="tool-item">
+                        <div class="tool-icon">🧩</div>
+                        <h3>画像グリッド分割</h3>
+                        <p>Instagram用グリッドに画像をスライス</p>
+                    </a>
+                    <a href="/ja/extract-colors/" class="tool-item">
+                        <div class="tool-icon">🎨</div>
+                        <h3>カラーパレット抽出</h3>
+                        <p>任意の画像から支配的な色を抽出</p>
+                    </a>
+                    <a href="/ja/image-to-base64/" class="tool-item">
+                        <div class="tool-icon">📦</div>
+                        <h3>画像からBase64</h3>
+                        <p>画像を即座にBase64文字列にエンコード</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2 class="section-title">PicEteを選ぶ理由</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <h3>プライバシー保護</h3>
+                        <p>すべての画像処理はブラウザ内でローカルに行われます。ファイルがサーバーにアップロードされないため、プライバシーと画像セキュリティが保証されます。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h3>超高速処理</h3>
+                        <p>モダンなブラウザのCanvas技術を活用し、待ち時間のないミリ秒級の高速処理を実現します。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💎</div>
+                        <h3>高品質出力</h3>
+                        <p>インテリジェントなアルゴリズムが画質を確保し、圧縮や変換中に最大限のディテールを保持します。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎨</div>
+                        <h3>バッチ処理</h3>
+                        <p>複数の画像を同時にアップロード・処理して、ワークフローを劇的に向上させます。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💰</div>
+                        <h3>完全無料</h3>
+                        <p>すべての機能が永久に無料で、登録不要、使用制限もありません。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📱</div>
+                        <h3>レスポンシブデザイン</h3>
+                        <p>デスクトップ、タブレット、モバイルデバイスに完璧に適応し、どこでも画像処理が可能です。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2 class="section-title">よくある質問</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>画像処理は安全ですか？</h3>
+                        <p>完全に安全です。すべての処理はブラウザ内でローカルに行われます。画像はいかなるサーバーにもアップロードされないため、プライバシーとデータセキュリティが保証されます。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>どの画像フォーマットがサポートされていますか？</h3>
+                        <p>JPG、JPEG、PNG、WebP、GIF、BMP、SVGなど、すべての主要な画像フォーマットをサポートしており、ほとんどの画像処理ニーズをカバーしています。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>ファイルサイズの制限はありますか？</h3>
+                        <p>厳密な制限はありませんが、非常に大きな画像（100MB以上）はブラウザのメモリ制限の影響を受ける可能性があります。最高のエクスペリエンスのため、個々の画像は50MB以下にすることをお勧めします。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>複数の画像を一度に処理できますか？</h3>
+                        <p>はい！複数の画像を一度に選択してバッチ処理を行うことができます。各画像は独立して処理され、個別にまたは一括でダウンロードできます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="/images/picete-logo.svg" alt="PicEte" class="footer-logo">
+                    <p>プロフェッショナルなオンライン画像処理ツール</p>
+                </div>
+                <div class="footer-section">
+                    <h4>画像変換</h4>
+                    <ul>
+                        <li><a href="/ja/png-to-jpg/">PNGからJPG</a></li>
+                        <li><a href="/ja/jpg-to-png/">JPGからPNG</a></li>
+                        <li><a href="/ja/webp-to-png/">WebPからPNG</a></li>
+                        <li><a href="/ja/png-to-webp/">PNGからWebP</a></li>
+                        <li><a href="/ja/jpg-to-webp/">JPGからWebP</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>画像編集</h4>
+                    <ul>
+                        <li><a href="/ja/resize-image/">画像リサイズ</a></li>
+                        <li><a href="/ja/compress-image/">画像圧縮</a></li>
+                        <li><a href="/ja/image-splitter/">画像グリッド分割</a></li>
+                        <li><a href="/ja/extract-colors/">カラーパレット抽出</a></li>
+                        <li><a href="/ja/image-to-base64/">画像からBase64</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>について</h4>
+                    <ul>
+                        <li><a href="/ja/privacy-policy.html">プライバシーポリシー</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>その他のツール</h4>
+                    <ul>
+                        <li><a href="https://mockupshot.online/">MockupShot - スクリーンショットモックアップ</a></li>
+                        <li><a href="https://ilovepalette.com/">ILovePalette - カラーツール</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
