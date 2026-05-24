@@ -20,7 +20,7 @@
 }
 
 /* Dark Mode */
-@media (prefers-color-scheme: dark) {
+[data-theme="dark"] {
     :root {
         --text-color: #F9FAFB;
         --text-light: #D1D5DB;
@@ -38,7 +38,7 @@
 
     /* Header */
     .header {
-        background-color: rgba(31, 41, 55, 0.95);
+        background-color: var(--bg-secondary);
     }
 
     /* Hero */
@@ -214,6 +214,49 @@
         background: var(--border-color);
     }
 }
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    color: var(--text-color);
+    line-height: 1;
+    font-size: 1.125rem;
+}
+
+.theme-toggle:hover {
+    background-color: var(--bg-secondary);
+    border-color: var(--primary-color);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.sun-icon {
+    display: inline;
+}
+
+.moon-icon {
+    display: none;
+}
+
+[data-theme="dark"] .sun-icon {
+    display: none;
+}
+
+[data-theme="dark"] .moon-icon {
+    display: inline;
+}
+
 
 /* Base Styles */
 * {
