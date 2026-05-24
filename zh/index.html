@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PicEte - 免费在线图片工具 | 格式转换、调整大小、压缩</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H72N80TEBW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+    <meta name="description" content="PicEte 提供专业的在线图片处理工具：PNG 转 JPG、JPG 转 PNG、WebP 转换、图片调整大小、图片压缩。完全免费，无需注册，本地处理保护隐私。">
+    <meta name="keywords" content="在线图片转换器, 图片调整大小, png转jpg, webp转png, 免费在线图片工具">
+    <meta name="msvalidate.01" content="F2859D0614981562217BF497BEF4002A" />
+    <link rel="canonical" href="https://picete.com/zh/">
+
+    <!-- hreflang 标签 -->
+    <link rel="alternate" hreflang="en" href="https://picete.com/" />
+    <link rel="alternate" hreflang="zh" href="https://picete.com/zh/" />
+    <link rel="alternate" hreflang="ja" href="https://picete.com/ja/" />
+    <link rel="alternate" hreflang="de" href="https://picete.com/de/" />
+    <link rel="alternate" hreflang="fr" href="https://picete.com/fr/" />
+    <link rel="alternate" hreflang="es" href="https://picete.com/es/" />
+    <link rel="alternate" hreflang="pt" href="https://picete.com/pt/" />
+    <link rel="alternate" hreflang="ar" href="https://picete.com/ar/" />
+    <link rel="alternate" hreflang="x-default" href="https://picete.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/zh/">
+    <meta property="og:title" content="PicEte - 免费在线图片工具 | 格式转换、调整大小、压缩">
+    <meta property="og:description" content="专业的在线图片处理工具，支持格式转换、调整大小和压缩。完全免费，本地处理保护隐私。">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PicEte",
+        "description": "免费在线图片处理工具，支持格式转换、调整大小和压缩",
+        "url": "https://picete.com",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <!-- Schema.org Breadcrumb -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "首页",
+            "item": "https://picete.com/zh/"
+        }]
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="llms" href="/llms.txt" title="PicEte LLM Context">
+    <link rel="mcp" href="/mcp.json" title="PicEte MCP Tools">
+
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "图片处理安全吗？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "绝对安全。所有处理都在您的浏览器本地完成。图片绝不会上传到任何服务器，确保您的隐私和数据安全。"
+            }
+        }, {
+            "@type": "Question",
+            "name": "支持哪些图片格式？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "我们支持所有主流图片格式：JPG、JPEG、PNG、WebP、GIF、BMP、SVG，覆盖大部分图片处理需求。"
+            }
+        }, {
+            "@type": "Question",
+            "name": "有文件大小限制吗？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "没有硬性限制，但非常大的图片（超过 100MB）可能会受到浏览器内存限制的影响。建议单个图片保持在 50MB 以下以获得最佳体验。"
+            }
+        }, {
+            "@type": "Question",
+            "name": "可以一次处理多张图片吗？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "可以！您可以一次选择多张图片进行批量处理。每张图片独立处理，您可以单独下载或一次性下载所有图片。"
+            }
+        }]
+    }
+    </script>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/zh/">
+                    <img src="/images/picete-logo.svg" alt="PicEte" class="logo-img">
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="#tools" class="nav-link">工具</a>
+                <a href="#features" class="nav-link">特点</a>
+                <a href="#faq" class="nav-link">常见问题</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/zh/">首页</a></div>
+                <h1 class="hero-title">一体化在线图片处理工具</h1>
+                <p class="hero-subtitle">格式转换、调整大小、压缩 - 满足您所有图片需求的一站式解决方案</p>
+
+                <!-- Upload Area -->
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p class="upload-text">拖放图片到这里</p>
+                    <p class="upload-subtext">或点击选择文件</p>
+                    <input type="file" id="fileInput" accept="image/*" multiple hidden>
+                    <button class="btn-primary" id="selectBtn">选择图片</button>
+                </div>
+
+                <!-- Processing Area -->
+                <div class="processing-area" id="processingArea" style="display: none;">
+                    <div class="preview-section">
+                        <h3>图片预览</h3>
+                        <div class="preview-grid" id="previewGrid"></div>
+                    </div>
+
+                    <div class="tools-section">
+                        <!-- Format Converter -->
+                        <div class="tool-card">
+                            <h4>格式转换</h4>
+                            <div class="format-options">
+                                <label class="format-option">
+                                    <input type="radio" name="format" value="jpeg">
+                                    <span>JPG</span>
+                                </label>
+                                <label class="format-option">
+                                    <input type="radio" name="format" value="png">
+                                    <span>PNG</span>
+                                </label>
+                                <label class="format-option">
+                                    <input type="radio" name="format" value="webp">
+                                    <span>WebP</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Resize Tool -->
+                        <div class="tool-card">
+                            <h4>调整大小</h4>
+                            <div class="resize-options">
+                                <div class="input-group">
+                                    <label>宽度</label>
+                                    <input type="number" id="widthInput" placeholder="自动">
+                                </div>
+                                <div class="input-group">
+                                    <label>高度</label>
+                                    <input type="number" id="heightInput" placeholder="自动">
+                                </div>
+                                <label class="checkbox-group">
+                                    <input type="checkbox" id="maintainAspect" checked>
+                                    <span>保持宽高比</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Compression Tool -->
+                        <div class="tool-card">
+                            <h4>压缩质量</h4>
+                            <div class="compression-options">
+                                <input type="range" id="qualitySlider" min="10" max="100" value="85">
+                                <div class="quality-value">
+                                    <span id="qualityValue">85</span>%
+                                </div>
+                                <div class="quality-labels">
+                                    <span>更小文件</span>
+                                    <span>更高质量</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="btn-primary" id="processBtn">处理图片</button>
+                            <button class="btn-secondary" id="resetBtn">重新选择</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Download Section -->
+                <div class="download-section" id="downloadSection" style="display: none;">
+                    <h3>处理完成！</h3>
+                    <div class="download-grid" id="downloadGrid"></div>
+                    <button class="btn-secondary" id="downloadAllBtn">下载全部</button>
+                    <button class="btn-link" id="startOverBtn">处理更多图片</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Grid -->
+        <section id="tools" class="tools-section">
+            <div class="container">
+                <h2 class="section-title">专业图片工具</h2>
+                <div class="tools-grid">
+                    <a href="/zh/png-to-jpg/" class="tool-item">
+                        <div class="tool-icon">📐</div>
+                        <h3>PNG 转 JPG</h3>
+                        <p>将 PNG 图片转换为 JPG 格式</p>
+                    </a>
+                    <a href="/zh/jpg-to-png/" class="tool-item">
+                        <div class="tool-icon">🖼️</div>
+                        <h3>JPG 转 PNG</h3>
+                        <p>将 JPG 图片转换为 PNG 格式</p>
+                    </a>
+                    <a href="/zh/webp-to-png/" class="tool-item">
+                        <div class="tool-icon">🔄</div>
+                        <h3>WebP 转 PNG</h3>
+                        <p>将 WebP 图片转换为 PNG 格式</p>
+                    </a>
+                    <a href="/zh/png-to-webp/" class="tool-item">
+                        <div class="tool-icon">⚡</div>
+                        <h3>PNG 转 WebP</h3>
+                        <p>将 PNG 转换为现代 WebP 格式</p>
+                    </a>
+                    <a href="/zh/jpg-to-webp/" class="tool-item">
+                        <div class="tool-icon">🎯</div>
+                        <h3>JPG 转 WebP</h3>
+                        <p>将 JPG 转换为 WebP 格式</p>
+                    </a>
+                    <a href="/zh/resize-image/" class="tool-item">
+                        <div class="tool-icon">📏</div>
+                        <h3>图片调整大小</h3>
+                        <p>将图片调整到所需尺寸</p>
+                    </a>
+                    <a href="/zh/compress-image/" class="tool-item">
+                        <div class="tool-icon">🗜️</div>
+                        <h3>图片压缩</h3>
+                        <p>压缩图片以减小文件大小</p>
+                    </a>
+                    <a href="/zh/image-splitter/" class="tool-item">
+                        <div class="tool-icon">🧩</div>
+                        <h3>图片网格分割</h3>
+                        <p>将图片切片为 Instagram 网格</p>
+                    </a>
+                    <a href="/zh/extract-colors/" class="tool-item">
+                        <div class="tool-icon">🎨</div>
+                        <h3>调色板提取器</h3>
+                        <p>从任何图片中提取主要颜色</p>
+                    </a>
+                    <a href="/zh/image-to-base64/" class="tool-item">
+                        <div class="tool-icon">📦</div>
+                        <h3>图片转 Base64</h3>
+                        <p>即时将图片编码为 Base64 字符串</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2 class="section-title">为什么选择 PicEte</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <h3>隐私保护</h3>
+                        <p>所有图片处理都在您的浏览器本地完成。文件不会上传到任何服务器，确保您的隐私和图片安全。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h3>闪电般快速</h3>
+                        <p>利用现代浏览器 Canvas 技术实现毫秒级快速处理，无需等待。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💎</div>
+                        <h3>高质量输出</h3>
+                        <p>智能算法确保图片质量，在压缩和转换过程中保留最大细节。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎨</div>
+                        <h3>批量处理</h3>
+                        <p>同时上传和处理多张图片，大幅提高您的工作效率。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💰</div>
+                        <h3>完全免费</h3>
+                        <p>所有功能永久免费，无需注册，无使用限制。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📱</div>
+                        <h3>响应式设计</h3>
+                        <p>完美适配桌面、平板和移动设备，随时随地进行图片处理。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2 class="section-title">常见问题</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>图片处理安全吗？</h3>
+                        <p>绝对安全。所有处理都在您的浏览器本地完成。图片绝不会上传到任何服务器，确保您的隐私和数据安全。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>支持哪些图片格式？</h3>
+                        <p>我们支持所有主流图片格式：JPG、JPEG、PNG、WebP、GIF、BMP、SVG，覆盖大部分图片处理需求。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>有文件大小限制吗？</h3>
+                        <p>没有硬性限制，但非常大的图片（超过 100MB）可能会受到浏览器内存限制的影响。建议单个图片保持在 50MB 以下以获得最佳体验。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>可以一次处理多张图片吗？</h3>
+                        <p>可以！您可以一次选择多张图片进行批量处理。每张图片独立处理，您可以单独下载或一次性下载所有图片。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="/images/picete-logo.svg" alt="PicEte" class="footer-logo">
+                    <p>专业的在线图片处理工具</p>
+                </div>
+                <div class="footer-section">
+                    <h4>图片转换</h4>
+                    <ul>
+                        <li><a href="/zh/png-to-jpg/">PNG 转 JPG</a></li>
+                        <li><a href="/zh/jpg-to-png/">JPG 转 PNG</a></li>
+                        <li><a href="/zh/webp-to-png/">WebP 转 PNG</a></li>
+                        <li><a href="/zh/png-to-webp/">PNG 转 WebP</a></li>
+                        <li><a href="/zh/jpg-to-webp/">JPG 转 WebP</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>图片编辑</h4>
+                    <ul>
+                        <li><a href="/zh/resize-image/">图片调整大小</a></li>
+                        <li><a href="/zh/compress-image/">图片压缩</a></li>
+                        <li><a href="/zh/image-splitter/">图片网格分割</a></li>
+                        <li><a href="/zh/extract-colors/">调色板提取器</a></li>
+                        <li><a href="/zh/image-to-base64/">图片转 Base64</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>关于</h4>
+                    <ul>
+                        <li><a href="/privacy-policy.html">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>更多工具</h4>
+                    <ul>
+                        <li><a href="https://mockupshot.online/">MockupShot - 截图样机</a></li>
+                        <li><a href="https://ilovepalette.com/">ILovePalette - 颜色工具</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

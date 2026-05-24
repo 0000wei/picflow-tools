@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片压缩工具 - 免费在线图片压缩 | PicEte</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H72N80TEBW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+    <meta name="description" content="免费在线图片压缩工具。智能压缩图片以减小文件大小。保持高质量，支持批量压缩，无需注册，本地处理保护隐私。">
+    <meta name="keywords" content="图片压缩, 图片压缩工具, 在线压缩, 批量压缩, 减小文件大小, 免费工具">
+    <link rel="canonical" href="https://picete.com/compress-image/">
+
+<!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/compress-image/">
+    <meta property="og:title" content="图片压缩工具 - 免费在线图片压缩">
+    <meta property="og:description" content="免费在线图片压缩工具。智能压缩图片以减小文件大小。">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <link rel="alternate" hreflang="en" href="https://picete.com/compress-image/" />
+    <link rel="alternate" hreflang="zh" href="https://picete.com/zh/compress-image/" />
+    <link rel="alternate" hreflang="ja" href="https://picete.com/ja/compress-image/" />
+    <link rel="alternate" hreflang="de" href="https://picete.com/de/compress-image/" />
+    <link rel="alternate" hreflang="fr" href="https://picete.com/fr/compress-image/" />
+    <link rel="alternate" hreflang="es" href="https://picete.com/es/compress-image/" />
+    <link rel="alternate" hreflang="pt" href="https://picete.com/pt/compress-image/" />
+    <link rel="alternate" hreflang="ar" href="https://picete.com/ar/compress-image/" />
+    <link rel="alternate" hreflang="x-default" href="https://picete.com/compress-image/" />
+
+    
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "图片压缩工具",
+        "description": "免费在线图片压缩工具",
+        "url": "https://picete.com/zh/compress-image",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "首页",
+            "item": "https://picete.com/zh/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "图片压缩",
+            "item": "https://picete.com/zh/compress-image/"
+        }]
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="llms" href="../../llms.txt" title="PicEte LLM Context">
+    <link rel="mcp" href="../../mcp.json" title="PicEte MCP Tools">
+    <meta name="msvalidate.01" content="F2859D0614981562217BF497BEF4002A" />
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "在看不到明显质量损失的情况下，我可以将图片压缩多少？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "大多数图片可以在质量损失变得明显之前压缩 50-80%。具有平滑渐变的照片在 60-70% 质量下压缩效果很好。包含大量文字的截图需要更高的质量（85-90%）才能保持边缘清晰。我们的滑块让您可以找到每张图片的最佳平衡点。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "压缩是有损还是无损的？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "我们的工具默认使用有损压缩（JPEG/WebP 重新编码），这比无损方法实现的文件大小要小得多。质量滑块控制权衡。对于 PNG 图片，我们建议在压缩期间转换为 JPEG 或 WebP 以实现最大的文件大小减少。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "压缩期间我的图片会上传到任何服务器吗？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "不会。所有压缩都在您的浏览器中本地使用 Canvas API 进行。您的图片永远不会离开您的设备。这保证了您的隐私，并使我们的压缩工具对于敏感或机密内容是安全的。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "我可以压缩哪些文件类型？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "我们的压缩工具支持 JPG、JPEG、PNG、WebP、GIF 和 BMP。压缩在 JPG 和 WebP 格式上效果最好。对于 PNG 图片，建议将压缩与格式转换为 JPG 或 WebP 结合使用，以实现最大的文件大小减少 —— 通常可减少 80-90%，而对质量影响很小。"
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    </style>
+
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../zh/">
+                    <img src="../../images/picete-logo.svg" alt="PicEte" class="logo-img">
+                </a>
+                <p class="tagline">图片压缩工具</p>
+            </div>
+            <nav class="nav">
+                <a href="../../zh/" class="nav-link">首页</a>
+                <a href="../../zh/#tools" class="nav-link">更多工具</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/zh/">首页</a><span class="separator">›</span><span class="current">图片压缩</span></div>
+                <h2 class="hero-title">在线图片压缩工具</h2>
+                <p class="hero-subtitle">智能压缩图片，在保持高质量的同时显著减小文件大小。</p>
+
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p class="upload-text">拖放图片到这里</p>
+                    <p class="upload-subtext">支持 JPG、PNG、WebP 等格式</p>
+                    <input type="file" id="fileInput" accept="image/*" multiple hidden>
+                    <button class="btn-primary" id="selectBtn">选择图片</button>
+                </div>
+
+                <div class="processing-area" id="processingArea" style="display: none;">
+                    <div class="preview-section">
+                        <h3>已选择的图片</h3>
+                        <div class="preview-grid" id="previewGrid"></div>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>压缩强度</h4>
+                        <div class="compression-options">
+                            <input type="range" id="qualitySlider" min="10" max="100" value="80">
+                            <div class="quality-value">
+                                <span id="qualityValue">80</span>%
+                            </div>
+                            <div class="quality-labels">
+                                <span>文件更小（质量较低）</span>
+                                <span>质量更高（文件较大）</span>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1rem; padding: 1rem; background: var(--bg-secondary); border-radius: 0.5rem;">
+                            <p style="font-size: 0.875rem; color: var(--text-light);">
+                                <strong>推荐设置：</strong><br>
+                                &bull; 80-90%：高质量，适合照片打印<br>
+                                &bull; 70-80%：中等质量，适合网络使用<br>
+                                &bull; 60-70%：高压缩，适合缩略图
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn-primary" id="compressBtn">压缩图片</button>
+                        <button class="btn-secondary" id="resetBtn">重新选择</button>
+                    </div>
+                </div>
+
+                <div class="download-section" id="downloadSection" style="display: none;">
+                    <h3>压缩完成！</h3>
+                    <div style="margin-bottom: 1.5rem; padding: 1rem; background: #10B981; color: white; border-radius: 0.5rem;">
+                        <p style="font-size: 1.125rem; font-weight: 600;">总共节省 <span id="totalSaved">0</span>（<span id="percentSaved">0</span>%）</p>
+                    </div>
+                    <div class="download-grid" id="downloadGrid"></div>
+                    <button class="btn-primary" id="downloadAllBtn">下载全部</button>
+                    <button class="btn-link" id="startOverBtn">压缩更多图片</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="container" style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+            <a href="../../zh/" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; font-size: 1.125rem; text-decoration: none;">← 返回 PicEte 首页</a>
+        </div>
+
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">为什么要使用图片压缩工具</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">📉</div>
+                        <h3>大幅减小文件大小</h3>
+                        <p>智能压缩算法平均可减小 50-80% 的文件大小。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎨</div>
+                        <h3>保持质量</h3>
+                        <p>在减小文件大小的同时尽可能保持视觉质量。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h3>提升性能</h3>
+                        <p>更小的文件意味着更快的加载时间和更好的用户体验。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔒</div>
+                        <h3>保护隐私</h3>
+                        <p>本地处理 - 图片永远不会上传到任何服务器，确保您的隐私。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" style="padding-top: 0;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">如何免费在线压缩图片</h2>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">拖放并压缩</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">将图片拖放到上传区域，或点击从计算机中选择文件。在线图片压缩工具支持 JPG、PNG、WebP 和大多数常见格式。您可以一次放入十几个文件 —— 批量压缩无需任何额外设置。</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">选择质量级别</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">质量滑块是您控制权衡的地方。在 80-90% 时，您的图片保持打印就绪状态。在 70-80% 时，它们在屏幕上看起来相同，但文件大小明显下降。在 60-70% 时，压缩很激进 —— 适合缩略图或预览，其中每个字节都很重要。预览会实时更新，因此您可以在提交之前看到您将得到什么。</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">下载完成</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">压缩完成后，您可以看到每个文件节省了多少空间。可以逐个获取，也可以点击"下载全部"一次性保存所有内容。每个字节都保留在您的浏览器中 —— 不会上传到任何服务器，如果您正在压缩敏感图片或客户工作，这很重要。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">图片压缩技巧</h2>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">每种质量设置适用的场景</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">电商产品照片在 75-80% 时效果很好。图片保持足够清晰以促进销售，页面加载足够快，客户不会流失。博客和社交媒体图片在 70-75% 时达到最佳平衡点 —— 屏幕以 72 DPI 显示，大多数质量损失在该分辨率下是不可见的。电子邮件通讯是一个特殊情况：电子邮件客户端无论如何都会重新压缩图片，因此将其推至 60-70% 很少会产生明显的差异。</p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">批量压缩整个文件夹</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">没有人想一张一张地压缩图片。PicEte 的批量图片压缩可以一次处理数十个文件，每个文件都具有相同的质量设置。摄影师导出拍摄作品、开发者优化资源文件夹、内容创作者为博客文章准备一批图片 —— 这是真正节省时间的地方。摘要显示所有文件的总节省量，因此您可以一目了然地看到影响。</p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">上传前先压缩</h3>
+                    <p style="line-height: 1.8; color: var(--text-light);">大图片是网站加载缓慢的最常见原因。一秒钟的延迟可能会使转化率下降 7%。在上传图片之前通过压缩工具处理可以获得更快的页面、更好的搜索引擎排名和更低的带宽费用。最好的部分是它不会在可见质量上花费任何东西 —— 压缩算法足够智能，可以修剪您看不到的内容。</p>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">常见问题</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">在看不到明显质量损失的情况下，我可以将图片压缩多少？</summary>
+                    <p class="faq-answer">大多数图片可以在质量损失变得明显之前压缩 50-80%。具有平滑渐变的照片在 60-70% 质量下压缩效果很好。包含大量文字的截图需要更高的质量（85-90%）才能保持边缘清晰。我们的滑块让您可以找到每张图片的最佳平衡点。</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">压缩是有损还是无损的？</summary>
+                    <p class="faq-answer">我们的工具默认使用有损压缩（JPEG/WebP 重新编码），这比无损方法实现的文件大小要小得多。质量滑块控制权衡。对于 PNG 图片，我们建议在压缩期间转换为 JPEG 或 WebP 以实现最大的文件大小减少。</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">压缩期间我的图片会上传到任何服务器吗？</summary>
+                    <p class="faq-answer">不会。所有压缩都在您的浏览器中本地使用 Canvas API 进行。您的图片永远不会离开您的设备。这保证了您的隐私，并使我们的压缩工具对于敏感或机密内容是安全的。</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">我可以压缩哪些文件类型？</summary>
+                    <p class="faq-answer">我们的压缩工具支持 JPG、JPEG、PNG、WebP、GIF 和 BMP。压缩在 JPG 和 WebP 格式上效果最好。对于 PNG 图片，建议将压缩与格式转换为 JPG 或 WebP 结合使用，以实现最大的文件大小减少 —— 通常可减少 80-90%，而对质量影响很小。</p>
+                </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>更多工具</h4>
+                    <ul>
+                        <li><a href="../../zh/png-to-jpg/">PNG 转 JPG</a></li>
+                        <li><a href="../../zh/jpg-to-png/">JPG 转 PNG</a></li>
+                        <li><a href="../../zh/resize-image/">图片调整大小</a></li>
+                        <li><a href="../../zh/png-to-webp/">PNG 转 WebP</a></li>
+                        <li><a href="../../zh/webp-to-png/">WebP 转 PNG</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>关于</h4>
+                    <ul>
+                        <li><a href="../../zh/">返回首页</a></li>
+                        <li><a href="../../privacy-policy.html">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>更多工具</h4>
+                    <ul>
+                        <li><a href="https://mockupshot.online/">MockupShot - 截图样机</a></li>
+                        <li><a href="https://ilovepalette.com/">ILovePalette - 色彩工具</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Image compression dedicated script
+        const state = { uploadedFiles: [], compressedImages: [], originalSizes: [] };
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const selectBtn = document.getElementById('selectBtn');
+        const processingArea = document.getElementById('processingArea');
+        const previewGrid = document.getElementById('previewGrid');
+        const downloadSection = document.getElementById('downloadSection');
+        const downloadGrid = document.getElementById('downloadGrid');
+        const compressBtn = document.getElementById('compressBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const qualitySlider = document.getElementById('qualitySlider');
+        const qualityValue = document.getElementById('qualityValue');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        const startOverBtn = document.getElementById('startOverBtn');
+
+        selectBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => handleFiles(Array.from(e.target.files)));
+        uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+        uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            handleFiles(Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/')));
+        });
+        qualitySlider.addEventListener('input', (e) => qualityValue.textContent = e.target.value);
+        compressBtn.addEventListener('click', compressImages);
+        resetBtn.addEventListener('click', reset);
+        downloadAllBtn.addEventListener('click', downloadAll);
+        startOverBtn.addEventListener('click', reset);
+
+        function handleFiles(files) {
+            if (files.length === 0) return alert('请选择图片');
+            state.uploadedFiles = files;
+            state.originalSizes = files.map(f => f.size);
+            Promise.all(files.map(f => loadImage(f))).then(images => {
+                displayPreviews(images);
+                uploadArea.style.display = 'none';
+                processingArea.style.display = 'block';
+            }).catch(() => alert('图片加载失败'));
+        }
+
+        function loadImage(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => resolve({ img, file, src: e.target.result });
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function displayPreviews(images) {
+            previewGrid.innerHTML = images.map(({ img, file, src }, i) => `
+                <div class="preview-item">
+                    <img src="${src}" alt="${file.name}">
+                    <div class="file-info">
+                        <strong>${file.name}</strong><br>${img.width} × ${img.height}px<br>${formatSize(file.size)}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function compressImages() {
+            const quality = parseInt(qualitySlider.value) / 100;
+            state.compressedImages = [];
+            let processed = 0;
+
+            state.uploadedFiles.forEach((file, i) => {
+                loadImage(file).then(({ img }) => {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+
+                    const outputType = file.type === 'image/png' ? 'image/png' : 'image/jpeg';
+                    canvas.toBlob(blob => {
+                        const url = URL.createObjectURL(blob);
+                        const originalSize = state.originalSizes[i];
+                        const compressedSize = blob.size;
+                        const saved = originalSize - compressedSize;
+                        const percent = ((saved / originalSize) * 100).toFixed(1);
+
+                        state.compressedImages[i] = {
+                            url,
+                            name: file.name,
+                            size: compressedSize,
+                            originalSize,
+                            saved,
+                            percent
+                        };
+                        if (++processed === state.uploadedFiles.length) displayDownloads();
+                    }, outputType, quality);
+                });
+            });
+        }
+
+        function displayDownloads() {
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'block';
+
+            const totalOriginal = state.compressedImages.reduce((sum, img) => sum + img.originalSize, 0);
+            const totalCompressed = state.compressedImages.reduce((sum, img) => sum + img.size, 0);
+            const totalSaved = totalOriginal - totalCompressed;
+            const percentSaved = ((totalSaved / totalOriginal) * 100).toFixed(1);
+
+            document.getElementById('totalSaved').textContent = formatSize(totalSaved);
+            document.getElementById('percentSaved').textContent = percentSaved;
+
+            downloadGrid.innerHTML = state.compressedImages.map((img, i) => `
+                <div class="download-item">
+                    <img src="${img.url}" alt="${img.name}">
+                    <h4>${img.name}</h4>
+                    <p>
+                        ${formatSize(img.originalSize)} → ${formatSize(img.size)}<br>
+                        <strong style="color: #10B981;">节省 ${img.percent}%</strong>
+                    </p>
+                    <button class="btn-primary" onclick="downloadOne(${i})">下载</button>
+                </div>
+            `).join('');
+        }
+
+        function formatSize(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return (bytes / Math.pow(k, i)).toFixed(1) + ' ' + sizes[i];
+        }
+
+        window.downloadOne = function(i) {
+            const a = document.createElement('a');
+            a.href = state.compressedImages[i].url;
+            a.download = state.compressedImages[i].name;
+            a.click();
+        };
+
+        function downloadAll() {
+            state.compressedImages.forEach((img, i) => setTimeout(() => window.downloadOne(i), i * 500));
+        }
+
+        function reset() {
+            state.uploadedFiles = [];
+            state.compressedImages = [];
+            state.originalSizes = [];
+            fileInput.value = '';
+            qualitySlider.value = 80;
+            qualityValue.textContent = '80';
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'none';
+            uploadArea.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
