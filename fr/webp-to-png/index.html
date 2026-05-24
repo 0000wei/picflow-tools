@@ -193,5 +193,24 @@
     <script>
         const state={uploadedFiles:[],convertedImages:[]},uploadArea=document.getElementById("uploadArea"),fileInput=document.getElementById("fileInput"),selectBtn=document.getElementById("selectBtn"),processingArea=document.getElementById("processingArea"),previewGrid=document.getElementById("previewGrid"),downloadSection=document.getElementById("downloadSection"),downloadGrid=document.getElementById("downloadGrid"),convertBtn=document.getElementById("convertBtn"),resetBtn=document.getElementById("resetBtn"),downloadAllBtn=document.getElementById("downloadAllBtn"),startOverBtn=document.getElementById("startOverBtn");selectBtn.addEventListener("click",()=>fileInput.click()),fileInput.addEventListener("change",e=>handleFiles(Array.from(e.target.files))),uploadArea.addEventListener("dragover",e=>{e.preventDefault(),uploadArea.classList.add("dragover")}),uploadArea.addEventListener("dragleave",()=>uploadArea.classList.remove("dragover")),uploadArea.addEventListener("drop",e=>{e.preventDefault(),uploadArea.classList.remove("dragover"),handleFiles(Array.from(e.dataTransfer.files).filter(f=>"image/webp"===f.type)))}),convertBtn.addEventListener("click",convertImages),resetBtn.addEventListener("click",reset),downloadAllBtn.addEventListener("click",downloadAll),startOverBtn.addEventListener("click",reset);function handleFiles(e){if(0===e.length)return alert("Veuillez sélectionner des images WebP");state.uploadedFiles=e,Promise.all(e.map(f=>loadImage(f))).then(e=>{displayPreviews(e),uploadArea.style.display="none",processingArea.style.display="block"}).catch(()=>alert("Échec du chargement des images"))}function loadImage(e){return new Promise((t,a)=>{const n=new FileReader;n.onload=e=>{const a=new Image;a.onload=()=>t({img:a,file:e,src:e.target.result}),a.src=e.target.result},n.readAsDataURL(e)})}function displayPreviews(e){previewGrid.innerHTML=e.map(({img:e,file:t,src:a})=>`<div class="preview-item"><img src="${a}" alt="${t.name}"><div class="file-info"><strong>${t.name}</strong><br>${e.width} × ${e.height}px</div></div>`).join("")}function convertImages(){state.convertedImages=[];let e=0;state.uploadedFiles.forEach((t,a)=>{loadImage(t).then(({img:t})=>{const n=document.createElement("canvas");n.width=t.width,n.height=t.height;const d=n.getContext("d");d.drawImage(t,0,0),n.toBlob(t=>{const d=URL.createObjectURL(t);state.convertedImages[a]={url:d,name:t.name.replace(".webp",".png"),size:t.size},++e===state.uploadedFiles.length&&displayDownloads()},"image/png")})})}function displayDownloads(){processingArea.style.display="none",downloadSection.style.display="block",downloadGrid.innerHTML=state.convertedImages.map((e,t)=>`<div class="download-item"><img src="${e.url}" alt="${e.name}"><h4>${e.name}</h4><p>${(e.size/1024).toFixed(1)} KB</p><button class="btn-primary" onclick="downloadOne(${t})">Télécharger</button></div>`).join("")}window.downloadOne=function(e){const t=document.createElement("a");t.href=state.convertedImages[e].url,t.download=state.convertedImages[e].name,t.click()};function downloadAll(){state.convertedImages.forEach((e,t)=>setTimeout(()=>window.downloadOne(t),500*t))}function reset(){state.uploadedFiles=[],state.convertedImages=[],fileInput.value="",processingArea.style.display="none",downloadSection.style.display="none",uploadArea.style.display="block"}
     </script>
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
 </body>
 </html>
