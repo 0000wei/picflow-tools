@@ -205,6 +205,31 @@
             background-color: var(--bg-secondary, #f3f4f6);
             border-color: var(--primary-color, #6366F1);
         }
+
+        /* AI Integration Section */
+        .ai-section { padding: 3rem 0; background: var(--section-bg, #f8f9fa); }
+        [data-theme="dark"] .ai-section { background: #1a1a2e; }
+        .ai-content { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; align-items: center; margin-top: 1.5rem; }
+        .ai-description { font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary, #6b7280); margin-bottom: 1.25rem; }
+        .ai-code-block { background: #1e293b; border-radius: 10px; overflow: hidden; margin-bottom: 1.25rem; }
+        .ai-code-header { background: #334155; color: #94a3b8; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600; }
+        .ai-code { padding: 1rem; margin: 0; font-size: 0.85rem; line-height: 1.5; color: #e2e8f0; overflow-x: auto; white-space: pre; }
+        .ai-cta { font-size: 0.95rem; color: var(--text-color, #374151); margin-bottom: 1.25rem; }
+        .ai-cta em { color: var(--primary-color, #2563eb); font-style: italic; }
+        .ai-visual { display: flex; justify-content: center; }
+        .ai-flow { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+        .ai-flow-item { display: flex; align-items: center; gap: 0.5rem; background: var(--card-bg, white); border: 1px solid var(--border-color, #e5e7eb); border-radius: 8px; padding: 0.75rem 1.25rem; font-size: 0.9rem; font-weight: 500; color: var(--text-color, #374151); box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .ai-flow-arrow { font-size: 1.25rem; color: var(--primary-color, #2563eb); }
+        .ai-flow-icon { font-size: 1.25rem; }
+        .btn { display: inline-block; padding: 0.625rem 1.25rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.2s ease; }
+        .btn-primary { background: var(--primary-color, #2563eb); color: white; }
+        .btn-primary:hover { opacity: 0.9; }
+        @media (max-width: 768px) {
+            .ai-content { grid-template-columns: 1fr; }
+            .ai-visual { order: -1; }
+            .ai-flow { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+            .ai-flow-arrow { transform: rotate(-90deg); }
+        }
         .sun-icon { display: inline; }
         .moon-icon { display: none; }
         [data-theme="dark"] .sun-icon { display: none; }
@@ -445,6 +470,53 @@
                         <div class="feature-icon">📱</div>
                         <h3>Responsive Design</h3>
                         <p>Perfectly adapts to desktop, tablet, and mobile devices for image processing on the go.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Integration Section -->
+        <section id="ai-integration" class="ai-section">
+            <div class="container">
+                <h2 class="section-title">AI-Ready: Use PicEte from Any AI Agent</h2>
+                <div class="ai-content">
+                    <div class="ai-text">
+                        <p class="ai-description">PicEte now works as an <strong>MCP (Model Context Protocol) Server</strong> — your AI coding agent (Claude Code, Cursor, Claude Desktop) can call PicEte tools directly from the command line, without opening a browser.</p>
+                        <div class="ai-code-block">
+                            <div class="ai-code-header">Quick Start</div>
+                            <pre class="ai-code"># Install & run (no signup required)
+npx -y picete-mcp
+
+# Configure in Claude Code ~/.claude/settings.json:
+# {
+#   "mcpServers": {
+#     "picete": {
+#       "command": "npx",
+#       "args": ["-y", "picete-mcp"]
+#     }
+#   }
+# }</pre>
+                        </div>
+                        <p class="ai-cta">Then ask your AI: <em>"Compress this image"</em>, <em>"Convert this to WebP"</em>, or <em>"Generate favicons from this logo"</em>.</p>
+                        <a href="/mcp-guide/" class="btn btn-primary">Full Integration Guide →</a>
+                    </div>
+                    <div class="ai-visual">
+                        <div class="ai-flow">
+                            <div class="ai-flow-item">
+                                <span class="ai-flow-icon">💬</span>
+                                <span>You ask your AI</span>
+                            </div>
+                            <div class="ai-flow-arrow">→</div>
+                            <div class="ai-flow-item">
+                                <span class="ai-flow-icon">🤖</span>
+                                <span>Claude/Cursor calls picete-mcp</span>
+                            </div>
+                            <div class="ai-flow-arrow">→</div>
+                            <div class="ai-flow-item">
+                                <span class="ai-flow-icon">⚡</span>
+                                <span>Image processed locally via Sharp</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
