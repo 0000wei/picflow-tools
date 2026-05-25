@@ -28,7 +28,9 @@ Key parameters per tool:
 
 PicEte does not have a server-side API. Image processing is purely client-side via Canvas API.
 
-However, an AI agent can use PicEte through a headless browser:
+**For AI agents with MCP support:** install and use the [picete-mcp](https://www.npmjs.com/package/picete-mcp) package for local image processing via Sharp. See [MCP Integration Guide](/mcp-guide/) for setup instructions. Available tools: convert, resize, compress, extract-colors, image-to-base64, split-image, metadata, batch, optimize-for-web, prepare-for-vision-api, favicon, compare-images, collage.
+
+However, an AI agent can also use PicEte through a headless browser:
 
 1. Navigate to a tool page (e.g., /resize-image/)
 2. Upload an image via the file input or drag-and-drop
