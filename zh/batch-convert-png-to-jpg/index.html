@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>批量转换 PNG 到 JPG - 免费批量图片格式转换器 | PicEte</title>
+    <meta name="description" content="一次将多个 PNG 文件转换为 JPG 格式。免费在线批量 PNG 到 JPG 转换器。">
+    <meta name="keywords" content="批量转换png到jpg, 批量png到jpg, 多图片转换器, 批量图片转换器">
+    <link rel="canonical" href="https://picete.com/batch-convert-png-to-jpg/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/zh/batch-convert-png-to-jpg/">
+    <meta property="og:title" content="批量转换 PNG 到 JPG - 批量图片格式转换器">
+    <meta property="og:description" content="免费在线工具，一次将多个 PNG 文件转换为 JPG 格式。">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Batch Convert PNG to JPG",
+        "description": "Free online tool to batch convert multiple PNG files to JPG format",
+        "url": "https://picete.com/batch-convert-png-to-jpg",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "一次可以转换多少个 PNG 文件？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PicEte 可以同时处理 100+ 张图片的批量转换。每张图片在浏览器中独立处理，因此您仅受计算机内存的限制。对于非常大的批次（500+），考虑分较小的组转换以确保稳定的性能。工具会在每张图片转换时显示进度。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "将 PNG 转换为 JPG 会丢失质量吗？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "JPG 是有损的，因此在转换过程中会有一些质量损失。然而，在 85-95% 的质量下，对于大多数照片来说，差异是无法察觉的。JPG 文件比等效的 PNG 小 70-90%，使这种权衡对于存储和共享来说是值得的。对于没有透明度需求的照片和图形，将 PNG 转换为 JPG。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "我可以单独下载转换后的图片还是一次性全部下载？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "两种选项都可用。批量转换后，您可以预览每个转换后的 JPG，并仅下载满足您需求的特定文件。或者，将所有转换后的图片一次性下载为 ZIP 存档，以便方便地批量保存。这种灵活性非常完美，当您需要在保留所有文件之前查看结果时。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "将 PNG 转换为 JPG 时，透明区域会怎样？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "JPG 不支持透明度，因此透明像素会填充白色（或者您可以选择另一种背景颜色）。如果您的 PNG 有重要的透明度，请考虑将它们保留为 PNG 或使用可以先将它们合成到背景上的工具。对于标准照片和不透明图形，这不是问题。"
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../">
+                    <img src="../../images/picete-logo.svg" alt="PicEte" class="logo-img">
+                </a>
+                <p class="tagline">格式转换</p>
+            </div>
+            <nav class="nav">
+                <a href="../../" class="nav-link">首页</a>
+                <a href="../../#tools" class="nav-link">更多工具</a>
+                <div class="lang-switcher">
+                    <select onchange="switchLanguage(this.value)" aria-label="Switch language">
+                        <option value="en">English</option>
+                        <option value="zh" selected>中文</option>
+                        <option value="ja">日本語</option>
+                        <option value="de">Deutsch</option>
+                        <option value="fr">Français</option>
+                        <option value="es">Español</option>
+                        <option value="pt">Português</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/">首页</a><span class="separator">›</span><a href="../../png-to-jpg/">PNG 转 JPG</a><span class="separator">›</span><span class="current">批量转换</span></div>
+                <h1 class="hero-title">批量转换 PNG 到 JPG</h1>
+                <h2 class="hero-subtitle">一次转换多张图片</h2>
+                <p style="font-size: 1.125rem; color: var(--text-light); max-width: 700px; margin: 1.5rem auto; line-height: 1.8;">
+                    需要将多个 PNG 文件转换为 JPG 格式吗？PicEte 的批量转换器会同时处理所有图片，为您节省数小时的手工工作。无论您是从仅限 PNG 的工作流程转换照片、为网页使用优化图形，还是为社交媒体准备图片，我们的批量转换器都可以在浏览器中高效处理 100+ 张图片。
+                </p>
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">为什么批量转换 PNG 到 JPG</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        PNG 文件是无损且未压缩的，使其比等效的 JPG 大 3-5 倍。当您有数百个 PNG 时 — 来自截图、设计导出或照片存档 — 转换为 JPG 可以释放大量存储空间。JPG 也更普遍兼容，在网站上加载更快。手动将整个文件夹的 PNG 转换为 JPG 需要几个小时；PicEte 只需几秒钟。
+                    </p>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">PicEte 如何处理批量转换</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        一次上传所有 PNG 文件 — 无需逐一转换。PicEte 并行处理每张图片，以您选择的质量级别（默认 85%）将它们转换为 JPG。工具会在每张图片转换时显示实时进度。完成后，预览结果并单独下载 JPG 或将它们全部作为 ZIP 存档获取。所有处理都在您的浏览器中本地进行 — 您的图片永远不会离开您的设备。
+                    </p>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">常见批量转换用途</h3>
+                    <ul style="line-height: 1.8; color: var(--text-light); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>需要格式标准化的截图集合</li>
+                        <li>为网页部署转换的设计导出</li>
+                        <li>为存储效率优化的照片存档</li>
+                        <li>为电商平台准备的产品图片</li>
+                        <li>统一为 JPG 格式的社交媒体内容库</li>
+                    </ul>
+                </div>
+                <div style="text-align: center; margin: 3rem 0;">
+                    <a href="../../png-to-jpg/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                        免费使用 PicEte PNG 转 JPG 转换器 →
+                    </a>
+                    <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.875rem;">免费 · 无需注册 · 一次处理 100+ 张图片</p>
+                </div>
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--text-color);">相关转换工具</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                        <div>
+                            <h4 style="font-size: 1rem; margin-bottom: 0.5rem">格式选项</h4>
+                            <ul style="line-height: 1.8; color: var(--text-light);">
+                                <li><a href="../../jpg-to-png/">JPG 转 PNG</a> — 无损转换</li>
+                                <li><a href="../../webp-to-png/">WebP 转 PNG</a> — 现代格式</li>
+                                <li><a href="../../compress-image/">图片压缩</a> — 减少文件大小</li>
+                                <li><a href="../../resize-image/">图片缩放</a> — 更改尺寸</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">常见问题</h2>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary class="faq-question">一次可以转换多少个 PNG 文件？</summary>
+                        <p class="faq-answer">PicEte 可以同时处理 100+ 张图片的批量转换。每张图片在浏览器中独立处理，因此您仅受计算机内存的限制。对于非常大的批次（500+），考虑分较小的组转换以确保稳定的性能。工具会在每张图片转换时显示进度。</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">将 PNG 转换为 JPG 会丢失质量吗？</summary>
+                        <p class="faq-answer">JPG 是有损的，因此在转换过程中会有一些质量损失。然而，在 85-95% 的质量下，对于大多数照片来说，差异是无法察觉的。JPG 文件比等效的 PNG 小 70-90%，使这种权衡对于存储和共享来说是值得的。对于没有透明度需求的照片和图形，将 PNG 转换为 JPG。</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">我可以单独下载转换后的图片还是一次性全部下载？</summary>
+                        <p class="faq-answer">两种选项都可用。批量转换后，您可以预览每个转换后的 JPG，并仅下载满足您需求的特定文件。或者，将所有转换后的图片一次性下载为 ZIP 存档，以便方便地批量保存。这种灵活性非常完美，当您需要在保留所有文件之前查看结果时。</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">将 PNG 转换为 JPG 时，透明区域会怎样？</summary>
+                        <p class="faq-answer">JPG 不支持透明度，因此透明像素会填充白色（或者您可以选择另一种背景颜色）。如果您的 PNG 有重要的透明度，请考虑将它们保留为 PNG 或使用可以先将它们合成到背景上的工具。对于标准照片和不透明图形，这不是问题。</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>更多工具</h4>
+                    <ul>
+                        <li><a href="../../png-to-jpg/">PNG 转 JPG</a></li>
+                        <li><a href="../../compress-image/">图片压缩</a></li>
+                        <li><a href="../../resize-image/">图片缩放</a></li>
+                        <li><a href="../../webp-to-png/">WebP 转 PNG</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>关于</h4>
+                    <ul>
+                        <li><a href="../../">返回首页</a></li>
+                        <li><a href="../../privacy-policy.html">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>合作伙伴</h4>
+                    <ul>
+                        <li><a href="https://mockupshot.online/">MockupShot - 截图样机</a></li>
+                        <li><a href="https://ilovepalette.com/">ILovePalette - 色彩工具</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+<script>
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>调整图片为 200x200 - 免费小缩略图缩放器 | PicEte</title>
+    <meta name="description" content="将图片调整为 200x200 像素，用于缩略图和小头像。免费在线工具，创建小型正方形图片。">
+    <meta name="keywords" content="调整图片为200x200, 200x200缩略图, 小头像缩放器, 小正方形图片, 评论头像">
+    <link rel="canonical" href="https://picete.com/resize-image-to-200x200/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/zh/resize-image-to-200x200/">
+    <meta property="og:title" content="调整图片为 200x200 - 小缩略图尺寸">
+    <meta property="og:description" content="免费在线工具，将图片调整为 200x200 用于缩略图和头像。">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Resize Image to 200x200",
+        "description": "Free online tool to resize images to 200x200 for small thumbnails and avatars",
+        "url": "https://picete.com/resize-image-to-200x200",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .faq-list { display: flex; flex-direction: column; gap: 0.75rem; }
+        .faq-item { background: var(--bg-primary, #fff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 8px; overflow: hidden; transition: box-shadow 0.2s; }
+        .faq-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .faq-question { padding: 1rem 1.25rem; font-weight: 600; font-size: 1rem; color: var(--text-color, #1f2937); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+        .faq-question::after { content: '+'; font-size: 1.25rem; color: var(--primary-color, #2563eb); transition: transform 0.2s; }
+        details[open] .faq-question::after { content: '−'; }
+        .faq-answer { padding: 0 1.25rem 1rem 1.25rem; line-height: 1.7; color: var(--text-light, #6b7280); }
+        .theme-toggle { background: none; border: 1px solid var(--border-color, #e5e7eb); cursor: pointer; padding: 0.5rem; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; transition: all 0.2s ease; color: var(--text-color); line-height: 1; font-size: 1.125rem; }
+        .theme-toggle:hover { background-color: var(--bg-secondary, #f3f4f6); border-color: var(--primary-color, #6366F1); }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../"><img src="../../images/picete-logo.svg" alt="PicEte" class="logo-img"></a>
+                <p class="tagline">图片缩放</p>
+            </div>
+            <nav class="nav">
+                <a href="../../" class="nav-link">首页</a>
+                <a href="../../#tools" class="nav-link">更多工具</a>
+                <div class="lang-switcher">
+                    <select onchange="switchLanguage(this.value)" aria-label="Switch language">
+                        <option value="en">English</option><option value="zh" selected>中文</option>
+                        <option value="ja">日本語</option><option value="de">Deutsch</option><option value="fr">Français</option><option value="es">Español</option><option value="pt">Português</option><option value="ar">العربية</option>
+                    </select>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="sun-icon">☀️</span><span class="moon-icon">🌙</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/">首页</a><span class="separator">›</span><a href="../../resize-image/">图片缩放</a><span class="separator">›</span><span class="current">200x200</span></div>
+                <h1 class="hero-title">调整图片为 200x200</h1>
+                <h2 class="hero-subtitle">小缩略图和头像尺寸</h2>
+                <p style="font-size: 1.125rem; color: var(--text-light); max-width: 700px; margin: 1.5rem auto; line-height: 1.8;">
+                    需要将图片精确调整为 200x200 像素吗？这种紧凑的正方形格式非常适合小缩略图、评论头像和论坛个人资料图片。无论您是在建立网站画廊、管理用户头像还是创建产品预览，PicEte 都能让将任何图片调整为高效的 200x200 尺寸变得简单。
+                </p>
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">为什么 200x200 适合小缩略图</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        200x200 像素是需要可识别但加载即时的小图片的最佳尺寸。在这个尺寸下，面部仍然可以识别，徽标保持清晰，文本仍然可读 — 同时将大多数图片的文件大小保持在 10KB 以下。这使得 200x200 非常适合用于用户评论头像、数据库缩略图、产品预览和论坛个人资料图片，在这些地方页面速度比像素完美细节更重要。
+                    </p>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">PicEte 如何调整为 200x200</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        上传任何图片到 PicEte，我们的工具会自动将其精确调整为 200x200 像素。基于浏览器的画布引擎应用智能缩小和抗锯齿，以在小尺寸下保持清晰度。非正方形图片在 200x200 边界内居中并应用信箱模式。要获得没有边框的干净正方形输出，请在调整大小之前将源图片裁剪为 1:1 的纵横比。
+                    </p>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">200x200 图片的使用场景</h3>
+                    <ul style="line-height: 1.8; color: var(--text-light); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>用户评论头像和论坛个人资料图片</li>
+                        <li>电商画廊的产品预览缩略图</li>
+                        <li>数据库缩略图和图片搜索结果</li>
+                        <li>小图标和按钮图形</li>
+                        <li>协作工具的团队成员缩略图集</li>
+                    </ul>
+                </div>
+                <div style="text-align: center; margin: 3rem 0;">
+                    <a href="../../resize-image/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                        免费使用 PicEte 图片缩放工具 →
+                    </a>
+                    <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.875rem;">免费 · 无需注册 · 浏览器本地处理</p>
+                </div>
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--text-color);">相关缩略图尺寸</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                        <div>
+                            <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">更多头像选项</h4>
+                            <ul style="line-height: 1.8; color: var(--text-light);">
+                                <li><a href="../../resize-image-to-250x250/">调整为 250x250</a> — 标准头像</li>
+                                <li><a href="../../resize-image-to-512x512/">调整为 512x512</a> — 高质量</li>
+                                <li><a href="../../resize-image-to-800x800/">调整为 800x800</a> — 大型缩略图</li>
+                                <li><a href="../../resize-image-to-300x250/">调整为 300x250</a> — 矩形缩略图</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">常见问题</h2>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary class="faq-question">为什么 200x200 适合缩略图？</summary>
+                        <p class="faq-answer">200x200 像素是小缩略图的理想尺寸，因为它足够大，可以识别，但又足够小，可以快速加载。许多网站将 200x200 用于评论头像、论坛个人资料图片和产品预览缩略图。在这个尺寸下，图片即使在高清显示器上也保持清晰，同时将文件大小降至最低。</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">我的图片在 200x200 下会清晰吗？</summary>
+                        <p class="faq-answer">是的。200x200 对于缩略图和小头像来说足够清晰可见。PicEte 在缩小期间应用抗锯齿以保持清晰度。对于照片，面部在这个尺寸下仍然可以识别。对于徽标和图标，文本保持可读。如果您需要缩放的更高细节，请考虑 400x400 或 512x512。</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">我可以批量创建 200x200 缩略图吗？</summary>
+                        <p class="faq-answer">当然可以。一次上传所有图片，PicEte 会同时将它们全部调整为 200x200。每张图片在几毫秒内处理，因此您可以快速为网站画廊、论坛用户头像或产品预览生成数百个缩略图，无需等待。</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">200x200 和 250x250 有什么区别？</summary>
+                        <p class="faq-answer">200x200 在文件大小和分辨率上比 250x250 小 56%。当您需要最小文件大小和快速加载时，请使用 200x200，例如用于用户评论头像或数据库缩略图。当您需要稍多的细节和清晰度时，请使用 250x250。两种尺寸用途相似 — 选择取决于您的具体用例。</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>更多工具</h4>
+                    <ul>
+                        <li><a href="../../resize-image/">图片缩放</a></li>
+                        <li><a href="../../compress-image/">图片压缩</a></li>
+                        <li><a href="../../png-to-jpg/">PNG 转 JPG</a></li>
+                        <li><a href="../../webp-to-png/">WebP 转 PNG</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>关于</h4>
+                    <ul>
+                        <li><a href="../../">返回首页</a></li>
+                        <li><a href="../../privacy-policy.html">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>合作伙伴</h4>
+                    <ul>
+                        <li><a href="https://mockupshot.online/">MockupShot - 截图样机</a></li>
+                        <li><a href="https://ilovepalette.com/">ILovePalette - 色彩工具</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+<script>
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>

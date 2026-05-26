@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>调整图片大小至 512x512 - 免费头像和个人资料图片调整工具 | PicEte</title>
+    <meta name="description" content="将图片调整大小至 512x512 像素，用于 AI 头像、个人资料图片和社交媒体。免费在线工具，将任何图片转换为 512x512 正方形格式。无需注册。">
+    <meta name="keywords" content="调整图片大小至 512x512, 512x512 头像, 正方形图片调整器, 个人资料图片大小">
+    <link rel="canonical" href="https://picete.com/resize-image-to-512x512/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/zh/resize-image-to-512x512/">
+    <meta property="og:title" content="调整图片大小至 512x512 - AI 头像和个人资料图片大小">
+    <meta property="og:description" content="免费在线工具，将图片调整大小至 512x512，用于头像和个人资料图片。">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Resize Image to 512x512",
+        "description": "Free online tool to resize images to 512x512 square format for avatars and profile pictures",
+        "url": "https://picete.com/resize-image-to-512x512",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Why is 512x512 a standard image size?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "512x512 pixels is the widely adopted standard for AI-generated avatars, profile pictures, and app icons. Most AI image generators (DALL-E, Midjourney, Stable Diffusion) use 512x512 as a base resolution. It is also the required size for Apple and Android app icons, making it a versatile square format across platforms."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will resizing to 512x512 preserve my image quality?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. PicEte uses canvas-based downscaling that applies anti-aliasing to preserve detail. When reducing a larger image to 512x512, the result often looks sharper because fine details are consolidated. For best results, start with a clean image at least 512x512 pixels or larger."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I batch resize multiple images to 512x512?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Upload multiple images at once and PicEte processes them all simultaneously. Each image is independently resized to an exact 512x512 square in milliseconds. Perfect for preparing a set of team avatars or product thumbnails."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is 512x512 good for social media profile pictures?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. 512x512 is large enough to look crisp on HiDPI/Retina displays, while remaining small enough to load quickly. Twitter, LinkedIn, Facebook, Discord, and Slack all display profile pictures at resolutions well under 512x512, so resizing to this size ensures compatibility across platforms."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+
+
+    <link rel="alternate" hreflang="en" href="https://picete.com/resize-image-to-512x512/" />
+    <link rel="alternate" hreflang="zh" href="https://picete.com/zh/resize-image-to-512x512/" />
+    <link rel="alternate" hreflang="ja" href="https://picete.com/ja/resize-image-to-512x512/" />
+    <link rel="alternate" hreflang="de" href="https://picete.com/de/resize-image-to-512x512/" />
+    <link rel="alternate" hreflang="fr" href="https://picete.com/fr/resize-image-to-512x512/" />
+    <link rel="alternate" hreflang="es" href="https://picete.com/es/resize-image-to-512x512/" />
+    <link rel="alternate" hreflang="pt" href="https://picete.com/pt/resize-image-to-512x512/" />
+    <link rel="alternate" hreflang="ar" href="https://picete.com/ar/resize-image-to-512x512/" />
+    <link rel="alternate" hreflang="x-default" href="https://picete.com/resize-image-to-512x512/" />
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../">
+                    <img src="../../images/picete-logo.svg" alt="PicEte" class="logo-img">
+                </a>
+                <p class="tagline">图片缩放</p>
+            </div>
+            <nav class="nav">
+                <a href="../../" class="nav-link">首页</a>
+                <a href="../../#tools" class="nav-link">更多工具</a>
+
+    <!-- Language Switcher -->
+    <style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+    <div class="lang-switcher">
+        <select onchange="switchLanguage(this.value)" aria-label="Switch language">
+            <option value="en">English</option>
+            <option value="zh" selected>中文</option>
+            <option value="ja">日本語</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="pt">Português</option>
+            <option value="ar">العربية</option>
+        </select>
+    </div>
+    <script>
+    function switchLanguage(code) {
+        var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+                            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/">首页</a><span class="separator">›</span><a href="../../resize-image/">图片缩放</a><span class="separator">›</span><span class="current">512x512</span></div>
+                <h1 class="hero-title">调整图片大小至 512x512</h1>
+                <h2 class="hero-subtitle">完美的正方形格式，用于头像和 AI 艺术作品</h2>
+                <p style="font-size: 1.125rem; color: var(--text-light); max-width: 700px; margin: 1.5rem auto; line-height: 1.8;">
+                    需要将图片调整大小至精确的 512x512 像素？这种正方形格式是 AI 生成内容、应用图标和社交媒体个人资料图片的行业标准。无论您是为 Stable Diffusion、DALL-E 提示词准备图片，还是为您的团队设置 Slack 头像，PicEte 都能简单地将任何图片调整大小至 512x512 像素，同时保持质量。
+                </p>
+
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">为什么 512x512 是标准正方形</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        512x512 已成为数十个平台上事实上的标准分辨率。AI 图像生成器如 DALL-E 3、Stable Diffusion XL 和 Midjourney 默认使用 512x512 或将其用作构图的基础单位。应用商店要求图标大小为 512x512 才能提交。甚至 Twitter、LinkedIn 和 Discord 等社交平台显示个人资料图片的分辨率也从清晰的 512x512 源文件中受益。这种尺寸在视觉清晰度和文件效率之间取得了完美的平衡。
+                    </p>
+
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">PicEte 如何调整大小至 512x512</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        将任何图片上传到 PicEte，我们的工具会自动将其调整大小至精确的 512x512 像素。基于浏览器的 canvas 引擎智能处理纵横比：非正方形图片会被居中并添加边界框以适应 512x512 边界，同时保持原始比例。要获得真正的正方形输出，请先使用任何照片编辑器裁剪图片，然后使用 PicEte 调整大小以获得像素完美的结果。所有处理都在您的浏览器本地进行 — 不会上传到任何服务器。
+                    </p>
+
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">512x512 图片的使用场景</h3>
+                    <ul style="line-height: 1.8; color: var(--text-light); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>AI 生成艺术和头像提示词准备</li>
+                        <li>iOS、Android 和 Web 应用程序的应用图标创建</li>
+                        <li>LinkedIn、Slack 和 Discord 的专业个人资料图片</li>
+                        <li>协作工具的团队成员缩略图集</li>
+                        <li>电子商务列表的正方形产品缩略图</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin: 3rem 0;">
+                    <a href="../../resize-image/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                        免费使用 PicEte 图片缩放工具 →
+                    </a>
+                    <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.875rem;">免费 · 无需注册 · 浏览器本地处理</p>
+                </div>
+
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--text-color);">相关图片尺寸</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                        <div>
+                            <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">更多调整大小选项</h4>
+                            <ul style="line-height: 1.8; color: var(--text-light);">
+                                <li><a href="../../resize-image-to-1080x1080/">调整大小至 1080x1080</a> — Instagram 帖子</li>
+                                <li><a href="../../resize-image-to-800x800/">调整大小至 800x800</a> — 电子商务照片</li>
+                                <li><a href="../../resize-image-to-1920x1080/">调整大小至 1920x1080</a> — 壁纸和横幅</li>
+                                <li><a href="../../resize-image-to-200x200/">调整大小至 200x200</a> — 小缩略图</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">常见问题</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">为什么 512x512 是标准图片尺寸？</summary>
+                    <p class="faq-answer">512x512 像素是 AI 生成头像、个人资料图片和应用图标广泛采用的标准。大多数 AI 图像生成器（DALL-E、Midjourney、Stable Diffusion）使用 512x512 作为基本分辨率。这也是 Apple 和 Android 应用图标的要求尺寸，使其成为跨平台通用的正方形格式。</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">调整大小至 512x512 会保持我的图片质量吗？</summary>
+                    <p class="faq-answer">会。PicEte 使用基于 canvas 的缩小技术，应用抗锯齿来保持细节。当将较大的图片缩小至 512x512 时，结果通常看起来更清晰，因为细小的细节被整合了。为获得最佳结果，请使用至少 512x512 像素或更大的清晰图片。</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">我可以批量调整多张图片的大小至 512x512 吗？</summary>
+                    <p class="faq-answer">可以。一次上传多张图片，PicEte 会同时处理所有图片。每张图片都在毫秒级内独立调整大小至精确的 512x512 正方形。非常适合准备一组团队头像或产品缩略图。</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">512x512 适合社交媒体个人资料图片吗？</summary>
+                    <p class="faq-answer">绝对适合。512x512 足够大，可以在 HiDPI/Retina 显示器上看起来清晰，同时又足够小，可以快速加载。Twitter、LinkedIn、Facebook、Discord 和 Slack 都以远低于 512x512 的分辨率显示个人资料图片，因此调整大小至此可确保跨平台兼容性。</p>
+                </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>更多工具</h4>
+                    <ul>
+                        <li><a href="../../resize-image/">图片缩放</a></li>
+                        <li><a href="../../compress-image/">图片压缩</a></li>
+                        <li><a href="../../png-to-jpg/">PNG 转 JPG</a></li>
+                        <li><a href="../../webp-to-png/">WebP 转 PNG</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>关于</h4>
+                    <ul>
+                        <li><a href="../../">返回首页</a></li>
+                        <li><a href="../../privacy-policy.html">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>合作伙伴网站</h4>
+                    <ul>
+                        <li><a href="https://mockupshot.online/">MockupShot - 截图样机</a></li>
+                        <li><a href="https://ilovepalette.com/">ILovePalette - 色彩工具</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>

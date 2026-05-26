@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>压缩 WordPress 图片 - 免费网站图片优化器 | PicEte</title>
+    <meta name="description" content="压缩为 WordPress 网站优化的图片。免费在线工具，减少图片大小以加快 WordPress 加载速度。">
+    <meta name="keywords" content="压缩 wordpress 图片, wordpress 图片优化, 减小图片大小, 加速 wordpress">
+    <link rel="canonical" href="https://picete.com/compress-image-for-wordpress/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/zh/compress-image-for-wordpress/">
+    <meta property="og:title" content="压缩 WordPress 图片 - 网站图片优化器">
+    <meta property="og:description" content="免费在线工具，压缩为 WordPress 网站优化的图片。">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Compress Image for WordPress",
+        "description": "Free online tool to compress images optimized for WordPress websites",
+        "url": "https://picete.com/compress-image-for-wordpress",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "WordPress 推荐的图片大小是多少？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WordPress 建议保持上传图片在 500KB 以下以获得最佳性能。对于特色图片，1200x630 像素、70-80% JPG 质量效果良好。博客文章图片宽度应为 800-1200px。在上传到 WordPress 之前压缩图片可以显著提高页面加载速度和 SEO 排名。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "WordPress 会自动压缩图片吗？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WordPress 确实在上传期间压缩图片（默认 JPG 质量为 82%），但这对于现代网络性能需求来说不够激进。在上传前使用 PicEte 预先压缩图片可以让您获得更好的控制和更小的文件大小。WordPress 的内置压缩不会覆盖您已优化的文件。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "我应该在 WordPress 中使用 WebP 吗？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "是的，WebP 非常适合 WordPress。在质量相似的情况下，它比等效的 JPG 小 25-35%。许多现代 WordPress 主题原生支持 WebP。对于较旧的主题，使用向支持的浏览器提供 WebP 而回退到 JPG 的插件。PicEte 可以帮助您在转换为 WebP 之前压缩任何格式的图片。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "如何通过图片优化加快 WordPress 速度？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "使用 PicEte 在上传之前压缩所有图片。使用适当的尺寸 — 不要为 800px 的内容区域上传 4000px 宽的图片。在 WordPress 中启用延迟加载（自 5.5 起内置）。考虑缓存插件和 CDN。良好优化的图片可以将页面加载时间减少 50% 或更多，直接改善 Google Core Web Vitals 分数。"
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../">
+                    <img src="../../images/picete-logo.svg" alt="PicEte" class="logo-img">
+                </a>
+                <p class="tagline">图片压缩</p>
+            </div>
+            <nav class="nav">
+                <a href="../../" class="nav-link">首页</a>
+                <a href="../../#tools" class="nav-link">更多工具</a>
+
+<!-- Language Switcher -->
+<style>
+    .lang-switcher {
+        position: relative;
+        display: inline-block;
+    }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+    <div class="lang-switcher">
+        <select onchange="switchLanguage(this.value)" aria-label="Switch language">
+            <option value="en">English</option>
+            <option value="zh" selected>中文</option>
+            <option value="ja">日本語</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="pt">Português</option>
+            <option value="ar">العربية</option>
+        </select>
+    </div>
+    <script>
+    function switchLanguage(code) {
+        var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+                            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/">首页</a><span class="separator">›</span><a href="../../compress-image/">图片压缩</a><span class="separator">›</span><span class="current">WordPress</span></div>
+                <h1 class="hero-title">压缩 WordPress 图片</h1>
+                <h2 class="hero-subtitle">加载更快，SEO 排名更好</h2>
+                <p style="font-size: 1.125rem; color: var(--text-light); max-width: 700px; margin: 1.5rem auto; line-height: 1.8;">
+                    大图片是 WordPress 网站缓慢的第一大原因。在上传之前压缩图片可以将页面加载时间减少 50% 或更多，直接改善您的 Google 排名和用户体验。PicEte 专门为 WordPress 优化图片 — 在减少文件大小的同时保持访问者期望的质量。
+                </p>
+
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">为什么图片优化对 WordPress 很重要</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        未优化的图片会减慢您的 WordPress 网站，让访问者感到沮丧，并损害搜索引擎排名。Google 的 Core Web Vitals 算法直接惩罚加载缓慢的网站。来自相机和手机的大多数照片都是 2-5MB — 对于网络使用来说太大了。在上传之前将图片压缩到 500KB 以下可以确保快速页面加载、更低的带宽成本和更好的移动性能。您节省的每一秒加载时间都会提高转化率和 SEO。
+                    </p>
+
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">WordPress 图片大小最佳实践</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        对于特色图片，使用 1200x630 像素、70-80% JPG 质量。博客文章内容图片宽度应为 800-1200px。WooCommerce 的产品照片在 800x800 或 1000x1000 效果良好。永远不要直接上传全分辨率的相机照片 — 先调整大小和压缩。对照片使用 JPG，仅对需要透明度的图形使用 PNG。使用 PicEte 预压缩比单独依赖 WordPress 插件更有效。
+                    </p>
+
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">PicEte 如何为 WordPress 优化</h3>
+                    <ul style="line-height: 1.8; color: var(--text-light); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>在保持视觉质量的同时将文件大小减少 70-90%</li>
+                        <li>优化网络显示的 JPG 压缩级别</li>
+                        <li>去除不必要的 EXIF 元数据以减少臃肿</li>
+                        <li>为响应式 WordPress 主题准备图片</li>
+                        <li>批量处理多张图片以提高工作效率</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin: 3rem 0;">
+                    <a href="../../compress-image/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                        免费使用 PicEte 图片压缩工具 →
+                    </a>
+                    <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.875rem;">免费 • 无需注册 • 为 WordPress 优化</p>
+                </div>
+
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--text-color);">相关 WordPress 工具</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                        <div>
+                            <h4 style="font-size: 1rem; margin-bottom: 0.5rem">图片优化</h4>
+                            <ul style="line-height: 1.8; color: var(--text-light);">
+                                <li><a href="../../compress-image-for-website/">为网站压缩</a> — 一般网络使用</li>
+                                <li><a href="../../resize-image/">图片调整大小</a> — 上传前调整大小</li>
+                                <li><a href="../../png-to-jpg/">PNG 转 JPG</a> — 转换以获得更好的压缩</li>
+                                <li><a href="../../compress-image-to-500kb/">压缩至 500KB</a> — 目标文件大小</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">常见问题</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">WordPress 推荐的图片大小是多少？</summary>
+                    <p class="faq-answer">WordPress 建议保持上传图片在 500KB 以下以获得最佳性能。对于特色图片，1200x630 像素、70-80% JPG 质量效果良好。博客文章图片宽度应为 800-1200px。在上传到 WordPress 之前压缩图片可以显著提高页面加载速度和 SEO 排名。</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">WordPress 会自动压缩图片吗？</summary>
+                    <p class="faq-answer">WordPress 确实在上传期间压缩图片（默认 JPG 质量为 82%），但这对于现代网络性能需求来说不够激进。在上传前使用 PicEte 预先压缩图片可以让您获得更好的控制和更小的文件大小。WordPress 的内置压缩不会覆盖您已优化的文件。</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">我应该在 WordPress 中使用 WebP 吗？</summary>
+                    <p class="faq-answer">是的，WebP 非常适合 WordPress。在质量相似的情况下，它比等效的 JPG 小 25-35%。许多现代 WordPress 主题原生支持 WebP。对于较旧的主题，使用向支持的浏览器提供 WebP 而回退到 JPG 的插件。PicEte 可以帮助您在转换为 WebP 之前压缩任何格式的图片。</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">如何通过图片优化加快 WordPress 速度？</summary>
+                    <p class="faq-answer">使用 PicEte 在上传之前压缩所有图片。使用适当的尺寸 — 不要为 800px 的内容区域上传 4000px 宽的图片。在 WordPress 中启用延迟加载（自 5.5 起内置）。考虑缓存插件和 CDN。良好优化的图片可以将页面加载时间减少 50% 或更多，直接改善 Google Core Web Vitals 分数。</p>
+                </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>更多工具</h4>
+                    <ul>
+                        <li><a href="../../compress-image/">图片压缩</a></li>
+                        <li><a href="../../resize-image/">图片调整大小</a></li>
+                        <li><a href="../../png-to-jpg/">PNG 转 JPG</a></li>
+                        <li><a href="../../webp-to-png/">WebP 转 PNG</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>关于</h4>
+                    <ul>
+                        <li><a href="../../">返回首页</a></li>
+                        <li><a href="../../privacy-policy.html">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>合作伙伴</h4>
+                    <ul>
+                        <li><a href="https://mockupshot.online/">MockupShot - 截图样机</a></li>
+                        <li><a href="https://ilovepalette.com/">ILovePalette - 色彩工具</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>
