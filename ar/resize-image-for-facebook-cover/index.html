@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تغيير حجم الصورة لغلاف Facebook - أداة حجم لافتة Facebook المجانية | PicEte</title>
+    <meta name="description" content="غيّر حجم الصور إلى حجم صورة غلاف Facebook. أداة مجانية عبر الإنترنت لإنشاء أبعاد لافتة ملف Facebook الشخصية المثالية.">
+    <meta name="keywords" content="حجم غلاف facebook، حجم لافتة facebook، 851×315، صورة غلاف facebook، لافتة ملف facebook الشخصي">
+    <link rel="canonical" href="https://picete.com/resize-image-for-facebook-cover/">
+    <!-- hreflang tags -->
+    <link rel="alternate" hreflang="en" href="https://picete.com/resize-image-for-facebook-cover/" />
+    <link rel="alternate" hreflang="zh" href="https://picete.com/zh/resize-image-for-facebook-cover/" />
+    <link rel="alternate" hreflang="ja" href="https://picete.com/ja/resize-image-for-facebook-cover/" />
+    <link rel="alternate" hreflang="de" href="https://picete.com/de/resize-image-for-facebook-cover/" />
+    <link rel="alternate" hreflang="fr" href="https://picete.com/fr/resize-image-for-facebook-cover/" />
+    <link rel="alternate" hreflang="es" href="https://picete.com/es/resize-image-for-facebook-cover/" />
+    <link rel="alternate" hreflang="pt" href="https://picete.com/pt/resize-image-for-facebook-cover/" />
+    <link rel="alternate" hreflang="ar" href="https://picete.com/ar/resize-image-for-facebook-cover/" />
+    <link rel="alternate" hreflang="x-default" href="https://picete.com/resize-image-for-facebook-cover/" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/ar/resize-image-for-facebook-cover/">
+    <meta property="og:title" content="تغيير حجم الصورة لغلاف Facebook - حجم لافتة Facebook">
+    <meta property="og:description" content="أداة مجانية عبر الإنترنت لتغيير حجم الصور إلى أبعاد صورة غلاف Facebook.">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Resize Image for Facebook Cover",
+        "description": "Free online tool to resize images to Facebook cover photo dimensions (851x315)",
+        "url": "https://picete.com/resize-image-for-facebook-cover",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is the recommended Facebook cover photo size?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Facebook recommends 851x315 pixels for cover photos on desktop. This 2.7:1 aspect ratio displays the full banner on computer screens. However, Facebook displays a cropped center portion on mobile devices. The safe zone for important content is approximately the center 560x280 pixels to ensure visibility across both desktop and mobile views."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Why does my Facebook cover look different on mobile?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Facebook shows a significantly cropped version of your cover photo on mobile — roughly 560x280 pixels from the center. On desktop, you see the full 851x315 width. When designing your cover, place logos, text, and faces in the center third of the image. Avoid putting important elements near the edges as they'll be cut off on mobile devices."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What file format should I use for Facebook cover photos?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Facebook accepts JPG and PNG formats for cover photos. JPG is recommended for photos and graphics with gradients because it produces smaller file sizes. Use PNG only if you need transparency (though Facebook doesn't support transparent covers). The maximum file size is 100KB, and PicEte can optimize your images to meet this requirement while resizing."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How often should I update my Facebook cover photo?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Update your Facebook cover photo seasonally, for special promotions, when rebranding, or to announce major events. Many businesses change covers monthly to keep profiles fresh. Consistent updates signal that your page is active and engaging. PicEte makes it quick to resize new cover images to the proper dimensions whenever you need a refresh."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../">
+                    <img src="../../images/picete-logo.svg" alt="PicEte" class="logo-img">
+                </a>
+                <p class="tagline">تغيير حجم الصورة</p>
+            </div>
+            <nav class="nav">
+                <a href="../../" class="nav-link">الرئيسية</a>
+                <a href="../../#tools" class="nav-link">أدوات إضافية</a>
+
+    <!-- Language Switcher -->
+    <style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+    <div class="lang-switcher">
+        <select onchange="switchLanguage(this.value)" aria-label="Switch language">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+            <option value="ja">日本語</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="pt">Português</option>
+            <option value="ar" selected>العربية</option>
+        </select>
+    </div>
+    <script>
+    function switchLanguage(code) {
+        var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+                            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/">الرئيسية</a><span class="separator">›</span><a href="../../resize-image/">تغيير حجم الصورة</a><span class="separator">›</span><span class="current">غلاف Facebook</span></div>
+                <h1 class="hero-title">تغيير حجم الصورة لغلاف Facebook</h1>
+                <h2 class="hero-subtitle">حجم لافتة ملف Facebook الشخصي المثالي</h2>
+                <p style="font-size: 1.125rem; color: var(--text-light); max-width: 700px; margin: 1.5rem auto; line-height: 1.8;">
+                    تحتاج إلى تغيير حجم صورة لغلاف Facebook؟ يوصي Facebook بـ 851×315 بكسل لصور الغلاف على سطح المكتب، لكن الحصول على الأبعاد الصحيحة لكل من سطح المكتب والأجهزة المحمولة يمكن أن يكون أمرًا صعبًا. سواء كنت تقوم بتحديث ملفك الشخصي أو تحديث لافتة صفحة العمل، يجعل PicEte من السهل تغيير حجم أي صورة إلى أبعاد غلاف Facebook المثالية.
+                </p>
+
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">أبعاد صورة غلاف Facebook موضحة</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        يعرض Facebook صور الغلاف بشكل مختلف اعتمادًا على الجهاز. على سطح المكتب، تكون لافتة 851×315 بكسل الكاملة مرئية. ومع ذلك، على الأجهزة المحمولة، يعرض Facebook جزءًا مركزيًا مقصوصًا فقط — تقريبًا 560×280 بكسل. هذا يعني أن المحتوى المهم مثل الشعارات أو النص أو الوجوه يجب وضعه في ثلث الصورة المركزي لضمان أنه مرئي على كل من المنصات. نسبة العرض إلى الارتفاع 2.7:1 (851×315) هي التوصية الرسمية، لكن تذكر دائمًا قصاص الأجهزة المحمولة أثناء التصميم.
+                    </p>
+
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">كيف يغيّر PicEte الحجم لأغلفة Facebook</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        ارفع أي صورة لافتة إلى PicEte وتقوم أداتنا بتغيير حجمها إلى أبعاد غلاف Facebook القياسية 851×315. يطبق محرك canvas أشرطة للحفاظ على نسبة العرض إلى الارتفاع الدقيقة لـ Facebook مع الحفاظ على نسب صورتك الأصلية. للحصول على نتائج مثالية بدون حدود، ابدأ بصورة لديها نسبة عرض إلى ارتفاع 2.7:1 على الأقل. جميع المعالجة تحدث محليًا في متصفحك للخصوصية.
+                    </p>
+
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">نصائح تصميم أغلفة Facebook</h3>
+                    <ul style="line-height: 1.8; color: var(--text-light); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>ضع الشعارات والنص في المنطقة الآمنة المركزية 560×280 للرؤية على الأجهزة المحمولة</li>
+                        <li>تجنب العناصر المهمة بالقرب من الحواف حيث سيتم قصها على الأجهزة المحمولة</li>
+                        <li>استخدم تنسيق JPG لأحجام ملفات أصغر ورفع أسرع</li>
+                        <li>احتفظ بحجم الملف تحت 100 كيلوبايت للرفع الموثوق</li>
+                        <li>حدث موسميًا أو للعروض الترويجية للحفاظ على ملفك الشخصي جديدًا</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin: 3rem 0;">
+                    <a href="../../resize-image/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                        استخدم PicEte لتغيير حجم الصورة مجانًا ←
+                    </a>
+                    <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.875rem;">مجاني · بدون تسجيل · يعمل في المتصفح</p>
+                </div>
+
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--text-color);">أحجام وسائل التواصل الاجتماعي ذات صلة</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                        <div>
+                            <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">خيارات الملف والغلاف</h4>
+                            <ul style="line-height: 1.8; color: var(--text-light);">
+                                <li><a href="../resize-image-to-1500x500/">تغيير الحجم إلى 1500×500</a> — رأس Twitter/X</li>
+                                <li><a href="../resize-image-to-1200x630/">تغيير الحجم إلى 1200×630</a> — مشاركات اجتماعية</li>
+                                <li><a href="../resize-image-to-1080x1080/">تغيير الحجم إلى 1080×1080</a> — منشورات Instagram</li>
+                                <li><a href="../resize-image-to-1920x1080/">تغيير الحجم إلى 1920×1080</a> — لافتات كبيرة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">الأسئلة الشائعة</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">ما هو حجم صورة غلاف Facebook الموصى به؟</summary>
+                    <p class="faq-answer">يوصي Facebook بـ 851×315 بكسل لصور الغلاف على سطح المكتب. نسبة العرض إلى الارتفاع 2.7:1 تعرض اللافتة الكاملة على شاشات الكمبيوتر. ومع ذلك، يعرض Facebook جزءًا مركزيًا مقصوصًا على الأجهزة المحمولة. المنطقة الآمنة للمحتوى المهم هي تقريبًا 560×280 بكسل المركزية لضمان الرؤية عبر كل من عروض سطح المكتب والأجهزة المحمولة.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">لماذا يبدو غلاف Facebook مختلفًا على الأجهزة المحمولة؟</summary>
+                    <p class="faq-answer">يظهر Facebook إصدارًا مقصوصًا بشكل كبير من صورة الغلاف على الأجهزة المحمولة — تقريبًا 560×280 بكسل من المركز. على سطح المكتب، ترى عرض 851×315 الكامل. عند تصميم غلافك، ضع الشعارات والنص والوجوه في الثلث الأوسط من الصورة. تجنب وضع عناصر مهمة بالقرب من الحواف حيث سيتم قصها على الأجهزة المحمولة.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">ما تنسيق الملف الذي يجب أن أستخدمه لصور غلاف Facebook؟</summary>
+                    <p class="faq-answer">يقبل Facebook تنسيقات JPG و PNG لصور الغلاف. يُوصى بـ JPG للصور والرسومات التي تحتوي على تدرجات لأنها تنتج أحجام ملفات أصغر. استخدم PNG فقط إذا كنت بحاجة إلى شفافية (على الرغم من أن Facebook لا تدعم الأغلفة الشفافة). الحد الأقصى لحجم الملف هو 100 كيلوبايت، ويمكن لـ PicEte تحسين صورك لتلبية هذا المتطلب أثناء تغيير الحجم.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">كم مرة يجب أن أحدّث صورة غلاف Facebook؟</summary>
+                    <p class="faq-answer">حدث صورة غلاف Facebook موسميًا، أو للعروض الترويجية الخاصة، أو عند إعادة التسمية، أو للإعلان عن الأحداث الرئيسية. تقوم العديد من الشركات بتغيير الأغلفة شهريًا للحفاظ على الملفات جديدة. التحديثات المنتظمة تشير إلى أن صفحتك نشطة وجذابة. يجعل PicEte من السريع تغيير حجم صور الغلاف الجديدة إلى الأبعاد الصحيحة كلما احتجت إلى تحديث.</p>
+                </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>أدوات إضافية</h4>
+                    <ul>
+                        <li><a href="../../resize-image/">تغيير حجم الصورة</a></li>
+                        <li><a href="../../compress-image/">ضغط الصورة</a></li>
+                        <li><a href="../../png-to-jpg/">PNG إلى JPG</a></li>
+                        <li><a href="../../webp-to-png/">WebP إلى PNG</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>حول</h4>
+                    <ul>
+                        <li><a href="../../">العودة إلى الرئيسية</a></li>
+                        <li><a href="../../privacy-policy.html">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>مواقع شريكة</h4>
+                    <ul>
+                        <li><a href="https://mockupshot.online/">MockupShot - Screenshot Mockup</a></li>
+                        <li><a href="https://ilovepalette.com/">ILovePalette - Color Tools</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>
