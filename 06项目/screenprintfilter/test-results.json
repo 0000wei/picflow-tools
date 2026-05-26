@@ -1,0 +1,321 @@
+{
+  "total": 32,
+  "passed": 8,
+  "failed": 4,
+  "tests": [
+    {
+      "name": "Test 1: 首屏加载",
+      "status": "PASS",
+      "checks": [
+        {
+          "id": "1-1",
+          "name": "顶部 Logo + 导航正常显示",
+          "pass": true
+        },
+        {
+          "id": "1-2",
+          "name": "工具栏按钮可见且已 disabled",
+          "pass": true
+        },
+        {
+          "id": "1-3",
+          "name": "所有 slider 可见且已 disabled",
+          "pass": true
+        },
+        {
+          "id": "1-4",
+          "name": "Color pickers 可见且 disabled",
+          "pass": true
+        },
+        {
+          "id": "1-5",
+          "name": "Canvas 区域显示 placeholder",
+          "pass": true
+        },
+        {
+          "id": "1-6",
+          "name": "Example Gallery 显示 8 个预设缩略图",
+          "pass": true
+        },
+        {
+          "id": "1-7",
+          "name": "FAQ 部分可展开/阅读",
+          "pass": true
+        },
+        {
+          "id": "1-8",
+          "name": "Browser console 无 JS Error",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "Test 2: 上传图片",
+      "status": "PASS",
+      "checks": [
+        {
+          "id": "2-1",
+          "name": "上传后 placeholder 消失，canvas 显示 halftone 效果",
+          "pass": true
+        },
+        {
+          "id": "2-2",
+          "name": "Canvas 在 wrapper 中水平和垂直居中",
+          "pass": true
+        },
+        {
+          "id": "2-3",
+          "name": "状态提示 \"Processing...\" 出现并消失",
+          "pass": true
+        },
+        {
+          "id": "2-4",
+          "name": "工具栏所有 control 变为 enabled",
+          "pass": true
+        },
+        {
+          "id": "2-5",
+          "name": "Zoom controls 区域出现",
+          "pass": true
+        },
+        {
+          "id": "2-6",
+          "name": "Canvas 区域底部显示原图尺寸",
+          "pass": true
+        },
+        {
+          "id": "2-7",
+          "name": "Download 按钮在 hover canvas 时出现",
+          "pass": true
+        },
+        {
+          "id": "2-8",
+          "name": "Console 无 JS Error",
+          "pass": true
+        },
+        {
+          "id": "2-9",
+          "name": "画面正确显示 halftone 效果",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "Test 3: 参数调整",
+      "status": "PASS",
+      "checks": [
+        {
+          "id": "3-1",
+          "name": "Dot Size 滑条拖动流畅，数值实时更新",
+          "pass": true
+        },
+        {
+          "id": "3-2",
+          "name": "Spacing 调整后网点间距变化",
+          "pass": true
+        },
+        {
+          "id": "3-3",
+          "name": "Contrast 调整后对比度变化",
+          "pass": true
+        },
+        {
+          "id": "3-4",
+          "name": "Brightness 调整后整体亮度变化",
+          "pass": true
+        },
+        {
+          "id": "3-5",
+          "name": "Angle 调整后网点旋转",
+          "pass": true
+        },
+        {
+          "id": "3-6",
+          "name": "Dot Shape 切换后形状正确渲染",
+          "pass": true
+        },
+        {
+          "id": "3-7",
+          "name": "Color 颜色变化正确",
+          "pass": true
+        },
+        {
+          "id": "3-8",
+          "name": "Original Colors 勾选/取消正常工作",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "Test 4: 缩放功能",
+      "status": "PASS",
+      "checks": [
+        {
+          "id": "4-1",
+          "name": "100% 时 Canvas 正常大小，居中",
+          "pass": true
+        },
+        {
+          "id": "4-2",
+          "name": "200% 时 Canvas 放大 2 倍，从中心放大",
+          "pass": true
+        },
+        {
+          "id": "4-3",
+          "name": "放大后有滚动条出现",
+          "pass": true
+        },
+        {
+          "id": "4-4",
+          "name": "Fit 时自适应填满容器",
+          "pass": "scale(1)"
+        },
+        {
+          "id": "4-5",
+          "name": "缩放 > 100% 时可以拖拽平移",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "Test 5: Undo/Redo",
+      "status": "FAIL",
+      "checks": [
+        {
+          "id": "5-1",
+          "name": "Undo 恢复到上一个参数状态",
+          "pass": false
+        },
+        {
+          "id": "5-2",
+          "name": "Redo 恢复到撤销前的状态",
+          "pass": true
+        },
+        {
+          "id": "5-3",
+          "name": "连续多次 Undo/Redo 不崩溃",
+          "pass": false
+        },
+        {
+          "id": "5-4",
+          "name": "Ctrl+Z / Ctrl+Shift+Z 快捷键正常工作",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "Test 6: Reset",
+      "status": "PASS",
+      "checks": [
+        {
+          "id": "6-1",
+          "name": "所有参数恢复默认值",
+          "pass": true
+        },
+        {
+          "id": "6-2",
+          "name": "画面重新渲染",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "Test 7: Download",
+      "status": "FAIL",
+      "checks": [
+        {
+          "id": "7-1",
+          "name": "点击 Download PNG 后文件被下载",
+          "pass": true
+        },
+        {
+          "id": "7-2",
+          "name": "自定义尺寸下载正确",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "name": "Test 8: 拖拽上传",
+      "status": "PASS",
+      "checks": [
+        {
+          "id": "8-1",
+          "name": "拖拽时 canvas 边框高亮",
+          "pass": true
+        },
+        {
+          "id": "8-2",
+          "name": "拖拽释放后边框恢复正常",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "Test 9: Example Gallery",
+      "status": "PASS",
+      "checks": [
+        {
+          "id": "9-1",
+          "name": "预设参数被应用（slider 值变化）",
+          "pass": true
+        },
+        {
+          "id": "9-2",
+          "name": "如果已有图片，画面重新渲染",
+          "pass": true
+        },
+        {
+          "id": "9-3",
+          "name": "如果没有图片，显示提示信息",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "Test 10: 边界情况",
+      "status": "PASS",
+      "checks": [
+        {
+          "id": "10-1",
+          "name": "上传超大图片（>10MB）提示 \"File too large\"",
+          "pass": true
+        },
+        {
+          "id": "10-2",
+          "name": "上传非图片文件被忽略",
+          "pass": true
+        },
+        {
+          "id": "10-3",
+          "name": "连续快速拖动 slider 不卡死",
+          "pass": true
+        },
+        {
+          "id": "10-4",
+          "name": "上传后立即切换图片正常工作",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "Test 11: 输出尺寸",
+      "status": "FAIL",
+      "checks": [
+        {
+          "id": "11-1",
+          "name": "不勾选 Original Size 时输入框变为可编辑",
+          "pass": true
+        }
+      ],
+      "error": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed."
+    },
+    {
+      "name": "Test 12: AI 友好文件",
+      "status": "FAIL",
+      "checks": [],
+      "error": "Navigation timeout of 30000 ms exceeded"
+    }
+  ],
+  "bugs": []
+}

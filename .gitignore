@@ -1,0 +1,50 @@
+# Environment & secrets
+.env
+
+# Temp & trash
+.trash/
+.tmp.driveupload/
+
+# Gemini
+.gemini/
+
+# Large files
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.pptx
+*.key
+*.xlsx
+
+# Browser & cache
+~/.config/
+*.chrome/
+*.store.*
+*.wasm
+*.tflite
+
+# Temp & logs
+*.tmp
+*.cache
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Git subdirs
+**/.git/
