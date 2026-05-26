@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bild auf 200x200 skalieren - Kostenloser Thumbnail-Resizer | PicEte</title>
+    <meta name="description" content="Bilder auf 200x200 Pixel für kleine Thumbnails und Avatare skalieren. Kostenloses Online-Tool zum Erstellen kleiner quadratischer Bilder für Kommentare und Foren.">
+    <meta name="keywords" content="bild auf 200x200 skalieren, 200x200 thumbnail, kleiner avatar resizer, kleines quadratisches bild, kommentar avatar">
+    <link rel="canonical" href="https://picete.com/resize-image-to-200x200/">
+    <link rel="alternate" hreflang="en" href="https://picete.com/resize-image-to-200x200/" />
+    <link rel="alternate" hreflang="zh" href="https://picete.com/zh/resize-image-to-200x200/" />
+    <link rel="alternate" hreflang="de" href="https://picete.com/de/resize-image-to-200x200/" />
+    <link rel="alternate" hreflang="ja" href="https://picete.com/ja/resize-image-to-200x200/" />
+    <link rel="alternate" hreflang="fr" href="https://picete.com/fr/resize-image-to-200x200/" />
+    <link rel="alternate" hreflang="es" href="https://picete.com/es/resize-image-to-200x200/" />
+    <link rel="alternate" hreflang="pt" href="https://picete.com/pt/resize-image-to-200x200/" />
+    <link rel="alternate" hreflang="ar" href="https://picete.com/ar/resize-image-to-200x200/" />
+    <link rel="alternate" hreflang="x-default" href="https://picete.com/resize-image-to-200x200/" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/de/resize-image-to-200x200/">
+    <meta property="og:title" content="Bild auf 200x200 skalieren - Kleine Thumbnail-Größe">
+    <meta property="og:description" content="Kostenloses Online-Tool zum Skalieren von Bildern auf 200x200 für Thumbnails und Avatare.">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Resize Image to 200x200",
+        "description": "Free online tool to resize images to 200x200 for small thumbnails and avatars",
+        "url": "https://picete.com/resize-image-to-200x200",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Warum ist 200x200 gut für Thumbnails?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "200x200 Pixel ist die ideale Größe für kleine Thumbnails, da es groß genug ist, um erkennbar zu sein, aber klein genug für schnelles Laden. Viele Websites verwenden 200x200 für Kommentar-Avatare, Foren-Profilbilder und Produktvorschau-Thumbnails. Bei dieser Größe bleiben Bilder auch auf HD-Displays scharf, während die Dateigröße minimal bleibt."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Wird mein Bild bei 200x200 scharf bleiben?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ja. 200x200 ist für Thumbnails und kleine Avatare ausreichend scharf und klar. PicEte wendet während der Verkleinerung Antialiasing an, um die Schärfe zu erhalten. Bei Fotos bleiben Gesichter in dieser Größe erkennbar. Bei Logos und Symbolen bleibt Text lesbar. Wenn Sie mehr Details benötigen, ziehen Sie 400x400 oder 512x512 in Betracht."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Kann ich mehrere Bilder gleichzeitig auf 200x200 skalieren?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Auf jeden Fall. Laden Sie alle Bilder auf einmal hoch und PicEte skaliert sie gleichzeitig auf 200x200. Jedes Bild wird in Millisekunden verarbeitet, sodass Sie schnell Hunderte von Thumbnails für Website-Galerien, Forum-Benutzeravatare oder Produktvorschauen erstellen können, ohne warten zu müssen."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Was ist der Unterschied zwischen 200x200 und 250x250?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "200x200 ist in Dateigröße und Auflösung 56 % kleiner als 250x250. Verwenden Sie 200x200, wenn Sie minimale Dateigröße und schnelles Laden benötigen, z. B. für Kommentar-Avatare oder Datenbank-Thumbnails. Verwenden Sie 250x250, wenn Sie etwas mehr Details und Schärfe wünschen. Beide Größen haben ähnliche Verwendungszwecke – die Wahl hängt von Ihrem spezifischen Anwendungsfall ab."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        .faq-list { display: flex; flex-direction: column; gap: 0.75rem; }
+        .faq-item { background: var(--bg-primary, #fff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 8px; overflow: hidden; transition: box-shadow 0.2s; }
+        .faq-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .faq-question { padding: 1rem 1.25rem; font-weight: 600; font-size: 1rem; color: var(--text-color, #1f2937); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+        .faq-question::after { content: '+'; font-size: 1.25rem; color: var(--primary-color, #2563eb); transition: transform 0.2s; }
+        details[open] .faq-question::after { content: '−'; }
+        .faq-answer { padding: 0 1.25rem 1rem 1.25rem; line-height: 1.7; color: var(--text-light, #6b7280); }
+        .theme-toggle { background: none; border: 1px solid var(--border-color, #e5e7eb); cursor: pointer; padding: 0.5rem; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; transition: all 0.2s ease; color: var(--text-color); line-height: 1; font-size: 1.125rem; }
+        .theme-toggle:hover { background-color: var(--bg-secondary, #f3f4f6); border-color: var(--primary-color, #6366F1); }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../"><img src="../../images/picete-logo.svg" alt="PicEte" class="logo-img"></a>
+                <p class="tagline">Bildgröße ändern</p>
+            </div>
+            <nav class="nav">
+                <a href="../../" class="nav-link">Startseite</a>
+                <a href="../../#tools" class="nav-link">Weitere Tools</a>
+                <div class="lang-switcher">
+                    <select onchange="switchLanguage(this.value)" aria-label="Switch language">
+                        <option value="en">English</option><option value="zh">中文</option>
+                        <option value="ja">日本語</option><option value="de" selected>Deutsch</option><option value="fr">Français</option><option value="es">Español</option><option value="pt">Português</option><option value="ar">العربية</option>
+                    </select>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="sun-icon">☀️</span><span class="moon-icon">🌙</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/">Startseite</a><span class="separator">›</span><a href="../../resize-image/">Bildgröße ändern</a><span class="separator">›</span><span class="current">200x200</span></div>
+                <h1 class="hero-title">Bild auf 200x200 skalieren</h1>
+                <h2 class="hero-subtitle">Kleine Thumbnail- und Avatar-Größe</h2>
+                <p style="font-size: 1.125rem; color: var(--text-light); max-width: 700px; margin: 1.5rem auto; line-height: 1.8;">
+                    Müssen Sie ein Bild genau auf 200x200 Pixel skalieren? Dieses kompakte Quadratformat ist ideal für kleine Thumbnails, Kommentar-Avatare und Foren-Profilbilder. Egal, ob Sie eine Website-Galerie aufbauen, Benutzeravatare verwalten oder Produktvorschauen erstellen – PicEte macht es einfach, jedes Bild auf die platzsparende 200x200-Größe zu bringen.
+                </p>
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">Warum 200x200 ideal für kleine Thumbnails ist</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        200x200 Pixel ist die optimale Größe für Bilder, die erkennbar sein müssen, aber sofort laden sollen. Bei dieser Größe bleiben Gesichter erkennbar, Logos bleiben scharf und Text bleibt lesbar – während die Dateigröße der meisten Bilder unter 10 KB bleibt. Das macht 200x200 perfekt für Benutzerkommentar-Avatare, Datenbank-Thumbnails, Produktvorschauen und Foren-Profilbilder, bei denen Seitengeschwindigkeit wichtiger ist als perfekte Pixeldetails.
+                    </p>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">Wie PicEte auf 200x200 skaliert</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        Laden Sie ein beliebiges Bild in PicEte hoch, und unser Tool skaliert es automatisch exakt auf 200x200 Pixel. Die browserbasierte Canvas-Engine wendet intelligente Verkleinerung und Antialiasing an, um die Schärfe bei kleinen Größen zu erhalten. Nicht-quadratische Bilder werden innerhalb der 200x200-Grenzen zentriert und mit Letterboxing versehen. Für saubere quadratische Ausgaben ohne Ränder beschneiden Sie Ihr Quellbild vor der Skalierung auf ein 1:1-Seitenverhältnis.
+                    </p>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">Anwendungsfälle für 200x200-Bilder</h3>
+                    <ul style="line-height: 1.8; color: var(--text-light); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>Benutzerkommentar-Avatare und Foren-Profilbilder</li>
+                        <li>Produktvorschau-Thumbnails für E-Commerce-Galerien</li>
+                        <li>Datenbank-Thumbnails und Bildsuchergebnisse</li>
+                        <li>Kleine Symbole und Schaltflächengrafiken</li>
+                        <li>Team-Mitglieder-Thumbnail-Sets für Kollaborationstools</li>
+                    </ul>
+                </div>
+                <div style="text-align: center; margin: 3rem 0;">
+                    <a href="../../resize-image/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                        PicEte Bildgrößen-Änderung kostenlos nutzen →
+                    </a>
+                    <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.875rem;">Kostenlos · Keine Anmeldung · Läuft im Browser</p>
+                </div>
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--text-color);">Verwandte Bildgrößen</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                        <div>
+                            <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Weitere Avatar-Optionen</h4>
+                            <ul style="line-height: 1.8; color: var(--text-light);">
+                                <li><a href="../../resize-image-to-250x250/">Auf 250x250 skalieren</a> — Standard-Avatar</li>
+                                <li><a href="../../resize-image-to-512x512/">Auf 512x512 skalieren</a> — Hohe Qualität</li>
+                                <li><a href="../../resize-image-to-800x800/">Auf 800x800 skalieren</a> — Große Thumbnails</li>
+                                <li><a href="../../resize-image-to-300x250/">Auf 300x250 skalieren</a> — Rechteckige Thumbnails</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Häufig gestellte Fragen</h2>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary class="faq-question">Warum ist 200x200 gut für Thumbnails?</summary>
+                        <p class="faq-answer">200x200 Pixel ist die ideale Größe für kleine Thumbnails, da es groß genug ist, um erkennbar zu sein, aber klein genug für schnelles Laden. Viele Websites verwenden 200x200 für Kommentar-Avatare, Foren-Profilbilder und Produktvorschau-Thumbnails. Bei dieser Größe bleiben Bilder auch auf HD-Displays scharf, während die Dateigröße minimal bleibt.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Wird mein Bild bei 200x200 scharf bleiben?</summary>
+                        <p class="faq-answer">Ja. 200x200 ist für Thumbnails und kleine Avatare ausreichend scharf und klar. PicEte wendet während der Verkleinerung Antialiasing an, um die Schärfe zu erhalten. Bei Fotos bleiben Gesichter in dieser Größe erkennbar. Bei Logos und Symbolen bleibt Text lesbar. Wenn Sie mehr Details benötigen, ziehen Sie 400x400 oder 512x512 in Betracht.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Kann ich mehrere Bilder gleichzeitig auf 200x200 skalieren?</summary>
+                        <p class="faq-answer">Auf jeden Fall. Laden Sie alle Bilder auf einmal hoch und PicEte skaliert sie alle gleichzeitig auf 200x200. Jedes Bild wird in Millisekunden verarbeitet, sodass Sie schnell Hunderte von Thumbnails für Website-Galerien, Forum-Benutzeravatare oder Produktvorschauen erstellen können, ohne warten zu müssen.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Was ist der Unterschied zwischen 200x200 und 250x250?</summary>
+                        <p class="faq-answer">200x200 ist in Dateigröße und Auflösung 56 % kleiner als 250x250. Verwenden Sie 200x200, wenn Sie minimale Dateigröße und schnelles Laden benötigen, z. B. für Kommentar-Avatare oder Datenbank-Thumbnails. Verwenden Sie 250x250, wenn Sie etwas mehr Details und Schärfe wünschen. Beide Größen haben ähnliche Verwendungszwecke – die Wahl hängt von Ihrem spezifischen Anwendungsfall ab.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Weitere Tools</h4>
+                    <ul>
+                        <li><a href="../../resize-image/">Bildgröße ändern</a></li>
+                        <li><a href="../../compress-image/">Bildkomprimierung</a></li>
+                        <li><a href="../../png-to-jpg/">PNG to JPG</a></li>
+                        <li><a href="../../webp-to-png/">WebP to PNG</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Über uns</h4>
+                    <ul>
+                        <li><a href="../../">Zurück zur Startseite</a></li>
+                        <li><a href="../../privacy-policy.html">Datenschutzerklärung</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Partner-Seiten</h4>
+                    <ul>
+                        <li><a href="https://mockupshot.online/">MockupShot - Screenshot-Mockups</a></li>
+                        <li><a href="https://ilovepalette.com/">ILovePalette - Farbtools</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+<script>
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>
