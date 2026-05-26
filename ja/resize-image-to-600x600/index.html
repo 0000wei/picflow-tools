@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像を600x600にリサイズ - 無料のECサイト商品写真リサイズツール | PicEte</title>
+    <meta name="description" content="画像を600x600ピクセルにリサイズしてECサイトの商品写真に対応。無料オンラインツールで完璧な正方形商品形式に変換。">
+    <meta name="keywords" content="画像を600x600にリサイズ,600x600商品写真,EC画像リサイズ,正方形商品画像,Amazon写真サイズ">
+    <link rel="canonical" href="https://picete.com/resize-image-to-600x600/">
+    <link rel="alternate" hreflang="en" href="https://picete.com/resize-image-to-600x600/" />
+    <link rel="alternate" hreflang="zh" href="https://picete.com/zh/resize-image-to-600x600/" />
+    <link rel="alternate" hreflang="ja" href="https://picete.com/ja/resize-image-to-600x600/" />
+    <link rel="alternate" hreflang="de" href="https://picete.com/de/resize-image-to-600x600/" />
+    <link rel="alternate" hreflang="fr" href="https://picete.com/fr/resize-image-to-600x600/" />
+    <link rel="alternate" hreflang="es" href="https://picete.com/es/resize-image-to-600x600/" />
+    <link rel="alternate" hreflang="pt" href="https://picete.com/pt/resize-image-to-600x600/" />
+    <link rel="alternate" hreflang="ar" href="https://picete.com/ar/resize-image-to-600x600/" />
+    <link rel="alternate" hreflang="x-default" href="https://picete.com/resize-image-to-600x600/" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/ja/resize-image-to-600x600/">
+    <meta property="og:title" content="画像を600x600にリサイズ - ECサイト商品写真サイズ">
+    <meta property="og:description" content="ECサイト商品写真用の600x600に画像をリサイズする無料オンラインツール。">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Resize Image to 600x600",
+        "description": "Free online tool to resize images to 600x600 square format for e-commerce product photos",
+        "url": "https://picete.com/resize-image-to-600x600",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Why is 600x600 the standard for e-commerce product photos?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "600x600 pixels is the minimum requirement for Amazon product images and the recommended size for eBay, Shopify, and most e-commerce platforms. This square format provides enough detail for customers to see products clearly while loading quickly. It's the sweet spot between image quality and page performance."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will 600x600 images look professional on my online store?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. 600x600 gives customers enough resolution to zoom in on product details. PicEte's downscaling preserves sharpness and clarity, so your product photos look professional and trustworthy. Higher resolutions like 800x800 or 1000x1000 are also supported by most platforms if you need even more detail."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I batch resize multiple product photos to 600x600?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Upload all your product photos at once and PicEte resizes them all to 600x600 simultaneously. Each image is processed independently in milliseconds, making it fast to prepare an entire product catalog. Perfect for dropshippers, small businesses, and online sellers managing large inventories."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do all e-commerce platforms accept 600x600 images?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Virtually all major platforms accept 600x600. Amazon requires at least 500x500 (600x600 recommended), eBay allows 600x600, Shopify supports it, and it works well on Etsy, WooCommerce, and most shopping cart systems. Always check your specific platform's requirements, but 600x600 is universally safe."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../">
+                    <img src="../../images/picete-logo.svg" alt="PicEte" class="logo-img">
+                </a>
+                <p class="tagline">画像リサイズ</p>
+            </div>
+            <nav class="nav">
+                <a href="../../" class="nav-link">ホーム</a>
+                <a href="../../#tools" class="nav-link">その他のツール</a>
+
+    <style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+    <div class="lang-switcher">
+        <select onchange="switchLanguage(this.value)" aria-label="Switch language">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+            <option value="ja" selected>日本語</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="pt">Português</option>
+            <option value="ar">العربية</option>
+        </select>
+    </div>
+    <script>
+    function switchLanguage(code) {
+        var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+        var path = window.location.pathname;
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+                            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/">ホーム</a><span class="separator">›</span><a href="../../resize-image/">画像リサイズ</a><span class="separator">›</span><span class="current">600x600</span></div>
+                <h1 class="hero-title">画像を600x600にリサイズ</h1>
+                <h2 class="hero-subtitle">ECサイト商品写真の完璧なサイズ</h2>
+                <p style="font-size: 1.125rem; color: var(--text-light); max-width: 700px; margin: 1.5rem auto; line-height: 1.8;">
+                    商品写真を正確に600x600ピクセルにリサイズする必要がありますか？これはAmazon、eBay、Shopify、および主要なECプラットフォームの標準正方形サイズです。ドロップシップ業者が商品画像を準備する場合でも、商品カタログを編集するプロフェッショナルフォトグラファーでも、PicEteなら任意の画像を完璧な600x600正方形サイズに簡単にリサイズできます。
+                </p>
+
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">なぜ600x600がECサイト標準なのか</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        600x600ピクセルは、オンライン商品写真のバランスの取れたサイズです。顧客が商品詳細を明確に認識し、拡大して確認できるのに十分な解像度があり、ページ読み込みは高速です。Amazonは最低500x500を要求し、600x600以上を推奨しています。eBay、Shopify、Etsy、WooCommerceはすべて、この正方形形式に最適化された商品表示を行います。一貫して600x600を使用することで、すべてのプラットフォームで商品がプロフェッショナルに見えます。
+                    </p>
+
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">PicEteが600x600にリサイズする仕組み</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        任意の商品写真をPicEteにアップロードするだけで、自動的に正確に600x600ピクセルにリサイズされます。ブラウザベースのキャンバスエンジンは、商品ディテールを保つインテリジェントなダウンスケーリングをアンチエイリアス付きで適用します。正方形でない画像は中央に配置され、600x600境界内で元の縦横比を保ったまま収まります。完全に正方形の出力を得るには、あらかじめ1:1のアスペクト比にクロップしてください。
+                    </p>
+
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">600x600商品画像の主な用途</h3>
+                    <ul style="line-height: 1.8; color: var(--text-light); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>最低500x500要件を満たすAmazon商品写真</li>
+                        <li>最適なギャラリー表示用のeBay商品画像</li>
+                        <li>統一されたカタログ外観用のShopify商品写真</li>
+                        <li>ドロップシッピング商品画像準備</li>
+                        <li>オンラインマーケットプレイス・比較サイトの商品サムネイル</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin: 3rem 0;">
+                    <a href="../../resize-image/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                        PicEte画像リサイズツールを無料で使う →
+                    </a>
+                    <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.875rem;">無料 · 登録不要 · ブラウザで完結</p>
+                </div>
+
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--text-color);">関連ECサイト画像サイズ</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                        <div>
+                            <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">商品写真オプション</h4>
+                            <ul style="line-height: 1.8; color: var(--text-light);">
+                                <li><a href="../../resize-image-to-800x800/">800x800にリサイズ</a> — 高解像度</li>
+                                <li><a href="../../resize-image-to-512x512/">512x512にリサイズ</a> — 最低Amazon要件</li>
+                                <li><a href="../../resize-image-to-1080x1080/">1080x1080にリサイズ</a> — Instagram商品</li>
+                                <li><a href="../../resize-image-to-200x200/">200x200にリサイズ</a> — 商品サムネイル</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">よくある質問</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">600x600がECサイト商品写真の標準なのはなぜですか？</summary>
+                    <p class="faq-answer">600x600ピクセルはAmazon商品画像の最低要件であり、eBay、Shopify、ほとんどのECプラットフォームで推奨サイズです。この正方形形式は、ページ読み込みを高速化しながら、商品を明確に確認できる十分なディテールを提供します。画像品質とページパフォーマンスのバランスが最適です。</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">600x600画像はオンラインストアでプロフェッショナルに見えますか？</summary>
+                    <p class="faq-answer">もちろんです。600x600は顧客が商品ディテールを拡大確認できる十分な解像度を提供します。PicEteのダウンスケーリングは鮮明さと明瞭さを保つため、商品写真はプロフェッショナルで信頼性のある外観になります。さらに多くのディテールが必要な場合、800x800や1000x1000など、より高い解像度もほとんどのプラットフォームでサポートされています。</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">複数の商品写真を一括で600x600にリサイズできますか？</summary>
+                    <p class="faq-answer">はい。すべての商品写真を一度にアップロードすると、PicEteがそれらすべてを同時に600x600にリサイズします。各画像はミリ秒単位で独立して処理されるため、商品カタログ全体を素早く準備できます。大規模な在庫を管理するドロップシッパー、小規模事業者、オンライン販売者に最適です。</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">すべてのECプラットフォームが600x600画像を受け付けますか？</summary>
+                    <p class="faq-answer">事実上、すべての主要プラットフォームが600x600を受け付けます。Amazonは最低500x500（600x600推奨）を要求し、eBayは600x600を許可し、Shopifyはサポートしており、Etsy、WooCommerce、ほとんどのショッピングカートシステムでも問題なく機能します。常にプラットフォーム固有の要件を確認してくださいが、600x600は普遍的に安全です。</p>
+                </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>その他のツール</h4>
+                    <ul>
+                        <li><a href="../../resize-image/">画像リサイズ</a></li>
+                        <li><a href="../../compress-image/">画像圧縮</a></li>
+                        <li><a href="../../png-to-jpg/">PNG to JPG</a></li>
+                        <li><a href="../../webp-to-png/">WebP to PNG</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>このサイトについて</h4>
+                    <ul>
+                        <li><a href="../../">トップに戻る</a></li>
+                        <li><a href="../../privacy-policy.html">プライバシーポリシー</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>パートナーサイト</h4>
+                    <ul>
+                        <li><a href="https://mockupshot.online/">MockupShot - スクリーンショットモックアップ</a></li>
+                        <li><a href="https://ilovepalette.com/">ILovePalette - カラーツール</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+<script>
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像を250x250にリサイズ - 無料のアバター・プロフィール画像リサイズツール | PicEte</title>
+    <meta name="description" content="アバターやプロフィール画像用に画像を250x250ピクセルにリサイズ。最適な正方形アバターサイズのための無料オンラインツール。">
+    <meta name="keywords" content="250x250にリサイズ, アバター画像, プロフィール画像リサイズ, 正方形アバターサイズ, フォーラムアイコン">
+    <link rel="canonical" href="https://picete.com/resize-image-to-250x250/">
+    <!-- hreflang 标签 -->
+    <link rel="alternate" hreflang="en" href="https://picete.com/resize-image-to-250x250/" />
+    <link rel="alternate" hreflang="zh" href="https://picete.com/zh/resize-image-to-250x250/" />
+    <link rel="alternate" hreflang="ja" href="https://picete.com/ja/resize-image-to-250x250/" />
+    <link rel="alternate" hreflang="de" href="https://picete.com/de/resize-image-to-250x250/" />
+    <link rel="alternate" hreflang="fr" href="https://picete.com/fr/resize-image-to-250x250/" />
+    <link rel="alternate" hreflang="es" href="https://picete.com/es/resize-image-to-250x250/" />
+    <link rel="alternate" hreflang="pt" href="https://picete.com/pt/resize-image-to-250x250/" />
+    <link rel="alternate" hreflang="ar" href="https://picete.com/ar/resize-image-to-250x250/" />
+    <link rel="alternate" hreflang="x-default" href="https://picete.com/resize-image-to-250x250/" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/ja/resize-image-to-250x250/">
+    <meta property="og:title" content="画像を250x250にリサイズ - アバター・プロフィール画像サイズ">
+    <meta property="og:description" content="アバターやプロフィール画像用に画像を250x250にリサイズする無料オンラインツール。">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Resize Image to 250x250",
+        "description": "Free online tool to resize images to 250x250 for avatars and profile pictures",
+        "url": "https://picete.com/resize-image-to-250x250",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Why is 250x250 the standard avatar size?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "250x250 pixels has become the de facto standard for forum avatars, community profile pictures, and user icons. It's large enough to show facial details clearly while remaining small enough for fast page loads. Most forum software (Discourse, XenForo, phpBB) and community platforms display avatars at or below 250x250, making this a universally compatible size."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will 250x250 look good on modern screens?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. 250x250 appears crisp on standard displays and remains clear on high-DPI/Retina screens. This size provides enough pixels for faces to be recognizable and expressions to be visible. For professional networking sites or high-detail needs, consider 512x512 — but for general forums and communities, 250x250 is perfectly adequate."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I batch resize avatar images to 250x250?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. Upload all your avatar images at once and PicEte will resize them all to 250x250 simultaneously. Each image processes independently in milliseconds, so you can quickly create uniform avatar sets for team members, forum users, or community members without manual cropping or editing."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Should I use 250x250 or 512x512 for avatars?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use 250x250 for forums, community sites, and casual platforms where page speed matters. Use 512x512 for professional networks like LinkedIn, AI avatar generation, or when you need maximum detail and zoom capability. 250x250 files are 75% smaller than 512x512, making them better for sites with many user avatars per page."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../">
+                    <img src="../../images/picete-logo.svg" alt="PicEte" class="logo-img">
+                </a>
+                <p class="tagline">画像リサイズ</p>
+            </div>
+            <nav class="nav">
+                <a href="../../" class="nav-link">ホーム</a>
+                <a href="../../#tools" class="nav-link">その他のツール</a>
+
+<!-- Language Switcher -->
+<style>
+    .lang-switcher {
+        position: relative;
+        display: inline-block;
+    }
+        .lang-switcher select {
+        appearance: none;
+        -webkit-appearance: none;
+        background: transparent;
+        border: 1px solid var(--border-color, #e5e7eb);
+        border-radius: 6px;
+        padding: 0.375rem 2rem 0.375rem 0.75rem;
+        font-size: 0.875rem;
+        color: var(--text-color, #374151);
+        cursor: pointer;
+        outline: none;
+        transition: border-color 0.2s;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0.5rem center;
+        background-size: 12px;
+        min-width: 120px;
+    }
+    [data-theme="dark"] .lang-switcher select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    }
+}
+    .lang-switcher select:hover {
+        border-color: var(--primary-color, #2563eb);
+    }
+    .lang-switcher select:focus-visible {
+        border-color: var(--primary-color, #2563eb);
+        box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+    }
+    /* RTL support for Arabic */
+    [dir="rtl"] .lang-switcher select {
+        background-position: left 0.5rem center;
+        padding: 0.375rem 0.75rem 0.375rem 2rem;
+    }
+    [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    }
+}
+
+    .theme-toggle {
+        background: none;
+        border: 1px solid var(--border-color, #e5e7eb);
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        color: var(--text-color);
+        line-height: 1;
+        font-size: 1.125rem;
+    }
+    .theme-toggle:hover {
+        background-color: var(--bg-secondary, #f3f4f6);
+        border-color: var(--primary-color, #6366F1);
+    }
+    .sun-icon { display: inline; }
+    .moon-icon { display: none; }
+    [data-theme="dark"] .sun-icon { display: none; }
+    [data-theme="dark"] .moon-icon { display: inline; }
+</style>
+<div class="lang-switcher">
+    <select onchange="switchLanguage(this.value)" aria-label="Switch language">
+        <option value="en">English</option>
+        <option value="zh">中文</option>
+        <option value="ja" selected>日本語</option>
+        <option value="de">Deutsch</option>
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="pt">Português</option>
+        <option value="ar">العربية</option>
+    </select>
+</div>
+<script>
+function switchLanguage(code) {
+    var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+    // Get current page path from URL
+    var path = window.location.pathname;
+
+    // Remove language prefix if present
+    var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+    if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+
+    // Build target URL
+    var baseUrl = paths[code];
+    var targetPath = cleanPath;
+
+    // For homepage (index.html or trailing slash)
+    if (targetPath === '/' || targetPath === '/index.html') {
+        window.location.href = baseUrl;
+    } else {
+        // Remove leading slash before appending to base URL
+        window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+    }
+}
+</script>
+                        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </button>
+        </nav>
+    </div>
+</header>
+
+<main class="main">
+    <section class="hero">
+        <div class="container">
+            <div class="breadcrumb"><a href="https://picete.com/">ホーム</a><span class="separator">›</span><a href="../../resize-image/">画像リサイズ</a><span class="separator">›</span><span class="current">250x250</span></div>
+            <h1 class="hero-title">画像を250x250にリサイズ</h1>
+            <h2 class="hero-subtitle">標準アバター・プロフィール画像サイズ</h2>
+            <p style="font-size: 1.125rem; color: var(--text-light); max-width: 700px; margin: 1.5rem auto; line-height: 1.8;">
+                画像を正確に250x250ピクセルにリサイズする必要がありますか？これはフォーラムのアバター、コミュニティプロフィール画像、ウェブ全体のユーザーアイコンの標準サイズです。チームメンバーの統一アバターセットを作成する場合でも、コミュニティプラットフォームでプロフィールを設定する場合でも、PicEteなら任意の画像を完璧な250x250の正方形サイズに簡単にリサイズできます。
+            </p>
+
+            <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">250x250がアバターの標準サイズである理由</h3>
+                <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                    250x250ピクセルは、フォーラム、コミュニティプラットフォーム、ソーシャルネットワークにおけるユーザーアバターの普遍的に受け入れられたサイズとして定着しています。顔の特徴や表情をはっきりと表示できる大きさでありながら、1ページに複数のアバターが表示されてもページの読み込みが高速に保たれる十分な小ささです。Discourse、XenForo、phpBBなど主要なフォーラムソフトウェアは250x250以下のアバターをデフォルトで表示するため、あらゆる場所で正しく表示される安全な選択肢です。
+                </p>
+
+                <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">PicEteの250x250リサイズ方法</h3>
+                <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                    アバターまたは写真をPicEteにアップロードするだけで、ツールが自動的に正確に250x250ピクセルにリサイズします。キャンバスエンジンはインテリジェントなダウンスケーリングを適用し、アンチエイリアス処理で顔のディテールを保存し、鮮明さを維持します。正方形ではない画像は250x250のフレーム内で中央に配置され、レターボックス（黒帯）が追加されます。枠なしの完璧な正方形の出力が必要な場合は、事前にソース画像を1:1の比率にクロップしてください。
+                </p>
+
+                <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">250x250アバターの使用例</h3>
+                <ul style="line-height: 1.8; color: var(--text-light); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                    <li>フォーラムプロフィール画像とコミュニティアバター</li>
+                    <li>チームコラボレーションプラットフォームのユーザーアイコン</li>
+                    <li>ブログやウェブサイトのコメントセクションアバター</li>
+                    <li>ゲームプロフィール画像とDiscordアバター</li>
+                    <li>オンラインコミュニティのメンバーサムネイルセット</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="../../resize-image/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                    PicEte画像リサイズを無料で使う →
+                </a>
+                <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.875rem;">無料 · 登録不要 · ブラウザで完結</p>
+            </div>
+
+            <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+                <h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--text-color);">関連アバターサイズ</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">プロフィール画像オプション</h4>
+                        <ul style="line-height: 1.8; color: var(--text-light);">
+                            <li><a href="../../resize-image-to-200x200/">200x200にリサイズ</a> — 小さいサムネイル</li>
+                            <li><a href="../../resize-image-to-512x512/">512x512にリサイズ</a> — 高品質</li>
+                            <li><a href="../../resize-image-to-1080x1080/">1080x1080にリサイズ</a> — Instagramサイズ</li>
+                            <li><a href="../../resize-image-to-300x250/">300x250にリサイズ</a> — 長方形フォーマット</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- FAQ Section -->
+    <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="section-title">よくある質問</h2>
+            <div class="faq-list">
+            <details class="faq-item">
+                <summary class="faq-question">なぜ250x250がアバターの標準サイズなのですか？</summary>
+                <p class="faq-answer">250x250ピクセルは、フォーラムアバター、コミュニティプロフィール画像、ユーザーアイコンの事実上の標準として定着しています。顔のディテールをはっきりと表示できる大きさでありながら、高速なページ読み込みを実現する十分な小ささです。ほとんどのフォーラムソフトウェア（Discourse、XenForo、phpBB）やコミュニティプラットフォームは250x250以下でアバターを表示するため、普遍的に互換性のあるサイズです。</p>
+            </details>
+            <details class="faq-item">
+                <summary class="faq-question">250x250は最新の画面でも美しく表示されますか？</summary>
+                <p class="faq-answer">はい。250x250は標準ディスプレイで鮮明に表示され、高DPI/Retina画面でも鮮明さを保ちます。このサイズは顔が認識でき、表情が見える十分なピクセル数を提供します。プロフェッショナルなネットワーキングサイトや高ディテールが必要な場合は512x512を検討してくださいが、一般的なフォーラムやコミュニティには250x250で十分です。</p>
+            </details>
+            <details class="faq-item">
+                <summary class="faq-question">複数のアバター画像を一括で250x250にリサイズできますか？</summary>
+                <p class="faq-answer">もちろんです。すべてのアバター画像を一度にアップロードすると、PicEteがそれらをすべて同時に250x250にリサイズします。各画像はミリ秒単位で独立して処理されるため、手動でのクロップや編集なしに、チームメンバー、フォーラムユーザー、コミュニティメンバーの統一アバターセットを素早く作成できます。</p>
+            </details>
+            <details class="faq-item">
+                <summary class="faq-question">アバターには250x250と512x512のどちらを使用すべきですか？</summary>
+                <p class="faq-answer">ページ速度が重要なフォーラム、コミュニティサイト、カジュアルなプラットフォームには250x250を使用してください。LinkedInのようなプロフェッショナルネットワーク、AIアバター生成、最大のディテールとズーム機能が必要な場合は512x512を使用してください。250x250のファイルは512x512より75%小さいため、1ページに多数のユーザーアバターが表示されるサイトに適しています。</p>
+            </details>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>その他のツール</h4>
+                <ul>
+                    <li><a href="../../resize-image/">画像リサイズ</a></li>
+                    <li><a href="../../compress-image/">画像圧縮</a></li>
+                    <li><a href="../../png-to-jpg/">PNGからJPG</a></li>
+                    <li><a href="../../webp-to-png/">WebPからPNG</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>このサイトについて</h4>
+                <ul>
+                    <li><a href="../../">トップに戻る</a></li>
+                    <li><a href="../../privacy-policy.html">プライバシーポリシー</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>パートナーサイト</h4>
+                <ul>
+                    <li><a href="https://mockupshot.online/">MockupShot - スクリーンショットモックアップ</a></li>
+                    <li><a href="https://ilovepalette.com/">ILovePalette - カラーツール</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 PicEte. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>
