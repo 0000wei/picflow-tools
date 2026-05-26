@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redimensionar Imagem para Capa do Facebook - Ferramenta Grátis de Tamanho de Banner do Facebook | PicEte</title>
+    <meta name="description" content="Redimensione imagens para o tamanho da foto de capa do Facebook. Ferramenta online grátis para criar as dimensões perfeitas do banner de perfil do Facebook.">
+    <meta name="keywords" content="tamanho da capa do facebook, tamanho do banner do facebook, 851x315, foto de capa do facebook, banner de perfil do facebook">
+    <link rel="canonical" href="https://picete.com/resize-image-for-facebook-cover/">
+    <!-- hreflang 标签 -->
+    <link rel="alternate" hreflang="en" href="https://picete.com/resize-image-for-facebook-cover/" />
+    <link rel="alternate" hreflang="zh" href="https://picete.com/zh/resize-image-for-facebook-cover/" />
+    <link rel="alternate" hreflang="ja" href="https://picete.com/ja/resize-image-for-facebook-cover/" />
+    <link rel="alternate" hreflang="de" href="https://picete.com/de/resize-image-for-facebook-cover/" />
+    <link rel="alternate" hreflang="fr" href="https://picete.com/fr/resize-image-for-facebook-cover/" />
+    <link rel="alternate" hreflang="es" href="https://picete.com/es/resize-image-for-facebook-cover/" />
+    <link rel="alternate" hreflang="pt" href="https://picete.com/pt/resize-image-for-facebook-cover/" />
+    <link rel="alternate" hreflang="ar" href="https://picete.com/ar/resize-image-for-facebook-cover/" />
+    <link rel="alternate" hreflang="x-default" href="https://picete.com/resize-image-for-facebook-cover/" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://picete.com/pt/resize-image-for-facebook-cover/">
+    <meta property="og:title" content="Redimensionar Imagem para Capa do Facebook - Tamanho de Banner do Facebook">
+    <meta property="og:description" content="Ferramenta online grátis para redimensionar imagens para as dimensões da foto de capa do Facebook.">
+    <meta property="og:image" content="https://picete.com/images/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Resize Image for Facebook Cover",
+        "description": "Free online tool to resize images to Facebook cover photo dimensions (851x315)",
+        "url": "https://picete.com/pt/resize-image-for-facebook-cover",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is the recommended Facebook cover photo size?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Facebook recommends 851x315 pixels for cover photos on desktop. This 2.7:1 aspect ratio displays the full banner on computer screens. However, Facebook displays a cropped center portion on mobile devices. The safe zone for important content is approximately the center 560x280 pixels to ensure visibility across both desktop and mobile views."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Why does my Facebook cover look different on mobile?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Facebook shows a significantly cropped version of your cover photo on mobile — roughly 560x280 pixels from the center. On desktop, you see the full 851x315 width. When designing your cover, place logos, text, and faces in the center third of the image. Avoid putting important elements near the edges as they'll be cut off on mobile devices."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What file format should I use for Facebook cover photos?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Facebook accepts JPG and PNG formats for cover photos. JPG is recommended for photos and graphics with gradients because it produces smaller file sizes. Use PNG only if you need transparency (though Facebook doesn't support transparent covers). The maximum file size is 100KB, and PicEte can optimize your images to meet this requirement while resizing."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How often should I update my Facebook cover photo?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Update your Facebook cover photo seasonally, for special promotions, when rebranding, or to announce major events. Many businesses change covers monthly to keep profiles fresh. Consistent updates signal that your page is active and engaging. PicEte makes it quick to resize new cover images to the proper dimensions whenever you need a refresh."
+            }
+        }
+    ]
+}
+    </script>
+    <style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../">
+                    <img src="../../images/picete-logo.svg" alt="PicEte" class="logo-img">
+                </a>
+                <p class="tagline">Redimensionamento de imagem</p>
+            </div>
+            <nav class="nav">
+                <a href="../../" class="nav-link">Início</a>
+                <a href="../../#tools" class="nav-link">Mais ferramentas</a>
+
+<!-- Language Switcher -->
+<style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+    <div class="lang-switcher">
+        <select onchange="switchLanguage(this.value)" aria-label="Switch language">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+            <option value="ja">日本語</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="pt" selected>Português</option>
+            <option value="ar">العربية</option>
+        </select>
+    </div>
+    <script>
+    function switchLanguage(code) {
+        var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+                            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="breadcrumb"><a href="https://picete.com/">Início</a><span class="separator">›</span><a href="../../resize-image/">Redimensionamento de imagem</a><span class="separator">›</span><span class="current">Capa do Facebook</span></div>
+                <h1 class="hero-title">Redimensionar Imagem para Capa do Facebook</h1>
+                <h2 class="hero-subtitle">Tamanho Perfeito do Banner de Perfil do Facebook</h2>
+                <p style="font-size: 1.125rem; color: var(--text-light); max-width: 700px; margin: 1.5rem auto; line-height: 1.8;">
+                    Precisa redimensionar uma imagem para a sua foto de capa do Facebook? O Facebook recomenda 851x315 pixels para fotos de capa no desktop, mas acertar as dimensões tanto para desktop quanto para mobile pode ser complicado. Seja atualizando seu perfil pessoal ou renovando o banner da sua página comercial, o PicEte torna simples redimensionar qualquer imagem para as dimensões perfeitas de capa do Facebook.
+                </p>
+
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">Dimensões da Foto de Capa do Facebook Explicadas</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        O Facebook exibe fotos de capa de forma diferente dependendo do dispositivo. No desktop, o banner completo de 851x315 pixels está visível. No entanto, em dispositivos móveis, o Facebook mostra apenas uma parte central recortada — aproximadamente 560x280 pixels. Isso significa que conteúdo importante como logotipos, texto ou rostos deve ser posicionado no terço central da sua imagem para garantir que sejam visíveis em ambas as plataformas. A proporção de 2.7:1 (851x315) é a recomendação oficial, mas sempre tenha em mente o recorte mobile durante o design.
+                    </p>
+
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">Como o PicEte Redimensiona para Capas do Facebook</h3>
+                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        Envie qualquer imagem de banner para o PicEte e nossa ferramenta a redimensiona para as dimensões padrão de capa do Facebook de 851x315. O mecanismo de canvas aplica letterboxing para manter a proporção exata do Facebook enquanto preserva as proporções originais da sua imagem. Para resultados ideais sem bordas, comece com uma imagem que tenha pelo menos uma proporção de 2.7:1. Todo o processamento acontece localmente no seu navegador para privacidade.
+                    </p>
+
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">Dicas de Design para Capas do Facebook</h3>
+                    <ul style="line-height: 1.8; color: var(--text-light); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>Coloque logotipos e texto na zona segura central de 560x280 para visibilidade mobile</li>
+                        <li>Evite elementos importantes próximos às bordas onde serão recortados no mobile</li>
+                        <li>Use o formato JPG para tamanhos de arquivo menores e uploads mais rápidos</li>
+                        <li>Mantenha o tamanho do arquivo abaixo de 100KB para uploads confiáveis</li>
+                        <li>Atualize sazonalmente ou para promoções para manter seu perfil fresco</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin: 3rem 0;">
+                    <a href="../../resize-image/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                        Usar PicEte Redimensionador de imagem grátis →
+                    </a>
+                    <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.875rem;">Grátis · Sem cadastro · Funciona no navegador</p>
+                </div>
+
+                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--text-color);">Tamanhos de Redes Sociais Relacionados</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                        <div>
+                            <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Opções de Perfil e Capa</h4>
+                            <ul style="line-height: 1.8; color: var(--text-light);">
+                                <li><a href="../../resize-image-to-1500x500/">Redimensionar para 1500x500</a> — Cabeçalho Twitter/X</li>
+                                <li><a href="../../resize-image-to-1200x630/">Redimensionar para 1200x630</a> — Compartilhamentos sociais</li>
+                                <li><a href="../../resize-image-to-1080x1080/">Redimensionar para 1080x1080</a> — Posts Instagram</li>
+                                <li><a href="../../resize-image-to-1920x1080/">Redimensionar para 1920x1080</a> — Banners grandes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <!-- FAQ Section -->
+        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Perguntas frequentes</h2>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">Qual é o tamanho recomendado para a foto de capa do Facebook?</summary>
+                    <p class="faq-answer">O Facebook recomenda 851x315 pixels para fotos de capa no desktop. Esta proporção de 2.7:1 exibe o banner completo em telas de computador. No entanto, o Facebook exibe uma parte central recortada em dispositivos móveis. A zona segura para conteúdo importante é aproximadamente o centro de 560x280 pixels para garantir visibilidade tanto em visualizações de desktop quanto mobile.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Por que minha capa do Facebook parece diferente no mobile?</summary>
+                    <p class="faq-answer">O Facebook mostra uma versão significativamente recortada da sua foto de capa no mobile — aproximadamente 560x280 pixels do centro. No desktop, você vê a largura completa de 851x315. Ao projetar sua capa, coloque logotipos, texto e rostos no terço central da imagem. Evite colocar elementos importantes próximos às bordas pois serão cortados em dispositivos móveis.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Que formato de arquivo devo usar para fotos de capa do Facebook?</summary>
+                    <p class="faq-answer">O Facebook aceita formatos JPG e PNG para fotos de capa. JPG é recomendado para fotos e gráficos com gradientes porque produz tamanhos de arquivo menores. Use PNG somente se precisar de transparência (embora o Facebook não suporte capas transparentes). O tamanho máximo de arquivo é 100KB, e o PicEte pode otimizar suas imagens para atender este requisito enquanto redimensiona.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Com que frequência devo atualizar minha foto de capa do Facebook?</summary>
+                    <p class="faq-answer">Atualize sua foto de capa do Facebook sazonalmente, para promoções especiais, ao rebrandar ou para anunciar eventos importantes. Muitos negócios mudam as capas mensalmente para manter os perfis frescos. Atualizações consistentes sinalizam que sua página está ativa e envolvente. O PicEte torna rápido redimensionar novas imagens de capa para as dimensões adequadas sempre que precisar renovar.</p>
+                </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Mais ferramentas</h4>
+                    <ul>
+                        <li><a href="../../resize-image/">Redimensionador de imagem</a></li>
+                        <li><a href="../../compress-image/">Compactador de imagem</a></li>
+                        <li><a href="../../png-to-jpg/">PNG para JPG</a></li>
+                        <li><a href="../../webp-to-png/">WebP para PNG</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Sobre</h4>
+                    <ul>
+                        <li><a href="../../">Voltar ao início</a></li>
+                        <li><a href="../../privacy-policy.html">Política de privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Sites parceiros</h4>
+                    <ul>
+                        <li><a href="https://mockupshot.online/">MockupShot - Screenshot Mockup</a></li>
+                        <li><a href="https://ilovepalette.com/">ILovePalette - Color Tools</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PicEte. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>
