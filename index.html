@@ -14,11 +14,17 @@
         var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
         var target = 'en';
         
-['            if (lang.startsWith("zh")) return "zh";', '            if (lang.startsWith("zh-CN")) return "zh";', '            if (lang.startsWith("zh-TW")) return "zh";', '            if (lang.startsWith("zh-HK")) return "zh";', '            if (lang.startsWith("ja")) return "ja";', '            if (lang.startsWith("ja-JP")) return "ja";', '            if (lang.startsWith("de")) return "de";', '            if (lang.startsWith("de-DE")) return "de";', '            if (lang.startsWith("de-AT")) return "de";', '            if (lang.startsWith("de-CH")) return "de";', '            if (lang.startsWith("fr")) return "fr";', '            if (lang.startsWith("fr-FR")) return "fr";', '            if (lang.startsWith("fr-CA")) return "fr";', '            if (lang.startsWith("fr-BE")) return "fr";', '            if (lang.startsWith("fr-CH")) return "fr";', '            if (lang.startsWith("es")) return "es";', '            if (lang.startsWith("es-ES")) return "es";', '            if (lang.startsWith("es-MX")) return "es";', '            if (lang.startsWith("es-AR")) return "es";', '            if (lang.startsWith("pt")) return "pt";', '            if (lang.startsWith("pt-PT")) return "pt";', '            if (lang.startsWith("pt-BR")) return "pt";', '            if (lang.startsWith("ar")) return "ar";', '            if (lang.startsWith("ar-SA")) return "ar";', '            if (lang.startsWith("ar-AE")) return "ar";', '            if (lang.startsWith("ar-EG")) return "ar";']
+        if (lang.startsWith("zh")) target = "zh";
+        else if (lang.startsWith("ja")) target = "ja";
+        else if (lang.startsWith("de")) target = "de";
+        else if (lang.startsWith("fr")) target = "fr";
+        else if (lang.startsWith("es")) target = "es";
+        else if (lang.startsWith("pt")) target = "pt";
+        else if (lang.startsWith("ar")) target = "ar";
         
         if (target !== 'en') {
             localStorage.setItem('picete_lang_choice', target);
-            window.location.href = '/{target}/'.replace('{target}', target);
+            window.location.href = '/' + target + '/';
         }
     })();
     </script>
