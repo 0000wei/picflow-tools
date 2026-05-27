@@ -4,30 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PicEte - Free Online Image Tools | Format Converter, Resizer, Compressor</title>
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H72N80TEBW"></script>
-    <script>
-    // Auto-redirect based on browser language (only on first visit)
-    (function() {
-        if (localStorage.getItem('picete_lang_choice')) return;
-        
-        var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-        var target = 'en';
-        
-        if (lang.startsWith("zh")) target = "zh";
-        else if (lang.startsWith("ja")) target = "ja";
-        else if (lang.startsWith("de")) target = "de";
-        else if (lang.startsWith("fr")) target = "fr";
-        else if (lang.startsWith("es")) target = "es";
-        else if (lang.startsWith("pt")) target = "pt";
-        else if (lang.startsWith("ar")) target = "ar";
-        
-        if (target !== 'en') {
-            localStorage.setItem('picete_lang_choice', target);
-            window.location.href = '/' + target + '/';
-        }
-    })();
-    </script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -136,6 +113,33 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Language suggestion banner (no redirect) -->
+    <div id="langBanner" style="display:none;background:var(--accent,#2563eb);color:#fff;text-align:center;padding:8px;font-size:14px;position:sticky;top:0;z-index:1000;">
+        <span id="langBannerText"></span>
+        <button onclick="switchLanguage(detectLang());document.getElementById('langBanner').style.display='none'" style="margin:0 8px;padding:2px 12px;border:1px solid #fff;background:transparent;color:#fff;border-radius:4px;cursor:pointer;">Yes</button>
+        <button onclick="document.getElementById('langBanner').style.display='none';localStorage.setItem('picete_lang_dismissed','1')" style="padding:2px 12px;border:none;background:rgba(255,255,255,0.2);color:#fff;border-radius:4px;cursor:pointer;">No</button>
+    </div>
+    <script>
+    function detectLang() {
+        var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        if (lang.startsWith("zh")) return "zh";
+        if (lang.startsWith("ja")) return "ja";
+        if (lang.startsWith("de")) return "de";
+        if (lang.startsWith("fr")) return "fr";
+        if (lang.startsWith("es")) return "es";
+        if (lang.startsWith("pt")) return "pt";
+        if (lang.startsWith("ar")) return "ar";
+        return "en";
+    }
+    (function() {
+        var target = detectLang();
+        if (target !== 'en' && !localStorage.getItem('picete_lang_dismissed')) {
+            var names = {"zh":"中文","ja":"日本語","de":"Deutsch","fr":"Français","es":"Español","pt":"Português","ar":"العربية"};
+            document.getElementById('langBannerText').textContent = 'Switch to ' + names[target] + '?';
+            document.getElementById('langBanner').style.display = 'block';
+        }
+    })();
+    </script>
     <header class="header">
         <div class="container">
             <div class="logo">
