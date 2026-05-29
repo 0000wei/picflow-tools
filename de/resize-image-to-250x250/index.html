@@ -1,26 +1,27 @@
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bild auf 250x250 skalieren - Kostenloser Avatar & Profilbild-Resizer | PicEte</title>
-    <meta name="description" content="Bilder auf 250x250 Pixel für Avatare und Profilbilder skalieren. Kostenloses Online-Tool zum Konvertieren jedes Bildes in ein quadratisches 250x250-Format. Keine Registrierung erforderlich.">
-    <meta name="keywords" content="bild auf 250x250 skalieren, 250x250 avatar, profilbild größe, forum avatar, quadrat bild resizer">
-    <link rel="canonical" href="https://picete.com/resize-image-to-250x250/">
-    <link rel="alternate" hreflang="en" href="https://picete.com/resize-image-to-250x250/" />
-    <link rel="alternate" hreflang="zh" href="https://picete.com/zh/resize-image-to-250x250/" />
-    <link rel="alternate" hreflang="de" href="https://picete.com/de/resize-image-to-250x250/" />
-    <link rel="alternate" hreflang="fr" href="https://picete.com/fr/resize-image-to-250x250/" />
-    <link rel="alternate" hreflang="es" href="https://picete.com/es/resize-image-to-250x250/" />
-    <link rel="alternate" hreflang="pt" href="https://picete.com/pt/resize-image-to-250x250/" />
-    <link rel="alternate" hreflang="ar" href="https://picete.com/ar/resize-image-to-250x250/" />
-    <link rel="alternate" hreflang="x-default" href="https://picete.com/resize-image-to-250x250/" />
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://picete.com/de/resize-image-to-250x250/">
-    <meta property="og:title" content="Bild auf 250x250 skalieren - Avatar & Profilbild-Größe">
-    <meta property="og:description" content="Kostenloses Online-Tool zum Skalieren von Bildern auf 250x250 für Avatare und Profilbilder.">
-    <meta property="og:image" content="https://picete.com/images/og-image.png">
-    <script type="application/ld+json">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bild auf 250x250 skalieren - Kostenloser Avatar &amp; Profilbild-Resizer | PicEte</title>
+<meta content="Bilder auf 250x250 Pixel für Avatare und Profilbilder skalieren. Kostenloses Online-Tool zum Konvertieren jedes Bildes in ein quadratisches 250x250-Format. Keine Registrierung erforderlich." name="description"/>
+<meta content="bild auf 250x250 skalieren, 250x250 avatar, profilbild größe, forum avatar, quadrat bild resizer" name="keywords"/>
+<link href="https://picete.com/resize-image-to-250x250/" rel="canonical"/>
+<link href="https://picete.com/resize-image-to-250x250/" hreflang="en" rel="alternate">
+<link href="https://picete.com/zh/resize-image-to-250x250/" hreflang="zh" rel="alternate"/>
+<link href="https://picete.com/de/resize-image-to-250x250/" hreflang="de" rel="alternate"/>
+<link href="https://picete.com/fr/resize-image-to-250x250/" hreflang="fr" rel="alternate"/>
+<link href="https://picete.com/es/resize-image-to-250x250/" hreflang="es" rel="alternate"/>
+<link href="https://picete.com/pt/resize-image-to-250x250/" hreflang="pt" rel="alternate"/>
+<link href="https://picete.com/ar/resize-image-to-250x250/" hreflang="ar" rel="alternate"/>
+<link href="https://picete.com/resize-image-to-250x250/" hreflang="x-default" rel="alternate"/>
+<meta content="website" property="og:type"/>
+<meta content="https://picete.com/de/resize-image-to-250x250/" property="og:url"/>
+<meta content="Bild auf 250x250 skalieren - Avatar &amp; Profilbild-Größe" property="og:title"/>
+<meta content="Kostenloses Online-Tool zum Skalieren von Bildern auf 250x250 für Avatare und Profilbilder." property="og:description"/>
+<meta content="https://picete.com/images/og-image.png" property="og:image"/>
+<script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
@@ -31,127 +32,127 @@
         "operatingSystem": "Any"
     }
     </script>
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-    <link rel="stylesheet" href="../../css/style.css">
-    <style>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../css/style.css" rel="stylesheet"/>
+<style>
         .faq-list { display: flex; flex-direction: column; gap: 0.75rem; }
         .faq-item { background: var(--bg-primary, #fff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 8px; overflow: hidden; transition: box-shadow 0.2s; }
         .faq-question { padding: 1rem 1.25rem; font-weight: 600; font-size: 1rem; color: var(--text-color, #1f2937); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
         .faq-answer { padding: 0 1.25rem 1rem 1.25rem; line-height: 1.7; color: var(--text-light, #6b7280); }
         .theme-toggle { background: none; border: 1px solid var(--border-color, #e5e7eb); cursor: pointer; padding: 0.5rem; border-radius: 8px; display: inline-flex; }
     </style>
-</head>
+</link></head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="../../"><img src="../../images/picete-logo.svg" alt="PicEte" class="logo-img"></a>
-                <p class="tagline">Bildgröße ändern</p>
-            </div>
-            <nav class="nav">
-                <a href="../../" class="nav-link">Startseite</a>
-                <a href="../../#tools" class="nav-link">Weitere Tools</a>
-                <div class="lang-switcher">
-                    <select onchange="switchLanguage(this.value)">
-                        <option value="en">English</option><option value="zh">中文</option>
-                        <option value="ja">日本語</option><option value="de" selected>Deutsch</option><option value="fr">Français</option><option value="es">Español</option><option value="pt">Português</option><option value="ar">العربية</option>
-                    </select>
-                </div>
-                <button class="theme-toggle" id="themeToggle"><span class="sun-icon">☀️</span><span class="moon-icon">🌙</span></button>
-            </nav>
-        </div>
-    </header>
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <div class="breadcrumb"><a href="https://picete.com/">Startseite</a><span class="separator">›</span><a href="../../resize-image/">Bildgröße ändern</a><span class="separator">›</span><span class="current">250x250</span></div>
-                <h1 class="hero-title">Bild auf 250x250 skalieren</h1>
-                <h2 class="hero-subtitle">Standardgröße für Avatare und Profilbilder</h2>
-                <p style="font-size: 1.125rem; color: var(--text-light); max-width: 700px; margin: 1.5rem auto; line-height: 1.8;">
+<header class="header">
+<div class="container">
+<div class="logo">
+<a href="../../"><img alt="PicEte" class="logo-img" src="../../images/picete-logo.svg"/></a>
+<p class="tagline">Bildgröße ändern</p>
+</div>
+<nav class="nav">
+<a class="nav-link" href="../../">Startseite</a>
+<a class="nav-link" href="../../#tools">Weitere Tools</a>
+<div class="lang-switcher">
+<select onchange="switchLanguage(this.value)">
+<option value="en">English</option><option value="zh">中文</option>
+<option value="ja">日本語</option><option selected="" value="de">Deutsch</option><option value="fr">Français</option><option value="es">Español</option><option value="pt">Português</option><option value="ar">العربية</option>
+</select>
+</div>
+<button class="theme-toggle" id="themeToggle"><span class="sun-icon">☀️</span><span class="moon-icon">🌙</span></button>
+</nav>
+</div>
+</header>
+<main class="main">
+<section class="hero">
+<div class="container">
+<div class="breadcrumb"><a href="https://picete.com/">Startseite</a><span class="separator">›</span><a href="../../resize-image/">Bildgröße ändern</a><span class="separator">›</span><span class="current">250x250</span></div>
+<h1 class="hero-title">Bild auf 250x250 skalieren</h1>
+<h2 class="hero-subtitle">Standardgröße für Avatare und Profilbilder</h2>
+<p style="font-size: 1.125rem; color: var(--text-light); max-width: 700px; margin: 1.5rem auto; line-height: 1.8;">
                     Müssen Sie ein Bild exakt auf 250x250 Pixel zuschneiden? Dieses Format ist die Standardgröße für Forum-Avatare, Community-Profilbilder und Benutzer-Icons im gesamten Web. Ob Sie einheitliche Avatare für Ihr Team erstellen oder Ihr Profil auf einer Community-Plattform einrichten – PicEte macht es einfach, jedes Bild in das perfekte quadratische 250x250-Format zu bringen.
                 </p>
-                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">Warum 250x250 der Avatar-Standard ist</h3>
-                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+<div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">Warum 250x250 der Avatar-Standard ist</h3>
+<p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
                         250x250 Pixel hat sich als die allgemein akzeptierte Größe für Benutzer-Avatare in Foren, Community-Plattformen und sozialen Netzwerken etabliert. Sie ist groß genug, um Gesichtszüge und Ausdrücke klar darzustellen, aber klein genug, um die Seitenladegeschwindigkeit auch bei Dutzenden von Avataren auf einer Seite zu erhalten. Wichtige Forensoftware wie Discourse, XenForo und phpBB verwendet standardmäßig 250x250 oder kleiner, was diese Größe zur sicheren Wahl für plattformübergreifende Kompatibilität macht.
                     </p>
-                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">Wie PicEte auf 250x250 skaliert</h3>
-                    <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">Wie PicEte auf 250x250 skaliert</h3>
+<p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
                         Laden Sie einfach Ihr Avatar-Bild oder Foto bei PicEte hoch, und unser Tool skaliert es automatisch auf exakt 250x250 Pixel. Die Canvas-Engine wendet intelligentes Downscaling und Anti-Aliasing an, um Gesichtsdetails zu bewahren und die Schärfe zu erhalten. Nicht-quadratische Bilder werden mittig im 250x250-Rahmen platziert und mit Letterbox-Effekt dargestellt. Für eine perfekt quadratische Ausgabe ohne Ränder schneiden Sie das Quellbild bitte zuerst auf ein 1:1-Seitenverhältnis zu.
                     </p>
-                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">Verwendungszwecke für 250x250 Avatare</h3>
-                    <ul style="line-height: 1.8; color: var(--text-light); padding-left: 1.5rem; margin-bottom: 1.5rem;">
-                        <li>Forum-Profilbilder und Community-Avatare</li>
-                        <li>Benutzer-Icons für Team-Kollaborationsplattformen</li>
-                        <li>Avatare in Blog- und Website-Kommentarbereichen</li>
-                        <li>Spielerprofilbilder und Discord-Avatare</li>
-                        <li>Mitglieder-Thumbnail-Sets für Online-Communities</li>
-                    </ul>
-                </div>
-                <div style="text-align: center; margin: 3rem 0;">
-                    <a href="../../resize-image/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">Verwendungszwecke für 250x250 Avatare</h3>
+<ul style="line-height: 1.8; color: var(--text-light); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+<li>Forum-Profilbilder und Community-Avatare</li>
+<li>Benutzer-Icons für Team-Kollaborationsplattformen</li>
+<li>Avatare in Blog- und Website-Kommentarbereichen</li>
+<li>Spielerprofilbilder und Discord-Avatare</li>
+<li>Mitglieder-Thumbnail-Sets für Online-Communities</li>
+</ul>
+</div>
+<div style="text-align: center; margin: 3rem 0;">
+<a href="../../resize-image/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
                         PicEte Bildgrößen-Tool kostenlos nutzen →
                     </a>
-                    <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.875rem;">Kostenlos · Keine Registrierung · Läuft lokal im Browser</p>
-                </div>
-                <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
-                    <h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--text-color);">Verwandte Bildgrößen</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-                        <div>
-                            <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Profilbild-Optionen</h4>
-                            <ul style="line-height: 1.8; color: var(--text-light);">
-                                <li><a href="../../resize-image-to-200x200/">Auf 200x200 skalieren</a> — Kleine Thumbnails</li>
-                                <li><a href="../../resize-image-to-512x512/">Auf 512x512 skalieren</a> — Hohe Qualität</li>
-                                <li><a href="../../resize-image-to-1080x1080/">Auf 1080x1080 skalieren</a> — Instagram-Format</li>
-                                <li><a href="../../resize-image-to-300x250/">Auf 300x250 skalieren</a> — Rechteckiges Format</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
-            <div class="container" style="max-width: 800px;">
-                <h2 class="section-title">Häufig gestellte Fragen</h2>
-                <div class="faq-list">
-                    <details class="faq-item"><summary class="faq-question">Warum ist 250x250 die Standard-Avatar-Größe?</summary><p class="faq-answer">250x250 Pixel hat sich als der De-facto-Standard für Forum-Avatare, Community-Profilbilder und Benutzer-Icons etabliert. Es ist groß genug, um Gesichtsdetails klar darzustellen, aber klein genug, um Seiten schnell zu laden. Die meisten Forensoftware (Discourse, XenForo, phpBB) und Community-Plattformen zeigen Avatare in 250x250 oder kleiner an, was diese Größe universell kompatibel macht.</p></details>
-                    <details class="faq-item"><summary class="faq-question">Sieht 250x250 auf modernen Bildschirmen gut aus?</summary><p class="faq-answer">Ja. 250x250 sieht auf Standardmonitoren scharf aus und bleibt auch auf HiDPI/Retina-Displays klar. Diese Größe bietet genug Pixel, um Gesichter erkennbar und Ausdrücke sichtbar zu machen. Für professionelle soziale Netzwerke oder hohe Detailanforderungen empfehlen wir 512x512 – für allgemeine Foren und Communities ist 250x250 jedoch völlig ausreichend.</p></details>
-                    <details class="faq-item"><summary class="faq-question">Kann ich mehrere Avatar-Bilder gleichzeitig auf 250x250 skalieren?</summary><p class="faq-answer">Ja. Laden Sie einfach alle Avatar-Bilder auf einmal hoch, und PicEte skaliert sie alle gleichzeitig auf 250x250. Jedes Bild wird unabhängig in Millisekunden verarbeitet, sodass Sie schnell einheitliche Avatar-Sets für Team-Mitglieder, Forum-Benutzer oder Community-Mitglieder erstellen können – ohne manuelles Zuschneiden oder Bearbeiten.</p></details>
-                    <details class="faq-item"><summary class="faq-question">Sollte ich 250x250 oder 512x512 für meinen Avatar verwenden?</summary><p class="faq-answer">Verwenden Sie 250x250 für Foren, Community-Websites und gelegentliche Plattformen, bei denen die Seitengeschwindigkeit wichtig ist. Verwenden Sie 512x512 für professionelle Netzwerke wie LinkedIn, KI-Avatar-Generierung oder wenn Sie maximale Detailtreue und Zoom-Funktionen benötigen. 250x250 ist 75% kleiner als 512x512 und daher besser geeignet für Websites mit mehreren Benutzer-Avataren pro Seite.</p></details>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Weitere Tools</h4>
-                    <ul>
-                        <li><a href="../../resize-image/">Bildgröße ändern</a></li>
-                        <li><a href="../../compress-image/">Bildkomprimierung</a></li>
-                        <li><a href="../../png-to-jpg/">PNG zu JPG</a></li>
-                        <li><a href="../../webp-to-png/">WebP zu PNG</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Über uns</h4>
-                    <ul>
-                        <li><a href="../../">Zurück zur Startseite</a></li>
-                        <li><a href="../../privacy-policy.html">Datenschutzerklärung</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Partner-Seiten</h4>
-                    <ul>
-                        <li><a href="https://mockupshot.online/">MockupShot - Screenshot-Mockups</a></li>
-                        <li><a href="https://ilovepalette.com/">ILovePalette - Farbwerkzeuge</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom"><p>&copy; 2024 PicEte. All rights reserved.</p></div>
-        </div>
-    </footer>
+<p style="margin-top: 1rem; color: var(--text-light); font-size: 0.875rem;">Kostenlos · Keine Registrierung · Läuft lokal im Browser</p>
+</div>
+<div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--text-color);">Verwandte Bildgrößen</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+<div>
+<h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Profilbild-Optionen</h4>
+<ul style="line-height: 1.8; color: var(--text-light);">
+<li><a href="../../resize-image-to-200x200/">Auf 200x200 skalieren</a> — Kleine Thumbnails</li>
+<li><a href="../../resize-image-to-512x512/">Auf 512x512 skalieren</a> — Hohe Qualität</li>
+<li><a href="../../resize-image-to-1080x1080/">Auf 1080x1080 skalieren</a> — Instagram-Format</li>
+<li><a href="../../resize-image-to-300x250/">Auf 300x250 skalieren</a> — Rechteckiges Format</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">Häufig gestellte Fragen</h2>
+<div class="faq-list">
+<details class="faq-item"><summary class="faq-question">Warum ist 250x250 die Standard-Avatar-Größe?</summary><p class="faq-answer">250x250 Pixel hat sich als der De-facto-Standard für Forum-Avatare, Community-Profilbilder und Benutzer-Icons etabliert. Es ist groß genug, um Gesichtsdetails klar darzustellen, aber klein genug, um Seiten schnell zu laden. Die meisten Forensoftware (Discourse, XenForo, phpBB) und Community-Plattformen zeigen Avatare in 250x250 oder kleiner an, was diese Größe universell kompatibel macht.</p></details>
+<details class="faq-item"><summary class="faq-question">Sieht 250x250 auf modernen Bildschirmen gut aus?</summary><p class="faq-answer">Ja. 250x250 sieht auf Standardmonitoren scharf aus und bleibt auch auf HiDPI/Retina-Displays klar. Diese Größe bietet genug Pixel, um Gesichter erkennbar und Ausdrücke sichtbar zu machen. Für professionelle soziale Netzwerke oder hohe Detailanforderungen empfehlen wir 512x512 – für allgemeine Foren und Communities ist 250x250 jedoch völlig ausreichend.</p></details>
+<details class="faq-item"><summary class="faq-question">Kann ich mehrere Avatar-Bilder gleichzeitig auf 250x250 skalieren?</summary><p class="faq-answer">Ja. Laden Sie einfach alle Avatar-Bilder auf einmal hoch, und PicEte skaliert sie alle gleichzeitig auf 250x250. Jedes Bild wird unabhängig in Millisekunden verarbeitet, sodass Sie schnell einheitliche Avatar-Sets für Team-Mitglieder, Forum-Benutzer oder Community-Mitglieder erstellen können – ohne manuelles Zuschneiden oder Bearbeiten.</p></details>
+<details class="faq-item"><summary class="faq-question">Sollte ich 250x250 oder 512x512 für meinen Avatar verwenden?</summary><p class="faq-answer">Verwenden Sie 250x250 für Foren, Community-Websites und gelegentliche Plattformen, bei denen die Seitengeschwindigkeit wichtig ist. Verwenden Sie 512x512 für professionelle Netzwerke wie LinkedIn, KI-Avatar-Generierung oder wenn Sie maximale Detailtreue und Zoom-Funktionen benötigen. 250x250 ist 75% kleiner als 512x512 und daher besser geeignet für Websites mit mehreren Benutzer-Avataren pro Seite.</p></details>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>Weitere Tools</h4>
+<ul>
+<li><a href="../../resize-image/">Bildgröße ändern</a></li>
+<li><a href="../../compress-image/">Bildkomprimierung</a></li>
+<li><a href="../../png-to-jpg/">PNG zu JPG</a></li>
+<li><a href="../../webp-to-png/">WebP zu PNG</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Über uns</h4>
+<ul>
+<li><a href="../../">Zurück zur Startseite</a></li>
+<li><a href="/privacy-policy.html">Datenschutzerklärung</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Partner-Seiten</h4>
+<ul>
+<li><a href="https://mockupshot.online/">MockupShot - Screenshot-Mockups</a></li>
+<li><a href="https://ilovepalette.com/">ILovePalette - Farbwerkzeuge</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom"><p>© 2024 PicEte. All rights reserved.</p></div>
+</div>
+</footer>
 <script>
 (function(){
     var btn = document.getElementById('themeToggle');

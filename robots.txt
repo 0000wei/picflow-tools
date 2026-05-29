@@ -1,4 +1,4 @@
-# robots.txt for PicFlow
+# robots.txt for PicEte
 
 User-agent: *
 Allow: /
