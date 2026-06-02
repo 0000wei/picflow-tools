@@ -46,26 +46,8 @@ __pycache__/
 .venv/
 venv/
 
-# Temporary audit/fix scripts
-*.py
-*.sh
-*.json
-!package.json
-!tsconfig.json
-!composer.json
-AI-MEMORY.md
-TEST-PLAN.md
-prompt.md
-mcp.json
-untranslated_faqs_report.json
-verification_report.txt
-ar-batch-convert-SPEC.md
-picete-ar-translation-SPEC.md
-picete-longtail-v2-SPEC.md
-picete-zh-translation-SPEC.md
-pt-resize-facebook-cover-SPEC.md
-screenprint-filter-spec.md
-longtail-plan.txt
+# Well-known
+.well-known/
 
 # Git subdirs
 **/.git/

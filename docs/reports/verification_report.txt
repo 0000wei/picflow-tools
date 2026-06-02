@@ -1,0 +1,1997 @@
+==================================================
+COMPREHENSIVE SITE VERIFICATION REPORT
+==================================================
+
+1. HTML ATTRIBUTE ERRORS (4):
+  [og-render.html]: Missing lang attribute on <html>
+  [PROJECT-OVERVIEW.html]: Incorrect lang attribute on <html>: expected 'en', got 'zh-CN'
+  [06项目/screenprintfilter/FINAL-TEST-REPORT.html]: Incorrect lang attribute on <html>: expected 'en', got 'zh-CN'
+  [06项目/screenprintfilter/test-report.html]: Incorrect lang attribute on <html>: expected 'en', got 'zh-CN'
+
+2. CANONICAL LINK ERRORS (119):
+  [full-test-report.html]: Expected canonical 'https://picete.com/full-test-report.html', got ''
+  [launch-copy.html]: Expected canonical 'https://picete.com/launch-copy.html', got ''
+  [og-render.html]: Expected canonical 'https://picete.com/og-render.html', got ''
+  [PROJECT-OVERVIEW.html]: Expected canonical 'https://picete.com/PROJECT-OVERVIEW.html', got ''
+  [submit-to-directories.html]: Expected canonical 'https://picete.com/submit-to-directories.html', got ''
+  [06项目/screenprintfilter/FINAL-TEST-REPORT.html]: Expected canonical 'https://picete.com/06项目/screenprintfilter/FINAL-TEST-REPORT.html', got ''
+  [06项目/screenprintfilter/test-report.html]: Expected canonical 'https://picete.com/06项目/screenprintfilter/test-report.html', got ''
+  [ar/index.html]: Expected canonical 'https://picete.com/', got 'https://picete.com/ar/'
+  [ar/compress-image/index.html]: Expected canonical 'https://picete.com/compress-image/', got 'https://picete.com/ar/compress-image/'
+  [ar/extract-colors/index.html]: Expected canonical 'https://picete.com/extract-colors/', got 'https://picete.com/ar/extract-colors/'
+  [ar/image-to-base64/index.html]: Expected canonical 'https://picete.com/image-to-base64/', got 'https://picete.com/ar/image-to-base64/'
+  [ar/jpg-to-png/index.html]: Expected canonical 'https://picete.com/jpg-to-png/', got 'https://picete.com/ar/jpg-to-png/'
+  [ar/jpg-to-webp/index.html]: Expected canonical 'https://picete.com/jpg-to-webp/', got 'https://picete.com/ar/jpg-to-webp/'
+  [ar/png-to-jpg/index.html]: Expected canonical 'https://picete.com/png-to-jpg/', got 'https://picete.com/ar/png-to-jpg/'
+  [ar/png-to-webp/index.html]: Expected canonical 'https://picete.com/png-to-webp/', got 'https://picete.com/ar/png-to-webp/'
+  [ar/resize-image/index.html]: Expected canonical 'https://picete.com/resize-image/', got 'https://picete.com/ar/resize-image/'
+  [ar/resize-image-to-1080x1080/index.html]: Expected canonical 'https://picete.com/resize-image-to-1080x1080/', got 'https://picete.com/ar/resize-image-to-1080x1080/'
+  [ar/webp-to-png/index.html]: Expected canonical 'https://picete.com/webp-to-png/', got 'https://picete.com/ar/webp-to-png/'
+  [de/index.html]: Expected canonical 'https://picete.com/', got 'https://picete.com/de/'
+  [de/compress-image/index.html]: Expected canonical 'https://picete.com/compress-image/', got 'https://picete.com/de/compress-image/'
+  [de/compress-image-for-website/index.html]: Expected canonical 'https://picete.com/compress-image-for-website/', got 'https://picete.com/de/compress-image-for-website/'
+  [de/compress-image-for-wordpress/index.html]: Expected canonical 'https://picete.com/compress-image-for-wordpress/', got 'https://picete.com/de/compress-image-for-wordpress/'
+  [de/compress-image-to-200kb/index.html]: Expected canonical 'https://picete.com/compress-image-to-200kb/', got 'https://picete.com/de/compress-image-to-200kb/'
+  [de/extract-colors/index.html]: Expected canonical 'https://picete.com/extract-colors/', got 'https://picete.com/de/extract-colors/'
+  [de/jpg-to-png/index.html]: Expected canonical 'https://picete.com/jpg-to-png/', got 'https://picete.com/de/jpg-to-png/'
+  [de/jpg-to-png-for-instagram/index.html]: Expected canonical 'https://picete.com/jpg-to-png-for-instagram/', got 'https://picete.com/de/jpg-to-png-for-instagram/'
+  [de/jpg-to-webp/index.html]: Expected canonical 'https://picete.com/jpg-to-webp/', got 'https://picete.com/de/jpg-to-webp/'
+  [de/png-to-jpg/index.html]: Expected canonical 'https://picete.com/png-to-jpg/', got 'https://picete.com/de/png-to-jpg/'
+  [de/png-to-webp/index.html]: Expected canonical 'https://picete.com/png-to-webp/', got 'https://picete.com/de/png-to-webp/'
+  [de/resize-image/index.html]: Expected canonical 'https://picete.com/resize-image/', got 'https://picete.com/de/resize-image/'
+  [de/webp-to-png/index.html]: Expected canonical 'https://picete.com/webp-to-png/', got 'https://picete.com/de/webp-to-png/'
+  [es/index.html]: Expected canonical 'https://picete.com/', got 'https://picete.com/es/'
+  [es/batch-convert-png-to-jpg/index.html]: Expected canonical 'https://picete.com/batch-convert-png-to-jpg/', got 'https://picete.com/es/batch-convert-png-to-jpg/'
+  [es/compress-image/index.html]: Expected canonical 'https://picete.com/compress-image/', got 'https://picete.com/es/compress-image/'
+  [es/compress-image-for-email/index.html]: Expected canonical 'https://picete.com/compress-image-for-email/', got 'https://picete.com/es/compress-image-for-email/'
+  [es/compress-image-for-website/index.html]: Expected canonical 'https://picete.com/compress-image-for-website/', got 'https://picete.com/es/compress-image-for-website/'
+  [es/compress-image-for-wordpress/index.html]: Expected canonical 'https://picete.com/compress-image-for-wordpress/', got 'https://picete.com/es/compress-image-for-wordpress/'
+  [es/compress-image-to-200kb/index.html]: Expected canonical 'https://picete.com/compress-image-to-200kb/', got 'https://picete.com/es/compress-image-to-200kb/'
+  [es/compress-image-to-500kb/index.html]: Expected canonical 'https://picete.com/compress-image-to-500kb/', got 'https://picete.com/es/compress-image-to-500kb/'
+  [es/compress-jpg-to-100kb/index.html]: Expected canonical 'https://picete.com/compress-jpg-to-100kb/', got 'https://picete.com/es/compress-jpg-to-100kb/'
+  [es/extract-colors/index.html]: Expected canonical 'https://picete.com/extract-colors/', got 'https://picete.com/es/extract-colors/'
+  [es/jpg-to-png/index.html]: Expected canonical 'https://picete.com/jpg-to-png/', got 'https://picete.com/es/jpg-to-png/'
+  [es/jpg-to-png-for-instagram/index.html]: Expected canonical 'https://picete.com/jpg-to-png-for-instagram/', got 'https://picete.com/es/jpg-to-png-for-instagram/'
+  [es/jpg-to-webp/index.html]: Expected canonical 'https://picete.com/jpg-to-webp/', got 'https://picete.com/es/jpg-to-webp/'
+  [es/png-to-jpg/index.html]: Expected canonical 'https://picete.com/png-to-jpg/', got 'https://picete.com/es/png-to-jpg/'
+  [es/png-to-webp/index.html]: Expected canonical 'https://picete.com/png-to-webp/', got 'https://picete.com/es/png-to-webp/'
+  [es/resize-image/index.html]: Expected canonical 'https://picete.com/resize-image/', got 'https://picete.com/es/resize-image/'
+  [es/resize-image-for-facebook-cover/index.html]: Expected canonical 'https://picete.com/resize-image-for-facebook-cover/', got 'https://picete.com/es/resize-image-for-facebook-cover/'
+  [es/resize-image-to-1500x500/index.html]: Expected canonical 'https://picete.com/resize-image-to-1500x500/', got 'https://picete.com/es/resize-image-to-1500x500/'
+  [es/resize-image-to-200x200/index.html]: Expected canonical 'https://picete.com/resize-image-to-200x200/', got 'https://picete.com/es/resize-image-to-200x200/'
+  [es/resize-image-to-250x250/index.html]: Expected canonical 'https://picete.com/resize-image-to-250x250/', got 'https://picete.com/es/resize-image-to-250x250/'
+  [es/resize-image-to-300x250/index.html]: Expected canonical 'https://picete.com/resize-image-to-300x250/', got 'https://picete.com/es/resize-image-to-300x250/'
+  [es/resize-image-to-512x512/index.html]: Expected canonical 'https://picete.com/resize-image-to-512x512/', got 'https://picete.com/es/resize-image-to-512x512/'
+  [es/resize-image-to-600x600/index.html]: Expected canonical 'https://picete.com/resize-image-to-600x600/', got 'https://picete.com/es/resize-image-to-600x600/'
+  [es/resize-image-to-728x90/index.html]: Expected canonical 'https://picete.com/resize-image-to-728x90/', got 'https://picete.com/es/resize-image-to-728x90/'
+  [es/webp-to-png/index.html]: Expected canonical 'https://picete.com/webp-to-png/', got 'https://picete.com/es/webp-to-png/'
+  [fr/index.html]: Expected canonical 'https://picete.com/', got 'https://picete.com/fr/'
+  [fr/batch-convert-png-to-jpg/index.html]: Expected canonical 'https://picete.com/batch-convert-png-to-jpg/', got 'https://picete.com/fr/batch-convert-png-to-jpg/'
+  [fr/compress-image/index.html]: Expected canonical 'https://picete.com/compress-image/', got 'https://picete.com/fr/compress-image/'
+  [fr/compress-image-for-email/index.html]: Expected canonical 'https://picete.com/compress-image-for-email/', got 'https://picete.com/fr/compress-image-for-email/'
+  [fr/compress-image-for-website/index.html]: Expected canonical 'https://picete.com/compress-image-for-website/', got 'https://picete.com/fr/compress-image-for-website/'
+  [fr/compress-image-for-wordpress/index.html]: Expected canonical 'https://picete.com/compress-image-for-wordpress/', got 'https://picete.com/fr/compress-image-for-wordpress/'
+  [fr/compress-image-to-200kb/index.html]: Expected canonical 'https://picete.com/compress-image-to-200kb/', got 'https://picete.com/fr/compress-image-to-200kb/'
+  [fr/compress-image-to-500kb/index.html]: Expected canonical 'https://picete.com/compress-image-to-500kb/', got 'https://picete.com/fr/compress-image-to-500kb/'
+  [fr/compress-image-to-50kb/index.html]: Expected canonical 'https://picete.com/compress-image-to-50kb/', got 'https://picete.com/fr/compress-image-to-50kb/'
+  [fr/compress-jpg-to-100kb/index.html]: Expected canonical 'https://picete.com/compress-jpg-to-100kb/', got 'https://picete.com/fr/compress-jpg-to-100kb/'
+  [fr/compress-jpg-to-200kb/index.html]: Expected canonical 'https://picete.com/compress-jpg-to-200kb/', got 'https://picete.com/fr/compress-jpg-to-200kb/'
+  [fr/jpg-to-png/index.html]: Expected canonical 'https://picete.com/jpg-to-png/', got 'https://picete.com/fr/jpg-to-png/'
+  [fr/jpg-to-png-for-instagram/index.html]: Expected canonical 'https://picete.com/jpg-to-png-for-instagram/', got 'https://picete.com/fr/jpg-to-png-for-instagram/'
+  [fr/jpg-to-webp/index.html]: Expected canonical 'https://picete.com/jpg-to-webp/', got 'https://picete.com/fr/jpg-to-webp/'
+  [fr/png-to-jpg/index.html]: Expected canonical 'https://picete.com/png-to-jpg/', got 'https://picete.com/fr/png-to-jpg/'
+  [fr/png-to-jpg-for-email/index.html]: Expected canonical 'https://picete.com/png-to-jpg-for-email/', got 'https://picete.com/fr/png-to-jpg-for-email/'
+  [fr/png-to-webp/index.html]: Expected canonical 'https://picete.com/png-to-webp/', got 'https://picete.com/fr/png-to-webp/'
+  [fr/png-to-webp-for-wordpress/index.html]: Expected canonical 'https://picete.com/png-to-webp-for-wordpress/', got 'https://picete.com/fr/png-to-webp-for-wordpress/'
+  [fr/resize-image/index.html]: Expected canonical 'https://picete.com/resize-image/', got 'https://picete.com/fr/resize-image/'
+  [fr/resize-image-for-facebook-cover/index.html]: Expected canonical 'https://picete.com/resize-image-for-facebook-cover/', got 'https://picete.com/fr/resize-image-for-facebook-cover/'
+  [fr/split-image-into-3x3/index.html]: Expected canonical 'https://picete.com/split-image-into-3x3/', got 'https://picete.com/fr/split-image-into-3x3/'
+  [fr/split-image-into-4-parts/index.html]: Expected canonical 'https://picete.com/split-image-into-4-parts/', got 'https://picete.com/fr/split-image-into-4-parts/'
+  [fr/webp-to-png/index.html]: Expected canonical 'https://picete.com/webp-to-png/', got 'https://picete.com/fr/webp-to-png/'
+  [fr/webp-to-png-for-website/index.html]: Expected canonical 'https://picete.com/webp-to-png-for-website/', got 'https://picete.com/fr/webp-to-png-for-website/'
+  [ja/index.html]: Expected canonical 'https://picete.com/', got 'https://picete.com/ja/'
+  [ja/compress-image-to-100kb/index.html]: Expected canonical 'https://picete.com/compress-image-to-100kb/', got 'https://picete.com/ja/compress-image-to-100kb/'
+  [ja/compress-image-to-50kb/index.html]: Expected canonical 'https://picete.com/compress-image-to-50kb/', got 'https://picete.com/ja/compress-image-to-50kb/'
+  [ja/compress-jpg-to-200kb/index.html]: Expected canonical 'https://picete.com/compress-jpg-to-200kb/', got 'https://picete.com/ja/compress-jpg-to-200kb/'
+  [ja/jpg-to-png/index.html]: Expected canonical 'https://picete.com/jpg-to-png/', got 'https://picete.com/ja/jpg-to-png/'
+  [ja/jpg-to-webp/index.html]: Expected canonical 'https://picete.com/jpg-to-webp/', got 'https://picete.com/ja/jpg-to-webp/'
+  [ja/png-to-jpg/index.html]: Expected canonical 'https://picete.com/png-to-jpg/', got 'https://picete.com/ja/png-to-jpg/'
+  [ja/png-to-jpg-for-email/index.html]: Expected canonical 'https://picete.com/png-to-jpg-for-email/', got 'https://picete.com/ja/png-to-jpg-for-email/'
+  [ja/png-to-webp/index.html]: Expected canonical 'https://picete.com/png-to-webp/', got 'https://picete.com/ja/png-to-webp/'
+  [ja/png-to-webp-for-wordpress/index.html]: Expected canonical 'https://picete.com/png-to-webp-for-wordpress/', got 'https://picete.com/ja/png-to-webp-for-wordpress/'
+  [ja/resize-image-to-1080x1080/index.html]: Expected canonical 'https://picete.com/resize-image-to-1080x1080/', got 'https://picete.com/ja/resize-image-to-1080x1080/'
+  [ja/resize-image-to-1200x630/index.html]: Expected canonical 'https://picete.com/resize-image-to-1200x630/', got 'https://picete.com/ja/resize-image-to-1200x630/'
+  [ja/resize-image-to-1920x1080/index.html]: Expected canonical 'https://picete.com/resize-image-to-1920x1080/', got 'https://picete.com/ja/resize-image-to-1920x1080/'
+  [ja/resize-image-to-800x800/index.html]: Expected canonical 'https://picete.com/resize-image-to-800x800/', got 'https://picete.com/ja/resize-image-to-800x800/'
+  [ja/split-image-into-3x3/index.html]: Expected canonical 'https://picete.com/split-image-into-3x3/', got 'https://picete.com/ja/split-image-into-3x3/'
+  [ja/split-image-into-4-parts/index.html]: Expected canonical 'https://picete.com/split-image-into-4-parts/', got 'https://picete.com/ja/split-image-into-4-parts/'
+  [ja/webp-to-png/index.html]: Expected canonical 'https://picete.com/webp-to-png/', got 'https://picete.com/ja/webp-to-png/'
+  [ja/webp-to-png-for-website/index.html]: Expected canonical 'https://picete.com/webp-to-png-for-website/', got 'https://picete.com/ja/webp-to-png-for-website/'
+  [pt/index.html]: Expected canonical 'https://picete.com/', got 'https://picete.com/pt/'
+  [pt/batch-convert-png-to-jpg/index.html]: Expected canonical 'https://picete.com/batch-convert-png-to-jpg/', got 'https://picete.com/pt/batch-convert-png-to-jpg/'
+  [pt/compress-image/index.html]: Expected canonical 'https://picete.com/compress-image/', got 'https://picete.com/pt/compress-image/'
+  [pt/compress-image-for-email/index.html]: Expected canonical 'https://picete.com/compress-image-for-email/', got 'https://picete.com/pt/compress-image-for-email/'
+  [pt/compress-image-for-website/index.html]: Expected canonical 'https://picete.com/compress-image-for-website/', got 'https://picete.com/pt/compress-image-for-website/'
+  [pt/compress-image-for-wordpress/index.html]: Expected canonical 'https://picete.com/compress-image-for-wordpress/', got 'https://picete.com/pt/compress-image-for-wordpress/'
+  [pt/compress-image-to-200kb/index.html]: Expected canonical 'https://picete.com/compress-image-to-200kb/', got 'https://picete.com/pt/compress-image-to-200kb/'
+  [pt/compress-image-to-500kb/index.html]: Expected canonical 'https://picete.com/compress-image-to-500kb/', got 'https://picete.com/pt/compress-image-to-500kb/'
+  [pt/compress-jpg-to-100kb/index.html]: Expected canonical 'https://picete.com/compress-jpg-to-100kb/', got 'https://picete.com/pt/compress-jpg-to-100kb/'
+  [pt/extract-colors/index.html]: Expected canonical 'https://picete.com/extract-colors/', got 'https://picete.com/pt/extract-colors/'
+  [pt/jpg-to-png/index.html]: Expected canonical 'https://picete.com/jpg-to-png/', got 'https://picete.com/pt/jpg-to-png/'
+  [pt/jpg-to-png-for-instagram/index.html]: Expected canonical 'https://picete.com/jpg-to-png-for-instagram/', got 'https://picete.com/pt/jpg-to-png-for-instagram/'
+  [pt/jpg-to-webp/index.html]: Expected canonical 'https://picete.com/jpg-to-webp/', got 'https://picete.com/pt/jpg-to-webp/'
+  [pt/png-to-jpg/index.html]: Expected canonical 'https://picete.com/png-to-jpg/', got 'https://picete.com/pt/png-to-jpg/'
+  [pt/png-to-webp/index.html]: Expected canonical 'https://picete.com/png-to-webp/', got 'https://picete.com/pt/png-to-webp/'
+  [pt/resize-image/index.html]: Expected canonical 'https://picete.com/resize-image/', got 'https://picete.com/pt/resize-image/'
+  [pt/webp-to-png/index.html]: Expected canonical 'https://picete.com/webp-to-png/', got 'https://picete.com/pt/webp-to-png/'
+  [zh/index.html]: Expected canonical 'https://picete.com/', got 'https://picete.com/zh/'
+  [zh/image-splitter/index.html]: Expected canonical 'https://picete.com/image-splitter/', got 'https://picete.com/zh/image-splitter/'
+  [zh/jpg-to-png/index.html]: Expected canonical 'https://picete.com/jpg-to-png/', got 'https://picete.com/zh/jpg-to-png/'
+  [zh/png-to-jpg/index.html]: Expected canonical 'https://picete.com/png-to-jpg/', got 'https://picete.com/zh/png-to-jpg/'
+
+3. OG URL ERRORS (29):
+  [full-test-report.html]: Expected og:url 'https://picete.com/full-test-report.html', got ''
+  [launch-copy.html]: Expected og:url 'https://picete.com/launch-copy.html', got ''
+  [og-render.html]: Expected og:url 'https://picete.com/og-render.html', got ''
+  [privacy-policy.html]: Expected og:url 'https://picete.com/privacy-policy.html', got ''
+  [PROJECT-OVERVIEW.html]: Expected og:url 'https://picete.com/PROJECT-OVERVIEW.html', got ''
+  [submit-to-directories.html]: Expected og:url 'https://picete.com/submit-to-directories.html', got ''
+  [06项目/screenprintfilter/FINAL-TEST-REPORT.html]: Expected og:url 'https://picete.com/06项目/screenprintfilter/FINAL-TEST-REPORT.html', got ''
+  [06项目/screenprintfilter/test-report.html]: Expected og:url 'https://picete.com/06项目/screenprintfilter/test-report.html', got ''
+  [ar/resize-image-to-1080x1080/index.html]: Expected og:url 'https://picete.com/ar/resize-image-to-1080x1080/', got ''
+  [fr/compress-image-to-100kb/index.html]: Expected og:url 'https://picete.com/fr/compress-image-to-100kb/', got ''
+  [fr/extract-colors/index.html]: Expected og:url 'https://picete.com/fr/extract-colors/', got 'https://picete.com/extract-colors/'
+  [fr/image-splitter/index.html]: Expected og:url 'https://picete.com/fr/image-splitter/', got 'https://picete.com/image-splitter/'
+  [fr/image-to-base64/index.html]: Expected og:url 'https://picete.com/fr/image-to-base64/', got ''
+  [fr/resize-image-to-1080x1080/index.html]: Expected og:url 'https://picete.com/fr/resize-image-to-1080x1080/', got ''
+  [fr/resize-image-to-1200x630/index.html]: Expected og:url 'https://picete.com/fr/resize-image-to-1200x630/', got ''
+  [fr/resize-image-to-1920x1080/index.html]: Expected og:url 'https://picete.com/fr/resize-image-to-1920x1080/', got ''
+  [fr/resize-image-to-600x600/index.html]: Expected og:url 'https://picete.com/fr/resize-image-to-600x600/', got 'https://picete.com/resize-image-to-600x600/'
+  [fr/resize-image-to-800x800/index.html]: Expected og:url 'https://picete.com/fr/resize-image-to-800x800/', got ''
+  [ja/png-to-webp-for-wordpress/index.html]: Expected og:url 'https://picete.com/ja/png-to-webp-for-wordpress/', got ''
+  [ja/resize-image-to-1080x1080/index.html]: Expected og:url 'https://picete.com/ja/resize-image-to-1080x1080/', got ''
+  [ja/resize-image-to-1200x630/index.html]: Expected og:url 'https://picete.com/ja/resize-image-to-1200x630/', got ''
+  [ja/resize-image-to-1920x1080/index.html]: Expected og:url 'https://picete.com/ja/resize-image-to-1920x1080/', got ''
+  [ja/resize-image-to-800x800/index.html]: Expected og:url 'https://picete.com/ja/resize-image-to-800x800/', got ''
+  [ja/split-image-into-3x3/index.html]: Expected og:url 'https://picete.com/ja/split-image-into-3x3/', got ''
+  [ja/split-image-into-4-parts/index.html]: Expected og:url 'https://picete.com/ja/split-image-into-4-parts/', got ''
+  [ja/webp-to-png-for-website/index.html]: Expected og:url 'https://picete.com/ja/webp-to-png-for-website/', got ''
+  [mcp-guide/index.html]: Expected og:url 'https://picete.com/mcp-guide/', got ''
+  [zh/compress-image/index.html]: Expected og:url 'https://picete.com/zh/compress-image/', got 'https://picete.com/compress-image/'
+  [zh/resize-image/index.html]: Expected og:url 'https://picete.com/zh/resize-image/', got 'https://picete.com/resize-image/'
+
+4. DEAD LINK ERRORS (1522):
+  [ar/batch-convert-png-to-jpg/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/compress-image-for-email/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/compress-image-for-website/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/compress-image-for-wordpress/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/compress-image-to-100kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/compress-image-to-200kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/compress-image-to-500kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/compress-image-to-50kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/compress-image/index.html]:
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/#tools' (resolved to 'D:\ar')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/resize-image/' (resolved to 'D:\ar\resize-image')
+    - Dead link: '/ar/png-to-jpg/' (resolved to 'D:\ar\png-to-jpg')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\compress-image\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\compress-image\${img.url}')
+  [ar/compress-jpg-to-100kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/compress-jpg-to-200kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/extract-colors/index.html]:
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/#tools' (resolved to 'D:\ar')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/png-to-jpg/' (resolved to 'D:\ar\png-to-jpg')
+    - Dead link: '/ar/jpg-to-png/' (resolved to 'D:\ar\jpg-to-png')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\extract-colors\${src}')
+  [ar/image-splitter/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\image-splitter\${img.src}')
+    - Dead link: '${s.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\image-splitter\${s.url}')
+  [ar/image-to-base64/index.html]:
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/#tools' (resolved to 'D:\ar')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/png-to-jpg/' (resolved to 'D:\ar\png-to-jpg')
+    - Dead link: '/ar/jpg-to-png/' (resolved to 'D:\ar\jpg-to-png')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\image-to-base64\${src}')
+    - Dead link: '${img.dataUrl}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\image-to-base64\${img.dataUrl}')
+  [ar/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/llms.txt' (resolved to 'D:\llms.txt')
+    - Dead link: '/mcp.json' (resolved to 'D:\mcp.json')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/ar/png-to-jpg/' (resolved to 'D:\ar\png-to-jpg')
+    - Dead link: '/ar/jpg-to-png/' (resolved to 'D:\ar\jpg-to-png')
+    - Dead link: '/ar/webp-to-png/' (resolved to 'D:\ar\webp-to-png')
+    - Dead link: '/ar/png-to-webp/' (resolved to 'D:\ar\png-to-webp')
+    - Dead link: '/ar/jpg-to-webp/' (resolved to 'D:\ar\jpg-to-webp')
+    - Dead link: '/ar/resize-image/' (resolved to 'D:\ar\resize-image')
+    - Dead link: '/ar/compress-image/' (resolved to 'D:\ar\compress-image')
+    - Dead link: '/ar/image-splitter/' (resolved to 'D:\ar\image-splitter')
+    - Dead link: '/ar/extract-colors/' (resolved to 'D:\ar\extract-colors')
+    - Dead link: '/ar/image-to-base64/' (resolved to 'D:\ar\image-to-base64')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/ar/png-to-jpg/' (resolved to 'D:\ar\png-to-jpg')
+    - Dead link: '/ar/jpg-to-png/' (resolved to 'D:\ar\jpg-to-png')
+    - Dead link: '/ar/webp-to-png/' (resolved to 'D:\ar\webp-to-png')
+    - Dead link: '/ar/png-to-webp/' (resolved to 'D:\ar\png-to-webp')
+    - Dead link: '/ar/jpg-to-webp/' (resolved to 'D:\ar\jpg-to-webp')
+    - Dead link: '/ar/resize-image/' (resolved to 'D:\ar\resize-image')
+    - Dead link: '/ar/compress-image/' (resolved to 'D:\ar\compress-image')
+    - Dead link: '/ar/image-splitter/' (resolved to 'D:\ar\image-splitter')
+    - Dead link: '/ar/extract-colors/' (resolved to 'D:\ar\extract-colors')
+    - Dead link: '/ar/image-to-base64/' (resolved to 'D:\ar\image-to-base64')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '/js/main.js' (resolved to 'D:\js\main.js')
+  [ar/jpg-to-png-for-instagram/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/jpg-to-png/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/llms.txt' (resolved to 'D:\llms.txt')
+    - Dead link: '/mcp.json' (resolved to 'D:\mcp.json')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/#tools' (resolved to 'D:\ar')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/png-to-jpg/' (resolved to 'D:\ar\png-to-jpg')
+    - Dead link: '/ar/webp-to-png/' (resolved to 'D:\ar\webp-to-png')
+    - Dead link: '/ar/png-to-webp/' (resolved to 'D:\ar\png-to-webp')
+    - Dead link: '/ar/resize-image/' (resolved to 'D:\ar\resize-image')
+    - Dead link: '/ar/compress-image/' (resolved to 'D:\ar\compress-image')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\jpg-to-png\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\jpg-to-png\${img.url}')
+  [ar/jpg-to-webp/index.html]:
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/#tools' (resolved to 'D:\ar')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/png-to-jpg/' (resolved to 'D:\ar\png-to-jpg')
+    - Dead link: '/ar/jpg-to-png/' (resolved to 'D:\ar\jpg-to-png')
+    - Dead link: '/ar/png-to-webp/' (resolved to 'D:\ar\png-to-webp')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\jpg-to-webp\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\jpg-to-webp\${img.url}')
+  [ar/png-to-jpg-for-email/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/png-to-jpg/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/llms.txt' (resolved to 'D:\llms.txt')
+    - Dead link: '/mcp.json' (resolved to 'D:\mcp.json')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/#tools' (resolved to 'D:\ar')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/jpg-to-png/' (resolved to 'D:\ar\jpg-to-png')
+    - Dead link: '/ar/webp-to-png/' (resolved to 'D:\ar\webp-to-png')
+    - Dead link: '/ar/png-to-webp/' (resolved to 'D:\ar\png-to-webp')
+    - Dead link: '/ar/resize-image/' (resolved to 'D:\ar\resize-image')
+    - Dead link: '/ar/compress-image/' (resolved to 'D:\ar\compress-image')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\png-to-jpg\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\png-to-jpg\${img.url}')
+  [ar/png-to-webp-for-wordpress/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/png-to-webp/index.html]:
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/#tools' (resolved to 'D:\ar')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/png-to-jpg/' (resolved to 'D:\ar\png-to-jpg')
+    - Dead link: '/ar/jpg-to-png/' (resolved to 'D:\ar\jpg-to-png')
+    - Dead link: '/ar/webp-to-png/' (resolved to 'D:\ar\webp-to-png')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\png-to-webp\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\png-to-webp\${img.url}')
+  [ar/resize-image-for-facebook-cover/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/resize-image-to-1080x1080/index.html]:
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/#tools' (resolved to 'D:\ar')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\resize-image-to-1080x1080\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\resize-image-to-1080x1080\${img.url}')
+  [ar/resize-image-to-1200x630/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/resize-image-to-1500x500/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/resize-image-to-1920x1080/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/resize-image-to-200x200/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/resize-image-to-250x250/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/resize-image-to-300x250/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/resize-image-to-512x512/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/resize-image-to-600x600/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/resize-image-to-728x90/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/resize-image-to-800x800/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/resize-image/index.html]:
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/#tools' (resolved to 'D:\ar')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/compress-image/' (resolved to 'D:\ar\compress-image')
+    - Dead link: '/ar/png-to-jpg/' (resolved to 'D:\ar\png-to-jpg')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\resize-image\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\resize-image\${img.url}')
+  [ar/split-image-into-3x3/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/split-image-into-4-parts/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/webp-to-png-for-website/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ar/webp-to-png/index.html]:
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/#tools' (resolved to 'D:\ar')
+    - Dead link: '/ar/' (resolved to 'D:\ar')
+    - Dead link: '/ar/png-to-jpg/' (resolved to 'D:\ar\png-to-jpg')
+    - Dead link: '/ar/jpg-to-png/' (resolved to 'D:\ar\jpg-to-png')
+    - Dead link: '/ar/png-to-webp/' (resolved to 'D:\ar\png-to-webp')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\webp-to-png\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ar\webp-to-png\${img.url}')
+  [batch-convert-png-to-jpg/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [compress-image-for-email/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [compress-image-for-website/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [compress-image-for-wordpress/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [compress-image-to-100kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [compress-image-to-200kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [compress-image-to-500kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [compress-image-to-50kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [compress-image/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\compress-image\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\compress-image\${img.url}')
+  [compress-jpg-to-100kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [compress-jpg-to-200kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/batch-convert-png-to-jpg/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/compress-image-for-email/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/compress-image-for-website/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/compress-image-for-wordpress/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/compress-image-to-100kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/compress-image-to-200kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/compress-image-to-500kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/compress-image-to-50kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/compress-image/index.html]:
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/#tools' (resolved to 'D:\de')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/png-to-jpg/' (resolved to 'D:\de\png-to-jpg')
+    - Dead link: '/de/jpg-to-png/' (resolved to 'D:\de\jpg-to-png')
+    - Dead link: '/de/resize-image/' (resolved to 'D:\de\resize-image')
+    - Dead link: '/de/png-to-webp/' (resolved to 'D:\de\png-to-webp')
+    - Dead link: '/de/webp-to-png/' (resolved to 'D:\de\webp-to-png')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\compress-image\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\compress-image\${img.url}')
+  [de/compress-jpg-to-100kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/compress-jpg-to-200kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/extract-colors/index.html]:
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/#tools' (resolved to 'D:\de')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/png-to-jpg/' (resolved to 'D:\de\png-to-jpg')
+    - Dead link: '/de/jpg-to-png/' (resolved to 'D:\de\jpg-to-png')
+    - Dead link: '/de/webp-to-png/' (resolved to 'D:\de\webp-to-png')
+    - Dead link: '/de/png-to-webp/' (resolved to 'D:\de\png-to-webp')
+    - Dead link: '/de/jpg-to-webp/' (resolved to 'D:\de\jpg-to-webp')
+    - Dead link: '/de/resize-image/' (resolved to 'D:\de\resize-image')
+    - Dead link: '/de/image-to-base64/' (resolved to 'D:\de\image-to-base64')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\extract-colors\${img.src}')
+  [de/image-splitter/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\image-splitter\${img.src}')
+    - Dead link: '${s.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\image-splitter\${s.url}')
+  [de/image-to-base64/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${fullDataUrl}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\image-to-base64\${fullDataUrl}')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\image-to-base64\${img.src}')
+  [de/index.html]:
+    - Dead link: 'favicon.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\favicon.svg')
+    - Dead link: 'favicon.ico' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\favicon.ico')
+    - Dead link: 'llms.txt' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\llms.txt')
+    - Dead link: 'mcp.json' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\mcp.json')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/png-to-jpg/' (resolved to 'D:\de\png-to-jpg')
+    - Dead link: '/de/jpg-to-png/' (resolved to 'D:\de\jpg-to-png')
+    - Dead link: '/de/webp-to-png/' (resolved to 'D:\de\webp-to-png')
+    - Dead link: '/de/png-to-webp/' (resolved to 'D:\de\png-to-webp')
+    - Dead link: '/de/jpg-to-webp/' (resolved to 'D:\de\jpg-to-webp')
+    - Dead link: '/de/resize-image/' (resolved to 'D:\de\resize-image')
+    - Dead link: '/de/compress-image/' (resolved to 'D:\de\compress-image')
+    - Dead link: '/de/image-splitter/' (resolved to 'D:\de\image-splitter')
+    - Dead link: '/de/extract-colors/' (resolved to 'D:\de\extract-colors')
+    - Dead link: '/de/image-to-base64/' (resolved to 'D:\de\image-to-base64')
+    - Dead link: '/de/png-to-jpg/' (resolved to 'D:\de\png-to-jpg')
+    - Dead link: '/de/jpg-to-png/' (resolved to 'D:\de\jpg-to-png')
+    - Dead link: '/de/webp-to-png/' (resolved to 'D:\de\webp-to-png')
+    - Dead link: '/de/png-to-webp/' (resolved to 'D:\de\png-to-webp')
+    - Dead link: '/de/jpg-to-webp/' (resolved to 'D:\de\jpg-to-webp')
+    - Dead link: '/de/resize-image/' (resolved to 'D:\de\resize-image')
+    - Dead link: '/de/compress-image/' (resolved to 'D:\de\compress-image')
+    - Dead link: '/de/image-splitter/' (resolved to 'D:\de\image-splitter')
+    - Dead link: '/de/extract-colors/' (resolved to 'D:\de\extract-colors')
+    - Dead link: '/de/image-to-base64/' (resolved to 'D:\de\image-to-base64')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/jpg-to-png-for-instagram/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/jpg-to-png/index.html]:
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/#tools' (resolved to 'D:\de')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/png-to-jpg/' (resolved to 'D:\de\png-to-jpg')
+    - Dead link: '/de/webp-to-png/' (resolved to 'D:\de\webp-to-png')
+    - Dead link: '/de/png-to-webp/' (resolved to 'D:\de\png-to-webp')
+    - Dead link: '/de/jpg-to-webp/' (resolved to 'D:\de\jpg-to-webp')
+    - Dead link: '/de/resize-image/' (resolved to 'D:\de\resize-image')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\jpg-to-png\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\jpg-to-png\${img.url}')
+  [de/jpg-to-webp/index.html]:
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/#tools' (resolved to 'D:\de')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/png-to-jpg/' (resolved to 'D:\de\png-to-jpg')
+    - Dead link: '/de/jpg-to-png/' (resolved to 'D:\de\jpg-to-png')
+    - Dead link: '/de/webp-to-png/' (resolved to 'D:\de\webp-to-png')
+    - Dead link: '/de/png-to-webp/' (resolved to 'D:\de\png-to-webp')
+    - Dead link: '/de/compress-image/' (resolved to 'D:\de\compress-image')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\jpg-to-webp\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\jpg-to-webp\${img.url}')
+  [de/png-to-jpg-for-email/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/png-to-jpg/index.html]:
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/#tools' (resolved to 'D:\de')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/jpg-to-png/' (resolved to 'D:\de\jpg-to-png')
+    - Dead link: '/de/webp-to-png/' (resolved to 'D:\de\webp-to-png')
+    - Dead link: '/de/png-to-webp/' (resolved to 'D:\de\png-to-webp')
+    - Dead link: '/de/resize-image/' (resolved to 'D:\de\resize-image')
+    - Dead link: '/de/compress-image/' (resolved to 'D:\de\compress-image')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\png-to-jpg\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\png-to-jpg\${img.url}')
+  [de/png-to-webp-for-wordpress/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/png-to-webp/index.html]:
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/#tools' (resolved to 'D:\de')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/png-to-jpg/' (resolved to 'D:\de\png-to-jpg')
+    - Dead link: '/de/jpg-to-png/' (resolved to 'D:\de\jpg-to-png')
+    - Dead link: '/de/webp-to-png/' (resolved to 'D:\de\webp-to-png')
+    - Dead link: '/de/jpg-to-webp/' (resolved to 'D:\de\jpg-to-webp')
+    - Dead link: '/de/resize-image/' (resolved to 'D:\de\resize-image')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\png-to-webp\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\png-to-webp\${img.url}')
+  [de/resize-image-for-facebook-cover/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/resize-image-to-1080x1080/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/resize-image-to-1200x630/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/resize-image-to-1500x500/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/resize-image-to-1920x1080/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/resize-image-to-200x200/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/resize-image-to-250x250/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/resize-image-to-300x250/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/resize-image-to-512x512/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/resize-image-to-600x600/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/resize-image-to-728x90/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/resize-image-to-800x800/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/resize-image/index.html]:
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/#tools' (resolved to 'D:\de')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/png-to-jpg/' (resolved to 'D:\de\png-to-jpg')
+    - Dead link: '/de/jpg-to-png/' (resolved to 'D:\de\jpg-to-png')
+    - Dead link: '/de/compress-image/' (resolved to 'D:\de\compress-image')
+    - Dead link: '/de/png-to-webp/' (resolved to 'D:\de\png-to-webp')
+    - Dead link: '/de/webp-to-png/' (resolved to 'D:\de\webp-to-png')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\resize-image\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\resize-image\${img.url}')
+  [de/split-image-into-3x3/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/split-image-into-4-parts/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/webp-to-png-for-website/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [de/webp-to-png/index.html]:
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/#tools' (resolved to 'D:\de')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/de/png-to-jpg/' (resolved to 'D:\de\png-to-jpg')
+    - Dead link: '/de/jpg-to-png/' (resolved to 'D:\de\jpg-to-png')
+    - Dead link: '/de/png-to-webp/' (resolved to 'D:\de\png-to-webp')
+    - Dead link: '/de/jpg-to-webp/' (resolved to 'D:\de\jpg-to-webp')
+    - Dead link: '/de/compress-image/' (resolved to 'D:\de\compress-image')
+    - Dead link: '/de/' (resolved to 'D:\de')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\webp-to-png\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\de\webp-to-png\${img.url}')
+  [es/batch-convert-png-to-jpg/index.html]:
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/compress-image-for-email/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/compress-image-for-website/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/compress-image-for-wordpress/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/compress-image-to-100kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/compress-image-to-200kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/compress-image-to-500kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/compress-image-to-50kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/compress-image/index.html]:
+    - Dead link: '../favicon.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.svg')
+    - Dead link: '../favicon.ico' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.ico')
+    - Dead link: '../llms.txt' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\llms.txt')
+    - Dead link: '../mcp.json' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\mcp.json')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '../images/picete-logo.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\images\picete-logo.svg')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/png-to-jpg/' (resolved to 'D:\es\png-to-jpg')
+    - Dead link: '/es/jpg-to-png/' (resolved to 'D:\es\jpg-to-png')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/png-to-webp/' (resolved to 'D:\es\png-to-webp')
+    - Dead link: '/es/webp-to-png/' (resolved to 'D:\es\webp-to-png')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\compress-image\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\compress-image\${img.url}')
+  [es/compress-jpg-to-100kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/compress-jpg-to-200kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/extract-colors/index.html]:
+    - Dead link: '../favicon.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.svg')
+    - Dead link: '../favicon.ico' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.ico')
+    - Dead link: '../llms.txt' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\llms.txt')
+    - Dead link: '../mcp.json' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\mcp.json')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '../images/picete-logo.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\images\picete-logo.svg')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/png-to-jpg/' (resolved to 'D:\es\png-to-jpg')
+    - Dead link: '/es/jpg-to-png/' (resolved to 'D:\es\jpg-to-png')
+    - Dead link: '/es/webp-to-png/' (resolved to 'D:\es\webp-to-png')
+    - Dead link: '/es/png-to-webp/' (resolved to 'D:\es\png-to-webp')
+    - Dead link: '/es/jpg-to-webp/' (resolved to 'D:\es\jpg-to-webp')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/image-to-base64/' (resolved to 'D:\es\image-to-base64')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\extract-colors\${img.src}')
+  [es/image-splitter/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\image-splitter\${img.src}')
+    - Dead link: '${s.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\image-splitter\${s.url}')
+  [es/image-to-base64/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${fullDataUrl}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\image-to-base64\${fullDataUrl}')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\image-to-base64\${img.src}')
+  [es/index.html]:
+    - Dead link: 'favicon.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.svg')
+    - Dead link: 'favicon.ico' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.ico')
+    - Dead link: 'llms.txt' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\llms.txt')
+    - Dead link: 'mcp.json' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\mcp.json')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/es/png-to-jpg/' (resolved to 'D:\es\png-to-jpg')
+    - Dead link: '/es/jpg-to-png/' (resolved to 'D:\es\jpg-to-png')
+    - Dead link: '/es/webp-to-png/' (resolved to 'D:\es\webp-to-png')
+    - Dead link: '/es/png-to-webp/' (resolved to 'D:\es\png-to-webp')
+    - Dead link: '/es/jpg-to-webp/' (resolved to 'D:\es\jpg-to-webp')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/compress-image/' (resolved to 'D:\es\compress-image')
+    - Dead link: '/es/image-splitter/' (resolved to 'D:\es\image-splitter')
+    - Dead link: '/es/extract-colors/' (resolved to 'D:\es\extract-colors')
+    - Dead link: '/es/image-to-base64/' (resolved to 'D:\es\image-to-base64')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/es/png-to-jpg/' (resolved to 'D:\es\png-to-jpg')
+    - Dead link: '/es/jpg-to-png/' (resolved to 'D:\es\jpg-to-png')
+    - Dead link: '/es/webp-to-png/' (resolved to 'D:\es\webp-to-png')
+    - Dead link: '/es/png-to-webp/' (resolved to 'D:\es\png-to-webp')
+    - Dead link: '/es/jpg-to-webp/' (resolved to 'D:\es\jpg-to-webp')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/compress-image/' (resolved to 'D:\es\compress-image')
+    - Dead link: '/es/image-splitter/' (resolved to 'D:\es\image-splitter')
+    - Dead link: '/es/extract-colors/' (resolved to 'D:\es\extract-colors')
+    - Dead link: '/es/image-to-base64/' (resolved to 'D:\es\image-to-base64')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: 'js/main.js' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\js\main.js')
+  [es/jpg-to-png-for-instagram/index.html]:
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/jpg-to-png/index.html]:
+    - Dead link: '../favicon.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.svg')
+    - Dead link: '../favicon.ico' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.ico')
+    - Dead link: '../llms.txt' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\llms.txt')
+    - Dead link: '../mcp.json' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\mcp.json')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '../images/picete-logo.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\images\picete-logo.svg')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/png-to-jpg/' (resolved to 'D:\es\png-to-jpg')
+    - Dead link: '/es/webp-to-png/' (resolved to 'D:\es\webp-to-png')
+    - Dead link: '/es/png-to-webp/' (resolved to 'D:\es\png-to-webp')
+    - Dead link: '/es/jpg-to-webp/' (resolved to 'D:\es\jpg-to-webp')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\jpg-to-png\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\jpg-to-png\${img.url}')
+  [es/jpg-to-webp/index.html]:
+    - Dead link: '../favicon.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.svg')
+    - Dead link: '../favicon.ico' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.ico')
+    - Dead link: '../llms.txt' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\llms.txt')
+    - Dead link: '../mcp.json' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\mcp.json')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '../images/picete-logo.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\images\picete-logo.svg')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/png-to-jpg/' (resolved to 'D:\es\png-to-jpg')
+    - Dead link: '/es/jpg-to-png/' (resolved to 'D:\es\jpg-to-png')
+    - Dead link: '/es/webp-to-png/' (resolved to 'D:\es\webp-to-png')
+    - Dead link: '/es/png-to-webp/' (resolved to 'D:\es\png-to-webp')
+    - Dead link: '/es/compress-image/' (resolved to 'D:\es\compress-image')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\jpg-to-webp\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\jpg-to-webp\${img.url}')
+  [es/png-to-jpg-for-email/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/png-to-jpg/index.html]:
+    - Dead link: '../favicon.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.svg')
+    - Dead link: '../favicon.ico' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.ico')
+    - Dead link: '../llms.txt' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\llms.txt')
+    - Dead link: '../mcp.json' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\mcp.json')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '../images/picete-logo.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\images\picete-logo.svg')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/jpg-to-png/' (resolved to 'D:\es\jpg-to-png')
+    - Dead link: '/es/webp-to-png/' (resolved to 'D:\es\webp-to-png')
+    - Dead link: '/es/png-to-webp/' (resolved to 'D:\es\png-to-webp')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/compress-image/' (resolved to 'D:\es\compress-image')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\png-to-jpg\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\png-to-jpg\${img.url}')
+  [es/png-to-webp-for-wordpress/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/png-to-webp/index.html]:
+    - Dead link: '../favicon.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.svg')
+    - Dead link: '../favicon.ico' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.ico')
+    - Dead link: '../llms.txt' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\llms.txt')
+    - Dead link: '../mcp.json' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\mcp.json')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '../images/picete-logo.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\images\picete-logo.svg')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/png-to-jpg/' (resolved to 'D:\es\png-to-jpg')
+    - Dead link: '/es/jpg-to-png/' (resolved to 'D:\es\jpg-to-png')
+    - Dead link: '/es/webp-to-png/' (resolved to 'D:\es\webp-to-png')
+    - Dead link: '/es/jpg-to-webp/' (resolved to 'D:\es\jpg-to-webp')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\png-to-webp\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\png-to-webp\${img.url}')
+  [es/resize-image-for-facebook-cover/index.html]:
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/resize-image-to-1500x500/' (resolved to 'D:\es\resize-image-to-1500x500')
+    - Dead link: '/es/resize-image-to-1200x630/' (resolved to 'D:\es\resize-image-to-1200x630')
+    - Dead link: '/es/resize-image-to-1080x1080/' (resolved to 'D:\es\resize-image-to-1080x1080')
+    - Dead link: '/es/resize-image-to-1920x1080/' (resolved to 'D:\es\resize-image-to-1920x1080')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/compress-image/' (resolved to 'D:\es\compress-image')
+    - Dead link: '/es/png-to-jpg/' (resolved to 'D:\es\png-to-jpg')
+    - Dead link: '/es/webp-to-png/' (resolved to 'D:\es\webp-to-png')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/resize-image-to-1080x1080/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/resize-image-to-1200x630/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/resize-image-to-1500x500/index.html]:
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/resize-image-for-facebook-cover/' (resolved to 'D:\es\resize-image-for-facebook-cover')
+    - Dead link: '/es/resize-image-to-1200x630/' (resolved to 'D:\es\resize-image-to-1200x630')
+    - Dead link: '/es/resize-image-to-1920x1080/' (resolved to 'D:\es\resize-image-to-1920x1080')
+    - Dead link: '/es/resize-image-to-1080x1080/' (resolved to 'D:\es\resize-image-to-1080x1080')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/compress-image/' (resolved to 'D:\es\compress-image')
+    - Dead link: '/es/png-to-jpg/' (resolved to 'D:\es\png-to-jpg')
+    - Dead link: '/es/webp-to-png/' (resolved to 'D:\es\webp-to-png')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/resize-image-to-1920x1080/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/resize-image-to-200x200/index.html]:
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/resize-image-to-250x250/' (resolved to 'D:\es\resize-image-to-250x250')
+    - Dead link: '/es/resize-image-to-512x512/' (resolved to 'D:\es\resize-image-to-512x512')
+    - Dead link: '/es/resize-image-to-800x800/' (resolved to 'D:\es\resize-image-to-800x800')
+    - Dead link: '/es/resize-image-to-300x250/' (resolved to 'D:\es\resize-image-to-300x250')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/compress-image/' (resolved to 'D:\es\compress-image')
+    - Dead link: '/es/png-to-jpg/' (resolved to 'D:\es\png-to-jpg')
+    - Dead link: '/es/webp-to-png/' (resolved to 'D:\es\webp-to-png')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/resize-image-to-250x250/index.html]:
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/resize-image-to-200x200/' (resolved to 'D:\es\resize-image-to-200x200')
+    - Dead link: '/es/resize-image-to-512x512/' (resolved to 'D:\es\resize-image-to-512x512')
+    - Dead link: '/es/resize-image-to-1080x1080/' (resolved to 'D:\es\resize-image-to-1080x1080')
+    - Dead link: '/es/resize-image-to-300x250/' (resolved to 'D:\es\resize-image-to-300x250')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/compress-image/' (resolved to 'D:\es\compress-image')
+    - Dead link: '/es/png-to-jpg/' (resolved to 'D:\es\png-to-jpg')
+    - Dead link: '/es/webp-to-png/' (resolved to 'D:\es\webp-to-png')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/resize-image-to-300x250/index.html]:
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/resize-image-to-728x90/' (resolved to 'D:\es\resize-image-to-728x90')
+    - Dead link: '/es/resize-image-to-512x512/' (resolved to 'D:\es\resize-image-to-512x512')
+    - Dead link: '/es/resize-image-to-1080x1080/' (resolved to 'D:\es\resize-image-to-1080x1080')
+    - Dead link: '/es/resize-image-to-1920x1080/' (resolved to 'D:\es\resize-image-to-1920x1080')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/compress-image/' (resolved to 'D:\es\compress-image')
+    - Dead link: '/es/png-to-jpg/' (resolved to 'D:\es\png-to-jpg')
+    - Dead link: '/es/webp-to-png/' (resolved to 'D:\es\webp-to-png')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/resize-image-to-512x512/index.html]:
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/resize-image-to-1080x1080/' (resolved to 'D:\es\resize-image-to-1080x1080')
+    - Dead link: '/es/resize-image-to-800x800/' (resolved to 'D:\es\resize-image-to-800x800')
+    - Dead link: '/es/resize-image-to-1920x1080/' (resolved to 'D:\es\resize-image-to-1920x1080')
+    - Dead link: '/es/resize-image-to-200x200/' (resolved to 'D:\es\resize-image-to-200x200')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/compress-image/' (resolved to 'D:\es\compress-image')
+    - Dead link: '/es/png-to-jpg/' (resolved to 'D:\es\png-to-jpg')
+    - Dead link: '/es/webp-to-png/' (resolved to 'D:\es\webp-to-png')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/resize-image-to-600x600/index.html]:
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/resize-image-to-800x800/' (resolved to 'D:\es\resize-image-to-800x800')
+    - Dead link: '/es/resize-image-to-512x512/' (resolved to 'D:\es\resize-image-to-512x512')
+    - Dead link: '/es/resize-image-to-1080x1080/' (resolved to 'D:\es\resize-image-to-1080x1080')
+    - Dead link: '/es/resize-image-to-200x200/' (resolved to 'D:\es\resize-image-to-200x200')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/compress-image/' (resolved to 'D:\es\compress-image')
+    - Dead link: '/es/png-to-jpg/' (resolved to 'D:\es\png-to-jpg')
+    - Dead link: '/es/webp-to-png/' (resolved to 'D:\es\webp-to-png')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/resize-image-to-728x90/index.html]:
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/resize-image-to-300x250/' (resolved to 'D:\es\resize-image-to-300x250')
+    - Dead link: '/es/resize-image-to-1500x500/' (resolved to 'D:\es\resize-image-to-1500x500')
+    - Dead link: '/es/resize-image-to-1920x1080/' (resolved to 'D:\es\resize-image-to-1920x1080')
+    - Dead link: '/es/resize-image-for-facebook-cover/' (resolved to 'D:\es\resize-image-for-facebook-cover')
+    - Dead link: '/es/resize-image/' (resolved to 'D:\es\resize-image')
+    - Dead link: '/es/compress-image/' (resolved to 'D:\es\compress-image')
+    - Dead link: '/es/png-to-jpg/' (resolved to 'D:\es\png-to-jpg')
+    - Dead link: '/es/webp-to-png/' (resolved to 'D:\es\webp-to-png')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/resize-image-to-800x800/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/resize-image/index.html]:
+    - Dead link: '../favicon.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.svg')
+    - Dead link: '../favicon.ico' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.ico')
+    - Dead link: '../llms.txt' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\llms.txt')
+    - Dead link: '../mcp.json' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\mcp.json')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '../images/picete-logo.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\images\picete-logo.svg')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/png-to-jpg/' (resolved to 'D:\es\png-to-jpg')
+    - Dead link: '/es/jpg-to-png/' (resolved to 'D:\es\jpg-to-png')
+    - Dead link: '/es/compress-image/' (resolved to 'D:\es\compress-image')
+    - Dead link: '/es/png-to-webp/' (resolved to 'D:\es\png-to-webp')
+    - Dead link: '/es/webp-to-png/' (resolved to 'D:\es\webp-to-png')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\resize-image\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\resize-image\${img.url}')
+  [es/split-image-into-3x3/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/split-image-into-4-parts/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/webp-to-png-for-website/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [es/webp-to-png/index.html]:
+    - Dead link: '../favicon.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.svg')
+    - Dead link: '../favicon.ico' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\favicon.ico')
+    - Dead link: '../llms.txt' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\llms.txt')
+    - Dead link: '../mcp.json' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\mcp.json')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '../images/picete-logo.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\images\picete-logo.svg')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/es/png-to-jpg/' (resolved to 'D:\es\png-to-jpg')
+    - Dead link: '/es/jpg-to-png/' (resolved to 'D:\es\jpg-to-png')
+    - Dead link: '/es/png-to-webp/' (resolved to 'D:\es\png-to-webp')
+    - Dead link: '/es/jpg-to-webp/' (resolved to 'D:\es\jpg-to-webp')
+    - Dead link: '/es/compress-image/' (resolved to 'D:\es\compress-image')
+    - Dead link: '/es/' (resolved to 'D:\es')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\webp-to-png\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\es\webp-to-png\${img.url}')
+  [extract-colors/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\extract-colors\${img.src}')
+  [fr/batch-convert-png-to-jpg/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/compress-image-for-email/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/compress-image-for-website/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/compress-image-for-wordpress/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/compress-image-to-100kb/index.html]:
+    - Dead link: '/images/favicon.svg' (resolved to 'D:\images\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/#tools' (resolved to 'D:\index.html')
+    - Dead link: '/compress-image/' (resolved to 'D:\compress-image')
+    - Dead link: '/compress-image/' (resolved to 'D:\compress-image')
+    - Dead link: '/resize-image/' (resolved to 'D:\resize-image')
+    - Dead link: '/png-to-jpg/' (resolved to 'D:\png-to-jpg')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/compress-image-to-200kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/compress-image-to-500kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/compress-image-to-50kb/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/#tools' (resolved to 'D:\fr')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/compress-image-to-100kb/' (resolved to 'D:\fr\compress-image-to-100kb')
+    - Dead link: '/fr/compress-jpg-to-200kb/' (resolved to 'D:\fr\compress-jpg-to-200kb')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/png-to-jpg/' (resolved to 'D:\fr\png-to-jpg')
+    - Dead link: '/fr/webp-to-png/' (resolved to 'D:\fr\webp-to-png')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/compress-image/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/#tools' (resolved to 'D:\fr')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/png-to-jpg/' (resolved to 'D:\fr\png-to-jpg')
+    - Dead link: '/fr/jpg-to-png/' (resolved to 'D:\fr\jpg-to-png')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/png-to-webp/' (resolved to 'D:\fr\png-to-webp')
+    - Dead link: '/fr/webp-to-png/' (resolved to 'D:\fr\webp-to-png')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${a}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\fr\compress-image\${a}')
+    - Dead link: '${e.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\fr\compress-image\${e.url}')
+  [fr/compress-jpg-to-100kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/compress-jpg-to-200kb/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/#tools' (resolved to 'D:\fr')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/compress-image-to-100kb/' (resolved to 'D:\fr\compress-image-to-100kb')
+    - Dead link: '/fr/compress-image-to-50kb/' (resolved to 'D:\fr\compress-image-to-50kb')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/png-to-jpg/' (resolved to 'D:\fr\png-to-jpg')
+    - Dead link: '/fr/webp-to-png/' (resolved to 'D:\fr\webp-to-png')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/extract-colors/index.html]:
+    - Dead link: '/images/favicon.svg' (resolved to 'D:\images\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/#tools' (resolved to 'D:\index.html')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/png-to-jpg/' (resolved to 'D:\png-to-jpg')
+    - Dead link: '/jpg-to-png/' (resolved to 'D:\jpg-to-png')
+    - Dead link: '/webp-to-png/' (resolved to 'D:\webp-to-png')
+    - Dead link: '/resize-image/' (resolved to 'D:\resize-image')
+    - Dead link: '/image-to-base64/' (resolved to 'D:\image-to-base64')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/image-splitter/index.html]:
+    - Dead link: '/images/favicon.svg' (resolved to 'D:\images\favicon.svg')
+    - Dead link: '/images/favicon.ico' (resolved to 'D:\images\favicon.ico')
+    - Dead link: '/llms.txt' (resolved to 'D:\llms.txt')
+    - Dead link: '/mcp.json' (resolved to 'D:\mcp.json')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/#tools' (resolved to 'D:\index.html')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/png-to-jpg/' (resolved to 'D:\png-to-jpg')
+    - Dead link: '/jpg-to-png/' (resolved to 'D:\jpg-to-png')
+    - Dead link: '/webp-to-png/' (resolved to 'D:\webp-to-png')
+    - Dead link: '/png-to-webp/' (resolved to 'D:\png-to-webp')
+    - Dead link: '/jpg-to-webp/' (resolved to 'D:\jpg-to-webp')
+    - Dead link: '/resize-image/' (resolved to 'D:\resize-image')
+    - Dead link: '/compress-image/' (resolved to 'D:\compress-image')
+    - Dead link: '/extract-colors/' (resolved to 'D:\extract-colors')
+    - Dead link: '/image-to-base64/' (resolved to 'D:\image-to-base64')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\fr\image-splitter\${img.src}')
+    - Dead link: '${s.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\fr\image-splitter\${s.url}')
+  [fr/image-to-base64/index.html]:
+    - Dead link: '/images/favicon.svg' (resolved to 'D:\images\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/#tools' (resolved to 'D:\index.html')
+    - Dead link: '/png-to-jpg/' (resolved to 'D:\png-to-jpg')
+    - Dead link: '/resize-image/' (resolved to 'D:\resize-image')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/llms.txt' (resolved to 'D:\llms.txt')
+    - Dead link: '/mcp.json' (resolved to 'D:\mcp.json')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/fr/png-to-jpg/' (resolved to 'D:\fr\png-to-jpg')
+    - Dead link: '/fr/jpg-to-png/' (resolved to 'D:\fr\jpg-to-png')
+    - Dead link: '/fr/webp-to-png/' (resolved to 'D:\fr\webp-to-png')
+    - Dead link: '/fr/png-to-webp/' (resolved to 'D:\fr\png-to-webp')
+    - Dead link: '/fr/jpg-to-webp/' (resolved to 'D:\fr\jpg-to-webp')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/image-splitter/' (resolved to 'D:\fr\image-splitter')
+    - Dead link: '/fr/extract-colors/' (resolved to 'D:\fr\extract-colors')
+    - Dead link: '/fr/image-to-base64/' (resolved to 'D:\fr\image-to-base64')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/fr/png-to-jpg/' (resolved to 'D:\fr\png-to-jpg')
+    - Dead link: '/fr/jpg-to-png/' (resolved to 'D:\fr\jpg-to-png')
+    - Dead link: '/fr/webp-to-png/' (resolved to 'D:\fr\webp-to-png')
+    - Dead link: '/fr/png-to-webp/' (resolved to 'D:\fr\png-to-webp')
+    - Dead link: '/fr/jpg-to-webp/' (resolved to 'D:\fr\jpg-to-webp')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/image-splitter/' (resolved to 'D:\fr\image-splitter')
+    - Dead link: '/fr/extract-colors/' (resolved to 'D:\fr\extract-colors')
+    - Dead link: '/fr/image-to-base64/' (resolved to 'D:\fr\image-to-base64')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '/js/main.js' (resolved to 'D:\js\main.js')
+  [fr/jpg-to-png-for-instagram/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/jpg-to-png/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/llms.txt' (resolved to 'D:\llms.txt')
+    - Dead link: '/mcp.json' (resolved to 'D:\mcp.json')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/#tools' (resolved to 'D:\fr')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/png-to-jpg/' (resolved to 'D:\fr\png-to-jpg')
+    - Dead link: '/fr/webp-to-png/' (resolved to 'D:\fr\webp-to-png')
+    - Dead link: '/fr/png-to-webp/' (resolved to 'D:\fr\png-to-webp')
+    - Dead link: '/fr/jpg-to-webp/' (resolved to 'D:\fr\jpg-to-webp')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\fr\jpg-to-png\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\fr\jpg-to-png\${img.url}')
+  [fr/jpg-to-webp/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/#tools' (resolved to 'D:\fr')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/jpg-to-png/' (resolved to 'D:\fr\jpg-to-png')
+    - Dead link: '/fr/jpg-to-png/' (resolved to 'D:\fr\jpg-to-png')
+    - Dead link: '/fr/webp-to-png/' (resolved to 'D:\fr\webp-to-png')
+    - Dead link: '/fr/jpg-to-webp/' (resolved to 'D:\fr\jpg-to-webp')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${a}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\fr\jpg-to-webp\${a}')
+    - Dead link: '${e.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\fr\jpg-to-webp\${e.url}')
+  [fr/png-to-jpg-for-email/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/#tools' (resolved to 'D:\fr')
+    - Dead link: '/fr/png-to-jpg/' (resolved to 'D:\fr\png-to-jpg')
+    - Dead link: '/fr/png-to-jpg/' (resolved to 'D:\fr\png-to-jpg')
+    - Dead link: '/fr/compress-image-to-100kb/' (resolved to 'D:\fr\compress-image-to-100kb')
+    - Dead link: '/fr/compress-jpg-to-200kb/' (resolved to 'D:\fr\compress-jpg-to-200kb')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/png-to-jpg/' (resolved to 'D:\fr\png-to-jpg')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/webp-to-png/' (resolved to 'D:\fr\webp-to-png')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/png-to-jpg/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/llms.txt' (resolved to 'D:\llms.txt')
+    - Dead link: '/mcp.json' (resolved to 'D:\mcp.json')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/#tools' (resolved to 'D:\fr')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/jpg-to-png/' (resolved to 'D:\fr\jpg-to-png')
+    - Dead link: '/fr/webp-to-png/' (resolved to 'D:\fr\webp-to-png')
+    - Dead link: '/fr/png-to-webp/' (resolved to 'D:\fr\png-to-webp')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\fr\png-to-jpg\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\fr\png-to-jpg\${img.url}')
+  [fr/png-to-webp-for-wordpress/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/#tools' (resolved to 'D:\fr')
+    - Dead link: '/fr/png-to-webp/' (resolved to 'D:\fr\png-to-webp')
+    - Dead link: '/fr/png-to-webp/' (resolved to 'D:\fr\png-to-webp')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/resize-image-to-1200x630/' (resolved to 'D:\fr\resize-image-to-1200x630')
+    - Dead link: '/fr/png-to-jpg/' (resolved to 'D:\fr\png-to-jpg')
+    - Dead link: '/fr/png-to-webp/' (resolved to 'D:\fr\png-to-webp')
+    - Dead link: '/fr/webp-to-png/' (resolved to 'D:\fr\webp-to-png')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/png-to-webp/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/#tools' (resolved to 'D:\fr')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/png-to-jpg/' (resolved to 'D:\fr\png-to-jpg')
+    - Dead link: '/fr/jpg-to-png/' (resolved to 'D:\fr\jpg-to-png')
+    - Dead link: '/fr/webp-to-png/' (resolved to 'D:\fr\webp-to-png')
+    - Dead link: '/fr/jpg-to-webp/' (resolved to 'D:\fr\jpg-to-webp')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${a}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\fr\png-to-webp\${a}')
+    - Dead link: '${e.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\fr\png-to-webp\${e.url}')
+  [fr/resize-image-for-facebook-cover/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/resize-image-to-1080x1080/index.html]:
+    - Dead link: '/images/favicon.svg' (resolved to 'D:\images\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/#tools' (resolved to 'D:\index.html')
+    - Dead link: '/resize-image/' (resolved to 'D:\resize-image')
+    - Dead link: '/resize-image/' (resolved to 'D:\resize-image')
+    - Dead link: '/compress-image/' (resolved to 'D:\compress-image')
+    - Dead link: '/png-to-jpg/' (resolved to 'D:\png-to-jpg')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/resize-image-to-1200x630/index.html]:
+    - Dead link: '/images/favicon.svg' (resolved to 'D:\images\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/#tools' (resolved to 'D:\index.html')
+    - Dead link: '/resize-image/' (resolved to 'D:\resize-image')
+    - Dead link: '/resize-image/' (resolved to 'D:\resize-image')
+    - Dead link: '/compress-image/' (resolved to 'D:\compress-image')
+    - Dead link: '/png-to-jpg/' (resolved to 'D:\png-to-jpg')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/resize-image-to-1500x500/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/resize-image-to-1920x1080/index.html]:
+    - Dead link: '/images/favicon.svg' (resolved to 'D:\images\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/#tools' (resolved to 'D:\index.html')
+    - Dead link: '/resize-image/' (resolved to 'D:\resize-image')
+    - Dead link: '/resize-image/' (resolved to 'D:\resize-image')
+    - Dead link: '/compress-image/' (resolved to 'D:\compress-image')
+    - Dead link: '/png-to-jpg/' (resolved to 'D:\png-to-jpg')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/resize-image-to-200x200/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/resize-image-to-250x250/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/resize-image-to-300x250/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/resize-image-to-512x512/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/resize-image-to-600x600/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/#tools' (resolved to 'D:\fr')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/resize-image-to-800x800/' (resolved to 'D:\fr\resize-image-to-800x800')
+    - Dead link: '/fr/resize-image-to-512x512/' (resolved to 'D:\fr\resize-image-to-512x512')
+    - Dead link: '/fr/resize-image-to-1080x1080/' (resolved to 'D:\fr\resize-image-to-1080x1080')
+    - Dead link: '/fr/resize-image-to-200x200/' (resolved to 'D:\fr\resize-image-to-200x200')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/png-to-jpg/' (resolved to 'D:\fr\png-to-jpg')
+    - Dead link: '/fr/webp-to-png/' (resolved to 'D:\fr\webp-to-png')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/resize-image-to-728x90/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/resize-image-to-800x800/index.html]:
+    - Dead link: '/images/favicon.svg' (resolved to 'D:\images\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/#tools' (resolved to 'D:\index.html')
+    - Dead link: '/resize-image/' (resolved to 'D:\resize-image')
+    - Dead link: '/resize-image/' (resolved to 'D:\resize-image')
+    - Dead link: '/compress-image/' (resolved to 'D:\compress-image')
+    - Dead link: '/png-to-jpg/' (resolved to 'D:\png-to-jpg')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/resize-image/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/#tools' (resolved to 'D:\fr')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/png-to-jpg/' (resolved to 'D:\fr\png-to-jpg')
+    - Dead link: '/fr/jpg-to-png/' (resolved to 'D:\fr\jpg-to-png')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/png-to-webp/' (resolved to 'D:\fr\png-to-webp')
+    - Dead link: '/fr/webp-to-png/' (resolved to 'D:\fr\webp-to-png')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${a}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\fr\resize-image\${a}')
+    - Dead link: '${e.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\fr\resize-image\${e.url}')
+  [fr/split-image-into-3x3/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/#tools' (resolved to 'D:\fr')
+    - Dead link: '/fr/split-image-into-4-parts/' (resolved to 'D:\fr\split-image-into-4-parts')
+    - Dead link: '/fr/resize-image-to-1080x1080/' (resolved to 'D:\fr\resize-image-to-1080x1080')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/png-to-jpg/' (resolved to 'D:\fr\png-to-jpg')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/split-image-into-4-parts/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/#tools' (resolved to 'D:\fr')
+    - Dead link: '/fr/split-image-into-3x3/' (resolved to 'D:\fr\split-image-into-3x3')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/png-to-jpg/' (resolved to 'D:\fr\png-to-jpg')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/webp-to-png-for-website/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/#tools' (resolved to 'D:\fr')
+    - Dead link: '/fr/webp-to-png/' (resolved to 'D:\fr\webp-to-png')
+    - Dead link: '/fr/webp-to-png/' (resolved to 'D:\fr\webp-to-png')
+    - Dead link: '/fr/png-to-webp-for-wordpress/' (resolved to 'D:\fr\png-to-webp-for-wordpress')
+    - Dead link: '/fr/png-to-jpg/' (resolved to 'D:\fr\png-to-jpg')
+    - Dead link: '/fr/webp-to-png/' (resolved to 'D:\fr\webp-to-png')
+    - Dead link: '/fr/webp-to-png/' (resolved to 'D:\fr\webp-to-png')
+    - Dead link: '/fr/png-to-webp/' (resolved to 'D:\fr\png-to-webp')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/resize-image/' (resolved to 'D:\fr\resize-image')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [fr/webp-to-png/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/#tools' (resolved to 'D:\fr')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/fr/png-to-jpg/' (resolved to 'D:\fr\png-to-jpg')
+    - Dead link: '/fr/jpg-to-png/' (resolved to 'D:\fr\jpg-to-png')
+    - Dead link: '/fr/png-to-webp/' (resolved to 'D:\fr\png-to-webp')
+    - Dead link: '/fr/jpg-to-webp/' (resolved to 'D:\fr\jpg-to-webp')
+    - Dead link: '/fr/compress-image/' (resolved to 'D:\fr\compress-image')
+    - Dead link: '/fr/' (resolved to 'D:\fr')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${a}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\fr\webp-to-png\${a}')
+    - Dead link: '${e.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\fr\webp-to-png\${e.url}')
+  [image-splitter/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\image-splitter\${img.src}')
+    - Dead link: '${s.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\image-splitter\${s.url}')
+  [image-to-base64/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${fullDataUrl}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\image-to-base64\${fullDataUrl}')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\image-to-base64\${img.src}')
+  [index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/llms.txt' (resolved to 'D:\llms.txt')
+    - Dead link: '/mcp.json' (resolved to 'D:\mcp.json')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/' (resolved to 'D:\index.html')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/png-to-jpg/' (resolved to 'D:\png-to-jpg')
+    - Dead link: '/jpg-to-png/' (resolved to 'D:\jpg-to-png')
+    - Dead link: '/webp-to-png/' (resolved to 'D:\webp-to-png')
+    - Dead link: '/png-to-webp/' (resolved to 'D:\png-to-webp')
+    - Dead link: '/jpg-to-webp/' (resolved to 'D:\jpg-to-webp')
+    - Dead link: '/resize-image/' (resolved to 'D:\resize-image')
+    - Dead link: '/compress-image/' (resolved to 'D:\compress-image')
+    - Dead link: '/image-splitter/' (resolved to 'D:\image-splitter')
+    - Dead link: '/extract-colors/' (resolved to 'D:\extract-colors')
+    - Dead link: '/image-to-base64/' (resolved to 'D:\image-to-base64')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/png-to-jpg/' (resolved to 'D:\png-to-jpg')
+    - Dead link: '/jpg-to-png/' (resolved to 'D:\jpg-to-png')
+    - Dead link: '/webp-to-png/' (resolved to 'D:\webp-to-png')
+    - Dead link: '/png-to-webp/' (resolved to 'D:\png-to-webp')
+    - Dead link: '/jpg-to-webp/' (resolved to 'D:\jpg-to-webp')
+    - Dead link: '/resize-image/' (resolved to 'D:\resize-image')
+    - Dead link: '/compress-image/' (resolved to 'D:\compress-image')
+    - Dead link: '/image-splitter/' (resolved to 'D:\image-splitter')
+    - Dead link: '/extract-colors/' (resolved to 'D:\extract-colors')
+    - Dead link: '/image-to-base64/' (resolved to 'D:\image-to-base64')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '/js/main.js' (resolved to 'D:\js\main.js')
+  [ja/batch-convert-png-to-jpg/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/compress-image-for-email/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/compress-image-for-website/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/compress-image-for-wordpress/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/compress-image-to-100kb/index.html]:
+    - Dead link: '../favicon.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '../images/picete-logo.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\images\picete-logo.svg')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/compress-image-to-50kb/' (resolved to 'D:\ja\compress-image-to-50kb')
+    - Dead link: '/ja/compress-jpg-to-200kb/' (resolved to 'D:\ja\compress-jpg-to-200kb')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/resize-image/' (resolved to 'D:\ja\resize-image')
+    - Dead link: '/ja/png-to-jpg/' (resolved to 'D:\ja\png-to-jpg')
+    - Dead link: '/ja/webp-to-png/' (resolved to 'D:\ja\webp-to-png')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/compress-image-to-200kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/compress-image-to-500kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/compress-image-to-50kb/index.html]:
+    - Dead link: '../favicon.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '../images/picete-logo.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\images\picete-logo.svg')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/compress-image-to-100kb/' (resolved to 'D:\ja\compress-image-to-100kb')
+    - Dead link: '/ja/compress-jpg-to-200kb/' (resolved to 'D:\ja\compress-jpg-to-200kb')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/resize-image/' (resolved to 'D:\ja\resize-image')
+    - Dead link: '/ja/png-to-jpg/' (resolved to 'D:\ja\png-to-jpg')
+    - Dead link: '/ja/webp-to-png/' (resolved to 'D:\ja\webp-to-png')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/compress-image/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\compress-image\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\compress-image\${img.url}')
+  [ja/compress-jpg-to-100kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/compress-jpg-to-200kb/index.html]:
+    - Dead link: '../favicon.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '../images/picete-logo.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\images\picete-logo.svg')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/compress-image-to-100kb/' (resolved to 'D:\ja\compress-image-to-100kb')
+    - Dead link: '/ja/compress-image-to-50kb/' (resolved to 'D:\ja\compress-image-to-50kb')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/resize-image/' (resolved to 'D:\ja\resize-image')
+    - Dead link: '/ja/png-to-jpg/' (resolved to 'D:\ja\png-to-jpg')
+    - Dead link: '/ja/webp-to-png/' (resolved to 'D:\ja\webp-to-png')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/extract-colors/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\extract-colors\${img.src}')
+  [ja/image-splitter/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\image-splitter\${img.src}')
+    - Dead link: '${s.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\image-splitter\${s.url}')
+  [ja/image-to-base64/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${fullDataUrl}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\image-to-base64\${fullDataUrl}')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\image-to-base64\${img.src}')
+  [ja/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/llms.txt' (resolved to 'D:\llms.txt')
+    - Dead link: '/mcp.json' (resolved to 'D:\mcp.json')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/ja/png-to-jpg/' (resolved to 'D:\ja\png-to-jpg')
+    - Dead link: '/ja/jpg-to-png/' (resolved to 'D:\ja\jpg-to-png')
+    - Dead link: '/ja/webp-to-png/' (resolved to 'D:\ja\webp-to-png')
+    - Dead link: '/ja/png-to-webp/' (resolved to 'D:\ja\png-to-webp')
+    - Dead link: '/ja/jpg-to-webp/' (resolved to 'D:\ja\jpg-to-webp')
+    - Dead link: '/ja/resize-image/' (resolved to 'D:\ja\resize-image')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/image-splitter/' (resolved to 'D:\ja\image-splitter')
+    - Dead link: '/ja/extract-colors/' (resolved to 'D:\ja\extract-colors')
+    - Dead link: '/ja/image-to-base64/' (resolved to 'D:\ja\image-to-base64')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/ja/png-to-jpg/' (resolved to 'D:\ja\png-to-jpg')
+    - Dead link: '/ja/jpg-to-png/' (resolved to 'D:\ja\jpg-to-png')
+    - Dead link: '/ja/webp-to-png/' (resolved to 'D:\ja\webp-to-png')
+    - Dead link: '/ja/png-to-webp/' (resolved to 'D:\ja\png-to-webp')
+    - Dead link: '/ja/jpg-to-webp/' (resolved to 'D:\ja\jpg-to-webp')
+    - Dead link: '/ja/resize-image/' (resolved to 'D:\ja\resize-image')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/image-splitter/' (resolved to 'D:\ja\image-splitter')
+    - Dead link: '/ja/extract-colors/' (resolved to 'D:\ja\extract-colors')
+    - Dead link: '/ja/image-to-base64/' (resolved to 'D:\ja\image-to-base64')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '/js/main.js' (resolved to 'D:\js\main.js')
+  [ja/jpg-to-png-for-instagram/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/jpg-to-png/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/llms.txt' (resolved to 'D:\llms.txt')
+    - Dead link: '/mcp.json' (resolved to 'D:\mcp.json')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/ja/#tools' (resolved to 'D:\ja')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/ja/png-to-jpg/' (resolved to 'D:\ja\png-to-jpg')
+    - Dead link: '/ja/webp-to-png/' (resolved to 'D:\ja\webp-to-png')
+    - Dead link: '/ja/png-to-webp/' (resolved to 'D:\ja\png-to-webp')
+    - Dead link: '/ja/jpg-to-webp/' (resolved to 'D:\ja\jpg-to-webp')
+    - Dead link: '/ja/resize-image/' (resolved to 'D:\ja\resize-image')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\jpg-to-png\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\jpg-to-png\${img.url}')
+  [ja/jpg-to-webp/index.html]:
+    - Dead link: '/ja/favicon.svg' (resolved to 'D:\ja\favicon.svg')
+    - Dead link: '/ja/favicon.ico' (resolved to 'D:\ja\favicon.ico')
+    - Dead link: '/ja/llms.txt' (resolved to 'D:\ja\llms.txt')
+    - Dead link: '/ja/mcp.json' (resolved to 'D:\ja\mcp.json')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/ja/images/picete-logo.svg' (resolved to 'D:\ja\images\picete-logo.svg')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/ja/#tools' (resolved to 'D:\ja')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/ja/png-to-jpg/' (resolved to 'D:\ja\png-to-jpg')
+    - Dead link: '/ja/jpg-to-png/' (resolved to 'D:\ja\jpg-to-png')
+    - Dead link: '/ja/webp-to-png/' (resolved to 'D:\ja\webp-to-png')
+    - Dead link: '/ja/png-to-webp/' (resolved to 'D:\ja\png-to-webp')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\jpg-to-webp\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\jpg-to-webp\${img.url}')
+  [ja/png-to-jpg-for-email/index.html]:
+    - Dead link: '../favicon.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\favicon.svg')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '../images/picete-logo.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\images\picete-logo.svg')
+    - Dead link: '/ja/png-to-jpg/' (resolved to 'D:\ja\png-to-jpg')
+    - Dead link: '/ja/png-to-jpg/' (resolved to 'D:\ja\png-to-jpg')
+    - Dead link: '/ja/compress-image-to-100kb/' (resolved to 'D:\ja\compress-image-to-100kb')
+    - Dead link: '/ja/compress-jpg-to-200kb/' (resolved to 'D:\ja\compress-jpg-to-200kb')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/png-to-jpg/' (resolved to 'D:\ja\png-to-jpg')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/resize-image/' (resolved to 'D:\ja\resize-image')
+    - Dead link: '/ja/webp-to-png/' (resolved to 'D:\ja\webp-to-png')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/png-to-jpg/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/llms.txt' (resolved to 'D:\llms.txt')
+    - Dead link: '/mcp.json' (resolved to 'D:\mcp.json')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/ja/#tools' (resolved to 'D:\ja')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/ja/jpg-to-png/' (resolved to 'D:\ja\jpg-to-png')
+    - Dead link: '/ja/webp-to-png/' (resolved to 'D:\ja\webp-to-png')
+    - Dead link: '/ja/png-to-webp/' (resolved to 'D:\ja\png-to-webp')
+    - Dead link: '/ja/resize-image/' (resolved to 'D:\ja\resize-image')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\png-to-jpg\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\png-to-jpg\${img.url}')
+  [ja/png-to-webp/index.html]:
+    - Dead link: '/ja/favicon.svg' (resolved to 'D:\ja\favicon.svg')
+    - Dead link: '/ja/favicon.ico' (resolved to 'D:\ja\favicon.ico')
+    - Dead link: '/ja/llms.txt' (resolved to 'D:\ja\llms.txt')
+    - Dead link: '/ja/mcp.json' (resolved to 'D:\ja\mcp.json')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/ja/images/picete-logo.svg' (resolved to 'D:\ja\images\picete-logo.svg')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/ja/#tools' (resolved to 'D:\ja')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/ja/png-to-jpg/' (resolved to 'D:\ja\png-to-jpg')
+    - Dead link: '/ja/jpg-to-png/' (resolved to 'D:\ja\jpg-to-png')
+    - Dead link: '/ja/webp-to-png/' (resolved to 'D:\ja\webp-to-png')
+    - Dead link: '/ja/jpg-to-webp/' (resolved to 'D:\ja\jpg-to-webp')
+    - Dead link: '/ja/resize-image/' (resolved to 'D:\ja\resize-image')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\png-to-webp\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\png-to-webp\${img.url}')
+  [ja/resize-image-for-facebook-cover/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/resize-image-to-1500x500/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/resize-image-to-200x200/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/resize-image-to-250x250/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/resize-image-to-300x250/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/resize-image-to-512x512/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/resize-image-to-600x600/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/resize-image-to-728x90/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [ja/resize-image/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\resize-image\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\resize-image\${img.url}')
+  [ja/webp-to-png/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/llms.txt' (resolved to 'D:\llms.txt')
+    - Dead link: '/mcp.json' (resolved to 'D:\mcp.json')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/ja/#tools' (resolved to 'D:\ja')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/ja/png-to-jpg/' (resolved to 'D:\ja\png-to-jpg')
+    - Dead link: '/ja/jpg-to-png/' (resolved to 'D:\ja\jpg-to-png')
+    - Dead link: '/ja/png-to-webp/' (resolved to 'D:\ja\png-to-webp')
+    - Dead link: '/ja/jpg-to-webp/' (resolved to 'D:\ja\jpg-to-webp')
+    - Dead link: '/ja/compress-image/' (resolved to 'D:\ja\compress-image')
+    - Dead link: '/ja/' (resolved to 'D:\ja')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\webp-to-png\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\ja\webp-to-png\${img.url}')
+  [jpg-to-png-for-instagram/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [jpg-to-png/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\jpg-to-png\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\jpg-to-png\${img.url}')
+  [jpg-to-webp/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\jpg-to-webp\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\jpg-to-webp\${img.url}')
+  [png-to-jpg-for-email/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [png-to-jpg/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\png-to-jpg\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\png-to-jpg\${img.url}')
+  [png-to-webp-for-wordpress/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [png-to-webp/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\png-to-webp\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\png-to-webp\${img.url}')
+  [privacy-policy.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/batch-convert-png-to-jpg/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/compress-image-for-email/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/compress-image-for-website/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/compress-image-for-wordpress/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/compress-image-to-100kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/compress-image-to-200kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/compress-image-to-500kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/compress-image-to-50kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/compress-image/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\compress-image\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\compress-image\${img.url}')
+  [pt/compress-jpg-to-100kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/compress-jpg-to-200kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/extract-colors/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\extract-colors\${img.src}')
+  [pt/image-splitter/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\image-splitter\${img.src}')
+    - Dead link: '${s.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\image-splitter\${s.url}')
+  [pt/image-to-base64/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${fullDataUrl}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\image-to-base64\${fullDataUrl}')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\image-to-base64\${img.src}')
+  [pt/index.html]:
+    - Dead link: 'favicon.svg' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\favicon.svg')
+    - Dead link: 'favicon.ico' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\favicon.ico')
+    - Dead link: 'llms.txt' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\llms.txt')
+    - Dead link: 'mcp.json' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\mcp.json')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/pt/' (resolved to 'D:\pt')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: 'js/main.js' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\js\main.js')
+  [pt/jpg-to-png-for-instagram/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/jpg-to-png/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\jpg-to-png\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\jpg-to-png\${img.url}')
+  [pt/jpg-to-webp/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\jpg-to-webp\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\jpg-to-webp\${img.url}')
+  [pt/png-to-jpg-for-email/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/png-to-jpg/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\png-to-jpg\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\png-to-jpg\${img.url}')
+  [pt/png-to-webp-for-wordpress/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/png-to-webp/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\png-to-webp\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\png-to-webp\${img.url}')
+  [pt/resize-image-for-facebook-cover/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/resize-image-to-1080x1080/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/resize-image-to-1200x630/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/resize-image-to-1500x500/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/resize-image-to-1920x1080/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/resize-image-to-200x200/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/resize-image-to-250x250/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/resize-image-to-300x250/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/resize-image-to-512x512/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/resize-image-to-600x600/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/resize-image-to-728x90/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/resize-image-to-800x800/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/resize-image/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\resize-image\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\resize-image\${img.url}')
+  [pt/split-image-into-3x3/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/split-image-into-4-parts/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/webp-to-png-for-website/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [pt/webp-to-png/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\webp-to-png\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\pt\webp-to-png\${img.url}')
+  [resize-image-for-facebook-cover/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [resize-image-to-1080x1080/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [resize-image-to-1200x630/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [resize-image-to-1500x500/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [resize-image-to-1920x1080/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [resize-image-to-200x200/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [resize-image-to-250x250/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [resize-image-to-300x250/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [resize-image-to-512x512/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [resize-image-to-600x600/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [resize-image-to-728x90/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [resize-image-to-800x800/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [resize-image/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\resize-image\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\resize-image\${img.url}')
+  [split-image-into-3x3/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [split-image-into-4-parts/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [webp-to-png-for-website/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [webp-to-png/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\webp-to-png\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\webp-to-png\${img.url}')
+  [zh/batch-convert-png-to-jpg/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/compress-image-for-email/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/compress-image-for-website/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/compress-image-for-wordpress/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/compress-image-to-100kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/compress-image-to-200kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/compress-image-to-500kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/compress-image-to-50kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/compress-image/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\compress-image\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\compress-image\${img.url}')
+  [zh/compress-jpg-to-100kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/compress-jpg-to-200kb/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/extract-colors/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\extract-colors\${img.src}')
+  [zh/image-splitter/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\image-splitter\${img.src}')
+    - Dead link: '${s.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\image-splitter\${s.url}')
+  [zh/image-to-base64/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${fullDataUrl}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\image-to-base64\${fullDataUrl}')
+    - Dead link: '${img.src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\image-to-base64\${img.src}')
+  [zh/index.html]:
+    - Dead link: '/favicon.svg' (resolved to 'D:\favicon.svg')
+    - Dead link: '/favicon.ico' (resolved to 'D:\favicon.ico')
+    - Dead link: '/llms.txt' (resolved to 'D:\llms.txt')
+    - Dead link: '/mcp.json' (resolved to 'D:\mcp.json')
+    - Dead link: '/css/style.css' (resolved to 'D:\css\style.css')
+    - Dead link: '/zh/' (resolved to 'D:\zh')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/zh/png-to-jpg/' (resolved to 'D:\zh\png-to-jpg')
+    - Dead link: '/zh/jpg-to-png/' (resolved to 'D:\zh\jpg-to-png')
+    - Dead link: '/zh/webp-to-png/' (resolved to 'D:\zh\webp-to-png')
+    - Dead link: '/zh/png-to-webp/' (resolved to 'D:\zh\png-to-webp')
+    - Dead link: '/zh/jpg-to-webp/' (resolved to 'D:\zh\jpg-to-webp')
+    - Dead link: '/zh/resize-image/' (resolved to 'D:\zh\resize-image')
+    - Dead link: '/zh/compress-image/' (resolved to 'D:\zh\compress-image')
+    - Dead link: '/zh/image-splitter/' (resolved to 'D:\zh\image-splitter')
+    - Dead link: '/zh/extract-colors/' (resolved to 'D:\zh\extract-colors')
+    - Dead link: '/zh/image-to-base64/' (resolved to 'D:\zh\image-to-base64')
+    - Dead link: '/images/picete-logo.svg' (resolved to 'D:\images\picete-logo.svg')
+    - Dead link: '/zh/png-to-jpg/' (resolved to 'D:\zh\png-to-jpg')
+    - Dead link: '/zh/jpg-to-png/' (resolved to 'D:\zh\jpg-to-png')
+    - Dead link: '/zh/webp-to-png/' (resolved to 'D:\zh\webp-to-png')
+    - Dead link: '/zh/png-to-webp/' (resolved to 'D:\zh\png-to-webp')
+    - Dead link: '/zh/jpg-to-webp/' (resolved to 'D:\zh\jpg-to-webp')
+    - Dead link: '/zh/resize-image/' (resolved to 'D:\zh\resize-image')
+    - Dead link: '/zh/compress-image/' (resolved to 'D:\zh\compress-image')
+    - Dead link: '/zh/image-splitter/' (resolved to 'D:\zh\image-splitter')
+    - Dead link: '/zh/extract-colors/' (resolved to 'D:\zh\extract-colors')
+    - Dead link: '/zh/image-to-base64/' (resolved to 'D:\zh\image-to-base64')
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '/js/main.js' (resolved to 'D:\js\main.js')
+  [zh/jpg-to-png-for-instagram/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/jpg-to-png/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\jpg-to-png\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\jpg-to-png\${img.url}')
+  [zh/jpg-to-webp/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\jpg-to-webp\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\jpg-to-webp\${img.url}')
+  [zh/png-to-jpg-for-email/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/png-to-jpg/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\png-to-jpg\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\png-to-jpg\${img.url}')
+  [zh/png-to-webp-for-wordpress/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/png-to-webp/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\png-to-webp\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\png-to-webp\${img.url}')
+  [zh/resize-image-for-facebook-cover/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/resize-image-to-1080x1080/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/resize-image-to-1200x630/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/resize-image-to-1500x500/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/resize-image-to-1920x1080/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/resize-image-to-200x200/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/resize-image-to-250x250/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/resize-image-to-300x250/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/resize-image-to-512x512/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/resize-image-to-600x600/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/resize-image-to-728x90/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/resize-image-to-800x800/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/resize-image/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\resize-image\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\resize-image\${img.url}')
+  [zh/split-image-into-3x3/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/split-image-into-4-parts/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/webp-to-png-for-website/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+  [zh/webp-to-png/index.html]:
+    - Dead link: '/privacy-policy.html' (resolved to 'D:\privacy-policy.html')
+    - Dead link: '${src}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\webp-to-png\${src}')
+    - Dead link: '${img.url}' (resolved to 'D:\knowledge-base\06项目\哥飞建站\picete\zh\webp-to-png\${img.url}')
+
+5. FAQ TRANSLATION ERRORS (0):
+  All translated pages have unique non-English FAQ content compared to English versions!
+
+================================================================================
+FOUND 1674 TOTAL ISSUES. Please review and fix.
+================================================================================
