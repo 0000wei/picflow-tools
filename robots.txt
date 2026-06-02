@@ -1,0 +1,8 @@
+# robots.txt for PicEte
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://picete.com/sitemap.xml
+Sitemap: https://picete.com/privacy-policy.html
