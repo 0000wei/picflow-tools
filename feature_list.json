@@ -1,0 +1,354 @@
+[
+  {
+    "id": "tool-001",
+    "name": "resize-image",
+    "description": "Resize image to custom dimensions",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-002",
+    "name": "compress-image",
+    "description": "Compress image file size",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-003",
+    "name": "png-to-jpg",
+    "description": "Convert PNG images to JPG format",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-004",
+    "name": "jpg-to-png",
+    "description": "Convert JPG images to PNG format",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-005",
+    "name": "webp-to-png",
+    "description": "Convert WebP images to PNG format",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-006",
+    "name": "png-to-webp",
+    "description": "Convert PNG images to WebP format",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-007",
+    "name": "jpg-to-webp",
+    "description": "Convert JPG images to WebP format",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-008",
+    "name": "image-splitter",
+    "description": "Split an image into multiple parts",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-009",
+    "name": "extract-colors",
+    "description": "Extract dominant colors from an image",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-010",
+    "name": "image-to-base64",
+    "description": "Convert an image to Base64 data URI",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-011",
+    "name": "resize-image-to-1080x1080",
+    "description": "Resize image to 1080x1080 pixels (Instagram square)",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-012",
+    "name": "resize-image-to-1920x1080",
+    "description": "Resize image to 1920x1080 pixels (HD wallpaper)",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-013",
+    "name": "resize-image-to-800x800",
+    "description": "Resize image to 800x800 pixels",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-014",
+    "name": "resize-image-to-1200x630",
+    "description": "Resize image to 1200x630 pixels (Facebook link share)",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-015",
+    "name": "compress-image-to-100kb",
+    "description": "Compress image to under 100KB",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-016",
+    "name": "compress-image-to-50kb",
+    "description": "Compress image to under 50KB",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-017",
+    "name": "compress-jpg-to-200kb",
+    "description": "Compress JPG image to under 200KB",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-018",
+    "name": "png-to-jpg-for-email",
+    "description": "Convert PNG to JPG optimized for email attachments",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-019",
+    "name": "webp-to-png-for-website",
+    "description": "Convert WebP to PNG for website compatibility",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-020",
+    "name": "png-to-webp-for-wordpress",
+    "description": "Convert PNG to WebP optimized for WordPress",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-021",
+    "name": "split-image-into-3x3",
+    "description": "Split an image into a 3x3 grid",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-022",
+    "name": "split-image-into-4-parts",
+    "description": "Split an image into 4 equal parts",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-023",
+    "name": "resize-image-to-512x512",
+    "description": "Resize image to 512x512 pixels",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-024",
+    "name": "resize-image-to-300x250",
+    "description": "Resize image to 300x250 pixels (medium rectangle ad)",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-025",
+    "name": "resize-image-to-600x600",
+    "description": "Resize image to 600x600 pixels",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-026",
+    "name": "resize-image-to-1500x500",
+    "description": "Resize image to 1500x500 pixels (banner)",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-027",
+    "name": "resize-image-to-200x200",
+    "description": "Resize image to 200x200 pixels",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-028",
+    "name": "resize-image-to-250x250",
+    "description": "Resize image to 250x250 pixels",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-029",
+    "name": "resize-image-to-728x90",
+    "description": "Resize image to 728x90 pixels (leaderboard ad)",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-030",
+    "name": "resize-image-for-facebook-cover",
+    "description": "Resize image to Facebook cover photo dimensions",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-031",
+    "name": "compress-image-to-200kb",
+    "description": "Compress image to under 200KB",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-032",
+    "name": "compress-image-to-500kb",
+    "description": "Compress image to under 500KB",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-033",
+    "name": "compress-jpg-to-100kb",
+    "description": "Compress JPG image to under 100KB",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-034",
+    "name": "compress-image-for-wordpress",
+    "description": "Compress image optimized for WordPress",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-035",
+    "name": "compress-image-for-website",
+    "description": "Compress image optimized for websites",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-036",
+    "name": "compress-image-for-email",
+    "description": "Compress image optimized for email attachments",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-037",
+    "name": "jpg-to-png-for-instagram",
+    "description": "Convert JPG to PNG optimized for Instagram",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-038",
+    "name": "batch-convert-png-to-jpg",
+    "description": "Batch convert multiple PNG images to JPG format",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "infra-001",
+    "name": "homepage",
+    "description": "Main landing page with tool directory",
+    "type": "infrastructure",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "infra-002",
+    "name": "privacy-policy",
+    "description": "Privacy policy page",
+    "type": "infrastructure",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "infra-003",
+    "name": "mcp-guide",
+    "description": "MCP integration guide page",
+    "type": "infrastructure",
+    "languages": ["en"],
+    "status": "complete"
+  },
+  {
+    "id": "seo-001",
+    "name": "sitemap",
+    "description": "XML sitemap with 313 URLs (39 EN tools + 7 lang homepages + 267 lang tool pages)",
+    "type": "infrastructure",
+    "languages": ["en"],
+    "status": "complete"
+  },
+  {
+    "id": "seo-002",
+    "name": "lang-homepages-not-in-sitemap",
+    "description": "Lang homepages (zh/, ja/, de/, fr/, es/, pt/, ar/) missing from sitemap.xml",
+    "type": "infrastructure",
+    "languages": ["zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "infra-005",
+    "name": "harness-engineering-structure",
+    "description": "Harness Engineering project structure refactoring (config/, docs/, scripts/, seo/ separation)",
+    "type": "infrastructure",
+    "languages": ["en"],
+    "status": "complete"
+  }
+]
