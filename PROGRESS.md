@@ -36,7 +36,11 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 ## 待办
 
 ### 高优先级
-- [ ] **mcp-guide 多语言**：目前只有 EN 版本
+- [ ] **F3: 补全多语言工具页 JSON-LD**：ar(8页ZERO) → ja(8页ZERO) → fr(7页) → zh(4页PARTIAL) → de(1页PARTIAL)，见 `docs/specs/picete-optimization-plan.md`
+- [ ] **F5: hreflang 标签确认**：扫描确认是否完整
+- [ ] **F6: 首页性能优化**：图片懒加载
+- [ ] **F7: 内部链接网络**：首页工具列表 + 相关工具推荐
+- [ ] **F8: GSC 提交 sitemap**
 
 ### 中等优先级
 - [ ] **工具交互测试**：验证所有 37 个工具在 Vercel 生产环境下的实际功能
