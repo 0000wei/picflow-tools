@@ -63,21 +63,21 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 - [x] 1.8 更新 Makefile + sitemap + 验证
 
 **P0 — wasm-vips 替换 Canvas API（共 14 个 Task）**
-- [ ] 0.1.1 npm 初始化 + 安装 wasm-vips
-- [ ] 0.1.2 本地测试 HTML（wasm-vips 加载 + SharedArrayBuffer 验证）
-- [ ] 0.1.3 wasm-vips resize POC（性能对比 Canvas）
-- [ ] 0.1.4 验证 wasm-vips 的 AVIF/RAW codec
-- [ ] 0.1.5 单线程 wasm-vips 性能对比
-- [ ] 0.1.6 Vercel COOP/COEP header 验证
-- [ ] 0.1.7 产出 POC 报告
-- [ ] 0.2.1 创建 js/vips-loader.js
-- [ ] 0.2.2 重写 compress 核心逻辑（wasm-vips）
-- [ ] 0.2.3 重写 resize 核心逻辑（wasm-vips）
-- [ ] 0.2.4 重写 split 核心逻辑（wasm-vips）
-- [ ] 0.2.5 评估取色/Base64（替换 vs 保留 Canvas）
-- [ ] 0.3.1 创建 fast-convert HTML 骨架
-- [ ] 0.3.2 fast-convert 交互逻辑实现
-- [ ] 0.3.3 fast-convert 多语言翻译 + sitemap
+|- [x] 0.1.1 npm 初始化 + 安装 wasm-vips
+|- [x] 0.1.2 本地测试 HTML（wasm-vips 加载 + SharedArrayBuffer 验证）
+|- [x] 0.1.3 wasm-vips resize POC（性能对比 Canvas）
+|- [x] 0.1.4 验证 wasm-vips 的 AVIF/RAW codec
+|- [x] 0.1.5 单线程 wasm-vips 性能对比
+|- [x] 0.1.6 Vercel COOP/COEP header 验证
+|- [x] 0.1.7 产出 POC 报告
+|- [x] 0.2.1 创建 js/vips-loader.js
+|- [x] 0.2.2 重写 compress 核心逻辑（wasm-vips）— v1: bf7d6c8 / v2(browser API fix): bd3c1b5
+|- [ ] 0.2.3 重写 resize 核心逻辑（wasm-vips）
+|- [ ] 0.2.4 重写 split 核心逻辑（wasm-vips）
+|- [ ] 0.2.5 评估取色/Base64（替换 vs 保留 Canvas）
+|- [ ] 0.3.1 创建 fast-convert HTML 骨架
+|- [ ] 0.3.2 fast-convert 交互逻辑实现
+|- [ ] 0.3.3 fast-convert 多语言翻译 + sitemap
 
 **P0.5 — AVIF + RAW 支持（共 8 个 Task）**
 - [ ] 0.5.1 创建 avif-to-png 工具页
