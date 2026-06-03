@@ -1,0 +1,26 @@
+{
+  "name": "picete",
+  "version": "1.0.0",
+  "description": "[![PicEte Screenshot](https://picete.com/og-image.png)](https://picete.com/)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://0000wei@github.com/0000wei/picflow-tools.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0000wei/picflow-tools/issues"
+  },
+  "homepage": "https://github.com/0000wei/picflow-tools#readme",
+  "dependencies": {
+    "playwright": "^1.60.0"
+  }
+}

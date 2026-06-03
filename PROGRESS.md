@@ -24,6 +24,7 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 - [x] **2026-06-02**: convert/ 目录已删除（113 个空子目录清理完毕）
 - [x] **2026-06-02**: privacy-policy 多语言版已复制到 zh/ja/de/fr/es/pt/ar
 - [x] **2026-06-02**: F3 — fr 语言 JSON-LD 注入完成（7页：6 ZERO + 1 PARTIAL）
+- [x] **P5 工具测试闭环** — 26 EN 工具 + zh/ja 语言抽样，257 assertions 全部 PASS（2026-06-03）
 
 ### 设计与体验
 - [x] 统一设计系统 + 响应式改进 + 跨工具一致性（2026-05-29）
@@ -36,19 +37,63 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 
 ## 待办
 
-### 高优先级
-- [ ] **mcp-guide 多语言**：目前只有 EN 版本
+### 执行顺序（V2 优化计划，详见 docs/specs/PICETE-OPTIMIZATION-PLAN-V2.md）
 
-### 中等优先级
-- [ ] **工具交互测试**：验证所有 37 个工具在 Vercel 生产环境下的实际功能
+|**P5 — 工具测试闭环（共 10 个 Task）**
+|- [x] 5.1 安装 Playwright
+|- [x] 5.2 生成 3 张测试图片
+|- [x] 5.3 写 resize-image Playwright 测试（框架验证）
+|- [x] 5.4 压缩类 7 工具扩展
+|- [x] 5.5 格式转换类 6 工具扩展
+|- [x] 5.6 缩放类 12 工具扩展
+|- [x] 5.7 分割/取色/Base64 5 工具扩展
+|- [x] 5.8 语言抽样脚本（zh + ja）
+|- [x] 5.9 处理 FAIL 工具（分析+修复）
+|- [x] 5.10 生成测试报告文档
+
+**P1 — mcp-guide 多语言翻译（共 8 个 Task）**
+- [ ] 1.1 中文翻译
+- [ ] 1.2 日文翻译
+- [ ] 1.3 德文翻译
+- [ ] 1.4 法文翻译
+- [ ] 1.5 西班牙文翻译
+- [ ] 1.6 葡萄牙文翻译
+- [ ] 1.7 阿拉伯文翻译
+- [ ] 1.8 更新 Makefile + sitemap + 验证
+
+**P0 — wasm-vips 替换 Canvas API（共 14 个 Task）**
+- [ ] 0.1.1 npm 初始化 + 安装 wasm-vips
+- [ ] 0.1.2 本地测试 HTML（wasm-vips 加载 + SharedArrayBuffer 验证）
+- [ ] 0.1.3 wasm-vips resize POC（性能对比 Canvas）
+- [ ] 0.1.4 验证 wasm-vips 的 AVIF/RAW codec
+- [ ] 0.1.5 单线程 wasm-vips 性能对比
+- [ ] 0.1.6 Vercel COOP/COEP header 验证
+- [ ] 0.1.7 产出 POC 报告
+- [ ] 0.2.1 创建 js/vips-loader.js
+- [ ] 0.2.2 重写 compress 核心逻辑（wasm-vips）
+- [ ] 0.2.3 重写 resize 核心逻辑（wasm-vips）
+- [ ] 0.2.4 重写 split 核心逻辑（wasm-vips）
+- [ ] 0.2.5 评估取色/Base64（替换 vs 保留 Canvas）
+- [ ] 0.3.1 创建 fast-convert HTML 骨架
+- [ ] 0.3.2 fast-convert 交互逻辑实现
+- [ ] 0.3.3 fast-convert 多语言翻译 + sitemap
+
+**P0.5 — AVIF + RAW 支持（共 8 个 Task）**
+- [ ] 0.5.1 创建 avif-to-png 工具页
+- [ ] 0.5.2 创建 png-to-avif 工具页
+- [ ] 0.5.3 创建 jpg-to-avif + webp-to-avif 工具页
+- [ ] 0.5.4 创建 raw-to-jpg + raw-to-png 工具页
+- [ ] 0.5.5 创建 raw-to-webp + raw-to-avif 工具页
+- [ ] 0.5.6 7 语言翻译（zh + ja 先跑）
+- [ ] 0.5.7 剩余 5 语言翻译（并行）
+- [ ] 0.5.8 sitemap 扩容 + feature_list 更新
+
+### 其他待办
 - [ ] **SEO 插件集成**：当前无 analytics/Cookie 同意等
 - [ ] **OG 图片**：检查各语言页面的 OG meta 标签是否指向正确的语言对应图片
 - [ ] **性能优化**：检查大规模工具（extract-colors）的 client-side 性能
-
-### 低优先级
 - [ ] **FAQ 翻译报告**：docs/reports/ 中存在 untranslated_faqs_report.json，需检查是否已修复
 - [ ] **README 更新**：反映新目录结构
-- [ ] **测试计划**：docs/reports/TEST-PLAN.md 需要更新
 
 ---
 
@@ -58,6 +103,7 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 2. **跨站点链接**：之前存在跨站点 footer 链接（已于 2026-05-25 移除，遵循哥飞 SEO 指导）
 3. **语言切换器**：历史上有浏览器自动重定向问题（2026-05-26 修复为用户选择模式）
 4. **测试覆盖率**：脚本目录下有一些审计/修复脚本，但缺少自动化集成测试
+5. **V2 优化计划未提交**：docs/specs/PICETE-OPTIMIZATION-PLAN-V2.md + docs/archive/P02-AVIF-RAW-SPEC-OLD.md 等待用户确认后 commit
 
 ---
 
