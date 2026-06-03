@@ -13,6 +13,7 @@
       gtag('js', new Date());
       gtag('config', 'G-H72N80TEBW');
     </script>
+<script src="/js/vips-loader.js"></script>
 <meta content="Free online image resizer tool. Quickly resize images to your desired dimensions. Supports width/height scaling, aspect ratio preservation, batch processing, no registration required, local processing for privacy." name="description"/>
 <meta content="image resizer, resize image, image dimension changer, online image editor, batch resize, free tool" name="keywords"/>
 <link href="https://picete.com/resize-image/" rel="canonical"/>
@@ -599,17 +600,19 @@
             widthInput.value = Math.round(height * aspectRatio);
         }
 
-        function resizeImages() {
+        async function resizeImages() {
             const width = parseInt(widthInput.value) || state.originalDims[0].width;
             const height = parseInt(heightInput.value) || state.originalDims[0].height;
             const format = document.querySelector('input[name="format"]:checked').value;
 
             state.resizedImages = [];
-            let processed = 0;
 
-            state.uploadedFiles.forEach((file, i) => {
-                loadImage(file).then(({ img }) => {
-                    const canvas = document.createElement('canvas');
+            try {
+                await VipsLoader.load();
+                const vips = VipsLoader.getInstance();
+
+                for (let i = 0; i < state.uploadedFiles.length; i++) {
+                    const file = state.uploadedFiles[i];
                     const original = state.originalDims[i];
 
                     let newWidth = width;
@@ -624,16 +627,25 @@
                         }
                     }
 
-                    canvas.width = newWidth;
-                    canvas.height = newHeight;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(img, 0, 0, newWidth, newHeight);
+                    const scale = newWidth / original.width;
+                    const buffer = await file.arrayBuffer();
+                    const uint8Array = new Uint8Array(buffer);
 
-                    const outputFormat = format === 'original' ? file.type.split('/')[1] : format;
-                    const mimeTypes = { 'jpeg': 'image/jpeg', 'png': 'image/png', 'webp': 'image/webp' };
-                    const mimeType = mimeTypes[outputFormat] || 'image/jpeg';
+                    try {
+                        const imgSource = vips.ImageSource.newFromBuffer(uint8Array);
+                        const image = vips.Image.newFromSource(imgSource, '');
+                        imgSource.delete();
+                        const resized = image.resize(scale, { kernel: 'linear' });
 
-                    canvas.toBlob(blob => {
+                        const outputFormat = format === 'original' ? file.type.split('/')[1] : format;
+                        const vipsFormat = outputFormat === 'jpeg' ? '.jpg' : '.' + outputFormat;
+                        const options = outputFormat === 'jpeg' ? { Q: 92 } : {};
+
+                        const outBuffer = resized.writeToBuffer(vipsFormat, options);
+                        resized.delete();
+                        image.delete();
+
+                        const blob = new Blob([outBuffer], { type: `image/${outputFormat === 'jpeg' ? 'jpeg' : outputFormat}` });
                         const url = URL.createObjectURL(blob);
                         const ext = outputFormat === 'jpeg' ? 'jpg' : outputFormat;
                         state.resizedImages[i] = {
@@ -643,9 +655,65 @@
                             width: newWidth,
                             height: newHeight
                         };
-                        if (++processed === state.uploadedFiles.length) displayDownloads();
-                    }, mimeType, 0.92);
-                });
+                    } catch (wasmError) {
+                        console.warn('wasm-vips processing failed, falling back to Canvas:', wasmError);
+                        const result = await resizeWithCanvas(file, newWidth, newHeight, format);
+                        state.resizedImages[i] = result;
+                        state.resizedImages[i].width = newWidth;
+                        state.resizedImages[i].height = newHeight;
+                    }
+                }
+
+                displayDownloads();
+            } catch (error) {
+                console.error('Failed to load wasm-vips, using Canvas fallback:', error);
+                for (let i = 0; i < state.uploadedFiles.length; i++) {
+                    const file = state.uploadedFiles[i];
+                    const original = state.originalDims[i];
+
+                    let newWidth = width;
+                    let newHeight = height;
+
+                    if (maintainAspect.checked) {
+                        const aspectRatio = original.width / original.height;
+                        if (width && !height) {
+                            newHeight = Math.round(width / aspectRatio);
+                        } else if (!width && height) {
+                            newWidth = Math.round(height * aspectRatio);
+                        }
+                    }
+
+                    const result = await resizeWithCanvas(file, newWidth, newHeight, format);
+                    state.resizedImages[i] = result;
+                    state.resizedImages[i].width = newWidth;
+                    state.resizedImages[i].height = newHeight;
+                }
+                displayDownloads();
+            }
+        }
+
+        async function resizeWithCanvas(file, width, height, format) {
+            const { img } = await loadImage(file);
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+
+            return new Promise((resolve) => {
+                const outputFormat = format === 'original' ? file.type.split('/')[1] : format;
+                const mimeTypes = { 'jpeg': 'image/jpeg', 'png': 'image/png', 'webp': 'image/webp' };
+                const mimeType = mimeTypes[outputFormat] || 'image/jpeg';
+
+                canvas.toBlob(blob => {
+                    const url = URL.createObjectURL(blob);
+                    const ext = outputFormat === 'jpeg' ? 'jpg' : outputFormat;
+                    resolve({
+                        url,
+                        name: file.name.replace(/\.[^/.]+$/, '') + '.' + ext,
+                        size: blob.size
+                    });
+                }, mimeType, 0.92);
             });
         }
 
