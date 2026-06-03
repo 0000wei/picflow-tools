@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JPG to AVIF - Free Online JPG to AVIF Converter | PicEte</title>
+<!-- Google Analytics -->
+<script async="" src="/js/gtag.js"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+<meta content="Free online JPG to AVIF converter. Convert JPG images to AVIF format with fast encoding or maximum compression presets. Supports batch conversion." name="description"/>
+<meta content="JPG to AVIF, JPEG to AVIF, online converter, batch conversion, free tool" name="keywords"/>
+<link href="https://picete.com/jpg-to-avif/" rel="canonical"/>
+<!-- hreflang 标签 -->
+<link href="https://picete.com/jpg-to-avif/" hreflang="en" rel="alternate"/>
+<link href="https://picete.com/zh/jpg-to-avif/" hreflang="zh" rel="alternate"/>
+<link href="https://picete.com/ja/jpg-to-avif/" hreflang="ja" rel="alternate"/>
+<link href="https://picete.com/de/jpg-to-avif/" hreflang="de" rel="alternate"/>
+<link href="https://picete.com/fr/jpg-to-avif/" hreflang="fr" rel="alternate"/>
+<link href="https://picete.com/es/jpg-to-avif/" hreflang="es" rel="alternate"/>
+<link href="https://picete.com/pt/jpg-to-avif/" hreflang="pt" rel="alternate"/>
+<link href="https://picete.com/ar/jpg-to-avif/" hreflang="ar" rel="alternate"/>
+<link href="https://picete.com/jpg-to-avif/" hreflang="x-default" rel="alternate"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="https://picete.com/jpg-to-avif/" property="og:url"/>
+<meta content="JPG to AVIF - Free Online JPG to AVIF Converter" property="og:title"/>
+<meta content="Free online JPG to AVIF converter, quickly convert JPEG images to next-gen AVIF format with superior compression." property="og:description"/>
+<meta content="https://picete.com/images/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<!-- Schema.org -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "JPG to AVIF Converter",
+        "description": "Free online JPG to AVIF conversion tool",
+        "url": "https://picete.com/jpg-to-avif",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://picete.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "JPG to AVIF",
+            "item": "https://picete.com/jpg-to-avif/"
+        }]
+    }
+    </script>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../llms.txt" rel="llms" title="PicEte LLM Context"/>
+<link href="../mcp.json" rel="mcp" title="PicEte MCP Tools"/>
+<meta content="F2859D0614981562217BF497BEF4002A" name="msvalidate.01"/>
+<link href="../css/style.css" rel="stylesheet"/>
+<script src="/js/vips-loader.js"></script>
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is AVIF and why use it over JPG?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "AVIF (AV1 Image File Format) is a next-generation image format that uses AV1 compression technology. It can produce images up to 50% smaller than JPG at the same quality level, and supports modern features like HDR and wide color gamut. For the same visual quality, AVIF files are typically 30-50% smaller than JPG, making it the ideal format for modern web performance."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will I lose quality converting JPG to AVIF?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "AVIF uses lossy compression, so there is some quality loss. However, at high quality settings (80+), the difference is visually imperceptible for most images including photos. AVIF's AV1 codec is significantly more efficient than JPEG, meaning you get smaller files at comparable quality. For web use, quality 80-85 with maximum compression produces stunning results at half the JPG file size."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Which browsers support AVIF?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "AVIF is supported in Chrome 85+, Firefox 93+, Safari 16.4+, and all Chromium-based browsers like Edge and Opera. The format is also supported by most major image editing tools and operating systems. Check caniuse.com for the latest browser support information."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I convert multiple JPG files at once?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, batch conversion is fully supported. Select a whole folder of JPGs and convert them all at once. Each image is processed independently using wasm-vips right in your browser, and you can download them individually or click 'Download All AVIF' to get everything in one go. There is no limit on the number of files."
+            }
+        }
+    ]
+}
+    </script>
+<style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+
+        /* Preset buttons */
+        .presets {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .preset-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            background: var(--bg-primary);
+            color: var(--text-color);
+            transition: all 0.2s;
+        }
+        .preset-btn.active {
+            border-color: var(--primary-color);
+            background: var(--primary-color);
+            color: white;
+        }
+    </style>
+</meta></link></head>
+<body>
+<header class="header">
+<div class="container">
+<div class="logo">
+<a href="../">
+<img alt="PicEte" class="logo-img" src="../images/picete-logo.svg"/>
+</a>
+<p class="tagline">JPG to AVIF Converter</p>
+</div>
+<nav class="nav">
+<a class="nav-link" href="../">Home</a>
+<a class="nav-link" href="../#tools">More Tools</a>
+<!-- Language Switcher -->
+<style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+    
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+<div class="lang-switcher">
+<select aria-label="Switch language" onchange="switchLanguage(this.value)">
+<option selected="" value="en">English</option>
+<option value="zh">中文</option>
+<option value="ja">日本語</option>
+<option value="de">Deutsch</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="pt">Português</option>
+<option value="ar">العربية</option>
+</select>
+</div>
+<script>
+    function switchLanguage(code) {
+        var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+        var path = window.location.pathname;
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+<button aria-label="Toggle theme" class="theme-toggle" id="themeToggle">
+<span class="sun-icon">☀️</span>
+<span class="moon-icon">🌙</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="main">
+<!-- Tool Section -->
+<section class="hero">
+<div class="container">
+<div class="breadcrumb"><a href="https://picete.com/">Home</a><span class="separator">›</span><span class="current">JPG to AVIF</span></div>
+<h2 class="hero-title">JPG to AVIF Online Converter</h2>
+<p class="hero-subtitle">Quickly convert JPG images to AVIF format. Supports batch conversion with adjustable quality and encoding presets.</p>
+<div class="upload-area" id="uploadArea">
+<svg class="upload-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="17 8 12 3 7 8"></polyline>
+<line x1="12" x2="12" y1="3" y2="15"></line>
+</svg>
+<p class="upload-text">Drop JPG images here</p>
+<p class="upload-subtext">or click to select files, supports multiple selection</p>
+<input accept="image/jpeg" hidden="" id="fileInput" multiple="" type="file"/>
+<button class="btn-primary" id="selectBtn">Select JPG Images</button>
+</div>
+<div class="processing-area" id="processingArea" style="display: none;">
+<div class="preview-section">
+<h3>Selected JPG Images</h3>
+<div class="preview-grid" id="previewGrid"></div>
+</div>
+<div class="tool-card">
+<h4>Conversion Options</h4>
+<div class="compression-options">
+<div class="presets">
+<button class="preset-btn active" data-speed="6" data-quality="80" onclick="setPreset('fast', 6, 80)">⚡ Fast Encoding</button>
+<button class="preset-btn" data-speed="0" data-quality="50" onclick="setPreset('max', 0, 50)">🔥 Maximum Compression</button>
+</div>
+<label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">AVIF Quality</label>
+<input id="qualitySlider" max="100" min="10" type="range" value="80"/>
+<div class="quality-value">
+<span id="qualityValue">80</span>%
+                            </div>
+<div class="quality-labels">
+<span>Smaller file</span>
+<span>Higher quality</span>
+</div>
+</div>
+</div>
+<div class="action-buttons">
+<button class="btn-primary" id="convertBtn">Convert to AVIF</button>
+<button class="btn-secondary" id="resetBtn">Choose Again</button>
+</div>
+</div>
+<div class="download-section" id="downloadSection" style="display: none;">
+<h3>Conversion Complete!</h3>
+<div class="download-grid" id="downloadGrid"></div>
+<button class="btn-primary" id="downloadAllBtn">Download All AVIF</button>
+<button class="btn-link" id="startOverBtn">Convert More Images</button>
+</div>
+</div>
+</section>
+<div class="container" style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+<a class="btn-primary" href="../" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; font-size: 1.125rem; text-decoration: none;">← Back to PicEte Home</a>
+</div>
+<!-- Features -->
+<section class="features-section">
+<div class="container">
+<h2 class="section-title">Why Use Our JPG to AVIF Converter</h2>
+<div class="features-grid">
+<div class="feature-item">
+<div class="feature-icon">⚡</div>
+<h3>Fast Encoding</h3>
+<p>Two-speed preset system: fast encoding for daily use and maximum compression for smallest files. Toggle between them instantly — no complicated settings.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🎯</div>
+<h3>Superior Compression</h3>
+<p>AVIF's AV1 codec achieves 30-50% smaller files than JPG at the same quality. Convert your JPEGs to AVIF and save significant bandwidth without visible quality loss.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">📦</div>
+<h3>Batch Processing</h3>
+<p>Select multiple JPG images at once for batch conversion. Process an entire folder in one click and download all converted AVIF files together.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🔒</div>
+<h3>Privacy Protection</h3>
+<p>All conversion is done locally in your browser using WASM-powered vips. Images are never uploaded to any server — they never leave your device.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="features-section" style="padding-top: 0;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">How to Convert JPG to AVIF Online Free</h2>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Upload Your JPG Files</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Click the upload area or drag JPG images directly into your browser. Our JPG to AVIF converter handles multiple files at once — select an entire folder and convert them all simultaneously. Processing happens entirely in your browser using WASM, so your files stay private and never leave your device.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Choose Your Preset and Quality</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Pick "Fast Encoding" for quick daily conversions with balanced quality, or "Maximum Compression" for the smallest possible AVIF files. The quality slider lets you fine-tune between 10% and 100%. For web use, 70-85% quality with maximum compression produces stunning results at a fraction of the original JPG size.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Download Your AVIF Files</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Each converted AVIF image shows a preview with the new file size compared to the original JPG. Download individually or click "Download All AVIF" to grab everything at once. The AVIF files are ready for modern websites, saving bandwidth and speeding up page loads on supported browsers.</p>
+</div>
+</div>
+</section>
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">JPG to AVIF Tips</h2>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Why Switch from JPG to AVIF</h3>
+<p style="line-height: 1.8; color: var(--text-light);">JPG has been the web standard for decades, but AVIF is its successor. AVIF uses the AV1 video codec to compress images 30-50% more efficiently than JPG at equivalent quality. For websites, this means faster page loads, lower bandwidth costs, and better Core Web Vitals scores — especially on image-heavy pages. Your users on mobile data plans will thank you.</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Fast Encoding vs Maximum Compression</h3>
+<p style="line-height: 1.8; color: var(--text-light);">"Fast Encoding" (speed 6, quality 80) processes images quickly for everyday use — great for drafts, social media, or when you need results now. "Maximum Compression" (speed 0, quality 50) takes longer but produces the absolute smallest AVIF files, ideal for archival or when every byte matters. Try both to see which balance of speed and size works for your project.</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">When to Use AVIF Over JPG</h3>
+<p style="line-height: 1.8; color: var(--text-light);">AVIF is perfect for web images, especially photographs and complex graphics where file size matters. Use it for hero images, product photos, backgrounds, and UI assets on modern websites. AVIF's superior compression means you can serve higher quality images at lower file sizes compared to JPG, with broad browser support including Chrome, Firefox, and Safari.</p>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">Frequently Asked Questions</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary class="faq-question">What is AVIF and why use it over JPG?</summary>
+<p class="faq-answer">AVIF (AV1 Image File Format) is a next-generation image format that uses AV1 compression technology. It can produce images up to 50% smaller than JPG at the same quality level, and supports modern features like HDR and wide color gamut. For the same visual quality, AVIF files are typically 30-50% smaller than JPG, making it the ideal format for modern web performance.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">Will I lose quality converting JPG to AVIF?</summary>
+<p class="faq-answer">AVIF uses lossy compression, so there is some quality loss. However, at high quality settings (80+), the difference is visually imperceptible for most images including photos. AVIF's AV1 codec is significantly more efficient than JPEG, meaning you get smaller files at comparable quality. For web use, quality 80-85 with maximum compression produces stunning results at half the JPG file size.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">Which browsers support AVIF?</summary>
+<p class="faq-answer">AVIF is supported in Chrome 85+, Firefox 93+, Safari 16.4+, and all Chromium-based browsers like Edge and Opera. The format is also supported by most major image editing tools and operating systems. Check caniuse.com for the latest browser support information.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">Can I convert multiple JPG files at once?</summary>
+<p class="faq-answer">Yes, batch conversion is fully supported. Select a whole folder of JPGs and convert them all at once. Each image is processed independently using wasm-vips right in your browser, and you can download them individually or click 'Download All AVIF' to get everything in one go. There is no limit on the number of files.</p>
+</details>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>More Tools</h4>
+<ul>
+<li><a href="../jpg-to-png/">JPG to PNG</a></li>
+<li><a href="../webp-to-png/">WebP to PNG</a></li>
+<li><a href="../png-to-webp/">PNG to WebP</a></li>
+<li><a href="../resize-image/">Image Resizer</a></li>
+<li><a href="../compress-image/">Image Compressor</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>About</h4>
+<ul>
+<li><a href="../">Back to Home</a></li>
+<li><a href="/privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>More Tools</h4>
+<ul>
+<li><a href="https://mockupshot.online/">MockupShot - Screenshot Mockup</a></li>
+<li><a href="https://ilovepalette.com/">ILovePalette - Color Tools</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 PicEte. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        // JPG to AVIF dedicated script (wasm-vips based)
+        const state = { uploadedFiles: [], convertedImages: [] };
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const selectBtn = document.getElementById('selectBtn');
+        const processingArea = document.getElementById('processingArea');
+        const previewGrid = document.getElementById('previewGrid');
+        const downloadSection = document.getElementById('downloadSection');
+        const downloadGrid = document.getElementById('downloadGrid');
+        const convertBtn = document.getElementById('convertBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const qualitySlider = document.getElementById('qualitySlider');
+        const qualityValue = document.getElementById('qualityValue');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        const startOverBtn = document.getElementById('startOverBtn');
+
+        window.currentSpeed = 6;
+        window.currentPreset = 'fast';
+
+        selectBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => handleFiles(Array.from(e.target.files)));
+        uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+        uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            handleFiles(Array.from(e.dataTransfer.files).filter(f => f.type === 'image/jpeg'));
+        });
+
+        qualitySlider.addEventListener('input', (e) => {
+            qualityValue.textContent = e.target.value;
+        });
+        convertBtn.addEventListener('click', convertImages);
+        resetBtn.addEventListener('click', reset);
+        downloadAllBtn.addEventListener('click', downloadAll);
+        startOverBtn.addEventListener('click', reset);
+
+        function setPreset(name, speed, quality) {
+            window.currentSpeed = speed;
+            window.currentPreset = name;
+            qualitySlider.value = quality;
+            qualityValue.textContent = quality;
+            document.querySelectorAll('.preset-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            var target = document.querySelector('.preset-btn[data-speed="' + speed + '"]');
+            if (target) target.classList.add('active');
+        }
+
+        function handleFiles(files) {
+            if (files.length === 0) return alert('Please select JPG images');
+            state.uploadedFiles = files;
+            Promise.all(files.map(f => loadImage(f))).then(images => {
+                displayPreviews(images);
+                uploadArea.style.display = 'none';
+                processingArea.style.display = 'block';
+            }).catch(() => alert('Failed to load images'));
+        }
+
+        function loadImage(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => resolve({ img, file, src: e.target.result });
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function displayPreviews(images) {
+            previewGrid.innerHTML = images.map(({ img, file, src }) => `
+                <div class="preview-item">
+                    <img src="${src}" alt="${file.name}">
+                    <div class="file-info">
+                        <strong>${file.name}</strong><br>${img.width} × ${img.height}px
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function convertImages() {
+            const quality = parseInt(qualitySlider.value);
+            state.convertedImages = [];
+            let processed = 0;
+            const total = state.uploadedFiles.length;
+            convertBtn.disabled = true;
+            convertBtn.textContent = 'Converting...';
+
+            try {
+                for (let i = 0; i < total; i++) {
+                    const file = state.uploadedFiles[i];
+                    const blob = await encodeToAvif(file, quality);
+                    if (!blob) {
+                        alert('Failed to encode ' + file.name);
+                        continue;
+                    }
+                    const url = URL.createObjectURL(blob);
+                    state.convertedImages[i] = {
+                        url: url,
+                        name: file.name.replace(/\.(jpg|jpeg)$/i, '') + '.avif',
+                        size: blob.size,
+                        originalSize: file.size
+                    };
+                    processed++;
+                }
+            } finally {
+                convertBtn.disabled = false;
+                convertBtn.textContent = 'Convert to AVIF';
+            }
+
+            if (processed > 0) displayDownloads();
+            else alert('No images could be converted.');
+        }
+
+        async function encodeToAvif(file, quality) {
+            try {
+                const vips = await VipsLoader.load();
+                if (!vips) {
+                    alert('WASM-vips is not available. Please try a different browser or enable crossOriginIsolated.');
+                    return null;
+                }
+                const uint8Array = new Uint8Array(await file.arrayBuffer());
+                const imgSource = vips.ImageSource.newFromBuffer(uint8Array);
+                const image = vips.Image.newFromSource(imgSource, '');
+                imgSource.delete();
+                try {
+                    const buf = image.writeToBuffer('.avif', { Q: quality });
+                    return new Blob([buf.buffer], { type: 'image/avif' });
+                } finally {
+                    image.delete();
+                }
+            } catch (err) {
+                console.error('AVIF encoding error:', err);
+                alert('Error encoding AVIF: ' + err.message);
+                return null;
+            }
+        }
+
+        function displayDownloads() {
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'block';
+            downloadGrid.innerHTML = state.convertedImages.map((img, i) => `
+                <div class="download-item">
+                    <img src="${img.url}" alt="${img.name}">
+                    <h4>${img.name}</h4>
+                    <p>AVIF: ${(img.size / 1024).toFixed(1)} KB (was ${(img.originalSize / 1024).toFixed(1)} KB)</p>
+                    <button class="btn-primary" onclick="downloadOne(${i})">Download</button>
+                </div>
+            `).join('');
+        }
+
+        window.downloadOne = function(i) {
+            if (!state.convertedImages[i]) return;
+            const a = document.createElement('a');
+            a.href = state.convertedImages[i].url;
+            a.download = state.convertedImages[i].name;
+            a.click();
+        };
+
+        function downloadAll() {
+            state.convertedImages.forEach((img, i) => setTimeout(() => window.downloadOne(i), i * 500));
+        }
+
+        function reset() {
+            state.convertedImages.forEach(function(img) {
+                if (img && img.url) URL.revokeObjectURL(img.url);
+            });
+            state.uploadedFiles = [];
+            state.convertedImages = [];
+            fileInput.value = '';
+            qualitySlider.value = 80;
+            qualityValue.textContent = '80';
+            window.currentSpeed = 6;
+            window.currentPreset = 'fast';
+            document.querySelectorAll('.preset-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            var fastBtn = document.querySelector('.preset-btn[data-speed="6"]');
+            if (fastBtn) fastBtn.classList.add('active');
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'none';
+            uploadArea.style.display = 'block';
+        }
+    </script>
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>

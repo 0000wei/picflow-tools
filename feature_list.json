@@ -382,5 +382,13 @@
     "type": "tool",
     "languages": ["en"],
     "status": "complete"
+  },
+  {
+    "id": "tool-042",
+    "name": "jpg-to-avif",
+    "description": "Convert JPG images to AVIF format with fast encoding and maximum compression presets",
+    "type": "tool",
+    "languages": ["en"],
+    "status": "complete"
   }
 ]
