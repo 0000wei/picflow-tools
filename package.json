@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/0000wei/picflow-tools#readme",
   "dependencies": {
-    "playwright": "^1.60.0"
+    "playwright": "^1.60.0",
+    "sharp": "^0.34.5",
+    "wasm-vips": "^0.0.17"
   }
 }
