@@ -86,7 +86,7 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 |- [x] **0.5.2** 创建 png-to-avif 工具页 — 含"Fast Encoding"/"Maximum Compression"两套预设
 |- [x] **0.5.3** 创建 jpg-to-avif 工具页 — fast/max 预设 + wasm-vips AVIF 编码
 |- [x] **0.5.4** 创建 webp-to-avif 工具页 — fast/max 预设 + wasm-vips AVIF 编码
-|- [ ] 0.5.5a zh 翻译（标杆）
+|- [x] **0.5.5a** zh 翻译（标杆）— 4 个 AVIF 工具页全部翻译完成
 |- [ ] 0.5.5b ja 翻译（串行）
 |- [ ] 0.5.5c de 翻译（串行）
 |- [ ] 0.5.5d fr 翻译（串行）

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AVIF转PNG - 免费在线AVIF转PNG工具 | PicEte</title>
+<!-- Google Analytics -->
+<script async="" src="/js/gtag.js"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+<meta content="免费在线AVIF转PNG转换器。将AVIF图片无损转换为PNG格式。支持批量转换、本地处理保护隐私，无需注册。" name="description"/>
+<meta content="AVIF转PNG, AVIF转PNG转换器, 在线图片转换, AVIF解码, 批量转换, 免费工具" name="keywords"/>
+<link href="https://picete.com/zh/avif-to-png/" rel="canonical"/>
+<!-- hreflang tags -->
+<link href="https://picete.com/avif-to-png/" hreflang="en" rel="alternate"/>
+<link href="https://picete.com/zh/avif-to-png/" hreflang="zh" rel="alternate"/>
+<link href="https://picete.com/ja/avif-to-png/" hreflang="ja" rel="alternate"/>
+<link href="https://picete.com/de/avif-to-png/" hreflang="de" rel="alternate"/>
+<link href="https://picete.com/fr/avif-to-png/" hreflang="fr" rel="alternate"/>
+<link href="https://picete.com/es/avif-to-png/" hreflang="es" rel="alternate"/>
+<link href="https://picete.com/pt/avif-to-png/" hreflang="pt" rel="alternate"/>
+<link href="https://picete.com/ar/avif-to-png/" hreflang="ar" rel="alternate"/>
+<link href="https://picete.com/avif-to-png/" hreflang="x-default" rel="alternate"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="https://picete.com/zh/avif-to-png/" property="og:url"/>
+<meta content="AVIF转PNG - 免费在线AVIF转PNG转换器" property="og:title"/>
+<meta content="免费在线AVIF转PNG转换器，在浏览器中无损将AVIF图片转换为PNG格式。" property="og:description"/>
+<meta content="https://picete.com/images/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<!-- Schema.org -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "AVIF转PNG转换器",
+        "description": "免费在线AVIF转PNG转换工具",
+        "url": "https://picete.com/zh/avif-to-png",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "首页",
+            "item": "https://picete.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "AVIF转PNG",
+            "item": "https://picete.com/zh/avif-to-png/"
+        }]
+    }
+    </script>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../llms.txt" rel="llms" title="PicEte LLM Context"/>
+<link href="../mcp.json" rel="mcp" title="PicEte MCP Tools"/>
+<meta content="F2859D0614981562217BF497BEF4002A" name="msvalidate.01"/>
+<link href="../css/style.css" rel="stylesheet"/>
+<!-- vips-loader for AVIF decoding -->
+<script src="/js/vips-loader.js"></script>
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "将AVIF转换为PNG会损失画质吗？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "不会。PNG是一种无损格式，像素数据会被完整保留。需要注意的是，AVIF本身在编码时使用了有损压缩。从解码后的AVIF转换到PNG的过程是无损的——您在AVIF中看到的画面会原样呈现在PNG中，不会产生额外的画质损失。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "为什么这个转换工具不能像其他工具一样使用Canvas？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "大多数浏览器无法通过Canvas解码AVIF图片。AVIF是相对较新的格式，需要专用的解码库。我们的工具使用wasm-vips（Vips图像处理库的WebAssembly移植版）在浏览器中解码AVIF。这样既能保证广泛的兼容性和准确的解码，又无需将文件上传到服务器。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "AVIF文件的透明区域在PNG中能保留吗？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "可以。AVIF支持Alpha透明度通道，PNG也同样支持。当您将带有透明区域的AVIF图片转换为PNG时，透明度会被完整保留。这是相对于JPG等无法处理透明度格式的一大优势。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "AVIF转PNG有文件大小限制吗？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "没有严格的文件大小限制，但由于转换在浏览器本地通过WebAssembly进行，非常大的图片可能需要更长的处理时间和更多的内存。对于20MB以下的典型网页图片，转换速度很快。文件不会被上传——一切都在您的设备上完成。"
+            }
+        }
+    ]
+}
+    </script>
+<style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</head>
+<body>
+<header class="header">
+<div class="container">
+<div class="logo">
+<a href="../">
+<img alt="PicEte" class="logo-img" src="../images/picete-logo.svg"/>
+</a>
+<p class="tagline">AVIF转PNG转换器</p>
+</div>
+<nav class="nav">
+<a class="nav-link" href="../">首页</a>
+<a class="nav-link" href="../#tools">更多工具</a>
+<!-- Language Switcher -->
+<style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+    
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+<div class="lang-switcher">
+<select aria-label="切换语言" onchange="switchLanguage(this.value)">
+<option value="en">English</option>
+<option selected="" value="zh">中文</option>
+<option value="ja">日本語</option>
+<option value="de">Deutsch</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="pt">Português</option>
+<option value="ar">العربية</option>
+</select>
+</div>
+<script>
+    function switchLanguage(code) {
+        var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+        var path = window.location.pathname;
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+<button aria-label="切换主题" class="theme-toggle" id="themeToggle">
+<span class="sun-icon">☀️</span>
+<span class="moon-icon">🌙</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="main">
+<!-- Tool Section -->
+<section class="hero">
+<div class="container">
+<div class="breadcrumb"><a href="https://picete.com/">首页</a><span class="separator">›</span><span class="current">AVIF转PNG</span></div>
+<h2 class="hero-title">AVIF转PNG在线转换器</h2>
+<p class="hero-subtitle">将AVIF图片无损转换为PNG格式。使用wasm-vips精准解码AVIF，支持批量转换，所有操作在本地完成。</p>
+<div class="upload-area" id="uploadArea">
+<svg class="upload-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="17 8 12 3 7 8"></polyline>
+<line x1="12" x2="12" y1="3" y2="15"></line>
+</svg>
+<p class="upload-text">将AVIF图片拖放到此处</p>
+<p class="upload-subtext">或点击选择文件，支持多选</p>
+<input accept=".avif,image/avif" hidden="" id="fileInput" multiple="" type="file"/>
+<button class="btn-primary" id="selectBtn">选择AVIF图片</button>
+</div>
+<div class="processing-area" id="processingArea" style="display: none;">
+<div class="preview-section">
+<h3>已选择的AVIF图片</h3>
+<div class="preview-grid" id="previewGrid"></div>
+</div>
+<div class="action-buttons" style="text-align: center; margin-top: 1.5rem;">
+<button class="btn-primary" id="convertBtn">转换为PNG</button>
+<button class="btn-secondary" id="resetBtn">重新选择</button>
+</div>
+</div>
+<div class="download-section" id="downloadSection" style="display: none;">
+<h3>转换完成！</h3>
+<div class="download-grid" id="downloadGrid"></div>
+<button class="btn-primary" id="downloadAllBtn">下载所有PNG</button>
+<button class="btn-link" id="startOverBtn">继续转换更多图片</button>
+</div>
+</div>
+</section>
+<div class="container" style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+<a class="btn-primary" href="../" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; font-size: 1.125rem; text-decoration: none;">← 返回PicEte首页</a>
+</div>
+<!-- Features -->
+<section class="features-section">
+<div class="container">
+<h2 class="section-title">为什么选择我们的AVIF转PNG转换器</h2>
+<div class="features-grid">
+<div class="feature-item">
+<div class="feature-icon">⚡</div>
+<h3>WASM驱动解码</h3>
+<p>使用wasm-vips（Vips库的WebAssembly移植版）在浏览器中精确解码AVIF文件。无需上传到服务器，无需担心兼容性问题。</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🎯</div>
+<h3>无损PNG输出</h3>
+<p>PNG完整保留解码后AVIF的每一个像素，不产生重新压缩的伪影。非常适合存档、编辑或进一步处理您的图片。</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">📦</div>
+<h3>批量处理</h3>
+<p>一次选择多个AVIF文件进行批量转换。每张图片独立处理，一键即可全部下载。</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🔒</div>
+<h3>隐私保护</h3>
+<p>所有转换都在您的浏览器本地完成。AVIF图片永远不会上传到任何服务器。您的文件始终保留在您的设备上。</p>
+</div>
+</div>
+</div>
+</section>
+<section class="features-section" style="padding-top: 0;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">如何在线免费将AVIF转换为PNG</h2>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">上传您的AVIF文件</h3>
+<p style="line-height: 1.8; color: var(--text-light);">点击上传区域或将AVIF图片拖入浏览器。工具接受.avif文件（image/avif MIME类型）。可一次选择多个文件进行批量转换。拖放文件后，您将看到每张AVIF图片的缩略图预览，包括文件名和尺寸。所有处理都在浏览器中完成——您的文件不会离开您的设备。</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">使用wasm-vips进行转换</h3>
+<p style="line-height: 1.8; color: var(--text-light);">点击"转换为PNG"按钮开始处理。工具会加载基于WebAssembly的vips库（首次使用通常需要等待片刻），然后将每张AVIF图像解码为原始像素数据，最终输出为无损PNG文件。与基于Canvas的工具不同，这种方法能正确处理所有AVIF特性，包括HDR元数据、广色域和Alpha透明度。进度提示会显示每张文件的转换完成状态。</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">下载您的PNG文件</h3>
+<p style="line-height: 1.8; color: var(--text-light);">每张转换完成的PNG会显示预览图及文件大小。您可以逐个下载，也可以点击"下载所有PNG"批量下载所有已转换的文件——浏览器会逐个自动处理。如需继续转换更多图片，点击"继续转换更多图片"开始新一轮批量处理。整个流程快速、本地化且保护隐私。</p>
+</div>
+</div>
+</section>
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">AVIF转PNG小贴士</h2>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">为什么要把AVIF转换为PNG？</h3>
+<p style="line-height: 1.8; color: var(--text-light);">AVIF是一种具有出色压缩效率的新格式，但并非所有软件和平台都支持它。转换为PNG可以保证兼容性——几乎所有图片查看器、编辑器和网页浏览器默认都能打开PNG。PNG也是编辑工作流中的首选格式，您需要无损像素数据在工具间传递。在社交媒体分享或嵌入不接受AVIF上传的文档时，PNG是可靠的备选方案。</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">PNG文件大小 vs AVIF</h3>
+<p style="line-height: 1.8; color: var(--text-light);">预计PNG文件会比原始AVIF大很多。AVIF在同等画质下比JPEG压缩率高50%以上，而PNG则无损存储每个像素。一张500KB的AVIF照片转换为PNG后可能变成3-5MB。这是正常现象。建议保留AVIF原文件用于存储，只在需要通用兼容性或无损编辑能力时使用PNG。</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">何时使用AVIF vs PNG</h3>
+<p style="line-height: 1.8; color: var(--text-light);">最佳实践是：将AVIF作为主要存储格式（文件小、画质好），在需要广泛兼容时按需转换为PNG。AVIF非常适合网页传输和存档。PNG最适合：发送给可能不支持AVIF的客户或协作者、导入图形设计软件、在不支持AVIF解码的工具中编辑、或需要无损数据的打印场景。</p>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">常见问题</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary class="faq-question">将AVIF转换为PNG会损失画质吗？</summary>
+<p class="faq-answer">不会。PNG是一种无损格式，像素数据会被完整保留。需要注意的是，AVIF本身在编码时使用了有损压缩。从解码后的AVIF转换到PNG的过程是无损的——您在AVIF中看到的画面会原样呈现在PNG中，不会产生额外的画质损失。</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">为什么这个转换工具不能像其他工具一样使用Canvas？</summary>
+<p class="faq-answer">大多数浏览器无法通过Canvas解码AVIF图片。AVIF是相对较新的格式，需要专用的解码库。我们的工具使用wasm-vips（Vips图像处理库的WebAssembly移植版）在浏览器中解码AVIF。这样既能保证广泛的兼容性和准确的解码，又无需将文件上传到服务器。</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">AVIF文件的透明区域在PNG中能保留吗？</summary>
+<p class="faq-answer">可以。AVIF支持Alpha透明度通道，PNG也同样支持。当您将带有透明区域的AVIF图片转换为PNG时，透明度会被完整保留。这是相对于JPG等无法处理透明度格式的一大优势。</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">AVIF转PNG有文件大小限制吗？</summary>
+<p class="faq-answer">没有严格的文件大小限制，但由于转换在浏览器本地通过WebAssembly进行，非常大的图片可能需要更长的处理时间和更多的内存。对于20MB以下的典型网页图片，转换速度很快。文件不会被上传——一切都在您的设备上完成。</p>
+</details>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>更多工具</h4>
+<ul>
+<li><a href="../jpg-to-png/">JPG转PNG</a></li>
+<li><a href="../webp-to-png/">WebP转PNG</a></li>
+<li><a href="../png-to-webp/">PNG转WebP</a></li>
+<li><a href="../resize-image/">图片缩放</a></li>
+<li><a href="../compress-image/">图片压缩</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>关于</h4>
+<ul>
+<li><a href="../">返回首页</a></li>
+<li><a href="/privacy-policy.html">隐私政策</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>更多工具</h4>
+<ul>
+<li><a href="https://mockupshot.online/">MockupShot - 截图样机</a></li>
+<li><a href="https://ilovepalette.com/">ILovePalette - 配色工具</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 PicEte. 保留所有权利。</p>
+</div>
+</div>
+</footer>
+<script>
+        // AVIF to PNG dedicated script using wasm-vips
+        const state = { uploadedFiles: [], convertedImages: [] };
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const selectBtn = document.getElementById('selectBtn');
+        const processingArea = document.getElementById('processingArea');
+        const previewGrid = document.getElementById('previewGrid');
+        const downloadSection = document.getElementById('downloadSection');
+        const downloadGrid = document.getElementById('downloadGrid');
+        const convertBtn = document.getElementById('convertBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        const startOverBtn = document.getElementById('startOverBtn');
+
+        selectBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => handleFiles(Array.from(e.target.files)));
+        uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+        uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            handleFiles(Array.from(e.dataTransfer.files).filter(f => f.type === 'image/avif' || f.name.toLowerCase().endsWith('.avif')));
+        });
+
+        convertBtn.addEventListener('click', convertImages);
+        resetBtn.addEventListener('click', reset);
+        downloadAllBtn.addEventListener('click', downloadAll);
+        startOverBtn.addEventListener('click', reset);
+
+        function handleFiles(files) {
+            if (files.length === 0) return alert('请选择AVIF图片');
+            state.uploadedFiles = files;
+            Promise.all(files.map(f => loadImage(f))).then(images => {
+                displayPreviews(images);
+                uploadArea.style.display = 'none';
+                processingArea.style.display = 'block';
+            }).catch(() => alert('加载图片失败'));
+        }
+
+        function loadImage(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => resolve({ img, file, src: e.target.result });
+                    img.onerror = () => resolve({ img: null, file, src: e.target.result });
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function displayPreviews(images) {
+            previewGrid.innerHTML = images.map(({ img, file, src }) => `
+                <div class="preview-item">
+                    <img src="${src}" alt="${file.name}" style="${img ? '' : 'background: #f0f0f0; padding: 2rem; text-align: center;'}">
+                    <div class="file-info">
+                        <strong>${file.name}</strong><br>${img ? img.width + ' × ' + img.height + 'px' : '(preview limited)'}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function convertImages() {
+            convertBtn.disabled = true;
+            convertBtn.textContent = '转换中...';
+            state.convertedImages = [];
+            let processed = 0;
+
+            try {
+                for (let i = 0; i < state.uploadedFiles.length; i++) {
+                    try {
+                        const blob = await convertWithVips(state.uploadedFiles[i]);
+                        const url = URL.createObjectURL(blob);
+                        state.convertedImages[i] = {
+                            url,
+                            name: state.uploadedFiles[i].name.replace(/\.avif$/i, '.png'),
+                            size: blob.size
+                        };
+                    } catch (err) {
+                        console.error('Conversion failed for', state.uploadedFiles[i].name, err);
+                        alert('转换失败: ' + state.uploadedFiles[i].name + '\n' + err.message);
+                        state.convertedImages[i] = null;
+                    }
+                    processed++;
+                }
+            } finally {
+                convertBtn.disabled = false;
+                convertBtn.textContent = '转换为PNG';
+            }
+
+            const valid = state.convertedImages.filter(Boolean);
+            if (valid.length > 0) {
+                displayDownloads();
+            }
+        }
+
+        async function convertWithVips(file) {
+            const vips = await VipsLoader.load();
+            if (!vips) {
+                throw new Error('加载wasm-vips库失败。请刷新页面后重试。');
+            }
+            const uint8Array = new Uint8Array(await file.arrayBuffer());
+            const imgSource = vips.ImageSource.newFromBuffer(uint8Array);
+            const image = vips.Image.newFromSource(imgSource, '');
+            imgSource.delete();
+            try {
+                const buf = image.writeToBuffer('.png');
+                return new Blob([buf.buffer], { type: 'image/png' });
+            } finally {
+                image.delete();
+            }
+        }
+
+        function displayDownloads() {
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'block';
+            downloadGrid.innerHTML = state.convertedImages.filter(Boolean).map((img, i) => `
+                <div class="download-item">
+                    <img src="${img.url}" alt="${img.name}">
+                    <h4>${img.name}</h4>
+                    <p>${(img.size / 1024).toFixed(1)} KB</p>
+                    <button class="btn-primary" onclick="downloadOne(${i})">下载</button>
+                </div>
+            `).join('');
+        }
+
+        window.downloadOne = function(i) {
+            const img = state.convertedImages[i];
+            if (!img) return;
+            const a = document.createElement('a');
+            a.href = img.url;
+            a.download = img.name;
+            a.click();
+        };
+
+        function downloadAll() {
+            const valid = state.convertedImages.filter(Boolean);
+            valid.forEach((img, i) => setTimeout(() => {
+                const a = document.createElement('a');
+                a.href = img.url;
+                a.download = img.name;
+                a.click();
+            }, i * 500));
+        }
+
+        function reset() {
+            state.uploadedFiles = [];
+            state.convertedImages = [];
+            fileInput.value = '';
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'none';
+            uploadArea.style.display = 'block';
+            convertBtn.disabled = false;
+            convertBtn.textContent = '转换为PNG';
+        }
+    </script>
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>
