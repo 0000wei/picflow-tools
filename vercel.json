@@ -76,7 +76,7 @@
       ]
     },
     {
-      "source": "^\\/(resize-image|compress-image|png-to-jpg|jpg-to-png|webp-to-png|png-to-webp|jpg-to-webp|image-splitter|extract-colors|image-to-base64|batch-convert-png-to-jpg|split-image-into-3x3|split-image-into-4-parts)\\/",
+      "source": "/(resize-image|compress-image|png-to-jpg|jpg-to-png|webp-to-png|png-to-webp|jpg-to-webp|image-splitter|extract-colors|image-to-base64|batch-convert-png-to-jpg|split-image-into-3x3|split-image-into-4-parts)/",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
