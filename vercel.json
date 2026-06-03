@@ -76,7 +76,7 @@
       ]
     },
     {
-      "source": "/resize-image/",
+      "source": "/resize-image(.*)",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "source": "/compress-image/",
+      "source": "/compress-image(.*)",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
@@ -102,7 +102,7 @@
       ]
     },
     {
-      "source": "/png-to-jpg/",
+      "source": "/png-to-jpg(.*)",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
@@ -115,7 +115,7 @@
       ]
     },
     {
-      "source": "/jpg-to-png/",
+      "source": "/jpg-to-png(.*)",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
@@ -128,7 +128,7 @@
       ]
     },
     {
-      "source": "/webp-to-png/",
+      "source": "/webp-to-png(.*)",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
@@ -141,7 +141,7 @@
       ]
     },
     {
-      "source": "/png-to-webp/",
+      "source": "/png-to-webp(.*)",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
@@ -154,7 +154,7 @@
       ]
     },
     {
-      "source": "/jpg-to-webp/",
+      "source": "/jpg-to-webp(.*)",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
@@ -167,7 +167,7 @@
       ]
     },
     {
-      "source": "/image-splitter/",
+      "source": "/image-splitter(.*)",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
@@ -180,7 +180,7 @@
       ]
     },
     {
-      "source": "/extract-colors/",
+      "source": "/extract-colors(.*)",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
@@ -193,7 +193,7 @@
       ]
     },
     {
-      "source": "/image-to-base64/",
+      "source": "/image-to-base64(.*)",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
@@ -206,7 +206,7 @@
       ]
     },
     {
-      "source": "/batch-convert-png-to-jpg/",
+      "source": "/batch-convert-png-to-jpg(.*)",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
@@ -219,7 +219,7 @@
       ]
     },
     {
-      "source": "/split-image-into-3x3/",
+      "source": "/split-image-into-3x3(.*)",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
@@ -232,7 +232,7 @@
       ]
     },
     {
-      "source": "/split-image-into-4-parts/",
+      "source": "/split-image-into-4-parts(.*)",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
