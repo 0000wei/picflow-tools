@@ -390,5 +390,13 @@
     "type": "tool",
     "languages": ["en"],
     "status": "complete"
+  },
+  {
+    "id": "tool-043",
+    "name": "webp-to-avif",
+    "description": "Convert WebP images to AVIF format with fast encoding and maximum compression presets",
+    "type": "tool",
+    "languages": ["en"],
+    "status": "complete"
   }
 ]
