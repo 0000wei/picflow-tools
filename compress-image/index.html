@@ -568,10 +568,12 @@
                 try {
                     if (useVips) {
                         // === wasm-vips 路径 ===
+                        // 浏览器端 API: ImageSource.newFromBuffer → Image.newFromSource
                         const arrayBuffer = await file.arrayBuffer();
                         const uint8Array = new Uint8Array(arrayBuffer);
-
-                        const image = vips.Image.newFromBuffer(uint8Array);
+                        const imgSource = vips.ImageSource.newFromBuffer(uint8Array);
+                        const image = vips.Image.newFromSource(imgSource, '');
+                        imgSource.delete();
 
                         // 确定输出格式和质量参数
                         const isPng = file.type === 'image/png';
@@ -579,6 +581,9 @@
                         const outputBuffer = isPng
                             ? image.writeToBuffer(ext, {})
                             : image.writeToBuffer(ext, { Q: Math.round(quality * 100) });
+
+                        // 释放 wasm-vips 内存
+                        image.delete();
 
                         const blob = new Blob([outputBuffer.buffer], { type: isPng ? 'image/png' : 'image/jpeg' });
                         const url = URL.createObjectURL(blob);
