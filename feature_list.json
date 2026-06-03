@@ -374,5 +374,13 @@
     "type": "tool",
     "languages": ["en"],
     "status": "complete"
+  },
+  {
+    "id": "tool-041",
+    "name": "png-to-avif",
+    "description": "Convert PNG to AVIF format with fast encoding and maximum compression presets",
+    "type": "tool",
+    "languages": ["en"],
+    "status": "complete"
   }
 ]

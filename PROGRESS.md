@@ -83,7 +83,7 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 |**P0.5 — AVIF + RAW 支持（共 14 个 Task）**
 |- [x] **0.5.0** GA 自托管 — 下载 gtag.js 到 js/，所有 106 个 HTML 改为同源引用 (c348449)
 |- [x] **0.5.1** 创建 avif-to-png 工具页 — wasm-vips 解码 AVIF + 编码 PNG
-|- [ ] 0.5.2 创建 png-to-avif 工具页
+|- [x] **0.5.2** 创建 png-to-avif 工具页 — 含"Fast Encoding"/"Maximum Compression"两套预设
 |- [ ] 0.5.3 创建 jpg-to-avif 工具页
 |- [ ] 0.5.4 创建 webp-to-avif 工具页
 |- [ ] 0.5.5a zh 翻译（标杆）
