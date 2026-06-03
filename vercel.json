@@ -43,7 +43,12 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "www.picete.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.picete.com"
+        }
+      ],
       "destination": "https://picete.com/$1",
       "permanent": true
     }
@@ -71,20 +76,7 @@
       ]
     },
     {
-      "source": "(?<path>/resize-image/|/compress-image/|/png-to-jpg/|/jpg-to-png/|/webp-to-png/|/png-to-webp/|/jpg-to-webp/|/image-splitter/|/extract-colors/|/image-to-base64/|/batch-convert-png-to-jpg/|/split-image-into-3x3/|/split-image-into-4-parts/)",
-      "headers": [
-        {
-          "key": "Cross-Origin-Opener-Policy",
-          "value": "same-origin"
-        },
-        {
-          "key": "Cross-Origin-Embedder-Policy",
-          "value": "require-corp"
-        }
-      ]
-    },
-    {
-      "source": "/zh/resize-image/",
+      "source": "^\\/(resize-image|compress-image|png-to-jpg|jpg-to-png|webp-to-png|png-to-webp|jpg-to-webp|image-splitter|extract-colors|image-to-base64|batch-convert-png-to-jpg|split-image-into-3x3|split-image-into-4-parts)\\/",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
@@ -111,27 +103,6 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=2592000"
-        }
-      ]
-    },
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
         }
       ]
     }
