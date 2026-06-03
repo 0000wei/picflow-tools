@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>محول الصور السريع - تحويل، تغيير حجم، ضغط الصور أونلاين | PicEte</title>
+<!-- Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-H72N80TEBW"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+<script src="/js/vips-loader.js"></script>
+<meta content="محول الصور السريع - تحويل وتغيير حجم وضغط الصور في ثوانٍ. يدعم تحويل صيغ JPEG و PNG و WebP مع التحكم بالجودة وإمكانية تغيير الحجم الاختيارية." name="description"/>
+<meta content="محول صور, تحويل صيغ, تغيير حجم الصورة, ضغط الصورة, jpg إلى png, png إلى webp, محول أونلاين" name="keywords"/>
+<link href="https://picete.com/ar/fast-convert/" rel="canonical"/>
+<!-- hreflang 标签 -->
+<link href="https://picete.com/fast-convert/" hreflang="en" rel="alternate">
+<link href="https://picete.com/zh/fast-convert/" hreflang="zh" rel="alternate"/>
+<link href="https://picete.com/ja/fast-convert/" hreflang="ja" rel="alternate"/>
+<link href="https://picete.com/de/fast-convert/" hreflang="de" rel="alternate"/>
+<link href="https://picete.com/fr/fast-convert/" hreflang="fr" rel="alternate"/>
+<link href="https://picete.com/es/fast-convert/" hreflang="es" rel="alternate"/>
+<link href="https://picete.com/pt/fast-convert/" hreflang="pt" rel="alternate"/>
+<link href="https://picete.com/ar/fast-convert/" hreflang="ar" rel="alternate"/>
+<link href="https://picete.com/fast-convert/" hreflang="x-default" rel="alternate"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="https://picete.com/ar/fast-convert/" property="og:url"/>
+<meta content="محول الصور السريع - تحويل وتغيير حجم وضغط الصور أونلاين" property="og:title"/>
+<meta content="حوّل وغيّر حجم واضغط الصور في ثوانٍ. يدعم تحويل صيغ JPEG و PNG و WebP." property="og:description"/>
+<meta content="https://picete.com/images/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<!-- Schema.org -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "أداة تحويل الصور السريعة",
+        "description": "تحويل وتغيير حجم وضغط الصور أونلاين",
+        "url": "https://picete.com/ar/fast-convert",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "الرئيسية",
+            "item": "https://picete.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "محول الصور السريع",
+            "item": "https://picete.com/ar/fast-convert/"
+        }]
+    }
+    </script>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../../llms.txt" rel="llms" title="PicEte LLM Context"/>
+<link href="../../mcp.json" rel="mcp" title="PicEte MCP Tools"/>
+<meta content="F2859D0614981562217BF497BEF4002A" name="msvalidate.01">
+<link href="../../css/style.css" rel="stylesheet"/>
+<style>
+        .tool-controls {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .control-group label {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--text-color, #1f2937);
+        }
+        .control-group select,
+        .control-group input[type="number"] {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            background: var(--bg-primary, #fff);
+            color: var(--text-color, #1f2937);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .control-group select:focus,
+        .control-group input[type="number"]:focus {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        .quality-control {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .quality-control input[type="range"] {
+            flex: 1;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--border-color, #e5e7eb);
+            outline: none;
+            -webkit-appearance: none;
+        }
+        .quality-control input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color, #2563eb);
+            cursor: pointer;
+        }
+        .quality-control input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color, #2563eb);
+            cursor: pointer;
+            border: none;
+        }
+        .quality-value {
+            min-width: 3.5rem;
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-color, #1f2937);
+        }
+        .dimension-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .dimension-inputs .control-group input[type="number"] {
+            width: 100%;
+        }
+        .dimension-inputs .control-group small {
+            font-size: 0.75rem;
+            color: var(--text-light, #6b7280);
+            margin-top: 0.25rem;
+        }
+        .result-preview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .result-preview img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color, #e5e7eb);
+        }
+        .result-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .result-info-item {
+            padding: 1rem;
+            background: var(--bg-secondary, #f3f4f6);
+            border-radius: 0.5rem;
+        }
+        .result-info-item label {
+            font-size: 0.75rem;
+            color: var(--text-light, #6b7280);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .result-info-item .value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-color, #1f2937);
+            margin-top: 0.25rem;
+        }
+        .result-info-item .value.highlight {
+            color: #10B981;
+        }
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+        @media (max-width: 768px) {
+            .result-preview {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+<div class="container">
+<div class="logo">
+<a href="../../">
+<img alt="PicEte" class="logo-img" src="../../images/picete-logo.svg"/>
+</a>
+<p class="tagline">محول الصور السريع</p>
+</div>
+<nav class="nav">
+<a class="nav-link" href="../../">الرئيسية</a>
+<a class="nav-link" href="../../#tools">المزيد من الأدوات</a>
+<!-- Language Switcher -->
+<style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+<div class="lang-switcher">
+<select aria-label="تبديل اللغة" onchange="switchLanguage(this.value)">
+<option value="en">English</option>
+<option value="zh">中文</option>
+<option value="ja">日本語</option>
+<option value="de">Deutsch</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="pt">Português</option>
+<option selected="" value="ar">العربية</option>
+</select>
+</div>
+<script>
+    function switchLanguage(code) {
+        var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+        var path = window.location.pathname;
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+<button aria-label="تبديل السمة" class="theme-toggle" id="themeToggle">
+<span class="sun-icon">☀️</span>
+<span class="moon-icon">🌙</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="main">
+<section class="hero">
+<div class="container">
+<div class="breadcrumb"><a href="https://picete.com/">الرئيسية</a><span class="separator">›</span><span class="current">محول الصور السريع</span></div>
+<h2 class="hero-title">محول الصور السريع</h2>
+<p class="hero-subtitle">حوّل وغيّر حجم واضغط الصور في ثوانٍ. كل شيء في شاشة واحدة، بدون خطوات متعددة معقدة.</p>
+
+<div class="upload-area" id="uploadArea">
+<svg class="upload-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="17 8 12 3 7 8"></polyline>
+<line x1="12" x2="12" y1="3" y2="15"></line>
+</svg>
+<p class="upload-text">أسقط الصورة هنا</p>
+<p class="upload-subtext">يدعم JPG و PNG و WebP وصيغ أخرى</p>
+<input accept="image/*" hidden="" id="fileInput" type="file"/>
+<button class="btn-primary" id="selectBtn">اختيار صورة</button>
+</div>
+
+<div class="processing-area" id="processingArea" style="display: none;">
+<div class="preview-section">
+<h3>الصورة المحددة</h3>
+<div class="preview-grid" id="previewGrid" style="display: flex; justify-content: center;">
+</div>
+</div>
+
+<div class="tool-card">
+<h4>خيارات التحويل</h4>
+<div class="tool-controls">
+<div class="control-group">
+<label for="formatSelect">صيغة الإخراج</label>
+<select id="formatSelect">
+<option value="original">أصلي (نفس الصيغة)</option>
+<option value="jpeg">JPEG</option>
+<option value="png">PNG</option>
+<option value="webp">WebP</option>
+</select>
+</div>
+
+<div class="control-group">
+<label for="qualitySlider">الجودة: <span id="qualityValue">92</span>%</label>
+<div class="quality-control">
+<input id="qualitySlider" max="100" min="1" type="range" value="92"/>
+<span class="quality-value">92%</span>
+</div>
+<div style="font-size: 0.75rem; color: var(--text-light, #6b7280); margin-top: 0.5rem;">
+جودة أعلى = حجم ملف أكبر. 92% هي القيمة الافتراضية الجيدة لمعظم الصور.
+</div>
+</div>
+
+<div class="dimension-inputs">
+<div class="control-group">
+<label for="widthInput">العرض (بكسل)</label>
+<input id="widthInput" min="1" placeholder="أصلي" type="number"/>
+<small>اتركه فارغاً للاحتفاظ بالأصلي</small>
+</div>
+<div class="control-group">
+<label for="heightInput">الارتفاع (بكسل)</label>
+<input id="heightInput" min="1" placeholder="أصلي" type="number"/>
+<small>اتركه فارغاً للاحتفاظ بالأصلي</small>
+</div>
+</div>
+</div>
+
+<div style="margin-top: 1rem; padding: 1rem; background: var(--bg-secondary); border-radius: 0.5rem;">
+<p style="font-size: 0.875rem; color: var(--text-light);">
+<strong>تلميح:</strong> إذا تم تعيين كل من العرض والارتفاع، تُستخدم الأبعاد الدقيقة (بدون تثبيت نسبة العرض إلى الارتفاع). إذا تم تعيين واحد فقط، يتم تحجيم الصورة بشكل متناسب.
+</p>
+</div>
+</div>
+
+<div class="action-buttons">
+<button class="btn-primary" id="convertBtn">تحويل الصورة</button>
+<button class="btn-secondary" id="resetBtn">اختيار أخرى</button>
+</div>
+</div>
+
+<div class="download-section" id="downloadSection" style="display: none;">
+<h3>اكتمل التحويل!</h3>
+
+<div class="result-preview">
+<div>
+<h4>معاينة</h4>
+<img id="resultPreview" alt="معاينة الصورة المحولة"/>
+</div>
+<div class="result-info">
+<div class="result-info-item">
+<label>حجم الملف</label>
+<div class="value">
+<span id="originalSize">0 B</span> → <span class="highlight" id="resultSize">0 B</span>
+</div>
+<div id="sizeChange" style="font-size: 0.875rem; margin-top: 0.25rem;"></div>
+</div>
+<div class="result-info-item">
+<label>الأبعاد</label>
+<div class="value">
+<span id="originalDimensions">0 × 0</span> → <span id="resultDimensions">0 × 0</span>
+</div>
+</div>
+<div class="result-info-item">
+<label>صيغة الإخراج</label>
+<div class="value" id="resultFormat">-</div>
+</div>
+</div>
+</div>
+
+<div class="action-buttons">
+<button class="btn-primary" id="downloadBtn">تنزيل الصورة المحولة</button>
+<button class="btn-link" id="startOverBtn">تحويل صورة أخرى</button>
+</div>
+</div>
+</div>
+</section>
+
+<div class="container" style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+<a class="btn-primary" href="../../" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; font-size: 1.125rem; text-decoration: none;">← العودة إلى PicEte الرئيسية</a>
+</div>
+
+<section class="features-section">
+<div class="container">
+<h2 class="section-title">لماذا نستخدم محول الصور السريع</h2>
+<div class="features-grid">
+<div class="feature-item">
+<div class="feature-icon">⚡</div>
+<h3>معالجة شاملة</h3>
+<p>حوّل الصيغة وغيّر الحجم واضغط في خطوة واحدة. لا حاجة لاستخدام أدوات متعددة.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🎯</div>
+<h3>تحكم بسيط</h3>
+<p>فقط ارفع الصورة واختر الإعدادات وحوّل. لا خيارات مربكة أو معالجات متعددة الخطوات.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🔒</div>
+<h3>الخصوصية أولاً</h3>
+<p>جميع المعالجة تتم محلياً في متصفحك. صورك لا تغادر جهازك أبداً.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🆓</div>
+<h3>مجاني بالكامل</h3>
+<p>لا تسجيل، ولا علامات مائية، ولا حدود. حوّل أي عدد تريد من الصور.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="features-section" style="padding-top: 0;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">كيفية تحويل الصور أونلاين مجاناً</h2>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">أسقط أو اختر صورتك</h3>
+<p style="line-height: 1.8; color: var(--text-light);">اسحب وأفلت صورة على منطقة الرفع، أو انقر لتصفح جهاز الكمبيوتر الخاص بك. يقبل المحول صيغ JPG و PNG و WebP ومعظم صيغ الصور الشائعة. بمجرد اختيار ملف، تظهر لوحة التحويل.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">اختر إعداداتك</h3>
+<p style="line-height: 1.8; color: var(--text-light);">اختر صيغة الإخراج — احتفظ بالأصلية، أو حوّل إلى JPEG أو PNG أو WebP. اضبط شريط الجودة إذا كنت تحول إلى JPEG أو WebP. يمكنك أيضاً تعيين عرض أو ارتفاع جديد لتغيير حجم الصورة. إذا قمت بتعيين كلا البعدين، يستخدم المحول تلك الأرقام بالضبط. إذا قمت بتعيين واحد فقط، فإنه يقيسها بشكل متناسب.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">حوّل ونزّل</h3>
+<p style="line-height: 1.8; color: var(--text-light);">انقر على "تحويل الصورة" وتقوم الأداة بمعالجة ملفك فوراً. سترى معاينة وحجم الملف الجديد والأبعاد وصيغة الإخراج. اضغط على "تنزيل" لحفظ الصورة المحولة على جهاز الكمبيوتر الخاص بك. العملية بأكملها تجري في متصفحك — لا يتم رفع أي شيء إلى أي خادم.</p>
+</div>
+</div>
+</section>
+
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">نصائح تحويل الصور</h2>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">متى تستخدم WebP</h3>
+<p style="line-height: 1.8; color: var(--text-light);">يقدم WebP ضغطاً ممتازاً عند إعدادات الجودة حوالي 85-92%. إنه خيار رائع لصور الويب لأن الملفات عادةً ما تكون أصغر بنسبة 25-35% من JPEG بنفس الجودة البصرية. معظم المتصفحات الحديثة تدعم WebP، مما يجعله مثالياً للمواقع والمحتوى عبر الإنترنت.</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">متى تبقى مع JPEG</h3>
+<p style="line-height: 1.8; color: var(--text-light);">JPEG هو الخيار الأكثر أماناً لأقصى توافق. إذا كنت تشارك الصور مع مستخدمين على متصفحات أو أجهزة قديمة، يضمن JPEG أن الجميع يمكنهم رؤيتها. استخدم إعدادات الجودة حوالي 85-92% للصور الفوتوغرافية، وتجنب النزول أقل من 75% إذا كانت الصورة ستُطبع أو تُعرض بأحجام كبيرة.</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">متى تستخدم PNG</h3>
+<p style="line-height: 1.8; color: var(--text-light);">PNG غير ضائع، مما يجعله مثالياً للصور ذات الحواف الحادة أو النصوص أو الخلفيات الشفافة. لقطات الشاشة والشعارات وعناصر واجهة المستخدم تعمل بشكل أفضل كـ PNG. كن على علم أن ملفات PNG أكبر بكثير من JPEG أو WebP، لذا تجنب استخدام PNG للصور الفوتوغرافية إلا إذا كنت بحاجة إلى الجودة غير الضائعة.</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">تغيير الحجم بدون تشويه</h3>
+<p style="line-height: 1.8; color: var(--text-light);">يحترم المحول نسبة العرض إلى الارتفاع عند تعيين بُعد واحد فقط. اضبط العرض على 1920 واترك الارتفاع فارغاً، وتقوم الأداة بحساب الارتفاع الصحيح تلقائياً. هذا يمنع التمدد أو الانضغاط. إذا كنت بحاجة إلى أبعاد دقيقة بغض النظر عن نسبة العرض إلى الارتفاع، قم بتعيين كل من العرض والارتفاع.</p>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>المزيد من الأدوات</h4>
+<ul>
+<li><a href="../../png-to-jpg/">PNG إلى JPG</a></li>
+<li><a href="../../jpg-to-png/">JPG إلى PNG</a></li>
+<li><a href="../../resize-image/">تغيير حجم الصورة</a></li>
+<li><a href="../../compress-image/">ضغط الصورة</a></li>
+<li><a href="../../png-to-webp/">PNG إلى WebP</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>حول</h4>
+<ul>
+<li><a href="../../">العودة إلى الرئيسية</a></li>
+<li><a href="/privacy-policy.html">سياسة الخصوصية</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>المزيد من الأدوات</h4>
+<ul>
+<li><a href="https://mockupshot.online/">MockupShot - لقطة شاشة نموذجية</a></li>
+<li><a href="https://ilovepalette.com/">ILovePalette - أدوات الألوان</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 PicEte. جميع الحقوق محفوظة.</p>
+</div>
+</div>
+</footer>
+
+<script>
+    const state = { uploadedFile: null, originalSize: 0, originalWidth: 0, originalHeight: 0, originalType: '' };
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
+    const selectBtn = document.getElementById('selectBtn');
+    const processingArea = document.getElementById('processingArea');
+    const previewGrid = document.getElementById('previewGrid');
+    const downloadSection = document.getElementById('downloadSection');
+    const convertBtn = document.getElementById('convertBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const startOverBtn = document.getElementById('startOverBtn');
+    const qualitySlider = document.getElementById('qualitySlider');
+    const qualityValue = document.getElementById('qualityValue');
+    const formatSelect = document.getElementById('formatSelect');
+    const widthInput = document.getElementById('widthInput');
+    const heightInput = document.getElementById('heightInput');
+
+    selectBtn.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) handleFile(e.target.files[0]);
+    });
+    uploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadArea.classList.add('dragover');
+    });
+    uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+    uploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadArea.classList.remove('dragover');
+        const file = Array.from(e.dataTransfer.files).find(f => f.type.startsWith('image/'));
+        if (file) handleFile(file);
+    });
+    qualitySlider.addEventListener('input', (e) => {
+        qualityValue.textContent = e.target.value;
+        document.querySelector('.quality-value').textContent = e.target.value + '%';
+    });
+    convertBtn.addEventListener('click', processImage);
+    resetBtn.addEventListener('click', reset);
+    downloadBtn.addEventListener('click', download);
+    startOverBtn.addEventListener('click', reset);
+
+    function handleFile(file) {
+        state.uploadedFile = file;
+        state.originalSize = file.size;
+        state.originalType = file.type;
+
+        loadImage(file).then(({ img, src }) => {
+            state.originalWidth = img.width;
+            state.originalHeight = img.height;
+            displayPreview(img, src);
+            uploadArea.style.display = 'none';
+            processingArea.style.display = 'block';
+        }).catch(() => alert('Failed to load image'));
+    }
+
+    function loadImage(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => resolve({ img, src: e.target.result });
+                img.onerror = reject;
+                img.src = e.target.result;
+            };
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+        });
+    }
+
+    function displayPreview(img, src) {
+        previewGrid.innerHTML = `
+            <div class="preview-item" style="text-align: center;">
+                <img src="${src}" alt="معاينة" style="max-width: 300px; border-radius: 0.5rem; border: 1px solid var(--border-color, #e5e7eb);"/>
+                <div style="margin-top: 0.75rem; font-size: 0.875rem; color: var(--text-light, #6b7280);">
+                    ${state.uploadedFile.name}<br>
+                    ${img.width} × ${img.height}px<br>
+                    ${formatSize(state.uploadedFile.size)}
+                </div>
+            </div>
+        `;
+    }
+
+    async function processImage() {
+        const vips = await VipsLoader.load();
+        const useVips = vips !== null;
+
+        const file = state.uploadedFile;
+        const format = formatSelect.value;
+        const quality = parseInt(qualitySlider.value);
+        const width = widthInput.value ? parseInt(widthInput.value) : null;
+        const height = heightInput.value ? parseInt(heightInput.value) : null;
+
+        if (useVips) {
+            console.log('[fast-convert] Using wasm-vips for conversion');
+        } else {
+            console.log('[fast-convert] Falling back to Canvas API');
+        }
+
+        try {
+            let resultBlob, resultUrl, resultWidth, resultHeight, resultFormat;
+
+            if (useVips) {
+                const arrayBuffer = await file.arrayBuffer();
+                const uint8Array = new Uint8Array(arrayBuffer);
+                const imgSource = vips.ImageSource.newFromBuffer(uint8Array);
+                const image = vips.Image.newFromSource(imgSource, '');
+                imgSource.delete();
+
+                let outputImage = image;
+
+                if (width || height) {
+                    const scale = width ? (width / image.width) : (height / image.height);
+                    outputImage = image.resize(scale, { kernel: 'linear' });
+                }
+
+                resultWidth = outputImage.width;
+                resultHeight = outputImage.height;
+
+                const extMap = { original: null, jpeg: '.jpg', png: '.png', webp: '.webp' };
+                const mimeMap = { original: null, jpeg: 'image/jpeg', png: 'image/png', webp: 'image/webp' };
+                const ext = extMap[format];
+                const mime = mimeMap[format];
+
+                if (ext && mime) {
+                    const options = format === 'jpeg' ? { Q: quality } : {};
+                    const outBuffer = outputImage.writeToBuffer(ext, options);
+                    resultBlob = new Blob([outBuffer], { type: mime });
+                    resultFormat = format.toUpperCase();
+                } else {
+                    const origExt = file.type === 'image/png' ? '.png' : '.jpg';
+                    const origMime = file.type === 'image/png' ? 'image/png' : 'image/jpeg';
+                    const options = file.type === 'image/jpeg' ? { Q: quality } : {};
+                    const outBuffer = outputImage.writeToBuffer(origExt, options);
+                    resultBlob = new Blob([outBuffer], { type: origMime });
+                    resultFormat = file.type === 'image/png' ? 'PNG' : 'JPEG';
+                }
+
+                if (outputImage !== image) outputImage.delete();
+                image.delete();
+            } else {
+                const result = await processWithCanvas(file, width, height, format, quality);
+                resultBlob = result.blob;
+                resultWidth = result.width;
+                resultHeight = result.height;
+
+                const mimeMap = { original: file.type, jpeg: 'image/jpeg', png: 'image/png', webp: 'image/webp' };
+                const formatNameMap = { original: file.type === 'image/png' ? 'PNG' : 'JPEG', jpeg: 'JPEG', png: 'PNG', webp: 'WebP' };
+                resultFormat = formatNameMap[format];
+            }
+
+            const resultSize = resultBlob.size;
+            resultUrl = URL.createObjectURL(resultBlob);
+
+            showResult(resultUrl, resultSize, resultWidth, resultHeight, resultFormat);
+        } catch (e) {
+            console.error('[fast-convert] Error processing image:', e);
+            alert('Failed to process image. Please try again.');
+        }
+    }
+
+    async function processWithCanvas(file, width, height, format, quality) {
+        return new Promise((resolve, reject) => {
+            loadImage(file).then(({ img }) => {
+                const canvas = document.createElement('canvas');
+
+                const targetWidth = width || img.width;
+                const targetHeight = height || img.height;
+
+                if (width && height) {
+                    canvas.width = width;
+                    canvas.height = height;
+                } else if (width) {
+                    const scale = width / img.width;
+                    canvas.width = width;
+                    canvas.height = Math.round(img.height * scale);
+                } else if (height) {
+                    const scale = height / img.height;
+                    canvas.width = Math.round(img.width * scale);
+                    canvas.height = height;
+                } else {
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                }
+
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                const mimeMap = { original: file.type, jpeg: 'image/jpeg', png: 'image/png', webp: 'image/webp' };
+                const outputType = mimeMap[format];
+                const qualityFraction = quality / 100;
+
+                canvas.toBlob(blob => {
+                    if (!blob) {
+                        reject(new Error('Canvas processing returned null blob'));
+                        return;
+                    }
+                    resolve({ blob, width: canvas.width, height: canvas.height });
+                }, outputType, outputType === 'image/jpeg' || outputType === 'image/webp' ? qualityFraction : undefined);
+            }).catch(reject);
+        });
+    }
+
+    function showResult(url, size, width, height, format) {
+        processingArea.style.display = 'none';
+        downloadSection.style.display = 'block';
+
+        document.getElementById('resultPreview').src = url;
+        document.getElementById('originalSize').textContent = formatSize(state.originalSize);
+        document.getElementById('resultSize').textContent = formatSize(size);
+        document.getElementById('originalDimensions').textContent = `${state.originalWidth} × ${state.originalHeight}`;
+        document.getElementById('resultDimensions').textContent = `${width} × ${height}`;
+        document.getElementById('resultFormat').textContent = format;
+
+        const sizeDiff = size - state.originalSize;
+        const sizeChangeEl = document.getElementById('sizeChange');
+        if (sizeDiff < 0) {
+            const percent = ((Math.abs(sizeDiff) / state.originalSize) * 100).toFixed(1);
+            sizeChangeEl.innerHTML = `<span style="color: #10B981;">أصغر بمقدار ${formatSize(Math.abs(sizeDiff))} (${percent}%)</span>`;
+        } else if (sizeDiff > 0) {
+            const percent = ((sizeDiff / state.originalSize) * 100).toFixed(1);
+            sizeChangeEl.innerHTML = `<span style="color: #F59E0B;">أكبر بمقدار ${formatSize(sizeDiff)} (${percent}%)</span>`;
+        } else {
+            sizeChangeEl.innerHTML = `<span style="color: var(--text-light, #6b7280);">نفس الحجم</span>`;
+        }
+
+        state.resultUrl = url;
+        state.resultSize = size;
+        state.resultFormat = format;
+    }
+
+    function formatSize(bytes) {
+        if (bytes === 0) return '0 B';
+        const k = 1024;
+        const sizes = ['B', 'KB', 'MB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return (bytes / Math.pow(k, i)).toFixed(1) + ' ' + sizes[i];
+    }
+
+    function download() {
+        const a = document.createElement('a');
+        a.href = state.resultUrl;
+
+        const extMap = { JPEG: 'jpg', PNG: 'png', WEBP: 'webp' };
+        const ext = extMap[state.resultFormat] || 'jpg';
+        const originalName = state.uploadedFile.name.replace(/\.[^/.]+$/, '');
+        a.download = `${originalName}_converted.${ext}`;
+
+        a.click();
+    }
+
+    function reset() {
+        state.uploadedFile = null;
+        state.originalSize = 0;
+        state.originalWidth = 0;
+        state.originalHeight = 0;
+        state.originalType = '';
+        state.resultUrl = null;
+        fileInput.value = '';
+        qualitySlider.value = 92;
+        qualityValue.textContent = '92';
+        document.querySelector('.quality-value').textContent = '92%';
+        formatSelect.value = 'original';
+        widthInput.value = '';
+        heightInput.value = '';
+        processingArea.style.display = 'none';
+        downloadSection.style.display = 'none';
+        uploadArea.style.display = 'block';
+    }
+</script>
+
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>
