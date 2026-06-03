@@ -591,6 +591,27 @@ wasm-vips 不包含 libraw，RAW 解码需要独立实现：
 
 ---
 
+## 翻译方案: 三步流水线（所有 0.5.5 子任务共用）
+
+**根因：** deepseek-chat 输出 token 上限不足以一次性生成 700 行翻译 HTML（失败率 75%）。纯文本翻译 JSON 输出仅 ~3000 tokens（成功率 100%）。
+
+**因此采用提取→翻译→注入三步流水线：**
+
+| 步 | 谁做 | 内容 | 耗时 | 输出 token |
+|----|------|------|------|-----------|
+| 1 | 管理者（脚本） | 从 EN HTML 提取所有需翻译文本为 JSON | 3s | 0（本地脚本） |
+| 2 | 子代理（delegate_task） | 翻译 JSON 文本为目标语言 | ~18s | ~3000（不超限） |
+| 3 | 管理者（脚本） | 从 EN HTML 复制副本，注入翻译文本 | 3s | 0（本地脚本） |
+
+**关键规则（来自 0.5.5a 实践经验）：**
+- Step 2 只翻译纯文本（标题、描述、FAQ、按钮、预设、alert 消息）——不操作 HTML/JS/CSS
+- Step 3 基于 EN 模板（不是 zh 模板）注入——避免中日汉字混写问题
+- Step 3 使用精确字符串匹配（正则或直接替换）——不依赖模糊匹配
+- 每语言结束后抽样检查：标题、一条 FAQ、一个内容段落
+- 如果某语言 Step 2 输出有质量问题，只重复 Step 2（Step 1 和 3 不变）
+
+---
+
 ## Task 0.5.5a: zh 翻译（标杆）
 
 **委托内容：**
@@ -605,50 +626,93 @@ wasm-vips 不包含 libraw，RAW 解码需要独立实现：
 ## Task 0.5.5b: ja 翻译（串行）
 
 **委托内容：**
-- 翻译 4 个工具页为日文
+- 三步流水线翻译 4 个工具页为日文
 - `<html lang="ja">`
+- Canonical: `https://picete.com/ja/...`
 - 写入 ja/avif-to-png/index.html 等
+
+**内容段落翻译质量检查（管理者抽样）：**
+- 标题正确
+- 一条 FAQ Q&A 翻译合理
+- 一个内容段落无中日混写
+- JS alert 已翻译
 
 ---
 
 ## Task 0.5.5c: de 翻译（串行）
 
 **委托内容：**
-- 翻译 4 个工具页为德文
+- 三步流水线翻译 4 个工具页为德文
+- `<html lang="de">`
+- Canonical: `https://picete.com/de/...`
 - 写入 de/avif-to-png/index.html 等
+
+**内容段落翻译质量检查（管理者抽样）：**
+- 标题正确
+- 一条 FAQ Q&A 翻译合理
+- JS alert 已翻译
 
 ---
 
 ## Task 0.5.5d: fr 翻译（串行）
 
 **委托内容：**
-- 翻译 4 个工具页为法文
+- 三步流水线翻译 4 个工具页为法文
+- `<html lang="fr">`
+- Canonical: `https://picete.com/fr/...`
 - 写入 fr/avif-to-png/index.html 等
+
+**内容段落翻译质量检查（管理者抽样）：**
+- 标题正确
+- 一条 FAQ Q&A 翻译合理
+- JS alert 已翻译
 
 ---
 
 ## Task 0.5.5e: es 翻译（串行）
 
 **委托内容：**
-- 翻译 4 个工具页为西班牙文
+- 三步流水线翻译 4 个工具页为西班牙文
+- `<html lang="es">`
+- Canonical: `https://picete.com/es/...`
 - 写入 es/avif-to-png/index.html 等
+
+**内容段落翻译质量检查（管理者抽样）：**
+- 标题正确
+- 一条 FAQ Q&A 翻译合理
+- JS alert 已翻译
 
 ---
 
 ## Task 0.5.5f: pt 翻译（串行）
 
 **委托内容：**
-- 翻译 4 个工具页为葡萄牙文
+- 三步流水线翻译 4 个工具页为葡萄牙文
+- `<html lang="pt">`
+- Canonical: `https://picete.com/pt/...`
 - 写入 pt/avif-to-png/index.html 等
+
+**内容段落翻译质量检查（管理者抽样）：**
+- 标题正确
+- 一条 FAQ Q&A 翻译合理
+- JS alert 已翻译
 
 ---
 
 ## Task 0.5.5g: ar 翻译（RTL 处理，串行）
 
 **委托内容：**
-- 翻译 4 个工具页为阿拉伯文
+- 三步流水线翻译 4 个工具页为阿拉伯文
 - `<html lang="ar">` + `dir="rtl"`
+- Canonical: `https://picete.com/ar/...`
+- 写入 ar/avif-to-png/index.html 等
 - 确保 RTL 布局正常
+
+**内容段落翻译质量检查（管理者抽样）：**
+- 标题正确
+- 一条 FAQ Q&A 翻译合理
+- JS alert 已翻译
+- 页面包含 `dir="rtl"`
 
 ---
 
