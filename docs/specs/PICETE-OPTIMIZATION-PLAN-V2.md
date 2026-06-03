@@ -755,5 +755,213 @@ wasm-vips 不包含 libraw，RAW 解码需要独立实现：
 
 ---
 
+# RAW 支持 — 方案 C（自编译 wasm-vips + libraw）
+
+## 决策背景
+
+2026-06-03 用户决策：
+| 选择 | 结论 |
+|------|------|
+| RAW 方案 | C（自编译 wasm-vips 加入 libraw）- 最后突破 |
+| AVIF/RAW 优先级 | 先做 AVIF 并完成，RAW 后续 |
+
+**AVIF 方案（Phase 0.5）已于 2026-06-03 全部完成。** 以下是 RAW 的完整执行计划。
+
+## 技术可行性
+
+wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项：
+1. 第 274 行：`--disable-raw-api` — glib 编译时禁用 raw API
+2. 第 534 行：`-Draw=disabled` — libvips 编译时禁用 raw 支持
+
+**方案 C 需要：**
+1. 从源码编译 wasm-vips（Docker 构建，Emscripten 工具链）
+2. 修改 build.sh：移除 `--disable-raw-api` 和 `-Draw=disabled`
+3. 加入 libraw 依赖
+4. 生成自定义 `vips.wasm`，替换 js/lib/ 下的文件
+
+## 禁止范围（Out of Scope）
+
+- ❌ 不做 libraw-wasm 独立方案（方案 A）——除非方案 C 验证失败
+- ❌ 不做 MCP Sharp 后端解码（方案 B）
+- ❌ RAW 批量转换 UI
+- ❌ EXIF 元数据可视化编辑器
+- ❌ MCP 工具的扩展
+
+## 实现阶段
+
+### Phase 0：环境准备与调研（2 个 Task）
+
+#### Task 0.0.0: Docker 环境确认 + 标准构建验证
+
+**委托内容：**
+- 检查 `docker --version`，确认 Docker 已安装
+- 检查磁盘空间（>20GB 可用）
+- Fork/Clone wasm-vips 仓库：`git clone https://github.com/kleisauke/wasm-vips.git`
+- 不改 build.sh，先跑一次标准构建：`docker build -t wasm-vips .`
+- 记录构建耗时、日志中的关键步骤
+- 验证产物：`docker run --rm -v $(pwd):/output wasm-vips` 生成 vips.wasm
+
+**验证：** `ls vips.wasm` 存在且 > 1MB
+
+**预计耗时：** 30-60 分钟（单次构建）
+
+---
+
+#### Task 0.0.1: 修改 build.sh 启用 libraw
+
+**委托内容：**
+- 修改 build.sh 第 274 行：移除 `--disable-raw-api`
+- 修改 build.sh 第 534 行：`-Draw=disabled` → `-Draw=enabled`
+- 可能需要：`apt-get install libraw-dev` 或添加 libraw 源码依赖
+- 启动构建：`docker build -t wasm-vips-raw .`
+- 生成自定义 vips.wasm
+
+**验证：** `node -e "const vips=require('wasm-vips'); (async()=>{const v=await vips(); const cfg=v.config(); console.log(cfg.raw)})()"` 显示 raw 支持为 true
+
+**预计耗时：** 多次构建（30-60 分钟/次），可能需要调试依赖问题
+
+---
+
+### Phase 1：验证（3 个 Task）
+
+#### Task 1.1: Node.js RAW 解码验证
+
+**委托内容：**
+- 用新编译的 wasm-vips 在 Node.js 中测试 RAW 解码
+- 测试格式：CR2 / NEF / ARW / DNG（至少 4 种常见 RAW）
+- 对比指标：解码时间、输出像素质量
+- 产出报告：`docs/reports/RAW-POC-REPORT.md`
+
+**验证：** RAW 文件 decode → writeToBuffer('.jpg') → 输出的 JPG 可正常打开
+
+**预计耗时：** 1 天
+
+---
+
+#### Task 1.2: 浏览器 RAW 解码验证
+
+**委托内容：**
+- 将新编译的 vips.wasm 复制到 `js/lib/` 目录
+- 创建浏览器测试页面：`scripts/test/raw-decoding-poc.html`
+- 测试 RAW 文件拖入 → 解码 → Canvas 渲染
+- 记录 bundle 大小变化（核心 WASM 预期从 ~5.7MB 增加到 ~6.2-7.5MB）
+- 验证 COOP/COEP 兼容性
+
+**验证：** 浏览器中 RAW 文件上传后可见预览图
+
+**预计耗时：** 1 天
+
+---
+
+#### Task 1.3: 性能评估 + 决策
+
+**委托内容：**
+- 汇总 Phase 1 的测试数据：解码速度、bundle 大小、兼容性
+- 决策：继续 4 个 RAW 工具页？还是先做 1-2 个验证市场反应？
+- 更新 PROGRESS.md + feature_list.json
+
+**验证：** 决策文档记录完成
+
+**预计耗时：** 0.5 天
+
+---
+
+### Phase 2：工具页（4 个 Task，每个独立）
+
+#### Task 2.1: raw-to-jpg 工具页
+
+**委托内容：**
+- 创建 `raw-to-jpg/index.html`
+- 参照 `avif-to-png/index.html` 的交互模式
+- 标题："RAW to JPG Converter"
+- 标注支持的 RAW 格式列表（CR2, NEF, ARW, DNG, RW2, ORF）
+- wasm-vips 解码 RAW + writeToBuffer('.jpg')（Canvas 降级路径）
+- 引用 js/vips-loader.js
+- 使用 js/main.js 的通用逻辑
+
+**验证：** `make verify` 通过，页面可见 UI
+
+**预计耗时：** 1 小时
+
+---
+
+#### Task 2.2: raw-to-png 工具页
+
+- 参照 Task 2.1
+- wasm-vips 解码 RAW + writeToBuffer('.png')
+
+**预计耗时：** 1 小时
+
+---
+
+#### Task 2.3: raw-to-webp 工具页
+
+- wasm-vips 解码 RAW + writeToBuffer('.webp')
+
+**预计耗时：** 1 小时
+
+---
+
+#### Task 2.4: raw-to-avif 工具页
+
+- wasm-vips 解码 RAW + writeToBuffer('.avif', { Q: quality })
+- 依赖 AVIF 编码能力（已验证）
+
+**预计耗时：** 1 小时
+
+---
+
+### Phase 3：翻译（7 个 Task，串行）
+
+复用 AVIF 的三步流水线方案（详见上文"翻译方案: 三步流水线"）。
+
+顺序：zh → ja → de → fr → es → pt → ar（ar 需 dir="rtl"）
+
+每语言 4 个工具页（raw-to-jpg / raw-to-png / raw-to-webp / raw-to-avif）。
+
+**预计总耗时：** ~30 分钟/语言 = 3.5 小时
+
+---
+
+### Phase 4：入口 + sitemap（1 个 Task）
+
+#### Task 4.0: 首页入口 + sitemap + feature_list
+
+**委托内容：**
+- 8 首页（en + 7 语言）tool grid + footer 增加 RAW 工具入口
+- sitemap 扩容 +32 条（4 RAW 工具 × 8 语言）
+- feature_list.json 增加 4 个 RAW 工具条目
+- Makefile EN_ONLY 处理
+- PROGRESS.md 标记 Phase 完成
+
+**验证：** `make verify` 通过，sitemap 包含 RAW URL
+
+**预计耗时：** 30 分钟
+
+---
+
+## 总计
+
+| Phase | Task 数 | 工期估计 |
+|-------|---------|---------|
+| 0 — 环境/编译 | 2 | 2-3 天（含编译等待） |
+| 1 — 验证 | 3 | 1-2 天 |
+| 2 — 工具页 | 4 | 1-2 天 |
+| 3 — 翻译 | 7 | ~3.5 小时 |
+| 4 — 入口/sitemap | 1 | 30 分钟 |
+| **合计** | **17** | **~5-8 天** |
+
+## 风险评估
+
+| 风险 | 概率 | 影响 | 缓解 |
+|------|------|------|------|
+| 自编译 wasm-vips 依赖问题（libraw 编译失败） | 中 | 高 | 回退方案 A（libraw-wasm） |
+| 编译后 bundle 过大（>10MB） | 中 | 中 | 评估浏览器首次加载时间，考虑懒加载 |
+| RAW 解码速度过慢（>5s 每张） | 低 | 中 | 增加降采样策略，预览图用小尺寸 |
+| 新 vips.wasm 与现有 COOP/COEP 配置冲突 | 低 | 高 | P0 POC 已验证 COOP/COEP 路径级配置有效 |
+| Docker 环境不可用或无 root 权限 | 低 | 高 | 方案 A 回退，绕开 Docker 依赖 |
+
+---
+
 *文档位置: `picete/docs/specs/PICETE-OPTIMIZATION-PLAN-V2.md`*
-*更新: 2026-06-03 V2.3 — 修正 RAW 方案（wasm-vips 不含 libraw），改为 libraw-wasm 独立方案*
+*更新: 2026-06-03 V2.4 — 新增 RAW 支持（方案 C）执行计划，17 个 Task 细粒度拆解*
