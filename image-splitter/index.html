@@ -13,6 +13,7 @@
       gtag('js', new Date());
       gtag('config', 'G-H72N80TEBW');
     </script>
+<script src="/js/vips-loader.js"></script>
 <meta content="Free online image grid splitter. Slice any photo into a grid for Instagram, carousel, or puzzle layouts. Custom rows, columns, and formats. 100% free, no registration, local processing." name="description"/>
 <meta content="image grid splitter, photo slicer, instagram grid maker, split image into grid, photo grid maker, online image splitter" name="keywords"/>
 <link href="https://picete.com/image-splitter/" rel="canonical"/>
@@ -624,11 +625,12 @@
             </div>`;
         }
 
-        function splitImage() {
+        async function splitImage() {
             const cols = parseInt(colsInput.value) || 3;
             const rows = parseInt(rowsInput.value) || 3;
             const format = formatSelect.value;
             const img = state.image.img;
+            const file = state.image.file;
             const sliceW = Math.floor(img.width / cols);
             const sliceH = Math.floor(img.height / rows);
             const addGap = gapCheckbox.checked;
@@ -639,31 +641,80 @@
 
             state.slices = [];
 
+            // Try to load wasm-vips
+            const vips = await VipsLoader.load();
+            const useVips = vips !== null;
+
+            let vipsImage = null;
+            if (useVips) {
+                try {
+                    const arrayBuffer = await file.arrayBuffer();
+                    const uint8Array = new Uint8Array(arrayBuffer);
+                    const imgSource = vips.ImageSource.newFromBuffer(uint8Array);
+                    vipsImage = vips.Image.newFromSource(imgSource, '');
+                    imgSource.delete();
+                } catch (e) {
+                    console.warn('wasm-vips load failed, falling back to Canvas:', e);
+                    vipsImage = null;
+                }
+            }
+
+            const gap = addGap ? 2 : 0;
+
             for (let r = 0; r < rows; r++) {
                 for (let c = 0; c < cols; c++) {
-                    const canvas = document.createElement('canvas');
-                    const gap = addGap ? 2 : 0;
-                    canvas.width = sliceW - gap;
-                    canvas.height = sliceH - gap;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(img, c * sliceW + gap / 2, r * sliceH + gap / 2, sliceW - gap, sliceH - gap, 0, 0, sliceW - gap, sliceH - gap);
-
-                    const dataUrl = canvas.toDataURL(mime);
+                    const x = c * sliceW + gap / 2;
+                    const y = r * sliceH + gap / 2;
+                    const w = sliceW - gap;
+                    const h = sliceH - gap;
                     const name = `slice-${r + 1}-${c + 1}.${extMap[format]}`;
 
-                    // Convert dataURL to blob
-                    const byteString = atob(dataUrl.split(',')[1]);
-                    const ab = new ArrayBuffer(byteString.length);
-                    const ia = new Uint8Array(ab);
-                    for (let i = 0; i < byteString.length; i++) ia[i] = byteString.charCodeAt(i);
-                    const blob = new Blob([ab], { type: mime });
-                    const url = URL.createObjectURL(blob);
+                    let blob, url;
+
+                    if (vipsImage) {
+                        try {
+                            const cropped = vipsImage.crop(x, y, w, h);
+                            const ext = '.' + extMap[format];
+                            const options = format === 'jpeg' ? { Q: 85 } : {};
+                            const outBuffer = cropped.writeToBuffer(ext, options);
+                            cropped.delete();
+                            blob = new Blob([outBuffer], { type: mime });
+                            url = URL.createObjectURL(blob);
+                        } catch (e) {
+                            console.warn(`wasm-vips crop failed for ${name}, using Canvas fallback:`, e);
+                            const result = await splitWithCanvas(img, x, y, w, h, mime);
+                            blob = result.blob;
+                            url = result.url;
+                        }
+                    } else {
+                        const result = await splitWithCanvas(img, x, y, w, h, mime);
+                        blob = result.blob;
+                        url = result.url;
+                    }
 
                     state.slices.push({ url, blob, name, row: r, col: c });
                 }
             }
 
+            if (vipsImage) {
+                vipsImage.delete();
+            }
+
             showResults();
+        }
+
+        async function splitWithCanvas(img, x, y, w, h, mime) {
+            const canvas = document.createElement('canvas');
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, x, y, w, h, 0, 0, w, h);
+            return new Promise((resolve) => {
+                canvas.toBlob((blob) => {
+                    const url = URL.createObjectURL(blob);
+                    resolve({ blob, url });
+                }, mime);
+            });
         }
 
         function showResults() {
