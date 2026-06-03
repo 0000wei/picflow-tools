@@ -78,7 +78,7 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 |- [x] 0.3.1 创建 fast-convert 完整页面（含交互逻辑）— via Claude Code (f0df6ab)
 |- [x] 0.3.2 fast-convert 7 语言翻译 — via delegate_task (09ccd90)
 |- [x] 0.3.3 首页入口链接更新 — 8 语言首页 (28d16f9)
-|- [ ] 0.3.4 更新 sitemap + feature_list
+|- [x] 0.3.4 更新 sitemap + feature_list — 329 URLs, tool-039
 
 **P0.5 — AVIF + RAW 支持（共 8 个 Task）**
 - [ ] 0.5.1 创建 avif-to-png 工具页
@@ -114,9 +114,9 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 
 | 指标 | 数值 |
 |------|------|
-| 工具总数 (EN) | 37 |
+| 工具总数 (EN) | 40 |
 | 翻译语言 | 7 (zh/ja/de/fr/es/pt/ar) |
-| 翻译页面数 | 266 |
-| 总页面数 | 306 |
-| Sitemap URL 数 | 321 |
+| 翻译页面数 | 280 |
+| 总页面数 | 329 |
+| Sitemap URL 数 | 329 |
 | Git 提交数 | 76 |

@@ -328,9 +328,17 @@
     "status": "complete"
   },
   {
+    "id": "tool-039",
+    "name": "fast-convert",
+    "description": "Fast Image Converter — convert, resize and compress images in one click",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
     "id": "seo-001",
     "name": "sitemap",
-    "description": "XML sitemap with 313 URLs (39 EN tools + 7 lang homepages + 267 lang tool pages)",
+    "description": "XML sitemap with 329 URLs (40 EN tools + 7 lang homepages + 274 lang tool pages)",
     "type": "infrastructure",
     "languages": ["en"],
     "status": "complete"
