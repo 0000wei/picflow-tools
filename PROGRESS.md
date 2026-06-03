@@ -103,7 +103,7 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 2. **跨站点链接**：之前存在跨站点 footer 链接（已于 2026-05-25 移除，遵循哥飞 SEO 指导）
 3. **语言切换器**：历史上有浏览器自动重定向问题（2026-05-26 修复为用户选择模式）
 4. **测试覆盖率**：脚本目录下有一些审计/修复脚本，但缺少自动化集成测试
-5. **V2 优化计划未提交**：docs/specs/PICETE-OPTIMIZATION-PLAN-V2.md + docs/archive/P02-AVIF-RAW-SPEC-OLD.md 等待用户确认后 commit
+5. **等待用户确认后 commit 的 SPEC 文档**：docs/specs/PICETE-OPTIMIZATION-PLAN-V2.md + docs/specs/PICETE-ROADMAP.md
 
 ---
 
@@ -115,5 +115,5 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 | 翻译语言 | 7 (zh/ja/de/fr/es/pt/ar) |
 | 翻译页面数 | 266 |
 | 总页面数 | 306 |
-| Sitemap URL 数 | 313 |
-| Git 提交数 | 74 |
+| Sitemap URL 数 | 321 |
+| Git 提交数 | 76 |
