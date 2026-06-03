@@ -11,7 +11,7 @@ TOOL_DIRS := $(shell cd "$(PROJ_ROOT)" && for d in */; do \
   done)
 
 # ── EN-only directories (NOT expected in lang mirror) ──────────────────────────
-EN_ONLY := mcp-guide
+EN_ONLY :=
 
 # ── Language directories ──────────────────────────────────────────────────────
 LANG_DIRS := zh ja de fr es pt ar

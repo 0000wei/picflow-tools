@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>دليل تكامل PicEte MCP — الاستخدام من Claude وCursor وأي وكيل ذكاء اصطناعي</title>
+    <meta name="description" content="تعلم كيفية دمج أدوات معالجة الصور من PicEte في سير عمل الذكاء الاصطناعي الخاص بك عبر MCP. يعمل مع Claude Code وCursor وClaude Desktop وأي عميل متوافق مع MCP.">
+    <link rel="canonical" href="https://picete.com/ar/mcp-guide/">
+
+    <!-- Schema.org TechArticle -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "name": "دليل تكامل PicEte MCP",
+        "headline": "استخدام PicEte من Claude وCursor وأي وكيل ذكاء اصطناعي",
+        "description": "دليل خطوة بخطوة لتكامل خادم PicEte MCP لمعالجة الصور محليًا في سير عمل الذكاء الاصطناعي.",
+        "url": "https://picete.com/ar/mcp-guide/"
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1f2937; background: #fff; }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .subtitle { font-size: 1.1rem; color: #6b7280; margin-bottom: 2rem; }
+        h2 { font-size: 1.4rem; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e5e7eb; }
+        h3 { font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        p { margin-bottom: 1rem; }
+        ul, ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        a { color: #2563eb; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        code { background: #f3f4f6; padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
+        pre { background: #1e293b; color: #e2e8f0; padding: 1rem; border-radius: 8px; overflow-x: auto; margin-bottom: 1rem; font-size: 0.85rem; line-height: 1.5; }
+        pre code { background: none; padding: 0; color: inherit; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+        th, td { text-align: left; padding: 0.75rem; border: 1px solid #e5e7eb; }
+        th { background: #f9fafb; font-weight: 600; }
+        .example-table td:first-child { font-style: italic; color: #6b7280; }
+        .example-table td:last-child { font-family: monospace; font-size: 0.9rem; }
+        .back-link { display: inline-block; margin-top: 2rem; padding: 0.5rem 1rem; background: #2563eb; color: #fff; border-radius: 6px; font-weight: 500; }
+        .back-link:hover { opacity: 0.9; text-decoration: none; }
+        .npm-badge { display: inline-block; background: #cb3837; color: #fff; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; }
+        .platform-tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .platform-tab { background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 6px; padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 500; cursor: default; }
+        .platform-tab.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+        @media (max-width: 768px) {
+            .container { padding: 1.5rem 1rem; }
+            h1 { font-size: 1.5rem; }
+            table { font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>دليل تكامل PicEte MCP</h1>
+        <p class="subtitle">استخدم أدوات معالجة الصور من PicEte من Claude Code وCursor وClaude Desktop أو أي عميل ذكاء اصطناعي متوافق مع MCP.</p>
+
+        <h2>ما هو MCP؟</h2>
+        <p><strong>بروتوكول سياق النموذج (MCP)</strong> هو معيار مفتوح يسمح لوكلاء الذكاء الاصطناعي (مثل Claude Code وCursor) باستدعاء الأدوات الخارجية مباشرة. مع <code>picete-mcp</code>، يمكن للذكاء الاصطناعي الخاص بك معالجة الصور — ضغط، تحويل، تغيير الحجم، استخراج الألوان — <strong>دون مغادرة الطرفية ودون تحميل أي شيء إلى أي خادم</strong>.</p>
+        <p>جميع المعالجة تتم محليًا عبر <strong>Sharp</strong>. لا تغادر أي بيانات جهازك. نفس ضمان الخصوصية كما في <a href="https://picete.com">PicEte</a>.</p>
+
+        <h2>بداية سريعة</h2>
+        <p>قم بالتثبيت والتشغيل بأمر واحد (لا حاجة للتسجيل، ولا حاجة لتكوين للاختبار):</p>
+        <pre><code>npx -y picete-mcp</code></pre>
+        <p><span class="npm-badge">npm</span> الحزمة: <a href="https://www.npmjs.com/package/picete-mcp">picete-mcp@1.0.0</a></p>
+
+        <h2>تكوين المنصات</h2>
+        <p>أضف ما يلي إلى تكوين MCP لعميل الذكاء الاصطناعي الخاص بك:</p>
+
+        <h3>Claude Desktop</h3>
+        <p>قم بتحرير <code>claude_desktop_config.json</code>:</p>
+        <pre><code>{
+  "mcpServers": {
+    "picete": {
+      "command": "npx",
+      "args": ["-y", "picete-mcp"]
+    }
+  }
+}</code></pre>
+
+        <h3>Cursor</h3>
+        <p>قم بتحرير <code>.cursor/mcp.json</code> في جذر مشروعك:</p>
+        <pre><code>{
+  "mcpServers": {
+    "picete": {
+      "command": "npx",
+      "args": ["-y", "picete-mcp"]
+    }
+  }
+}</code></pre>
+
+        <h3>Claude Code</h3>
+        <p>قم بتحرير <code>~/.claude/settings.json</code>:</p>
+        <pre><code>{
+  "mcpServers": {
+    "picete": {
+      "command": "npx",
+      "args": ["-y", "picete-mcp"]
+    }
+  }
+}</code></pre>
+
+        <h2>الأدوات المتاحة</h2>
+        <p>يوفر picete-mcp <strong>13 أداة</strong> في فئتين:</p>
+
+        <h3>الأدوات الذرية</h3>
+        <table>
+            <thead>
+                <tr><th>الأداة</th><th>الوظيفة</th><th>المعاملات الرئيسية</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>convert</code></td><td>تحويل التنسيق</td><td>source, format (jpeg/png/webp/gif), quality</td></tr>
+                <tr><td><code>resize</code></td><td>تغيير حجم الصورة</td><td>source, width, height, fit, keep_aspect_ratio</td></tr>
+                <tr><td><code>compress</code></td><td>ضغط حجم الملف</td><td>source, quality, target_format, max_size_bytes</td></tr>
+                <tr><td><code>extract-colors</code></td><td>استخراج الألوان السائدة</td><td>source, color_count (الافتراضي 5)</td></tr>
+                <tr><td><code>image-to-base64</code></td><td>تحويل إلى base64/رابط بيانات</td><td>source, format, data_url</td></tr>
+                <tr><td><code>split-image</code></td><td>تقسيم إلى شبكة من المربعات</td><td>source, rows, cols, overlap_px</td></tr>
+                <tr><td><code>metadata</code></td><td>الحصول على بيانات الصورة الوصفية</td><td>source</td></tr>
+                <tr><td><code>batch</code></td><td>تسلسل عمليات متعددة</td><td>sources[], operations[]</td></tr>
+            </tbody>
+        </table>
+
+        <h3>الأدوات الذكية</h3>
+        <table>
+            <thead>
+                <tr><th>الأداة</th><th>الوظيفة</th><th>المعاملات الرئيسية</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>optimize-for-web</code></td><td>تحسين الويب بنقرة واحدة</td><td>source, max_width, quality, output_format</td></tr>
+                <tr><td><code>prepare-for-vision-api</code></td><td>معالجة مسبقة لرؤية الذكاء الاصطناعي + تقدير الرموز</td><td>source, max_longest_side, quality</td></tr>
+                <tr><td><code>favicon</code></td><td>إنشاء مجموعة أيقونات المفضلة (ico + png)</td><td>source, output_dir</td></tr>
+                <tr><td><code>compare-images</code></td><td>مقارنة صورتين (MSE/SSIM/الفرق)</td><td>source1, source2, metric</td></tr>
+                <tr><td><code>collage</code></td><td>تجميع الصور معًا</td><td>sources[], direction, gap</td></tr>
+            </tbody>
+        </table>
+
+        <h2>أمثلة الاستخدام</h2>
+        <p>اسأل الذكاء الاصطناعي الخاص بك باللغة الطبيعية — سيقوم باستدعاء الأداة المناسبة تلقائيًا:</p>
+
+        <table class="example-table">
+            <thead>
+                <tr><th>أنت تقول</th><th>الأداة المستخدمة</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>"اضغط هذه الصورة إلى أقل من 200 كيلوبايت"</td><td>compress</td></tr>
+                <tr><td>"حول هذا PNG إلى WebP"</td><td>convert</td></tr>
+                <tr><td>"غير حجم هذه الصورة إلى عرض 1200 بكسل"</td><td>resize</td></tr>
+                <tr><td>"أنشئ جميع أحجام أيقونات المفضلة من هذا الشعار"</td><td>favicon</td></tr>
+                <tr><td>"ما هي الألوان الموجودة في هذه الصورة؟"</td><td>extract-colors</td></tr>
+                <tr><td>"حسن هذه الصورة لموقعي الإلكتروني"</td><td>optimize-for-web</td></tr>
+                <tr><td>"جهز هذه الصورة لـ GPT-4 Vision"</td><td>prepare-for-vision-api</td></tr>
+                <tr><td>"قسم هذه الصورة إلى شبكة 3×3"</td><td>split-image</td></tr>
+                <tr><td>"قارن بين هاتين اللقطتين"</td><td>compare-images</td></tr>
+                <tr><td>"احصل على البيانات الوصفية لهذه الصورة"</td><td>metadata</td></tr>
+                <tr><td>"اجمع هذه الصور أفقيًا"</td><td>collage</td></tr>
+                <tr><td>"حول هذا إلى base64"</td><td>image-to-base64</td></tr>
+                <tr><td>"غير حجم واضغط هذه الصور العشر دفعة واحدة"</td><td>batch</td></tr>
+            </tbody>
+        </table>
+
+        <h2>التطوير</h2>
+        <pre><code># Clone and build
+git clone https://github.com/0000wei/picete-mcp.git
+cd picete-mcp
+npm install
+npm run build
+
+# Start the MCP server
+npm start</code></pre>
+
+        <a href="https://picete.com/" class="back-link">← العودة إلى PicEte</a>
+        <p style="margin-top: 2rem; font-size: 0.85rem; color: #9ca3af;">مشغل بواسطة <a href="https://picete.com">PicEte</a> — أدوات معالجة صور مجانية على الإنترنت</p>
+    </div>
+</body>
+</html>
