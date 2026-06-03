@@ -90,6 +90,7 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 - [ ] 0.5.8 sitemap 扩容 + feature_list 更新
 
 ### 其他待办
+- [ ] **GA 自托管**：COEP require-corp 会阻塞 googletagmanager.com，需下载 gtag.js 到本地 /js/ 目录并改为同源引用
 - [ ] **SEO 插件集成**：当前无 analytics/Cookie 同意等
 - [ ] **OG 图片**：检查各语言页面的 OG meta 标签是否指向正确的语言对应图片
 - [ ] **性能优化**：检查大规模工具（extract-colors）的 client-side 性能
