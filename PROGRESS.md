@@ -76,7 +76,7 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 |- [x] 0.2.4 重写 split 核心逻辑（wasm-vips）— image-splitter via Claude Code (bc4ff19)
 **Phase 0.3: 极速模式入口**
 |- [x] 0.3.1 创建 fast-convert 完整页面（含交互逻辑）— via Claude Code (f0df6ab)
-|- [ ] 0.3.2 fast-convert 7 语言翻译
+|- [x] 0.3.2 fast-convert 7 语言翻译 — via delegate_task (09ccd90)
 |- [ ] 0.3.3 首页入口链接更新
 |- [ ] 0.3.4 更新 sitemap + feature_list
 
