@@ -372,7 +372,7 @@
     "name": "avif-to-png",
     "description": "Convert AVIF images to PNG format using wasm-vips decoding",
     "type": "tool",
-    "languages": ["en"],
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
     "status": "complete"
   },
   {
@@ -380,7 +380,7 @@
     "name": "png-to-avif",
     "description": "Convert PNG to AVIF format with fast encoding and maximum compression presets",
     "type": "tool",
-    "languages": ["en"],
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
     "status": "complete"
   },
   {
@@ -388,7 +388,7 @@
     "name": "jpg-to-avif",
     "description": "Convert JPG images to AVIF format with fast encoding and maximum compression presets",
     "type": "tool",
-    "languages": ["en"],
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
     "status": "complete"
   },
   {
@@ -396,7 +396,7 @@
     "name": "webp-to-avif",
     "description": "Convert WebP images to AVIF format with fast encoding and maximum compression presets",
     "type": "tool",
-    "languages": ["en"],
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
     "status": "complete"
   }
 ]
