@@ -13,6 +13,7 @@
       gtag('js', new Date());
       gtag('config', 'G-H72N80TEBW');
     </script>
+<script src="/js/vips-loader.js"></script>
 <meta content="Free online image compressor tool. Smartly compress images to reduce file size. Maintain high quality, supports batch compression, no registration required, local processing for privacy." name="description"/>
 <meta content="image compressor, image compression, online compressor, batch compression, reduce file size, free tool" name="keywords"/>
 <link href="https://picete.com/compress-image/" rel="canonical"/>
@@ -546,21 +547,40 @@
             `).join('');
         }
 
-        function compressImages() {
+        async function compressImages() {
             const quality = parseInt(qualitySlider.value) / 100;
             state.compressedImages = [];
             let processed = 0;
 
-            state.uploadedFiles.forEach((file, i) => {
-                loadImage(file).then(({ img }) => {
-                    const canvas = document.createElement('canvas');
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(img, 0, 0);
+            // 尝试加载 wasm-vips
+            const vips = await VipsLoader.load();
+            const useVips = vips !== null;
 
-                    const outputType = file.type === 'image/png' ? 'image/png' : 'image/jpeg';
-                    canvas.toBlob(blob => {
+            if (useVips) {
+                console.log('[compress-image] Using wasm-vips for compression');
+            } else {
+                console.log('[compress-image] Falling back to Canvas API');
+            }
+
+            for (let i = 0; i < state.uploadedFiles.length; i++) {
+                const file = state.uploadedFiles[i];
+
+                try {
+                    if (useVips) {
+                        // === wasm-vips 路径 ===
+                        const arrayBuffer = await file.arrayBuffer();
+                        const uint8Array = new Uint8Array(arrayBuffer);
+
+                        const image = vips.Image.newFromBuffer(uint8Array);
+
+                        // 确定输出格式和质量参数
+                        const isPng = file.type === 'image/png';
+                        const ext = isPng ? '.png' : '.jpg';
+                        const outputBuffer = isPng
+                            ? image.writeToBuffer(ext, {})
+                            : image.writeToBuffer(ext, { Q: Math.round(quality * 100) });
+
+                        const blob = new Blob([outputBuffer.buffer], { type: isPng ? 'image/png' : 'image/jpeg' });
                         const url = URL.createObjectURL(blob);
                         const originalSize = state.originalSizes[i];
                         const compressedSize = blob.size;
@@ -575,9 +595,89 @@
                             saved,
                             percent
                         };
-                        if (++processed === state.uploadedFiles.length) displayDownloads();
-                    }, outputType, quality);
-                });
+                    } else {
+                        // === Canvas 回退路径 ===
+                        const result = await compressWithCanvas(file, quality);
+                        const originalSize = state.originalSizes[i];
+                        const compressedSize = result.blob.size;
+                        const saved = originalSize - compressedSize;
+                        const percent = ((saved / originalSize) * 100).toFixed(1);
+
+                        state.compressedImages[i] = {
+                            url: result.url,
+                            name: file.name,
+                            size: compressedSize,
+                            originalSize,
+                            saved,
+                            percent
+                        };
+                    }
+                } catch (err) {
+                    console.error('[compress-image] Error compressing file:', file.name, err);
+                    // 如果 wasm-vips 失败，回退到 Canvas
+                    try {
+                        const result = await compressWithCanvas(file, quality);
+                        const originalSize = state.originalSizes[i];
+                        const compressedSize = result.blob.size;
+                        const saved = originalSize - compressedSize;
+                        const percent = ((saved / originalSize) * 100).toFixed(1);
+
+                        state.compressedImages[i] = {
+                            url: result.url,
+                            name: file.name,
+                            size: compressedSize,
+                            originalSize,
+                            saved,
+                            percent
+                        };
+                    } catch (fallbackErr) {
+                        console.error('[compress-image] Fallback also failed:', fallbackErr);
+                        state.compressedImages[i] = {
+                            url: null,
+                            name: file.name,
+                            size: 0,
+                            originalSize: state.originalSizes[i],
+                            saved: 0,
+                            percent: '0.0'
+                        };
+                    }
+                }
+
+                processed++;
+                if (processed === state.uploadedFiles.length) {
+                    displayDownloads();
+                }
+            }
+        }
+
+        // Canvas 回退压缩函数（原有逻辑）
+        function compressWithCanvas(file, quality) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0);
+
+                        const outputType = file.type === 'image/png' ? 'image/png' : 'image/jpeg';
+                        canvas.toBlob(blob => {
+                            if (!blob) {
+                                reject(new Error('Canvas compression returned null blob'));
+                                return;
+                            }
+                            const url = URL.createObjectURL(blob);
+                            resolve({ blob, url });
+                        }, outputType, quality);
+                    };
+                    img.onerror = () => reject(new Error('Failed to load image for Canvas'));
+                    img.src = e.target.result;
+                };
+                reader.onerror = () => reject(new Error('Failed to read file for Canvas'));
+                reader.readAsDataURL(file);
             });
         }
 
