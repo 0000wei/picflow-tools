@@ -74,7 +74,7 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 |- [x] 0.2.2 重写 compress 核心逻辑（wasm-vips）— v1: bf7d6c8 / v2(browser API fix): bd3c1b5
 |- [x] 0.2.3 重写 resize 核心逻辑（wasm-vips）— via Claude Code (09fb6fa)
 |- [x] 0.2.4 重写 split 核心逻辑（wasm-vips）— image-splitter via Claude Code (bc4ff19)
-|- [ ] 0.2.5 评估取色/Base64（替换 vs 保留 Canvas）
+|- [x] 0.2.5 评估取色/Base64（替换 vs 保留 Canvas）— ❌ 不替换，评估报告见 docs/reports/PHASE0.2-TASK0.2.5-ASSESSMENT.md
 |- [ ] 0.3.1 创建 fast-convert HTML 骨架
 |- [ ] 0.3.2 fast-convert 交互逻辑实现
 |- [ ] 0.3.3 fast-convert 多语言翻译 + sitemap
