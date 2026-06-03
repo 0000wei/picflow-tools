@@ -591,24 +591,68 @@ wasm-vips 不包含 libraw，RAW 解码需要独立实现：
 
 ---
 
-## Task 0.5.6: 7 语言翻译（zh + ja 先跑）
+## Task 0.5.5a: zh 翻译（标杆）
 
 **委托内容：**
-- 翻译 avif-to-png / png-to-avif / raw-to-jpg 等 zh 版本
-- zh 翻译（质量标杆）
-- ja 翻译
+- 翻译 avif-to-png / png-to-avif / jpg-to-avif / webp-to-avif 共 4 页的中文版本
+- zh 翻译为质量标杆
+- 写入 zh/avif-to-png/index.html 等
+
+**验证：** curl zh/avif-to-png/ HTTP 200
 
 ---
 
-## Task 0.5.7: 剩余 5 语言翻译（并行）
+## Task 0.5.5b: ja 翻译（串行）
 
 **委托内容：**
-- de/fr/es/pt/ar 翻译
-- 每语言 8 页，5 个独立子代理
+- 翻译 4 个工具页为日文
+- `<html lang="ja">`
+- 写入 ja/avif-to-png/index.html 等
 
 ---
 
-## Task 0.5.8: sitemap 扩容 + feature_list 更新
+## Task 0.5.5c: de 翻译（串行）
+
+**委托内容：**
+- 翻译 4 个工具页为德文
+- 写入 de/avif-to-png/index.html 等
+
+---
+
+## Task 0.5.5d: fr 翻译（串行）
+
+**委托内容：**
+- 翻译 4 个工具页为法文
+- 写入 fr/avif-to-png/index.html 等
+
+---
+
+## Task 0.5.5e: es 翻译（串行）
+
+**委托内容：**
+- 翻译 4 个工具页为西班牙文
+- 写入 es/avif-to-png/index.html 等
+
+---
+
+## Task 0.5.5f: pt 翻译（串行）
+
+**委托内容：**
+- 翻译 4 个工具页为葡萄牙文
+- 写入 pt/avif-to-png/index.html 等
+
+---
+
+## Task 0.5.5g: ar 翻译（RTL 处理，串行）
+
+**委托内容：**
+- 翻译 4 个工具页为阿拉伯文
+- `<html lang="ar">` + `dir="rtl"`
+- 确保 RTL 布局正常
+
+---
+
+## Task 0.5.6: 首页入口链接更新
 
 **委托内容：**
 - sitemap 扩容 8 × 8 = 64 条

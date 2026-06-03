@@ -358,5 +358,13 @@
     "type": "infrastructure",
     "languages": ["en"],
     "status": "complete"
+  },
+  {
+    "id": "infra-006",
+    "name": "ga-self-hosted",
+    "description": "GA gtag.js self-hosted locally for COEP require-corp compatibility",
+    "type": "infrastructure",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
   }
 ]

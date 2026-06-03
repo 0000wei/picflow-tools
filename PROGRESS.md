@@ -80,15 +80,21 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 |- [x] 0.3.3 首页入口链接更新 — 8 语言首页 (28d16f9)
 |- [x] 0.3.4 更新 sitemap + feature_list — 329 URLs, tool-039
 
-**P0.5 — AVIF + RAW 支持（共 8 个 Task）**
-- [ ] 0.5.1 创建 avif-to-png 工具页
-- [ ] 0.5.2 创建 png-to-avif 工具页
-- [ ] 0.5.3 创建 jpg-to-avif + webp-to-avif 工具页
-- [ ] 0.5.4 创建 raw-to-jpg + raw-to-png 工具页
-- [ ] 0.5.5 创建 raw-to-webp + raw-to-avif 工具页
-- [ ] 0.5.6 7 语言翻译（zh + ja 先跑）
-- [ ] 0.5.7 剩余 5 语言翻译（并行）
-- [ ] 0.5.8 sitemap 扩容 + feature_list 更新
+|**P0.5 — AVIF + RAW 支持（共 14 个 Task）**
+|- [x] **0.5.0** GA 自托管 — 下载 gtag.js 到 js/，所有 106 个 HTML 改为同源引用 (b24b0c5)
+|- [ ] 0.5.1 创建 avif-to-png 工具页
+|- [ ] 0.5.2 创建 png-to-avif 工具页
+|- [ ] 0.5.3 创建 jpg-to-avif 工具页
+|- [ ] 0.5.4 创建 webp-to-avif 工具页
+|- [ ] 0.5.5a zh 翻译（标杆）
+|- [ ] 0.5.5b ja 翻译（串行）
+|- [ ] 0.5.5c de 翻译（串行）
+|- [ ] 0.5.5d fr 翻译（串行）
+|- [ ] 0.5.5e es 翻译（串行）
+|- [ ] 0.5.5f pt 翻译（串行）
+|- [ ] 0.5.5g ar 翻译（RTL 处理，串行）
+|- [ ] 0.5.6 首页入口链接更新 — 8 首页 + footer 增加 AVIF 工具入口
+|- [ ] 0.5.7 更新 sitemap + feature_list
 
 ### 其他待办
 - [ ] **GA 自托管**：COEP require-corp 会阻塞 googletagmanager.com，需下载 gtag.js 到本地 /js/ 目录并改为同源引用
