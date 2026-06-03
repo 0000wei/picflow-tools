@@ -31,6 +31,7 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 - [x] 深色模式（深靛蓝黑色背景，暖色文本，logo 适配）
 - [x] 语言选择器：用户选择而非自动重定向（SEO 友好）
 - [x] P1 多语言 — 7 语言 mcp-guide 翻译完成并部署（2026-06-03）
+- [x] P0 POC — wasm-vips 技术验证完成（2026-06-03）：AVIF ✅ RAW ❌(libraw-wasm) 单线程⚠️ 见 POC 报告
 - [x] AI Toolz Dir 外链（独立 footer 行）
 
 ---
