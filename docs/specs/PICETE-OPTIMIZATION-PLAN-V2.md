@@ -849,130 +849,150 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ---
 
-#### Task 0.5.9: 首次 RAW 构建（v1：config() 通过）
+#### Task 0.5.9: 首次 RAW 构建 — 重新规划（V2）
 
-**2026-06-04 执行结果：** 16 次构建后 config() 显示 `RAW load with libraw_r: true`，但实际 RAW 解码测试（Task 0.5.10）发现 7 种 RAW 文件中只有 CR2 和 NEF 通过，ARW/DNG/CR3 失败。不符合质量要求。
+**目标：** 自编译 wasm-vips + libraw，确保 **Canon/Nikon/Sony/Adobe DNG 四家主流 RAW 格式可靠解码**。
 
-**回溯根因：** 验证标准只检查了 `vips.config()` 字符串，没有用实际 RAW 文件测试。这是 V 子系统的失败。
+**2026-06-04 复盘（V1 失败原因）：**
+1. 验证标准只检查了 `vips.config()` 字符串，没有用实际 RAW 文件测试
+2. ARW（Sony α7III）存在不稳定问题：同一相机不同 ARW 文件有时能解有时不能
+3. DNG 受网络限制未及时验证
+4. 误将"一次成功"当作"问题已修复"
 
-**因此将 Task 0.5.9 重新拆解为以下子任务：**
-
----
-
-#### Task 0.5.9a: WASM 内存扩容 — 解决 CR3/large RAW 的 Unsufficient memory
-
-**目标：** 解决 Emscripten WASM heap 内存不足问题。当前默认 256MB，20MP+ RAW 解码超出。
-
-**委托内容：**
-- 修改 build.sh 中 emcc 链接参数，在 JS bindings 编译阶段（`meson setup $DEPS/wasm-vips`）或直接修改 emcc 的链接 flags
-- 在 `build.sh` 的配置区域增加：
-  ```bash
-  # 增加 WASM 内存上限，支持大 RAW 文件解码
-  export EMCC_CFLAGS="-s ALLOW_MEMORY_GROWTH=1 -s TOTAL_MEMORY=512MB"
-  ```
-- 或者直接在 meson 编译命令中加
-- 重新构建并测试 sample.cr2（10.9MB，之前报 Unsufficient memory）
-
-**验证：** `node scripts/test/raw-decoding-test.mjs` 中 sample.cr2 不再报 `Unsufficient memory`，解码成功
-
-**预计耗时：** 1-2 次构建（30-60 分钟/次）
+**V2 拆解为以下 Task：**
 
 ---
 
-#### Task 0.5.9b: 修复 ARW 解码（JPEG 编码阶段错误）
+#### Task 0.5.9a: 解决 WASM 内存不足 + 修复主流 RAW 解码
 
-**目标：** ARW（Sony α7III）解码后 JPEG 编码时出错，错误信息 `unable to call VipsForeignSaveJpegTarget` 和 `dcrawload: unable to build image: Unknown error code`。
-
-**可能根因：**
-1. LibRaw 在 Emscripten 下解码 ARW 后输出的像素格式与 vips 的 JPEG 编码器不兼容
-2. 缺少某些 libraw 导出符号
-3. ARW 中的特殊元数据导致 libraw 解码流程卡死
+**目标：** 确保 Canon CR2/CR3、Nikon NEF、Sony ARW、Adobe DNG 全部解码成功，且结果稳定。
 
 **委托内容：**
-1. 用自编译的 vips 在 Node.js 中单独测试 ARW 解码（不经过 vips 的 foreign save）：
-   ```javascript
-   const image = vips.Image.newFromFile('/path/to/arw');
-   console.log('width:', image.width, 'height:', image.height, 'bands:', image.bands);
-   // 尝试直接 writeToBuffer('.jpg')
-   const buf = image.writeToBuffer('.jpg', { Q: 85 });
+1. **内存修复**（已验证可行）：在 `src/meson.build` 中添加：
    ```
-2. 如果 decode 失败，分析 libraw 返回的错误码
-3. 可能需要修改 CMakeLists.txt 中的 libraw 编译选项
+   '-sALLOW_MEMORY_GROWTH',
+   '-sMAXIMUM_MEMORY=2GB',
+   ```
+2. **稳定性修复**：排查并修复 vladhdv_dsc03380.arw（Sony α7III v4.01）解码不稳定的根因
+   - 分别测试 3 次该文件，记录每次的 decode 时间和输出大小
+   - 如果 JS heap 不足，尝试在 Node.js 中 `--max-old-space-size=8192`
+   - 如果 wasm-vips 的内存碎片化，尝试在每次 decode 后 GC（`global.gc()` 需 `--expose-gc`）
+   - 如果问题是特定固件版本的 ARW 压缩差异，记录到已知限制
+3. **构建并测试以下 RAW 文件**（每文件跑 3 次，取最差结果）：
 
-**验证：** `dsc1756.arw` 解码成功
+   | 品牌 | 文件 | 大小 | 要求 |
+   |------|------|------|------|
+   | Canon | 0c0a0435.cr2 | 26MB | 3 次均成功 |
+   | Canon | CR3 | 8.7MB | 3 次均成功 |
+   | Nikon | NEF (Z6) | 26MB | 3 次均成功 |
+   | Nikon | NEF (other) | 27MB | 3 次均成功 |
+   | Sony | dsc1756.arw | 24MB | 3 次均成功 |
+   | Sony | vladhdv_dsc03380.arw | 24MB | 3 次均成功 |
+   | Adobe | sample.dng | 6MB | 3 次均成功 |
 
-**预计耗时：** 1-2 次构建
+**硬性验证标准：** 以上 7 个文件各跑 3 次，21 次测试全部 PASS
+**如果任何文件失败：** 记录失败模式和频率，更新以上清单
 
----
-
-#### Task 0.5.9c: 修复 DNG 支持
-
-**目标：** DNG 解码显示 `Unsupported file format or not RAW file`。libraw 支持 DNG，但可能在 Emscripten 下需要特定配置。
-
-**委托内容：**
-1. 确认 CMakeLists.txt 中的 DISABLE_DNG=OFF（已经是 OFF）
-2. 检查 libraw 的 DNG 解码是否依赖外部库（如 JPEG 解码 DNG 预览图）
-3. 测试其他 DNG 文件（如果 DNG 变体失败）
-4. 可能需要在 libraw 编译时增加 `-DDISABLE_DNG=OFF`（已经默认）
-
-**验证：** 至少一个 DNG 文件解码成功
-
-**预计耗时：** 1-2 次构建
-
----
-
-#### Task 0.5.9d: 批量 RAW 验证（最终验收）
-
-**目标：** 用 7 个 RAW 文件全面验证修复结果。
-
-**委托内容：**
-1. 用 `node scripts/test/raw-decoding-test.mjs` 跑全部 RAW 文件
-2. 至少 4 种不同格式（CR2、NEF、ARW、DNG）解码成功
-3. 记录每格式的解码时间和输出质量
-4. 如果仍有失败的格式，记录具体限制
-
-**验证标准（硬性要求）：**
-- CR2：✅ 通过
-- NEF：✅ 通过
-- ARW：✅ 通过
-- DNG：✅ 通过（至少一种 DNG 变体）
-- CR3：尽力（canonical 支持可能有限）
-- 大文件（>20MB）：不报 Unsufficient memory
-
-**预计耗时：** 1 小时
-
-**调试记录：** 完整 16 次构建历程详见 `docs/reports/RAW-BUILD-LOG.md`
+**预计耗时：** 1-2 次构建 + 稳定性排查
 
 ---
 
-### Phase 0.5-B：验证（3 个 Task）
+#### Task 0.5.9b: 生成 RAW 兼容性清单
 
-#### Task 0.5.10: Node.js RAW 解码验证
+**目标：** 明确记录 4 家主流的兼容状态 + 其他格式的实验性标注。
 
 **委托内容：**
-- 用新编译的 wasm-vips 在 Node.js 中测试 RAW 解码
-- 测试格式：CR2 / NEF / ARW / DNG（至少 4 种常见 RAW）
-- 对比指标：解码时间、输出像素质量
-- 产出报告：`docs/reports/RAW-POC-REPORT.md`
+1. 用 `node scripts/test/raw-decoding-test.mjs` 跑所有可用 RAW 测试文件
+2. 生成兼容性矩阵表格（格式模板）：
 
-**验证：** RAW 文件 decode → writeToBuffer('.jpg') → 输出的 JPG 可正常打开
+   | 品牌 | 格式 | 已验证机型 | 结果 | 稳定性 | 备注 |
+   |------|------|-----------|------|--------|------|
+   | Canon | CR2 | EOS 5D Mark IV | ✅ | 稳定 | — |
+   | Canon | CR3 | EOS R6 | ✅ | 稳定 | — |
+   | Nikon | NEF | Z6 | ✅ | 稳定 | — |
+   | Sony | ARW | α7III (ILCE-7M3) | ⚠️ | 不稳定 | v4.01 固件有时失败 |
+   | Adobe | DNG | Canon EOS 350D 转换 | ✅ | 稳定 | — |
 
-**预计耗时：** 1 天
+3. **实验性格式标签：** 以下格式标记为"实验性（未验证）"：RAF, RW2, ORF, PEF, PTX, RAW, RWL, X3F, 3FR, IIQ, KDC, DCR, MRW, SRW, MEF, MOS, ERF, BAY, R3D, BRAW
+4. 将兼容性矩阵写入 `docs/reports/RAW-COMPATIBILITY.md`
+
+**验证：** 兼容性报告文件存在且格式完整
+
+**预计耗时：** 30 分钟
 
 ---
 
-#### Task 0.5.11: 浏览器 RAW 解码验证
+#### Task 0.5.9c: 产出 RAW 构建和测试报告
+
+**目标：** 汇总全部构建和测试经验，产出完整文档。
 
 **委托内容：**
-- 将新编译的 vips.wasm 复制到 `js/lib/` 目录
-- 创建浏览器测试页面：`scripts/test/raw-decoding-poc.html`
-- 测试 RAW 文件拖入 → 解码 → Canvas 渲染
-- 记录 bundle 大小变化（核心 WASM 预期从 ~5.7MB 增加到 ~6.2-7.5MB）
-- 验证 COOP/COEP 兼容性
+1. 更新 `docs/reports/RAW-BUILD-LOG.md` — 追加 V2 构建的迭代记录
+2. 创建 `docs/reports/RAW-POC-REPORT.md` — 正式 POC 报告，包含：
+   - 技术方案：自编译 wasm-vips + libraw
+   - 构建统计：总迭代次数、关键修复点
+   - 兼容性矩阵（引用 RAW-COMPATIBILITY.md）
+   - 性能数据：各格式解码时间、输出质量
+   - 已知限制：不稳定的机型/固件、不支持的特殊格式
+   - bundle 大小变化：5.89MB → ~5.8MB
+
+**验证：** 2 份报告文件存在且内容完整
+
+**预计耗时：** 30 分钟
+
+---
+
+### Phase 0.5-B：浏览器端验证（1 个 Task）
+
+#### Task 0.5.10: 浏览器 RAW 解码验证
+
+**目标：** 将自编译 wasm-vips 部署到 PicEte 项目的 js/lib/ 目录，在浏览器中验证 RAW 解码。
+
+**前置条件：** Task 0.5.9a-0.5.9c 全部完成
+
+**委托内容：**
+1. 将 `/tmp/wasm-vips/lib/` 下的全部 WASM 文件复制到 `picete/js/lib/`：
+   - `vips.wasm`（核心，5.8MB）
+   - `vips-heif.wasm`（HEIC/AVIF 动态模块）
+   - `vips-jxl.wasm`（JPEG XL 动态模块）
+   - `vips-resvg.wasm`（SVG 动态模块）
+2. 验证替换后 `make verify` 通过（检查 js/lib/ 目录结构）
+3. 创建浏览器测试页面 `scripts/test/raw-decoding-poc.html`：
+   - 加载 `vips-loader.js`（已存在）
+   - 上传 RAW 文件 → 解码 → Canvas 渲染预览
+   - 测试 3 种格式（CR2, NEF, ARW）
+4. 验证 COOP/COEP header 兼容性（已有配置）
 
 **验证：** 浏览器中 RAW 文件上传后可见预览图
 
 **预计耗时：** 1 天
+
+---
+
+### Phase 0.5-C：工具页 + 翻译 + 入口（待 0.5.10 验证后启动）
+
+#### Task 0.5.11: raw-to-jpg 工具页（第一个 RAW 工具）
+
+**前置条件：** Task 0.5.10 验证通过
+
+**委托内容：**
+- 创建 `raw-to-jpg/index.html`
+- 参照 `png-to-jpg/index.html` 的交互模式
+- 标题："RAW to JPG Converter"
+- 标注支持的 RAW 格式（引用兼容性矩阵）
+- wasm-vips 解码 RAW + writeToBuffer('.jpg')
+- 引用 js/vips-loader.js
+- 大文件显示 loading 状态（WASM 解码可能需要几秒）
+
+**验证：** `make verify` 通过
+
+**预计耗时：** 1 小时
+
+---
+
+#### Task 0.5.12 — 0.5.17: raw-to-png / raw-to-webp / raw-to-avif + 7 语言翻译 + 入口/sitemap
+
+（与 AVIF Phase 0.5 复用相同模式，待 0.5.11 完成后依次推进）
 
 ---
 
