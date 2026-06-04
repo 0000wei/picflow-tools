@@ -942,38 +942,90 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ---
 
-### Phase 0.5-B：浏览器端验证（1 个 Task）
+### Phase 0.5-B：浏览器端验证（3 个 Task）
 
-#### Task 0.5.10: 浏览器 RAW 解码验证
+#### Task 0.5.10: 单线程 WASM 编译（方案 B）
 
-**目标：** 将自编译 wasm-vips 部署到 PicEte 项目的 js/lib/ 目录，在浏览器中验证 RAW 解码。
+**背景：** 之前的多线程（pthread）版本在浏览器中创建 6 个 worker 线程，CPU 满载且加载卡死。经诊断：Emscripten 多线程 WASM 依赖 SharedArrayBuffer + COOP/COEP 头，且需内置降级检测。单线程版本不依赖 worker，加载稳定且兼容更广的浏览器环境。对于单张图片解码场景，单线程性能足够。
 
-**前置条件：** Task 0.5.9a-0.5.9c 全部完成
+**目标：** 重新编译 wasm-vips（单线程模式，不含 -pthread），验证 RAW 解码在浏览器中可用。
 
 **委托内容：**
-1. 将 `/tmp/wasm-vips/lib/` 下的全部 WASM 文件复制到 `picete/js/lib/`：
-   - `vips.wasm`（核心，5.8MB）
-   - `vips-heif.wasm`（HEIC/AVIF 动态模块）
-   - `vips-jxl.wasm`（JPEG XL 动态模块）
-   - `vips-resvg.wasm`（SVG 动态模块）
-2. 验证替换后 `make verify` 通过（检查 js/lib/ 目录结构）
-3. 创建浏览器测试页面 `scripts/test/raw-decoding-poc.html`：
-   - 加载 `vips-loader.js`（已存在）
-   - 上传 RAW 文件 → 解码 → Canvas 渲染预览
-   - 测试 3 种格式（CR2, NEF, ARW）
-4. 验证 COOP/COEP header 兼容性（已有配置）
+1. **修改 `src/meson.build`**：
+   - 移除 pthread 相关编译参数（`-pthread`、`-sALLOW_MEMORY_GROWTH`、`-sMAXIMUM_MEMORY`）
+   - 确保 `-sMALLOC=mimalloc` 保留（单线程也受益于此）
+   - 确保 INITIAL_MEMORY 设为 1GB（大 RAW 文件解码需要）
 
-**验证：** 浏览器中 RAW 文件上传后可见预览图
+2. **修改 `build.sh` 中的环境变量**：
+   - 确保 `ENVIRONMENT=web`（不需要 Node.js 版本）
+   - 移除 `CFLAGS` 和 `CXXFLAGS` 中的 `-pthread -fwasm-exceptions`
 
-**预计耗时：** 1 天
+3. **重新构建**：
+   ```bash
+   rm -f /tmp/wasm-vips/build/target/lib/pkgconfig/vips.pc
+   sg docker -c "docker run --rm --name wasm-vips-single --network host \
+     -v /tmp/wasm-vips:/src \
+     -e HTTP_PROXY=http://127.0.0.1:7897 \
+     -e HTTPS_PROXY=http://127.0.0.1:7897 \
+     wasm-vips"
+   ```
+
+4. **替换 js/lib/ 下的文件**：
+   - `vips.wasm`、`vips-heif.wasm`、`vips-jxl.wasm`、`vips-resvg.wasm`
+   - `vips.js`、`vips-es6.js`
+
+5. **验证**：
+   - `make verify` 通过
+   - `vips-loader.js` 加载后 `window.Vips` 可用
+   - `crossOriginIsolated` 不再是硬性要求
+
+**验证：** `node -e "const v=require('/tmp/wasm-vips/lib/vips-node.js'); (async()=>{const vv=await v(); console.log(vv.config())})()"` 显示 `RAW load with libraw_r: true`
+
+**预计耗时：** 1-2 次构建（30-60 分钟/次）
 
 ---
 
-### Phase 0.5-C：工具页 + 翻译 + 入口（待 0.5.10 验证后启动）
+#### Task 0.5.11: 浏览器 RAW 解码页面测试
 
-#### Task 0.5.11: raw-to-jpg 工具页（第一个 RAW 工具）
+**前置条件：** Task 0.5.10 完成
 
-**前置条件：** Task 0.5.10 验证通过
+**委托内容：**
+1. 启动本地 HTTP server（带 COOP/COEP header）
+2. 打开浏览器测试页面 `scripts/test/raw-decoding-poc.html`
+3. 用 CDP 或手动方式验证：
+   - wasm-vips 加载成功 ✅（显示 ready 状态）
+   - RAW support 确认 ✅
+   - 上传 CR2/NEF/ARW/DNG 文件能解码并显示预览图
+4. 记录：解码时间、输出质量、浏览器兼容性
+
+**验证：** 浏览器中 RAW 文件上传后可见预览图
+
+**预计耗时：** 1 小时
+
+---
+
+#### Task 0.5.12: 性能评估 + 决策
+
+**前置条件：** Task 0.5.11 完成
+
+**委托内容：**
+1. 对比单线程 vs 之前多线程的 RAW 解码性能
+2. 确认 bundle 大小变化（预期单线程版本更小）
+3. 记录 COOP/COEP 依赖变化（单线程不再需要）
+4. 决策：继续 4 个 RAW 工具页？还是先做 1-2 个验证市场反应？
+5. 更新 PROGRESS.md + feature_list.json
+
+**验证：** 决策文档记录完成
+
+**预计耗时：** 30 分钟
+
+---
+
+### Phase 0.5-C：工具页 + 翻译 + 入口（待 0.5.12 决策后启动）
+
+#### Task 0.5.13: raw-to-jpg 工具页（第一个 RAW 工具）
+
+**前置条件：** Task 0.5.12 决策通过
 
 **委托内容：**
 - 创建 `raw-to-jpg/index.html`
@@ -990,9 +1042,9 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ---
 
-#### Task 0.5.12 — 0.5.17: raw-to-png / raw-to-webp / raw-to-avif + 7 语言翻译 + 入口/sitemap
+#### Task 0.5.14 — 0.5.19: raw-to-png / raw-to-webp / raw-to-avif + 7 语言翻译 + 入口/sitemap
 
-（与 AVIF Phase 0.5 复用相同模式，待 0.5.11 完成后依次推进）
+（与 AVIF Phase 0.5 复用相同模式，待 0.5.13 完成后依次推进）
 
 ---
 
