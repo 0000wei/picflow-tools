@@ -110,6 +110,8 @@ async function main() {
 
       // Clean up
       if (typeof image.close === 'function') image.close();
+      // Force GC to prevent WASM heap fragmentation
+      if (typeof global !== 'undefined' && global.gc) global.gc();
     } catch (err) {
       status = 'FAIL';
       errorMsg = err.message;
