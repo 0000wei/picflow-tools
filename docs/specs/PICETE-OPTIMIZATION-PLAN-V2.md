@@ -807,18 +807,89 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ---
 
-#### Task 0.0.1: 修改 build.sh 启用 libraw
+#### Task 0.0.1: 检查 libraw 版本 + 添加版本变量到 build.sh
+
+**目标：** 确认 libraw 版本并添加到 build.sh 版本变量区，不涉及编译。
 
 **委托内容：**
-- 修改 build.sh 第 274 行：移除 `--disable-raw-api`
-- 修改 build.sh 第 534 行：`-Draw=disabled` → `-Draw=enabled`
-- 可能需要：`apt-get install libraw-dev` 或添加 libraw 源码依赖
-- 启动构建：`docker build -t wasm-vips-raw .`
-- 生成自定义 vips.wasm
+- 确认 libraw 最新稳定版（搜索 GitHub releases：`https://github.com/LibRaw/LibRaw/releases`）
+- 在 build.sh 的版本变量区（~第 178-200 行的 `VERSION_*` 区域）新增一行：
+  ```bash
+  VERSION_RAW=0.21.3    # https://github.com/LibRaw/LibRaw
+  ```
+- 在依赖清单函数（~第 205-225 行的 `dep_versions_json()`）中新增：
+  ```bash
+  printf "  \"raw\": \"${VERSION_RAW}\",\n";
+  ```
 
-**验证：** `node -e "const vips=require('wasm-vips'); (async()=>{const v=await vips(); const cfg=v.config(); console.log(cfg.raw)})()"` 显示 raw 支持为 true
+**不做的：**
+- 不改 `--disable-raw-api` 和 `-Draw=disabled`
+- 不添加编译步骤
+- 不启动构建
 
-**预计耗时：** 多次构建（30-60 分钟/次），可能需要调试依赖问题
+**验证：** `grep 'VERSION_RAW' /tmp/wasm-vips/build.sh` 返回新版本行
+
+**预计耗时：** 5 分钟
+
+---
+
+#### Task 0.0.2: 添加 libraw Emscripten 编译步骤到 build.sh（第一版）
+
+**目标：** 在 build.sh 中添加 libraw 的交叉编译代码块，参照 libheif 的已有模式。
+
+**委托内容：**
+- 在 build.sh 中、其他依赖编译块之后（在 libheif 编译块之后，vips 编译之前）添加 libraw 编译块：
+  ```bash
+  [ -f "$TARGET/lib/pkgconfig/libraw_r.pc" ] || (
+    stage "Compiling libraw"
+    mkdir $DEPS/raw
+    curl -Ls https://github.com/LibRaw/LibRaw/archive/refs/tags/$VERSION_RAW.tar.gz | tar xzC $DEPS/raw --strip-components=1
+    cd $DEPS/raw
+    # 参照 libheif 的 emcmake 模式
+    emcmake cmake -B_build -S. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$TARGET \
+      -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTING=OFF -DCMAKE_C_FLAGS="$CFLAGS -O3" \
+      -DCMAKE_CXX_FLAGS="$CXXFLAGS -O3"
+    make -C _build install
+  )
+  ```
+
+**注意：** 这个编译块是第一版尝试。cmake 参数可能需要根据构建失败日志调整。
+
+**不做的：**
+- 不改 `--disable-raw-api` 和 `-Draw=disabled`（下次 Task 改）
+- 不启动构建
+
+**验证：** `grep -c 'Compiling libraw' /tmp/wasm-vips/build.sh` ≥ 1
+
+**预计耗时：** 10 分钟
+
+---
+
+#### Task 0.0.3: 启用 RAW 开关 + 首次 RAW 构建
+
+**目标：** 修改 2 处编译开关，启动首次带 RAW 的完整构建。
+
+**委托内容：**
+1. 修改 build.sh 第 274 行：移除 `--disable-raw-api`
+2. 修改 build.sh 第 534 行：`-Draw=disabled` → `-Draw=enabled`
+3. 启动构建：
+   ```bash
+   sg docker -c "docker run --rm --name wasm-vips-raw --network host \
+     -v /tmp/wasm-vips:/src \
+     -e HTTP_PROXY=http://127.0.0.1:7897 \
+     -e HTTPS_PROXY=http://127.0.0.1:7897 \
+     wasm-vips" 2>&1
+   ```
+
+**如果构建失败：** 分析日志，调整 libraw 编译块参数（cmake flags、依赖顺序等），重跑。每次 30-60 分钟。
+
+**验证：** `node -e "const v=require('/tmp/wasm-vips/lib/vips-node.js'); (async()=>{const vv=await v(); console.log(vv.config())})()"` 输出包含 `RAW load with libraw: true`
+
+**预计耗时：** 1-3 次构建调试（30-60 分钟/次）
+
+---
+
+**失败回退方案：** 如果 3 次构建后仍无法启用 libraw，暂停方案 C，重新评估。
 
 ---
 
