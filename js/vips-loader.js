@@ -33,12 +33,18 @@ const VipsLoader = {
         return null;
       }
 
-      // 加载 wasm-vips（通过 Vips 全局变量，由 vips.js 设置）
-      // vips.js 是 Emscripten 编译产物，加载后暴露全局 Vips 函数
+      // 加载 wasm-vips
+      // 优先从 window.Vips（由 es6 module 或 script 设置）
+      // 如果没有，尝试通过动态 import() 加载 es6 版本
       var Vips = window.Vips;
       if (!Vips) {
-        // 如果 vips.js 通过 <script> 加载会自动设置 window.Vips
-        throw new Error('vips.js not loaded — ensure <script src="/js/lib/vips.js"> is included');
+        try {
+          // Try dynamic import of vips-es6.js
+          Vips = (await import('/js/lib/vips-es6.js')).default;
+          console.log('[VipsLoader] vips-es6 loaded via dynamic import');
+        } catch (importErr) {
+          throw new Error('vips.js not loaded — ensure <script src="/js/lib/vips.js"> is included. Dynamic import also failed: ' + importErr.message);
+        }
       }
 
       var vips = await Vips();
