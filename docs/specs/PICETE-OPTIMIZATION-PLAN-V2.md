@@ -875,6 +875,8 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 **失败回退方案：** 如果 3 次构建后仍无法启用 libraw，暂停方案 C，重新评估。
 
+**调试记录：** 完整 16 次构建历程详见 `docs/reports/RAW-BUILD-LOG.md`
+
 ---
 
 ### Phase 0.5-B：验证（3 个 Task）
