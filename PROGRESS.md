@@ -101,19 +101,19 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 
 | Phase | Task | 内容 | 状态 |
 |-------|------|------|------|
-| 0 | 0.0.0 | Docker 环境确认 + 标准构建验证 | ✅ |
-| 0 | 0.0.1 | 检查 libraw 版本 + 添加版本变量到 build.sh | ⏳ |
-| 0 | 0.0.2 | 添加 libraw Emscripten 编译步骤到 build.sh | ⏳ |
-| 0 | 0.0.3 | 启用 RAW 开关 + 首次 RAW 构建（1-3 次调试） | ⏳ |
-| 1 | 1.1 | Node.js RAW 解码验证 | ⏳ |
-| 1 | 1.2 | 浏览器 RAW 解码验证 | ⏳ |
-| 1 | 1.3 | 性能评估 + 决策 | ⏳ |
-| 2 | 2.1 | raw-to-jpg 工具页 | ⏳ |
-| 2 | 2.2 | raw-to-png 工具页 | ⏳ |
-| 2 | 2.3 | raw-to-webp 工具页 | ⏳ |
-| 2 | 2.4 | raw-to-avif 工具页 | ⏳ |
-| 3 | — | 7 语言翻译（三步流水线） | ⏳ |
-| 4 | 4.0 | 首页入口 + sitemap + feature_list | ⏳ |
+| 0.5-A | 0.5.0 | Docker 环境确认 + 标准构建验证 | ✅ |
+| 0.5-A | 0.5.7 | 检查 libraw 版本 + 添加版本变量到 build.sh | ⏳ |
+| 0.5-A | 0.5.8 | 添加 libraw Emscripten 编译步骤到 build.sh | ⏳ |
+| 0.5-A | 0.5.9 | 启用 RAW 开关 + 首次 RAW 构建（1-3 次调试） | ⏳ |
+| 0.5-B | 0.5.10 | Node.js RAW 解码验证 | ⏳ |
+| 0.5-B | 0.5.11 | 浏览器 RAW 解码验证 | ⏳ |
+| 0.5-B | 0.5.12 | 性能评估 + 决策 | ⏳ |
+| 0.5-C | 0.5.13 | raw-to-jpg 工具页 | ⏳ |
+| 0.5-C | 0.5.14 | raw-to-png 工具页 | ⏳ |
+| 0.5-C | 0.5.15 | raw-to-webp 工具页 | ⏳ |
+| 0.5-C | 0.5.16 | raw-to-avif 工具页 | ⏳ |
+| 0.5-D | — | 7 语言翻译（三步流水线） | ⏳ |
+| 0.5-E | 0.5.17 | 首页入口 + sitemap + feature_list | ⏳ |
 
 - [ ] **GA 自托管**：COEP require-corp 会阻塞 googletagmanager.com，需下载 gtag.js 到本地 /js/ 目录并改为同源引用
 - [ ] **SEO 插件集成**：当前无 analytics/Cookie 同意等

@@ -164,7 +164,7 @@ P5 (测试闭环) → P1 (mcp-guide翻译) → P0 (wasm-vips) → P0.5 (AVIF+RAW
 
 # P1: mcp-guide 多语言翻译
 
-## Task 1.1: 翻译 mcp-guide 为中文
+## Task 0.5.10: 翻译 mcp-guide 为中文
 
 **委托内容：**
 - 读取 `mcp-guide/index.html`（179行）
@@ -183,7 +183,7 @@ P5 (测试闭环) → P1 (mcp-guide翻译) → P0 (wasm-vips) → P0.5 (AVIF+RAW
 
 ---
 
-## Task 1.2: 翻译 mcp-guide 为日文
+## Task 0.5.11: 翻译 mcp-guide 为日文
 
 **委托内容：**
 - 同上逻辑，翻译为日文
@@ -194,7 +194,7 @@ P5 (测试闭环) → P1 (mcp-guide翻译) → P0 (wasm-vips) → P0.5 (AVIF+RAW
 
 ---
 
-## Task 1.3: 翻译 mcp-guide 为德文
+## Task 0.5.12: 翻译 mcp-guide 为德文
 
 **委托内容：**
 - 同上，德文
@@ -254,7 +254,7 @@ P5 (测试闭环) → P1 (mcp-guide翻译) → P0 (wasm-vips) → P0.5 (AVIF+RAW
 
 # P0: wasm-vips 替换 Canvas API
 
-## Phase 0.1: POC 验证（6 步，每步一个独立 Task）
+## Phase 0.5-A.1: POC 验证（6 步，每步一个独立 Task）
 
 ### Task 0.1.1: npm 初始化 + 安装 wasm-vips
 
@@ -353,7 +353,7 @@ P5 (测试闭环) → P1 (mcp-guide翻译) → P0 (wasm-vips) → P0.5 (AVIF+RAW
 
 ---
 
-## Phase 0.2: 渐进替换（4 rounds，每 round 一个 Task）
+## Phase 0.5-A.2: 渐进替换（4 rounds，每 round 一个 Task）
 
 ### Task 0.2.1: 创建 js/vips-loader.js
 
@@ -421,7 +421,7 @@ P5 (测试闭环) → P1 (mcp-guide翻译) → P0 (wasm-vips) → P0.5 (AVIF+RAW
 
 ---
 
-## Phase 0.3: 极速模式入口
+## Phase 0.5-A.3: 极速模式入口
 
 ### Task 0.3.1: 创建 fast-convert 完整页面（含交互逻辑）
 
@@ -435,7 +435,7 @@ P5 (测试闭环) → P1 (mcp-guide翻译) → P0 (wasm-vips) → P0.5 (AVIF+RAW
 - 引用 js/vips-loader.js（wasm-vips 路径）
 - 引用 js/vips-loader.js（wasm-vips 路径，已存在）
 - 引用 js/main.js 的公共 UI 函数（formatSize、reset 等，如果适用）
-- wasm-vips + Canvas 双路径（与 Phase 0.2 已替换的 compress/resize 工具相同的模式）
+- wasm-vips + Canvas 双路径（与 Phase 0.5-A.2 已替换的 compress/resize 工具相同的模式）
 - 格式转换：JPG/PNG/WebP 互转（通过 writeToBuffer 的 ext 参数）
 - 缩放：image.resize(scale, { kernel: 'linear' })
 - 压缩：writeToBuffer('.jpg', { Q: quality })
@@ -479,7 +479,7 @@ P5 (测试闭环) → P1 (mcp-guide翻译) → P0 (wasm-vips) → P0.5 (AVIF+RAW
 - sitemap 扩容：增加 fast-convert/ + 7 语言版 = 8 条 URL
 - 运行 `bash scripts/seo/generate-sitemap.sh`
 - feature_list.json 增加条目（按照现有编号延续，参考 P0.5 Task 0.5.8 的格式）
-- PROGRESS.md 标记 Phase 0.3 完成
+- PROGRESS.md 标记 Phase 0.5-A.3 完成
 
 **验证：** `make verify` 通过，sitemap 包含 8 条 fast-convert 路径
 
@@ -765,7 +765,7 @@ wasm-vips 不包含 libraw，RAW 解码需要独立实现：
 | RAW 方案 | C（自编译 wasm-vips 加入 libraw）- 最后突破 |
 | AVIF/RAW 优先级 | 先做 AVIF 并完成，RAW 后续 |
 
-**AVIF 方案（Phase 0.5）已于 2026-06-03 全部完成。** 以下是 RAW 的完整执行计划。
+**AVIF 方案（Phase 0.5-A.5）已于 2026-06-03 全部完成。** 以下是 RAW 的完整执行计划。
 
 ## 技术可行性
 
@@ -789,25 +789,9 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ## 实现阶段
 
-### Phase 0：环境准备与调研（2 个 Task）
+### Phase 0.5-A：环境准备与调研（4 个 Task）
 
-#### Task 0.0.0: Docker 环境确认 + 标准构建验证
-
-**委托内容：**
-- 检查 `docker --version`，确认 Docker 已安装
-- 检查磁盘空间（>20GB 可用）
-- Fork/Clone wasm-vips 仓库：`git clone https://github.com/kleisauke/wasm-vips.git`
-- 不改 build.sh，先跑一次标准构建：`docker build -t wasm-vips .`
-- 记录构建耗时、日志中的关键步骤
-- 验证产物：`docker run --rm -v $(pwd):/output wasm-vips` 生成 vips.wasm
-
-**验证：** `ls vips.wasm` 存在且 > 1MB
-
-**预计耗时：** 30-60 分钟（单次构建）
-
----
-
-#### Task 0.0.1: 检查 libraw 版本 + 添加版本变量到 build.sh
+#### Task 0.5.7: 检查 libraw 版本 + 添加版本变量到 build.sh
 
 **目标：** 确认 libraw 版本并添加到 build.sh 版本变量区，不涉及编译。
 
@@ -833,7 +817,7 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ---
 
-#### Task 0.0.2: 添加 libraw Emscripten 编译步骤到 build.sh（第一版）
+#### Task 0.5.8: 添加 libraw Emscripten 编译步骤到 build.sh（第一版）
 
 **目标：** 在 build.sh 中添加 libraw 的交叉编译代码块，参照 libheif 的已有模式。
 
@@ -865,7 +849,7 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ---
 
-#### Task 0.0.3: 启用 RAW 开关 + 首次 RAW 构建
+#### Task 0.5.9: 启用 RAW 开关 + 首次 RAW 构建
 
 **目标：** 修改 2 处编译开关，启动首次带 RAW 的完整构建。
 
@@ -893,9 +877,9 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ---
 
-### Phase 1：验证（3 个 Task）
+### Phase 0.5-B：验证（3 个 Task）
 
-#### Task 1.1: Node.js RAW 解码验证
+#### Task 0.5.10: Node.js RAW 解码验证
 
 **委托内容：**
 - 用新编译的 wasm-vips 在 Node.js 中测试 RAW 解码
@@ -909,7 +893,7 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ---
 
-#### Task 1.2: 浏览器 RAW 解码验证
+#### Task 0.5.11: 浏览器 RAW 解码验证
 
 **委托内容：**
 - 将新编译的 vips.wasm 复制到 `js/lib/` 目录
@@ -924,10 +908,10 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ---
 
-#### Task 1.3: 性能评估 + 决策
+#### Task 0.5.12: 性能评估 + 决策
 
 **委托内容：**
-- 汇总 Phase 1 的测试数据：解码速度、bundle 大小、兼容性
+- 汇总 Phase 0.5-B 的测试数据：解码速度、bundle 大小、兼容性
 - 决策：继续 4 个 RAW 工具页？还是先做 1-2 个验证市场反应？
 - 更新 PROGRESS.md + feature_list.json
 
@@ -937,9 +921,9 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ---
 
-### Phase 2：工具页（4 个 Task，每个独立）
+### Phase 0.5-C：工具页（4 个 Task，每个独立）
 
-#### Task 2.1: raw-to-jpg 工具页
+#### Task 0.5.13: raw-to-jpg 工具页
 
 **委托内容：**
 - 创建 `raw-to-jpg/index.html`
@@ -956,16 +940,16 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ---
 
-#### Task 2.2: raw-to-png 工具页
+#### Task 0.5.14: raw-to-png 工具页
 
-- 参照 Task 2.1
+- 参照 Task 0.5.13
 - wasm-vips 解码 RAW + writeToBuffer('.png')
 
 **预计耗时：** 1 小时
 
 ---
 
-#### Task 2.3: raw-to-webp 工具页
+#### Task 0.5.15: raw-to-webp 工具页
 
 - wasm-vips 解码 RAW + writeToBuffer('.webp')
 
@@ -973,7 +957,7 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ---
 
-#### Task 2.4: raw-to-avif 工具页
+#### Task 0.5.16: raw-to-avif 工具页
 
 - wasm-vips 解码 RAW + writeToBuffer('.avif', { Q: quality })
 - 依赖 AVIF 编码能力（已验证）
@@ -982,7 +966,7 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ---
 
-### Phase 3：翻译（7 个 Task，串行）
+### Phase 0.5-D：翻译（7 个 Task，串行）
 
 复用 AVIF 的三步流水线方案（详见上文"翻译方案: 三步流水线"）。
 
@@ -994,9 +978,9 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ---
 
-### Phase 4：入口 + sitemap（1 个 Task）
+### Phase 0.5-E：入口 + sitemap（1 个 Task）
 
-#### Task 4.0: 首页入口 + sitemap + feature_list
+#### Task 0.5.17: 首页入口 + sitemap + feature_list
 
 **委托内容：**
 - 8 首页（en + 7 语言）tool grid + footer 增加 RAW 工具入口
