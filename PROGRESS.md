@@ -107,7 +107,7 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 | 0.5-A | 0.5.9 | ✅ 首次 RAW 构建（ALLOW_MEMORY_GROWTH 解决 OOM + ARW） | ✅ |
 | 0.5-A | 0.5.9a | WASM 内存扩容 — 解决 Unsufficient memory | ✅ |
 | 0.5-A | 0.5.9b | 修复 ARW 解码（被 ALLOW_MEMORY_GROWTH 一并解决） | ✅ |
-| 0.5-A | 0.5.9c | 修复 DNG 支持 | ⏳ |
+| 0.5-A | 0.5.9c | 修复 DNG 支持 | ✅ |
 | 0.5-A | 0.5.9d | 批量 RAW 验证（最终验收） | ⏳ |
 | 0.5-B | 0.5.10 | Node.js RAW 解码验证 | ✅ |
 | 0.5-B | 0.5.11 | 浏览器 RAW 解码验证 | ⏳ |
