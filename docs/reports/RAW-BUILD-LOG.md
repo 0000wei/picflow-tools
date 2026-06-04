@@ -53,8 +53,10 @@
 | 10 | libraw 头文件路径 | `fatal error: 'libraw/libraw.h' file not found` | `install(FILES ... DESTINATION include/libraw)` |
 | 11 | libraw 头文件内引用 | `fatal error: 'libraw_datastream.h' file not found` | `install(DIRECTORY libraw/ DESTINATION include/libraw FILES_MATCHING PATTERN "*.h")` |
 | 12 | OOM | ninja 编译被 kill（exit code 255） | `ninja -C _build -j2` |
-| 13-15 | 逐步修复上述问题 | | |
-| **16** | **构建成功** | `RAW load with libraw_r: true` ✅ | |
+| 13-16 | 逐步修复上述问题 | | |
+| **17** | **V2 第 1 次构建：MAXIMUM_MEMORY=2GB** | 21 次测试 18/3 通过。Sony α7III v4.01 ARW 3 次全失败 | WASM heap 碎片化——连续解码 6 个大文件后第 7 个失败 |
+| **18** | **V2 第 2 次构建：MAXIMUM_MEMORY=4GB** | ✅ **21/21 全部通过**。Sony ARW 3/3 通过 | 扩大 WASM 最大内存后 heap 空间充足 |
+| **19** | **最终验证：12 个 RAW 文件（含 66MB Sony ARW）** | 11/12 通过，66MB 需 `--max-old-space-size=8192` | 8.0s 解码 4.0MB JPEG |
 
 ## 关键修复总结
 
