@@ -517,6 +517,19 @@ node --version
   fi
 )
 
+[ -f "$TARGET/lib/pkgconfig/libraw_r.pc" ] || (
+  stage "Compiling libraw"
+  mkdir $DEPS/raw
+  curl -Ls https://github.com/LibRaw/LibRaw/archive/refs/tags/$VERSION_RAW.tar.gz | tar xzC $DEPS/raw --strip-components=1
+  cd $DEPS/raw
+  # Configure LibRaw for Emscripten (CMake-based, static build)
+  emcmake cmake -B_build -S. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$TARGET $CMAKE_ARGS \
+    -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTING=OFF -DBUILD_EXAMPLES=OFF \
+    -DDISABLE_JPEG=ON -DDISABLE_DNG=OFF \
+    -DCMAKE_C_FLAGS="$CFLAGS -O3" -DCMAKE_CXX_FLAGS="$CXXFLAGS -O3"
+  make -C _build install
+)
+
 [ -f "$TARGET/lib/pkgconfig/vips.pc" ] || (
   stage "Compiling vips"
   mkdir $DEPS/vips
