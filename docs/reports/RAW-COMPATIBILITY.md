@@ -31,7 +31,7 @@
 | ARW | α7III / ILCE-7M3 (24MB, 6024×4024) | ✅ 稳定 | ~5s | 2.3MB JPEG | 21 次测试全部通过 |
 | ARW | α7III / ILCE-7M3 v4.01 (24MB) | ✅ 稳定 | ~5-10s | 1.0MB JPEG | 之前不稳定→修复（MAXIMUM_MEMORY 4GB） |
 | ARW | α6000 / ILCE-6000 (24MB) | ✅ 稳定 | ~5s | 2.7MB JPEG | 另一 Sony 机身 |
-| ARW | α7CM2 / ILCE-7CM2 v1.02 (66MB) | ⚠️ Node.js OOM | — | — | 文件过大（66MB），Node.js 默认内存限制导致进程被杀。非 wasm-vips 问题。加 `--max-old-space-size=8192` 后预期可解 |
+| ARW | α7CM2 / ILCE-7CM2 v1.02 (66MB, 65.9MB) | ✅ 稳定 | ~8s | 4.0MB JPEG | 需 Node.js `--max-old-space-size=8192`。浏览器端可能需更多内存 |
 
 ### Adobe DNG
 
