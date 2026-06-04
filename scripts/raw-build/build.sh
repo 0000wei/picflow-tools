@@ -522,6 +522,14 @@ node --version
   mkdir $DEPS/raw
   curl -Ls https://github.com/LibRaw/LibRaw/archive/refs/tags/$VERSION_RAW.tar.gz | tar xzC $DEPS/raw --strip-components=1
   cd $DEPS/raw
+  # LibRaw's official repo does not include CMakeLists.txt; fetch from LibRaw-cmake
+  curl -Ls https://raw.githubusercontent.com/LibRaw/LibRaw-cmake/master/CMakeLists.txt -o CMakeLists.txt
+  # also fetch cmake module helpers from LibRaw-cmake
+  curl -Ls https://raw.githubusercontent.com/LibRaw/LibRaw-cmake/master/cmake/MacroBoolTo01.cmake -o cmake/MacroBoolTo01.cmake
+  curl -Ls https://raw.githubusercontent.com/LibRaw/LibRaw-cmake/master/cmake/MacroLogFeature.cmake -o cmake/MacroLogFeature.cmake
+  curl -Ls https://raw.githubusercontent.com/LibRaw/LibRaw-cmake/master/cmake/MacroOptionalFindPackage.cmake -o cmake/MacroOptionalFindPackage.cmake
+  sed -i '/^include.*FindLCMS\|find_package.*LCMS/d' CMakeLists.txt
+  sed -i '/^include.*MacroOptional\|MACRO_BOOL_TO_01.*LCMS/d' CMakeLists.txt
   # Configure LibRaw for Emscripten (CMake-based, static build)
   emcmake cmake -B_build -S. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$TARGET $CMAKE_ARGS \
     -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTING=OFF -DBUILD_EXAMPLES=OFF \
