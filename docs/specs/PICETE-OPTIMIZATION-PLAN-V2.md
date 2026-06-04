@@ -849,31 +849,97 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ---
 
-#### Task 0.5.9: 启用 RAW 开关 + 首次 RAW 构建
+#### Task 0.5.9: 首次 RAW 构建（v1：config() 通过）
 
-**目标：** 修改 2 处编译开关，启动首次带 RAW 的完整构建。
+**2026-06-04 执行结果：** 16 次构建后 config() 显示 `RAW load with libraw_r: true`，但实际 RAW 解码测试（Task 0.5.10）发现 7 种 RAW 文件中只有 CR2 和 NEF 通过，ARW/DNG/CR3 失败。不符合质量要求。
 
-**委托内容：**
-1. 修改 build.sh 第 274 行：移除 `--disable-raw-api`
-2. 修改 build.sh 第 534 行：`-Draw=disabled` → `-Draw=enabled`
-3. 启动构建：
-   ```bash
-   sg docker -c "docker run --rm --name wasm-vips-raw --network host \
-     -v /tmp/wasm-vips:/src \
-     -e HTTP_PROXY=http://127.0.0.1:7897 \
-     -e HTTPS_PROXY=http://127.0.0.1:7897 \
-     wasm-vips" 2>&1
-   ```
+**回溯根因：** 验证标准只检查了 `vips.config()` 字符串，没有用实际 RAW 文件测试。这是 V 子系统的失败。
 
-**如果构建失败：** 分析日志，调整 libraw 编译块参数（cmake flags、依赖顺序等），重跑。每次 30-60 分钟。
-
-**验证：** `node -e "const v=require('/tmp/wasm-vips/lib/vips-node.js'); (async()=>{const vv=await v(); console.log(vv.config())})()"` 输出包含 `RAW load with libraw: true`
-
-**预计耗时：** 1-3 次构建调试（30-60 分钟/次）
+**因此将 Task 0.5.9 重新拆解为以下子任务：**
 
 ---
 
-**失败回退方案：** 如果 3 次构建后仍无法启用 libraw，暂停方案 C，重新评估。
+#### Task 0.5.9a: WASM 内存扩容 — 解决 CR3/large RAW 的 Unsufficient memory
+
+**目标：** 解决 Emscripten WASM heap 内存不足问题。当前默认 256MB，20MP+ RAW 解码超出。
+
+**委托内容：**
+- 修改 build.sh 中 emcc 链接参数，在 JS bindings 编译阶段（`meson setup $DEPS/wasm-vips`）或直接修改 emcc 的链接 flags
+- 在 `build.sh` 的配置区域增加：
+  ```bash
+  # 增加 WASM 内存上限，支持大 RAW 文件解码
+  export EMCC_CFLAGS="-s ALLOW_MEMORY_GROWTH=1 -s TOTAL_MEMORY=512MB"
+  ```
+- 或者直接在 meson 编译命令中加
+- 重新构建并测试 sample.cr2（10.9MB，之前报 Unsufficient memory）
+
+**验证：** `node scripts/test/raw-decoding-test.mjs` 中 sample.cr2 不再报 `Unsufficient memory`，解码成功
+
+**预计耗时：** 1-2 次构建（30-60 分钟/次）
+
+---
+
+#### Task 0.5.9b: 修复 ARW 解码（JPEG 编码阶段错误）
+
+**目标：** ARW（Sony α7III）解码后 JPEG 编码时出错，错误信息 `unable to call VipsForeignSaveJpegTarget` 和 `dcrawload: unable to build image: Unknown error code`。
+
+**可能根因：**
+1. LibRaw 在 Emscripten 下解码 ARW 后输出的像素格式与 vips 的 JPEG 编码器不兼容
+2. 缺少某些 libraw 导出符号
+3. ARW 中的特殊元数据导致 libraw 解码流程卡死
+
+**委托内容：**
+1. 用自编译的 vips 在 Node.js 中单独测试 ARW 解码（不经过 vips 的 foreign save）：
+   ```javascript
+   const image = vips.Image.newFromFile('/path/to/arw');
+   console.log('width:', image.width, 'height:', image.height, 'bands:', image.bands);
+   // 尝试直接 writeToBuffer('.jpg')
+   const buf = image.writeToBuffer('.jpg', { Q: 85 });
+   ```
+2. 如果 decode 失败，分析 libraw 返回的错误码
+3. 可能需要修改 CMakeLists.txt 中的 libraw 编译选项
+
+**验证：** `dsc1756.arw` 解码成功
+
+**预计耗时：** 1-2 次构建
+
+---
+
+#### Task 0.5.9c: 修复 DNG 支持
+
+**目标：** DNG 解码显示 `Unsupported file format or not RAW file`。libraw 支持 DNG，但可能在 Emscripten 下需要特定配置。
+
+**委托内容：**
+1. 确认 CMakeLists.txt 中的 DISABLE_DNG=OFF（已经是 OFF）
+2. 检查 libraw 的 DNG 解码是否依赖外部库（如 JPEG 解码 DNG 预览图）
+3. 测试其他 DNG 文件（如果 DNG 变体失败）
+4. 可能需要在 libraw 编译时增加 `-DDISABLE_DNG=OFF`（已经默认）
+
+**验证：** 至少一个 DNG 文件解码成功
+
+**预计耗时：** 1-2 次构建
+
+---
+
+#### Task 0.5.9d: 批量 RAW 验证（最终验收）
+
+**目标：** 用 7 个 RAW 文件全面验证修复结果。
+
+**委托内容：**
+1. 用 `node scripts/test/raw-decoding-test.mjs` 跑全部 RAW 文件
+2. 至少 4 种不同格式（CR2、NEF、ARW、DNG）解码成功
+3. 记录每格式的解码时间和输出质量
+4. 如果仍有失败的格式，记录具体限制
+
+**验证标准（硬性要求）：**
+- CR2：✅ 通过
+- NEF：✅ 通过
+- ARW：✅ 通过
+- DNG：✅ 通过（至少一种 DNG 变体）
+- CR3：尽力（canonical 支持可能有限）
+- 大文件（>20MB）：不报 Unsufficient memory
+
+**预计耗时：** 1 小时
 
 **调试记录：** 完整 16 次构建历程详见 `docs/reports/RAW-BUILD-LOG.md`
 
