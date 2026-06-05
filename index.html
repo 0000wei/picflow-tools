@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PicEte - Free Online Image Tools | Format Converter, Resizer, Compressor</title>
-    <script async src="/js/gtag.js"></script>
+    <script src="/js/cookie-consent.js"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-H72N80TEBW');
+      CookieConsent.init({
+        gtagId: 'G-H72N80TEBW',
+        translations: {
+          message: 'We use cookies to improve your experience. You can accept or decline.',
+          accept: 'Accept All',
+          decline: 'Decline'
+        }
+      });
     </script>
     <meta name="description" content="PicEte offers professional online image processing tools: PNG to JPG, JPG to PNG, WebP conversion, image resizing, image compression. Completely free, no registration required, local processing for privacy.">
     <meta name="keywords" content="image converter online, image resizer, png to jpg, webp to png, free online image tools">
@@ -467,6 +471,26 @@
                         <h3>WebP to AVIF</h3>
                         <p>Convert WebP to AVIF for better compression</p>
                     </a>
+                    <a href="raw-to-jpg/" class="tool-item">
+                        <div class="tool-icon">📷</div>
+                        <h3>RAW to JPG</h3>
+                        <p>Convert RAW photos to JPG format</p>
+                    </a>
+                    <a href="raw-to-png/" class="tool-item">
+                        <div class="tool-icon">📸</div>
+                        <h3>RAW to PNG</h3>
+                        <p>Convert RAW photos to PNG format</p>
+                    </a>
+                    <a href="raw-to-webp/" class="tool-item">
+                        <div class="tool-icon">🖼️</div>
+                        <h3>RAW to WebP</h3>
+                        <p>Convert RAW photos to WebP format</p>
+                    </a>
+                    <a href="raw-to-avif/" class="tool-item">
+                        <div class="tool-icon">🎯</div>
+                        <h3>RAW to AVIF</h3>
+                        <p>Convert RAW photos to AVIF format</p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -603,6 +627,10 @@ npx -y picete-mcp
                         <li><a href="png-to-avif/">PNG to AVIF</a></li>
                         <li><a href="jpg-to-avif/">JPG to AVIF</a></li>
                         <li><a href="webp-to-avif/">WebP to AVIF</a></li>
+                        <li><a href="raw-to-jpg/">RAW to JPG</a></li>
+                        <li><a href="raw-to-png/">RAW to PNG</a></li>
+                        <li><a href="raw-to-webp/">RAW to WebP</a></li>
+                        <li><a href="raw-to-avif/">RAW to AVIF</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">

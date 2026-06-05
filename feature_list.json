@@ -398,5 +398,41 @@
     "type": "tool",
     "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
     "status": "complete"
+  },
+  {
+    "id": "tool-044",
+    "name": "raw-to-jpg",
+    "title": "RAW to JPG",
+    "description": "Convert RAW photos (CR2, CR3, NEF, ARW, DNG) to JPG format",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-045",
+    "name": "raw-to-png",
+    "title": "RAW to PNG",
+    "description": "Convert RAW photos (CR2, CR3, NEF, ARW, DNG) to PNG format",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-046",
+    "name": "raw-to-webp",
+    "title": "RAW to WebP",
+    "description": "Convert RAW photos (CR2, CR3, NEF, ARW, DNG) to WebP format",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
+  },
+  {
+    "id": "tool-047",
+    "name": "raw-to-avif",
+    "title": "RAW to AVIF",
+    "description": "Convert RAW photos (CR2, CR3, NEF, ARW, DNG) to AVIF format",
+    "type": "tool",
+    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "status": "complete"
   }
 ]
