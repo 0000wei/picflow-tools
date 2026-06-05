@@ -6,16 +6,23 @@
 
 ## ✨ Features
 
-- **Format Converter** — PNG ↔ JPG, WebP, GIF, BMP
+- **Format Converter** — PNG ↔ JPG, WebP ↔ PNG, JPG ↔ WebP
 - **Image Resizer** — Resize to any dimensions
 - **Image Compressor** — Reduce file size while keeping quality
 - **Image Grid Splitter** — Split images into grid tiles
 - **Color Palette Extractor** — Extract colors from any image
 - **Image to Base64** — Convert images to base64 strings
+- **AVIF Converter** — Convert between AVIF, PNG, JPG, and WebP formats
+- **RAW Photo Converter** — Convert camera RAW files (CR2, NEF, ARW, DNG) to JPG, PNG, WebP, and AVIF
+- **Fast Image Converter** — One-click batch convert, resize, and compress
 
 ## 🔒 Privacy First
 
-All processing happens locally in your browser using HTML5 Canvas API. Your images never leave your device.
+All processing happens locally in your browser using wasm-vips (libvips compiled to WebAssembly with libheif, libraw, and libjxl). Your images never leave your device.
+
+## 🌐 Multi-Language
+
+Available in 7 languages: 中文 (zh), 日本語 (ja), Deutsch (de), Français (fr), Español (es), Português (pt), العربية (ar). Language selection is user-driven, no automatic redirect — SEO-friendly.
 
 ## 🚀 Live Demo
 
@@ -23,4 +30,4 @@ All processing happens locally in your browser using HTML5 Canvas API. Your imag
 
 ## 📦 Tech Stack
 
-Vanilla JavaScript, HTML5 Canvas, no frameworks, no dependencies.
+Vanilla JavaScript, HTML5 Canvas, wasm-vips (libvips + libheif + libraw WebAssembly), no frameworks.

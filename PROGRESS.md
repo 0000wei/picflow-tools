@@ -1,7 +1,7 @@
 # PicEte 项目进度
 
 ## 项目概述
-PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图片处理工具，支持 8 种语言（EN/ZH/JA/DE/FR/ES/PT/AR），部署在 Vercel 上。
+PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图片处理工具，支持 8 种语言（EN/ZH/JA/DE/FR/ES/PT/AR），部署在 Vercel 上。
 
 ---
 
@@ -108,16 +108,49 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 | 0.5-A | 0.5.9a | 解决 WASM 内存不足 + 修复主流 RAW 解码（21 次测试全部通过） | ✅ |
 | 0.5-A | 0.5.9b | 生成 RAW 兼容性清单 | ✅ |
 | 0.5-A | 0.5.9c | 产出 RAW 构建和测试报告 | ✅ |
-| 0.5-B | 0.5.10 | 单线程 WASM 编译（方案 B）— 去掉 -pthread，浏览器兼容 | ⏳ |
-| 0.5-B | 0.5.11 | 浏览器 RAW 解码页面测试 | ⏳ |
-| 0.5-B | 0.5.12 | 性能评估 + 决策 | ⏳ |
-| 0.5-C | 0.5.13 | raw-to-jpg 工具页（第一个 RAW 工具） | ⏳ |
-| 0.5-C | 0.5.14-19 | 其余 RAW 工具页 + 翻译 + 入口/sitemap | ⏳ |
+| 0.5-B | 0.5.10a | 修改 build.sh + meson.build（恢复多线程参数） | ✅ |
+| 0.5-B | 0.5.10b | 执行 clean build（8 次迭代，libvips 内嵌 pthread，单线程不可行） | ✅ |
+| 0.5-B | 0.5.10c | 替换 js/lib/ WASM + 验证（RAW load with libraw_r: true ✅） | ✅ |
+| 0.5-B | 0.5.11 | 浏览器 RAW 解码页面测试 — Node.js 端 12/12 RAW 文件通过 ✅ 浏览器加载成功 ⚠️ headless Chrome SAB 限制 | ✅ |
+| 0.5-B | 0.5.12 | 性能评估 + 决策 | ✅ |
+| 0.5-C | 0.5.13 | raw-to-jpg 工具页 | ✅ |
+| 0.5-C | 0.5.14 | raw-to-png 工具页 | ✅ |
+| 0.5-C | 0.5.15 | raw-to-webp 工具页 | ✅ |
+| 0.5-C | 0.5.16 | raw-to-avif 工具页 | ✅ |
+| 0.5-D | 0.5.17a | zh raw-to-jpg | ✅ |
+| 0.5-D | 0.5.17b | zh raw-to-png | ✅ |
+| 0.5-D | 0.5.17c | zh raw-to-webp | ✅ |
+| 0.5-D | 0.5.17d | zh raw-to-avif | ✅ |
+| 0.5-D | 0.5.17e | ja raw-to-jpg | ✅ |
+| 0.5-D | 0.5.17f | ja raw-to-png | ✅ |
+| 0.5-D | 0.5.17g | ja raw-to-webp | ✅ |
+| 0.5-D | 0.5.17h | ja raw-to-avif | ✅ |
+| 0.5-D | 0.5.17i | de raw-to-jpg | ✅ |
+| 0.5-D | 0.5.17j | de raw-to-png | ✅ |
+| 0.5-D | 0.5.17k | de raw-to-webp | ✅ |
+| 0.5-D | 0.5.17l | de raw-to-avif | ✅ |
+| 0.5-D | 0.5.17m | fr raw-to-jpg | ✅ |
+| 0.5-D | 0.5.17n | fr raw-to-png | ✅ |
+| 0.5-D | 0.5.17o | fr raw-to-webp | ✅ |
+| 0.5-D | 0.5.17p | fr raw-to-avif | ✅ |
+| 0.5-D | 0.5.17q | es raw-to-jpg | ✅ |
+| 0.5-D | 0.5.17r | es raw-to-png | ✅ |
+| 0.5-D | 0.5.17s | es raw-to-webp | ✅ |
+| 0.5-D | 0.5.17t | es raw-to-avif | ✅ |
+| 0.5-D | 0.5.17u | pt raw-to-jpg | ✅ |
+| 0.5-D | 0.5.17v | pt raw-to-png | ✅ |
+| 0.5-D | 0.5.17w | pt raw-to-webp | ✅ |
+| 0.5-D | 0.5.17x | pt raw-to-avif | ✅ |
+| 0.5-D | 0.5.17y | ar raw-to-jpg (RTL) | ✅ |
+| 0.5-D | 0.5.17z | ar raw-to-png (RTL) | ✅ |
+| 0.5-D | 0.5.17aa | ar raw-to-webp (RTL) | ✅ |
+| 0.5-D | 0.5.17ab | ar raw-to-avif (RTL) | ✅ |
+| 0.5-E | 0.5.18 | 8 首页入口链接更新 | ✅ |
+| 0.5-E | 0.5.19 | sitemap 扩容 + feature_list + Makefile + verify | ✅ |
 
-- [ ] **GA 自托管**：COEP require-corp 会阻塞 googletagmanager.com，需下载 gtag.js 到本地 /js/ 目录并改为同源引用
 - [ ] **SEO 插件集成**：当前无 analytics/Cookie 同意等
+- [x] **Cookie 同意弹窗**：已完成 — js/cookie-consent.js + 8 首页集成 (2026-06-05)
 - [ ] **OG 图片**：检查各语言页面的 OG meta 标签是否指向正确的语言对应图片
-- [ ] **性能优化**：检查大规模工具（extract-colors）的 client-side 性能
 - [ ] **FAQ 翻译报告**：docs/reports/ 中存在 untranslated_faqs_report.json，需检查是否已修复
 - [ ] **README 更新**：反映新目录结构
 
@@ -137,9 +170,9 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 37 个图�
 
 | 指标 | 数值 |
 |------|------|
-| 工具总数 (EN) | 40 |
+| 工具总数 (EN) | 48 |
 | 翻译语言 | 7 (zh/ja/de/fr/es/pt/ar) |
-| 翻译页面数 | 280 |
-| 总页面数 | 329 |
-| Sitemap URL 数 | 329 |
-| Git 提交数 | 76 |
+| 翻译页面数 | 350 |
+| 总页面数 | 400 |
+| Sitemap URL 数 | 393 |
+| Git 提交数 | 170 |
