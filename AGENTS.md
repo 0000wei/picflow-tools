@@ -42,6 +42,10 @@ npx serve .
 
 部署：`git push` 到 master → Vercel 自动部署到 https://picete.com。
 
+此项目的所有开发工作必须严格遵循 Harness Engineering 方法论。每次任务必须完成五子系统审计（I/S/V/Scope/L），任何一步未完成不得标记完成。
+
+---
+
 ## Manager Mode（角色分工）
 
 本项目采用 Hermes Agent 作为管理者，Claude Code CLI 作为执行者：

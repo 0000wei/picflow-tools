@@ -47,10 +47,14 @@ const VipsLoader = {
         }
       }
 
-      // 初始化 wasm-vips，带 30 秒超时防止永久挂起
+      // 初始化 wasm-vips，带 120 秒超时（多线程 + 大 WASM 下载需要时间）
       var initPromise = Vips();
+      // 30 秒时输出中间状态方便调试
+      var intermediateCheck = setTimeout(function () {
+        console.warn('[VipsLoader] Vips() still initializing after 30s, waiting up to 120s total');
+      }, 30000);
       var timeoutPromise = new Promise(function (_, reject) {
-        setTimeout(function () { reject(new Error('VIPS_INIT_TIMEOUT')); }, 30000);
+        setTimeout(function () { clearTimeout(intermediateCheck); reject(new Error('VIPS_INIT_TIMEOUT')); }, 120000);
       });
       var vips = await Promise.race([initPromise, timeoutPromise]);
       this.instance = vips;
