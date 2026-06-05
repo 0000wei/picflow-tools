@@ -12,7 +12,20 @@
   ],
   "headers": [
     {
-      "source": "/(resize-image|compress-image|png-to-jpg|jpg-to-png|webp-to-png|png-to-webp|jpg-to-webp|image-splitter|extract-colors|image-to-base64|batch-convert-png-to-jpg|split-image-into-3x3|split-image-into-4-parts)(/.*)?",
+      "source": "/(resize-image|compress-image|png-to-jpg|jpg-to-png|webp-to-png|png-to-webp|jpg-to-webp|image-splitter|extract-colors|image-to-base64|batch-convert-png-to-jpg|split-image-into-3x3|split-image-into-4-parts|raw-to-jpg|raw-to-png|raw-to-webp|raw-to-avif)(/.*)?",
+      "headers": [
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cross-Origin-Embedder-Policy",
+          "value": "require-corp"
+        }
+      ]
+    },
+    {
+      "source": "/(zh|ja|de|fr|es|pt|ar)/(resize-image|compress-image|png-to-jpg|jpg-to-png|webp-to-png|png-to-webp|jpg-to-webp|image-splitter|extract-colors|image-to-base64|batch-convert-png-to-jpg|split-image-into-3x3|split-image-into-4-parts|raw-to-jpg|raw-to-png|raw-to-webp|raw-to-avif)(/.*)?",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
