@@ -47,7 +47,12 @@ const VipsLoader = {
         }
       }
 
-      var vips = await Vips();
+      // 初始化 wasm-vips，带 30 秒超时防止永久挂起
+      var initPromise = Vips();
+      var timeoutPromise = new Promise(function (_, reject) {
+        setTimeout(function () { reject(new Error('VIPS_INIT_TIMEOUT')); }, 30000);
+      });
+      var vips = await Promise.race([initPromise, timeoutPromise]);
       this.instance = vips;
       this.status = 'ready';
       console.log('[VipsLoader] wasm-vips loaded, version:', vips.version());
