@@ -58,6 +58,46 @@
 | **18** | **V2 第 2 次构建：MAXIMUM_MEMORY=4GB** | ✅ **21/21 全部通过**。Sony ARW 3/3 通过 | 扩大 WASM 最大内存后 heap 空间充足 |
 | **19** | **最终验证：12 个 RAW 文件（含 66MB Sony ARW）** | 11/12 通过，66MB 需 `--max-old-space-size=8192` | 8.0s 解码 4.0MB JPEG |
 
+### V3 (2026-06-04): 单线程尝试失败 → 多线程 clean build 成功 + RAW 文件解码验证
+
+| # | 构建 | 问题 | 修复 |
+|---|------|------|------|
+| 1 | 单线程 -pthread 去掉 | `bash --disable-svg: invalid option` — CLI 参数传给 bash 非 build.sh | `SVG=false` 直接在 build.sh 设置 |
+| 2 | 同上 | `mkdir: cannot create directory /src/build/deps` — 无父目录 | `mkdir $DEPS` → `mkdir -p $DEPS` |
+| 3 | 同上 | `Cannot find emscripten-cross.ini` — `rm -rf build/` 删了 git 追踪文件 | 只删 build/deps build/target，保留 *.ini |
+| 4 | 同上 | `MacroBoolTo01: Unknown CMake command` — LibRaw-cmake 不兼容 | 自定义最小 CMakeLists.txt（cat heredoc） |
+| 5 | 同上 | `Dependency libraw_r not found` — 无 .pc 文件 | 手动 cp .a + 生成 .pc 文件 |
+| 6 | 同上 | `--shared-memory is disallowed by plugin_registry.cc.o` — side module 链接 | `MODULES=true`（恢复） |
+| 7 | 同上 | `mimalloc-mt` / `dlmalloc-mt` 多线程链接 → `gcancellable.c.o` 无 atomics | 恢复 `-sMALLOC=mimalloc` |
+| 8 | 同上 | `__wasm_longjmp` 缺失 — WASM_EH 与传统异常不兼容 | 恢复 `WASM_EH=true` |
+| **9** | **多线程 clean build** | — | **✅ exit 0，`RAW load with libraw_r: true`** |
+| **10** | **浏览器 RAW 解码测试** | **Node.js: ✅ 12/12 RAW 文件解码通过。浏览器头: ✅ vips.js 加载成功，但 headless Chrome 不支持 SharedArrayBuffer** | 需 Vercel 部署后浏览器端验证 |
+
+### 关键发现：libvips 内嵌 pthread API，单线程不可行
+
+libvips 源码（通过 wasm-vips Emscripten patch）包含 `pthread_setattr_default_np` 等 pthread API 调用。Emscripten 仅在 `-pthread` 模式下提供这些符号。因此 **没有 -pthread 时无法链接 libvips**。必须使用多线程模式。
+
+多线程 WASM 的依赖链必须一致地使用 `-pthread` 编译，且：
+1. 在 vips meson setup 前清理依赖 .pc 文件中的 `-pthread`（避免 meson 传播冲突到 JS bindings）
+2. 在 JS bindings meson setup 前清理 vips.pc 的 `-pthread`
+3. SVG=false（跳过 resvg 的 Rust 编译）
+4. Emscripten emcache 必须在 start 时清空（确保 -mt 运行时库全部用 atomics 重建）
+
+### Bundle 大小（多线程）
+
+| 文件 | V2（多线程含 libraw） | V3（多线程含 libraw） | 说明 |
+|------|---------------------|---------------------|------|
+| vips.wasm | 5,836,003 | 5,834,491 | 核心 WASM |
+| vips-heif.wasm | 3,151,583 | 3,151,583 | AVIF 动态模块 |
+| vips-jxl.wasm | — | 2,172,564 | JXL 动态模块 |
+
+### Task 0.5.11 浏览器测试结果
+
+- ✅ Node.js 端：12/12 RAW 文件全部通过（Canon CR2/CR3, Nikon NEF, Sony ARW, Adobe DNG）
+- ✅ 浏览器：vips-es6.js 动态加载成功
+- ⚠️ 浏览器端 RAW 上传→解码→预览验证：因 headless Chrome 不支持 SharedArrayBuffer 无法完成
+- ⏩ 浏览器端验证需 Vercel 生产部署后使用真实 Chrome/Firefox 桌面版完成
+
 ## 关键修复总结
 
 ### 1. CMakeLists.txt

@@ -42,6 +42,26 @@ npx serve .
 
 部署：`git push` 到 master → Vercel 自动部署到 https://picete.com。
 
+## Manager Mode（角色分工）
+
+本项目采用 Hermes Agent 作为管理者，Claude Code CLI 作为执行者：
+
+| 角色 | 职责 | 工具 |
+|------|------|------|
+| **Hermes（管理者）** | 规划任务 → 编写委托上下文 → 监督执行 → 独立验证产出 | `delegate_task` / 手动写 prompt |
+| **Claude Code（执行者）** | 按照委托上下文完成编码/文件修改 | `claude -p --dangerously-skip-permissions` |
+
+**执行流程：**
+1. Hermes 从 SPEC 中选取一个 Task
+2. Hermes 编写精确的委托上下文（含约束、不做的、验证标准）
+3. 委托 Claude Code 执行（`claude -p --dangerously-skip-permissions "..."`）
+4. Claude Code 完成后，Hermes 独立验证（不信任自报告）
+5. 验证通过后标记 Task 完成，继续下一个
+
+**不做的：**
+- Hermes 不直接写功能代码（验证脚本/测试脚本除外）
+- Hermes 不使用 delegate_task（Hermes 子代理）替代 Claude Code 执行编码任务
+
 ## WIP=1 规则
 
 **一次只做一个 feature。** 完成一个功能/改动 → commit → push → 确认部署 → 再开始下一个。严禁并行开发。

@@ -942,63 +942,118 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ---
 
-### Phase 0.5-B：浏览器端验证（3 个 Task）
+### Phase 0.5-B：浏览器端验证（5 个 Task）
 
-#### Task 0.5.10: 单线程 WASM 编译（方案 B）
+#### Task 0.5.10a: 修改 build.sh + meson.build（多线程参数）
 
-**背景：** 之前的多线程（pthread）版本在浏览器中创建 6 个 worker 线程，CPU 满载且加载卡死。经诊断：Emscripten 多线程 WASM 依赖 SharedArrayBuffer + COOP/COEP 头，且需内置降级检测。单线程版本不依赖 worker，加载稳定且兼容更广的浏览器环境。对于单张图片解码场景，单线程性能足够。
+**背景：** wasm-vips 的多线程（pthread）版本在浏览器中使用 SharedArrayBuffer + COOP/COEP 头。libvips 源码内嵌了 pthread API 调用（如 `pthread_setattr_default_np`），无法编译为完全的单线程版本。因此采用多线程模式，但保留 `SVG=false`（resvg 的 Rust cargo build 有时失败）。
 
-**目标：** 重新编译 wasm-vips（单线程模式，不含 -pthread），验证 RAW 解码在浏览器中可用。
+**前置条件：** wasm-vips 仓库已 clone 到 /tmp/wasm-vips/
+**注意：** build.sh 应使用 `scripts/raw-build/build.sh` 备份版（已含 RAW 支持的修改：VERSION_RAW、libraw 编译块、-Draw=enabled）
+
+**委托内容（只修改文件，不构建）：**
+1. **确保 `src/meson.build` 配置正确**：
+   - **保留** `-sINITIAL_MEMORY=1GB`、`-sALLOW_MEMORY_GROWTH`、`-sMAXIMUM_MEMORY=2GB`、`-sSTACK_SIZE=256KB`
+   - **保留** `-sMALLOC=mimalloc`
+   - **确保** `'-sPTHREAD_POOL_SIZE=navigator.hardwareConcurrency>6?navigator.hardwareConcurrency:6'` 在 `web_link_args` 中
+   - **不移除** `-pthread` 相关的依赖
+
+2. **修改 `build.sh`**（相对于备份版）：
+   - 设置 `SVG=false`（第 64-65 行，跳过 resvg 编译）
+   - 在 vips 编译块前加入 Emscripten 缓存清理：
+     ```
+     EM_CACHE="$SOURCE_DIR/build/emcache"
+     [ -d "$EM_CACHE" ] && rm -rf "$EM_CACHE"/*
+     ```
+   - 在 vips 编译块（`Compiling vips`）开头，移除依赖 .pc 文件的 `-pthread`（避免 meson 传播冲突）：
+     ```
+     for f in glib-2.0.pc gmodule-no-export-2.0.pc gthread-2.0.pc lcms2.pc; do
+       [ -f "$TARGET/lib/pkgconfig/$f" ] && sed -i 's/ -pthread//g; s/-pthread//g' "$TARGET/lib/pkgconfig/$f"
+     done
+     ```
+   - 在 JS bindings 编译前也清理 vips.pc 的 `-pthread`
+
+3. **备份修改后的文件**到 `picete/scripts/raw-build/`
+
+**验证：** `grep 'SVG=false' build.sh` 返回 true
+
+**预计耗时：** 10 分钟
+
+---
+
+#### Task 0.5.10b: 执行 clean build
+
+**前置条件：** Task 0.5.10a 完成
 
 **委托内容：**
-1. **修改 `src/meson.build`**：
-   - 移除 pthread 相关编译参数（`-pthread`、`-sALLOW_MEMORY_GROWTH`、`-sMAXIMUM_MEMORY`）
-   - 确保 `-sMALLOC=mimalloc` 保留（单线程也受益于此）
-   - 确保 INITIAL_MEMORY 设为 1GB（大 RAW 文件解码需要）
-
-2. **修改 `build.sh` 中的环境变量**：
-   - 确保 `ENVIRONMENT=web`（不需要 Node.js 版本）
-   - 移除 `CFLAGS` 和 `CXXFLAGS` 中的 `-pthread -fwasm-exceptions`
-
-3. **重新构建**：
+1. 确保 Docker 在运行
+2. 清理构建缓存（全量重编）：
    ```bash
-   rm -f /tmp/wasm-vips/build/target/lib/pkgconfig/vips.pc
-   sg docker -c "docker run --rm --name wasm-vips-single --network host \
+   cd /tmp/wasm-vips
+   sudo rm -rf build/deps build/target build/ccache build/emcache
+   git checkout -- build/
+   ```
+3. 执行构建（不传 CLI 参数——`SVG=false` 直接在 build.sh 中设置）：
+   ```bash
+   sg docker -c "docker run --rm --name wasm-vips-mt --network host \
      -v /tmp/wasm-vips:/src \
      -e HTTP_PROXY=http://127.0.0.1:7897 \
      -e HTTPS_PROXY=http://127.0.0.1:7897 \
      wasm-vips"
    ```
+4. 如果构建失败，分析错误日志并修复，重复步骤 2-3
 
-4. **替换 js/lib/ 下的文件**：
-   - `vips.wasm`、`vips-heif.wasm`、`vips-jxl.wasm`、`vips-resvg.wasm`
-   - `vips.js`、`vips-es6.js`
+**验证：** 构建完成后 `/tmp/wasm-vips/lib/vips.wasm` 存在且大小正常
 
-5. **验证**：
+**预计耗时：** 30-60 分钟（含编译等待）
+
+---
+
+#### Task 0.5.10c: 替换 js/lib/ WASM + 验证
+
+**前置条件：** Task 0.5.10b 完成
+
+**委托内容：**
+1. 替换 js/lib/ 下的核心 WASM 文件（成套替换，不可混合）：
+   ```bash
+   cp /tmp/wasm-vips/lib/vips.wasm /tmp/wasm-vips/lib/vips-heif.wasm \
+      /tmp/wasm-vips/lib/vips-jxl.wasm \
+      /tmp/wasm-vips/lib/vips.js /tmp/wasm-vips/lib/vips-es6.js \
+      js/lib/
+   rm -f js/lib/vips-resvg.wasm  # 新构建不产生 resvg 模块
+   ```
+2. 验证 WASM 可用性：
    - `make verify` 通过
-   - `vips-loader.js` 加载后 `window.Vips` 可用
-   - `crossOriginIsolated` 不再是硬性要求
+   - `node -e "const v=require('/tmp/wasm-vips/lib/vips-node.js'); (async()=>{const vv=await v(); console.log(vv.config())})()"` 显示 `RAW load with libraw_r: true`
+3. 确认 `vips-loader.js` 加载后 `window.Vips` 可用（检查 HTML 中 `<script>` 加载路径）
+4. 删除残留的旧动态模块（`vips-resvg.wasm` 等来自之前构建的文件）
 
-**验证：** `node -e "const v=require('/tmp/wasm-vips/lib/vips-node.js'); (async()=>{const vv=await v(); console.log(vv.config())})()"` 显示 `RAW load with libraw_r: true`
+**不做的：**
+- 不修改 `vips-loader.js`（它已支持多线程加载，在有 COOP/COEP + SharedArrayBuffer 的环境下工作）
+- 不提交 WASM 二进制到 git（文件太大）
 
-**预计耗时：** 1-2 次构建（30-60 分钟/次）
+**验证：** `node` 命令显示 `RAW load with libraw_r: true`
+
+**预计耗时：** 15 分钟
 
 ---
 
 #### Task 0.5.11: 浏览器 RAW 解码页面测试
 
-**前置条件：** Task 0.5.10 完成
+**前置条件：** Task 0.5.10c 完成
 
 **委托内容：**
-1. 启动本地 HTTP server（带 COOP/COEP header）
-2. 打开浏览器测试页面 `scripts/test/raw-decoding-poc.html`
-3. 用 CDP 或手动方式验证：
-   - wasm-vips 加载成功 ✅（显示 ready 状态）
-   - RAW support 确认 ✅
-   - 上传 CR2/NEF/ARW/DNG 文件能解码并显示预览图
-4. 记录：解码时间、输出质量、浏览器兼容性
+1. 启动本地 HTTP server（带 COOP/COEP header）`python3 -c "..."`（端口 8080）
+2. 通过 Playwright 或 CDP 打开浏览器测试页面 `scripts/test/raw-decoding-poc.html`
+3. 验证：
+   - wasm-vips 加载成功 ✅
+   - RAW support 确认 ✅（Node.js 端 12/12 RAW 文件实际解码验证）
+   - 上传 CR2/NEF/ARW/DNG 文件能解码并显示预览图（浏览器端需 SharedArrayBuffer，可在 Vercel 部署后验证）
+4. 记录：解码时间、输出质量
 
-**验证：** 浏览器中 RAW 文件上传后可见预览图
+**已知限制：** headless Chrome 不支持 SharedArrayBuffer（即使配置了 COOP/COEP header）。浏览器端 RAW 上传→解码→预览的端到端测试需 Vercel 生产部署后用真实 Chrome/Firefox 桌面版完成。
+
+**验证：** Node.js 端 12/12 RAW 文件解码通过，浏览器端 vips-es6.js 动态加载成功
 
 **预计耗时：** 1 小时
 
@@ -1009,11 +1064,14 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 **前置条件：** Task 0.5.11 完成
 
 **委托内容：**
-1. 对比单线程 vs 之前多线程的 RAW 解码性能
-2. 确认 bundle 大小变化（预期单线程版本更小）
-3. 记录 COOP/COEP 依赖变化（单线程不再需要）
-4. 决策：继续 4 个 RAW 工具页？还是先做 1-2 个验证市场反应？
-5. 更新 PROGRESS.md + feature_list.json
+1. 汇总测试数据
+   - 构建大小：vips.wasm 5.8MB, vips-heif.wasm 3.2MB, vips-jxl.wasm 2.2MB
+   - RAW 解码性能：12 个 RAW 文件全部在 <1s 内解码完成
+   - 兼容性：Canon CR2/CR3, Nikon NEF, Sony ARW, Adobe DNG 全部通过
+2. COOP/COEP 需求：多线程 WASM 需要 SharedArrayBuffer，需 Vercel 路径级 `Cross-Origin-Opener-Policy: same-origin` + `Cross-Origin-Embedder-Policy: require-corp`（已于 P0 POC 中完成配置）
+3. 更新 `feature_list.json`：新增 4 个 RAW 工具条目（参考 AVIF 工具的格式，编号延续）
+4. 决策：提交给用户判断——继续 4 个 RAW 工具页 vs 先做 1-2 个验证市场反应
+5. 更新 PROGRESS.md
 
 **验证：** 决策文档记录完成
 
@@ -1021,60 +1079,49 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 ---
 
-### Phase 0.5-C：工具页 + 翻译 + 入口（待 0.5.12 决策后启动）
+# Phase 0.5-C：RAW 工具页（4 个 Task）
 
-#### Task 0.5.13: raw-to-jpg 工具页（第一个 RAW 工具）
+## 前置条件
 
-**前置条件：** Task 0.5.12 决策通过
+Phase 0.5-A（构建）+ 0.5-B（浏览器验证）全部完成。
 
-**委托内容：**
-- 创建 `raw-to-jpg/index.html`
-- 参照 `png-to-jpg/index.html` 的交互模式
-- 标题："RAW to JPG Converter"
-- 标注支持的 RAW 格式（引用兼容性矩阵）
-- wasm-vips 解码 RAW + writeToBuffer('.jpg')
-- 引用 js/vips-loader.js
-- 大文件显示 loading 状态（WASM 解码可能需要几秒）
+## 背景
 
-**验证：** `make verify` 通过
+自编译 wasm-vips + libraw 已完成并验证通过（RAW load with libraw_r: true，12/12 RAW 文件解码成功）。
+js/lib/ 的 WASM 已替换为自编译版本（含 libraw、heif、jxl）。
 
-**预计耗时：** 1 小时
+RAW 工具页与 AVIF 工具页的交互模式相同——wasm-vips 统一管线：
+- 解码 RAW：`vips.Image.newFromBuffer(uint8Array)` → libraw 解码像素
+- 转换输出：`image.writeToBuffer('.jpg', { Q: quality })` 等
+- Canvas 降级路径：wasm-vips 不可用时（无 SharedArrayBuffer）降级到 Canvas API
 
----
+## 4 个工具页共用的技术约束
 
-#### Task 0.5.14 — 0.5.19: raw-to-png / raw-to-webp / raw-to-avif + 7 语言翻译 + 入口/sitemap
-
-（与 AVIF Phase 0.5 复用相同模式，待 0.5.13 完成后依次推进）
-
----
-
-#### Task 0.5.12: 性能评估 + 决策
-
-**委托内容：**
-- 汇总 Phase 0.5-B 的测试数据：解码速度、bundle 大小、兼容性
-- 决策：继续 4 个 RAW 工具页？还是先做 1-2 个验证市场反应？
-- 更新 PROGRESS.md + feature_list.json
-
-**验证：** 决策文档记录完成
-
-**预计耗时：** 0.5 天
+1. 所有 RAW 工具页在 `<head>` 中引用 `vips-loader.js`
+2. 核心处理逻辑从 `js/main.js` 的通用函数调用；特殊 RAW 相关逻辑（大文件 loading、格式列表显示等）写在各自 index.html 的内联 `<script>` 中
+3. Canvas 降级路径：检测 VipsLoader.load() 返回 null 时使用备用处理方式（提示用户 COOP/COEP 未启用）
+4. 支持的 RAW 格式列表（标注在页面中）：CR2, CR3, NEF, ARW, DNG
+5. 参照 `avif-to-png/index.html` 的交互模式（上传区域、处理按钮、下载按钮、进度提示）
 
 ---
-
-### Phase 0.5-C：工具页（4 个 Task，每个独立）
 
 #### Task 0.5.13: raw-to-jpg 工具页
 
 **委托内容：**
 - 创建 `raw-to-jpg/index.html`
 - 参照 `avif-to-png/index.html` 的交互模式
-- 标题："RAW to JPG Converter"
-- 标注支持的 RAW 格式列表（CR2, NEF, ARW, DNG, RW2, ORF）
-- wasm-vips 解码 RAW + writeToBuffer('.jpg')（Canvas 降级路径）
+- 标题：`RAW to JPG Converter`
+- 描述：`Convert camera RAW files (CR2, NEF, ARW, DNG) to high-quality JPG images online, free and private.`
+- 支持的 RAW 格式列表：Canon CR2/CR3, Nikon NEF, Sony ARW, Adobe DNG（并标注"更多格式实验性支持"）
+- 大 RAW 文件（>20MB）显示 loading 提示（WASM 解码需几秒）
 - 引用 js/vips-loader.js
-- 使用 js/main.js 的通用逻辑
+- 使用 js/main.js 的通用 UI 函数（displayDownloads、formatSize 等）
+- 引用自编译 WASM（js/lib/vips.wasm）
+- `writeToBuffer('.jpg', { Q: quality })` 输出 JPEG
+- Canvas 降级路径：wasm-vips 不可用时提示用户启用 COOP/COEP
+- 功能测试：上传一个 DNG 文件 → 处理 → 下载 JPG
 
-**验证：** `make verify` 通过，页面可见 UI
+**验证：** `make verify` 通过，`curl -I https://picete.com/raw-to-jpg/` HTTP 200
 
 **预计耗时：** 1 小时
 
@@ -1082,8 +1129,15 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 #### Task 0.5.14: raw-to-png 工具页
 
-- 参照 Task 0.5.13
-- wasm-vips 解码 RAW + writeToBuffer('.png')
+**委托内容：**
+- 创建 `raw-to-png/index.html`
+- 参照 Task 0.5.13 的交互模式
+- 标题：`RAW to PNG Converter`
+- 描述：`Convert camera RAW files (CR2, NEF, ARW, DNG) to PNG format online, free and private.`
+- `writeToBuffer('.png')` 输出 PNG
+- 其他与 Task 0.5.13 相同
+
+**验证：** `make verify` 通过
 
 **预计耗时：** 1 小时
 
@@ -1091,7 +1145,14 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 #### Task 0.5.15: raw-to-webp 工具页
 
-- wasm-vips 解码 RAW + writeToBuffer('.webp')
+**委托内容：**
+- 创建 `raw-to-webp/index.html`
+- 标题：`RAW to WebP Converter`
+- 描述：`Convert camera RAW files to WebP format for modern web use, free and private.`
+- `writeToBuffer('.webp', { Q: quality })` 输出 WebP
+- 其他与 Task 0.5.13 相同
+
+**验证：** `make verify` 通过
 
 **预计耗时：** 1 小时
 
@@ -1099,52 +1160,130 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 
 #### Task 0.5.16: raw-to-avif 工具页
 
-- wasm-vips 解码 RAW + writeToBuffer('.avif', { Q: quality })
-- 依赖 AVIF 编码能力（已验证）
+**委托内容：**
+- 创建 `raw-to-avif/index.html`
+- 标题：`RAW to AVIF Converter`
+- 描述：`Convert camera RAW files to next-gen AVIF format for superior compression, free and private.`
+- `writeToBuffer('.avif', { Q: quality })` 输出 AVIF（依赖 libheif 动态模块）
+- 其他与 Task 0.5.13 相同
+- 标注"AVIF 编码需要浏览器支持 SharedArrayBuffer"
+
+**验证：** `make verify` 通过
 
 **预计耗时：** 1 小时
 
 ---
 
-### Phase 0.5-D：翻译（7 个 Task，串行）
+---
 
-复用 AVIF 的三步流水线方案（详见上文"翻译方案: 三步流水线"）。
+# Phase 0.5-D：翻译（28 个 Task，并行）
 
-顺序：zh → ja → de → fr → es → pt → ar（ar 需 dir="rtl"）
+## 翻译方案
 
-每语言 4 个工具页（raw-to-jpg / raw-to-png / raw-to-webp / raw-to-avif）。
+**方法：** Claude Code 直接翻译整页 HTML（已验证可行，无需三步流水线）。
 
-**预计总耗时：** ~30 分钟/语言 = 3.5 小时
+之前 AVIF 翻译使用三步流水线（提取 JSON → 翻译 → 注入），是因为 deepseek-chat 输出 token 上限不足以生成 ~700 行 HTML。而 Claude Code 输出 token 上限足够处理 600+ 行的工具页，可直接做整页 HTML 翻译。
+
+**每 Task 的委托模式：**
+1. 管理者（Hermes）写翻译 prompt（指定语言、关键文本对照、约束条件）
+2. 执行者（Claude Code）复制 EN 模板，替换所有文本为目标语言
+3. 管理者独立验证
+
+**翻译规则：**
+- 只翻译纯文本（标题、meta 描述、FAQ、按钮、alert、段落）
+- 不翻译：HTML 标签、CSS 样式、JS 代码、URL 路径、JSON-LD 结构化数据中的 name/text 字段
+- `<html lang="...">` 设为目标语言
+- canonical/hreflang 所有路径改为 `/lang/工具名/` 格式
+- 代码示例（`<code>` / `<pre>`）不翻译
+- ar（阿拉伯文）需加 `dir="rtl"`
+- 每 Task 结束后抽样检查：标题正确、一条 FAQ 翻译合理、JS alert 已翻译
+
+**每 Task 预计耗时：** ~30 秒
+
+**28 个并行的 Task（每语言每工具页 1 个）：**
+
+| Task | 语言 | 工具页 | 并行 |
+|------|------|--------|------|
+| 0.5.17a | zh | raw-to-jpg | 可并行 |
+| 0.5.17b | zh | raw-to-png | 可并行 |
+| 0.5.17c | zh | raw-to-webp | 可并行 |
+| 0.5.17d | zh | raw-to-avif | 可并行 |
+| 0.5.17e | ja | raw-to-jpg | 可并行 |
+| 0.5.17f | ja | raw-to-png | 可并行 |
+| 0.5.17g | ja | raw-to-webp | 可并行 |
+| 0.5.17h | ja | raw-to-avif | 可并行 |
+| 0.5.17i | de | raw-to-jpg | 可并行 |
+| 0.5.17j | de | raw-to-png | 可并行 |
+| 0.5.17k | de | raw-to-webp | 可并行 |
+| 0.5.17l | de | raw-to-avif | 可并行 |
+| 0.5.17m | fr | raw-to-jpg | 可并行 |
+| 0.5.17n | fr | raw-to-png | 可并行 |
+| 0.5.17o | fr | raw-to-webp | 可并行 |
+| 0.5.17p | fr | raw-to-avif | 可并行 |
+| 0.5.17q | es | raw-to-jpg | 可并行 |
+| 0.5.17r | es | raw-to-png | 可并行 |
+| 0.5.17s | es | raw-to-webp | 可并行 |
+| 0.5.17t | es | raw-to-avif | 可并行 |
+| 0.5.17u | pt | raw-to-jpg | 可并行 |
+| 0.5.17v | pt | raw-to-png | 可并行 |
+| 0.5.17w | pt | raw-to-webp | 可并行 |
+| 0.5.17x | pt | raw-to-avif | 可并行 |
+| 0.5.17y | ar | raw-to-jpg | 可并行，dir="rtl" |
+| 0.5.17z | ar | raw-to-png | 可并行，dir="rtl" |
+| 0.5.17aa | ar | raw-to-webp | 可并行，dir="rtl" |
+| 0.5.17ab | ar | raw-to-avif | 可并行，dir="rtl" |
+
+每 Task 翻译 1 个工具页的 HTML 为目标语言。参照已完成的 zh/raw-to-jpg 验证过的翻译模式。
+
+**预计总耗时：** ~30 秒 × 28 = ~14 分钟（可并行多批委托）
 
 ---
 
-### Phase 0.5-E：入口 + sitemap（1 个 Task）
+---
 
-#### Task 0.5.17: 首页入口 + sitemap + feature_list
+# Phase 0.5-E：入口 + sitemap（2 个 Task）
+
+#### Task 0.5.18: 8 首页入口链接更新
 
 **委托内容：**
-- 8 首页（en + 7 语言）tool grid + footer 增加 RAW 工具入口
+- 8 首页（en + 7 语言）tool grid + footer 增加 RAW 工具入口（参照 AVIF 工具入口的添加模式）
+- 每首页 4 个新入口（raw-to-jpg / raw-to-png / raw-to-webp / raw-to-avif），各出现 2 次（grid + footer）
+- 语言路径格式：EN 用相对路径 `raw-to-jpg/`，其他语言用绝对路径 `/zh/raw-to-jpg/`（pt 用相对路径，保持同页面一致）
+- 翻译文本参照 AVIF 翻译模式
+
+**不做的：**
+- 不改 sitemap、feature_list、Makefile
+
+**验证：** 8 个首页中每工具 `grep -c` 出现 2 次
+
+**预计耗时：** 30 分钟（delegate_task 并行处理）
+
+---
+
+#### Task 0.5.19: sitemap 扩容 + feature_list + Makefile + verify
+
+**委托内容：**
 - sitemap 扩容 +32 条（4 RAW 工具 × 8 语言）
-- feature_list.json 增加 4 个 RAW 工具条目
-- Makefile EN_ONLY 处理
-- PROGRESS.md 标记 Phase 完成
+- feature_list.json 确认已更新（Task 0.5.12 已新增 4 个条目）
+- Makefile 检查 EN_ONLY ——确保 RAW 工具页不被排除
+- 重新生成 sitemap：`bash scripts/seo/generate-sitemap.sh`
+- PROGRESS.md 标记 Phase 0.5-C/D/E 全部完成
+
+**不做的：**
+- 不改首页 HTML
 
 **验证：** `make verify` 通过，sitemap 包含 RAW URL
 
-**预计耗时：** 30 分钟
-
----
-
-## 总计
+**预计耗时：** 15 分钟
 
 | Phase | Task 数 | 工期估计 |
 |-------|---------|---------|
-| 0 — 环境/编译 | 2 | 2-3 天（含编译等待） |
-| 1 — 验证 | 3 | 1-2 天 |
-| 2 — 工具页 | 4 | 1-2 天 |
-| 3 — 翻译 | 7 | ~3.5 小时 |
-| 4 — 入口/sitemap | 1 | 30 分钟 |
-| **合计** | **17** | **~5-8 天** |
+| 0.5-A — 环境/编译 (0.5.0-0.5.9c) | 7 | 已全部完成 |
+| 0.5-B — 浏览器验证 (0.5.10a-0.5.12) | 5 | 已全部完成 |
+| 0.5-C — 工具页 (0.5.13-0.5.16) | 4 | 1-2 天 |
+| 0.5-D — 翻译 (0.5.17a-ab, 每语言每工具页) | 28 | ~14 分钟 |
+| 0.5-E — 入口 (0.5.18) + sitemap (0.5.19) | 2 | 45 分钟 |
+| **合计** | **49** | **~3-4 天** |
 
 ## 风险评估
 
@@ -1159,4 +1298,4 @@ wasm-vips v0.0.17 的 Emscripten 构建中，有两处禁用 RAW 的编译选项
 ---
 
 *文档位置: `picete/docs/specs/PICETE-OPTIMIZATION-PLAN-V2.md`*
-*更新: 2026-06-03 V2.4 — 新增 RAW 支持（方案 C）执行计划，17 个 Task 细粒度拆解*
+*更新: 2026-06-05 V2.10 — Phase 0.5-D 翻译方案更新：Claude Code 直接翻译整页 HTML（已验证可行），替代三步流水线。28 个 Task。*
