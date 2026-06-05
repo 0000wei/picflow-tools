@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RAW para WebP - Conversor online gratuito de RAW para WebP | PicEte</title>
+<!-- Google Analytics -->
+<script async="" src="/js/gtag.js"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+<meta content="Conversor online gratuito de RAW para WebP. Converta arquivos RAW (CR2, NEF, ARW, DNG) para o formato WebP para uso web moderno, gratuito e privado." name="description"/>
+<meta content="RAW para WebP, conversor de RAW para WebP, CR2 para WebP, NEF para WebP, ARW para WebP, DNG para WebP, conversor de imagem RAW, conversor de RAW online, conversor de WebP" name="keywords"/>
+<link href="https://picete.com/pt/raw-to-webp/" rel="canonical"/>
+<!-- hreflang tags -->
+<link href="https://picete.com/raw-to-webp/" hreflang="en" rel="alternate"/>
+<link href="https://picete.com/zh/raw-to-webp/" hreflang="zh" rel="alternate"/>
+<link href="https://picete.com/ja/raw-to-webp/" hreflang="ja" rel="alternate"/>
+<link href="https://picete.com/de/raw-to-webp/" hreflang="de" rel="alternate"/>
+<link href="https://picete.com/fr/raw-to-webp/" hreflang="fr" rel="alternate"/>
+<link href="https://picete.com/es/raw-to-webp/" hreflang="es" rel="alternate"/>
+<link href="https://picete.com/pt/raw-to-webp/" hreflang="pt" rel="alternate"/>
+<link href="https://picete.com/ar/raw-to-webp/" hreflang="ar" rel="alternate"/>
+<link href="https://picete.com/raw-to-webp/" hreflang="x-default" rel="alternate"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="https://picete.com/pt/raw-to-webp/" property="og:url"/>
+<meta content="RAW para WebP - Conversor online gratuito de RAW para WebP" property="og:title"/>
+<meta content="Conversor online gratuito de RAW para WebP, converta arquivos RAW (CR2, NEF, ARW, DNG) para o formato WebP para uso web moderno." property="og:description"/>
+<meta content="https://picete.com/images/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<!-- Schema.org -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Conversor de RAW para WebP",
+        "description": "Ferramenta online gratuita de conversão de RAW para WebP",
+        "url": "https://picete.com/pt/raw-to-webp",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Início",
+            "item": "https://picete.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "RAW para WebP",
+            "item": "https://picete.com/pt/raw-to-webp/"
+        }]
+    }
+    </script>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../llms.txt" rel="llms" title="PicEte LLM Context"/>
+<link href="../mcp.json" rel="mcp" title="PicEte MCP Tools"/>
+<meta content="F2859D0614981562217BF497BEF4002A" name="msvalidate.01"/>
+<link href="../css/style.css" rel="stylesheet"/>
+<!-- vips-loader for RAW decoding -->
+<script src="/js/vips-loader.js"></script>
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Quais formatos RAW são compatíveis?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Suportamos arquivos Canon CR2/CR3, Nikon NEF, Sony ARW e Adobe DNG. Muitos outros formatos RAW (RAF, RW2, ORF, PEF, etc.) são compatíveis experimentalmente via libraw, mas não testados oficialmente."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "O que é WebP e por que usá-lo?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WebP é um formato de imagem moderno desenvolvido pelo Google que oferece compressão lossy e lossless superior. Imagens WebP lossy são tipicamente 25-35% menores que JPEG com a mesma qualidade, e imagens WebP lossless são cerca de 26% menores que PNG. Para uso web, WebP oferece o melhor equilíbrio entre tamanho e qualidade."
+            }
+        }
+    ]
+}
+    </script>
+<style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</head>
+<body>
+<header class="header">
+<div class="container">
+<div class="logo">
+<a href="../">
+<img alt="PicEte" class="logo-img" src="../images/picete-logo.svg"/>
+</a>
+<p class="tagline">Conversor de RAW para WebP</p>
+</div>
+<nav class="nav">
+<a class="nav-link" href="../">Início</a>
+<a class="nav-link" href="../#tools">Mais Ferramentas</a>
+<!-- Language Switcher -->
+<style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+<div class="lang-switcher">
+<select aria-label="Mudar idioma" onchange="switchLanguage(this.value)">
+<option value="en">English</option>
+<option value="zh">中文</option>
+<option value="ja">日本語</option>
+<option value="de">Deutsch</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option selected="" value="pt">Português</option>
+<option value="ar">العربية</option>
+</select>
+</div>
+<script>
+    function switchLanguage(code) {
+        var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+        var path = window.location.pathname;
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+<button aria-label="Alternar tema" class="theme-toggle" id="themeToggle">
+<span class="sun-icon">☀️</span>
+<span class="moon-icon">🌙</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="main">
+<!-- Tool Section -->
+<section class="hero">
+<div class="container">
+<div class="breadcrumb"><a href="https://picete.com/">Início</a><span class="separator">›</span><span class="current">RAW para WebP</span></div>
+<h2 class="hero-title">Conversor online de RAW para WebP</h2>
+<p class="hero-subtitle">Converta arquivos RAW (CR2, CR3, NEF, ARW, DNG) para o formato WebP para uso web moderno. Arquivos menores, mesma qualidade excelente.</p>
+<div class="upload-area" id="uploadArea">
+<svg class="upload-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="17 8 12 3 7 8"></polyline>
+<line x1="12" x2="12" y1="3" y2="15"></line>
+</svg>
+<p class="upload-text">Arraste os arquivos RAW aqui</p>
+<p class="upload-subtext">ou clique para selecionar arquivos, suporta seleção múltipla</p>
+<input accept=".cr2,.cr3,.nef,.arw,.dng,.raw,.raf,.rw2,.orf,.pef" hidden="" id="fileInput" multiple="" type="file"/>
+<button class="btn-primary" id="selectBtn">Selecionar arquivos RAW</button>
+</div>
+<div class="processing-area" id="processingArea" style="display: none;">
+<div class="preview-section">
+<h3>Arquivos RAW Selecionados</h3>
+<div class="preview-grid" id="previewGrid"></div>
+</div>
+<div class="quality-slider" style="text-align: center; margin: 1.5rem 0;">
+<label for="qualitySlider" style="display: inline-block; margin-right: 1rem; font-weight: 500;">Qualidade WebP: <span id="qualityValue">85</span></label>
+<input id="qualitySlider" max="100" min="10" style="width: 200px; vertical-align: middle;" type="range" value="85"/>
+</div>
+<div class="action-buttons" style="text-align: center; margin-top: 1.5rem;">
+<button class="btn-primary" id="convertBtn">Converter para WebP</button>
+<button class="btn-secondary" id="resetBtn">Escolher Novamente</button>
+</div>
+</div>
+<div class="download-section" id="downloadSection" style="display: none;">
+<h3>Conversão Concluída!</h3>
+<div class="download-grid" id="downloadGrid"></div>
+<button class="btn-primary" id="downloadAllBtn">Baixar todos os WebP</button>
+<button class="btn-link" id="startOverBtn">Converter Mais Arquivos</button>
+</div>
+</div>
+</section>
+<div class="container" style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+<a class="btn-primary" href="../" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; font-size: 1.125rem; text-decoration: none;">← Voltar ao Início do PicEte</a>
+</div>
+<!-- Features -->
+<section class="features-section">
+<div class="container">
+<h2 class="section-title">Por que usar nosso Conversor de RAW para WebP</h2>
+<div class="features-grid">
+<div class="feature-item">
+<div class="feature-icon">⚡</div>
+<h3>Decodificação RAW via WASM</h3>
+<p>Usa wasm-vips, uma porta WebAssembly da biblioteca Vips com libraw, para decodificar arquivos RAW com precisão no seu navegador. Suporta Canon CR2/CR3, Nikon NEF, Sony ARW, Adobe DNG e mais. Não é necessário upload para servidores.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🎯</div>
+<h3>Formato WebP Moderno</h3>
+<p>WebP oferece compressão superior comparado a JPEG e PNG. Suas fotos RAW se tornam arquivos otimizados para web que carregam mais rápido no seu site. WebP suporta modos lossy e lossless com transparência alfa.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">📦</div>
+<h3>Processamento em Lote</h3>
+<p>Selecione vários arquivos RAW de uma vez para conversão em lote. Cada imagem é processada independentemente com configurações de qualidade consistentes, e você pode baixar todas de uma vez com um clique.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🔒</div>
+<h3>Privacidade e Processamento Local</h3>
+<p>Toda a conversão acontece localmente no seu navegador usando WebAssembly. Arquivos RAW nunca são enviados para qualquer servidor. Suas fotos permanecem no seu dispositivo o tempo todo.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="features-section" style="padding-top: 0;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">Como converter RAW para WebP online gratuitamente</h2>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Envie seus arquivos RAW</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Clique na área de upload ou arraste arquivos RAW para o navegador. A ferramenta aceita .cr2, .cr3, .nef, .arw, .dng e muitos outros formatos RAW. Selecione vários arquivos de uma vez para conversão em lote. Quando você solta seus arquivos, você verá miniaturas mostrando uma prévia de cada imagem RAW com seu nome de arquivo e dimensões. Todo o processamento fica no seu navegador — suas fotos nunca saem do seu dispositivo.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Ajuste a qualidade e converta</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Use o slider de qualidade para definir a compressão WebP (10-100, padrão 85). Valores maiores significam melhor qualidade, mas arquivos maiores. Clique no botão "Converter para WebP" para começar. A ferramenta carrega a biblioteca vips baseada em WebAssembly com suporte libraw (geralmente leva um momento no primeiro uso) e decodifica cada arquivo RAW em dados de pixel de resolução completa, depois codifica para WebP. Indicadores de progresso mostram quando cada arquivo terminou de converter.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Baixe seus arquivos WebP</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Cada WebP convertido exibe uma prévia com seu tamanho de arquivo. Baixe imagens individualmente com o botão de cada arquivo, ou clique em "Baixar todos os WebP" para acionar downloads escalonados para cada arquivo convertido — os navegadores lidam com eles um por um automaticamente. Se você quiser converter mais, clique em "Converter Mais Arquivos" para iniciar um novo lote. Todo o fluxo é rápido, local e privado.</p>
+</div>
+</div>
+</section>
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">Dicas de RAW para WebP</h2>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Por que converter RAW para WebP?</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Arquivos RAW contêm dados não processados do sensor com máxima flexibilidade de edição, mas são grandes e não são suportados por navegadores web. Converter para WebP cria imagens web modernas otimizadas que são 25-35% menores que JPEG com a mesma qualidade. WebP é suportado por todos os navegadores modernos e oferece o melhor equilíbrio entre tamanho de arquivo e qualidade visual para uso web.</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Formatos RAW suportados</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Oficialmente suportamos Canon CR2 e CR3, Nikon NEF, Sony ARW e Adobe DNG. Muitos outros formatos RAW de câmera (Fujifilm RAF, Panasonic RW2, Olympus ORF, Pentax PEF, etc.) são suportados experimentalmente através do libraw, mas podem não ser totalmente testados. Se seu formato não está listado, tente enviar — pode funcionar. Para melhores resultados, use DNG se sua câmera suportar.</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Configurações de qualidade explicadas</h3>
+<p style="line-height: 1.8; color: var(--text-light);">O slider de qualidade WebP controla a compressão lossy: 10 é o menor arquivo com artefatos visíveis, 100 é o maior com compressão mínima. 85 é o padrão recomendado — excelente qualidade para a maioria dos fins. Use 90-100 para arquivamento ou impressão, 70-85 para compartilhamento web, e valores menores apenas quando o tamanho do arquivo importa mais que a qualidade. Lembre-se que os originais RAW são sempre superiores para edição — converta para WebP como a etapa final para distribuição web.</p>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">Perguntas Frequentes</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary class="faq-question">Quais formatos RAW são compatíveis?</summary>
+<p class="faq-answer">Suportamos arquivos Canon CR2/CR3, Nikon NEF, Sony ARW e Adobe DNG. Muitos outros formatos RAW (RAF, RW2, ORF, PEF, etc.) são compatíveis experimentalmente via libraw, mas não testados oficialmente.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">O que é WebP e por que usá-lo?</summary>
+<p class="faq-answer">WebP é um formato de imagem moderno desenvolvido pelo Google que oferece compressão lossy e lossless superior. Imagens WebP lossy são tipicamente 25-35% menores que JPEG com a mesma qualidade, e imagens WebP lossless são cerca de 26% menores que PNG. Para uso web, WebP oferece o melhor equilíbrio entre tamanho e qualidade.</p>
+</details>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>Mais Ferramentas</h4>
+<ul>
+<li><a href="../jpg-to-png/">JPG para PNG</a></li>
+<li><a href="../webp-to-png/">WebP para PNG</a></li>
+<li><a href="../png-to-webp/">PNG para WebP</a></li>
+<li><a href="../resize-image/">Redimensionador de Imagem</a></li>
+<li><a href="../compress-image/">Compressor de Imagem</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Sobre</h4>
+<ul>
+<li><a href="../">Voltar ao Início</a></li>
+<li><a href="/privacy-policy.html">Política de Privacidade</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Mais Ferramentas</h4>
+<ul>
+<li><a href="https://mockupshot.online/">MockupShot - Screenshot Mockup</a></li>
+<li><a href="https://ilovepalette.com/">ILovePalette - Ferramentas de Cor</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 PicEte. Todos os direitos reservados.</p>
+</div>
+</div>
+</footer>
+<script>
+        // RAW to WebP dedicated script using wasm-vips
+        const state = { uploadedFiles: [], convertedImages: [] };
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const selectBtn = document.getElementById('selectBtn');
+        const processingArea = document.getElementById('processingArea');
+        const previewGrid = document.getElementById('previewGrid');
+        const downloadSection = document.getElementById('downloadSection');
+        const downloadGrid = document.getElementById('downloadGrid');
+        const convertBtn = document.getElementById('convertBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        const startOverBtn = document.getElementById('startOverBtn');
+        const qualitySlider = document.getElementById('qualitySlider');
+        const qualityValue = document.getElementById('qualityValue');
+
+        selectBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => handleFiles(Array.from(e.target.files)));
+        uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+        uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const rawExts = ['.cr2','.cr3','.nef','.arw','.dng','.raw','.raf','.rw2','.orf','.pef'];
+            handleFiles(Array.from(e.dataTransfer.files).filter(f => {
+                const ext = '.' + f.name.split('.').pop().toLowerCase();
+                return rawExts.includes(ext);
+            }));
+        });
+
+        qualitySlider.addEventListener('input', (e) => {
+            qualityValue.textContent = e.target.value;
+        });
+
+        convertBtn.addEventListener('click', processRawToWebp);
+        resetBtn.addEventListener('click', reset);
+        downloadAllBtn.addEventListener('click', downloadAll);
+        startOverBtn.addEventListener('click', reset);
+
+        function handleFiles(files) {
+            if (files.length === 0) return alert('Por favor, selecione arquivos RAW');
+            state.uploadedFiles = files;
+            Promise.all(files.map(f => loadImage(f))).then(images => {
+                displayPreviews(images);
+                uploadArea.style.display = 'none';
+                processingArea.style.display = 'block';
+            }).catch(() => alert('Falha ao carregar os arquivos'));
+        }
+
+        function loadImage(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => resolve({ img, file, src: e.target.result });
+                    img.onerror = () => resolve({ img: null, file, src: null });
+                    img.src = e.target.result;
+                };
+                reader.onerror = () => resolve({ img: null, file, src: null });
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function displayPreviews(images) {
+            previewGrid.innerHTML = images.map(({ img, file, src }) => `
+                <div class="preview-item">
+                    ${src ? `<img src="${src}" alt="${file.name}" style="${img ? '' : 'background: #f0f0f0; padding: 2rem; text-align: center;'}">` : '<div style="background: #f0f0f0; padding: 2rem; text-align: center; color: #999;">No preview available</div>'}
+                    <div class="file-info">
+                        <strong>${file.name}</strong><br>${img ? img.width + ' × ' + img.height + 'px' : '(formato RAW)'}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function processRawToWebp() {
+            convertBtn.disabled = true;
+            convertBtn.textContent = 'Convertendo...';
+            state.convertedImages = [];
+            let processed = 0;
+            const quality = parseInt(qualitySlider.value, 10);
+
+            try {
+                for (let i = 0; i < state.uploadedFiles.length; i++) {
+                    try {
+                        const blob = await convertRawToWebpWithVips(state.uploadedFiles[i], quality);
+                        const url = URL.createObjectURL(blob);
+                        state.convertedImages[i] = {
+                            url,
+                            name: state.uploadedFiles[i].name.replace(/\.(cr2|cr3|nef|arw|dng|raw|raf|rw2|orf|pef)$/i, '.webp'),
+                            size: blob.size
+                        };
+                    } catch (err) {
+                        console.error('Falha na conversão:', state.uploadedFiles[i].name, err);
+                        alert('Falha na conversão: ' + state.uploadedFiles[i].name + '\n' + err.message);
+                        state.convertedImages[i] = null;
+                    }
+                    processed++;
+                }
+            } finally {
+                convertBtn.disabled = false;
+                convertBtn.textContent = 'Converter para WebP';
+            }
+
+            const valid = state.convertedImages.filter(Boolean);
+            if (valid.length > 0) {
+                displayDownloads();
+            }
+        }
+
+        async function convertRawToWebpWithVips(file, quality) {
+            const vips = await VipsLoader.load();
+            if (!vips) {
+                throw new Error('Falha ao carregar biblioteca wasm-vips. Isso pode ser devido a restrições COOP/COEP. Tente usar um navegador moderno com suporte SharedArrayBuffer, ou verifique suas configurações de navegador.');
+            }
+            const uint8Array = new Uint8Array(await file.arrayBuffer());
+            const image = vips.Image.newFromBuffer(uint8Array, '');
+            if (!image) {
+                throw new Error('Falha ao decodificar arquivo RAW. O formato pode não ser suportado.');
+            }
+            try {
+                const buf = image.writeToBuffer('.webp', { Q: quality });
+                return new Blob([buf.buffer], { type: 'image/webp' });
+            } finally {
+                image.delete();
+            }
+        }
+
+        function displayDownloads() {
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'block';
+            downloadGrid.innerHTML = state.convertedImages.filter(Boolean).map((img, i) => `
+                <div class="download-item">
+                    <img src="${img.url}" alt="${img.name}">
+                    <h4>${img.name}</h4>
+                    <p>${(img.size / 1024).toFixed(1)} KB</p>
+                    <button class="btn-primary" onclick="downloadOne(${i})">Baixar</button>
+                </div>
+            `).join('');
+        }
+
+        window.downloadOne = function(i) {
+            const img = state.convertedImages[i];
+            if (!img) return;
+            const a = document.createElement('a');
+            a.href = img.url;
+            a.download = img.name;
+            a.click();
+        };
+
+        function downloadAll() {
+            const valid = state.convertedImages.filter(Boolean);
+            valid.forEach((img, i) => setTimeout(() => {
+                const a = document.createElement('a');
+                a.href = img.url;
+                a.download = img.name;
+                a.click();
+            }, i * 500));
+        }
+
+        function reset() {
+            state.uploadedFiles = [];
+            state.convertedImages = [];
+            fileInput.value = '';
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'none';
+            uploadArea.style.display = 'block';
+            convertBtn.disabled = false;
+            convertBtn.textContent = 'Converter para WebP';
+        }
+    </script>
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>

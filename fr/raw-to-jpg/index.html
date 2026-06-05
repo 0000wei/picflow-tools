@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RAW en JPG - Convertisseur RAW en JPG en ligne gratuit | PicEte</title>
+<!-- Google Analytics -->
+<script async="" src="/js/gtag.js"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+<meta content="Convertisseur RAW en JPG en ligne gratuit. Convertissez vos fichiers RAW (CR2, NEF, ARW, DNG) en images JPG de haute qualité directement dans votre navigateur. Aucun téléchargement, aucune inscription, privé et gratuit." name="description"/>
+<meta content="RAW en JPG, convertisseur RAW en JPG, CR2 en JPG, NEF en JPG, ARW en JPG, DNG en JPG, convertisseur d'image RAW, convertisseur RAW en ligne, convertisseur RAW d'appareil" name="keywords"/>
+<link href="https://picete.com/fr/raw-to-jpg/" rel="canonical"/>
+<!-- hreflang tags -->
+<link href="https://picete.com/raw-to-jpg/" hreflang="en" rel="alternate"/>
+<link href="https://picete.com/zh/raw-to-jpg/" hreflang="zh" rel="alternate"/>
+<link href="https://picete.com/ja/raw-to-jpg/" hreflang="ja" rel="alternate"/>
+<link href="https://picete.com/de/raw-to-jpg/" hreflang="de" rel="alternate"/>
+<link href="https://picete.com/fr/raw-to-jpg/" hreflang="fr" rel="alternate"/>
+<link href="https://picete.com/es/raw-to-jpg/" hreflang="es" rel="alternate"/>
+<link href="https://picete.com/pt/raw-to-jpg/" hreflang="pt" rel="alternate"/>
+<link href="https://picete.com/ar/raw-to-jpg/" hreflang="ar" rel="alternate"/>
+<link href="https://picete.com/raw-to-jpg/" hreflang="x-default" rel="alternate"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="https://picete.com/fr/raw-to-jpg/" property="og:url"/>
+<meta content="RAW en JPG - Convertisseur RAW en JPG en ligne gratuit" property="og:title"/>
+<meta content="Convertisseur RAW en JPG en ligne gratuit, convertissez vos fichiers RAW (CR2, NEF, ARW, DNG) en images JPG de haute qualité dans votre navigateur." property="og:description"/>
+<meta content="https://picete.com/images/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<!-- Schema.org -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Convertisseur RAW en JPG",
+        "description": "Outil de conversion RAW en JPG en ligne gratuit",
+        "url": "https://picete.com/fr/raw-to-jpg",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://picete.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "RAW en JPG",
+            "item": "https://picete.com/fr/raw-to-jpg/"
+        }]
+    }
+    </script>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../llms.txt" rel="llms" title="PicEte LLM Context"/>
+<link href="../mcp.json" rel="mcp" title="PicEte MCP Tools"/>
+<meta content="F2859D0614981562217BF497BEF4002A" name="msvalidate.01"/>
+<link href="../css/style.css" rel="stylesheet"/>
+<!-- vips-loader for RAW decoding -->
+<script src="/js/vips-loader.js"></script>
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Quels formats RAW sont pris en charge ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nous prenons en charge les fichiers Canon CR2/CR3, Nikon NEF, Sony ARW et Adobe DNG. De nombreux autres formats RAW (RAF, RW2, ORF, PEF, etc.) sont pris en charge expérimentalement via libraw mais ne sont pas officiellement testés."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "La qualité de conversion est-elle réglable ?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Oui. Vous pouvez régler la qualité JPEG de 10 à 100 à l'aide du curseur. La valeur par défaut est 85, qui offre un bon équilibre entre la taille du fichier et la qualité visuelle."
+            }
+        }
+    ]
+}
+    </script>
+<style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</head>
+<body>
+<header class="header">
+<div class="container">
+<div class="logo">
+<a href="../">
+<img alt="PicEte" class="logo-img" src="../images/picete-logo.svg"/>
+</a>
+<p class="tagline">Convertisseur RAW en JPG</p>
+</div>
+<nav class="nav">
+<a class="nav-link" href="../">Accueil</a>
+<a class="nav-link" href="../#tools">Plus d'outils</a>
+<!-- Language Switcher -->
+<style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+<div class="lang-switcher">
+<select aria-label="Changer de langue" onchange="switchLanguage(this.value)">
+<option value="en">English</option>
+<option value="zh">中文</option>
+<option value="ja">日本語</option>
+<option value="de">Deutsch</option>
+<option selected="" value="fr">Français</option>
+<option value="es">Español</option>
+<option value="pt">Português</option>
+<option value="ar">العربية</option>
+</select>
+</div>
+<script>
+    function switchLanguage(code) {
+        var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+        var path = window.location.pathname;
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+<button aria-label="Changer de thème" class="theme-toggle" id="themeToggle">
+<span class="sun-icon">☀️</span>
+<span class="moon-icon">🌙</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="main">
+<!-- Tool Section -->
+<section class="hero">
+<div class="container">
+<div class="breadcrumb"><a href="https://picete.com/">Accueil</a><span class="separator">›</span><span class="current">RAW en JPG</span></div>
+<h2 class="hero-title">Convertisseur RAW en JPG en ligne</h2>
+<p class="hero-subtitle">Convertissez vos fichiers RAW (CR2, CR3, NEF, ARW, DNG) en images JPG de haute qualité. Utilise wasm-vips pour un décodage précis des RAW, prend en charge la conversion par lots, et tout reste local.</p>
+<div class="upload-area" id="uploadArea">
+<svg class="upload-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="17 8 12 3 7 8"></polyline>
+<line x1="12" x2="12" y1="3" y2="15"></line>
+</svg>
+<p class="upload-text">Déposez les fichiers RAW ici</p>
+<p class="upload-subtext">ou cliquez pour sélectionner des fichiers, prend en charge la sélection multiple</p>
+<input accept=".cr2,.cr3,.nef,.arw,.dng,.raw,.raf,.rw2,.orf,.pef" hidden="" id="fileInput" multiple="" type="file"/>
+<button class="btn-primary" id="selectBtn">Sélectionner les fichiers RAW</button>
+</div>
+<div class="processing-area" id="processingArea" style="display: none;">
+<div class="preview-section">
+<h3>Fichiers RAW sélectionnés</h3>
+<div class="preview-grid" id="previewGrid"></div>
+</div>
+<div class="quality-slider" style="text-align: center; margin: 1.5rem 0;">
+<label for="qualitySlider" style="display: inline-block; margin-right: 1rem; font-weight: 500;">Qualité JPEG : <span id="qualityValue">85</span></label>
+<input id="qualitySlider" max="100" min="10" style="width: 200px; vertical-align: middle;" type="range" value="85"/>
+</div>
+<div class="action-buttons" style="text-align: center; margin-top: 1.5rem;">
+<button class="btn-primary" id="convertBtn">Convertir en JPG</button>
+<button class="btn-secondary" id="resetBtn">Choisir à nouveau</button>
+</div>
+</div>
+<div class="download-section" id="downloadSection" style="display: none;">
+<h3>Conversion terminée !</h3>
+<div class="download-grid" id="downloadGrid"></div>
+<button class="btn-primary" id="downloadAllBtn">Tout télécharger en JPG</button>
+<button class="btn-link" id="startOverBtn">Convertir plus de fichiers</button>
+</div>
+</div>
+</section>
+<div class="container" style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+<a class="btn-primary" href="../" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; font-size: 1.125rem; text-decoration: none;">← Retour à l'accueil PicEte</a>
+</div>
+<!-- Features -->
+<section class="features-section">
+<div class="container">
+<h2 class="section-title">Pourquoi utiliser notre convertisseur RAW en JPG</h2>
+<div class="features-grid">
+<div class="feature-item">
+<div class="feature-icon">⚡</div>
+<h3>Décodage RAW propulsé par WASM</h3>
+<p>Utilise wasm-vips, un portage WebAssembly de la bibliothèque Vips avec libraw, pour décoder les fichiers RAW avec précision dans votre navigateur. Prend en charge Canon CR2/CR3, Nikon NEF, Sony ARW, Adobe DNG, et plus encore. Aucun téléchargement vers un serveur nécessaire.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🎯</div>
+<h3>Sortie JPEG haute qualité</h3>
+<p>Qualité JPEG réglable de 10 à 100. La valeur par défaut de 85 offre un excellent équilibre entre la taille du fichier et la qualité visuelle. Sortie en pleine résolution avec gestion appropriée de l'espace colorimétrique.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">📦</div>
+<h3>Traitement par lots</h3>
+<p>Sélectionnez plusieurs fichiers RAW à la fois pour une conversion par lots. Chaque image est traitée indépendamment avec des paramètres de qualité cohérents, et vous pouvez toutes les télécharger en un seul clic.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🔒</div>
+<h3>Confidentialité et traitement local</h3>
+<p>Toute la conversion se produit localement dans votre navigateur en utilisant WebAssembly. Les fichiers RAW ne sont jamais téléchargés vers un serveur. Vos photos restent sur votre appareil à tout moment.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="features-section" style="padding-top: 0;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">Comment convertir RAW en JPG en ligne gratuitement</h2>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Téléchargez vos fichiers RAW</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Cliquez sur la zone de téléchargement ou faites glisser des fichiers RAW dans le navigateur. L'outil accepte les fichiers .cr2, .cr3, .nef, .arw, .dng et de nombreux autres formats RAW. Sélectionnez plusieurs fichiers à la fois pour une conversion par lots. Lorsque vous déposez vos fichiers, vous verrez des vignettes montrant un aperçu de chaque image RAW avec son nom de fichier et ses dimensions. Tout le traitement reste dans votre navigateur — vos photos ne quittent jamais votre appareil.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Ajustez la qualité et convertissez</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Utilisez le curseur de qualité pour régler la compression JPEG (10-100, par défaut 85). Des valeurs plus élevées signifient une meilleure qualité mais des fichiers plus volumineux. Cliquez sur le bouton "Convertir en JPG" pour commencer. L'outil charge la bibliothèque vips basée sur WebAssembly avec prise en charge libraw (généralement prend un moment au premier usage) et décode chaque fichier RAW en données de pixels pleine résolution, puis encode en JPEG. Les indicateurs de progression montrent quand chaque fichier a terminé la conversion.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Téléchargez vos JPG</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Chaque JPG converti affiche un aperçu avec sa taille de fichier. Téléchargez les images individuellement avec le bouton par fichier, ou cliquez sur "Tout télécharger en JPG" pour déclencher des téléchargements échelonnés pour chaque fichier converti — les navigateurs les gèrent un par un automatiquement. Si vous souhaitez convertir plus, cliquez sur "Convertir plus de fichiers" pour commencer un nouveau lot. L'ensemble du flux de travail est rapide, local et privé.</p>
+</div>
+</div>
+</section>
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">Conseils RAW en JPG</h2>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Pourquoi convertir RAW en JPG ?</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Les fichiers RAW contiennent des données de capteur non traitées avec une flexibilité d'édition maximale, mais ils sont volumineux et ne sont pas largement pris en charge par les plateformes Web ou les appareils mobiles. La conversion en JPG crée des images universellement compatibles qui fonctionnent partout — pièces jointes par e-mail, téléchargements sur les réseaux sociaux, hébergement Web et incorporation dans des documents. Le JPG est également beaucoup plus petit que RAW, ce qui le rend pratique pour le partage et le stockage.</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Formats RAW pris en charge</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Nous prenons officiellement en charge Canon CR2 et CR3, Nikon NEF, Sony ARW et Adobe DNG. De nombreux autres formats RAW d'appareil photo (Fujifilm RAF, Panasonic RW2, Olympus ORF, Pentax PEF, etc.) sont pris en charge expérimentalement via libraw mais peuvent ne pas être entièrement testés. Si votre format n'est pas répertorié, essayez de le télécharger — il pourrait fonctionner. Pour de meilleurs résultats, utilisez DNG si votre appareil le prend en charge.</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Paramètres de qualité expliqués</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Le curseur de qualité JPEG contrôle la compression : 10 est la plus petite taille de fichier avec des artefacts visibles, 100 est la plus grande avec une compression minimale. 85 est la valeur par défaut recommandée — excellente qualité pour la plupart des usages. Utilisez 90-100 pour l'archivage ou l'impression, 70-85 pour le partage Web, et des valeurs plus basses uniquement lorsque la taille du fichier compte plus que la qualité. Rappelez-vous que les fichiers RAW originaux sont toujours supérieurs pour l'édition — convertissez en JPG comme dernière étape pour la distribution.</p>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">Questions fréquentes</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary class="faq-question">Quels formats RAW sont pris en charge ?</summary>
+<p class="faq-answer">Nous prenons en charge les fichiers Canon CR2/CR3, Nikon NEF, Sony ARW et Adobe DNG. De nombreux autres formats RAW (RAF, RW2, ORF, PEF, etc.) sont pris en charge expérimentalement via libraw mais ne sont pas officiellement testés.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">La qualité de conversion est-elle réglable ?</summary>
+<p class="faq-answer">Oui. Vous pouvez régler la qualité JPEG de 10 à 100 à l'aide du curseur. La valeur par défaut est 85, qui offre un bon équilibre entre la taille du fichier et la qualité visuelle.</p>
+</details>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>Plus d'outils</h4>
+<ul>
+<li><a href="../jpg-to-png/">JPG en PNG</a></li>
+<li><a href="../webp-to-png/">WebP en PNG</a></li>
+<li><a href="../png-to-webp/">PNG en WebP</a></li>
+<li><a href="../resize-image/">Redimensionneur d'image</a></li>
+<li><a href="../compress-image/">Compresseur d'image</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>À propos</h4>
+<ul>
+<li><a href="../">Retour à l'accueil</a></li>
+<li><a href="/privacy-policy.html">Politique de confidentialité</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Plus d'outils</h4>
+<ul>
+<li><a href="https://mockupshot.online/">MockupShot - Maquette de capture d'écran</a></li>
+<li><a href="https://ilovepalette.com/">ILovePalette - Outils de couleur</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 PicEte. Tous droits réservés.</p>
+</div>
+</div>
+</footer>
+<script>
+        // RAW to JPG dedicated script using wasm-vips
+        const state = { uploadedFiles: [], convertedImages: [] };
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const selectBtn = document.getElementById('selectBtn');
+        const processingArea = document.getElementById('processingArea');
+        const previewGrid = document.getElementById('previewGrid');
+        const downloadSection = document.getElementById('downloadSection');
+        const downloadGrid = document.getElementById('downloadGrid');
+        const convertBtn = document.getElementById('convertBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        const startOverBtn = document.getElementById('startOverBtn');
+        const qualitySlider = document.getElementById('qualitySlider');
+        const qualityValue = document.getElementById('qualityValue');
+
+        selectBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => handleFiles(Array.from(e.target.files)));
+        uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+        uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const rawExts = ['.cr2','.cr3','.nef','.arw','.dng','.raw','.raf','.rw2','.orf','.pef'];
+            handleFiles(Array.from(e.dataTransfer.files).filter(f => {
+                const ext = '.' + f.name.split('.').pop().toLowerCase();
+                return rawExts.includes(ext);
+            }));
+        });
+
+        qualitySlider.addEventListener('input', (e) => {
+            qualityValue.textContent = e.target.value;
+        });
+
+        convertBtn.addEventListener('click', processRawToJpg);
+        resetBtn.addEventListener('click', reset);
+        downloadAllBtn.addEventListener('click', downloadAll);
+        startOverBtn.addEventListener('click', reset);
+
+        function handleFiles(files) {
+            if (files.length === 0) return alert('Veuillez sélectionner des fichiers RAW');
+            state.uploadedFiles = files;
+            Promise.all(files.map(f => loadImage(f))).then(images => {
+                displayPreviews(images);
+                uploadArea.style.display = 'none';
+                processingArea.style.display = 'block';
+            }).catch(() => alert('Échec du chargement des fichiers'));
+        }
+
+        function loadImage(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => resolve({ img, file, src: e.target.result });
+                    img.onerror = () => resolve({ img: null, file, src: null });
+                    img.src = e.target.result;
+                };
+                reader.onerror = () => resolve({ img: null, file, src: null });
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function displayPreviews(images) {
+            previewGrid.innerHTML = images.map(({ img, file, src }) => `
+                <div class="preview-item">
+                    ${src ? `<img src="${src}" alt="${file.name}" style="${img ? '' : 'background: #f0f0f0; padding: 2rem; text-align: center;'}">` : '<div style="background: #f0f0f0; padding: 2rem; text-align: center; color: #999;">Aperçu non disponible</div>'}
+                    <div class="file-info">
+                        <strong>${file.name}</strong><br>${img ? img.width + ' × ' + img.height + 'px' : '(format RAW)'}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function processRawToJpg() {
+            convertBtn.disabled = true;
+            convertBtn.textContent = 'Conversion...';
+            state.convertedImages = [];
+            let processed = 0;
+            const quality = parseInt(qualitySlider.value, 10);
+
+            try {
+                for (let i = 0; i < state.uploadedFiles.length; i++) {
+                    try {
+                        const blob = await convertRawToJpgWithVips(state.uploadedFiles[i], quality);
+                        const url = URL.createObjectURL(blob);
+                        state.convertedImages[i] = {
+                            url,
+                            name: state.uploadedFiles[i].name.replace(/\.(cr2|cr3|nef|arw|dng|raw|raf|rw2|orf|pef)$/i, '.jpg'),
+                            size: blob.size
+                        };
+                    } catch (err) {
+                        console.error('Conversion failed for', state.uploadedFiles[i].name, err);
+                        alert('Échec de la conversion : ' + state.uploadedFiles[i].name + '\n' + err.message);
+                        state.convertedImages[i] = null;
+                    }
+                    processed++;
+                }
+            } finally {
+                convertBtn.disabled = false;
+                convertBtn.textContent = 'Convertir en JPG';
+            }
+
+            const valid = state.convertedImages.filter(Boolean);
+            if (valid.length > 0) {
+                displayDownloads();
+            }
+        }
+
+        async function convertRawToJpgWithVips(file, quality) {
+            const vips = await VipsLoader.load();
+            if (!vips) {
+                throw new Error('Échec du chargement de la bibliothèque wasm-vips. Cela peut être dû à des restrictions COOP/COEP. Veuillez essayer d\'utiliser un navigateur moderne avec prise en charge SharedArrayBuffer, ou vérifier vos paramètres de navigateur.');
+            }
+            const uint8Array = new Uint8Array(await file.arrayBuffer());
+            const image = vips.Image.newFromBuffer(uint8Array, '');
+            if (!image) {
+                throw new Error('Échec du décodage du fichier RAW. Le format peut ne pas être pris en charge.');
+            }
+            try {
+                const buf = image.writeToBuffer('.jpg', { Q: quality });
+                return new Blob([buf.buffer], { type: 'image/jpeg' });
+            } finally {
+                image.delete();
+            }
+        }
+
+        function displayDownloads() {
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'block';
+            downloadGrid.innerHTML = state.convertedImages.filter(Boolean).map((img, i) => `
+                <div class="download-item">
+                    <img src="${img.url}" alt="${img.name}">
+                    <h4>${img.name}</h4>
+                    <p>${(img.size / 1024).toFixed(1)} KB</p>
+                    <button class="btn-primary" onclick="downloadOne(${i})">Télécharger</button>
+                </div>
+            `).join('');
+        }
+
+        window.downloadOne = function(i) {
+            const img = state.convertedImages[i];
+            if (!img) return;
+            const a = document.createElement('a');
+            a.href = img.url;
+            a.download = img.name;
+            a.click();
+        };
+
+        function downloadAll() {
+            const valid = state.convertedImages.filter(Boolean);
+            valid.forEach((img, i) => setTimeout(() => {
+                const a = document.createElement('a');
+                a.href = img.url;
+                a.download = img.name;
+                a.click();
+            }, i * 500));
+        }
+
+        function reset() {
+            state.uploadedFiles = [];
+            state.convertedImages = [];
+            fileInput.value = '';
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'none';
+            uploadArea.style.display = 'block';
+            convertBtn.disabled = false;
+            convertBtn.textContent = 'Convertir en JPG';
+        }
+    </script>
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>
