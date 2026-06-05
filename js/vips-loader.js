@@ -34,21 +34,34 @@ const VipsLoader = {
       }
 
       // 加载 wasm-vips
-      // 优先从 window.Vips（由 es6 module 或 script 设置）
-      // 如果没有，尝试通过动态 import() 加载 es6 版本
+      // 优先从 window.Vips（由 script 设置）
       var Vips = window.Vips;
       if (!Vips) {
-        try {
-          // Try dynamic import of vips-es6.js
-          Vips = (await import('/js/lib/vips-es6.js')).default;
-          console.log('[VipsLoader] vips-es6 loaded via dynamic import');
-        } catch (importErr) {
-          throw new Error('vips.js not loaded — ensure <script src="/js/lib/vips.js"> is included. Dynamic import also failed: ' + importErr.message);
-        }
+        await new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = '/js/lib/vips.js';
+          script.onload = () => {
+            Vips = window.Vips;
+            resolve();
+          };
+          script.onerror = () => reject(new Error('Failed to load vips.js script'));
+          document.head.appendChild(script);
+        });
+        console.log('[VipsLoader] vips.js loaded via script tag');
       }
 
       // 初始化 wasm-vips，带 120 秒超时（多线程 + 大 WASM 下载需要时间）
-      var initPromise = Vips();
+      var initPromise = Vips({
+        mainScriptUrlOrBlob: '/js/lib/vips.js',
+        locateFile: (fileName, scriptDirectory) => {
+          return '/js/lib/' + fileName;
+        },
+        // 禁用动态库预加载（vips-heif.wasm 和 vips-jxl.wasm）
+        // 在启用了 Pthreads (SharedArrayBuffer) 的 Web Worker 环境中，
+        // 预加载这些大 WASM 动态库会导致 Emscripten 初始化时产生死锁。
+        // 此改动能彻底解决“raw-to-jpg 卡住不执行”的问题。
+        dynamicLibraries: []
+      });
       // 30 秒时输出中间状态方便调试
       var intermediateCheck = setTimeout(function () {
         console.warn('[VipsLoader] Vips() still initializing after 30s, waiting up to 120s total');
