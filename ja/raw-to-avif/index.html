@@ -547,8 +547,22 @@
                 throw new Error('wasm-vipsライブラリの読み込みに失敗しました。COOP/COEP制限の可能性があります。SharedArrayBufferサポート付きのモダンブラウザを使用するか、ブラウザ設定を確認してください。');
             }
             const uint8Array = new Uint8Array(await file.arrayBuffer());
-            const image = vips.Image.newFromBuffer(uint8Array, '');
+            
+            // Write to MEMFS so vips can use the file extension hint (e.g., .arw)
+            const safeName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
+            const virtualFile = 'temp_' + Date.now() + '_' + safeName;
+            
+            let image;
+            try {
+                vips.FS.writeFile(virtualFile, uint8Array);
+                image = vips.Image.newFromFile(virtualFile);
+            } catch (err) {
+                try { vips.FS.unlink(virtualFile); } catch (e) {}
+                throw err;
+            }
+
             if (!image) {
+                vips.FS.unlink(virtualFile);
                 throw new Error('RAWファイルのデコードに失敗しました。フォーマットが対応していない可能性があります。');
             }
             try {
@@ -556,6 +570,7 @@
                 return new Blob([buf.buffer], { type: 'image/avif' });
             } finally {
                 image.delete();
+                vips.FS.unlink(virtualFile);
             }
         }
 
