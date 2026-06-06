@@ -31,3 +31,13 @@ Available in 7 languages: 中文 (zh), 日本語 (ja), Deutsch (de), Français (
 ## 📦 Tech Stack
 
 Vanilla JavaScript, HTML5 Canvas, wasm-vips (libvips + libheif + libraw WebAssembly), no frameworks.
+
+## 📂 Project Structure (Harness Engineering)
+
+This project strictly follows the Harness Engineering methodology:
+- `config/`: Configuration files and rules (e.g., `feature_list.json`).
+- `docs/`: Project documentation, specifications (`specs/`), and reports (`reports/`).
+- `scripts/`: Maintenance, build, and test scripts.
+- `seo/`: SEO-related assets and generators.
+- `js/lib/`: WebAssembly binaries and loader scripts.
+- `{lang}/`: Localized pages for each supported language.

@@ -150,9 +150,10 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 
 - [ ] **SEO 插件集成**：当前无 analytics/Cookie 同意等
 - [x] **Cookie 同意弹窗**：已完成 — js/cookie-consent.js + 8 首页集成 (2026-06-05)
-- [ ] **OG 图片**：检查各语言页面的 OG meta 标签是否指向正确的语言对应图片
+- [x] **OG 图片**：已完成 — 生成 7 种语言的 OG 图片，并更新所有 HTML 页面的 meta 标签 (2026-06-06)
 - [ ] **FAQ 翻译报告**：docs/reports/ 中存在 untranslated_faqs_report.json，需检查是否已修复
-- [ ] **README 更新**：反映新目录结构
+- [x] **README 更新**：已完成 — 补充反映最新 Harness Engineering 目录结构的说明 (2026-06-06)
+- [x] **垃圾清理**：已完成 — 删除废弃的 rawtest/ 和 scripts/test/ 临时脚本 (2026-06-06)
 
 ---
 
