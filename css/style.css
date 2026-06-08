@@ -1024,7 +1024,7 @@ html[data-theme="dark"] .footer-logo {
 
 .faq-item {
   background: var(--bg-primary, #fff); border: 1px solid var(--border-color, #e5e7eb);
-  border-radius: 8px; overflow: hidden; transition: box-shadow 0.2s;
+  border-radius: 8px; padding: 1.5rem; overflow: hidden; transition: box-shadow 0.2s;
 }
 .faq-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
 
