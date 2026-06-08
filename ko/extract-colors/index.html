@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>색상 팔레트 추출기 — 이미지에서 무료로 온라인 색상 추출 | PicEte</title>
+<!-- Google Analytics -->
+<script async="" src="/js/gtag.js"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+<meta content="무료 온라인 색상 팔레트 추출기. 이미지를 업로드하고 주요 색상을 추출하세요. 시각적 견본 및 백분율과 함께 HEX, RGB, HSL 값을 얻을 수 있습니다. 업로드 없음, 개인 정보 보호." name="description"/>
+<meta content="색상 팔레트 추출기, 이미지에서 색상 추출, 이미지 색상 팔레트 생성기, 이미지 색상 선택기, 주요 색상 추출기" name="keywords"/>
+<link href="https://picete.com/extract-colors/" rel="canonical"/>
+<!-- hreflang 标签 -->
+<link href="https://picete.com/extract-colors/" hreflang="en" rel="alternate">
+<link href="https://picete.com/zh/extract-colors/" hreflang="zh" rel="alternate"/>
+<link href="https://picete.com/ja/extract-colors/" hreflang="ja" rel="alternate"/>
+<link href="https://picete.com/de/extract-colors/" hreflang="de" rel="alternate"/>
+<link href="https://picete.com/fr/extract-colors/" hreflang="fr" rel="alternate"/>
+<link href="https://picete.com/es/extract-colors/" hreflang="es" rel="alternate"/>
+<link href="https://picete.com/pt/extract-colors/" hreflang="pt" rel="alternate"/>
+<link href="https://picete.com/ar/extract-colors/" hreflang="ar" rel="alternate"/>
+    <link href="https://picete.com/ko/extract-colors/" hreflang="ko" rel="alternate"/>
+<link href="https://picete.com/extract-colors/" hreflang="x-default" rel="alternate"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="https://picete.com/extract-colors/" property="og:url"/>
+<meta content="색상 팔레트 추출기 — 이미지에서 무료로 온라인 색상 추출" property="og:title"/>
+<meta content="이미지를 업로드하고 주요 색상을 추출하세요. 시각적 견본과 함께 HEX, RGB, HSL 값을 얻을 수 있습니다. 업로드 없이 브라우저에서 실행됩니다." property="og:description"/>
+<meta content="https://picete.com/images/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<!-- Schema.org -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "색상 팔레트 추출기",
+        "description": "이미지에서 무료 온라인 색상 팔레트 추출기",
+        "url": "https://picete.com/extract-colors",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "홈",
+            "item": "https://picete.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "색상 팔레트 추출기",
+            "item": "https://picete.com/extract-colors/"
+        }]
+    }
+    </script>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../llms.txt" rel="llms" title="PicEte LLM Context"/>
+<link href="../mcp.json" rel="mcp" title="PicEte MCP Tools"/>
+<meta content="F2859D0614981562217BF497BEF4002A" name="msvalidate.01">
+<link href="../css/style.css" rel="stylesheet"/>
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "추출기는 몇 개의 색상을 감지할 수 있나요?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "도구는 모든 이미지에서 5, 10, 15 또는 20개의 주요 색상을 추출할 수 있습니다. 미디언 컷 양자화 알고리즘을 사용하여 가장 대표적인 색상을 식별합니다. 색상이 많을수록 미세한 디테일이 제공되는 반면, 색상이 적을수록 브랜딩 및 디자인 작업에 완벽하게 단순화된 팔레트가 제공됩니다."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "추출된 팔레트에서 헥스 코드를 복사할 수 있나요?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "네. 추출된 각 색상은 헥스 코드와 함께 표시됩니다. 코드를 클릭하면 클립보드에 즉시 복사됩니다. 전체 팔레트를 쉼표로 구분된 헥스 코드 목록으로 복사하여 Figma, Adobe 또는 Tailwind CSS 프로젝트와 같은 디자인 도구로 가져올 수도 있습니다."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "색상 추출기에서 지원하는 이미지 형식은 무엇인가요?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "JPG, JPEG, PNG, WebP, GIF, BMP 등 모든 주요 이미지 형식이 지원됩니다. 추출 알고리즘은 이미지가 브라우저에 로드된 후 픽셀 데이터에서 작동합니다. 해상도가 높은 이미지는 더 정확한 결과를 제공하므로 가능한 최고 품질의 버전을 업로드하세요."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "색상 추출은 얼마나 정확한가요?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "미디언 컷 알고리즘은 주요 색상을 식별하는 데 매우 안정적입니다. 모든 픽셀을 분석하여 가장 빈번한 색상 클러스터를 찾습니다. 그러나 수천 개의 미묘한 음영이 있는 이미지(예: 일몰)는 도구가 이미지를 제한된 수의 색상 그룹으로 줄이기 때문에 단순화된 팔레트를 생성할 수 있습니다."
+            }
+        }
+    ]
+}
+    </script>
+<style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</head>
+<body>
+<header class="header">
+<div class="container">
+<div class="logo">
+<a href="../">
+<img alt="PicEte" class="logo-img" src="../images/picete-logo.svg" width="116" height="32">
+</a>
+<p class="tagline">색상 팔레트 추출기</p>
+</div>
+<nav class="nav">
+<a class="nav-link" href="../">홈</a>
+<a class="nav-link" href="../#tools">더 많은 도구</a>
+<!-- Language Switcher -->
+<style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+    
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+<div class="lang-switcher">
+<select aria-label="Switch language" onchange="switchLanguage(this.value)">
+<option value="en">English</option>
+<option value="zh">中文</option>
+<option value="ja">日本語</option>
+<option value="de">Deutsch</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="pt">Português</option>
+<option value="ar">العربية</option>
+                const swatchWidth = 100;
+                const swatchHeight = 80;
+                canvas.width = swatchWidth * palette.length;
+                canvas.height = swatchHeight;
+
+                palette.forEach((color, i) => {
+                    ctx.fillStyle = color.hex;
+                    ctx.fillRect(i * swatchWidth, 0, swatchWidth, swatchHeight);
+
+                    // Add hex text
+                    ctx.fillStyle = getContrastColor(color.r, color.g, color.b);
+                    ctx.font = 'bold 14px monospace';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(color.hex, i * swatchWidth + swatchWidth / 2, swatchHeight / 2 + 5);
+                });
+
+                canvas.toBlob(blob => {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'palette.png';
+                    a.click();
+                    URL.revokeObjectURL(url);
+                });
+            }
+        }
+
+        function getContrastColor(r, g, b) {
+            // Calculate luminance
+            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+            return luminance > 0.5 ? '#000000' : '#FFFFFF';
+        }
+
+        function resetAll() {
+            state.image = null;
+            state.palette = [];
+            fileInput.value = '';
+            resultsSection.style.display = 'none';
+            processingArea.style.display = 'none';
+            uploadArea.style.display = 'block';
+            colorCountSlider.value = 8;
+            colorCountValue.textContent = '8';
+        }
+    </script>
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RAW를 AVIF로 변환 - 무료 온라인 RAW to AVIF 변환기 | PicEte</title>
+<!-- Google Analytics -->
+<script async="" src="/js/gtag.js"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+<meta content="무료 온라인 RAW to AVIF 변환기. 카메라 RAW 파일(CR2, NEF, ARW, DNG)을 차세대 AVIF 형식으로 변환하여 뛰어난 압축률을 얻으세요. 무료이며 안전합니다." name="description"/>
+<meta content="RAW를 AVIF로, RAW AVIF 변환기, CR2 AVIF 변환, NEF AVIF 변환, ARW AVIF 변환, DNG AVIF 변환, RAW 이미지 변환기, 온라인 RAW 변환, AVIF 변환기" name="keywords"/>
+<link href="https://picete.com/raw-to-avif/" rel="canonical"/>
+<!-- hreflang tags -->
+<link href="https://picete.com/raw-to-avif/" hreflang="en" rel="alternate"/>
+<link href="https://picete.com/zh/raw-to-avif/" hreflang="zh" rel="alternate"/>
+<link href="https://picete.com/ja/raw-to-avif/" hreflang="ja" rel="alternate"/>
+<link href="https://picete.com/de/raw-to-avif/" hreflang="de" rel="alternate"/>
+<link href="https://picete.com/fr/raw-to-avif/" hreflang="fr" rel="alternate"/>
+<link href="https://picete.com/es/raw-to-avif/" hreflang="es" rel="alternate"/>
+<link href="https://picete.com/pt/raw-to-avif/" hreflang="pt" rel="alternate"/>
+<link href="https://picete.com/ar/raw-to-avif/" hreflang="ar" rel="alternate"/>
+    <link href="https://picete.com/ko/raw-to-avif/" hreflang="ko" rel="alternate"/>
+<link href="https://picete.com/raw-to-avif/" hreflang="x-default" rel="alternate"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="https://picete.com/raw-to-avif/" property="og:url"/>
+<meta content="RAW를 AVIF로 변환 - 무료 온라인 RAW to AVIF 변환기" property="og:title"/>
+<meta content="무료 온라인 RAW to AVIF 변환기. 카메라 RAW 파일(CR2, NEF, ARW, DNG)을 차세대 AVIF 형식으로 변환하여 뛰어난 압축을 제공합니다." property="og:description"/>
+<meta content="https://picete.com/images/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<!-- Schema.org -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "RAW to AVIF 변환기",
+        "description": "무료 온라인 RAW to AVIF 변환 도구",
+        "url": "https://picete.com/raw-to-avif",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "홈",
+            "item": "https://picete.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "RAW를 AVIF로",
+            "item": "https://picete.com/raw-to-avif/"
+        }]
+    }
+    </script>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../llms.txt" rel="llms" title="PicEte LLM Context"/>
+<link href="../mcp.json" rel="mcp" title="PicEte MCP Tools"/>
+<meta content="F2859D0614981562217BF497BEF4002A" name="msvalidate.01"/>
+<link href="../css/style.css" rel="stylesheet"/>
+<!-- vips-loader for RAW decoding -->
+<script src="/js/vips-loader.js"></script>
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "어떤 RAW 형식이 지원되나요?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "당사는 Canon CR2/CR3, Nikon NEF, Sony ARW 및 Adobe DNG 파일을 지원합니다. 다른 많은 RAW 형식(RAF, RW2, ORF, PEF 등)은 libraw를 통해 실험적으로 지원되지만 공식적으로 테스트되지는 않았습니다."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "AVIF가 무엇이며 왜 사용해야 하나요?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "AVIF(AV1 이미지 파일 형식)는 JPEG, WebP, PNG보다 훨씬 뛰어난 압축을 제공하는 차세대 이미지 형식입니다. AVIF 이미지는 동일한 품질의 JPEG보다 일반적으로 50% 더 작으므로 최신 웹 사용에 이상적입니다. AVIF는 또한 HDR, 넓은 색 영역 및 알파 투명도를 지원합니다."
+            }
+        }
+    ]
+}
+    </script>
+<style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</head>
+<body>
+<header class="header">
+<div class="container">
+<div class="logo">
+<a href="../">
+<img alt="PicEte" class="logo-img" src="../images/picete-logo.svg" width="116" height="32">
+</a>
+<p class="tagline">RAW to AVIF 변환기</p>
+</div>
+<nav class="nav">
+<a class="nav-link" href="../">홈</a>
+<a class="nav-link" href="../#tools">더 많은 도구</a>
+<!-- Language Switcher -->
+<style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+<div class="lang-switcher">
+<select aria-label="Switch language" onchange="switchLanguage(this.value)">
+<option selected="" value="en">English</option>
+<option value="zh">中文</option>
+<option value="ja">日本語</option>
+<option value="de">Deutsch</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="pt">Português</option>
+<option value="ar">العربية</option>
+            <option value="ko">한국어</option>
+</select>
+</div>
+<script>
+    function switchLanguage(code) {
+        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/", "ko": "/ko/"};
+        var path = window.location.pathname;
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar|ko)(?:\/|$)/, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+<button aria-label="Toggle theme" class="theme-toggle" id="themeToggle">
+<span class="sun-icon">☀️</span>
+<span class="moon-icon">🌙</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="main">
+<!-- Tool Section -->
+<section class="hero">
+<div class="container">
+<div class="breadcrumb"><a href="https://picete.com/">홈</a><span class="separator">›</span><span class="current">RAW to AVIF</span></div>
+<h2 class="hero-title">RAW to AVIF 온라인 변환기</h2>
+<p class="hero-subtitle">카메라 RAW 파일(CR2, CR3, NEF, ARW, DNG)을 차세대 AVIF 형식으로 변환하세요. 뛰어난 압축률, 최신 웹 환경에 적합합니다. AVIF 인코딩을 위해서는 브라우저에서 SharedArrayBuffer 지원이 필요합니다.</p>
+<div class="upload-area" id="uploadArea">
+<svg class="upload-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="17 8 12 3 7 8"></polyline>
+<line x1="12" x2="12" y1="3" y2="15"></line>
+</svg>
+<p class="upload-text">여기에 RAW 파일을 드롭하세요</p>
+<p class="upload-subtext">또는 클릭하여 파일을 선택하세요 (다중 선택 지원)</p>
+<input accept=".cr2,.cr3,.nef,.arw,.dng,.raw,.raf,.rw2,.orf,.pef" hidden="" id="fileInput" multiple="" type="file"/>
+<button class="btn-primary" id="selectBtn">RAW 파일 선택</button>
+</div>
+<div class="processing-area" id="processingArea" style="display: none;">
+<div class="preview-section">
+<h3>선택된 RAW 파일</h3>
+<div class="preview-grid" id="previewGrid"></div>
+</div>
+<div class="quality-slider" style="text-align: center; margin: 1.5rem 0;">
+<label for="qualitySlider" style="display: inline-block; margin-right: 1rem; font-weight: 500;">AVIF 품질: <span id="qualityValue">85</span></label>
+<input id="qualitySlider" max="100" min="10" style="width: 200px; vertical-align: middle;" type="range" value="85"/>
+</div>
+<div class="action-buttons" style="text-align: center; margin-top: 1.5rem;">
+<button class="btn-primary" id="convertBtn">AVIF로 변환</button>
+<button class="btn-secondary" id="resetBtn">다시 선택</button>
+</div>
+</div>
+<div class="download-section" id="downloadSection" style="display: none;">
+<h3>변환 완료!</h3>
+<div class="download-grid" id="downloadGrid"></div>
+<button class="btn-primary" id="downloadAllBtn">모든 AVIF 다운로드</button>
+<button class="btn-link" id="startOverBtn">더 많은 파일 변환</button>
+</div>
+</div>
+</section>
+<div class="container" style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+<a class="btn-primary" href="../" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; font-size: 1.125rem; text-decoration: none;">← PicEte 홈으로 돌아가기</a>
+</div>
+<!-- Features -->
+<section class="features-section">
+<div class="container">
+<h2 class="section-title">당사의 RAW to AVIF 변환기를 사용해야 하는 이유</h2>
+<div class="features-grid">
+<div class="feature-item">
+<div class="feature-icon">⚡</div>
+<h3>WASM 기반 RAW 디코딩</h3>
+<p>libraw가 포함된 Vips 라이브러리의 WebAssembly 포트인 wasm-vips를 사용하여 브라우저에서 RAW 파일을 정확하게 디코딩합니다. Canon CR2/CR3, Nikon NEF, Sony ARW, Adobe DNG 등을 지원합니다. 서버 업로드가 필요하지 않습니다.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🎯</div>
+<h3>차세대 AVIF 형식</h3>
+<p>AVIF는 동일한 품질에서 JPEG보다 50% 향상된 압축률을 제공합니다. RAW 사진은 HDR, 넓은 색 영역 및 알파 투명도를 지원하는 초고효율 웹 파일이 됩니다. 웹 이미지의 미래입니다.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">📦</div>
+<h3>일괄 처리</h3>
+<p>일괄 변환을 위해 한 번에 여러 RAW 파일을 선택할 수 있습니다. 각 이미지는 일관된 품질 설정으로 독립적으로 처리되며, 클릭 한 번으로 모든 이미지를 동시에 다운로드할 수 있습니다.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🔒</div>
+<h3>개인정보 보호 및 로컬 처리</h3>
+<p>모든 변환은 WebAssembly를 사용하여 브라우저에서 로컬로 진행됩니다. RAW 파일은 어떠한 서버로도 업로드되지 않습니다. 사진은 항상 기기에 안전하게 보관됩니다.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="features-section" style="padding-top: 0;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">온라인에서 무료로 RAW를 AVIF로 변환하는 방법</h2>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">RAW 파일 업로드</h3>
+<p style="line-height: 1.8; color: var(--text-light);">업로드 영역을 클릭하거나 RAW 파일을 브라우저로 드래그하세요. 이 도구는 .cr2, .cr3, .nef, .arw, .dng 및 다양한 RAW 형식을 지원합니다. 일괄 처리를 위해 한 번에 여러 파일을 선택할 수 있습니다. 파일을 드롭하면 각 RAW 이미지의 미리보기 썸네일과 파일명, 크기가 표시됩니다. 모든 처리는 브라우저 내에서 이루어지며 사진이 기기 외부로 유출되지 않습니다.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">품질 조절 및 변환</h3>
+<p style="line-height: 1.8; color: var(--text-light);">품질 슬라이더를 사용하여 AVIF 압축률을 설정하세요(10-100, 기본값 85). 값이 높을수록 품질은 좋아지지만 파일 크기는 커집니다. "AVIF로 변환" 버튼을 클릭하여 시작하세요. 이 도구는 libraw를 지원하는 WebAssembly 기반 vips 라이브러리를 로드하고(첫 사용 시 약간의 시간 소요), 각 RAW 파일을 전체 해상도의 픽셀 데이터로 디코딩한 다음 AVIF로 인코딩합니다. 진행률 표시기를 통해 각 파일의 변환 완료 상태를 확인할 수 있습니다.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">AVIF 파일 다운로드</h3>
+<p style="line-height: 1.8; color: var(--text-light);">변환된 각 AVIF는 파일 크기와 함께 미리보기를 표시합니다. 각 파일별 버튼을 눌러 개별적으로 다운로드하거나, "모든 AVIF 다운로드"를 클릭하여 변환된 모든 파일을 순차적으로 다운로드할 수 있습니다(브라우저가 자동으로 하나씩 처리함). 더 많은 파일을 변환하려면 "더 많은 파일 변환"을 클릭하여 새로운 작업을 시작하세요. 이 모든 작업 과정은 빠르고, 로컬 환경에서 안전하게 처리됩니다.</p>
+</div>
+</div>
+</section>
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">RAW to AVIF 팁</h2>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">RAW를 AVIF로 변환해야 하는 이유</h3>
+<p style="line-height: 1.8; color: var(--text-light);">RAW 파일은 가공되지 않은 센서 데이터를 포함하여 최대의 편집 유연성을 제공하지만, 용량이 크고 웹 플랫폼이나 모바일 기기에서 널리 지원되지 않습니다. AVIF로 변환하면 이메일 첨부, 소셜 미디어 업로드, 웹 호스팅, 문서 삽입 등 어디서나 사용할 수 있는 초고효율 최신 이미지가 생성됩니다. AVIF는 RAW나 JPEG보다 훨씬 작기 때문에 공유 및 저장에도 실용적입니다.</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">지원되는 RAW 형식</h3>
+<p style="line-height: 1.8; color: var(--text-light);">당사는 Canon CR2 및 CR3, Nikon NEF, Sony ARW, Adobe DNG를 공식적으로 지원합니다. Fujifilm RAF, Panasonic RW2, Olympus ORF, Pentax PEF 등 다양한 기타 카메라 RAW 형식도 libraw를 통해 실험적으로 지원되지만 완벽하게 테스트되지 않았을 수 있습니다. 목록에 없는 형식이라도 업로드해 보세요 — 작동할 수 있습니다. 최상의 결과를 얻으려면 카메라가 지원하는 경우 DNG를 사용하세요.</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">품질 설정 설명</h3>
+<p style="line-height: 1.8; color: var(--text-light);">AVIF 품질 슬라이더는 압축을 제어합니다. 10은 눈에 띄는 아티팩트가 있는 가장 작은 파일 크기이고, 100은 최소한의 압축이 적용된 가장 큰 파일입니다. 85는 권장 기본값으로 대부분의 목적에 훌륭한 품질을 제공합니다. 보관 또는 인쇄용으로는 90-100을, 웹 공유용으로는 70-85를 사용하고, 품질보다 파일 크기가 중요한 경우에만 더 낮은 값을 사용하세요. 편집에는 항상 RAW 원본이 우수하다는 점을 기억하세요 — 배포를 위한 최종 단계로 AVIF로 변환하십시오.</p>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">자주 묻는 질문</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary class="faq-question">어떤 RAW 형식이 지원되나요?</summary>
+<p class="faq-answer">당사는 Canon CR2/CR3, Nikon NEF, Sony ARW 및 Adobe DNG 파일을 지원합니다. 다른 많은 RAW 형식(RAF, RW2, ORF, PEF 등)은 libraw를 통해 실험적으로 지원되지만 공식적으로 테스트되지는 않았습니다.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">AVIF가 무엇이며 왜 사용해야 하나요?</summary>
+<p class="faq-answer">AVIF(AV1 이미지 파일 형식)는 JPEG, WebP, PNG보다 훨씬 뛰어난 압축을 제공하는 차세대 이미지 형식입니다. AVIF 이미지는 동일한 품질의 JPEG보다 일반적으로 50% 더 작으므로 최신 웹 사용에 이상적입니다. AVIF는 또한 HDR, 넓은 색 영역 및 알파 투명도를 지원합니다.</p>
+</details>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>더 많은 도구</h4>
+<ul>
+<li><a href="../jpg-to-png/">JPG to PNG</a></li>
+<li><a href="../webp-to-png/">WebP to PNG</a></li>
+<li><a href="../png-to-webp/">PNG to WebP</a></li>
+<li><a href="../resize-image/">이미지 크기 조정</a></li>
+<li><a href="../compress-image/">이미지 압축기</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>소개</h4>
+<ul>
+<li><a href="../">홈으로 돌아가기</a></li>
+<li><a href="/privacy-policy.html">개인정보 처리방침</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>파트너 사이트</h4>
+<ul>
+<li><a href="https://mockupshot.online/">MockupShot - 스크린샷 목업</a></li>
+<li><a href="https://ilovepalette.com/">ILovePalette - 색상 도구</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 PicEte. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        // RAW to AVIF dedicated script using wasm-vips
+        const state = { uploadedFiles: [], convertedImages: [] };
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const selectBtn = document.getElementById('selectBtn');
+        const processingArea = document.getElementById('processingArea');
+        const previewGrid = document.getElementById('previewGrid');
+        const downloadSection = document.getElementById('downloadSection');
+        const downloadGrid = document.getElementById('downloadGrid');
+        const convertBtn = document.getElementById('convertBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const downloadAllBtn = document.getElementById('downloadAllBtn');
+        const startOverBtn = document.getElementById('startOverBtn');
+        const qualitySlider = document.getElementById('qualitySlider');
+        const qualityValue = document.getElementById('qualityValue');
+
+        selectBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => handleFiles(Array.from(e.target.files)));
+        uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+        uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const rawExts = ['.cr2','.cr3','.nef','.arw','.dng','.raw','.raf','.rw2','.orf','.pef'];
+            handleFiles(Array.from(e.dataTransfer.files).filter(f => {
+                const ext = '.' + f.name.split('.').pop().toLowerCase();
+                return rawExts.includes(ext);
+            }));
+        });
+
+        qualitySlider.addEventListener('input', (e) => {
+            qualityValue.textContent = e.target.value;
+        });
+
+        convertBtn.addEventListener('click', processRawToAvif);
+        resetBtn.addEventListener('click', reset);
+        downloadAllBtn.addEventListener('click', downloadAll);
+        startOverBtn.addEventListener('click', reset);
+
+        function handleFiles(files) {
+            if (files.length === 0) return alert('RAW 파일을 선택해주세요');
+            state.uploadedFiles = files;
+            Promise.all(files.map(f => loadImage(f))).then(images => {
+                displayPreviews(images);
+                uploadArea.style.display = 'none';
+                processingArea.style.display = 'block';
+            }).catch(() => alert('파일 로드에 실패했습니다'));
+        }
+
+        function loadImage(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => resolve({ img, file, src: e.target.result });
+                    img.onerror = () => resolve({ img: null, file, src: null });
+                    img.src = e.target.result;
+                };
+                reader.onerror = () => resolve({ img: null, file, src: null });
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function displayPreviews(images) {
+            previewGrid.innerHTML = images.map(({ img, file, src }) => `
+                <div class="preview-item">
+                    ${src ? `<img src="${src}" alt="${file.name}" style="${img ? '' : 'background: #f0f0f0; padding: 2rem; text-align: center;'}">` : '<div style="background: #f0f0f0; padding: 2rem; text-align: center; color: #999;">미리보기 없음</div>'}
+                    <div class="file-info">
+                        <strong>${file.name}</strong><br>${img ? img.width + ' × ' + img.height + 'px' : '(RAW 형식)'}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function processRawToAvif() {
+            convertBtn.disabled = true;
+            convertBtn.textContent = '변환 중...';
+            state.convertedImages = [];
+            let processed = 0;
+            const quality = parseInt(qualitySlider.value, 10);
+
+            try {
+                for (let i = 0; i < state.uploadedFiles.length; i++) {
+                    try {
+                        const blob = await convertRawToAvifWithVips(state.uploadedFiles[i], quality);
+                        const url = URL.createObjectURL(blob);
+                        state.convertedImages[i] = {
+                            url,
+                            name: state.uploadedFiles[i].name.replace(/\.(cr2|cr3|nef|arw|dng|raw|raf|rw2|orf|pef)$/i, '.avif'),
+                            size: blob.size
+                        };
+                    } catch (err) {
+                        console.error('Conversion failed for', state.uploadedFiles[i].name, err);
+                        alert('변환 실패: ' + state.uploadedFiles[i].name + '\n' + err.message);
+                        state.convertedImages[i] = null;
+                    }
+                    processed++;
+                }
+            } finally {
+                convertBtn.disabled = false;
+                convertBtn.textContent = 'AVIF로 변환';
+            }
+
+            const valid = state.convertedImages.filter(Boolean);
+            if (valid.length > 0) {
+                displayDownloads();
+            }
+        }
+
+        async function convertRawToAvifWithVips(file, quality) {
+            const vips = await VipsLoader.load();
+            if (!vips) {
+                throw new Error('wasm-vips 라이브러리를 로드하지 못했습니다. COOP/COEP 제한 때문일 수 있습니다. SharedArrayBuffer를 지원하는 최신 브라우저를 사용하거나 브라우저 설정을 확인하세요.');
+            }
+            const uint8Array = new Uint8Array(await file.arrayBuffer());
+            
+            // Write to MEMFS so vips can use the file extension hint (e.g., .arw)
+            const safeName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
+            const virtualFile = 'temp_' + Date.now() + '_' + safeName;
+            
+            let image;
+            try {
+                vips.FS.writeFile(virtualFile, uint8Array);
+                image = vips.Image.newFromFile(virtualFile);
+            } catch (err) {
+                try { vips.FS.unlink(virtualFile); } catch (e) {}
+                throw err;
+            }
+
+            if (!image) {
+                vips.FS.unlink(virtualFile);
+                throw new Error('RAW 파일 디코딩에 실패했습니다. 지원되지 않는 형식일 수 있습니다.');
+            }
+            try {
+                const buf = image.writeToBuffer('.avif', { Q: quality });
+                return new Blob([buf.buffer], { type: 'image/avif' });
+            } finally {
+                image.delete();
+                vips.FS.unlink(virtualFile);
+            }
+        }
+
+        function displayDownloads() {
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'block';
+            downloadGrid.innerHTML = state.convertedImages.filter(Boolean).map((img, i) => `
+                <div class="download-item">
+                    <img src="${img.url}" alt="${img.name}">
+                    <h4>${img.name}</h4>
+                    <p>${(img.size / 1024).toFixed(1)} KB</p>
+                    <button class="btn-primary" onclick="downloadOne(${i})">다운로드</button>
+                </div>
+            `).join('');
+        }
+
+        window.downloadOne = function(i) {
+            const img = state.convertedImages[i];
+            if (!img) return;
+            const a = document.createElement('a');
+            a.href = img.url;
+            a.download = img.name;
+            a.click();
+        };
+
+        function downloadAll() {
+            const valid = state.convertedImages.filter(Boolean);
+            valid.forEach((img, i) => setTimeout(() => {
+                const a = document.createElement('a');
+                a.href = img.url;
+                a.download = img.name;
+                a.click();
+            }, i * 500));
+        }
+
+        function reset() {
+            state.uploadedFiles = [];
+            state.convertedImages = [];
+            fileInput.value = '';
+            processingArea.style.display = 'none';
+            downloadSection.style.display = 'none';
+            uploadArea.style.display = 'block';
+            convertBtn.disabled = false;
+            convertBtn.textContent = 'AVIF로 변환';
+        }
+    </script>
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>

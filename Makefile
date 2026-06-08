@@ -1,7 +1,7 @@
 PROJ_ROOT := $(shell pwd)
 
 # ── Tool dirs: exclude reserved/auxiliary directories ─────────────────────────
-RESERVED := zh ja de fr es pt ar css js images config docs scripts seo .git __pycache__ node_modules
+RESERVED := zh ja de fr es pt ar ko css js images config docs scripts seo .git __pycache__ node_modules
 # Compute tool directories: everything under root that is a directory AND not in RESERVED
 TOOL_DIRS := $(shell cd "$(PROJ_ROOT)" && for d in */; do \
   d=$${d%/}; \
@@ -14,7 +14,7 @@ TOOL_DIRS := $(shell cd "$(PROJ_ROOT)" && for d in */; do \
 EN_ONLY :=
 
 # ── Language directories ──────────────────────────────────────────────────────
-LANG_DIRS := zh ja de fr es pt ar
+LANG_DIRS := zh ja de fr es pt ar ko
 
 # ==============================================================================
 # verify — project integrity checks
@@ -147,7 +147,7 @@ lint-gitignore:
 lint-root-files:
 	@echo "── Root file allowlist check ──"
 	@ALLOWED_FILES="STRUCTURE-RULES.md AGENTS.md README.md .gitignore vercel.json Makefile PROGRESS.md feature_list.json index.html privacy-policy.html sitemap.xml robots.txt package.json package-lock.json"; \
-	RESERVED_DIRS="zh ja de fr es pt ar css js images config docs scripts seo .git __pycache__ node_modules"; \
+	RESERVED_DIRS="zh ja de fr es pt ar ko css js images config docs scripts seo .git __pycache__ node_modules"; \
 	error=0; \
 	for item in $(PROJ_ROOT)/*; do \
 	  name=$$(basename "$$item"); \

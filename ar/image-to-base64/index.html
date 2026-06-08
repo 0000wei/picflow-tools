@@ -23,6 +23,7 @@
     <link rel="alternate" hreflang="es" href="https://picete.com/es/image-to-base64/" />
     <link rel="alternate" hreflang="pt" href="https://picete.com/pt/image-to-base64/" />
     <link rel="alternate" hreflang="ar" href="https://picete.com/ar/image-to-base64/" />
+    <link rel="alternate" hreflang="ko" href="https://picete.com/ko/image-to-base64/" />
     <link rel="alternate" hreflang="x-default" href="https://picete.com/image-to-base64/" />
 <meta content="website" property="og:type"/>
 <meta content="https://picete.com/ar/image-to-base64/" property="og:url"/>
@@ -156,12 +157,12 @@
 </div>
 <script>
     function switchLanguage(code) {
-        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/"};
+        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/", "ko": "/ko/"};
         // Get current page path from URL
         var path = window.location.pathname;
         
         // Remove language prefix if present
-        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)(?:\/|$)/, '/');
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar|ko)(?:\/|$)/, '/');
         if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
         
         // Build target URL

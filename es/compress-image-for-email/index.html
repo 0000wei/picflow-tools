@@ -17,6 +17,7 @@
 <link href="https://picete.com/es/compress-image-for-email/" hreflang="es" rel="alternate"/>
 <link href="https://picete.com/pt/compress-image-for-email/" hreflang="pt" rel="alternate"/>
 <link href="https://picete.com/ar/compress-image-for-email/" hreflang="ar" rel="alternate"/>
+    <link href="https://picete.com/ko/compress-image-for-email/" hreflang="ko" rel="alternate"/>
 <link href="https://picete.com/compress-image-for-email/" hreflang="x-default" rel="alternate"/>
 <meta content="website" property="og:type"/>
 <meta content="https://picete.com/es/compress-image-for-email/" property="og:url"/>
@@ -232,13 +233,14 @@
 <option selected="" value="es">Español</option>
 <option value="pt">Português</option>
 <option value="ar">العربية</option>
+            <option value="ko">한국어</option>
 </select>
 </div>
 <script>
     function switchLanguage(code) {
-        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/"};
+        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/", "ko": "/ko/"};
         var path = window.location.pathname;
-        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)(?:\/|$)/, '/');
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar|ko)(?:\/|$)/, '/');
         if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
         var baseUrl = paths[code];
         var targetPath = cleanPath;

@@ -14,10 +14,10 @@ BASE_URL="https://picete.com"
 TODAY="$(date +%Y-%m-%d)"
 
 # Directories to exclude at root level
-EXCLUDE_DIRS="zh|ja|de|fr|es|pt|ar|css|js|images|config|docs|scripts|seo|.git|__pycache__|.well-known|convert"
+EXCLUDE_DIRS="zh|ja|de|fr|es|pt|ar|ko|css|js|images|config|docs|scripts|seo|.git|__pycache__|.well-known|convert"
 
 # Language codes (7 languages)
-LANG_CODES="zh ja de fr es pt ar"
+LANG_CODES="zh ja de fr es pt ar ko"
 
 # Start XML
 cat > "${SITEMAP_FILE}" << XMLHEADER
@@ -44,7 +44,7 @@ EOF
 for dir in "${PROJECT_ROOT}"/*/; do
   dirname="$(basename "${dir}")"
   # Skip if in exclude list or if no index.html
-  echo "${dirname}" | grep -qE "^(css|js|images|config|docs|scripts|seo|.git|__pycache__|.well-known|convert|zh|ja|de|fr|es|pt|ar)$" && continue
+  echo "${dirname}" | grep -qE "^(css|js|images|config|docs|scripts|seo|.git|__pycache__|.well-known|convert|zh|ja|de|fr|es|pt|ar|ko)$" && continue
   [ -f "${dir}/index.html" ] || continue
 
   # Check if it's a long-tail page (has hyphens beyond the base tool name pattern)

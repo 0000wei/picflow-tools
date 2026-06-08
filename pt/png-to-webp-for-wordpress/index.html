@@ -17,6 +17,7 @@
 <link href="https://picete.com/es/png-to-webp-for-wordpress/" hreflang="es" rel="alternate"/>
 <link href="https://picete.com/pt/png-to-webp-for-wordpress/" hreflang="pt" rel="alternate"/>
 <link href="https://picete.com/ar/png-to-webp-for-wordpress/" hreflang="ar" rel="alternate"/>
+    <link href="https://picete.com/ko/png-to-webp-for-wordpress/" hreflang="ko" rel="alternate"/>
 <link href="https://picete.com/png-to-webp-for-wordpress/" hreflang="x-default" rel="alternate"/>
 <meta content="website" property="og:type"/>
 <meta content="https://picete.com/pt/png-to-webp-for-wordpress/" property="og:url"/>
@@ -232,16 +233,17 @@
 <option value="es">Español</option>
 <option selected="selected" value="pt">Português</option>
 <option value="ar">العربية</option>
+            <option value="ko">한국어</option>
 </select>
 </div>
 <script>
     function switchLanguage(code) {
-        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/"};
+        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/", "ko": "/ko/"};
         // Get current page path from URL
         var path = window.location.pathname;
         
         // Remove language prefix if present
-        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)(?:\/|$)/, '/');
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar|ko)(?:\/|$)/, '/');
         if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
         
         // Build target URL

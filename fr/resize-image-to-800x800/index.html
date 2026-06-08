@@ -14,6 +14,7 @@
     <link rel="alternate" hreflang="es" href="https://picete.com/es/resize-image-to-800x800/" />
     <link rel="alternate" hreflang="pt" href="https://picete.com/pt/resize-image-to-800x800/" />
     <link rel="alternate" hreflang="ar" href="https://picete.com/ar/resize-image-to-800x800/" />
+    <link rel="alternate" hreflang="ko" href="https://picete.com/ko/resize-image-to-800x800/" />
     <link rel="alternate" hreflang="x-default" href="https://picete.com/resize-image-to-800x800/" />
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
     <link rel="stylesheet" href="/css/style.css">
@@ -142,16 +143,17 @@
             <option value="es">Español</option>
             <option value="pt">Português</option>
             <option value="ar">العربية</option>
+            <option value="ko">한국어</option>
         </select>
     </div>
     <script>
     function switchLanguage(code) {
-        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/"};
+        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/", "ko": "/ko/"};
         // Get current page path from URL
         var path = window.location.pathname;
         
         // Remove language prefix if present
-        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)(?:\/|$)/, '/');
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar|ko)(?:\/|$)/, '/');
         if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
         
         // Build target URL

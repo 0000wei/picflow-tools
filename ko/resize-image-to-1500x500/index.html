@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>이미지 크기를 1500x500으로 조절 - 무료 트위터 헤더 배너 크기 조절기 | PicEte</title>
+<meta content="트위터/X 프로필 배너를 위해 이미지 크기를 1500x500 픽셀로 조절하세요. 완벽한 트위터 헤더 크기를 만들기 위한 무료 온라인 도구입니다." name="description"/>
+<meta content="resize image to 1500x500, twitter header size, twitter banner size, 1500x500, X profile banner" name="keywords"/>
+<link href="https://picete.com/resize-image-to-1500x500/" rel="canonical"/>
+<!-- hreflang 标签 -->
+<link href="https://picete.com/resize-image-to-1500x500/" hreflang="en" rel="alternate">
+<link href="https://picete.com/zh/resize-image-to-1500x500/" hreflang="zh" rel="alternate"/>
+<link href="https://picete.com/ja/resize-image-to-1500x500/" hreflang="ja" rel="alternate"/>
+<link href="https://picete.com/de/resize-image-to-1500x500/" hreflang="de" rel="alternate"/>
+<link href="https://picete.com/fr/resize-image-to-1500x500/" hreflang="fr" rel="alternate"/>
+<link href="https://picete.com/es/resize-image-to-1500x500/" hreflang="es" rel="alternate"/>
+<link href="https://picete.com/pt/resize-image-to-1500x500/" hreflang="pt" rel="alternate"/>
+<link href="https://picete.com/ar/resize-image-to-1500x500/" hreflang="ar" rel="alternate"/>
+    <link href="https://picete.com/ko/resize-image-to-1500x500/" hreflang="ko" rel="alternate"/>
+<link href="https://picete.com/resize-image-to-1500x500/" hreflang="x-default" rel="alternate"/>
+<meta content="website" property="og:type"/>
+<meta content="https://picete.com/resize-image-to-1500x500/" property="og:url"/>
+<meta content="이미지 크기를 1500x500으로 조절 - 트위터 헤더 배너 크기" property="og:title"/>
+<meta content="트위터/X 프로필 배너를 위해 이미지 크기를 1500x500으로 조절하는 무료 온라인 도구입니다." property="og:description"/>
+<meta content="https://picete.com/images/og-image.png" property="og:image"/>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Resize Image to 1500x500",
+        "description": "Free online tool to resize images to 1500x500 for Twitter/X profile banner dimensions",
+        "url": "https://picete.com/resize-image-to-1500x500",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../css/style.css" rel="stylesheet"/>
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is the ideal Twitter header image size?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Twitter recommends 1500x500 pixels for profile header banners. This 3:1 aspect ratio displays correctly on both desktop and mobile. Keep in mind that Twitter crops the top and bottom on mobile, so avoid placing critical text or logos near the edges. The safe area for important content is approximately the center 600x200 pixels."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Why is my Twitter header cut off on mobile?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Twitter displays only the center portion of your header on mobile devices. The full 1500x500 banner is visible on desktop, but mobile shows a roughly 600x200 crop from the center. When designing your header, keep important elements like logos or text in the middle third of the image to ensure they're visible on all devices."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I use any image format for my Twitter header?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Twitter accepts JPG and PNG formats for header images. JPG is recommended for photos due to smaller file sizes, while PNG is better for graphics with text or logos. The maximum file size is 5MB. PicEte can convert your images to the optimal format while resizing to 1500x500, ensuring fast uploads and compatibility."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How often should I update my Twitter header?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Update your Twitter header whenever your branding changes, you have new promotions to announce, or you want to refresh your profile's appearance. Many businesses update headers seasonally or for special events. PicEte makes it quick to resize new banner images to 1500x500, so you can keep your profile fresh and engaging."
+            }
+        }
+    ]
+}
+    </script>
+<style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</link></head>
+<body>
+<header class="header">
+<div class="container">
+<div class="logo">
+<a href="../">
+<img alt="PicEte" class="logo-img" src="../images/picete-logo.svg" width="116" height="32">
+</a>
+<p class="tagline">Image Resizer</p>
+</div>
+<nav class="nav">
+<a class="nav-link" href="../">홈</a>
+<a class="nav-link" href="../#tools">더 많은 도구</a>
+<!-- Language Switcher -->
+<style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+<div class="lang-switcher">
+<select aria-label="Switch language" onchange="switchLanguage(this.value)">
+<option value="en">English</option>
+<option value="zh">中文</option>
+<option value="ja">日本語</option>
+<option value="de">Deutsch</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="pt">Português</option>
+<option value="ar">العربية</option>
+            <option selected="" value="ko">한국어</option>
+</select>
+</div>
+<script>
+    function switchLanguage(code) {
+        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/", "ko": "/ko/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar|ko)(?:\/|$)/, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+<button aria-label="Toggle theme" class="theme-toggle" id="themeToggle">
+<span class="sun-icon">☀️</span>
+<span class="moon-icon">🌙</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="main">
+<section class="hero">
+<div class="container">
+<div class="breadcrumb"><a href="https://picete.com/ko/">홈</a><span class="separator">›</span><a href="../resize-image/">이미지 크기 조절기</a><span class="separator">›</span><span class="current">1500x500</span></div>
+<h1 class="hero-title">이미지 크기를 1500x500으로 조절</h1>
+<h2 class="hero-subtitle">트위터/X 프로필 배너 크기</h2>
+<p style="font-size: 1.125rem; color: var(--text-light); max-width: 700px; margin: 1.5rem auto; line-height: 1.8;">
+                    이미지 크기를 정확히 1500x500 픽셀로 조절해야 하나요? 이는 트위터/X 프로필 헤더 배너의 권장 크기입니다. 넓은 3:1 화면 비율은 데스크톱에서 프로필 페이지 상단 전체에 배너를 표시합니다. 비즈니스를 위한 브랜드 헤더를 만들거나 개인 프로필을 업데이트할 때, PicEte를 사용하면 어떤 이미지든 완벽한 트위터 헤더 크기로 쉽게 조절할 수 있습니다.
+                </p>
+<div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">트위터 헤더에 1500x500을 사용하는 이유</h3>
+<p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        트위터는 프로필 헤더 이미지로 1500x500 픽셀을 공식적으로 권장합니다. 이 파노라마 크기는 데스크톱 디스플레이에서 프로필의 전체 너비를 덮어 전문적이고 브랜드화된 외관을 만듭니다. 3:1 화면 비율은 고해상도 화면에서 배너가 선명하게 보이도록 보장합니다. 모바일 기기에서는 트위터가 중앙 부분을 잘라서 표시하므로, 전체 1500x500 너비는 데스크톱에서만 볼 수 있습니다. 따라서 중요한 요소를 이미지의 중앙 3분의 1에 배치하여 디자인을 계획하세요.
+                    </p>
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">PicEte가 1500x500으로 조절하는 방법</h3>
+<p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        어떤 배너 이미지든 PicEte에 업로드하면 도구가 자동으로 정확히 1500x500 픽셀로 크기를 조절합니다. 캔버스 엔진은 원본 이미지의 화면 비율을 유지하면서 1500x500 크기를 유지하기 위해 레터박스를 적용합니다. 테두리 없이 최상의 결과를 얻으려면 이미 3:1 화면 비율을 가진 이미지로 시작하세요. 모든 처리는 브라우저에서 로컬로 이루어지므로 배너 디자인은 비공개로 안전하게 유지됩니다.
+                    </p>
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">1500x500 헤더 사용 사례</h3>
+<ul style="line-height: 1.8; color: var(--text-light); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+<li>개인 브랜딩을 위한 트위터/X 프로필 배너 이미지</li>
+<li>비즈니스 프로필의 회사 로고 및 프로모션 헤더</li>
+<li>이벤트 발표 및 캠페인 배너</li>
+<li>휴일 및 특별한 날을 위한 시즌별 헤더 업데이트</li>
+<li>전문적인 소셜 미디어 프로필 관리</li>
+</ul>
+</div>
+<div style="text-align: center; margin: 3rem 0;">
+<a href="../resize-image/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                        PicEte 이미지 크기 조절기 무료로 사용하기 →
+                    </a>
+<p style="margin-top: 1rem; color: var(--text-light); font-size: 0.875rem;">무료 • 가입 필요 없음 • 브라우저에서 작동</p>
+</div>
+<div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--text-color);">관련 소셜 미디어 크기</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+<div>
+<h4 style="font-size: 1rem; margin-bottom: 0.5rem;">프로필 및 커버 옵션</h4>
+<ul style="line-height: 1.8; color: var(--text-light);">
+<li><a href="../resize-image-for-facebook-cover/">페이스북 커버 사진</a> — 851x315</li>
+<li><a href="../resize-image-to-1200x630/">1200x630으로 조절</a> — 소셜 공유</li>
+<li><a href="../resize-image-to-1920x1080/">1920x1080으로 조절</a> — 대형 배너</li>
+<li><a href="../resize-image-to-1080x1080/">1080x1080으로 조절</a> — 인스타그램 게시물</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">자주 묻는 질문</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary class="faq-question">이상적인 트위터 헤더 이미지 크기는 얼마인가요?</summary>
+<p class="faq-answer">트위터는 프로필 헤더 배너로 1500x500 픽셀을 권장합니다. 이 3:1 화면 비율은 데스크톱과 모바일 모두에서 올바르게 표시됩니다. 트위터는 모바일에서 위아래를 자르므로 가장자리 근처에 중요한 텍스트나 로고를 배치하지 마세요. 중요한 콘텐츠를 위한 안전 영역은 대략 중앙의 600x200 픽셀입니다.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">왜 내 트위터 헤더가 모바일에서 잘리나요?</summary>
+<p class="faq-answer">트위터는 모바일 기기에서 헤더의 중앙 부분만 표시합니다. 전체 1500x500 배너는 데스크톱에서 볼 수 있지만, 모바일에서는 중앙에서 대략 600x200 크기로 잘린 부분을 보여줍니다. 헤더를 디자인할 때 모든 기기에서 보이도록 로고나 텍스트 같은 중요한 요소를 이미지의 중앙 3분의 1에 유지하세요.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">트위터 헤더에 아무 이미지 형식이나 사용할 수 있나요?</summary>
+<p class="faq-answer">트위터는 헤더 이미지로 JPG 및 PNG 형식을 허용합니다. 파일 크기가 작기 때문에 사진에는 JPG가 권장되며, 텍스트나 로고가 있는 그래픽에는 PNG가 더 좋습니다. 최대 파일 크기는 5MB입니다. PicEte는 이미지를 1500x500으로 크기를 조절하면서 최적의 형식으로 변환할 수 있어, 빠른 업로드와 호환성을 보장합니다.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">트위터 헤더는 얼마나 자주 업데이트해야 하나요?</summary>
+<p class="faq-answer">브랜딩이 변경되거나, 새로운 프로모션을 발표하거나, 프로필의 외관을 새롭게 하고 싶을 때마다 트위터 헤더를 업데이트하세요. 많은 비즈니스가 계절별로 또는 특별한 이벤트를 위해 헤더를 업데이트합니다. PicEte를 사용하면 새로운 배너 이미지의 크기를 1500x500으로 빠르게 조절할 수 있어 프로필을 항상 신선하고 매력적으로 유지할 수 있습니다.</p>
+</details>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>더 많은 도구</h4>
+<ul>
+<li><a href="../resize-image/">이미지 크기 조절기</a></li>
+<li><a href="../compress-image/">이미지 압축기</a></li>
+<li><a href="../png-to-jpg/">PNG를 JPG로</a></li>
+<li><a href="../webp-to-png/">WebP를 PNG로</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>정보</h4>
+<ul>
+<li><a href="../">홈으로 돌아가기</a></li>
+<li><a href="/privacy-policy.html">개인정보 처리방침</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>파트너 사이트</h4>
+<ul>
+<li><a href="https://mockupshot.online/">MockupShot - 스크린샷 모형</a></li>
+<li><a href="https://ilovepalette.com/">ILovePalette - 색상 도구</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 PicEte. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>

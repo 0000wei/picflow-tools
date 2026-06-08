@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>이미지를 1200x630으로 크기 조절 - 무료 OG 이미지 및 소셜 카드 변환기 | PicEte</title>
+<meta content="Facebook OG 이미지, Twitter 카드 및 소셜 미디어 링크 미리보기를 위해 이미지를 1200x630 픽셀로 크기 조절하세요. 완벽한 소셜 공유를 위한 무료 온라인 도구입니다." name="description"/>
+<meta content="resize image to 1200x630, OG image size, Twitter card, Facebook preview, social media card" name="keywords"/>
+<link href="https://picete.com/resize-image-to-1200x630/" rel="canonical"/>
+<!-- hreflang 标签 -->
+<link href="https://picete.com/resize-image-to-1200x630/" hreflang="en" rel="alternate">
+<link href="https://picete.com/zh/resize-image-to-1200x630/" hreflang="zh" rel="alternate"/>
+<link href="https://picete.com/ja/resize-image-to-1200x630/" hreflang="ja" rel="alternate"/>
+<link href="https://picete.com/de/resize-image-to-1200x630/" hreflang="de" rel="alternate"/>
+<link href="https://picete.com/fr/resize-image-to-1200x630/" hreflang="fr" rel="alternate"/>
+<link href="https://picete.com/es/resize-image-to-1200x630/" hreflang="es" rel="alternate"/>
+<link href="https://picete.com/pt/resize-image-to-1200x630/" hreflang="pt" rel="alternate"/>
+<link href="https://picete.com/ar/resize-image-to-1200x630/" hreflang="ar" rel="alternate"/>
+    <link href="https://picete.com/ko/resize-image-to-1200x630/" hreflang="ko" rel="alternate"/>
+<link href="https://picete.com/resize-image-to-1200x630/" hreflang="x-default" rel="alternate"/>
+<meta content="website" property="og:type"/>
+<meta content="https://picete.com/resize-image-to-1200x630/" property="og:url"/>
+<meta content="이미지를 1200x630으로 크기 조절 - 소셜 미디어 카드 크기" property="og:title"/>
+<meta content="Facebook 및 Twitter 카드용 이미지를 1200x630으로 크기 조절하는 무료 온라인 도구입니다." property="og:description"/>
+<meta content="https://picete.com/images/og-image.png" property="og:image"/>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Resize Image to 1200x630",
+        "description": "Free online tool to resize images to social media card 1200x630 format",
+        "url": "https://picete.com/resize-image-to-1200x630",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../css/style.css" rel="stylesheet"/>
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Why is 1200\u00d7630 the recommended social share size?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "1200\u00d7630 pixels is the Open Graph (OG) image standard recommended by Facebook, LinkedIn, and most social platforms. It's a 1.91:1 aspect ratio that displays well both in feeds and when shared as a link preview. Twitter also displays this ratio for its summary card with large image."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will my image be cropped on different social platforms?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Each platform handles OG images slightly differently. 1200\u00d7630 is the safest standard \u2014 it centers the image and most platforms show the full width. Keep critical content (text, logos) within the center-safe zone (roughly 600\u00d7630) to avoid clipping on any platform."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What happens if my image isn't 1.91:1 ratio?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The tool preserves aspect ratio. Non-1.91:1 images will fit within 1200\u00d7630 with letterboxing. For the best social sharing experience, crop your image to approximately 1.91:1 before resizing so the preview fills the entire card without black bars."
+            }
+        }
+    ]
+}
+    </script>
+<style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</head>
+<body>
+<header class="header">
+<div class="container">
+<div class="logo">
+<a href="../">
+<img alt="PicEte" class="logo-img" src="../images/picete-logo.svg" width="116" height="32">
+</a>
+<p class="tagline">이미지 크기 조절기</p>
+</div>
+<nav class="nav">
+<a class="nav-link" href="../">홈</a>
+<a class="nav-link" href="../#tools">더 많은 도구</a>
+<!-- Language Switcher -->
+<style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+    
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+<div class="lang-switcher">
+<select aria-label="언어 전환" onchange="switchLanguage(this.value)">
+<option selected="" value="en">English</option>
+<option value="zh">中文</option>
+<option value="ja">日本語</option>
+<option value="de">Deutsch</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="pt">Português</option>
+<option value="ar">العربية</option>
+            <option value="ko">한국어</option>
+</select>
+</div>
+<script>
+    function switchLanguage(code) {
+        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/", "ko": "/ko/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+        
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar|ko)(?:\/|$)/, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+        
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+        
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+<button aria-label="테마 전환" class="theme-toggle" id="themeToggle">
+<span class="sun-icon">☀️</span>
+<span class="moon-icon">🌙</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="main">
+<section class="hero">
+<div class="container">
+<div class="breadcrumb"><a href="https://picete.com/">홈</a><span class="separator">›</span><a href="../resize-image/">이미지 크기 조절기</a><span class="separator">›</span><span class="current">1200x630</span></div>
+<h1 class="hero-title">이미지를 1200x630으로 크기 조절</h1>
+<h2 class="hero-subtitle">완벽한 소셜 미디어 링크 미리보기 크기</h2>
+<p style="font-size: 1.125rem; color: var(--text-light); max-width: 700px; margin: 1.5rem auto; line-height: 1.8;">
+                    이미지를 1200x630 픽셀로 크기 조절해야 하나요? 이는 콘텐츠가 Facebook, LinkedIn, Twitter, Slack 및 기타 플랫폼에 공유될 때 나타나는 미리보기 카드인 Open Graph(OG) 이미지의 권장 규격입니다. 크기를 알맞게 설정하면 소셜 피드에서 링크가 눈에 띄어 더 많은 클릭과 참여를 유도할 수 있습니다. PicEte를 사용하면 올바른 크기의 소셜 카드를 몇 초 만에 쉽게 만들 수 있습니다.
+                </p>
+<div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">왜 소셜 카드는 1200x630인가요?</h3>
+<p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        1200x630 픽셀 규격(1.91:1 종횡비)은 주요 소셜 플랫폼의 링크 미리보기에 가장 이상적인 크기입니다. Facebook은 미리보기가 잘림 없이 선명하게 나타나도록 OG 이미지로 이 크기를 명시적으로 권장합니다. Twitter는 최대 가시성을 위해 이 비율의 대형 카드를 표시합니다. LinkedIn, Slack, Discord 모두 유사한 규칙을 따릅니다. 올바른 크기를 사용하면 공유될 때 이미지가 압축, 늘어남 또는 잘리는 것을 방지하여 브랜드와 메시지가 분명하게 전달되도록 보장합니다.
+                    </p>
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">OG 이미지 모범 사례</h3>
+<p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        1200x630 크기로 소셜 카드를 제작할 때, 플랫폼이 모바일 기기에서 이미지를 자를 수 있으므로 중요한 텍스트와 그래픽은 가장자리에서 멀리 떨어지게 배치하세요. 대비가 높은 색상과 읽기 쉬운 폰트(헤드라인 최소 40px)를 사용하세요. 브랜드 로고를 포함하되 화면 전체를 차지하게 하지는 마세요. 각 플랫폼마다 크기와 압축에 약간의 차이가 있으므로 여러 플랫폼에서 어떻게 보이는지 테스트하세요. PicEte는 크기를 조절하는 동안 이미지 화질을 유지하므로, 변환된 이미지는 웹사이트의 메타 태그나 소셜 미디어 예약 도구에 즉시 사용할 수 있습니다.
+                    </p>
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">1200x630 이미지 활용 사례</h3>
+<ul style="line-height: 1.8; color: var(--text-light); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+<li>소셜 공유를 위한 블로그 게시물 대표 이미지</li>
+<li>Facebook 및 LinkedIn 링크 미리보기를 위한 웹사이트 OG 메타 태그</li>
+<li>기사 및 비디오 홍보를 위한 Twitter 카드 이미지</li>
+<li>Slack 및 Discord 리치 미리보기 이미지</li>
+<li>소셜 미디어 광고 소재 및 캠페인 애셋</li>
+</ul>
+</div>
+<div style="text-align: center; margin: 3rem 0;">
+<a href="../resize-image/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                        무료 PicEte 이미지 크기 조절기 사용하기 →
+                    </a>
+<p style="margin-top: 1rem; color: var(--text-light); font-size: 0.875rem;">무료 • 가입 없음 • 소셜 미디어에 바로 사용할 수 있는 이미지 제공</p>
+</div>
+<div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--text-color);">관련 소셜 미디어 크기</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+<div>
+<h4 style="font-size: 1rem; margin-bottom: 0.5rem;">기타 크기 조절 옵션</h4>
+<ul style="line-height: 1.8; color: var(--text-light);">
+<li><a href="../resize-image-to-1080x1080/">1080x1080으로 크기 조절</a> — Instagram 게시물</li>
+<li><a href="../resize-image-to-1920x1080/">1920x1080으로 크기 조절</a> — YouTube 썸네일</li>
+<li><a href="../resize-image-to-800x800/">800x800으로 크기 조절</a> — 제품 사진</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">자주 묻는 질문</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary class="faq-question">왜 1200×630이 소셜 공유를 위한 권장 크기인가요?</summary>
+<p class="faq-answer">1200×630 픽셀은 Facebook, LinkedIn 및 대부분의 소셜 플랫폼에서 권장하는 Open Graph(OG) 이미지 표준입니다. 이는 피드 및 링크 미리보기로 공유할 때 모두 멋지게 표시되는 1.91:1의 종횡비입니다. Twitter 역시 큰 이미지 요약 카드를 위해 이 비율을 사용합니다.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">여러 소셜 플랫폼에서 제 이미지가 잘리나요?</summary>
+<p class="faq-answer">각 플랫폼마다 OG 이미지를 처리하는 방식이 조금씩 다릅니다. 1200×630은 이미지가 중앙에 위치하며 대부분의 플랫폼에서 전체 너비가 보이는 가장 안전한 표준입니다. 어떤 플랫폼에서든 잘리는 것을 피하려면 중요한 콘텐츠(텍스트, 로고)를 중앙의 안전한 영역(대략 600×630) 안에 배치하세요.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">제 이미지가 1.91:1 비율이 아니면 어떻게 되나요?</summary>
+<p class="faq-answer">이 도구는 종횡비를 유지합니다. 1.91:1이 아닌 이미지는 레터박스가 추가되어 1200×630 안에 맞춰집니다. 가장 좋은 소셜 공유 경험을 위해서는 미리보기가 검은색 띠 없이 카드 전체를 채우도록 크기를 조절하기 전 이미지를 약 1.91:1 비율로 미리 자르세요.</p>
+</details>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>더 많은 도구</h4>
+<ul>
+<li><a href="../resize-image/">이미지 크기 조절기</a></li>
+<li><a href="../compress-image/">이미지 압축기</a></li>
+<li><a href="../png-to-jpg/">PNG를 JPG로</a></li>
+<li><a href="../webp-to-png/">WebP를 PNG로</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>소개</h4>
+<ul>
+<li><a href="../">홈으로 돌아가기</a></li>
+<li><a href="/privacy-policy.html">개인정보 처리방침</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>파트너 사이트</h4>
+<ul>
+<li><a href="https://mockupshot.online/">MockupShot - 스크린샷 모형</a></li>
+<li><a href="https://ilovepalette.com/">ILovePalette - 색상 도구</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 PicEte. 모든 권리 보유.</p>
+</div>
+</div>
+</footer>
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>

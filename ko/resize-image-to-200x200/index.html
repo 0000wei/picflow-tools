@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>이미지 크기를 200x200으로 조절 - 무료 작은 썸네일 크기 조절기 | PicEte</title>
+<meta content="썸네일 및 작은 아바타를 위해 이미지 크기를 200x200 픽셀로 조절하세요. 아주 작은 정사각형 이미지를 만드는 무료 온라인 도구입니다." name="description"/>
+<meta content="resize image to 200x200, 200x200 thumbnail, small avatar resizer, tiny square image, comment avatar" name="keywords"/>
+<link href="https://picete.com/resize-image-to-200x200/" rel="canonical"/>
+<!-- hreflang 标签 -->
+<link href="https://picete.com/resize-image-to-200x200/" hreflang="en" rel="alternate">
+<link href="https://picete.com/zh/resize-image-to-200x200/" hreflang="zh" rel="alternate"/>
+<link href="https://picete.com/ja/resize-image-to-200x200/" hreflang="ja" rel="alternate"/>
+<link href="https://picete.com/de/resize-image-to-200x200/" hreflang="de" rel="alternate"/>
+<link href="https://picete.com/fr/resize-image-to-200x200/" hreflang="fr" rel="alternate"/>
+<link href="https://picete.com/es/resize-image-to-200x200/" hreflang="es" rel="alternate"/>
+<link href="https://picete.com/pt/resize-image-to-200x200/" hreflang="pt" rel="alternate"/>
+<link href="https://picete.com/ar/resize-image-to-200x200/" hreflang="ar" rel="alternate"/>
+    <link href="https://picete.com/ko/resize-image-to-200x200/" hreflang="ko" rel="alternate"/>
+<link href="https://picete.com/resize-image-to-200x200/" hreflang="x-default" rel="alternate"/>
+<meta content="website" property="og:type"/>
+<meta content="https://picete.com/resize-image-to-200x200/" property="og:url"/>
+<meta content="이미지 크기를 200x200으로 조절 - 작은 썸네일 크기" property="og:title"/>
+<meta content="썸네일 및 아바타를 위해 이미지 크기를 200x200으로 조절하는 무료 온라인 도구입니다." property="og:description"/>
+<meta content="https://picete.com/images/og-image.png" property="og:image"/>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Resize Image to 200x200",
+        "description": "Free online tool to resize images to 200x200 for small thumbnails and avatars",
+        "url": "https://picete.com/resize-image-to-200x200",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../css/style.css" rel="stylesheet"/>
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Why use 200x200 for thumbnails?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "200x200 pixels is ideal for small thumbnails because it's large enough to be recognizable but small enough to load quickly. Many websites use 200x200 for comment avatars, forum profile pictures, and product preview thumbnails. At this size, images remain clear even on high-DPI displays while keeping file sizes minimal."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will my images be clear at 200x200?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. 200x200 is sufficient for thumbnails and small avatars to be clearly visible. PicEte applies anti-aliasing during downscaling to maintain clarity. For photos, faces remain recognizable at this size. For logos and icons, text stays readable. If you need higher detail for zooming, consider 400x400 or 512x512 instead."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I batch create thumbnails at 200x200?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. Upload all your images at once and PicEte will resize them all to 200x200 simultaneously. Each image processes in milliseconds, so you can quickly generate hundreds of thumbnails for a website gallery, forum user avatars, or product previews without waiting."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What's the difference between 200x200 and 250x250?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "200x200 is 56% smaller in file size and resolution compared to 250x250. Use 200x200 when you need minimal file sizes and fast loading, such as for user comment avatars or database thumbnails. Use 250x250 when you need slightly more detail and clarity. Both sizes serve similar purposes \u2014 the choice depends on your specific use case."
+            }
+        }
+    ]
+}
+    </script>
+<style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</link></head>
+<body>
+<header class="header">
+<div class="container">
+<div class="logo">
+<a href="../">
+<img alt="PicEte" class="logo-img" src="../images/picete-logo.svg" width="116" height="32">
+</a>
+<p class="tagline">Image Resizer</p>
+</div>
+<nav class="nav">
+<a class="nav-link" href="../">홈</a>
+<a class="nav-link" href="../#tools">더 많은 도구</a>
+<!-- Language Switcher -->
+<style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+<div class="lang-switcher">
+<select aria-label="Switch language" onchange="switchLanguage(this.value)">
+<option value="en">English</option>
+<option value="zh">中文</option>
+<option value="ja">日本語</option>
+<option value="de">Deutsch</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="pt">Português</option>
+<option value="ar">العربية</option>
+            <option selected="" value="ko">한국어</option>
+</select>
+</div>
+<script>
+    function switchLanguage(code) {
+        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/", "ko": "/ko/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar|ko)(?:\/|$)/, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+<button aria-label="Toggle theme" class="theme-toggle" id="themeToggle">
+<span class="sun-icon">☀️</span>
+<span class="moon-icon">🌙</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="main">
+<section class="hero">
+<div class="container">
+<div class="breadcrumb"><a href="https://picete.com/ko/">홈</a><span class="separator">›</span><a href="../resize-image/">이미지 크기 조절기</a><span class="separator">›</span><span class="current">200x200</span></div>
+<h1 class="hero-title">이미지 크기를 200x200으로 조절</h1>
+<h2 class="hero-subtitle">작은 썸네일 및 아바타 크기</h2>
+<p style="font-size: 1.125rem; color: var(--text-light); max-width: 700px; margin: 1.5rem auto; line-height: 1.8;">
+                    이미지 크기를 정확히 200x200 픽셀로 조절해야 하나요? 이 컴팩트한 정사각형 형식은 작은 썸네일, 댓글 아바타 및 포럼 프로필 사진에 완벽합니다. 웹사이트 갤러리를 구축하거나 사용자 아바타를 관리하거나 제품 미리보기를 만들 때, PicEte를 사용하면 어떤 이미지든 효율적인 200x200 크기로 쉽게 조절할 수 있습니다.
+                </p>
+<div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">작은 썸네일에 200x200을 사용하는 이유</h3>
+<p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        200x200 픽셀은 알아볼 수 있을 만큼 크면서도 즉시 로드될 만큼 작은 이미지에 가장 적합한 크기입니다. 이 크기에서 얼굴은 식별 가능하고, 로고는 선명하며, 텍스트는 읽을 수 있습니다. 그러면서도 대부분 이미지의 파일 크기를 10KB 미만으로 유지합니다. 이로 인해 200x200은 픽셀 완벽한 세부 묘사보다 페이지 속도가 더 중요한 사용자 댓글 아바타, 데이터베이스 썸네일, 제품 미리보기 및 포럼 프로필 사진에 이상적입니다.
+                    </p>
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">PicEte가 200x200으로 조절하는 방법</h3>
+<p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        어떤 이미지든 PicEte에 업로드하면 도구가 자동으로 정확히 200x200 픽셀로 크기를 조절합니다. 브라우저 기반 캔버스 엔진은 안티앨리어싱을 통한 스마트 다운스케일링을 적용하여 작은 크기에서도 선명도를 유지합니다. 정사각형이 아닌 이미지는 200x200 경계 내에서 중앙에 위치하고 레터박스가 적용됩니다. 테두리 없이 깔끔한 정사각형 출력을 원한다면 크기를 조절하기 전에 원본 이미지를 1:1 화면 비율로 자르세요.
+                    </p>
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">200x200 이미지 사용 사례</h3>
+<ul style="line-height: 1.8; color: var(--text-light); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+<li>사용자 댓글 아바타 및 포럼 프로필 사진</li>
+<li>전자상거래 갤러리를 위한 제품 미리보기 썸네일</li>
+<li>데이터베이스 썸네일 및 이미지 검색 결과</li>
+<li>작은 아이콘 및 버튼 그래픽</li>
+<li>협업 도구를 위한 팀원 썸네일 세트</li>
+</ul>
+</div>
+<div style="text-align: center; margin: 3rem 0;">
+<a href="../resize-image/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                        PicEte 이미지 크기 조절기 무료로 사용하기 →
+                    </a>
+<p style="margin-top: 1rem; color: var(--text-light); font-size: 0.875rem;">무료 • 가입 필요 없음 • 브라우저에서 작동</p>
+</div>
+<div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--text-color);">관련 썸네일 크기</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+<div>
+<h4 style="font-size: 1rem; margin-bottom: 0.5rem;">더 많은 아바타 옵션</h4>
+<ul style="line-height: 1.8; color: var(--text-light);">
+<li><a href="../resize-image-to-250x250/">250x250으로 조절</a> — 표준 아바타</li>
+<li><a href="../resize-image-to-512x512/">512x512로 조절</a> — 고품질</li>
+<li><a href="../resize-image-to-800x800/">800x800으로 조절</a> — 대형 썸네일</li>
+<li><a href="../resize-image-to-300x250/">300x250으로 조절</a> — 직사각형 썸네일</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">자주 묻는 질문</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary class="faq-question">왜 썸네일에 200x200을 사용하나요?</summary>
+<p class="faq-answer">200x200 픽셀은 알아볼 수 있을 만큼 크면서도 빠르게 로드될 만큼 작기 때문에 작은 썸네일에 이상적입니다. 많은 웹사이트가 댓글 아바타, 포럼 프로필 사진 및 제품 미리보기 썸네일에 200x200을 사용합니다. 이 크기에서 이미지는 파일 크기를 최소화하면서 고해상도 디스플레이에서도 선명하게 유지됩니다.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">내 이미지가 200x200에서도 선명할까요?</summary>
+<p class="faq-answer">네. 200x200은 썸네일과 작은 아바타가 선명하게 보이기에 충분합니다. PicEte는 다운스케일링 중에 안티앨리어싱을 적용하여 선명도를 유지합니다. 사진의 경우 이 크기에서도 얼굴을 알아볼 수 있습니다. 로고와 아이콘의 경우 텍스트를 계속 읽을 수 있습니다. 확대를 위해 더 높은 세부 사항이 필요한 경우 대신 400x400 또는 512x512를 고려하세요.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">200x200으로 썸네일을 일괄 생성할 수 있나요?</summary>
+<p class="faq-answer">물론입니다. 모든 이미지를 한 번에 업로드하면 PicEte가 모든 이미지의 크기를 동시에 200x200으로 조절합니다. 각 이미지는 밀리초 만에 처리되므로 웹사이트 갤러리, 포럼 사용자 아바타 또는 제품 미리보기를 위한 수백 개의 썸네일을 기다리지 않고 빠르게 생성할 수 있습니다.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">200x200과 250x250의 차이점은 무엇인가요?</summary>
+<p class="faq-answer">200x200은 250x250에 비해 파일 크기와 해상도가 56% 작습니다. 사용자 댓글 아바타 또는 데이터베이스 썸네일과 같이 최소한의 파일 크기와 빠른 로딩이 필요할 때 200x200을 사용하세요. 약간 더 많은 세부 묘사와 선명도가 필요할 때는 250x250을 사용하세요. 두 크기 모두 비슷한 용도로 사용되며, 선택은 특정 사용 사례에 따라 다릅니다.</p>
+</details>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>더 많은 도구</h4>
+<ul>
+<li><a href="../resize-image/">이미지 크기 조절기</a></li>
+<li><a href="../compress-image/">이미지 압축기</a></li>
+<li><a href="../png-to-jpg/">PNG를 JPG로</a></li>
+<li><a href="../webp-to-png/">WebP를 PNG로</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>정보</h4>
+<ul>
+<li><a href="../">홈으로 돌아가기</a></li>
+<li><a href="/privacy-policy.html">개인정보 처리방침</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>파트너 사이트</h4>
+<ul>
+<li><a href="https://mockupshot.online/">MockupShot - 스크린샷 모형</a></li>
+<li><a href="https://ilovepalette.com/">ILovePalette - 색상 도구</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 PicEte. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>

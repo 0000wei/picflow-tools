@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WordPress용 PNG를 WebP로 변환 - 무료 성능 최적화기 | PicEte</title>
+<meta content="WordPress용 PNG를 WebP로 변환하세요. WordPress 사이트의 이미지를 최적화하는 무료 온라인 도구입니다. 품질을 유지하면서 파일 크기를 80%까지 줄입니다." name="description"/>
+<meta content="WordPress용 PNG를 WebP로, PNG WebP 변환, WordPress 이미지 최적화, WebP 변환기" name="keywords"/>
+<link href="https://picete.com/png-to-webp-for-wordpress/" rel="canonical"/>
+<!-- hreflang 标签 -->
+<link href="https://picete.com/png-to-webp-for-wordpress/" hreflang="en" rel="alternate">
+<link href="https://picete.com/zh/png-to-webp-for-wordpress/" hreflang="zh" rel="alternate"/>
+<link href="https://picete.com/ja/png-to-webp-for-wordpress/" hreflang="ja" rel="alternate"/>
+<link href="https://picete.com/de/png-to-webp-for-wordpress/" hreflang="de" rel="alternate"/>
+<link href="https://picete.com/fr/png-to-webp-for-wordpress/" hreflang="fr" rel="alternate"/>
+<link href="https://picete.com/es/png-to-webp-for-wordpress/" hreflang="es" rel="alternate"/>
+<link href="https://picete.com/pt/png-to-webp-for-wordpress/" hreflang="pt" rel="alternate"/>
+<link href="https://picete.com/ar/png-to-webp-for-wordpress/" hreflang="ar" rel="alternate"/>
+    <link href="https://picete.com/ko/png-to-webp-for-wordpress/" hreflang="ko" rel="alternate"/>
+<link href="https://picete.com/png-to-webp-for-wordpress/" hreflang="x-default" rel="alternate"/>
+<meta content="website" property="og:type"/>
+<meta content="https://picete.com/png-to-webp-for-wordpress/" property="og:url"/>
+<meta content="WordPress용 PNG를 WebP로 변환 - 성능 최적화기" property="og:title"/>
+<meta content="더 빠른 WordPress 사이트를 위해 PNG를 WebP로 변환하는 무료 온라인 도구입니다." property="og:description"/>
+<meta content="https://picete.com/images/og-image.png" property="og:image"/>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "WordPress용 PNG to WebP",
+        "description": "WordPress 최적화를 위해 PNG 이미지를 WebP 형식으로 변환하는 무료 온라인 도구",
+        "url": "https://picete.com/png-to-webp-for-wordpress",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../css/style.css" rel="stylesheet"/>
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "WordPress는 기본적으로 WebP를 지원하나요?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "네, WordPress는 버전 5.8부터 WebP를 지원해 왔습니다. 미디어 라이브러리에서 WebP 이미지를 직접 업로드할 수 있습니다. 일부 호스팅 제공업체는 약간의 서버 구성 업데이트가 필요할 수 있지만, 대부분의 최신 WordPress 호스트는 추가 설정 없이 WebP를 처리합니다."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "PNG를 WebP로 변환하면 WordPress 사이트 속도가 얼마나 향상되나요?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WebP 이미지는 일반적으로 PNG보다 25-35% 더 작습니다. 페이지당 50개 이상의 이미지가 있는 WordPress 사이트(갤러리 및 포트폴리오에서 흔함)의 경우 로드 시간이 30-50% 더 빨라집니다. 코어 웹 바이탈 점수, 특히 LCP(최대 콘텐츠 풀 페인트)가 크게 향상됩니다."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "WordPress에서 WebP를 제공하려면 플러그인이 필요한가요?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "아니요. WordPress 5.8 이상은 WebP 업로드를 기본적으로 허용합니다. 변환된 WebP 파일을 직접 업로드하기만 하면 됩니다. 업로드 시 자동 변환하거나 호환되는 브라우저에만 WebP를 제공하려면 WebP Express 또는 EWWW Image Optimizer와 같은 플러그인이 유용하지만 필수는 아닙니다."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "변환이 WordPress의 이미지 투명도에 영향을 미치나요?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WebP는 알파 투명도를 완벽하게 지원하므로 투명한 PNG 로고 및 그래픽이 WordPress에서 WebP로 완벽하게 작동합니다. 변환 중 투명도가 유지되며 WordPress는 관리자 패널과 프런트엔드 모두에서 투명도를 올바르게 표시합니다."
+            }
+        }
+    ]
+}
+    </script>
+<style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+    
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</link></head>
+<body>
+<header class="header">
+<div class="container">
+<div class="logo">
+<a href="../">
+<img alt="PicEte" class="logo-img" src="../images/picete-logo.svg" width="116" height="32">
+</a>
+<p class="tagline">형식 변환기</p>
+</div>
+<nav class="nav">
+<a class="nav-link" href="../">홈</a>
+<a class="nav-link" href="../#tools">더 많은 도구</a>
+<!-- Language Switcher -->
+<style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+    
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+<div class="lang-switcher">
+<select aria-label="Switch language" onchange="switchLanguage(this.value)">
+<option selected="" value="en">English</option>
+<option value="zh">中文</option>
+<option value="ja">日本語</option>
+<option value="de">Deutsch</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="pt">Português</option>
+<option value="ar">العربية</option>
+            <option value="ko">한국어</option>
+</select>
+</div>
+<script>
+    function switchLanguage(code) {
+        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/", "ko": "/ko/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+        
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar|ko)(?:\/|$)/, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+        
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+        
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+<button aria-label="Toggle theme" class="theme-toggle" id="themeToggle">
+<span class="sun-icon">☀️</span>
+<span class="moon-icon">🌙</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="main">
+<section class="hero">
+<div class="container">
+<div class="breadcrumb"><a href="https://picete.com/">홈</a><span class="separator">›</span><a href="../png-to-webp/">PNG to WebP</a><span class="separator">›</span><span class="current">WordPress용</span></div>
+<h1 class="hero-title">WordPress용 PNG를 WebP로 변환</h1>
+<h2 class="hero-subtitle">WordPress 사이트 속도 향상</h2>
+<p style="font-size: 1.125rem; color: var(--text-light); max-width: 700px; margin: 1.5rem auto; line-height: 1.8;">
+                    큰 PNG 이미지는 WordPress 사이트의 속도를 늦춥니다. WebP로 변환하면 동일한 시각적 품질을 유지하면서 파일 크기를 70-90% 줄일 수 있습니다. 페이지가 빨라지면 Google 순위가 높아지고 사용자 경험이 향상되며 호스팅 비용이 절감됩니다. PicEte는 PNG를 WebP로 즉시 변환합니다 — 업로드하고 변환한 다음 WebP 플러그인이나 기본 지원을 통해 WordPress에서 사용하세요.
+                </p>
+<div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">WordPress에서 WebP를 사용해야 하는 이유</h3>
+<p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        WordPress는 버전 5.8부터 WebP를 기본적으로 지원하므로 새 업로드의 권장 기본 형식입니다. ShortPixel, Smush, EWWW와 같은 최신 플러그인은 더 나은 성능을 위해 이미지를 자동으로 WebP로 변환합니다. Google의 코어 웹 바이탈 순위 요소는 더 빠른 페이지에 직접적인 보상을 제공합니다 — 큰 이미지 파일은 느린 LCP(최대 콘텐츠 풀 페인트) 점수의 가장 일반적인 원인입니다. PNG 스크린샷, 그래픽 및 사진을 WebP로 변환하는 것은 대부분의 WordPress 사이트에서 가장 효과적인 단일 이미지 최적화 방법입니다.
+                    </p>
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">WordPress의 WebP 지원</h3>
+<p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        WordPress 5.8 이상에서는 이미지를 업로드할 때 WebP 버전을 자동으로 생성합니다. WebP를 지원하는 브라우저는 더 작은 파일을 받고, 구형 브라우저는 PNG/JPG 대체 이미지를 받습니다. 이러한 원활한 호환성 덕분에 사용자는 깨진 이미지를 볼 수 없습니다. WebP를 자동으로 처리하지 않는 테마 및 페이지 빌더의 경우 LiteSpeed Cache 또는 WP Rocket과 같은 플러그인이 지원을 추가합니다. PicEte의 변환은 PNG 파일의 투명도를 보존하고 이를 WebP의 알파 채널로 변환하므로 투명한 배경에서도 그래픽이 올바르게 표시됩니다.
+                    </p>
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">WordPress 성능 향상 이점</h3>
+<ul style="line-height: 1.8; color: var(--text-light); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+<li>70-90% 더 작은 파일 크기로 대역폭 사용량 및 호스팅 비용 절감</li>
+<li>더 빠른 페이지 로딩으로 Google 검색 순위 향상</li>
+<li>더 나은 모바일 경험으로 참여도 및 전환율 증가</li>
+<li>CDN 스토리지를 효율적으로 사용하여 동일한 예산으로 더 많은 이미지 허용</li>
+<li>코어 웹 바이탈 점수 향상으로 SEO 성능에 직접적인 영향</li>
+</ul>
+</div>
+<div style="text-align: center; margin: 3rem 0;">
+<a href="../png-to-webp/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                        PicEte PNG to WebP 변환기 무료로 사용하기 →
+                    </a>
+<p style="margin-top: 1rem; color: var(--text-light); font-size: 0.875rem;">무료 • 가입 불필요 • WordPress용으로 즉시 사용 가능</p>
+</div>
+<div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--text-color);">관련 WordPress 도구</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+<div>
+<h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Image Optimization</h4>
+<ul style="line-height: 1.8; color: var(--text-light);">
+<li><a href="../compress-image/">이미지 압축기</a> — 추가 크기 축소</li>
+<li><a href="../resize-image-to-1200x630/">1200x630으로 크기 조정</a> — 소셜 공유</li>
+<li><a href="../png-to-jpg/">PNG to JPG</a> — 대체 형식</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">자주 묻는 질문</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary class="faq-question">WordPress는 기본적으로 WebP를 지원하나요?</summary>
+<p class="faq-answer">네, WordPress는 버전 5.8부터 WebP를 지원해 왔습니다. 미디어 라이브러리에서 WebP 이미지를 직접 업로드할 수 있습니다. 일부 호스팅 제공업체는 약간의 서버 구성 업데이트가 필요할 수 있지만, 대부분의 최신 WordPress 호스트는 추가 설정 없이 WebP를 처리합니다.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">PNG를 WebP로 변환하면 WordPress 사이트 속도가 얼마나 향상되나요?</summary>
+<p class="faq-answer">WebP 이미지는 일반적으로 PNG보다 25-35% 더 작습니다. 페이지당 50개 이상의 이미지가 있는 WordPress 사이트(갤러리 및 포트폴리오에서 흔함)의 경우 로드 시간이 30-50% 더 빨라집니다. 코어 웹 바이탈 점수, 특히 LCP(최대 콘텐츠 풀 페인트)가 크게 향상됩니다.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">WordPress에서 WebP를 제공하려면 플러그인이 필요한가요?</summary>
+<p class="faq-answer">아니요. WordPress 5.8 이상은 WebP 업로드를 기본적으로 허용합니다. 변환된 WebP 파일을 직접 업로드하기만 하면 됩니다. 업로드 시 자동 변환하거나 호환되는 브라우저에만 WebP를 제공하려면 WebP Express 또는 EWWW Image Optimizer와 같은 플러그인이 유용하지만 필수는 아닙니다.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">변환이 WordPress의 이미지 투명도에 영향을 미치나요?</summary>
+<p class="faq-answer">WebP는 알파 투명도를 완벽하게 지원하므로 투명한 PNG 로고 및 그래픽이 WordPress에서 WebP로 완벽하게 작동합니다. 변환 중 투명도가 유지되며 WordPress는 관리자 패널과 프런트엔드 모두에서 투명도를 올바르게 표시합니다.</p>
+</details>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>더 많은 도구</h4>
+<ul>
+<li><a href="../png-to-webp/">PNG to WebP</a></li>
+<li><a href="../webp-to-png/">WebP to PNG</a></li>
+<li><a href="../compress-image/">이미지 압축기</a></li>
+<li><a href="../resize-image/">이미지 크기 조정</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>소개</h4>
+<ul>
+<li><a href="../">홈으로 돌아가기</a></li>
+<li><a href="/privacy-policy.html">개인정보 처리방침</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>파트너 사이트</h4>
+<ul>
+<li><a href="https://mockupshot.online/">MockupShot - 스크린샷 목업</a></li>
+<li><a href="https://ilovepalette.com/">ILovePalette - 색상 도구</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 PicEte. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+import os
+
+file_path = "d:/knowledge-base/06项目/哥飞建站/picete/ko/png-to-avif/index.html"
+with open(file_path, "r", encoding="utf-8") as f:
+    content = f.read()
+
+replacements = {
+    '<title>PNG to AVIF - Free Online PNG to AVIF Converter | PicEte</title>': '<title>PNG를 AVIF로 변환 - 무료 온라인 PNG to AVIF 변환기 | PicEte</title>',
+    '<meta content="Free online PNG to AVIF converter. Convert PNG images to AVIF format with fast encoding or maximum compression presets. Supports batch conversion, no registration required, local processing for privacy." name="description"/>': '<meta content="무료 온라인 PNG to AVIF 변환기. 빠른 인코딩 또는 최대 압축 프리셋을 사용하여 PNG 이미지를 AVIF 형식으로 변환하세요. 일괄 변환을 지원하며, 가입이 필요 없고 개인 정보 보호를 위해 로컬에서 처리됩니다." name="description"/>',
+    '<meta content="PNG to AVIF, PNG to AVIF converter, AVIF encoding, batch conversion, AV1 compression, free tool" name="keywords"/>': '<meta content="PNG를 AVIF로, PNG AVIF 변환기, AVIF 인코딩, 일괄 변환, AV1 압축, 무료 도구" name="keywords"/>',
+    '<meta content="PNG to AVIF - Free Online PNG to AVIF Converter" property="og:title"/>': '<meta content="PNG를 AVIF로 변환 - 무료 온라인 PNG to AVIF 변환기" property="og:title"/>',
+    '<meta content="Free online PNG to AVIF converter, quickly convert PNG images to next-gen AVIF format with superior compression." property="og:description"/>': '<meta content="무료 온라인 PNG to AVIF 변환기. PNG 이미지를 뛰어난 압축률을 자랑하는 차세대 AVIF 형식으로 빠르게 변환하세요." property="og:description"/>',
+    '"name": "PNG to AVIF Converter"': '"name": "PNG to AVIF 변환기"',
+    '"description": "Free online PNG to AVIF conversion tool"': '"description": "무료 온라인 PNG to AVIF 변환 도구"',
+    '<p class="tagline">PNG to AVIF Converter</p>': '<p class="tagline">PNG to AVIF 변환기</p>',
+    '"name": "Home"': '"name": "홈"',
+    '"name": "PNG to AVIF"': '"name": "PNG를 AVIF로"',
+    '<a class="nav-link" href="../">Home</a>': '<a class="nav-link" href="../">홈</a>',
+    '<a class="nav-link" href="../#tools">More Tools</a>': '<a class="nav-link" href="../#tools">더 많은 도구</a>',
+    '<div class="breadcrumb"><a href="https://picete.com/">Home</a><span class="separator">›</span><span class="current">PNG to AVIF</span></div>': '<div class="breadcrumb"><a href="https://picete.com/">홈</a><span class="separator">›</span><span class="current">PNG to AVIF</span></div>',
+    '<h2 class="hero-title">PNG to AVIF Online Converter</h2>': '<h2 class="hero-title">PNG to AVIF 온라인 변환기</h2>',
+    '<p class="hero-subtitle">Quickly convert PNG images to AVIF format. Supports batch conversion with adjustable quality and encoding presets.</p>': '<p class="hero-subtitle">PNG 이미지를 AVIF 형식으로 빠르게 변환하세요. 조절 가능한 품질과 인코딩 프리셋으로 일괄 변환을 지원합니다.</p>',
+    '<p class="upload-text">Drop PNG images here</p>': '<p class="upload-text">여기에 PNG 이미지를 드롭하세요</p>',
+    '<p class="upload-subtext">or click to select files, supports multiple selection</p>': '<p class="upload-subtext">또는 클릭하여 파일을 선택하세요 (다중 선택 지원)</p>',
+    '<button class="btn-primary" id="selectBtn">Select PNG Images</button>': '<button class="btn-primary" id="selectBtn">PNG 이미지 선택</button>',
+    '<h3>Selected PNG Images</h3>': '<h3>선택된 PNG 이미지</h3>',
+    '<h4>Conversion Options</h4>': '<h4>변환 옵션</h4>',
+    '⚡ Fast Encoding': '⚡ 빠른 인코딩',
+    '🔥 Maximum Compression': '🔥 최대 압축',
+    '<label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">AVIF Quality</label>': '<label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">AVIF 품질</label>',
+    '<span>Smaller file</span>': '<span>파일 크기 작음</span>',
+    '<span>Higher quality</span>': '<span>고품질</span>',
+    '<button class="btn-primary" id="convertBtn">Convert to AVIF</button>': '<button class="btn-primary" id="convertBtn">AVIF로 변환</button>',
+    '<button class="btn-secondary" id="resetBtn">Choose Again</button>': '<button class="btn-secondary" id="resetBtn">다시 선택</button>',
+    '<h3>Conversion Complete!</h3>': '<h3>변환 완료!</h3>',
+    '<button class="btn-primary" id="downloadAllBtn">Download All AVIF</button>': '<button class="btn-primary" id="downloadAllBtn">모든 AVIF 다운로드</button>',
+    '<button class="btn-link" id="startOverBtn">Convert More Images</button>': '<button class="btn-link" id="startOverBtn">더 많은 이미지 변환</button>',
+    '← Back to PicEte Home': '← PicEte 홈으로 돌아가기',
+    '<h2 class="section-title">Why Use Our PNG to AVIF Converter</h2>': '<h2 class="section-title">당사의 PNG to AVIF 변환기를 사용해야 하는 이유</h2>',
+    '<h3>Fast Encoding</h3>': '<h3>빠른 인코딩</h3>',
+    '<p>Two-speed preset system: fast encoding for daily use and maximum compression for smallest files. Toggle between them instantly — no complicated settings.</p>': '<p>두 가지 속도 프리셋 시스템: 일상적인 사용을 위한 빠른 인코딩과 가장 작은 파일을 위한 최대 압축. 복잡한 설정 없이 즉시 전환할 수 있습니다.</p>',
+    '<h3>Extreme Compression</h3>': '<h3>최고의 압축률</h3>',
+    '<p>AVIF\'s AV1 codec achieves 30-50% smaller files than WebP at the same quality. Convert your PNGs to AVIF and save significant bandwidth without visible quality loss.</p>': '<p>AVIF의 AV1 코덱은 동일한 품질에서 WebP보다 30-50% 더 작은 파일을 생성합니다. PNG를 AVIF로 변환하여 눈에 띄는 화질 손실 없이 대역폭을 크게 절약하세요.</p>',
+    '<h3>Batch Processing</h3>': '<h3>일괄 처리</h3>',
+    '<p>Select multiple PNG images at once for batch conversion. Process an entire folder in one click and download all converted AVIF files together.</p>': '<p>일괄 변환을 위해 한 번에 여러 PNG 이미지를 선택하세요. 클릭 한 번으로 전체 폴더를 처리하고 변환된 모든 AVIF 파일을 함께 다운로드하세요.</p>',
+    '<h3>Privacy Protection</h3>': '<h3>개인정보 보호</h3>',
+    '<p>All conversion is done locally in your browser using WASM-powered vips. Images are never uploaded to any server — they never leave your device.</p>': '<p>모든 변환은 WASM 기반 vips를 사용하여 브라우저에서 로컬로 진행됩니다. 이미지는 어떤 서버에도 업로드되지 않으며 기기 외부로 유출되지 않습니다.</p>',
+    '<h2 class="section-title">How to Convert PNG to AVIF Online Free</h2>': '<h2 class="section-title">온라인에서 무료로 PNG를 AVIF로 변환하는 방법</h2>',
+    'Upload Your PNG Files': 'PNG 파일 업로드',
+    'Click the upload area or drag PNG images directly into your browser. Our PNG to AVIF converter handles multiple files at once — select an entire folder and convert them all simultaneously. Processing happens entirely in your browser using WASM, so your files stay private and never leave your device.': '업로드 영역을 클릭하거나 PNG 이미지를 브라우저로 직접 드래그하세요. 저희 PNG to AVIF 변환기는 한 번에 여러 파일을 처리합니다 — 한 폴더 전체를 선택하고 모두 동시에 변환해 보세요. 모든 처리는 WASM을 사용하여 브라우저 내에서 이루어지므로 파일은 기기 내에 안전하게 유지됩니다.',
+    'Choose Your Preset and Quality': '프리셋 및 품질 선택',
+    'Pick "Fast Encoding" for quick daily conversions with balanced quality, or "Maximum Compression" for the smallest possible AVIF files. The quality slider lets you fine-tune between 10% and 100%. For web use, 70-85% quality with maximum compression produces stunning results at a fraction of the original PNG size.': '균형 잡힌 품질의 빠른 일상 변환을 원하면 "빠른 인코딩"을, 가장 작은 AVIF 파일을 원하면 "최대 압축"을 선택하세요. 품질 슬라이더를 사용하여 10%에서 100% 사이로 미세 조정할 수 있습니다. 웹 용도의 경우 최대 압축으로 품질을 70-85% 설정하면 원본 PNG 용량의 아주 적은 부분만으로 놀라운 결과를 얻을 수 있습니다.',
+    'Download Your AVIF Files': 'AVIF 파일 다운로드',
+    'Each converted AVIF image shows a preview with the new file size compared to the original PNG. Download individually or click "Download All AVIF" to grab everything at once. The AVIF files are ready for modern websites, saving bandwidth and speeding up page loads on supported browsers.': '변환된 각 AVIF 이미지는 원본 PNG와 비교한 새로운 파일 크기와 함께 미리보기를 보여줍니다. 개별적으로 다운로드하거나 "모든 AVIF 다운로드"를 클릭하여 한꺼번에 받으세요. 이 AVIF 파일들은 지원되는 브라우저에서 최신 웹사이트에 바로 사용하여 대역폭을 절약하고 페이지 로드 속도를 높이는 데 기여합니다.',
+    '<h2 class="section-title">PNG to AVIF Tips</h2>': '<h2 class="section-title">PNG to AVIF 팁</h2>',
+    'Why Switch from PNG to AVIF': 'PNG에서 AVIF로 변경해야 하는 이유',
+    'PNG is great for lossless storage, but its files are large. AVIF uses the AV1 video codec to compress images 30-50% more efficiently than WebP and up to 50% smaller than JPEG at equivalent quality. For websites, this means faster page loads, lower bandwidth costs, and better Core Web Vitals scores — especially on image-heavy pages. Your users on mobile data plans will thank you.': 'PNG는 무손실 저장에는 훌륭하지만 파일 크기가 큽니다. AVIF는 AV1 비디오 코덱을 사용하여 동일한 품질에서 WebP보다 30-50% 더 효율적으로, JPEG보다 최대 50% 더 작게 이미지를 압축합니다. 웹사이트의 경우 이는 더 빠른 페이지 로드, 낮은 대역폭 비용, 향상된 Core Web Vitals 점수(특히 이미지 중심 페이지)를 의미합니다. 모바일 데이터 환경의 사용자들이 만족할 것입니다.',
+    'Fast Encoding vs Maximum Compression': '빠른 인코딩 vs 최대 압축',
+    '"Fast Encoding" (speed 6, quality 80) processes images quickly for everyday use — great for drafts, social media, or when you need results now. "Maximum Compression" (speed 0, quality 50) takes longer but produces the absolute smallest AVIF files, ideal for archival or when every byte matters. Try both to see which balance of speed and size works for your project.': '"빠른 인코딩" (속도 6, 품질 80)은 일상적인 사용을 위해 이미지를 빠르게 처리합니다 — 초안, 소셜 미디어, 또는 즉시 결과가 필요할 때 좋습니다. "최대 압축" (속도 0, 품질 50)은 시간이 더 걸리지만 용량을 가장 최소화한 AVIF 파일을 생성하므로 보관용이나 단 1바이트라도 줄여야 할 때 이상적입니다. 두 가지 모두 시도해 보고 프로젝트에 맞는 속도와 크기 비율을 찾아보세요.',
+    'When to Use AVIF': 'AVIF를 사용해야 할 때',
+    'AVIF is perfect for web images, especially photographs and complex graphics where file size matters. Use it for hero images, product photos, backgrounds, and UI assets on modern websites. However, for screenshots with fine text, line art, or images you plan to edit later, consider keeping the original PNG — AVIF\'s lossy compression can introduce subtle artifacts in sharp edges, and re-encoding degraded quality further.': 'AVIF는 특히 파일 크기가 중요한 사진이나 복잡한 그래픽의 웹 이미지에 완벽합니다. 최신 웹사이트의 히어로 이미지, 제품 사진, 배경 및 UI 에셋에 사용하세요. 하지만 세밀한 텍스트, 라인 아트가 포함된 스크린샷이나 나중에 다시 편집할 이미지의 경우 원본 PNG를 유지하는 것이 좋습니다 — AVIF의 손실 압축은 날카로운 윤곽선에서 미세한 아티팩트를 발생시킬 수 있으며 다시 인코딩할 때마다 화질이 더 떨어집니다.',
+    '<h2 class="section-title">Frequently Asked Questions</h2>': '<h2 class="section-title">자주 묻는 질문</h2>',
+    '"name": "What is AVIF format?"': '"name": "AVIF 형식이 무엇인가요?"',
+    '"text": "AVIF (AV1 Image File Format) is a next-generation image format that uses AV1 compression technology. It can produce images up to 50% smaller than JPEG at the same quality level, and supports modern features like HDR, wide color gamut, and transparency. It\'s the most efficient image format widely supported today."': '"text": "AVIF(AV1 이미지 파일 형식)는 AV1 압축 기술을 사용하는 차세대 이미지 형식입니다. 동일한 품질 수준에서 JPEG보다 최대 50% 더 작은 이미지를 생성할 수 있으며 HDR, 넓은 색 영역 및 투명도와 같은 최신 기능을 지원합니다. 현재 널리 지원되는 이미지 형식 중 가장 효율적입니다."',
+    '"name": "Will I lose quality converting PNG to AVIF?"': '"name": "PNG를 AVIF로 변환하면 화질이 떨어지나요?"',
+    '"text": "AVIF uses lossy compression, so there is some quality loss. However, at high quality settings (80+), the difference is visually imperceptible for most images, including photos. AVIF\'s AV1 codec is significantly more efficient than JPEG, meaning you get smaller files at comparable quality. For line art or text-heavy graphics where every pixel must be preserved exactly, keep the original PNG."': '"text": "AVIF는 손실 압축을 사용하므로 어느 정도 화질 저하가 있습니다. 하지만 높은 품질 설정(80 이상)에서는 사진을 포함한 대부분의 이미지에서 그 차이를 육안으로 구별하기 힘듭니다. AVIF의 AV1 코덱은 JPEG보다 훨씬 효율적이어서 동일한 화질에서도 파일 크기가 작습니다. 단, 픽셀을 정확히 유지해야 하는 라인 아트나 텍스트가 많은 그래픽은 원본 PNG로 보관하세요."',
+    '"name": "Which browsers support AVIF?"': '"name": "어떤 브라우저에서 AVIF를 지원하나요?"',
+    '"text": "AVIF is supported in Chrome 85+, Firefox 93+, Safari 16.4+, and all Chromium-based browsers like Edge and Opera. The format is also supported by most major image editing tools and operating systems. Check caniuse.com for the latest browser support information."': '"text": "AVIF는 Chrome 85+, Firefox 93+, Safari 16.4+ 및 Edge와 Opera 같은 모든 Chromium 기반 브라우저에서 지원됩니다. 이 형식은 또한 대부분의 주요 이미지 편집 도구와 운영 체제에서 지원합니다. 최신 브라우저 지원 정보는 caniuse.com을 확인하세요."',
+    '"name": "How many PNG files can I convert at once?"': '"name": "한 번에 몇 개의 PNG 파일을 변환할 수 있나요?"',
+    '"text": "There is no limit on the number of files. Select a whole folder of PNGs and convert them all at once. Each image is processed independently using wasm-vips right in your browser, and you can download them individually or click \'Download All AVIF\' to get everything in one go."': '"text": "파일 개수에 제한이 없습니다. PNG 폴더 전체를 선택하고 한 번에 모두 변환할 수 있습니다. 각 이미지는 wasm-vips를 사용하여 브라우저에서 개별적으로 처리되며, 따로 다운로드하거나 \'모든 AVIF 다운로드\'를 클릭하여 한 번에 모두 가져올 수 있습니다."',
+    '<summary class="faq-question">What is AVIF format?</summary>': '<summary class="faq-question">AVIF 형식이 무엇인가요?</summary>',
+    '<p class="faq-answer">AVIF (AV1 Image File Format) is a next-generation image format that uses AV1 compression technology. It can produce images up to 50% smaller than JPEG at the same quality level, and supports modern features like HDR, wide color gamut, and transparency. It\'s the most efficient image format widely supported today.</p>': '<p class="faq-answer">AVIF(AV1 이미지 파일 형식)는 AV1 압축 기술을 사용하는 차세대 이미지 형식입니다. 동일한 품질 수준에서 JPEG보다 최대 50% 더 작은 이미지를 생성할 수 있으며 HDR, 넓은 색 영역 및 투명도와 같은 최신 기능을 지원합니다. 현재 널리 지원되는 이미지 형식 중 가장 효율적입니다.</p>',
+    '<summary class="faq-question">Will I lose quality converting PNG to AVIF?</summary>': '<summary class="faq-question">PNG를 AVIF로 변환하면 화질이 떨어지나요?</summary>',
+    '<p class="faq-answer">AVIF uses lossy compression, so there is some quality loss. However, at high quality settings (80+), the difference is visually imperceptible for most images, including photos. AVIF\'s AV1 codec is significantly more efficient than JPEG, meaning you get smaller files at comparable quality. For line art or text-heavy graphics where every pixel must be preserved exactly, keep the original PNG.</p>': '<p class="faq-answer">AVIF는 손실 압축을 사용하므로 어느 정도 화질 저하가 있습니다. 하지만 높은 품질 설정(80 이상)에서는 사진을 포함한 대부분의 이미지에서 그 차이를 육안으로 구별하기 힘듭니다. AVIF의 AV1 코덱은 JPEG보다 훨씬 효율적이어서 동일한 화질에서도 파일 크기가 작습니다. 단, 픽셀을 정확히 유지해야 하는 라인 아트나 텍스트가 많은 그래픽은 원본 PNG로 보관하세요.</p>',
+    '<summary class="faq-question">Which browsers support AVIF?</summary>': '<summary class="faq-question">어떤 브라우저에서 AVIF를 지원하나요?</summary>',
+    '<p class="faq-answer">AVIF is supported in Chrome 85+, Firefox 93+, Safari 16.4+, and all Chromium-based browsers like Edge and Opera. The format is also supported by most major image editing tools and operating systems. Check caniuse.com for the latest browser support information.</p>': '<p class="faq-answer">AVIF는 Chrome 85+, Firefox 93+, Safari 16.4+ 및 Edge와 Opera 같은 모든 Chromium 기반 브라우저에서 지원됩니다. 이 형식은 또한 대부분의 주요 이미지 편집 도구와 운영 체제에서 지원합니다. 최신 브라우저 지원 정보는 caniuse.com을 확인하세요.</p>',
+    '<summary class="faq-question">How many PNG files can I convert at once?</summary>': '<summary class="faq-question">한 번에 몇 개의 PNG 파일을 변환할 수 있나요?</summary>',
+    '<p class="faq-answer">There is no limit on the number of files. Select a whole folder of PNGs and convert them all at once. Each image is processed independently using wasm-vips right in your browser, and you can download them individually or click \'Download All AVIF\' to get everything in one go.</p>': '<p class="faq-answer">파일 개수에 제한이 없습니다. PNG 폴더 전체를 선택하고 한 번에 모두 변환할 수 있습니다. 각 이미지는 wasm-vips를 사용하여 브라우저에서 개별적으로 처리되며, 따로 다운로드하거나 \'모든 AVIF 다운로드\'를 클릭하여 한 번에 모두 가져올 수 있습니다.</p>',
+    "alert('Please select PNG images')": "alert('PNG 이미지를 선택해주세요')",
+    "alert('Failed to load images')": "alert('이미지 로드에 실패했습니다')",
+    "convertBtn.textContent = 'Converting...';": "convertBtn.textContent = '변환 중...';",
+    "alert('Failed to encode ' + file.name);": "alert(file.name + ' 인코딩에 실패했습니다');",
+    "convertBtn.textContent = 'Convert to AVIF';": "convertBtn.textContent = 'AVIF로 변환';",
+    "alert('No images could be converted.');": "alert('변환할 수 있는 이미지가 없습니다.');",
+    "alert('WASM-vips is not available. Please try a different browser or enable crossOriginIsolated.');": "alert('WASM-vips를 사용할 수 없습니다. 다른 브라우저를 시도하거나 crossOriginIsolated를 활성화하세요.');",
+    "alert('Error encoding AVIF: ' + err.message);": "alert('AVIF 인코딩 오류: ' + err.message);",
+    '<button class="btn-primary" onclick="downloadOne(${i})">Download</button>': '<button class="btn-primary" onclick="downloadOne(${i})">다운로드</button>',
+    '<li><a href="../resize-image/">Image Resizer</a></li>': '<li><a href="../resize-image/">이미지 크기 조정</a></li>',
+    '<li><a href="../compress-image/">Image Compressor</a></li>': '<li><a href="../compress-image/">이미지 압축기</a></li>',
+    '<li><a href="../">Back to Home</a></li>': '<li><a href="../">홈으로 돌아가기</a></li>',
+    '<li><a href="/privacy-policy.html">Privacy Policy</a></li>': '<li><a href="/privacy-policy.html">개인정보 처리방침</a></li>',
+    '<li><a href="https://mockupshot.online/">MockupShot - Screenshot Mockup</a></li>': '<li><a href="https://mockupshot.online/">MockupShot - 스크린샷 목업</a></li>',
+    '<li><a href="https://ilovepalette.com/">ILovePalette - Color Tools</a></li>': '<li><a href="https://ilovepalette.com/">ILovePalette - 색상 도구</a></li>'
+}
+
+for k, v in replacements.items():
+    content = content.replace(k, v)
+
+content = content.replace('<h4>More Tools</h4>', '<h4>더 많은 도구</h4>', 1)
+content = content.replace('<h4>More Tools</h4>', '<h4>파트너 사이트</h4>', 1)
+content = content.replace('<h4>About</h4>', '<h4>소개</h4>', 1)
+
+with open(file_path, "w", encoding="utf-8") as f:
+    f.write(content)
+print("Done png-to-avif")

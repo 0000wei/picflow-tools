@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>PicEte MCP 연동 가이드 — Claude, Cursor 및 모든 AI 에이전트에서 사용하기</title>
+    <meta name="description" content="MCP를 통해 PicEte의 이미지 처리 도구를 AI 워크플로에 연동하는 방법을 알아보세요. Claude Code, Cursor, Claude Desktop 및 모든 MCP 호환 클라이언트에서 작동합니다.">
+    <link rel="canonical" href="https://picete.com/ko/mcp-guide/">
+
+    <!-- Schema.org TechArticle -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "name": "PicEte MCP 연동 가이드",
+        "headline": "Claude, Cursor 및 모든 AI 에이전트에서 PicEte 사용하기",
+        "description": "AI 워크플로에서 로컬 이미지 처리를 위한 PicEte MCP 서버 연동 단계별 가이드.",
+        "url": "https://picete.com/mcp-guide/"
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1f2937; background: #fff; }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .subtitle { font-size: 1.1rem; color: #6b7280; margin-bottom: 2rem; }
+        h2 { font-size: 1.4rem; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e5e7eb; }
+        h3 { font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        p { margin-bottom: 1rem; }
+        ul, ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        a { color: #2563eb; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        code { background: #f3f4f6; padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
+        pre { background: #1e293b; color: #e2e8f0; padding: 1rem; border-radius: 8px; overflow-x: auto; margin-bottom: 1rem; font-size: 0.85rem; line-height: 1.5; }
+        pre code { background: none; padding: 0; color: inherit; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+        th, td { text-align: left; padding: 0.75rem; border: 1px solid #e5e7eb; }
+        th { background: #f9fafb; font-weight: 600; }
+        .example-table td:first-child { font-style: italic; color: #6b7280; }
+        .example-table td:last-child { font-family: monospace; font-size: 0.9rem; }
+        .back-link { display: inline-block; margin-top: 2rem; padding: 0.5rem 1rem; background: #2563eb; color: #fff; border-radius: 6px; font-weight: 500; }
+        .back-link:hover { opacity: 0.9; text-decoration: none; }
+        .npm-badge { display: inline-block; background: #cb3837; color: #fff; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; }
+        .platform-tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .platform-tab { background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 6px; padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 500; cursor: default; }
+        .platform-tab.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+        @media (max-width: 768px) {
+            .container { padding: 1.5rem 1rem; }
+            h1 { font-size: 1.5rem; }
+            table { font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PicEte MCP 연동 가이드</h1>
+        <p class="subtitle">Claude Code, Cursor, Claude Desktop 또는 기타 MCP 호환 AI 클라이언트에서 PicEte의 이미지 처리 도구를 사용하세요.</p>
+
+        <h2>MCP란 무엇인가요?</h2>
+        <p><strong>모델 컨텍스트 프로토콜(MCP)</strong>은 AI 에이전트(예: Claude Code, Cursor)가 외부 도구를 직접 호출할 수 있게 해주는 오픈 표준입니다. <code>picete-mcp</code>를 사용하면 AI가 터미널을 벗어나거나 <strong>서버에 업로드하지 않고도</strong> 이미지를 처리(압축, 변환, 크기 조정, 색상 추출)할 수 있습니다.</p>
+        <p>모든 처리는 <strong>Sharp</strong>를 통해 로컬에서 실행됩니다. 어떤 데이터도 기기 외부로 전송되지 않습니다. <a href="https://picete.com">PicEte</a>와 동일한 개인정보 보호를 보장합니다.</p>
+
+        <h2>빠른 시작</h2>
+        <p>단일 명령어로 설치 및 실행하세요 (테스트를 위한 가입이나 설정이 필요하지 않습니다):</p>
+        <pre><code>npx -y picete-mcp</code></pre>
+        <p><span class="npm-badge">npm</span> 패키지: <a href="https://www.npmjs.com/package/picete-mcp">picete-mcp@1.0.0</a></p>
+
+        <h2>플랫폼 설정</h2>
+        <p>AI 클라이언트의 MCP 설정에 다음을 추가하세요:</p>
+
+        <h3>Claude Desktop</h3>
+        <p><code>claude_desktop_config.json</code> 수정:</p>
+        <pre><code>{
+  "mcpServers": {
+    "picete": {
+      "command": "npx",
+      "args": ["-y", "picete-mcp"]
+    }
+  }
+}</code></pre>
+
+        <h3>Cursor</h3>
+        <p>프로젝트 루트의 <code>.cursor/mcp.json</code> 수정:</p>
+        <pre><code>{
+  "mcpServers": {
+    "picete": {
+      "command": "npx",
+      "args": ["-y", "picete-mcp"]
+    }
+  }
+}</code></pre>
+
+        <h3>Claude Code</h3>
+        <p><code>~/.claude/settings.json</code> 수정:</p>
+        <pre><code>{
+  "mcpServers": {
+    "picete": {
+      "command": "npx",
+      "args": ["-y", "picete-mcp"]
+    }
+  }
+}</code></pre>
+
+        <h2>사용 가능한 도구</h2>
+        <p>picete-mcp는 두 가지 카테고리에 걸쳐 <strong>13개의 도구</strong>를 제공합니다:</p>
+
+        <h3>원자 단위 도구(Atomic Tools)</h3>
+        <table>
+            <thead>
+                <tr><th>도구</th><th>기능</th><th>주요 매개변수</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>convert</code></td><td>형식 변환</td><td>source, format (jpeg/png/webp/gif), quality</td></tr>
+                <tr><td><code>resize</code></td><td>이미지 크기 조정</td><td>source, width, height, fit, keep_aspect_ratio</td></tr>
+                <tr><td><code>compress</code></td><td>파일 크기 압축</td><td>source, quality, target_format, max_size_bytes</td></tr>
+                <tr><td><code>extract-colors</code></td><td>주요 색상 추출</td><td>source, color_count (기본 5)</td></tr>
+                <tr><td><code>image-to-base64</code></td><td>base64/data URL로 변환</td><td>source, format, data_url</td></tr>
+                <tr><td><code>split-image</code></td><td>그리드 타일로 분할</td><td>source, rows, cols, overlap_px</td></tr>
+                <tr><td><code>metadata</code></td><td>이미지 메타데이터 가져오기</td><td>source</td></tr>
+                <tr><td><code>batch</code></td><td>여러 작업 체이닝(일괄 처리)</td><td>sources[], operations[]</td></tr>
+            </tbody>
+        </table>
+
+        <h3>스마트 도구(Smart Tools)</h3>
+        <table>
+            <thead>
+                <tr><th>도구</th><th>기능</th><th>주요 매개변수</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>optimize-for-web</code></td><td>원클릭 웹 최적화</td><td>source, max_width, quality, output_format</td></tr>
+                <tr><td><code>prepare-for-vision-api</code></td><td>AI 비전 전처리 + 토큰 예측</td><td>source, max_longest_side, quality</td></tr>
+                <tr><td><code>favicon</code></td><td>파비콘 세트(ico + png) 생성</td><td>source, output_dir</td></tr>
+                <tr><td><code>compare-images</code></td><td>두 이미지 비교(MSE/SSIM/diff)</td><td>source1, source2, metric</td></tr>
+                <tr><td><code>collage</code></td><td>이미지 이어 붙이기</td><td>sources[], direction, gap</td></tr>
+            </tbody>
+        </table>
+
+        <h2>사용 예시</h2>
+        <p>자연어로 AI에게 요청하세요 — 자동으로 올바른 도구를 호출합니다:</p>
+
+        <table class="example-table">
+            <thead>
+                <tr><th>요청 예시</th><th>호출되는 도구</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>"이 이미지를 200KB 이하로 압축해 줘"</td><td>compress</td></tr>
+                <tr><td>"이 PNG를 WebP로 변환해 줘"</td><td>convert</td></tr>
+                <tr><td>"이 사진을 가로 1200px로 크기 조정해 줘"</td><td>resize</td></tr>
+                <tr><td>"이 로고로 모든 크기의 파비콘을 생성해 줘"</td><td>favicon</td></tr>
+                <tr><td>"이 이미지에 어떤 색상이 있니?"</td><td>extract-colors</td></tr>
+                <tr><td>"내 웹사이트에 맞게 최적화해 줘"</td><td>optimize-for-web</td></tr>
+                <tr><td>"GPT-4 Vision용으로 이 이미지를 준비해 줘"</td><td>prepare-for-vision-api</td></tr>
+                <tr><td>"이 이미지를 3x3 그리드로 분할해 줘"</td><td>split-image</td></tr>
+                <tr><td>"이 두 스크린샷을 비교해 줘"</td><td>compare-images</td></tr>
+                <tr><td>"이 이미지의 메타데이터를 가져와 줘"</td><td>metadata</td></tr>
+                <tr><td>"이 이미지들을 가로로 이어 붙여 줘"</td><td>collage</td></tr>
+                <tr><td>"이것을 base64로 변환해 줘"</td><td>image-to-base64</td></tr>
+                <tr><td>"이 10개 이미지를 일괄 크기 조정하고 압축해 줘"</td><td>batch</td></tr>
+            </tbody>
+        </table>
+
+        <h2>개발</h2>
+        <pre><code># 클론 및 빌드
+git clone https://github.com/0000wei/picete-mcp.git
+cd picete-mcp
+npm install
+npm run build
+
+# MCP 서버 시작
+npm start</code></pre>
+
+        <a href="https://picete.com/" class="back-link">← PicEte 홈으로 돌아가기</a>
+        <p style="margin-top: 2rem; font-size: 0.85rem; color: #9ca3af;">Powered by <a href="https://picete.com">PicEte</a> — 무료 온라인 이미지 도구</p>
+    </div>
+</body>
+</html>

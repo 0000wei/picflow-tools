@@ -24,6 +24,7 @@
 <link href="https://picete.com/es/raw-to-avif/" hreflang="es" rel="alternate"/>
 <link href="https://picete.com/pt/raw-to-avif/" hreflang="pt" rel="alternate"/>
 <link href="https://picete.com/ar/raw-to-avif/" hreflang="ar" rel="alternate"/>
+    <link href="https://picete.com/ko/raw-to-avif/" hreflang="ko" rel="alternate"/>
 <link href="https://picete.com/raw-to-avif/" hreflang="x-default" rel="alternate"/>
 <!-- Open Graph -->
 <meta content="website" property="og:type"/>
@@ -256,9 +257,9 @@
 </div>
 <script>
     function switchLanguage(code) {
-        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/"};
+        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/", "ko": "/ko/"};
         var path = window.location.pathname;
-        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)(?:\/|$)/, '/');
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar|ko)(?:\/|$)/, '/');
         if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
         var baseUrl = paths[code];
         var targetPath = cleanPath;

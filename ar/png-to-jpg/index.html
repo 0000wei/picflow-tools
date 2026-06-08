@@ -25,6 +25,7 @@
     <link rel="alternate" hreflang="es" href="https://picete.com/es/png-to-jpg/" />
     <link rel="alternate" hreflang="pt" href="https://picete.com/pt/png-to-jpg/" />
     <link rel="alternate" hreflang="ar" href="https://picete.com/ar/png-to-jpg/" />
+    <link rel="alternate" hreflang="ko" href="https://picete.com/ko/png-to-jpg/" />
     <link rel="alternate" hreflang="x-default" href="https://picete.com/png-to-jpg/" />
 <!-- Open Graph -->
 <meta content="website" property="og:type"/>
@@ -269,12 +270,12 @@
 </div>
 <script>
     function switchLanguage(code) {
-        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/"};
+        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/", "ko": "/ko/"};
         // Get current page path from URL
         var path = window.location.pathname;
         
         // Remove language prefix if present
-        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)(?:\/|$)/, '/');
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar|ko)(?:\/|$)/, '/');
         if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
         
         // Build target URL

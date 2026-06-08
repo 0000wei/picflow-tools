@@ -171,7 +171,8 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 - [x] **OG 图片**：已完成 — 生成 7 种语言的 OG 图片，并更新所有 HTML 页面的 meta 标签 (2026-06-06)
 - [x] **FAQ 翻译报告**：已完成 — 审查 docs/reports/untranslated_faqs_report.json，未发现遗漏 (0 file)，报告已清理
 - [x] **README 更新**：已完成 — 补充反映最新 Harness Engineering 目录结构的说明 (2026-06-06)
-- [x] **垃圾清理**：已完成 — 删除废弃的 rawtest/ 和 scripts/test/ 临时脚本 (2026-06-06)
+- [x] 多语言同步审计：确保 `ja`, `zh`, `de`, `fr`, `es`, `pt`, `ar`, `ko` 的页脚工具列表、底部信息区、SEO 等设置与主站对齐 (2026-05-25)
+- [x] **新增韩语版本 (ko)**：打通路由、升级语言切换器、自动提取翻译注入 50 个 HTML，Sitemap 更新 (2026-06-08)
 - [ ] **Facebook Cover Safe Zone Cropper (Phase 1)** — resize-image-for-facebook-cover 改为交互式工具 (9/16)
   - [x] A1 英文版 HTML 骨架 | A2 CSS 追加 | A3 SEO 头信息
   - [x] C1 3步教程 | C2 尺寸科普 | C3 FAQ + FAQPage JSON-LD

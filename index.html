@@ -29,6 +29,7 @@
     <link rel="alternate" hreflang="es" href="https://picete.com/es/" />
     <link rel="alternate" hreflang="pt" href="https://picete.com/pt/" />
     <link rel="alternate" hreflang="ar" href="https://picete.com/ar/" />
+    <link rel="alternate" hreflang="ko" href="https://picete.com/ko/" />
     <link rel="alternate" hreflang="x-default" href="https://picete.com/" />
 
     <!-- Open Graph -->
@@ -138,7 +139,7 @@
     (function() {
         var target = detectLang();
         if (target !== 'en' && !localStorage.getItem('picete_lang_dismissed')) {
-            var names = {"zh":"中文","ja":"日本語","de":"Deutsch","fr":"Français","es":"Español","pt":"Português","ar":"العربية"};
+            var names = {"zh":"中文","ja":"日本語","de":"Deutsch","fr":"Français","es":"Español","pt":"Português","ar":"العربية","ko":"한국어"};
             document.getElementById('langBannerText').textContent = 'Switch to ' + names[target] + '?';
             document.getElementById('langBanner').style.display = 'block';
         }
@@ -259,16 +260,17 @@
             <option value="es">Español</option>
             <option value="pt">Português</option>
             <option value="ar">العربية</option>
+            <option value="ko">한국어</option>
         </select>
     </div>
     <script>
     function switchLanguage(code) {
-        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/"};
+        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/", "ko": "/ko/"};
         // Get current page path from URL
         var path = window.location.pathname;
         
         // Remove language prefix if present
-        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)(?:\/|$)/, '/');
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar|ko)(?:\/|$)/, '/');
         if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
         
         // Build target URL

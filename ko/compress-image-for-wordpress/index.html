@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>워드프레스용 이미지 압축 - 무료 웹사이트 이미지 최적화 도구 | PicEte</title>
+<meta content="워드프레스 웹사이트에 최적화된 이미지를 압축하세요. 워드프레스 로딩 속도를 높이기 위해 이미지 크기를 줄이는 무료 온라인 도구입니다." name="description"/>
+<meta content="워드프레스 이미지 압축, 워드프레스 이미지 최적화, 이미지 크기 줄이기, 워드프레스 속도 향상" name="keywords"/>
+<link href="https://picete.com/compress-image-for-wordpress/" rel="canonical"/>
+<!-- hreflang 标签 -->
+<link href="https://picete.com/compress-image-for-wordpress/" hreflang="en" rel="alternate">
+<link href="https://picete.com/zh/compress-image-for-wordpress/" hreflang="zh" rel="alternate"/>
+<link href="https://picete.com/ja/compress-image-for-wordpress/" hreflang="ja" rel="alternate"/>
+<link href="https://picete.com/de/compress-image-for-wordpress/" hreflang="de" rel="alternate"/>
+<link href="https://picete.com/fr/compress-image-for-wordpress/" hreflang="fr" rel="alternate"/>
+<link href="https://picete.com/es/compress-image-for-wordpress/" hreflang="es" rel="alternate"/>
+<link href="https://picete.com/pt/compress-image-for-wordpress/" hreflang="pt" rel="alternate"/>
+<link href="https://picete.com/ar/compress-image-for-wordpress/" hreflang="ar" rel="alternate"/>
+    <link href="https://picete.com/ko/compress-image-for-wordpress/" hreflang="ko" rel="alternate"/>
+<link href="https://picete.com/compress-image-for-wordpress/" hreflang="x-default" rel="alternate"/>
+<meta content="website" property="og:type"/>
+<meta content="https://picete.com/compress-image-for-wordpress/" property="og:url"/>
+<meta content="워드프레스용 이미지 압축 - 웹사이트 이미지 최적화 도구" property="og:title"/>
+<meta content="워드프레스 웹사이트에 최적화된 이미지를 압축하는 무료 온라인 도구입니다." property="og:description"/>
+<meta content="https://picete.com/images/og-image.png" property="og:image"/>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "워드프레스용 이미지 압축",
+        "description": "워드프레스 웹사이트에 최적화된 이미지를 압축하는 무료 온라인 도구",
+        "url": "https://picete.com/compress-image-for-wordpress",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../css/style.css" rel="stylesheet"/>
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What's the recommended image size for WordPress?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WordPress recommends keeping uploaded images under 500KB for optimal performance. For featured images, 1200x630 pixels at 70-80% JPG quality works well. Blog post images should be 800-1200px wide. Compressing images before uploading to WordPress significantly improves page load speed and SEO rankings."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does WordPress automatically compress images?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WordPress does compress images during upload (JPGs at 82% quality by default), but this isn't aggressive enough for modern web performance needs. Pre-compressing images with PicEte before uploading gives you better control and smaller file sizes. WordPress's built-in compression won't override your optimized files."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Should I use WebP for WordPress?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, WebP is excellent for WordPress. It's 25-35% smaller than equivalent JPGs with similar quality. Many modern WordPress themes support WebP natively. For older themes, use plugins that serve WebP to supported browsers while falling back to JPG. PicEte can help you compress images in any format before converting to WebP."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I speed up WordPress with image optimization?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Compress all images before uploading using PicEte. Use appropriate dimensions — don't upload 4000px wide images for a 800px content area. Enable lazy loading in WordPress (built-in since 5.5). Consider a caching plugin and CDN. Well-optimized images can cut page load times by 50% or more, directly improving Google Core Web Vitals scores."
+            }
+        }
+    ]
+}
+    </script>
+<style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+</link></head>
+<body>
+<header class="header">
+<div class="container">
+<div class="logo">
+<a href="../">
+<img alt="PicEte" class="logo-img" src="../images/picete-logo.svg" width="116" height="32">
+</a>
+<p class="tagline">이미지 압축기</p>
+</div>
+<nav class="nav">
+<a class="nav-link" href="../">홈</a>
+<a class="nav-link" href="../#tools">더 많은 도구</a>
+<!-- Language Switcher -->
+<style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+<div class="lang-switcher">
+<select aria-label="Switch language" onchange="switchLanguage(this.value)">
+<option selected="" value="en">English</option>
+<option value="zh">中文</option>
+<option value="ja">日本語</option>
+<option value="de">Deutsch</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="pt">Português</option>
+<option value="ar">العربية</option>
+            <option value="ko">한국어</option>
+</select>
+</div>
+<script>
+    function switchLanguage(code) {
+        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/", "ko": "/ko/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar|ko)(?:\/|$)/, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+<button aria-label="Toggle theme" class="theme-toggle" id="themeToggle">
+<span class="sun-icon">☀️</span>
+<span class="moon-icon">🌙</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="main">
+<section class="hero">
+<div class="container">
+<div class="breadcrumb"><a href="https://picete.com/">홈</a><span class="separator">›</span><a href="../compress-image/">이미지 압축기</a><span class="separator">›</span><span class="current">워드프레스</span></div>
+<h1 class="hero-title">워드프레스용 이미지 압축</h1>
+<h2 class="hero-subtitle">더 빠른 로딩, 더 나은 SEO 순위</h2>
+<p style="font-size: 1.125rem; color: var(--text-light); max-width: 700px; margin: 1.5rem auto; line-height: 1.8;">
+                    Large images are the #1 cause of slow WordPress sites. Compressing your images before uploading can cut page load times by 50% or more, directly improving your Google rankings and user experience. PicEte optimizes images specifically for WordPress — reducing file sizes while maintaining the quality your visitors expect.
+                </p>
+<div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">워드프레스에서 이미지 최적화가 중요한 이유</h3>
+<p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        Unoptimized images slow down your WordPress site, frustrate visitors, and hurt your search engine rankings. Google's Core Web Vitals algorithm directly penalizes slow-loading sites. Most photos from cameras and phones are 2-5MB — far too large for web use. Compressing images to under 500KB before uploading ensures fast page loads, lower bandwidth costs, and better mobile performance. Every second you shave off load time improves conversion rates and SEO.
+                    </p>
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">워드프레스 이미지 크기 모범 사례</h3>
+<p style="line-height: 1.8; color: var(--text-light); margin-bottom: 1.5rem;">
+                        For featured images, use 1200x630 pixels at 70-80% JPG quality. Blog post content images should be 800-1200px wide. Product photos for WooCommerce work well at 800x800 or 1000x1000. Never upload full-resolution camera photos directly — resize and compress first. Use JPG for photos, PNG only for graphics requiring transparency. Pre-compressing with PicEte is more efficient than relying on WordPress plugins alone.
+                    </p>
+<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-color);">PicEte가 워드프레스에 맞게 최적화하는 방법</h3>
+<ul style="line-height: 1.8; color: var(--text-light); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+<li>시각적 품질을 유지하면서 파일 크기 70-90% 감소</li>
+<li>웹 디스플레이를 위한 JPG 압축 수준 최적화</li>
+<li>불필요한 EXIF 메타데이터를 제거하여 용량 축소</li>
+<li>반응형 워드프레스 테마를 위한 이미지 준비</li>
+<li>효율적인 워크플로를 위해 여러 이미지 일괄 처리</li>
+</ul>
+</div>
+<div style="text-align: center; margin: 3rem 0;">
+<a href="../compress-image/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-size: 1.125rem; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                        Use PicEte Image Compressor Free →
+                    </a>
+<p style="margin-top: 1rem; color: var(--text-light); font-size: 0.875rem;">무료 • 가입 없음 • 워드프레스에 최적화됨</p>
+</div>
+<div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--text-color);">관련 워드프레스 도구</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+<div>
+<h4 style="font-size: 1rem; margin-bottom: 0.5rem">이미지 최적화</h4>
+<ul style="line-height: 1.8; color: var(--text-light);">
+<li><a href="../compress-image-for-website/">웹사이트용 압축</a> — 일반 웹 사용</li>
+<li><a href="../resize-image/">이미지 크기 조절기</a> — 업로드 전 크기 조정</li>
+<li><a href="../png-to-jpg/">PNG를 JPG로</a> — 더 나은 압축을 위해 변환</li>
+<li><a href="../compress-image-to-500kb/">500KB로 압축</a> — 목표 파일 크기</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">자주 묻는 질문</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary class="faq-question">워드프레스의 권장 이미지 크기는 어떻게 되나요?</summary>
+<p class="faq-answer">워드프레스는 최적의 성능을 위해 업로드되는 이미지를 500KB 미만으로 유지할 것을 권장합니다. 추천 이미지의 경우 70-80% JPG 품질의 1200x630 픽셀이 좋습니다. 블로그 게시물 이미지의 너비는 800-1200픽셀이어야 합니다. 워드프레스에 업로드하기 전에 이미지를 압축하면 페이지 로드 속도와 SEO 순위가 크게 향상됩니다.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">워드프레스는 이미지를 자동으로 압축하나요?</summary>
+<p class="faq-answer">워드프레스는 업로드 중 이미지를 압축하지만(기본적으로 82% 품질의 JPG) 최신 웹 성능 요구 사항에 비해 공격적이지 않습니다. 업로드하기 전에 PicEte로 이미지를 사전 압축하면 더 나은 제어와 더 작은 파일 크기를 얻을 수 있습니다. 워드프레스의 내장 압축 기능은 최적화된 파일을 덮어쓰지 않습니다.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">워드프레스에 WebP를 사용해야 하나요?</summary>
+<p class="faq-answer">예, WebP는 워드프레스에 매우 좋습니다. 비슷한 화질의 동등한 JPG보다 25-35% 작습니다. 최신의 많은 워드프레스 테마가 WebP를 기본적으로 지원합니다. 이전 테마의 경우 지원되는 브라우저에 WebP를 제공하는 플러그인을 사용하는 동시에 JPG로 폴백할 수 있습니다. PicEte를 사용하면 WebP로 변환하기 전에 어떤 형식이든 이미지를 압축할 수 있습니다.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">이미지 최적화로 워드프레스 속도를 어떻게 높이나요?</summary>
+<p class="faq-answer">업로드하기 전에 PicEte를 사용하여 모든 이미지를 압축하세요. 적절한 크기를 사용하십시오. — 800픽셀 콘텐츠 영역에 4000픽셀 너비의 이미지를 업로드하지 마십시오. 워드프레스에서 지연 로딩을 활성화합니다(5.5부터 내장됨). 캐싱 플러그인과 CDN을 고려하십시오. 잘 최적화된 이미지는 페이지 로드 시간을 50% 이상 단축하여 Google 코어 웹 바이탈 점수를 직접적으로 향상시킬 수 있습니다.</p>
+</details>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>더 많은 도구</h4>
+<ul>
+<li><a href="../compress-image/">이미지 압축기</a></li>
+<li><a href="../resize-image/">이미지 크기 조절기</a></li>
+<li><a href="../png-to-jpg/">PNG를 JPG로</a></li>
+<li><a href="../webp-to-png/">WebP를 PNG로</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>정보</h4>
+<ul>
+<li><a href="../">홈으로 돌아가기</a></li>
+<li><a href="/privacy-policy.html">개인정보 처리방침</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>파트너 사이트</h4>
+<ul>
+<li><a href="https://mockupshot.online/">MockupShot - Screenshot Mockup</a></li>
+<li><a href="https://ilovepalette.com/">ILovePalette - Color Tools</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 PicEte. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+// Theme Toggle
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if(!btn) return;
+    var t = localStorage.getItem('picete_theme');
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('picete_theme', 'dark');
+    }
+    btn.onclick = function(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? '' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('picete_theme', next || 'light');
+    };
+})();
+</script>
+</body>
+</html>
