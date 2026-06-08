@@ -61,6 +61,11 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 **P7 — 修复语言切换器 Bug（共 1 个 Task）**
 |- [x] 7.1 编写并执行 scripts/fix/fix_lang_switcher.js 批量修复全站语言切换器
 
+**P8 — 首页 UX 与排版重构 (V3)（共 3 个 Task）**
+|- [x] 8.1 更新 css/style.css 注入分类与 Quick Tags 样式
+|- [x] 8.2 重构 index.html 标杆（分类网格、引入 Quick Tags、精简 Footer）
+|- [x] 8.3 编写执行 scripts/fix/sync_homepage_layout.js 同步所有 7 种语言的首页结构
+
 **P1 — mcp-guide 多语言翻译（共 8 个 Task）**
 - [x] 1.1 中文翻译
 - [x] 1.2 日文翻译

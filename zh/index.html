@@ -328,109 +328,157 @@
 </div>
 </section>
 <!-- Tools Grid -->
-<section class="tools-section" id="tools">
-<div class="container">
-<h2 class="section-title">专业图片工具</h2>
-<div class="tools-grid">
-<a class="tool-item" href="/zh/png-to-jpg/">
-<div class="tool-icon">📐</div>
-<h3>PNG 转 JPG</h3>
-<p>将 PNG 图片转换为 JPG 格式</p>
-</a>
-<a class="tool-item" href="/zh/jpg-to-png/">
-<div class="tool-icon">🖼️</div>
-<h3>JPG 转 PNG</h3>
-<p>将 JPG 图片转换为 PNG 格式</p>
-</a>
-<a class="tool-item" href="/zh/webp-to-png/">
-<div class="tool-icon">🔄</div>
-<h3>WebP 转 PNG</h3>
-<p>将 WebP 图片转换为 PNG 格式</p>
-</a>
-<a class="tool-item" href="/zh/png-to-webp/">
-<div class="tool-icon">⚡</div>
-<h3>PNG 转 WebP</h3>
-<p>将 PNG 转换为现代 WebP 格式</p>
-</a>
-<a class="tool-item" href="/zh/jpg-to-webp/">
-<div class="tool-icon">🎯</div>
-<h3>JPG 转 WebP</h3>
-<p>将 JPG 转换为 WebP 格式</p>
-</a>
-<a class="tool-item" href="/zh/resize-image/">
-<div class="tool-icon">📏</div>
-<h3>图片调整大小</h3>
-<p>将图片调整到所需尺寸</p>
-</a>
-<a class="tool-item" href="/zh/compress-image/">
-<div class="tool-icon">🗜️</div>
-<h3>图片压缩</h3>
-<p>压缩图片以减小文件大小</p>
-</a>
-<a class="tool-item" href="/zh/image-splitter/">
-<div class="tool-icon">🧩</div>
-<h3>图片网格分割</h3>
-<p>将图片切片为 Instagram 网格</p>
-</a>
-<a class="tool-item" href="/zh/extract-colors/">
-<div class="tool-icon">🎨</div>
-<h3>调色板提取器</h3>
-<p>从任何图片中提取主要颜色</p>
-</a>
-<a class="tool-item" href="/zh/image-to-base64/">
-<div class="tool-icon">📦</div>
-<h3>图片转 Base64</h3>
-<p>即时将图片编码为 Base64 字符串</p>
-</a>
-<a class="tool-item" href="/zh/fast-convert/">
-<div class="tool-icon">⚡</div>
-<h3>快速图片转换器</h3>
-<p>一键完成格式转换、缩放和压缩</p>
-</a>
-<a class="tool-item" href="/zh/avif-to-png/">
-<div class="tool-icon">🔁</div>
-<h3>AVIF转PNG</h3>
-<p>将AVIF图片转换为PNG格式</p>
-</a>
-<a class="tool-item" href="/zh/png-to-avif/">
-<div class="tool-icon">✨</div>
-<h3>PNG转AVIF</h3>
-<p>将PNG转换为AVIF格式</p>
-</a>
-<a class="tool-item" href="/zh/jpg-to-avif/">
-<div class="tool-icon">🌟</div>
-<h3>JPG转AVIF</h3>
-<p>将JPG转换为AVIF格式</p>
-</a>
-<a class="tool-item" href="/zh/webp-to-avif/">
-<div class="tool-icon">💎</div>
-<h3>WebP转AVIF</h3>
-<p>将WebP转换为AVIF格式</p>
-</a>
-<a class="tool-item" href="/zh/raw-to-jpg/">
-<div class="tool-icon">📷</div>
-<h3>RAW转JPG</h3>
-<p>将RAW照片转换为JPG格式</p>
-</a>
-<a class="tool-item" href="/zh/raw-to-png/">
-<div class="tool-icon">📸</div>
-<h3>RAW转PNG</h3>
-<p>将RAW照片转换为PNG格式</p>
-</a>
-<a class="tool-item" href="/zh/raw-to-webp/">
-<div class="tool-icon">🖼️</div>
-<h3>RAW转WebP</h3>
-<p>将RAW照片转换为WebP格式</p>
-</a>
-<a class="tool-item" href="/zh/raw-to-avif/">
-<div class="tool-icon">🎯</div>
-<h3>RAW转AVIF</h3>
-<p>将RAW照片转换为AVIF格式</p>
-</a>
-<a class="tool-item" href="/zh/resize-image-for-facebook-cover/"><span class="tool-icon">🖼️</span><span class="tool-name">Facebook 封面裁剪工具</span><span class="tool-desc">裁剪和预览 Facebook 封面照片，查看桌面端和移动端效果</span></a>
-</div>
-</div>
-</section>
+	<section id="tools" class="tools-section">
+		<div class="container">
+			<h2 class="section-title">专业图片工具</h2>
+			<div class="tools-grid">
+				<h3 class="category-title">🔥 核心热门工具</h3>
+				<a href="/zh/fast-convert/" class="tool-item">
+					<div class="tool-icon">⚡</div>
+					<h3>快速图片转换器</h3>
+					<p>一键完成格式转换、缩放和压缩</p>
+				</a>
+				<a href="/zh/compress-image/" class="tool-item">
+					<div class="tool-icon">🗜️</div>
+					<h3>图片压缩</h3>
+					<p>压缩图片以减小文件大小</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/zh/compress-image-to-50kb/'">50KB</span>
+						<span onclick="event.stopPropagation();location.href='/zh/compress-image-to-100kb/'">100KB</span>
+						<span onclick="event.stopPropagation();location.href='/zh/compress-image-to-200kb/'">200KB</span>
+						<span onclick="event.stopPropagation();location.href='/zh/compress-image-to-500kb/'">500KB</span>
+						<span onclick="event.stopPropagation();location.href='/zh/compress-jpg-to-100kb/'">JPG 100KB</span>
+						<span onclick="event.stopPropagation();location.href='/zh/compress-jpg-to-200kb/'">JPG 200KB</span>
+						<span onclick="event.stopPropagation();location.href='/zh/compress-image-for-email/'">邮件</span>
+						<span onclick="event.stopPropagation();location.href='/zh/compress-image-for-website/'">网站</span>
+						<span onclick="event.stopPropagation();location.href='/zh/compress-image-for-wordpress/'">WordPress</span>
+					</div>
+				</a>
+				<a href="/zh/resize-image/" class="tool-item">
+					<div class="tool-icon">📏</div>
+					<h3>图片调整大小</h3>
+					<p>将图片调整到所需尺寸</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/zh/resize-image-to-1080x1080/'">1080×1080</span>
+						<span onclick="event.stopPropagation();location.href='/zh/resize-image-to-1920x1080/'">1920×1080</span>
+						<span onclick="event.stopPropagation();location.href='/zh/resize-image-to-512x512/'">512×512</span>
+						<span onclick="event.stopPropagation();location.href='/zh/resize-image-to-800x800/'">800×800</span>
+						<span onclick="event.stopPropagation();location.href='/zh/resize-image-to-1200x630/'">1200×630</span>
+						<span onclick="event.stopPropagation();location.href='/zh/resize-image-to-300x250/'">300×250</span>
+						<span onclick="event.stopPropagation();location.href='/zh/resize-image-to-600x600/'">600×600</span>
+						<span onclick="event.stopPropagation();location.href='/zh/resize-image-to-1500x500/'">1500×500</span>
+						<span onclick="event.stopPropagation();location.href='/zh/resize-image-to-200x200/'">200×200</span>
+						<span onclick="event.stopPropagation();location.href='/zh/resize-image-to-250x250/'">250×250</span>
+						<span onclick="event.stopPropagation();location.href='/zh/resize-image-to-728x90/'">728×90</span>
+					</div>
+				</a>
+				<a href="/zh/png-to-jpg/" class="tool-item">
+					<div class="tool-icon">📐</div>
+					<h3>PNG 转 JPG</h3>
+					<p>将 PNG 图片转换为 JPG 格式</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/zh/png-to-jpg-for-email/'">邮件</span>
+						<span onclick="event.stopPropagation();location.href='/zh/png-to-jpg-batch/'">批量转换</span>
+					</div>
+				</a>
+				<a href="/zh/jpg-to-png/" class="tool-item">
+					<div class="tool-icon">🖼️</div>
+					<h3>JPG 转 PNG</h3>
+					<p>将 JPG 图片转换为 PNG 格式</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/zh/jpg-to-png-for-instagram/'">Instagram</span>
+					</div>
+				</a>
+				<h3 class="category-title">🎨 编辑与创意</h3>
+				<a href="/zh/image-splitter/" class="tool-item">
+					<div class="tool-icon">🧩</div>
+					<h3>图片网格分割</h3>
+					<p>将图片切片为 Instagram 网格</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/zh/split-image-into-3x3/'">3×3 网格</span>
+						<span onclick="event.stopPropagation();location.href='/zh/split-image-into-4-parts/'">4 等分</span>
+					</div>
+				</a>
+				<a href="/zh/extract-colors/" class="tool-item">
+					<div class="tool-icon">🎨</div>
+					<h3>调色板提取器</h3>
+					<p>从任何图片中提取主要颜色</p>
+				</a>
+				<a href="/zh/image-to-base64/" class="tool-item">
+					<div class="tool-icon">📦</div>
+					<h3>图片转 Base64</h3>
+					<p>即时将图片编码为 Base64 字符串</p>
+				</a>
+				<a href="/zh/resize-image-for-facebook-cover/" class="tool-item">
+					<div class="tool-icon">🖼️</div>
+					<h3>Facebook 封面裁剪工具</h3>
+					<p>裁剪和预览 Facebook 封面照片，查看桌面端和移动端效果</p>
+				</a>
+				<h3 class="category-title">🔄 高级格式</h3>
+				<a href="/zh/webp-to-png/" class="tool-item">
+					<div class="tool-icon">🔄</div>
+					<h3>WebP 转 PNG</h3>
+					<p>将 WebP 图片转换为 PNG 格式</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/zh/webp-to-png-for-website/'">网站</span>
+					</div>
+				</a>
+				<a href="/zh/png-to-webp/" class="tool-item">
+					<div class="tool-icon">⚡</div>
+					<h3>PNG 转 WebP</h3>
+					<p>将 PNG 转换为现代 WebP 格式</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/zh/png-to-webp-for-wordpress/'">WordPress</span>
+					</div>
+				</a>
+				<a href="/zh/jpg-to-webp/" class="tool-item">
+					<div class="tool-icon">🎯</div>
+					<h3>JPG 转 WebP</h3>
+					<p>将 JPG 转换为 WebP 格式</p>
+				</a>
+				<a href="/zh/avif-to-png/" class="tool-item">
+					<div class="tool-icon">🔁</div>
+					<h3>AVIF转PNG</h3>
+					<p>将AVIF图片转换为PNG格式</p>
+				</a>
+				<a href="/zh/png-to-avif/" class="tool-item">
+					<div class="tool-icon">✨</div>
+					<h3>PNG转AVIF</h3>
+					<p>将PNG转换为AVIF格式</p>
+				</a>
+				<a href="/zh/jpg-to-avif/" class="tool-item">
+					<div class="tool-icon">🌟</div>
+					<h3>JPG转AVIF</h3>
+					<p>将JPG转换为AVIF格式</p>
+				</a>
+				<a href="/zh/webp-to-avif/" class="tool-item">
+					<div class="tool-icon">💎</div>
+					<h3>WebP转AVIF</h3>
+					<p>将WebP转换为AVIF格式</p>
+				</a>
+				<a href="/zh/raw-to-jpg/" class="tool-item">
+					<div class="tool-icon">📷</div>
+					<h3>RAW转JPG</h3>
+					<p>将RAW照片转换为JPG格式</p>
+				</a>
+				<a href="/zh/raw-to-png/" class="tool-item">
+					<div class="tool-icon">📸</div>
+					<h3>RAW转PNG</h3>
+					<p>将RAW照片转换为PNG格式</p>
+				</a>
+				<a href="/zh/raw-to-webp/" class="tool-item">
+					<div class="tool-icon">🖼️</div>
+					<h3>RAW转WebP</h3>
+					<p>将RAW照片转换为WebP格式</p>
+				</a>
+				<a href="/zh/raw-to-avif/" class="tool-item">
+					<div class="tool-icon">🎯</div>
+					<h3>RAW转AVIF</h3>
+					<p>将RAW照片转换为AVIF格式</p>
+				</a>
+			</div>
+		</div>
+	</section>
 <!-- Features Section -->
 <section class="features-section" id="features">
 <div class="container">

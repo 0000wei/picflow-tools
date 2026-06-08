@@ -328,109 +328,157 @@
 </div>
 </section>
 <!-- Tools Grid -->
-<section class="tools-section" id="tools">
-<div class="container">
-<h2 class="section-title">Professionelle Bildertools</h2>
-<div class="tools-grid">
-<a class="tool-item" href="/de/png-to-jpg/">
-<div class="tool-icon">📐</div>
-<h3>PNG zu JPG</h3>
-<p>Konvertieren Sie PNG-Bilder in das JPG-Format</p>
-</a>
-<a class="tool-item" href="/de/jpg-to-png/">
-<div class="tool-icon">🖼️</div>
-<h3>JPG zu PNG</h3>
-<p>Konvertieren Sie JPG-Bilder in das PNG-Format</p>
-</a>
-<a class="tool-item" href="/de/webp-to-png/">
-<div class="tool-icon">🔄</div>
-<h3>WebP zu PNG</h3>
-<p>Konvertieren Sie WebP-Bilder in das PNG-Format</p>
-</a>
-<a class="tool-item" href="/de/png-to-webp/">
-<div class="tool-icon">⚡</div>
-<h3>PNG zu WebP</h3>
-<p>Konvertieren Sie PNG in das moderne WebP-Format</p>
-</a>
-<a class="tool-item" href="/de/jpg-to-webp/">
-<div class="tool-icon">🎯</div>
-<h3>JPG zu WebP</h3>
-<p>Konvertieren Sie JPG in das WebP-Format</p>
-</a>
-<a class="tool-item" href="/de/resize-image/">
-<div class="tool-icon">📏</div>
-<h3>Bildgröße ändern</h3>
-<p>Ändern Sie die Größe von Bildern auf Ihre gewünschten Abmessungen</p>
-</a>
-<a class="tool-item" href="/de/compress-image/">
-<div class="tool-icon">🗜️</div>
-<h3>Bildkomprimierung</h3>
-<p>Komprimieren Sie Bilder, um die Dateigröße zu reduzieren</p>
-</a>
-<a class="tool-item" href="/de/image-splitter/">
-<div class="tool-icon">🧩</div>
-<h3>Bildraster-Aufteiler</h3>
-<p>Teilen Sie Bilder in Instagram-fähige Raster auf</p>
-</a>
-<a class="tool-item" href="/de/extract-colors/">
-<div class="tool-icon">🎨</div>
-<h3>Farbpalette extrahieren</h3>
-<p>Extrahieren Sie die dominierenden Farben aus jedem Bild</p>
-</a>
-<a class="tool-item" href="/de/image-to-base64/">
-<div class="tool-icon">📦</div>
-<h3>Bild zu Base64</h3>
-<p>Kodieren Sie Bilder sofort in Base64-Strings</p>
-</a>
-<a class="tool-item" href="/de/fast-convert/">
-<div class="tool-icon">⚙️</div>
-<h3>Schneller Bildkonverter</h3>
-<p>Konvertieren, skalieren und komprimieren in einem Klick</p>
-</a>
-<a class="tool-item" href="/de/avif-to-png/">
-<div class="tool-icon">🔁</div>
-<h3>AVIF in PNG</h3>
-<p>AVIF in PNG konvertieren</p>
-</a>
-<a class="tool-item" href="/de/png-to-avif/">
-<div class="tool-icon">✨</div>
-<h3>PNG in AVIF</h3>
-<p>PNG in AVIF konvertieren</p>
-</a>
-<a class="tool-item" href="/de/jpg-to-avif/">
-<div class="tool-icon">🌟</div>
-<h3>JPG in AVIF</h3>
-<p>JPG in AVIF konvertieren</p>
-</a>
-<a class="tool-item" href="/de/webp-to-avif/">
-<div class="tool-icon">💎</div>
-<h3>WebP in AVIF</h3>
-<p>WebP in AVIF konvertieren</p>
-</a>
-<a class="tool-item" href="/de/raw-to-jpg/">
-<div class="tool-icon">📷</div>
-<h3>RAW zu JPG</h3>
-<p>RAW-Fotos in JPG konvertieren</p>
-</a>
-<a class="tool-item" href="/de/raw-to-png/">
-<div class="tool-icon">📸</div>
-<h3>RAW zu PNG</h3>
-<p>RAW-Fotos in PNG konvertieren</p>
-</a>
-<a class="tool-item" href="/de/raw-to-webp/">
-<div class="tool-icon">🖼️</div>
-<h3>RAW zu WebP</h3>
-<p>RAW-Fotos in WebP konvertieren</p>
-</a>
-<a class="tool-item" href="/de/raw-to-avif/">
-<div class="tool-icon">🎯</div>
-<h3>RAW zu AVIF</h3>
-<p>RAW-Fotos in AVIF konvertieren</p>
-</a>
-<a class="tool-item" href="/de/resize-image-for-facebook-cover/"><span class="tool-icon">🖼️</span><span class="tool-name">Facebook-Cover zuschneiden</span><span class="tool-desc">Facebook-Cover für Desktop und Mobilgeräte zuschneiden und in der Vorschau anzeigen</span></a>
-</div>
-</div>
-</section>
+	<section id="tools" class="tools-section">
+		<div class="container">
+			<h2 class="section-title">Professionelle Bildertools</h2>
+			<div class="tools-grid">
+				<h3 class="category-title">🔥 Kern- & Beliebte Tools</h3>
+				<a href="/de/fast-convert/" class="tool-item">
+					<div class="tool-icon">⚙️</div>
+					<h3>Schneller Bildkonverter</h3>
+					<p>Konvertieren, skalieren und komprimieren in einem Klick</p>
+				</a>
+				<a href="/de/compress-image/" class="tool-item">
+					<div class="tool-icon">🗜️</div>
+					<h3>Bildkomprimierung</h3>
+					<p>Komprimieren Sie Bilder, um die Dateigröße zu reduzieren</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/de/compress-image-to-50kb/'">50KB</span>
+						<span onclick="event.stopPropagation();location.href='/de/compress-image-to-100kb/'">100KB</span>
+						<span onclick="event.stopPropagation();location.href='/de/compress-image-to-200kb/'">200KB</span>
+						<span onclick="event.stopPropagation();location.href='/de/compress-image-to-500kb/'">500KB</span>
+						<span onclick="event.stopPropagation();location.href='/de/compress-jpg-to-100kb/'">JPG 100KB</span>
+						<span onclick="event.stopPropagation();location.href='/de/compress-jpg-to-200kb/'">JPG 200KB</span>
+						<span onclick="event.stopPropagation();location.href='/de/compress-image-for-email/'">E-Mail</span>
+						<span onclick="event.stopPropagation();location.href='/de/compress-image-for-website/'">Website</span>
+						<span onclick="event.stopPropagation();location.href='/de/compress-image-for-wordpress/'">WordPress</span>
+					</div>
+				</a>
+				<a href="/de/resize-image/" class="tool-item">
+					<div class="tool-icon">📏</div>
+					<h3>Bildgröße ändern</h3>
+					<p>Ändern Sie die Größe von Bildern auf Ihre gewünschten Abmessungen</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/de/resize-image-to-1080x1080/'">1080×1080</span>
+						<span onclick="event.stopPropagation();location.href='/de/resize-image-to-1920x1080/'">1920×1080</span>
+						<span onclick="event.stopPropagation();location.href='/de/resize-image-to-512x512/'">512×512</span>
+						<span onclick="event.stopPropagation();location.href='/de/resize-image-to-800x800/'">800×800</span>
+						<span onclick="event.stopPropagation();location.href='/de/resize-image-to-1200x630/'">1200×630</span>
+						<span onclick="event.stopPropagation();location.href='/de/resize-image-to-300x250/'">300×250</span>
+						<span onclick="event.stopPropagation();location.href='/de/resize-image-to-600x600/'">600×600</span>
+						<span onclick="event.stopPropagation();location.href='/de/resize-image-to-1500x500/'">1500×500</span>
+						<span onclick="event.stopPropagation();location.href='/de/resize-image-to-200x200/'">200×200</span>
+						<span onclick="event.stopPropagation();location.href='/de/resize-image-to-250x250/'">250×250</span>
+						<span onclick="event.stopPropagation();location.href='/de/resize-image-to-728x90/'">728×90</span>
+					</div>
+				</a>
+				<a href="/de/png-to-jpg/" class="tool-item">
+					<div class="tool-icon">📐</div>
+					<h3>PNG zu JPG</h3>
+					<p>Konvertieren Sie PNG-Bilder in das JPG-Format</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/de/png-to-jpg-for-email/'">E-Mail</span>
+						<span onclick="event.stopPropagation();location.href='/de/png-to-jpg-batch/'">Stapelkonvertierung</span>
+					</div>
+				</a>
+				<a href="/de/jpg-to-png/" class="tool-item">
+					<div class="tool-icon">🖼️</div>
+					<h3>JPG zu PNG</h3>
+					<p>Konvertieren Sie JPG-Bilder in das PNG-Format</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/de/jpg-to-png-for-instagram/'">Instagram</span>
+					</div>
+				</a>
+				<h3 class="category-title">🎨 Bearbeitung & Kreativität</h3>
+				<a href="/de/image-splitter/" class="tool-item">
+					<div class="tool-icon">🧩</div>
+					<h3>Bildraster-Aufteiler</h3>
+					<p>Teilen Sie Bilder in Instagram-fähige Raster auf</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/de/split-image-into-3x3/'">3×3 Raster</span>
+						<span onclick="event.stopPropagation();location.href='/de/split-image-into-4-parts/'">4 Teile</span>
+					</div>
+				</a>
+				<a href="/de/extract-colors/" class="tool-item">
+					<div class="tool-icon">🎨</div>
+					<h3>Farbpalette extrahieren</h3>
+					<p>Extrahieren Sie die dominierenden Farben aus jedem Bild</p>
+				</a>
+				<a href="/de/image-to-base64/" class="tool-item">
+					<div class="tool-icon">📦</div>
+					<h3>Bild zu Base64</h3>
+					<p>Kodieren Sie Bilder sofort in Base64-Strings</p>
+				</a>
+				<a href="/de/resize-image-for-facebook-cover/" class="tool-item">
+					<div class="tool-icon">🖼️</div>
+					<h3>Facebook-Cover zuschneiden</h3>
+					<p>Facebook-Cover für Desktop und Mobilgeräte zuschneiden und in der Vorschau anzeigen</p>
+				</a>
+				<h3 class="category-title">🔄 Erweiterte Formate</h3>
+				<a href="/de/webp-to-png/" class="tool-item">
+					<div class="tool-icon">🔄</div>
+					<h3>WebP zu PNG</h3>
+					<p>Konvertieren Sie WebP-Bilder in das PNG-Format</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/de/webp-to-png-for-website/'">Website</span>
+					</div>
+				</a>
+				<a href="/de/png-to-webp/" class="tool-item">
+					<div class="tool-icon">⚡</div>
+					<h3>PNG zu WebP</h3>
+					<p>Konvertieren Sie PNG in das moderne WebP-Format</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/de/png-to-webp-for-wordpress/'">WordPress</span>
+					</div>
+				</a>
+				<a href="/de/jpg-to-webp/" class="tool-item">
+					<div class="tool-icon">🎯</div>
+					<h3>JPG zu WebP</h3>
+					<p>Konvertieren Sie JPG in das WebP-Format</p>
+				</a>
+				<a href="/de/avif-to-png/" class="tool-item">
+					<div class="tool-icon">🔁</div>
+					<h3>AVIF in PNG</h3>
+					<p>AVIF in PNG konvertieren</p>
+				</a>
+				<a href="/de/png-to-avif/" class="tool-item">
+					<div class="tool-icon">✨</div>
+					<h3>PNG in AVIF</h3>
+					<p>PNG in AVIF konvertieren</p>
+				</a>
+				<a href="/de/jpg-to-avif/" class="tool-item">
+					<div class="tool-icon">🌟</div>
+					<h3>JPG in AVIF</h3>
+					<p>JPG in AVIF konvertieren</p>
+				</a>
+				<a href="/de/webp-to-avif/" class="tool-item">
+					<div class="tool-icon">💎</div>
+					<h3>WebP in AVIF</h3>
+					<p>WebP in AVIF konvertieren</p>
+				</a>
+				<a href="/de/raw-to-jpg/" class="tool-item">
+					<div class="tool-icon">📷</div>
+					<h3>RAW zu JPG</h3>
+					<p>RAW-Fotos in JPG konvertieren</p>
+				</a>
+				<a href="/de/raw-to-png/" class="tool-item">
+					<div class="tool-icon">📸</div>
+					<h3>RAW zu PNG</h3>
+					<p>RAW-Fotos in PNG konvertieren</p>
+				</a>
+				<a href="/de/raw-to-webp/" class="tool-item">
+					<div class="tool-icon">🖼️</div>
+					<h3>RAW zu WebP</h3>
+					<p>RAW-Fotos in WebP konvertieren</p>
+				</a>
+				<a href="/de/raw-to-avif/" class="tool-item">
+					<div class="tool-icon">🎯</div>
+					<h3>RAW zu AVIF</h3>
+					<p>RAW-Fotos in AVIF konvertieren</p>
+				</a>
+			</div>
+		</div>
+	</section>
 <!-- Features Section -->
 <section class="features-section" id="features">
 <div class="container">

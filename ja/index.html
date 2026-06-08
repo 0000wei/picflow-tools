@@ -328,109 +328,157 @@
 </div>
 </section>
 <!-- Tools Grid -->
-<section class="tools-section" id="tools">
-<div class="container">
-<h2 class="section-title">プロフェッショナル画像ツール</h2>
-<div class="tools-grid">
-<a class="tool-item" href="/ja/png-to-jpg/">
-<div class="tool-icon">📐</div>
-<h3>PNGからJPG</h3>
-<p>PNG画像をJPGフォーマットに変換</p>
-</a>
-<a class="tool-item" href="/ja/jpg-to-png/">
-<div class="tool-icon">🖼️</div>
-<h3>JPGからPNG</h3>
-<p>JPG画像をPNGフォーマットに変換</p>
-</a>
-<a class="tool-item" href="/ja/webp-to-png/">
-<div class="tool-icon">🔄</div>
-<h3>WebPからPNG</h3>
-<p>WebP画像をPNGフォーマットに変換</p>
-</a>
-<a class="tool-item" href="/ja/png-to-webp/">
-<div class="tool-icon">⚡</div>
-<h3>PNGからWebP</h3>
-<p>PNGをモダンなWebPフォーマットに変換</p>
-</a>
-<a class="tool-item" href="/ja/jpg-to-webp/">
-<div class="tool-icon">🎯</div>
-<h3>JPGからWebP</h3>
-<p>JPGをWebPフォーマットに変換</p>
-</a>
-<a class="tool-item" href="/ja/resize-image/">
-<div class="tool-icon">📏</div>
-<h3>画像リサイズ</h3>
-<p>画像を希望の寸法にリサイズ</p>
-</a>
-<a class="tool-item" href="/ja/compress-image/">
-<div class="tool-icon">🗜️</div>
-<h3>画像圧縮</h3>
-<p>画像を圧縮してファイルサイズを削減</p>
-</a>
-<a class="tool-item" href="/ja/image-splitter/">
-<div class="tool-icon">🧩</div>
-<h3>画像グリッド分割</h3>
-<p>Instagram用グリッドに画像をスライス</p>
-</a>
-<a class="tool-item" href="/ja/extract-colors/">
-<div class="tool-icon">🎨</div>
-<h3>カラーパレット抽出</h3>
-<p>任意の画像から支配的な色を抽出</p>
-</a>
-<a class="tool-item" href="/ja/image-to-base64/">
-<div class="tool-icon">📦</div>
-<h3>画像からBase64</h3>
-<p>画像を即座にBase64文字列にエンコード</p>
-</a>
-<a class="tool-item" href="/ja/fast-convert/">
-<div class="tool-icon">⚙️</div>
-<h3>高速画像変換ツール</h3>
-<p>変換、リサイズ、圧縮をワンクリックで</p>
-</a>
-<a class="tool-item" href="/ja/avif-to-png/">
-<div class="tool-icon">🔁</div>
-<h3>AVIF→PNG</h3>
-<p>AVIFをPNGに変換</p>
-</a>
-<a class="tool-item" href="/ja/png-to-avif/">
-<div class="tool-icon">✨</div>
-<h3>PNG→AVIF</h3>
-<p>PNGをAVIFに変換</p>
-</a>
-<a class="tool-item" href="/ja/jpg-to-avif/">
-<div class="tool-icon">🌟</div>
-<h3>JPG→AVIF</h3>
-<p>JPGをAVIFに変換</p>
-</a>
-<a class="tool-item" href="/ja/webp-to-avif/">
-<div class="tool-icon">💎</div>
-<h3>WebP→AVIF</h3>
-<p>WebPをAVIFに変換</p>
-</a>
-<a class="tool-item" href="/ja/raw-to-jpg/">
-<div class="tool-icon">📷</div>
-<h3>RAW→JPG</h3>
-<p>RAW写真をJPGに変換</p>
-</a>
-<a class="tool-item" href="/ja/raw-to-png/">
-<div class="tool-icon">📸</div>
-<h3>RAW→PNG</h3>
-<p>RAW写真をPNGに変換</p>
-</a>
-<a class="tool-item" href="/ja/raw-to-webp/">
-<div class="tool-icon">🖼️</div>
-<h3>RAW→WebP</h3>
-<p>RAW写真をWebPに変換</p>
-</a>
-<a class="tool-item" href="/ja/raw-to-avif/">
-<div class="tool-icon">🎯</div>
-<h3>RAW→AVIF</h3>
-<p>RAW写真をAVIFに変換</p>
-</a>
-<a class="tool-item" href="/ja/resize-image-for-facebook-cover/"><span class="tool-icon">🖼️</span><span class="tool-name">Facebook カバー写真をトリミング</span><span class="tool-desc">Facebook カバー写真をデスクトップとモバイルでプレビュー</span></a>
-</div>
-</div>
-</section>
+	<section id="tools" class="tools-section">
+		<div class="container">
+			<h2 class="section-title">プロフェッショナル画像ツール</h2>
+			<div class="tools-grid">
+				<h3 class="category-title">🔥 人気のコアツール</h3>
+				<a href="/ja/fast-convert/" class="tool-item">
+					<div class="tool-icon">⚙️</div>
+					<h3>高速画像変換ツール</h3>
+					<p>変換、リサイズ、圧縮をワンクリックで</p>
+				</a>
+				<a href="/ja/compress-image/" class="tool-item">
+					<div class="tool-icon">🗜️</div>
+					<h3>画像圧縮</h3>
+					<p>画像を圧縮してファイルサイズを削減</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/ja/compress-image-to-50kb/'">50KB</span>
+						<span onclick="event.stopPropagation();location.href='/ja/compress-image-to-100kb/'">100KB</span>
+						<span onclick="event.stopPropagation();location.href='/ja/compress-image-to-200kb/'">200KB</span>
+						<span onclick="event.stopPropagation();location.href='/ja/compress-image-to-500kb/'">500KB</span>
+						<span onclick="event.stopPropagation();location.href='/ja/compress-jpg-to-100kb/'">JPG 100KB</span>
+						<span onclick="event.stopPropagation();location.href='/ja/compress-jpg-to-200kb/'">JPG 200KB</span>
+						<span onclick="event.stopPropagation();location.href='/ja/compress-image-for-email/'">メール用</span>
+						<span onclick="event.stopPropagation();location.href='/ja/compress-image-for-website/'">Web用</span>
+						<span onclick="event.stopPropagation();location.href='/ja/compress-image-for-wordpress/'">WordPress</span>
+					</div>
+				</a>
+				<a href="/ja/resize-image/" class="tool-item">
+					<div class="tool-icon">📏</div>
+					<h3>画像リサイズ</h3>
+					<p>画像を希望の寸法にリサイズ</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/ja/resize-image-to-1080x1080/'">1080×1080</span>
+						<span onclick="event.stopPropagation();location.href='/ja/resize-image-to-1920x1080/'">1920×1080</span>
+						<span onclick="event.stopPropagation();location.href='/ja/resize-image-to-512x512/'">512×512</span>
+						<span onclick="event.stopPropagation();location.href='/ja/resize-image-to-800x800/'">800×800</span>
+						<span onclick="event.stopPropagation();location.href='/ja/resize-image-to-1200x630/'">1200×630</span>
+						<span onclick="event.stopPropagation();location.href='/ja/resize-image-to-300x250/'">300×250</span>
+						<span onclick="event.stopPropagation();location.href='/ja/resize-image-to-600x600/'">600×600</span>
+						<span onclick="event.stopPropagation();location.href='/ja/resize-image-to-1500x500/'">1500×500</span>
+						<span onclick="event.stopPropagation();location.href='/ja/resize-image-to-200x200/'">200×200</span>
+						<span onclick="event.stopPropagation();location.href='/ja/resize-image-to-250x250/'">250×250</span>
+						<span onclick="event.stopPropagation();location.href='/ja/resize-image-to-728x90/'">728×90</span>
+					</div>
+				</a>
+				<a href="/ja/png-to-jpg/" class="tool-item">
+					<div class="tool-icon">📐</div>
+					<h3>PNGからJPG</h3>
+					<p>PNG画像をJPGフォーマットに変換</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/ja/png-to-jpg-for-email/'">メール用</span>
+						<span onclick="event.stopPropagation();location.href='/ja/png-to-jpg-batch/'">一括変換</span>
+					</div>
+				</a>
+				<a href="/ja/jpg-to-png/" class="tool-item">
+					<div class="tool-icon">🖼️</div>
+					<h3>JPGからPNG</h3>
+					<p>JPG画像をPNGフォーマットに変換</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/ja/jpg-to-png-for-instagram/'">Instagram</span>
+					</div>
+				</a>
+				<h3 class="category-title">🎨 編集＆クリエイティブ</h3>
+				<a href="/ja/image-splitter/" class="tool-item">
+					<div class="tool-icon">🧩</div>
+					<h3>画像グリッド分割</h3>
+					<p>Instagram用グリッドに画像をスライス</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/ja/split-image-into-3x3/'">3×3 グリッド</span>
+						<span onclick="event.stopPropagation();location.href='/ja/split-image-into-4-parts/'">4分割</span>
+					</div>
+				</a>
+				<a href="/ja/extract-colors/" class="tool-item">
+					<div class="tool-icon">🎨</div>
+					<h3>カラーパレット抽出</h3>
+					<p>任意の画像から支配的な色を抽出</p>
+				</a>
+				<a href="/ja/image-to-base64/" class="tool-item">
+					<div class="tool-icon">📦</div>
+					<h3>画像からBase64</h3>
+					<p>画像を即座にBase64文字列にエンコード</p>
+				</a>
+				<a href="/ja/resize-image-for-facebook-cover/" class="tool-item">
+					<div class="tool-icon">🖼️</div>
+					<h3>Facebook カバー写真をトリミング</h3>
+					<p>Facebook カバー写真をデスクトップとモバイルでプレビュー</p>
+				</a>
+				<h3 class="category-title">🔄 高度なフォーマット</h3>
+				<a href="/ja/webp-to-png/" class="tool-item">
+					<div class="tool-icon">🔄</div>
+					<h3>WebPからPNG</h3>
+					<p>WebP画像をPNGフォーマットに変換</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/ja/webp-to-png-for-website/'">Web用</span>
+					</div>
+				</a>
+				<a href="/ja/png-to-webp/" class="tool-item">
+					<div class="tool-icon">⚡</div>
+					<h3>PNGからWebP</h3>
+					<p>PNGをモダンなWebPフォーマットに変換</p>
+					<div class="quick-tags">
+						<span onclick="event.stopPropagation();location.href='/ja/png-to-webp-for-wordpress/'">WordPress</span>
+					</div>
+				</a>
+				<a href="/ja/jpg-to-webp/" class="tool-item">
+					<div class="tool-icon">🎯</div>
+					<h3>JPGからWebP</h3>
+					<p>JPGをWebPフォーマットに変換</p>
+				</a>
+				<a href="/ja/avif-to-png/" class="tool-item">
+					<div class="tool-icon">🔁</div>
+					<h3>AVIF→PNG</h3>
+					<p>AVIFをPNGに変換</p>
+				</a>
+				<a href="/ja/png-to-avif/" class="tool-item">
+					<div class="tool-icon">✨</div>
+					<h3>PNG→AVIF</h3>
+					<p>PNGをAVIFに変換</p>
+				</a>
+				<a href="/ja/jpg-to-avif/" class="tool-item">
+					<div class="tool-icon">🌟</div>
+					<h3>JPG→AVIF</h3>
+					<p>JPGをAVIFに変換</p>
+				</a>
+				<a href="/ja/webp-to-avif/" class="tool-item">
+					<div class="tool-icon">💎</div>
+					<h3>WebP→AVIF</h3>
+					<p>WebPをAVIFに変換</p>
+				</a>
+				<a href="/ja/raw-to-jpg/" class="tool-item">
+					<div class="tool-icon">📷</div>
+					<h3>RAW→JPG</h3>
+					<p>RAW写真をJPGに変換</p>
+				</a>
+				<a href="/ja/raw-to-png/" class="tool-item">
+					<div class="tool-icon">📸</div>
+					<h3>RAW→PNG</h3>
+					<p>RAW写真をPNGに変換</p>
+				</a>
+				<a href="/ja/raw-to-webp/" class="tool-item">
+					<div class="tool-icon">🖼️</div>
+					<h3>RAW→WebP</h3>
+					<p>RAW写真をWebPに変換</p>
+				</a>
+				<a href="/ja/raw-to-avif/" class="tool-item">
+					<div class="tool-icon">🎯</div>
+					<h3>RAW→AVIF</h3>
+					<p>RAW写真をAVIFに変換</p>
+				</a>
+			</div>
+		</div>
+	</section>
 <!-- Features Section -->
 <section class="features-section" id="features">
 <div class="container">

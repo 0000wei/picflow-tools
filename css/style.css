@@ -93,6 +93,22 @@ html[data-theme="dark"] .tool-item:hover {
     border-color: var(--primary-color);
 }
 
+html[data-theme="dark"] .category-title {
+    border-bottom-color: var(--border-color);
+}
+
+html[data-theme="dark"] .quick-tags span {
+    background-color: rgba(30, 41, 59, 0.8);
+    border-color: var(--border-color);
+    color: var(--text-light);
+}
+
+html[data-theme="dark"] .quick-tags span:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
 html[data-theme="dark"] .feature-item {
     background-color: var(--bg-secondary);
     border-radius: 1rem;
@@ -526,6 +542,47 @@ html[data-theme="dark"] .logo-img {
 .tool-item p {
     color: var(--text-light);
     font-size: 0.875rem;
+}
+
+.category-title {
+    grid-column: 1 / -1;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.category-title:first-child {
+    margin-top: 0;
+}
+
+.quick-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    margin-top: 0.75rem;
+}
+
+.quick-tags span {
+    display: inline-block;
+    padding: 0.25rem 0.625rem;
+    background-color: var(--bg-secondary);
+    color: var(--text-light);
+    border: 1px solid var(--border-color);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.quick-tags span:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
 }
 
 /* Tool Cards */
