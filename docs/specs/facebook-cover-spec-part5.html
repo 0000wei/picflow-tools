@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook 封面 SPEC — Part 5: 验证标准 & 排除项</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #6366F1; --primary-dark: #4F46E5; --green: #10B981; --amber: #F59E0B; --red: #EF4444; --blue: #3B82F6;
+  --bg: #FFFFFF; --bg2: #F9FAFB; --border: #E5E7EB; --text: #1F2937; --text-light: #6B7280;
+}
+body { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; padding: 2rem; max-width: 1100px; margin: 0 auto; }
+h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--primary); }
+h3 { font-size: 1.2rem; margin: 1.8rem 0 0.8rem; color: var(--primary-dark); padding-left: 0.5rem; border-left: 3px solid var(--primary-light); }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+th { background: var(--bg2); padding: 0.6rem 0.75rem; text-align: left; font-size: 0.85rem; color: var(--text-light); border-bottom: 2px solid var(--border); font-weight: 600; }
+td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; vertical-align: top; }
+tr:hover { background: var(--bg2); }
+code { background: #F1F5F9; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85rem; }
+pre { background: #1E293B; color: #E2E8F0; padding: 1rem; border-radius: 8px; font-family: 'SF Mono','Fira Code',monospace; font-size: 0.85rem; overflow-x: auto; line-height: 1.5; margin: 1rem 0; }
+.note { background: #EFF6FF; border-left: 4px solid var(--blue); padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; font-size: 0.9rem; }
+.warn { background: #FFFBEB; border-left: 4px solid var(--amber); padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; font-size: 0.9rem; }
+.pass { color: #065F46; } .fail { color: #991B1B; }
+</style></head>
+<body>
+
+<h2 id="s11">11. 验证标准（Checklist）</h2>
+<p>全部 Task 完成后，用此清单做端到端验收。每项通过/失败/备注。</p>
+
+<h3>11.1 功能验证（浏览器中手动）</h3>
+<table>
+<tr><th>#</th><th>验证项</th><th>操作步骤</th><th>预期结果</th></tr>
+<tr><td>1</td><td>JPG 上传</td><td>拖拽一张 JPG 到上传区</td><td>图片加载到 Canvas，居中显示。上传区消失，控制面板出现</td></tr>
+<tr><td>2</td><td>PNG 上传</td><td>点击上传按钮选择一张 PNG</td><td>同上</td></tr>
+<tr><td>3</td><td>WebP 上传</td><td>Ctrl+V 粘贴一张 WebP 图片</td><td>同上</td></tr>
+<tr><td>4</td><td>非图片文件</td><td>拖拽一个 .txt 文件到上传区</td><td>提示 "Please select a valid image file"</td></tr>
+<tr><td>5</td><td>拖拽平移</td><td>鼠标按下 Canvas 并拖动</td><td>图片跟随鼠标移动，松开停止。光标在按下时为 grabbing</td></tr>
+<tr><td>6</td><td>滚轮缩放</td><td>鼠标在 Canvas 上滚轮</td><td>图片以鼠标位置为中心缩放。滑块值同步变化</td></tr>
+<tr><td>7</td><td>滑块缩放</td><td>拖动 zoom slider</td><td>图片以画布中心缩放。百分比显示更新</td></tr>
+<tr><td>8</td><td>缩放边界</td><td>缩小至 25%、放大至 500%</td><td>滑块不能超出 25-500 范围。图片不消失</td></tr>
+<tr><td>9</td><td>边界约束</td><td>将图片拖到边缘</td><td>图片不会完全离开画布。至少一个像素始终在画布内</td></tr>
+<tr><td>10</td><td>安全区遮罩</td><td>点击 "All Devices Safe Zone"</td><td>画布中心 560x312 矩形亮起，其余区域半透明黑色覆盖。3x3 网格可见</td></tr>
+<tr><td>11</td><td>桌面端预览</td><td>点击 "Desktop Preview"</td><td>上下 155px 被覆盖，仅 1200x312 水平带可见。沉浸式 UI 元素出现</td></tr>
+<tr><td>12</td><td>桌面 UI 元素</td><td>桌面端预览模式下检查</td><td>可见：顶部返回栏（← + 名字）、左下头像圆、底部 Like/Comment/Share 按钮、右上 "Edit Cover Photo"</td></tr>
+<tr><td>13</td><td>移动端预览</td><td>点击 "Mobile Preview"</td><td>左右 320px 被覆盖，仅 560x628 垂直带可见。沉浸式 UI 元素出现</td></tr>
+<tr><td>14</td><td>移动 UI 元素</td><td>移动端预览模式下检查</td><td>可见：顶部状态栏(时间信号)、导航栏(FB logo)、底部头像圆、底部按钮、左右填充色</td></tr>
+<tr><td>15</td><td>模式切换</td><td>来回点击三种模式各 3 次</td><td>每次切换顺畅无闪烁。按钮高亮状态正确</td></tr>
+<tr><td>16</td><td>导出 JPG</td><td>选择 JPG 格式，点击下载</td><td>下载文件为 .jpg，尺寸 1200x628。内容为用户图片当前位置的全分辨率截图（无遮罩/UI）</td></tr>
+<tr><td>17</td><td>导出 PNG</td><td>选择 PNG 格式，点击下载</td><td>下载文件为 .png，尺寸 1200x628</td></tr>
+<tr><td>18</td><td>导出质量</td><td>JPG 导出，对比原图</td><td>导出图片清晰，无锯齿/模糊问题</td></tr>
+<tr><td>19</td><td>Ctrl+V 粘贴</td><td>复制一张图片到剪贴板，在页面上 Ctrl+V</td><td>图片加载到 Canvas</td></tr>
+<tr><td>20</td><td>触控拖拽（移动端）</td><td>在移动设备或 Chrome DevTools 移动模式下触摸拖拽</td><td>图片跟随单指移动。页面不跟随滚动</td></tr>
+<tr><td>21</td><td>触控缩放（移动端）</td><td>双指捏合</td><td>图片以双指中点缩放。平滑无跳跃</td></tr>
+<tr><td>22</td><td>响应式 <768px</td><td>缩小浏览器宽度到 500px</td><td>Canvas 充满宽度、控制区变为纵向排列、预览按钮变为列布局。无不合理的截断/重叠</td></tr>
+<tr><td>23</td><td>暗色模式</td><td>点击主题切换按钮到暗色</td><td>所有文字、背景、遮罩、按钮在暗色下颜色正确，可读性好</td></tr>
+</table>
+
+<h3>11.2 SEO 验证</h3>
+<table>
+<tr><th>#</th><th>验证项</th><th>验证方法</th></tr>
+<tr><td>24</td><td>英文版 canonical</td><td>检查 &lt;link rel="canonical"&gt; → https://picete.com/resize-image-for-facebook-cover/</td></tr>
+<tr><td>25</td><td>中文版 canonical</td><td>检查 → https://picete.com/zh/resize-image-for-facebook-cover/</td></tr>
+<tr><td>26</td><td>所有 8 语种 hreflang 完备</td><td>每个语言的页面包含所有 8 个 + x-default 的 &lt;link rel="alternate" hreflang="..."&gt;</td></tr>
+<tr><td>27</td><td>JSON-LD WebApplication</td><td>Google Rich Results Test 或检查 schema.org 格式正确</td></tr>
+<tr><td>28</td><td>JSON-LD BreadcrumbList</td><td>同上</td></tr>
+<tr><td>29</td><td>JSON-LD FAQPage</td><td>检查 FAQPage + Question/Answer 格式（在英文版和翻译版各抽查一条语言）</td></tr>
+<tr><td>30</td><td>OG tags</td><td>检查 og:title, og:description, og:image, og:url 均指向正确的语言版本</td></tr>
+<tr><td>31</td><td>Title & Description</td><td>每个语言页面的 &lt;title&gt; 和 &lt;meta name="description"&gt; 翻译正确</td></tr>
+<tr><td>32</td><td>GA 标签</td><td>检查 &lt;script async src="/js/gtag.js"&gt; 和 gtag('config','G-H72N80TEBW') 存在</td></tr>
+</table>
+
+<h3>11.3 部署验证</h3>
+<table>
+<tr><th>#</th><th>验证项</th></tr>
+<tr><td>33</td><td>vercel.json 中包含了 resize-image-for-facebook-cover 的 COEP 路由（en + 7 个语言前缀）</td></tr>
+<tr><td>34</td><td>seo/sitemap.xml 中包含 8 个 facebook-cover URL</td></tr>
+<tr><td>35</td><td>所有 8 个语言首页有 Facebook Cover 工具入口链接</td></tr>
+<tr><td>36</td><td>JS 文件路径正确：所有语言页面引用 ../../js/facebook-cover.js（每个语言目录的对应路径正确）</td></tr>
+<tr><td>37</td><td>CSS 路径正确：所有语言页面引用 ../../css/style.css</td></tr>
+<tr><td>38</td><td>git push 后 Vercel 部署成功无报错</td></tr>
+<tr><td>39</td><td>部署后访问 https://picete.com/resize-image-for-facebook-cover/ 返回 200</td></tr>
+<tr><td>40</td><td>部署后访问 https://picete.com/zh/resize-image-for-facebook-cover/ 返回 200</td></tr>
+</table>
+
+<h2 id="s12">12. 明确排除项（本次不包含）</h2>
+
+<table>
+<tr><th>功能</th><th>原 PRD 阶段</th><th>排除原因</th></tr>
+<tr><td>智能背景填充（高斯模糊/取色）</td><td>Phase 2 · 4.1</td><td>额外 UX 复杂度。MVP 先保证核心裁剪可用</td></tr>
+<tr><td>自定义颜色/透明底导出</td><td>Phase 2 · 4.1</td><td>同上</td></tr>
+<tr><td>Business Page / Group / Event 封面切换</td><td>Phase 2 · 4.3</td><td>不同封面类型的尺寸和遮挡区差异大，需要额外研究和 UI</td></tr>
+<tr><td>跨平台一键适配（Twitter/LinkedIn）</td><td>Phase 3 · 5.1</td><td>跳转逻辑依赖目标工具页面是否存在</td></tr>
+<tr><td>社交分享</td><td>Phase 3 · 5.2</td><td>下载完成后的营销 feature</td></tr>
+<tr><td>用户项目历史（LocalStorage）</td><td>Phase 3 · 5.3</td><td>回访留存 feature，优先 MVP 基本功能</td></tr>
+<tr><td>AI 智能主体居中</td><td>Phase 4 · 6.1</td><td>需要引入 ML 库（如 TensorFlow.js face detection），显著增加 JS 体积</td></tr>
+<tr><td>批量处理</td><td>Phase 4 · 6.2</td><td>专业级需求，非普通用户高频场景</td></tr>
+</table>
+
+<h2>文件产出清单汇总</h2>
+
+<table>
+<tr><th>路径</th><th>操作</th><th>Task</th></tr>
+<tr><td>resize-image-for-facebook-cover/index.html</td><td>新建</td><td>A1,A3,C1,C2,C3</td></tr>
+<tr><td>zh/resize-image-for-facebook-cover/index.html</td><td>替换</td><td>F1</td></tr>
+<tr><td>ja/resize-image-for-facebook-cover/index.html</td><td>新建</td><td>F2</td></tr>
+<tr><td>de/resize-image-for-facebook-cover/index.html</td><td>新建</td><td>F3</td></tr>
+<tr><td>fr/resize-image-for-facebook-cover/index.html</td><td>新建</td><td>F4</td></tr>
+<tr><td>es/resize-image-for-facebook-cover/index.html</td><td>新建</td><td>F5</td></tr>
+<tr><td>pt/resize-image-for-facebook-cover/index.html</td><td>替换</td><td>F6</td></tr>
+<tr><td>ar/resize-image-for-facebook-cover/index.html</td><td>新建</td><td>F7</td></tr>
+<tr><td>js/facebook-cover.js</td><td>新建</td><td>B1,B2,B3,B4,B5,D1</td></tr>
+<tr><td>css/style.css</td><td>追加</td><td>A2,D2</td></tr>
+<tr><td>vercel.json</td><td>修改</td><td>G2</td></tr>
+<tr><td>seo/sitemap.xml</td><td>修改</td><td>G1</td></tr>
+<tr><td>各语种首页 index.html</td><td>修改</td><td>G3</td></tr>
+</table>
+
+<h3>执行流程概要</h3>
+<pre>
+Phase 1 (核心引擎 + 英文版): 
+  A1 → A2 → A3 (并行: C1, C2, C3)
+  ↓
+  B1 → B2 → B3 → B4 → B5
+  ↓
+  D1 → D2
+  ↓
+  E1 → E2 → E3
+
+Phase 2 (翻译):
+  F1..F7 (可并行 5 个，分批两轮)
+
+Phase 3 (部署):
+  G1 → G2 → G3 → G4 → G5
+</pre>
+
+<p class="note"><strong>总文件数</strong>：新建 9 个（8 个 HTML + 1 个 JS），修改 4 个（CSS, vercel.json, sitemap.xml, 各语种首页）。替换 3 个（zh, pt 现有页面 + 英文版新建）。</p>
+
+</body>
+</html>

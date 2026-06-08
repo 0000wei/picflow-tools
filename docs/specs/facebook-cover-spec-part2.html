@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook 封面安全区裁剪工具 SPEC — Part 2: 渲染引擎 & JS 架构</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #6366F1; --primary-dark: #4F46E5; --green: #10B981; --amber: #F59E0B; --red: #EF4444; --blue: #3B82F6;
+  --bg: #FFFFFF; --bg2: #F9FAFB; --border: #E5E7EB; --text: #1F2937; --text-light: #6B7280;
+}
+body { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; padding: 2rem; max-width: 1100px; margin: 0 auto; }
+h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--primary); }
+h3 { font-size: 1.2rem; margin: 1.8rem 0 0.8rem; color: var(--primary-dark); padding-left: 0.5rem; border-left: 3px solid var(--primary-light); }
+h4 { font-size: 1.05rem; margin: 1.2rem 0 0.5rem; }
+.meta { color: var(--text-light); font-size: 0.9rem; margin-bottom: 2rem; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+th { background: var(--bg2); padding: 0.6rem 0.75rem; text-align: left; font-size: 0.85rem; color: var(--text-light); border-bottom: 2px solid var(--border); font-weight: 600; }
+td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; vertical-align: top; }
+tr:hover { background: var(--bg2); }
+code { background: #F1F5F9; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85rem; }
+pre { background: #1E293B; color: #E2E8F0; padding: 1rem; border-radius: 8px; font-family: 'SF Mono','Fira Code',monospace; font-size: 0.85rem; overflow-x: auto; line-height: 1.5; margin: 1rem 0; }
+.note { background: #EFF6FF; border-left: 4px solid var(--blue); padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; font-size: 0.9rem; }
+.warn { background: #FFFBEB; border-left: 4px solid var(--amber); padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+
+<h2 id="s4">4. Canvas 渲染引擎技术详规</h2>
+<p>所有渲染由单一 Canvas 2D 上下文完成。使用双缓冲模式：内存 canvas（确保重绘不闪烁）+ 显示 canvas（仅用于事件派发）。或者单 canvas + requestAnimationFrame 重绘循环（更简单，推荐）。</p>
+
+<h3>4.1 渲染管线（每帧）</h3>
+<pre>
+render() {
+  1. clearRect(0, 0, 1200, 628) — 清空画布
+
+  2. drawImage(img, offsetX, offsetY, imgWidth*scale, imgHeight*scale) — 绘制用户图片
+
+  3. if (mode === 'safe') {
+     3a. 绘制 3x3 网格（灰色细线，#ccc, 0.5px, 虚线？）
+     3b. 绘制半透明黑色遮罩（fillRect 覆盖全面布，globalAlpha=0.55）
+     3c. 裁掉安全区（clearRect(320, 155, 560, 312)）— 露出下面图片
+     3d. 安全区边框（2px solid #6366F1，或动态的亮色）
+     // 注：直接在遮罩上层 clearRect 是经典做法。或者用 globalCompositeOperation 做复杂蒙版。
+     // 简单做法：先画三个矩形遮住非安全区（上、左、右、下四个矩形）
+  }
+
+  else if (mode === 'desktop') {
+     3a. 绘制桌面端裁剪遮罩（上下遮挡矩形，露出 1200x312 水平带）
+     3b. 绘制沉浸式 Facebook 桌面 UI（见第 5 节）
+  }
+
+  else if (mode === 'mobile') {
+     3a. 绘制移动端裁剪遮罩（左右遮挡矩形，露出 560x628 垂直带）
+     3b. 绘制沉浸式 Facebook 移动 UI（见第 5 节）
+  }
+
+  // 覆盖模式：画布实际显示区域可能小于 1200x628（比如 CSS 缩放了），
+  // 但内部逻辑始终以 1200x628 为坐标系。
+}
+</pre>
+
+<h3>4.2 Canvas 尺寸与显示</h3>
+<ul>
+  <li><strong>内部逻辑分辨率</strong>：1200 × 628 px（固定）</li>
+  <li><strong>CSS 显示尺寸</strong>：响应式。max-width: 100%，高度自动。不拉伸失真。</li>
+  <li><strong>HiDPI 适配</strong>：不需要。因为导出时才需要全分辨率。展示用小画布（600x314 CSS）显示大逻辑画布（1200x628），用 Canvas 的 CSS 缩放实现。</li>
+  <li><strong>推荐做法</strong>：Canvas 元素固定宽高为 1200×628 的 1/2（即 600×314），由 CSS 控制响应式。</li>
+</ul>
+
+<h3>4.3 3x3 网格</h3>
+<ul>
+  <li>只在 safe 模式下显示</li>
+  <li>两条水平线：y = (628/3) × 1, y = (628/3) × 2</li>
+  <li>两条垂直线：x = (1200/3) × 1, x = (1200/3) × 2</li>
+  <li>颜色：rgba(255,255,255,0.3) 或 #ccc</li>
+  <li>线宽：0.5px（Canvas 自动抗锯齿），或 1px 明线</li>
+</ul>
+
+<h3>4.4 遮罩层具体实现（safe 模式）</h3>
+<p>安全区是桌面可见区 ∩ 移动可见区 = (320, 155, 560, 312)。用四个半透明矩形覆盖非安全区域：</p>
+<pre>
+// 上：从 (0,0) 到 (1200, 155)
+ctx.fillStyle = 'rgba(0,0,0,0.55)';
+ctx.fillRect(0, 0, 1200, 155);
+
+// 下：从 (0, 467) 到 (1200, 628)
+ctx.fillRect(0, 467, 1200, 161);
+
+// 左：从 (0, 155) 到 (320, 467)
+ctx.fillRect(0, 155, 320, 312);
+
+// 右：从 (880, 155) 到 (1200, 467)
+ctx.fillRect(880, 155, 320, 312);
+</pre>
+
+<h3>4.5 导出逻辑</h3>
+<pre>
+function exportImage(format = 'png', quality = 0.92) {
+  // 1. 创建导出用 canvas
+  const exportCanvas = document.createElement('canvas');
+  exportCanvas.width = 1200;  // 全分辨率
+  exportCanvas.height = 628;
+
+  // 2. 绘制用户图片（当前 offset/scale 参数）
+  const ctx = exportCanvas.getContext('2d');
+  ctx.drawImage(userImg, offsetX, offsetY, imgWidth * scale, imgHeight * scale);
+
+  // 3. 不绘制遮罩层——导出的是"原始图片"在当前视口下的 1200x628 截图
+  //   也就是说安全区遮罩、网格、UI 模拟层都不出现在导出中
+  //   这一点对 UX 很重要：用户拖拽调整位置后，下载的是新裁切后的图片
+
+  // 4. toBlob / toDataURL
+  const mime = format === 'png' ? 'image/png' : 'image/jpeg';
+  return new Promise(resolve => {
+    exportCanvas.toBlob(blob => resolve(blob), mime, quality);
+  });
+}
+</pre>
+
+<div class="warn"><strong>关键 UX 决策</strong>：下载的图片不是"带有安全区遮罩层的预览图"，而是去掉所有遮罩/网格/UI模拟后、用户的图片在当前位置的 1200x628 完整截图。这样用户拖拽调整到安全区后，下载的就是一张完美的封面图。</div>
+
+<h2 id="s5">5. 沉浸式 UI 模拟（B4 核心）</h2>
+<p>这是整个产品最重、最需要精雕细琢的部分。目标是让用户看到图片在真实 Facebook 页面上的样子。</p>
+
+<h3>5.1 桌面端沉浸式 UI</h3>
+<p>在 Canvas 上绘制的元素（在用户图片之上）：</p>
+<ol>
+  <li><strong>裁剪框架</strong>：模拟桌面端只显示 1200x312 的水平带。上下区域用纯色（#0F0F11, 约 85% 黑）完全遮盖。</li>
+  <li><strong>背景延伸</strong>：裁剪区域之外（上 155px 和下 161px）绘制接近 Facebook 的背景色（渐变或纯 #1B1B1F），模拟桌面页面继续往下滚动的感觉。</li>
+  <li><strong>左下角头像</strong>：圆形，直径 80px。位置 (30, 628-90+30)。圆内显示假头像（生成一个渐变彩色圆）。头像下方或右侧显示"假名字"（如 Alex Johnson）。</li>
+  <li><strong>底部操作按钮</strong>：渐变色条（从透明过渡到半透明黑），包含小圆的"👍 Like"、"💬 Comment"、"🔗 Share"图标+文字。位置在 (0, 628-40) 到 (1200, 628)。</li>
+  <li><strong>顶部返回栏</strong>：位置 (0, 0) 到 (1200, 40)。半透明黑底 + "←" + "假名字" + "... 更多"。</li>
+  <li><strong>照片指示器</strong>：右上角显示"相机"图标 + "Edit Cover Photo" 悬浮按钮。</li>
+</ol>
+
+<div class="note"><strong>设计原则</strong>：不需要像像素级复制 Facebook 界面，但要足够像，让用户产生"这就是我 Facebook 页面的效果"的感受。颜色取#1877F2 (Facebook 蓝) 和经典灰调。头像用渐变圆加"👤"或用户首字母。</div>
+
+<h3>5.2 移动端沉浸式 UI</h3>
+<p>Canvas 内部可视区变为 560×628（垂直带）。左右侧用纯色背景填充。</p>
+<ol>
+  <li><strong>手机外框</strong>：不强制加手机外框（因为可能在电脑屏幕上预览），但可以在 canvas 整体外加一个圆角手机外形 CSS 效果。</li>
+  <li><strong>顶部状态栏</strong>：(320, 0) 到 (879, 44) 位置。绘制时间（11:30）、信号格、电量图标。</li>
+  <li><strong>导航栏</strong>：(320, 44) 到 (879, 88)。FB logo + "搜索" + "通知" 图标。</li>
+  <li><strong>底部头像</strong>：圆形，直径 80px。位置 (320 + (560-80)/2, 628-90+30)。头像半重叠在封面上。</li>
+  <li><strong>底部按钮行</strong>：(320, 628-60) 到 (879, 628)。渐变色条 + "👍 Like"、"💬 Comment"、"↗️ Share"。比桌面端更大。</li>
+  <li><strong>返回按钮</strong>：左上角 "←"。</li>
+  <li><strong>编辑/更多</strong>：右上角 "..."。</li>
+</ol>
+
+<div class="warn"><strong>注意</strong>：移动端预览模式下，图片只有 560x628 的垂直带可见。左右各 320px 被 Facebook 自动裁掉。所以沉浸式的左/右侧要用纯色（模拟手机背景）填充。</div>
+
+<h3>5.3 沉浸式 UI 辅助示意</h3>
+<pre>
+/* 桌面端沉浸式布局（约 820×312 可视区域，实际画布 1200×628） */
+┌─────────────────────────────────────────────────┐
+│ ← Alex Johnson  ...     相机 Edit Cover Photo  │ ← 顶部栏 (0-40)
+├─────────────────────────────────────────────────┤
+│                                                 │
+│  ┌─────────────────────────────────────────┐   │
+│  │                                         │   │ ← 封面图片可见区 (40-628-100=488)
+│  │        用户图片（被裁剪到 1200x312）      │   │
+│  │                                         │   │
+│  └─────────────────────────────────────────┘   │
+│                                                 │
+│  ● Alex     👍 Like  💬 Comment     🔗 Share  │ ← 底部按钮 (底部 60px)
+├─────────────────────────────────────────────────┤
+│  Posts · About · Photos · More                  │ ← 标签栏（简述）
+└─────────────────────────────────────────────────┘
+
+/* 移动端沉浸式布局（约 560×628 可视，左右被裁）*/
+┌──────┐
+│  ← FB  │ 搜索  🛎  │ ← 顶栏
+│──────┤
+│      │
+│      │
+│  用户图片    │ ← 封面区域（560x360 左右）
+│      │
+│      │
+│     ●     │ ← 圆形头像
+│ 👍 💬 ↗️  │ ← 操作按钮
+│──────┤
+│  Posts   │ ← 帖子流（示意）
+└──────┘
+</pre>
+
+<h2 id="s6">6. JS 架构设计</h2>
+
+<h3>6.1 文件结构</h3>
+<table>
+<tr><th>文件</th><th>用途</th></tr>
+<tr><td><code>js/facebook-cover.js</code></td><td>全部可共享交互逻辑。被所有语言页面引用。</td></tr>
+</table>
+
+<h3>6.2 类/模块设计</h3>
+<p>使用单一自执行函数（避免命名空间污染，符合 picete 现有风格）。核心数据结构：</p>
+<pre>
+const FB_Cover = (function() {
+  // ---- 常量 ----
+  const CANVAS_WIDTH = 1200;
+  const CANVAS_HEIGHT = 628;
+  const DESKTOP_TOP = 155;
+  const DESKTOP_HEIGHT = 312;
+  const MOBILE_LEFT = 320;
+  const MOBILE_WIDTH = 560;
+  const SAFE_LEFT = 320;
+  const SAFE_TOP = 155;
+  const SAFE_WIDTH = 560;
+  const SAFE_HEIGHT = 312;
+  const MIN_SCALE = 0.25;
+  const MAX_SCALE = 5.0;
+
+  // ---- 状态 ----
+  let state = {
+    image: null,       // HTMLImageElement
+    imgWidth: 0,
+    imgHeight: 0,
+    scale: 1,
+    offsetX: 0,
+    offsetY: 0,
+    mode: 'safe',     // 'safe' | 'desktop' | 'mobile'
+    format: 'png',    // 'png' | 'jpeg'
+  };
+
+  // ---- DOM 引用 ----
+  let els = {};
+
+  // ---- 核心函数 ----
+  function init(canvasId, ...) { ... }
+  function loadImage(file) { ... }
+  function render() { ... }       // 渲染至 canvas（每帧）
+  function drawSafeOverlay(ctx) { ... }
+  function drawDesktopOverlay(ctx) { ... }
+  function drawMobileOverlay(ctx) { ... }
+  function drawGrid(ctx) { ... }
+  function drawFBDesktopUI(ctx) { ... }   // 沉浸式桌面端 UI
+  function drawFBMobileUI(ctx) { ... }    // 沉浸式移动端 UI
+  function exportImage(format) { ... }
+  function reset() { ... }
+
+  // ---- 事件处理 ----
+  function handleMouseDown(e) { ... }
+  function handleMouseMove(e) { ... }
+  function handleMouseUp(e) { ... }
+  function handleWheel(e) { ... }
+  function handleTouchStart(e) { ... }
+  function handleTouchMove(e) { ... }
+  function handleTouchEnd(e) { ... }
+
+  // ---- 公开接口 ----
+  return { init, loadImage, setMode, setScale, reset, exportImage, getCanvas };
+})();
+</pre>
+
+<h3>6.3 事件绑定方式</h3>
+<ul>
+  <li>HTML 中的元素使用 id 选择器，JS 中用 getElementById 引用（如 picete 现有风格）</li>
+  <li>上传拖拽：uploadArea 的 dragover/dragleave/drop</li>
+  <li>选择文件：fileInput.change</li>
+  <li>Ctrl+V：document.addEventListener('paste')</li>
+  <li>模式切换：三个 radio 按钮或按钮组的 click 事件</li>
+  <li>滑块：range input 的 input 事件</li>
+  <li>格式选择：radiogroup 的 change 事件</li>
+  <li>导出按钮：click</li>
+</ul>
+
+<h3>6.4 性能注意事项</h3>
+<ul>
+  <li>Canvas 重绘使用 requestAnimationFrame 自动节流</li>
+  <li>大图片（>4000px）加载后先缩放到最大 2000px 再渲染，节省 GPU 带宽</li>
+  <li>沉浸式 UI 的绘制（头像、按钮、渐变条）在每帧重复，预渲染可以放在 offscreen canvas 上缓存</li>
+  <li>不要同时在 canvas 上叠加多张高分辨率图片</li>
+</ul>
+
+<h3>6.5 语言切换</h3>
+<p>页面顶部有语言下拉框。JS 不需要处理多语言——<strong>JS 文件是所有语言共享的</strong>（picete 现有模式）。各语言的 HTML 页面引用同一个 <code>js/facebook-cover.js</code>。文本内容由 HTML 提供。</p>
+
+</body>
+</html>

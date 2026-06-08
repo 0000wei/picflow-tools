@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook 封面安全区裁剪工具 — 实施计划</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #6366F1; --primary-dark: #4F46E5;
+  --bg: #FFFFFF; --bg2: #F9FAFB; --border: #E5E7EB;
+  --text: #1F2937; --text-light: #6B7280;
+  --green: #10B981; --amber: #F59E0B; --blue: #3B82F6;
+  --red: #EF4444;
+}
+body { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; padding: 2rem; max-width: 1100px; margin: 0 auto; }
+h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--primary); }
+h2 { font-size: 1.5rem; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--primary); }
+h3 { font-size: 1.2rem; margin: 1.5rem 0 0.75rem; color: var(--primary-dark); }
+h4 { font-size: 1rem; margin: 1rem 0 0.5rem; }
+.meta { color: var(--text-light); font-size: 0.9rem; margin-bottom: 2rem; }
+.summary-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+.summary-box table { width: 100%; border-collapse: collapse; }
+.summary-box th, .summary-box td { padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+.summary-box th { font-weight: 600; color: var(--text-light); }
+.tag { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; }
+.tag-phase1 { background: #DBEAFE; color: #1E40AF; }
+.tag-phase2 { background: #FEF3C7; color: #92400E; }
+.tag-phase3 { background: #D1FAE5; color: #065F46; }
+.tag-frontend { background: #EDE9FE; color: #5B21B6; }
+.tag-seo { background: #FCE7F3; color: #9D174D; }
+.tag-config { background: #E0E7FF; color: #3730A3; }
+.task-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.task-table th { background: var(--bg2); padding: 0.75rem; text-align: left; font-size: 0.85rem; color: var(--text-light); border-bottom: 2px solid var(--border); }
+.task-table td { padding: 0.75rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; vertical-align: top; }
+.task-table tr:hover { background: var(--bg2); }
+.est { display: inline-block; padding: 0.1rem 0.4rem; border-radius: 4px; font-weight: 600; font-size: 0.85rem; }
+.est-s { background: #D1FAE5; color: #065F46; }
+.est-m { background: #FEF3C7; color: #92400E; }
+.est-l { background: #FEE2E2; color: #991B1B; }
+.est-xl { background: #FCE7F3; color: #9D174D; }
+.code-block { background: #1E293B; color: #E2E8F0; padding: 1rem; border-radius: 8px; font-family: 'SF Mono','Fira Code',monospace; font-size: 0.85rem; overflow-x: auto; line-height: 1.5; margin: 1rem 0; }
+.note { background: #EFF6FF; border-left: 4px solid var(--blue); padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; font-size: 0.9rem; }
+.warn { background: #FFFBEB; border-left: 4px solid var(--amber); padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; font-size: 0.9rem; }
+.phase-card { border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+.phase-card h3 { margin-top: 0; }
+ul, ol { margin: 0.5rem 0 0.5rem 1.5rem; }
+li { margin-bottom: 0.3rem; }
+.dep { color: var(--text-light); font-size: 0.85rem; margin-left: 0.5rem; }
+</style>
+</head>
+<body>
+
+<h1>Facebook 封面安全区裁剪工具 — 实施计划</h1>
+<div class="meta">
+  SPEC 版本: v1.0 · 日期: 2026-06-06 · 状态: 待审批<br>
+  源 PRD: <code>docs/research/产品需求说明书 PRD Facebook 封面图安全区裁剪工具.txt</code><br>
+  基础 URL: <code>/resize-image-for-facebook-cover/</code> (en) / <code>/zh/resize-image-for-facebook-cover/</code> 等 8 语种
+</div>
+
+<div class="summary-box">
+<table>
+<tr><th>总 Task 数</th><th>阶段</th><th>估算总工时</th><th>执行者</th></tr>
+<tr>
+  <td><strong>28</strong></td>
+  <td>
+    <span class="tag tag-phase1">Phase 1</span> (16) 核心引擎 + 英文版<br>
+    <span class="tag tag-phase2">Phase 2</span> (7) 多语言翻译<br>
+    <span class="tag tag-phase3">Phase 3</span> (5) SEO + 部署
+  </td>
+  <td><strong>Phase 1:</strong> ~4h<br><strong>Phase 2:</strong> ~2h<br><strong>Phase 3:</strong> ~1h</td>
+  <td>Hermes 规划 + Claude Code 执行</td>
+</tr>
+</table>
+</div>
+
+<h2>项目概况</h2>
+<p>在现有 <code>/zh/resize-image-for-facebook-cover/</code> 页面位置上，从 0 构建一个具备完整交互功能的"安全区裁剪工具"。核心功能包含上传、拖拽/缩放、安全区遮罩渲染、桌面/移动端沉浸式 UI 预览、JPG/PNG 导出。纯前端零上传，保持 picete 一贯风格。</p>
+
+<div class="note">
+  <strong>架构决策</strong>：这是 picete 迄今为止交互复杂度最高的工具。所有渲染逻辑集中在 1 个 JS 文件 (<code>js/facebook-cover.js</code>) + 1 个 HTML 模板。不引入框架依赖，纯 Canvas 2D API。
+</div>
+
+<h2>Phase 1: 核心引擎 + 英文版 (16 Task)</h2>
+<p>全部用 Claude Code 以 stdin 管道方式执行。任务按依赖顺序分组。每个 Task 完成即验证，不批量提交。</p>
+
+<div class="phase-card">
+<h3>Group A: 静态页面框架 (3 Task)</h3>
+<p>构建英文版 HTML 页面骨架 + CSS + 头信息，不含交互逻辑。</p>
+
+<table class="task-table">
+<tr><th>#</th><th>Task</th><th>描述</th><th>估算</th><th>依赖</th></tr>
+<tr>
+  <td>1</td>
+  <td><strong>A1</strong> — HTML 骨架</td>
+  <td>创建 <code>resize-image-for-facebook-cover/index.html</code>（英文版）。包含 header、hero、工具区域（空 Canvas 容器）、教程、尺寸科普、FAQ 模块。复用 picete 统一 header/footer 模式。</td>
+  <td><span class="est est-m">M</span></td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><strong>A2</strong> — CSS 样式</td>
+  <td>在 <code>css/style.css</code> 追加 facebook-cover 专有样式：Canvas 容器、遮罩层、预览切换按钮组、沉浸式 UI 模拟层、移动端适配样式（pinch zoom）。保持暗色模式兼容。</td>
+  <td><span class="est est-m">M</span></td>
+  <td>A1</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><strong>A3</strong> — SEO 头信息</td>
+  <td>设置英文版 canonical、hreflang（8 语种 + x-default）、OG tags、JSON-LD Schema.org (WebApplication + BreadcrumbList)。Google Analytics 标签。</td>
+  <td><span class="est est-s">S</span></td>
+  <td>A1</td>
+</tr>
+</table>
+</div>
+
+<div class="phase-card">
+<h3>Group B: 核心交互引擎 (5 Task)</h3>
+<p>这是产品核心。每个 Task 需端到端验证（浏览器打开确认）。</p>
+
+<table class="task-table">
+<tr><th>#</th><th>Task</th><th>描述</th><th>估算</th><th>依赖</th></tr>
+<tr>
+  <td>4</td>
+  <td><strong>B1</strong> — 上传模块</td>
+  <td>实现 Canvas 上的图片加载：拖拽（drag/drop events）、点击（hidden input）、Ctrl+V（paste event）。支持 JPG/PNG/WebP。图片加载后居中显示在 1200x628 画布上。显示加载状态。</td>
+  <td><span class="est est-m">M</span></td>
+  <td>A1, A2</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><strong>B2</strong> — 拖拽/缩放控制</td>
+  <td>鼠标拖拽平移图片（mousedown/mousemove/mouseup）和滚轮缩放（wheel event）+ 滑块控制。限制最小/最大缩放比例。图片不能超出画布边缘（边界约束）。</td>
+  <td><span class="est est-m">M</span></td>
+  <td>B1</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><strong>B3</strong> — 安全区遮罩渲染</td>
+  <td><strong>核心功能</strong>。在 Canvas 上渲染三层：① 底层原图 ② 半透明黑色遮罩（盖住非安全区域）③ 高亮安全区矩形。计算逻辑按照 PRD：桌面可见区 820x312（水平带）、移动端可见区 560x628（垂直带）、绝对安全区为两者交集。辅助 3x3 网格。</td>
+  <td><span class="est est-l">L</span></td>
+  <td>B2</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><strong>B4</strong> — 预览切换</td>
+  <td>三个切换按钮：[所有设备安全区] | [桌面端预览] | [移动端预览]。桌面端/移动端预览模式隐藏安全区遮罩，显示模拟 Facebook UI 界面（假头像、白边、操作按钮、返回按钮、搜索框）。UI 图层按等比例覆盖在图片上。</td>
+  <td><span class="est est-xl">XL</span></td>
+  <td>B3</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><strong>B5</strong> — 导出下载</td>
+  <td>HTML5 Canvas 导出为 JPG (quality 0.92) 或 PNG。输出尺寸 1200x628。下载按钮文案"Download Facebook Cover Photo"。</td>
+  <td><span class="est est-s">S</span></td>
+  <td>B3</td>
+</tr>
+</table>
+
+<div class="warn">
+  <strong>B4 注意事项</strong>：沉浸式 UI 模拟需要精确绘制 Facebook 桌面/移动端界面元素。建议参考真实 Facebook 页面截图，绘制简化的 UI 线框图。不需要逐像素还原，但要能产生"就是 Facebook 页面"的视觉感受。
+</div>
+</div>
+
+<div class="phase-card">
+<h3>Group C: 教程 & 内容模块 (3 Task)</h3>
+
+<table class="task-table">
+<tr><th>#</th><th>Task</th><th>描述</th><th>估算</th><th>依赖</th></tr>
+<tr>
+  <td>9</td>
+  <td><strong>C1</strong> — 3 步教程模块</td>
+  <td>在工具下方嵌入使用教程（1. 上传图片 → 2. 拖拽至安全区 → 3. 下载）。带有视觉标注（截图示意或数字图标）。</td>
+  <td><span class="est est-s">S</span></td>
+  <td>A1</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><strong>C2</strong> — 尺寸科普模块</td>
+  <td>图文解释 Facebook 桌面端 (820x312) 和移动端 (560x628) 裁剪差异，为什么需要安全区设计。</td>
+  <td><span class="est est-s">S</span></td>
+  <td>A1</td>
+</tr>
+<tr>
+  <td>11</td>
+  <td><strong>C3</strong> — FAQ 模块</td>
+  <td>5-7 个 FAQ：为什么封面上传后被切、为什么手机和电脑看到的不一样、头像/按钮遮挡怎么办等。JSON-LD FAQPage schema。</td>
+  <td><span class="est est-s">S</span></td>
+  <td>A1</td>
+</tr>
+</table>
+</div>
+
+<div class="phase-card">
+<h3>Group D: 移动端适配 (2 Task)</h3>
+
+<table class="task-table">
+<tr><th>#</th><th>Task</th><th>描述</th><th>估算</th><th>依赖</th></tr>
+<tr>
+  <td>12</td>
+  <td><strong>D1</strong> — 触控交互</td>
+  <td>移动端触摸事件：单指拖拽移动图片、双指捏合缩放（touchstart/touchmove/touchend，计算 touch 点距离变化）。</td>
+  <td><span class="est est-m">M</span></td>
+  <td>B2</td>
+</tr>
+<tr>
+  <td>13</td>
+  <td><strong>D2</strong> — 响应式布局</td>
+  <td>屏幕宽度 <768px 时改为上下结构：上方工作台，下方控制按钮和滑块。调整字体、按钮大小、边距。</td>
+  <td><span class="est est-s">S</span></td>
+  <td>A2, D1</td>
+</tr>
+</table>
+</div>
+
+<div class="phase-card">
+<h3>Group E: 端到端验证 (3 Task)</h3>
+
+<table class="task-table">
+<tr><th>#</th><th>Task</th><th>描述</th><th>估算</th><th>依赖</th></tr>
+<tr>
+  <td>14</td>
+  <td><strong>E1</strong> — 自测脚本</td>
+  <td>编写测试用例文档 <code>TEST-CASES-FACEBOOK-COVER.md</code>。覆盖：上传 JPG/PNG/WebP、拖拽、缩放、遮罩渲染、3 种预览模式切换、导出 JPG/PNG、Ctrl+V 粘贴、移动端触控。</td>
+  <td><span class="est est-s">S</span></td>
+  <td>B5, D2</td>
+</tr>
+<tr>
+  <td>15</td>
+  <td><strong>E2</strong> — 运行测试</td>
+  <td>启动 HTTP 服务器，在浏览器中逐项验证所有测试用例。记录结果。</td>
+  <td><span class="est est-m">M</span></td>
+  <td>E1</td>
+</tr>
+<tr>
+  <td>16</td>
+  <td><strong>E3</strong> — 测试报告</td>
+  <td>输出 <code>TEST-REPORT-FACEBOOK-COVER.md</code>，包含总/通过/失败统计、各测试项描述。</td>
+  <td><span class="est est-s">S</span></td>
+  <td>E2</td>
+</tr>
+</table>
+</div>
+
+<h2>Phase 2: 多语言翻译 (7 Task)</h2>
+<p>将英文版内容翻译到 7 个语言。每个语言一个 Task。翻译规则沿用 picete 既有标准（hreflang、canonical、JSON-LD 键名不翻、字符串值翻、关键字模式等）。</p>
+
+<table class="task-table">
+<tr><th>#</th><th>Task</th><th>语言</th><th>目录</th><th>估算</th><th>依赖</th></tr>
+<tr><td>17</td><td><strong>F1</strong></td><td>中文 (zh)</td><td><code>/zh/resize-image-for-facebook-cover/</code> — 已有页面，替换为新版</td><td><span class="est est-m">M</span></td><td>Phase 1 ✅</td></tr>
+<tr><td>18</td><td><strong>F2</strong></td><td>日语 (ja)</td><td><code>/ja/resize-image-for-facebook-cover/</code> — 新建</td><td><span class="est est-s">S</span></td><td>Phase 1 ✅</td></tr>
+<tr><td>19</td><td><strong>F3</strong></td><td>德语 (de)</td><td><code>/de/resize-image-for-facebook-cover/</code> — 新建</td><td><span class="est est-s">S</span></td><td>Phase 1 ✅</td></tr>
+<tr><td>20</td><td><strong>F4</strong></td><td>法语 (fr)</td><td><code>/fr/resize-image-for-facebook-cover/</code> — 新建</td><td><span class="est est-s">S</span></td><td>Phase 1 ✅</td></tr>
+<tr><td>21</td><td><strong>F5</strong></td><td>西班牙语 (es)</td><td><code>/es/resize-image-for-facebook-cover/</code> — 新建</td><td><span class="est est-s">S</span></td><td>Phase 1 ✅</td></tr>
+<tr><td>22</td><td><strong>F6</strong></td><td>葡萄牙语 (pt)</td><td><code>/pt/resize-image-for-facebook-cover/</code> — 已有页面，替换为新版</td><td><span class="est est-s">S</span></td><td>Phase 1 ✅</td></tr>
+<tr><td>23</td><td><strong>F7</strong></td><td>阿拉伯语 (ar)</td><td><code>/ar/resize-image-for-facebook-cover/</code> — 新建，RTL 方向</td><td><span class="est est-m">M</span></td><td>Phase 1 ✅</td></tr>
+</table>
+
+<div class="note">
+  <strong>F1 说明</strong>：中文版是目前唯一部署的版本。需要将现有纯信息页面替换为带交互工具的新页面。URL 不变。
+</div>
+
+<h2>Phase 3: SEO + 部署 (5 Task)</h2>
+
+<table class="task-table">
+<tr><th>#</th><th>Task</th><th>描述</th><th>估算</th><th>依赖</th></tr>
+<tr><td>24</td><td><strong>G1</strong></td><td>更新 sitemap — 将所有 8 个语言的 facebook-cover URL 加入 sitemap.xml</td><td><span class="est est-s">S</span></td><td>Phase 2 ✅</td></tr>
+<tr><td>25</td><td><strong>G2</strong></td><td>更新 vercel.json — 将 <code>resize-image-for-facebook-cover</code> 加入 COEP header 路由规则</td><td><span class="est est-s">S</span></td><td>Phase 1 ✅</td></tr>
+<tr><td>26</td><td><strong>G3</strong></td><td>更新首页相关工具区域 — 添加 Facebook Cover 到"社交媒体尺寸"工具列表</td><td><span class="est est-s">S</span></td><td>Phase 2 ✅</td></tr>
+<tr><td>27</td><td><strong>G4</strong></td><td>end-to-end 验证 — 启动 HTTP 服务器验证所有 8 语种页面正常渲染、工具功能正常、hreflang 正确、canonical 正确</td><td><span class="est est-m">M</span></td><td>G3</td></tr>
+<tr><td>28</td><td><strong>G5</strong></td><td>git commit & push → Vercel 自动部署</td><td><span class="est est-s">S</span></td><td>G4</td></tr>
+</table>
+
+<h2>安全区参数速查</h2>
+
+<table class="task-table">
+<tr><th>参数</th><th>桌面端</th><th>移动端</th></tr>
+<tr><td>画布基础尺寸</td><td colspan="2">1200 x 628 px（推荐上传）</td></tr>
+<tr><td>可见区</td><td>820 x 312 px（水平居中带）<br>top: 158px, bottom: 158px</td><td>560 x 628 px（垂直居中带）<br>left: 320px, right: 320px</td></tr>
+<tr><td>绝对安全区（交集）</td><td colspan="2">560 x 312 px<br>top: 158px, bottom: 158px<br>left: 320px, right: 320px</td></tr>
+<tr><td>UI 遮挡</td><td>左下角圆形头像（~80px）、底部操作按钮（~40px）</td><td>正下方圆形头像（~80px）、底部按钮 + 渐变阴影（~60px）</td></tr>
+</table>
+
+<h2>文件清单</h2>
+
+<table class="task-table">
+<tr><th>文件路径</th><th>操作</th><th>说明</th></tr>
+<tr><td><code>resize-image-for-facebook-cover/index.html</code></td><td>新建</td><td>英文版工具页</td></tr>
+<tr><td><code>zh/resize-image-for-facebook-cover/index.html</code></td><td>替换</td><td>中文版（替换现有纯信息页）</td></tr>
+<tr><td><code>pt/resize-image-for-facebook-cover/index.html</code></td><td>替换</td><td>葡萄牙语版（替换现有纯信息页）</td></tr>
+<tr><td><code>ja/resize-image-for-facebook-cover/index.html</code></td><td>新建</td><td>日语版</td></tr>
+<tr><td><code>de/resize-image-for-facebook-cover/index.html</code></td><td>新建</td><td>德语版</td></tr>
+<tr><td><code>fr/resize-image-for-facebook-cover/index.html</code></td><td>新建</td><td>法语版</td></tr>
+<tr><td><code>es/resize-image-for-facebook-cover/index.html</code></td><td>新建</td><td>西班牙语版</td></tr>
+<tr><td><code>ar/resize-image-for-facebook-cover/index.html</code></td><td>新建</td><td>阿拉伯语版 (RTL)</td></tr>
+<tr><td><code>js/facebook-cover.js</code></td><td>新建</td><td>核心交互 JS（所有语言共享）</td></tr>
+<tr><td><code>css/style.css</code></td><td>追加</td><td>追加 facebook-cover 专属样式</td></tr>
+<tr><td><code>vercel.json</code></td><td>修改</td><td>添加 COEP header 路由</td></tr>
+<tr><td><code>seo/sitemap.xml</code></td><td>修改</td><td>添加 8 个 URL</td></tr>
+<tr><td>各语种首页 index.html</td><td>修改</td><td>添加工具入口链接</td></tr>
+</table>
+
+<h2>验证标准</h2>
+<ol>
+  <li><strong>所有 8 语种页面</strong>在 HTTP 服务器上正常渲染，无 404</li>
+  <li><strong>上传功能</strong>：拖拽、点击、Ctrl+V 三种方式均可用</li>
+  <li><strong>拖拽/缩放</strong>：图片可在 Canvas 内平滑移动和缩放</li>
+  <li><strong>安全区遮罩</strong>：半透明黑色覆盖非安全区域，高亮区域正确</li>
+  <li><strong>预览切换</strong>：三种模式切换正确，沉浸式 UI 可见</li>
+  <li><strong>导出</strong>：下载的 JPG/PNG 尺寸为 1200x628，内容正确</li>
+  <li><strong>移动端适配</strong>：<768px 响应式布局正常，触控操作可用</li>
+  <li><strong>暗色模式</strong>：所有 UI 元素在 light/dark 下均可读</li>
+  <li><strong>hreflang/canonical</strong>：每个页面指向正确的语言版本</li>
+  <li><strong>结构化数据</strong>：WebApplication + BreadcrumbList + FAQPage JSON-LD 有效</li>
+</ol>
+
+<h2>不做的（本次迭代不包含）</h2>
+<ul>
+  <li>智能背景填充（高斯模糊、取色填充）— Phase 2</li>
+  <li>封面类型切换（群组/活动封面）— Phase 2</li>
+  <li>AI 主体居中 — Phase 4</li>
+  <li>批量模式 — Phase 4</li>
+  <li>用户项目历史 (LocalStorage) — Phase 3</li>
+  <li>跨平台一键适配（Twitter/LinkedIn）— Phase 3</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook 封面 SPEC — Part 4: Task 分解 & 委托上下文模板</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #6366F1; --primary-dark: #4F46E5; --green: #10B981; --amber: #F59E0B; --red: #EF4444; --blue: #3B82F6;
+  --bg: #FFFFFF; --bg2: #F9FAFB; --border: #E5E7EB; --text: #1F2937; --text-light: #6B7280;
+}
+body { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; padding: 2rem; max-width: 1100px; margin: 0 auto; }
+h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--primary); }
+h3 { font-size: 1.2rem; margin: 1.8rem 0 0.8rem; color: var(--primary-dark); padding-left: 0.5rem; border-left: 3px solid var(--primary-light); }
+h4 { font-size: 1.05rem; margin: 1.2rem 0 0.5rem; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+th { background: var(--bg2); padding: 0.6rem 0.75rem; text-align: left; font-size: 0.85rem; color: var(--text-light); border-bottom: 2px solid var(--border); font-weight: 600; }
+td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; vertical-align: top; }
+tr:hover { background: var(--bg2); }
+code { background: #F1F5F9; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85rem; }
+pre { background: #1E293B; color: #E2E8F0; padding: 1rem; border-radius: 8px; font-family: 'SF Mono','Fira Code',monospace; font-size: 0.85rem; overflow-x: auto; line-height: 1.5; margin: 1rem 0; }
+.note { background: #EFF6FF; border-left: 4px solid var(--blue); padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; font-size: 0.9rem; }
+.warn { background: #FFFBEB; border-left: 4px solid var(--amber); padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; font-size: 0.9rem; }
+.tag { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.78rem; font-weight: 600; margin: 0 0.15rem; }
+.tag-p1 { background: #DBEAFE; color: #1E40AF; } .tag-p2 { background: #FEF3C7; color: #92400E; } .tag-p3 { background: #D1FAE5; color: #065F46; }
+.est { font-weight: 600; font-size: 0.85rem; padding: 0.1rem 0.4rem; border-radius: 4px; }
+.est-s { background: #D1FAE5; color: #065F46; } .est-m { background: #FEF3C7; color: #92400E; } .est-l { background: #FEE2E2; color: #991B1B; } .est-xl { background: #FCE7F3; color: #9D174D; }
+</style></head>
+<body>
+
+<h2 id="s9">9. Task 分解（28 个）</h2>
+
+<table>
+<tr><th>#</th><th>ID</th><th>阶段</th><th>描述</th><th>估时</th><th>依赖</th></tr>
+<tr><td>01</td><td><strong>A1</strong></td><td><span class="tag tag-p1">P1</span></td><td>创建英文版 index.html 骨架：header、hero、上传区域（id=upload-area）、Canvas 容器（id=canvas-area 含 preview-toggles + canvas-wrapper + controls）、教程区域、尺寸科普区域、FAQ 区域、footer。复用 picete 标准 header/footer 结构。</td><td><span class="est est-m">M</span></td><td>—</td></tr>
+<tr><td>02</td><td><strong>A2</strong></td><td><span class="tag tag-p1">P1</span></td><td>CSS 追加：preview-toggles, preview-btn, canvas-wrapper, #main-canvas, controls, control-group, steps/step/step-number 类。响应式 <768px 布局。暗色模式样式。</td><td><span class="est est-m">M</span></td><td>A1</td></tr>
+<tr><td>03</td><td><strong>A3</strong></td><td><span class="tag tag-p1">P1</span></td><td>SEO 头信息：canonical、hreflang x8、OG tags、JSON-LD (WebApplication + BreadcrumbList)。GA 标签。</td><td><span class="est est-s">S</span></td><td>A1</td></tr>
+<tr><td>04</td><td><strong>B1</strong></td><td><span class="tag tag-p1">P1</span></td><td>JS 上传模块：drag/drop (dragover, dragleave, drop)、click (fileInput change)、Ctrl+V (paste event)。加载图片到 Image 对象，计算默认 scale（cover 模式）。完成后图片居中显示在 Canvas 上。非图片文件提示。文件类型 JPG/PNG/WebP。</td><td><span class="est est-m">M</span></td><td>A1,A2</td></tr>
+<tr><td>05</td><td><strong>B2</strong></td><td><span class="tag tag-p1">P1</span></td><td>JS 拖拽/缩放：mousedown/mousemove/mouseup 平移图片。滚轮缩放（以鼠标位置为中心）。滑块缩放（以画布中心为中心）。scale 范围 0.25–5.0。边界约束（图片不离开画布）。光标 grab/grabbing。Zoom 百分比显示。</td><td><span class="est est-m">M</span></td><td>B1</td></tr>
+<tr><td>06</td><td><strong>B3</strong></td><td><span class="tag tag-p1">P1</span></td><td>JS 安全区遮罩渲染：render() 管线。safe 模式下绘制 3x3 网格 + 四个半透明遮罩矩形 + 高亮矩形 (320,155,560,312)。Global alpha 0.55。桌面端模式绘制上下遮罩露出 1200x312 水平带。移动端模式绘制左右遮罩露出 560x628 垂直带。</td><td><span class="est est-l">L</span></td><td>B2</td></tr>
+<tr><td>07</td><td><strong>B4</strong></td><td><span class="tag tag-p1">P1</span></td><td>JS 沉浸式 UI 绘制（桌面端 + 移动端）：桌面 UI：顶部返回栏→封面图→头像(80px圆,左底角)→底部按钮条(Like/Comment/Share渐变)→"Edit Cover"相机按钮。移动 UI：顶部状态栏(时间/信号/电量)→导航栏(FB logo/搜索/通知)→封面图(560x628垂直带露出,左右填充纯色)→底部头像圆→底部按钮条(更大间距)→左右暗色填充。预渲染到 offscreen canvas 缓存以提高性能。</td><td><span class="est est-xl">XL</span></td><td>B3</td></tr>
+<tr><td>08</td><td><strong>B5</strong></td><td><span class="tag tag-p1">P1</span></td><td>JS 导出下载：创建 1200×628 离屏 canvas → 以当前 offset/scale 绘制用户图片（不绘制遮罩/网格/UI）→ toBlob → 自动下载。格式 JPG (quality slider, 默认0.92) 或 PNG。按钮文案 "Download Facebook Cover Photo"。</td><td><span class="est est-s">S</span></td><td>B3</td></tr>
+<tr><td>09</td><td><strong>C1</strong></td><td><span class="tag tag-p1">P1</span></td><td>英文版 3 步教程 HTML 模块：Upload → Drag into Safe Zone → Download & Upload。step-number 圆圈、图文布局。在工具下方。</td><td><span class="est est-s">S</span></td><td>A1</td></tr>
+<tr><td>10</td><td><strong>C2</strong></td><td><span class="tag tag-p1">P1</span></td><td>英文版尺寸科普 HTML 模块：对比桌面端 820x312 和移动端 640x360 的差异。解释为什么需要安全区。含示意图（可用简单的 CSS 矩形+标注，或内联 SVG）。在工具下方。</td><td><span class="est est-s">S</span></td><td>A1</td></tr>
+<tr><td>11</td><td><strong>C3</strong></td><td><span class="tag tag-p1">P1</span></td><td>英文版 FAQ 模块（7 条）+ JSON-LD FAQPage schema。在工具下方。</td><td><span class="est est-s">S</span></td><td>A1</td></tr>
+<tr><td>12</td><td><strong>D1</strong></td><td><span class="tag tag-p1">P1</span></td><td>JS 触控支持：touchstart 记录 Touch 点。touchmove 单指=平移，双指=计算距离变化做缩放。touchend 清除状态。preventDefault 禁止页面滚动。</td><td><span class="est est-m">M</span></td><td>B2</td></tr>
+<tr><td>13</td><td><strong>D2</strong></td><td><span class="tag tag-p1">P1</span></td><td>响应式布局 CSS：<768px 时 preview-toggles column, canvas-wrapper 100vw, controls column, steps 1 列。字体和间距微调。</td><td><span class="est est-s">S</span></td><td>A2,D1</td></tr>
+<tr><td>14</td><td><strong>E1</strong></td><td><span class="tag tag-p1">P1</span></td><td>编写 TEST-CASES-FACEBOOK-COVER.md。覆盖：上传3种格式、拖拽移动、滚轮缩放、滑块缩放、安全区遮罩显示、3种预览模式切换、桌面UI可见性、移动UI可见性、导出JPG、导出PNG、Ctrl+V粘贴、触控操作、边界约束、暗色模式。至少 15 个测试项。</td><td><span class="est est-s">S</span></td><td>B5,D2</td></tr>
+<tr><td>15</td><td><strong>E2</strong></td><td><span class="tag tag-p1">P1</span></td><td>启动 HTTP 服务器，在浏览器中逐项验证所有测试用例。通过/失败记录。</td><td><span class="est est-m">M</span></td><td>E1</td></tr>
+<tr><td>16</td><td><strong>E3</strong></td><td><span class="tag tag-p1">P1</span></td><td>编写 TEST-REPORT-FACEBOOK-COVER.md。总/通过/失败统计。每个测试项独立行。结论 PASS/FAIL。</td><td><span class="est est-s">S</span></td><td>E2</td></tr>
+<tr><td>17</td><td><strong>F1</strong></td><td><span class="tag tag-p2">P2</span></td><td>中文版 zh/resize-image-for-facebook-cover/index.html。替换现有纯信息页。翻译所有文本（title、meta、h1、教程、FAQ 等）。保持 hreflang/canonical。</td><td><span class="est est-m">M</span></td><td>Phase 1</td></tr>
+<tr><td>18</td><td><strong>F2</strong></td><td><span class="tag tag-p2">P2</span></td><td>日语版 ja/resize-image-for-facebook-cover/index.html。新建。翻译。hreflang 对应。</td><td><span class="est est-s">S</span></td><td>Phase 1</td></tr>
+<tr><td>19</td><td><strong>F3</strong></td><td><span class="tag tag-p2">P2</span></td><td>德语版 de/resize-image-for-facebook-cover/index.html。新建。</td><td><span class="est est-s">S</span></td><td>Phase 1</td></tr>
+<tr><td>20</td><td><strong>F4</strong></td><td><span class="tag tag-p2">P2</span></td><td>法语版 fr/resize-image-for-facebook-cover/index.html。新建。</td><td><span class="est est-s">S</span></td><td>Phase 1</td></tr>
+<tr><td>21</td><td><strong>F5</strong></td><td><span class="tag tag-p2">P2</span></td><td>西班牙语版 es/resize-image-for-facebook-cover/index.html。新建。</td><td><span class="est est-s">S</span></td><td>Phase 1</td></tr>
+<tr><td>22</td><td><strong>F6</strong></td><td><span class="tag tag-p2">P2</span></td><td>葡萄牙语版 pt/resize-image-for-facebook-cover/index.html。替换现有页面。</td><td><span class="est est-s">S</span></td><td>Phase 1</td></tr>
+<tr><td>23</td><td><strong>F7</strong></td><td><span class="tag tag-p2">P2</span></td><td>阿拉伯语版 ar/resize-image-for-facebook-cover/index.html。新建。RTL 方向：<code>dir="rtl"</code>，内容右对齐。Hreflang 对应。</td><td><span class="est est-m">M</span></td><td>Phase 1</td></tr>
+<tr><td>24</td><td><strong>G1</strong></td><td><span class="tag tag-p3">P3</span></td><td>更新 seo/sitemap.xml：添加 8 个 facebook-cover URL（每种语言一条）。</td><td><span class="est est-s">S</span></td><td>Phase 2</td></tr>
+<tr><td>25</td><td><strong>G2</strong></td><td><span class="tag tag-p3">P3</span></td><td>更新 vercel.json：添加 resize-image-for-facebook-cover 到 COEP header 路由列表（en 和 7 个语言前缀各一条 regex）。</td><td><span class="est est-s">S</span></td><td>Phase 1</td></tr>
+<tr><td>26</td><td><strong>G3</strong></td><td><span class="tag tag-p3">P3</span></td><td>各语言首页添加 Facebook Cover 工具入口链接到"社交媒体尺寸"区域或工具列表。保持 hreflang 一致性。</td><td><span class="est est-s">S</span></td><td>Phase 2</td></tr>
+<tr><td>27</td><td><strong>G4</strong></td><td><span class="tag tag-p3">P3</span></td><td>端到端验证：启动 HTTP 服务器，检查所有 8 语种页面 200 OK、工具功能正常、hreflang 对应正确、canonical 正确、JSON-LD 有效。</td><td><span class="est est-m">M</span></td><td>G3</td></tr>
+<tr><td>28</td><td><strong>G5</strong></td><td><span class="tag tag-p3">P3</span></td><td>git commit & push → Vercel 自动部署。commit message 如 "feat: add Facebook Cover Safe Zone Cropper tool with 8 language versions"。</td><td><span class="est est-s">S</span></td><td>G4</td></tr>
+</table>
+
+<h2 id="s10">10. 委托上下文模板</h2>
+<p>这是给 Claude Code 的委托 prompt 模板。每个 Task 根据该模板格式化。</p>
+
+<h3>10.1 模板：B3 安全区遮罩（L 级任务）</h3>
+<pre>
+You are implementing part of the Facebook Cover Safe Zone Cropper tool for PicEte.com.
+
+## File to modify
+Create or modify: js/facebook-cover.js (all language versions share this file)
+
+## What to implement — B3: Render safe zone overlay on Canvas
+
+### Context
+Existing files already created: resize-image-for-facebook-cover/index.html, css/style.css updated.
+JS file already has: upload function (B1) and drag/zoom (B2) implemented.
+
+### Canvas constants (use these exactly)
+- CANVAS_WIDTH = 1200, CANVAS_HEIGHT = 628
+- DESKTOP_VISIBLE: top=155, height=312 (covers full width 1200)
+- MOBILE_VISIBLE: left=320, width=560 (covers full height 628)
+- SAFE_ZONE = intersection: left=320, top=155, width=560, height=312
+
+### Render pipeline (called from requestAnimationFrame loop)
+function render() {
+  1. ctx.clearRect(0, 0, 1200, 628)
+  2. Draw user image at current offset/scale (ctx.drawImage(img, offsetX, offsetY, w*scale, h*scale))
+  3. Based on state.mode:
+     mode='safe':
+       a. Draw 3x3 grid (2 horizontal lines at y=209, y=418; 2 vertical at x=400, x=800)
+          color: rgba(255,255,255,0.4), stroke width 0.5
+       b. Draw 4 overlay rectangles covering non-safe-zone:
+          ctx.fillStyle = 'rgba(0,0,0,0.55)'
+          - top: (0,0)→(1200,155)
+          - bottom: (0,467)→(1200,628)
+          - left: (0,155)→(320,467)
+          - right: (880,155)→(1200,467)
+       c. Draw safe zone border: stroked rect (320,155,560,312) 2px #6366F1
+
+     mode='desktop':
+       a. Draw top overlay (0,0→1200,155) and bottom overlay (0,476→1200,628)
+          fillStyle rgba(0,0,0,0.6)
+       b. Call drawDesktopUI() — but that's B4, for now leave blank
+
+     mode='mobile':
+       a. Draw left overlay (0,0→320,628) and right overlay (880,0→1200,628)
+          fillStyle rgba(0,0,0,0.6)
+       b. Call drawMobileUI() — but that's B4, for now leave blank
+}
+
+### Behavior
+- render() is called every frame via requestAnimationFrame
+- render() is called: on image load, on each mouse move/drag, on each wheel zoom, on slider change, on mode change
+- The "mode" is controlled by preview-btn click handlers that set state.mode
+- Export (download) uses a SEPARATE offscreen canvas with NO overlays — just the image at current offset/scale
+
+### Validation
+- Safe mode: dark overlay visible, only center 560x312 px bright
+- Desktop mode: only center horizontal band visible (top + bottom cut)
+- Mobile mode: only center vertical band visible (left + right cut)
+- All modes show the user image underneath correctly
+</pre>
+
+<h3>10.2 模板：B4 沉浸式 UI（最大任务）</h3>
+<pre>
+You are implementing the immersive Facebook UI preview for PicEte's Cover Cropper.
+
+## File to modify
+js/facebook-cover.js — add drawDesktopUI() and drawMobileUI() functions
+
+## Prerequisites
+B3 (safe zone rendering) is done. The render() pipeline already calls drawDesktopUI() / drawMobileUI() in desktop/mobile modes.
+
+## What to implement
+
+### drawDesktopUI(ctx)
+Draw these elements ON TOP of the user image (which is already rendered):
+1. TOP BAR (y: 0–40): Semi-transparent dark background. Draw "←" at (20,10), "Alex Johnson" at (50,10), "⋯" at (1150,10), "📷 Edit Cover Photo" at (960,10) with white bg pill shape.
+2. BOTTOM OVERLAY BAR (y: 588–628, i.e. bottom 40px of a 312px visible area — remember desktop mode has top 155 cut and bottom 161 cut, so the visible band is 312px high. This bottom bar sits at the very bottom of the visible band):
+   Linear gradient from transparent to rgba(0,0,0,0.7). Draw "👍 Like" "💬 Comment" "🔗 Share" spaced evenly.
+3. PROFILE PICTURE (bottom-left, overlaps the cover edge):
+   Circle at (30, 628-90+30), r=40. Fill with radial gradient (colorful). Draw "👤" or letter "A" inside.
+   Text "Alex Johnson" at (85, 628-90+30+5) — white font.
+4. TAB STRIP (y: visible band bottom area): Just "Posts · About · Photos · More" as faint text at the bottom of the visible area.
+Use Facebook brand colors: #1877F2 for accents, #1B1B1F for background.
+
+### drawMobileUI(ctx)  
+Draw these elements ON TOP of the user image:
+1. STATUS BAR (y: 0–44, left: 320, right: 879): White bg, "9:41" at center, signal/wifi/battery icons at right.
+2. NAV BAR (y: 44–88): FB logo "f" at left, "Search" placeholder at center, notification bell at right.
+3. BOTTOM PROFILE PICTURE: Circle at (320+(560-80)/2, 628-90+30), r=40. Same colorful gradient. Bottom overlap effect.
+4. BOTTOM ACTION BAR (y: 588–628): Gradient. "👍 Like" "💬 Comment" "↗️ Share" with wider spacing (mobile design).
+5. FILL LEFT (0-319) and RIGHT (880-1199) with #1B1B1F to show the "phone body" effect.
+
+### Key constraint
+- All coordinates in the 1200x628 CANVAS coordinate system
+- Desktop mode: only 1200x312 visible band, top 155 + bottom 161 are covered by overlay
+- Mobile mode: only 560x628 visible band, left 320 + right 320 are "outside screen"
+
+### Style guidance
+- Keep it simple — don't need pixel-perfect Facebook, just recognizable
+- Use roundRect for rounded buttons, fillRect for solid bars
+- Avatar: use createRadialGradient for a colorful placeholder
+- Text: use standard system sans-serif font
+</pre>
+
+<h3>10.3 模板：F1 中文版翻译</h3>
+<pre>
+You are translating the Facebook Cover Cropper page into Chinese.
+
+## File to create
+Replace: zh/resize-image-for-facebook-cover/index.html
+
+## Reference file
+resize-image-for-facebook-cover/index.html (English version, already complete with all content)
+
+## Translation rules
+1. Keep all HTML structure, id attributes, class names, JS script tags, and CSS links unchanged
+2. Translate all user-facing text:
+   - &lt;title&gt;, &lt;meta description&gt;, &lt;meta keywords&gt;
+   - hreflang: change hreflang="en" to hreflang="zh", href to /zh/...
+   - canonical: change to /zh/resize-image-for-facebook-cover/
+   - OG tags: og:url → /zh/..., og:title/description → Chinese
+   - All hero text, h1, h2, p
+   - 3-step tutorial text
+   - FAQ questions and answers
+   - Breadcrumb text
+   - Footer text
+   - Controls: "Download Facebook Cover Photo", "Zoom", "Format", "PNG", "JPG"
+   - Preview toggle buttons: "All Devices Safe Zone", "Desktop Preview", "Mobile Preview"
+3. Do NOT translate:
+   - Code, class names, ids, data-* attributes
+   - JSON-LD content (the WebApplication/FAQPage schema stays in English per schema.org conventions)
+   - JS variable/function names (not relevant since JS is shared)
+4. JSON-LD keywords and values that are user-facing should be translated
+5. Keep the same &lt;script src="../../js/facebook-cover.js"&gt; — JS is shared
+
+## hreflang links on zh page:
+- en → /resize-image-for-facebook-cover/
+- zh → /zh/resize-image-for-facebook-cover/ (self, use the same URL as canonical)
+- all 7 other languages with /{lang}/ prefix
+</pre>
+
+</body>
+</html>

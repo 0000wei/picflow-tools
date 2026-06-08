@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook 封面 SPEC — Part 3: HTML 页面结构 & CSS 规范</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #6366F1; --primary-dark: #4F46E5; --green: #10B981; --amber: #F59E0B; --red: #EF4444; --blue: #3B82F6;
+  --bg: #FFFFFF; --bg2: #F9FAFB; --border: #E5E7EB; --text: #1F2937; --text-light: #6B7280;
+}
+body { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; padding: 2rem; max-width: 1100px; margin: 0 auto; }
+h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--primary); }
+h3 { font-size: 1.2rem; margin: 1.8rem 0 0.8rem; color: var(--primary-dark); padding-left: 0.5rem; border-left: 3px solid var(--primary-light); }
+h4 { font-size: 1.05rem; margin: 1.2rem 0 0.5rem; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+th { background: var(--bg2); padding: 0.6rem 0.75rem; text-align: left; font-size: 0.85rem; color: var(--text-light); border-bottom: 2px solid var(--border); font-weight: 600; }
+td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; vertical-align: top; }
+tr:hover { background: var(--bg2); }
+code { background: #F1F5F9; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85rem; }
+pre { background: #1E293B; color: #E2E8F0; padding: 1rem; border-radius: 8px; font-family: 'SF Mono','Fira Code',monospace; font-size: 0.85rem; overflow-x: auto; line-height: 1.5; margin: 1rem 0; }
+.note { background: #EFF6FF; border-left: 4px solid var(--blue); padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; font-size: 0.9rem; }
+.warn { background: #FFFBEB; border-left: 4px solid var(--amber); padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; font-size: 0.9rem; }
+</style></head>
+<body>
+
+<h2 id="s7">7. HTML 页面结构</h2>
+
+<h3>7.1 英文版 HTML 骨架（resize-image-for-facebook-cover/index.html）</h3>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"/&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;
+  &lt;title&gt;Facebook Cover Safe Zone Cropper &amp; Maker — Free Online Tool | PicEte&lt;/title&gt;
+  &lt;meta name="description" content="..."/&gt;
+  &lt;meta name="keywords" content="facebook cover safe zone, facebook cover cropper, facebook cover maker, ..."/&gt;
+  &lt;link rel="canonical" href="https://picete.com/resize-image-for-facebook-cover/"/&gt;
+  &lt;!-- hreflang x 8 --&gt;
+  &lt;link rel="alternate" hreflang="en" href="https://picete.com/resize-image-for-facebook-cover/"/&gt;
+  &lt;link rel="alternate" hreflang="zh" href="https://picete.com/zh/resize-image-for-facebook-cover/"/&gt;
+  &lt;!-- ... ja, de, fr, es, pt, ar --&gt;
+  &lt;link rel="alternate" hreflang="x-default" href="https://picete.com/resize-image-for-facebook-cover/"/&gt;
+  &lt;!-- OG tags --&gt;
+  &lt;meta property="og:type" content="website"/&gt;
+  &lt;meta property="og:url" content="https://picete.com/resize-image-for-facebook-cover/"/&gt;
+  &lt;meta property="og:title" content="..."/&gt;
+  &lt;meta property="og:description" content="..."/&gt;
+  &lt;meta property="og:image" content="https://picete.com/images/og-image-en.png"/&gt;
+  &lt;!-- Schema.org JSON-LD: WebApplication + BreadcrumbList + FAQPage --&gt;
+  &lt;!-- Google Analytics --&gt;
+  &lt;script async src="/js/gtag.js"&gt;&lt;/script&gt;
+  &lt;!-- CSS --&gt;
+  &lt;link href="../../css/style.css" rel="stylesheet"/&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header class="header"&gt;...&lt;/header&gt;  &lt;!-- 同 picete 统一 header --&gt;
+
+  &lt;main class="main"&gt;
+    &lt;section class="hero"&gt;
+      &lt;div class="container"&gt;
+        &lt;div class="breadcrumb"&gt;...&lt;/div&gt;
+        &lt;h1 class="hero-title"&gt;Facebook Cover Safe Zone Cropper&lt;/h1&gt;
+        &lt;p class="hero-subtitle"&gt;Preview how your cover photo looks on desktop &amp; mobile&lt;/p&gt;
+
+        &lt;!-- === 工具区域 === --&gt;
+        &lt;div id="tool-area"&gt;
+          &lt;!-- 上传区域 --&gt;
+          &lt;div id="upload-area" class="upload-area"&gt;
+            &lt;div class="upload-icon"&gt;...&lt;/div&gt;
+            &lt;p class="upload-text"&gt;Drop your image here&lt;/p&gt;
+            &lt;p class="upload-subtext"&gt;or click to select · Ctrl+V to paste&lt;/p&gt;
+            &lt;input id="file-input" type="file" accept="image/jpeg,image/png,image/webp" hidden/&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Canvas 工作台 --&gt;
+          &lt;div id="canvas-area" style="display:none;"&gt;
+            &lt;div class="preview-toggles"&gt;
+              &lt;button class="preview-btn active" data-mode="safe"&gt;📱 All Devices Safe Zone&lt;/button&gt;
+              &lt;button class="preview-btn" data-mode="desktop"&gt;💻 Desktop Preview&lt;/button&gt;
+              &lt;button class="preview-btn" data-mode="mobile"&gt;📱 Mobile Preview&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="canvas-wrapper"&gt;
+              &lt;canvas id="main-canvas" width="600" height="314"&gt;&lt;/canvas&gt;
+            &lt;/div&gt;
+            &lt;div class="controls"&gt;
+              &lt;div class="control-group"&gt;
+                &lt;label&gt;Zoom: &lt;span id="zoom-value"&gt;100%&lt;/span&gt;&lt;/label&gt;
+                &lt;input type="range" id="zoom-slider" min="25" max="500" value="100"/&gt;
+              &lt;/div&gt;
+              &lt;div class="control-group"&gt;
+                &lt;label&gt;Format:&lt;/label&gt;
+                &lt;label&gt;&lt;input type="radio" name="format" value="png" checked/&gt; PNG&lt;/label&gt;
+                &lt;label&gt;&lt;input type="radio" name="format" value="jpeg"/&gt; JPG&lt;/label&gt;
+              &lt;/div&gt;
+              &lt;button id="download-btn" class="btn-primary"&gt;Download Facebook Cover Photo&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- === 工具区域结束 === --&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- 3 步教程 --&gt;
+    &lt;section class="tutorial-section"&gt;...&lt;/section&gt;
+    &lt;!-- 尺寸科普 --&gt;
+    &lt;section class="dimensions-section"&gt;...&lt;/section&gt;
+    &lt;!-- FAQ --&gt;
+    &lt;section class="faq-section"&gt;...&lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer class="footer"&gt;...&lt;/footer&gt;
+
+  &lt;script src="../../js/theme.js"&gt;&lt;/script&gt;  &lt;!-- 主题切换 --&gt;
+  &lt;script src="../../js/facebook-cover.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3>7.2 SEO 头信息详细</h3>
+<h4>hreflang 标签（所有 8 个语言）</h4>
+<pre>
+&lt;link rel="alternate" hreflang="en" href="https://picete.com/resize-image-for-facebook-cover/" /&gt;
+&lt;link rel="alternate" hreflang="zh" href="https://picete.com/zh/resize-image-for-facebook-cover/" /&gt;
+&lt;link rel="alternate" hreflang="ja" href="https://picete.com/ja/resize-image-for-facebook-cover/" /&gt;
+&lt;link rel="alternate" hreflang="de" href="https://picete.com/de/resize-image-for-facebook-cover/" /&gt;
+&lt;link rel="alternate" hreflang="fr" href="https://picete.com/fr/resize-image-for-facebook-cover/" /&gt;
+&lt;link rel="alternate" hreflang="es" href="https://picete.com/es/resize-image-for-facebook-cover/" /&gt;
+&lt;link rel="alternate" hreflang="pt" href="https://picete.com/pt/resize-image-for-facebook-cover/" /&gt;
+&lt;link rel="alternate" hreflang="ar" href="https://picete.com/ar/resize-image-for-facebook-cover/" /&gt;
+&lt;link rel="alternate" hreflang="x-default" href="https://picete.com/resize-image-for-facebook-cover/" /&gt;
+</pre>
+
+<h4>JSON-LD Schema</h4>
+<pre>
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Facebook Cover Safe Zone Cropper",
+  "description": "Free online tool to crop and preview Facebook cover photos with safe zone guidance for desktop and mobile",
+  "url": "https://picete.com/resize-image-for-facebook-cover",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any"
+}
+&lt;/script&gt;
+
+&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://picete.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Facebook Cover Cropper", "item": "https://picete.com/resize-image-for-facebook-cover/"}
+  ]
+}
+&lt;/script&gt;
+</pre>
+
+<h4>英文版 SEO 文本</h4>
+<table>
+<tr><th>领域</th><th>内容</th></tr>
+<tr><td>Title</td><td>Facebook Cover Safe Zone Cropper & Maker — Free Online Tool | PicEte</td></tr>
+<tr><td>H1</td><td>Free Facebook Cover Maker & Safe Zone Cropper</td></tr>
+<tr><td>Description</td><td>Crop and preview your Facebook cover photo for both desktop and mobile. See where your profile picture and buttons overlap. Download perfectly sized covers — no signup needed.</td></tr>
+<tr><td>Keywords</td><td>facebook cover safe zone, facebook cover cropper, facebook cover maker, facebook cover photo size, facebook banner tool</td></tr>
+</table>
+
+<h3>7.3 3 步教程内容（英文版）</h3>
+<pre>
+&lt;div class="steps"&gt;
+  &lt;div class="step"&gt;
+    &lt;div class="step-number"&gt;1&lt;/div&gt;
+    &lt;h3&gt;Upload Your Image&lt;/h3&gt;
+    &lt;p&gt;Drag &amp; drop, click to select, or press Ctrl+V to paste any JPG, PNG, or WebP image.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="step"&gt;
+    &lt;div class="step-number"&gt;2&lt;/div&gt;
+    &lt;h3&gt;Drag into the Safe Zone&lt;/h3&gt;
+    &lt;p&gt;Move and zoom your image so the most important content sits inside the highlighted safe area — this is the part visible on both desktop and mobile.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="step"&gt;
+    &lt;div class="step-number"&gt;3&lt;/div&gt;
+    &lt;h3&gt;Download &amp; Upload&lt;/h3&gt;
+    &lt;p&gt;Choose PNG or JPG format and download your perfectly framed cover photo. Upload it to Facebook — no more cropping surprises.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<h3>7.4 FAQ 内容（英文版，包含 JSON-LD FAQPage）</h3>
+<table>
+<tr><th>Question</th><th>Answer</th></tr>
+<tr><td>Why does my Facebook cover get cropped on mobile?</td><td>Facebook displays cover photos differently on desktop (wide, 820×312) and mobile (taller crop, 640×360). The mobile version crops about 90px from each side. Our safe zone tool shows you exactly what stays visible on both.</td></tr>
+<tr><td>What is the best size for a Facebook cover photo?</td><td>Upload at 1200×628 pixels for the best quality. Facebook recommends 820×312 for desktop display. Always keep important content (text, logos, faces) within the center 560×312 safe zone.</td></tr>
+<tr><td>Will my profile picture cover part of the cover photo?</td><td>Yes. On desktop, the profile picture overlaps the bottom-left corner of the cover photo. On mobile, it sits centered at the bottom. Our immersive preview shows these overlays so you can design around them.</td></tr>
+<tr><td>Can I use this tool without signing up?</td><td>Absolutely. PicEte runs entirely in your browser — no account, no uploads to our servers, no limits. Your image never leaves your device.</td></tr>
+<tr><td>What file formats are supported?</td><td>JPG, PNG, and WebP are supported for upload. You can download your cover as PNG or JPG.</td></tr>
+<tr><td>Why is my Facebook cover blurry after uploading?</td><td>Facebook compresses images larger than 100KB. Use the JPG format with quality around 80-85% to keep the file under 100KB while maintaining visual quality.</td></tr>
+<tr><td>What is the Facebook cover photo safe zone?</td><td>The safe zone (560×312 pixels centered in the 1200×628 canvas) is the area visible on both desktop and mobile devices. Content outside this area may be cropped on one or both platforms.</td></tr>
+</table>
+
+<p>FAQ JSON-LD: 使用 <code>@type: FAQPage</code>，每个 Q/A 一对 <code>mainEntity</code> 里的 <code>Question</code> / <code>Answer</code>。</p>
+
+<h2 id="s8">8. CSS 规范</h2>
+<p>所有 facebook-cover 专有样式追加到 <code>css/style.css</code> 末尾（保持现有模式），同时需要暗色模式变量。</p>
+
+<h3>8.1 新增 CSS 类</h3>
+<table>
+<tr><th>选择器</th><th>用途</th></tr>
+<tr><td><code>.preview-toggles</code></td><td>预览切换按钮组容器。flex, gap, justify-content center.</td></tr>
+<tr><td><code>.preview-btn</code></td><td>单个切换按钮。padding 0.6rem 1.2rem, border-radius 8px, 无边框，背景 transparent，cursor pointer。</td></tr>
+<tr><td><code>.preview-btn.active</code></td><td>选中状态。背景 #6366F1, 文字白色。</td></tr>
+<tr><td><code>.canvas-wrapper</code></td><td>包裹 canvas。display flex, justify-content center, margin 1rem auto, max-width 100%。</td></tr>
+<tr><td><code>#main-canvas</code></td><td>Canvas 元素。width 100%（CSS），max-width 600px，height auto，border-radius 8px，border 1px solid var(--border)。</td></tr>
+<tr><td><code>.controls</code></td><td>控制区域容器。flex wrap, gap 1.5rem, justify-content center。</td></tr>
+<tr><td><code>.control-group</code></td><td>控制项分组。flex align-items center, gap 0.5rem。</td></tr>
+<tr><td><code>.steps</code></td><td>3步教程容器。display grid, grid-template-columns repeat(3, 1fr), gap 2rem。</td></tr>
+<tr><td><code>.step</code></td><td>单步。text-align center, padding 1.5rem。</td></tr>
+<tr><td><code>.step-number</code></td><td>步数圆圈。w 48px, h 48px, border-radius 50%, bg #6366F1, color white, flex center。</td></tr>
+</table>
+
+<h3>8.2 移动端适配（<768px）</h3>
+<ul>
+  <li>.preview-toggles → flex-direction: column; （或紧凑行的 wrap）</li>
+  <li>.canvas-wrapper → 占满屏幕宽度</li>
+  <li>#main-canvas → 宽度 100vw（减去 padding）</li>
+  <li>.controls → flex-direction: column; align-items: stretch</li>
+  <li>.steps → grid-template-columns: 1fr（堆叠）</li>
+</ul>
+
+<h3>8.3 暗色模式</h3>
+<p>在 <code>html[data-theme="dark"]</code> 区块中追加：</p>
+<ul>
+  <li><code>.preview-btn</code> 默认背景 transparent，hover 时变 bg-secondary</li>
+  <li><code>.preview-btn.active</code> 背景 primary-color</li>
+  <li><code>#main-canvas</code> border-color 适应暗色</li>
+  <li>教程/FAQ 区域的背景色使用 bg-secondary</li>
+</ul>
+
+</body>
+</html>

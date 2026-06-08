@@ -154,6 +154,29 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 - [ ] **FAQ 翻译报告**：docs/reports/ 中存在 untranslated_faqs_report.json，需检查是否已修复
 - [x] **README 更新**：已完成 — 补充反映最新 Harness Engineering 目录结构的说明 (2026-06-06)
 - [x] **垃圾清理**：已完成 — 删除废弃的 rawtest/ 和 scripts/test/ 临时脚本 (2026-06-06)
+- [ ] **Facebook Cover Safe Zone Cropper (Phase 1)** — resize-image-for-facebook-cover 改为交互式工具 (9/16)
+  - [x] A1 英文版 HTML 骨架 | A2 CSS 追加 | A3 SEO 头信息
+  - [x] C1 3步教程 | C2 尺寸科普 | C3 FAQ + FAQPage JSON-LD
+  - [x] B1 JS 上传模块（4种方式） | B2 JS 拖拽/缩放/边界约束
+  - [x] B3 JS 安全区遮罩渲染（safe/desktop/mobile 模式 + 3x3 网格）
+  - [x] B4 JS 沉浸式 UI 绘制（桌面端+移动端 Facebook UI 模拟）
+  - [x] B5 JS 导出下载（loading状态 + JPEG quality 0.92 + 文件大小log）
+  - [x] D1 JS 触控支持（touchstart/touchmove/touchend + 双指缩放）
+  - [x] E1 编写 TEST-CASES-FACEBOOK-COVER.md（25 项测试用例）
+  - [x] E2 浏览器逐项验证（19/19 可执行测试 PASS，6 项因 headless 限制跳过）
+  - [x] E3 编写 TEST-REPORT-FACEBOOK-COVER.md
+  - [x] F1 中文翻译（zh/resize-image-for-facebook-cover/index.html）
+  - [x] F2 日语翻译（ja/resize-image-for-facebook-cover/index.html）
+  - [x] F3 德语翻译（de/resize-image-for-facebook-cover/index.html）
+  - [x] F4 法语翻译（fr/resize-image-for-facebook-cover/index.html）
+  - [x] F5 西班牙语翻译（es/resize-image-for-facebook-cover/index.html）
+  - [x] F6 葡萄牙语翻译（pt/resize-image-for-facebook-cover/index.html）
+  - [x] F7 阿拉伯语翻译（ar/resize-image-for-facebook-cover/index.html, RTL）
+  - [x] G1 sitemap 更新（seo/sitemap.xml + 根目录 sitemap.xml lastmod → 2026-06-08）
+  - [x] G2 vercel.json 路由更新（EN + 多语言 regex 添加 resize-image-for-facebook-cover）
+  - [x] G3 首页入口（7 语言首页 tool-item 卡片 + footer 列表）
+  - [x] G4 端到端验证（8 语言页面加载、JS 语法、vercel.json、sitemap、首页入口）
+  - [x] F2 日语翻译补完（G4 中发现 tagline/导航/hero/教程/尺寸/footer 遗漏，已补翻）
 
 ---
 
