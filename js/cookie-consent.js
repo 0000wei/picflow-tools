@@ -24,7 +24,11 @@
       if (consent === 'accepted') {
         this.loadGtag();
       } else if (consent === null) {
-        this.showBanner();
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', this.showBanner.bind(this));
+        } else {
+          this.showBanner();
+        }
       }
       // If declined, do nothing
     },

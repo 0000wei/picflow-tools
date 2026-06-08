@@ -52,6 +52,12 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 |- [x] 5.9 处理 FAIL 工具（分析+修复）
 |- [x] 5.10 生成测试报告文档
 
+**P6 — Lighthouse/CDP 诊断问题修复（共 4 个 Task）**
+|- [x] 6.1 修复 cookie-consent.js 致命报错 (GA 加载阻断)
+|- [ ] 6.2 拷贝 Favicon 修复 404
+|- [ ] 6.3 编写 scripts/fix/fix_logos.js 批量注入图片宽高
+|- [ ] 6.4 修复 css/style.css 颜色对比度
+
 **P1 — mcp-guide 多语言翻译（共 8 个 Task）**
 - [x] 1.1 中文翻译
 - [x] 1.2 日文翻译
