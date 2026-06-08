@@ -54,7 +54,7 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 
 **P6 — Lighthouse/CDP 诊断问题修复（共 4 个 Task）**
 |- [x] 6.1 修复 cookie-consent.js 致命报错 (GA 加载阻断)
-|- [ ] 6.2 拷贝 Favicon 修复 404
+|- [x] 6.2 拷贝 Favicon 修复 404
 |- [ ] 6.3 编写 scripts/fix/fix_logos.js 批量注入图片宽高
 |- [ ] 6.4 修复 css/style.css 颜色对比度
 
