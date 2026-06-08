@@ -14,6 +14,7 @@
 ### Image Editing
 - **Image Resizer** — https://picete.com/resize-image/
 - **Image Compressor** — https://picete.com/compress-image/
+- **Facebook Cover Cropper** — https://picete.com/resize-image-for-facebook-cover/
 
 ## How It Works
 

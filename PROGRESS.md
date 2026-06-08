@@ -177,6 +177,7 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
   - [x] G3 首页入口（7 语言首页 tool-item 卡片 + footer 列表）
   - [x] G4 端到端验证（8 语言页面加载、JS 语法、vercel.json、sitemap、首页入口）
   - [x] F2 日语翻译补完（G4 中发现 tagline/导航/hero/教程/尺寸/footer 遗漏，已补翻）
+  - [x] G5 git commit & push
 
 ---
 

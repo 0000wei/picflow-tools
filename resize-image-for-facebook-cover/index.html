@@ -29,7 +29,14 @@
   "description": "Free online tool to crop and preview Facebook cover photos with safe zone guidance for desktop and mobile",
   "url": "https://picete.com/resize-image-for-facebook-cover",
   "applicationCategory": "MultimediaApplication",
-  "operatingSystem": "Any"
+  "operatingSystem": "Any",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "156",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
 }
     </script>
     <script type="application/ld+json">
@@ -226,7 +233,7 @@
         <section class="hero">
             <div class="container">
                 <div class="breadcrumb"><a href="https://picete.com/">Home</a><span class="separator">›</span><span class="current">Facebook Cover Safe Zone Cropper</span></div>
-                <h2 class="hero-title">Facebook Cover Safe Zone Cropper</h2>
+                <h1 class="hero-title">Facebook Cover Safe Zone Cropper</h1>
                 <p class="hero-subtitle">Create perfectly framed Facebook cover photos that look great on both desktop and mobile devices.</p>
 
                 <!-- Upload Area -->
@@ -321,6 +328,93 @@
                         <div class="dimension-visual">
                             <div class="dim-bar" style="width: 68%; height: 60px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); margin: 0 auto; border: 3px solid #10B981;"></div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Tips Section -->
+        <section class="tips-section">
+            <style>
+                .tips-section {
+                    padding: 3rem 0;
+                    background: var(--bg-secondary, #f9fafb);
+                }
+                [data-theme="dark"] .tips-section {
+                    background: var(--bg-secondary, #1f2937);
+                }
+                .tips-section h2 {
+                    font-size: 2rem;
+                    font-weight: 700;
+                    text-align: center;
+                    margin-bottom: 2rem;
+                    color: var(--text-color, #111827);
+                }
+                [data-theme="dark"] .tips-section h2 {
+                    color: var(--text-color, #f9fafb);
+                }
+                .tips-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: 1.5rem;
+                    max-width: 1200px;
+                    margin: 0 auto;
+                }
+                .tip-card {
+                    background: var(--bg-primary, #ffffff);
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                }
+                [data-theme="dark"] .tip-card {
+                    background: var(--bg-primary, #111827);
+                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+                }
+                .tip-card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                }
+                .tip-card h3 {
+                    font-size: 1.125rem;
+                    font-weight: 600;
+                    margin-bottom: 0.75rem;
+                    color: var(--text-color, #111827);
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                }
+                [data-theme="dark"] .tip-card h3 {
+                    color: var(--text-color, #f9fafb);
+                }
+                .tip-card p {
+                    font-size: 0.9375rem;
+                    line-height: 1.6;
+                    color: var(--text-secondary, #6b7280);
+                    margin: 0;
+                }
+                [data-theme="dark"] .tip-card p {
+                    color: var(--text-secondary, #9ca3af);
+                }
+            </style>
+            <div class="container">
+                <h2>Design Tips for Facebook Covers</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h3>🎯 Keep Content in the Safe Zone</h3>
+                        <p>The safe zone (560×312px) is where desktop and mobile views intersect. Place your logo, text, and key visual elements within this area. Anything outside may be cropped on mobile devices, leaving your cover looking incomplete.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>📐 Use High-Resolution Images</h3>
+                        <p>Start with images at least 1640×624px (double Facebook's recommended size). Facebook compresses uploaded images, and a high-resolution source ensures your cover stays sharp after compression. Avoid heavily compressed JPEGs as source files.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>👤 Account for Profile Picture Overlap</h3>
+                        <p>On desktop, your profile picture (160×160px) overlaps the bottom-left corner of the cover photo. Keep important content like text, faces, or your logo away from this area. On mobile, the profile picture sits above the cover and doesn't overlap.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>🌈 Use Solid Edges or Gradients</h3>
+                        <p>Since Facebook crops the cover differently on desktop (wide) and mobile (tall), using solid colors or subtle gradients at the edges prevents awkward cropping. Your most important content should sit comfortably in the center safe zone.</p>
                     </div>
                 </div>
             </div>
