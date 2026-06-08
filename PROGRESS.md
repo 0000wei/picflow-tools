@@ -66,6 +66,10 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 |- [x] 8.2 重构 index.html 标杆（分类网格、引入 Quick Tags、精简 Footer）
 |- [x] 8.3 编写执行 scripts/fix/sync_homepage_layout.js 同步所有 7 种语言的首页结构
 
+**Hotfix (违规修复追溯)（共 2 个 Task）**
+|- [x] H.1 修复 .faq-item 缺失 padding 导致文字贴边的问题 (修复违规：未记录 Scope/SPEC，越权执行)
+|- [x] H.2 补充同步 7 种语言首页的 Footer 结构并清理冗余 (修复违规：未记录 Scope/SPEC，越权执行)
+
 **P1 — mcp-guide 多语言翻译（共 8 个 Task）**
 - [x] 1.1 中文翻译
 - [x] 1.2 日文翻译
