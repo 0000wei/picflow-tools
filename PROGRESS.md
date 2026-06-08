@@ -58,6 +58,9 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 |- [x] 6.3 编写 scripts/fix/fix_logos.js 批量注入图片宽高
 |- [x] 6.4 修复 css/style.css 颜色对比度
 
+**P7 — 修复语言切换器 Bug（共 1 个 Task）**
+|- [x] 7.1 编写并执行 scripts/fix/fix_lang_switcher.js 批量修复全站语言切换器
+
 **P1 — mcp-guide 多语言翻译（共 8 个 Task）**
 - [x] 1.1 中文翻译
 - [x] 1.2 日文翻译

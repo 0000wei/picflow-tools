@@ -156,12 +156,12 @@
     </div>
     <script>
     function switchLanguage(code) {
-        var paths = {"en": "https://picete.com/", "zh": "https://picete.com/zh/", "ja": "https://picete.com/ja/", "de": "https://picete.com/de/", "fr": "https://picete.com/fr/", "es": "https://picete.com/es/", "pt": "https://picete.com/pt/", "ar": "https://picete.com/ar/"};
+        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/"};
         // Get current page path from URL
         var path = window.location.pathname;
         
         // Remove language prefix if present
-        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)\//, '/');
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ar)(?:\/|$)/, '/');
         if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
         
         // Build target URL
