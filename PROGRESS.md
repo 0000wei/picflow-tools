@@ -166,10 +166,10 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 | 0.5-E | 0.5.18 | 8 首页入口链接更新 | ✅ |
 | 0.5-E | 0.5.19 | sitemap 扩容 + feature_list + Makefile + verify | ✅ |
 
-- [ ] **SEO 插件集成**：当前无 analytics/Cookie 同意等
+- [x] **SEO 插件集成**：已完成 — GA (G-H72N80TEBW) 接入与自托管 gtag.js + cookie-consent.js 集成完毕
 - [x] **Cookie 同意弹窗**：已完成 — js/cookie-consent.js + 8 首页集成 (2026-06-05)
 - [x] **OG 图片**：已完成 — 生成 7 种语言的 OG 图片，并更新所有 HTML 页面的 meta 标签 (2026-06-06)
-- [ ] **FAQ 翻译报告**：docs/reports/ 中存在 untranslated_faqs_report.json，需检查是否已修复
+- [x] **FAQ 翻译报告**：已完成 — 审查 docs/reports/untranslated_faqs_report.json，未发现遗漏 (0 file)，报告已清理
 - [x] **README 更新**：已完成 — 补充反映最新 Harness Engineering 目录结构的说明 (2026-06-06)
 - [x] **垃圾清理**：已完成 — 删除废弃的 rawtest/ 和 scripts/test/ 临时脚本 (2026-06-06)
 - [ ] **Facebook Cover Safe Zone Cropper (Phase 1)** — resize-image-for-facebook-cover 改为交互式工具 (9/16)
@@ -205,7 +205,6 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 2. **跨站点链接**：之前存在跨站点 footer 链接（已于 2026-05-25 移除，遵循哥飞 SEO 指导）
 3. **语言切换器**：历史上有浏览器自动重定向问题（2026-05-26 修复为用户选择模式）
 4. **测试覆盖率**：脚本目录下有一些审计/修复脚本，但缺少自动化集成测试
-5. **等待用户确认后 commit 的 SPEC 文档**：docs/specs/PICETE-OPTIMIZATION-PLAN-V2.md + docs/specs/PICETE-ROADMAP.md
 
 ---
 
