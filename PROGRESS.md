@@ -200,6 +200,20 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 
 ---
 
+### **P9 — Instagram Image Splitter 工具（共 7 个 Task）**
+| | Task | 状态 |
+|-|------|------|
+| | **Task 0** 基础设施目录创建 | ✅ |
+| | **Task 1** HTML 英文主页面 | ⏳ |
+| | **Task 2** JS 核心引擎 | ⏳ |
+| | **Task 3** 裁剪框交互组件 | ⏳ |
+| | **Task 4** ZIP 导出 + 移动端降级 | ⏳ |
+| | **Task 5** 翻译 7 种语言 | ⏳ |
+| | **Task 6** vercel.json + Navbar 集成 | ⏳ |
+| | **Task 7** 终验（E2E） | ⏳ |
+
+---
+
 ## 已知问题
 
 1. **Git 历史**：72 次提交，仅 master 分支，无 tag
