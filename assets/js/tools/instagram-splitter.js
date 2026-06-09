@@ -971,6 +971,11 @@ const IGSplitter = (function () {
    *  Exports
    * ====================================================== */
 
+  // Auto-initialize — script runs after </footer> so DOM is ready
+  if (document.getElementById('editorCanvas')) {
+    init('editorCanvas');
+  }
+
   return {
     init: init,
     loadImage: loadImage,
