@@ -26,7 +26,15 @@ const IGSplitter = (function () {
     displayHeight: 0,
     isDownsampled: false,
     cropScaleX: 1,
-    cropScaleY: 1
+    cropScaleY: 1,
+    // 裁剪框交互状态
+    isDragging: false,
+    dragMode: '',         // 'move' | 'resize-tl' | 'resize-tr' | 'resize-bl' | 'resize-br'
+    dragStartX: 0,
+    dragStartY: 0,
+    cropperStart: { x: 0, y: 0, w: 0, h: 0 },
+    HANDLE_SIZE: 10,      // 四角 handle 点击半径
+    MIN_CROP_SIZE: 50     // 裁剪框最小尺寸
   };
 
   let _oldObjectURL = null;
@@ -196,6 +204,32 @@ const IGSplitter = (function () {
     ctx.strokeStyle = '#ffffff';
     ctx.lineWidth = 2;
     ctx.strokeRect(c.x, c.y, c.w, c.h);
+
+    // 7. Draw corner handles
+    const handleR = 6;
+    ctx.fillStyle = '#ffffff';
+    ctx.strokeStyle = '#2563eb';
+    ctx.lineWidth = 2;
+    // top-left
+    ctx.beginPath();
+    ctx.arc(c.x, c.y, handleR, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+    // top-right
+    ctx.beginPath();
+    ctx.arc(c.x + c.w, c.y, handleR, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+    // bottom-left
+    ctx.beginPath();
+    ctx.arc(c.x, c.y + c.h, handleR, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+    // bottom-right
+    ctx.beginPath();
+    ctx.arc(c.x + c.w, c.y + c.h, handleR, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
   }
 
   /**
@@ -289,9 +323,182 @@ const IGSplitter = (function () {
    *  Mouse / Drag handling for crop box
    * ====================================================== */
 
-  let _isDragging = false;
-  let _dragOffsetX = 0;
-  let _dragOffsetY = 0;
+  /**
+   * Detect which handle (if any) is at coordinate (px, py).
+   * Returns 'tl' | 'tr' | 'bl' | 'br' | ''.
+   */
+  function hitTestHandle (px, py) {
+    const c = state.cropper;
+    const hs = state.HANDLE_SIZE;
+    if (Math.abs(px - c.x) <= hs && Math.abs(py - c.y) <= hs) return 'tl';
+    if (Math.abs(px - (c.x + c.w)) <= hs && Math.abs(py - c.y) <= hs) return 'tr';
+    if (Math.abs(px - c.x) <= hs && Math.abs(py - (c.y + c.h)) <= hs) return 'bl';
+    if (Math.abs(px - (c.x + c.w)) <= hs && Math.abs(py - (c.y + c.h)) <= hs) return 'br';
+    return '';
+  }
+
+  function getCanvasCoords (clientX, clientY) {
+    const rect = state.canvas.getBoundingClientRect();
+    const scaleX = state.canvas.width / rect.width;
+    const scaleY = state.canvas.height / rect.height;
+    return {
+      x: (clientX - rect.left) * scaleX,
+      y: (clientY - rect.top) * scaleY
+    };
+  }
+
+  function startDrag (px, py) {
+    const c = state.cropper;
+    const handle = hitTestHandle(px, py);
+    if (handle) {
+      state.isDragging = true;
+      state.dragMode = 'resize-' + handle;
+      state.dragStartX = px;
+      state.dragStartY = py;
+      state.cropperStart = { x: c.x, y: c.y, w: c.w, h: c.h };
+      return;
+    }
+    // Check if inside crop box (not on handle)
+    if (px >= c.x && px <= c.x + c.w && py >= c.y && py <= c.y + c.h) {
+      state.isDragging = true;
+      state.dragMode = 'move';
+      state.dragStartX = px;
+      state.dragStartY = py;
+      state.cropperStart = { x: c.x, y: c.y, w: c.w, h: c.h };
+      state.canvas.style.cursor = 'grabbing';
+    }
+  }
+
+  function doDrag (px, py) {
+    if (!state.isDragging) return;
+    const cr = state.cropperStart;
+    const dx = px - state.dragStartX;
+    const dy = py - state.dragStartY;
+    const c = state.cropper;
+    const min = state.MIN_CROP_SIZE;
+
+    if (state.dragMode === 'move') {
+      let nx = cr.x + dx;
+      let ny = cr.y + dy;
+      nx = Math.max(0, Math.min(nx, state.displayWidth - cr.w));
+      ny = Math.max(0, Math.min(ny, state.displayHeight - cr.h));
+      c.x = nx;
+      c.y = ny;
+    } else if (state.dragMode === 'resize-tl') {
+      let newW = cr.w - dx;
+      let newH = newW / (cr.w / cr.h);
+      newW = Math.max(min, Math.min(newW, state.displayWidth));
+      newH = Math.max(min, Math.min(newH, state.displayHeight));
+      c.x = cr.x + cr.w - newW;
+      c.y = cr.y + cr.h - newH;
+      c.w = newW;
+      c.h = newH;
+      // Clamp position to canvas bounds
+      if (c.x < 0) { c.w += c.x; c.x = 0; if (c.w < min) { c.w = min; c.x = 0; } }
+      if (c.y < 0) { c.h += c.y; c.y = 0; if (c.h < min) { c.h = min; c.y = 0; } }
+      c.h = c.w / (cr.w / cr.h);
+      if (c.y + c.h > state.displayHeight || c.x + c.w > state.displayWidth) {
+        c.w = Math.min(c.w, state.displayWidth - c.x);
+        c.h = Math.min(c.h, state.displayHeight - c.y);
+      }
+    } else if (state.dragMode === 'resize-tr') {
+      let newW = cr.w + dx;
+      let newH = newW / (cr.w / cr.h);
+      newW = Math.max(min, Math.min(newW, state.displayWidth));
+      newH = Math.max(min, Math.min(newH, state.displayHeight));
+      c.x = cr.x;
+      c.y = cr.y + cr.h - newH;
+      c.w = newW;
+      c.h = newH;
+      if (c.y < 0) { c.h += c.y; c.y = 0; if (c.h < min) { c.h = min; c.y = 0; } }
+      if (c.x + c.w > state.displayWidth) { c.w = state.displayWidth - c.x; }
+      if (c.y + c.h > state.displayHeight) { c.h = state.displayHeight - c.y; }
+    } else if (state.dragMode === 'resize-bl') {
+      let newW = cr.w - dx;
+      let newH = newW / (cr.w / cr.h);
+      newW = Math.max(min, Math.min(newW, state.displayWidth));
+      newH = Math.max(min, Math.min(newH, state.displayHeight));
+      c.x = cr.x + cr.w - newW;
+      c.y = cr.y;
+      c.w = newW;
+      c.h = newH;
+      if (c.x < 0) { c.w += c.x; c.x = 0; if (c.w < min) { c.w = min; c.x = 0; } }
+      if (c.x + c.w > state.displayWidth) { c.w = state.displayWidth - c.x; }
+      if (c.y + c.h > state.displayHeight) { c.h = state.displayHeight - c.y; }
+    } else if (state.dragMode === 'resize-br') {
+      let newW = cr.w + dx;
+      let newH = newW / (cr.w / cr.h);
+      newW = Math.max(min, Math.min(newW, state.displayWidth));
+      newH = Math.max(min, Math.min(newH, state.displayHeight));
+      c.x = cr.x;
+      c.y = cr.y;
+      c.w = newW;
+      c.h = newH;
+      if (c.x + c.w > state.displayWidth) { c.w = state.displayWidth - c.x; }
+      if (c.y + c.h > state.displayHeight) { c.h = state.displayHeight - c.y; }
+    }
+
+    render();
+  }
+
+  function updateCursor (px, py) {
+    if (state.isDragging) return; // don't change cursor while dragging
+    const handle = hitTestHandle(px, py);
+    if (handle === 'tl' || handle === 'br') {
+      state.canvas.style.cursor = 'nwse-resize';
+      return;
+    }
+    if (handle === 'tr' || handle === 'bl') {
+      state.canvas.style.cursor = 'nesw-resize';
+      return;
+    }
+    const c = state.cropper;
+    if (px >= c.x && px <= c.x + c.w && py >= c.y && py <= c.y + c.h) {
+      state.canvas.style.cursor = 'grab';
+    } else {
+      state.canvas.style.cursor = 'default';
+    }
+  }
+
+  function onMouseDown (e) {
+    const pt = getCanvasCoords(e.clientX, e.clientY);
+    startDrag(pt.x, pt.y);
+  }
+
+  function onMouseMove (e) {
+    const pt = getCanvasCoords(e.clientX, e.clientY);
+    if (state.isDragging) {
+      doDrag(pt.x, pt.y);
+    } else {
+      updateCursor(pt.x, pt.y);
+    }
+  }
+
+  function onMouseUp () {
+    state.isDragging = false;
+    state.dragMode = '';
+    state.canvas.style.cursor = 'default';
+  }
+
+  function onTouchStart (e) {
+    e.preventDefault();
+    const touch = e.touches[0];
+    const pt = getCanvasCoords(touch.clientX, touch.clientY);
+    startDrag(pt.x, pt.y);
+  }
+
+  function onTouchMove (e) {
+    e.preventDefault();
+    if (!state.isDragging) return;
+    const touch = e.touches[0];
+    const pt = getCanvasCoords(touch.clientX, touch.clientY);
+    doDrag(pt.x, pt.y);
+  }
+
+  function onTouchEnd () {
+    state.isDragging = false;
+    state.dragMode = '';
+  }
 
   function setupCanvasMouseEvents () {
     const canvas = state.canvas;
@@ -306,88 +513,6 @@ const IGSplitter = (function () {
     canvas.addEventListener('touchstart', onTouchStart, { passive: false });
     canvas.addEventListener('touchmove', onTouchMove, { passive: false });
     canvas.addEventListener('touchend', onTouchEnd, { passive: false });
-  }
-
-  function getCanvasCoords (clientX, clientY) {
-    const rect = state.canvas.getBoundingClientRect();
-    const scaleX = state.canvas.width / rect.width;
-    const scaleY = state.canvas.height / rect.height;
-    return {
-      x: (clientX - rect.left) * scaleX,
-      y: (clientY - rect.top) * scaleY
-    };
-  }
-
-  function onMouseDown (e) {
-    const pt = getCanvasCoords(e.clientX, e.clientY);
-    startDrag(pt.x, pt.y);
-  }
-
-  function onMouseMove (e) {
-    const pt = getCanvasCoords(e.clientX, e.clientY);
-    if (_isDragging) {
-      doDrag(pt.x, pt.y);
-    } else {
-      updateCursor(pt.x, pt.y);
-    }
-  }
-
-  function onMouseUp () {
-    _isDragging = false;
-    state.canvas.style.cursor = 'default';
-  }
-
-  function onTouchStart (e) {
-    e.preventDefault();
-    const touch = e.touches[0];
-    const pt = getCanvasCoords(touch.clientX, touch.clientY);
-    startDrag(pt.x, pt.y);
-  }
-
-  function onTouchMove (e) {
-    e.preventDefault();
-    if (!_isDragging) return;
-    const touch = e.touches[0];
-    const pt = getCanvasCoords(touch.clientX, touch.clientY);
-    doDrag(pt.x, pt.y);
-  }
-
-  function onTouchEnd () {
-    _isDragging = false;
-  }
-
-  function startDrag (px, py) {
-    const c = state.cropper;
-    if (px >= c.x && px <= c.x + c.w && py >= c.y && py <= c.y + c.h) {
-      _isDragging = true;
-      _dragOffsetX = px - c.x;
-      _dragOffsetY = py - c.y;
-      state.canvas.style.cursor = 'grabbing';
-    }
-  }
-
-  function doDrag (px, py) {
-    const c = state.cropper;
-    let nx = px - _dragOffsetX;
-    let ny = py - _dragOffsetY;
-
-    // Clamp
-    nx = Math.max(0, Math.min(nx, state.displayWidth - c.w));
-    ny = Math.max(0, Math.min(ny, state.displayHeight - c.h));
-
-    c.x = nx;
-    c.y = ny;
-
-    render();
-  }
-
-  function updateCursor (px, py) {
-    const c = state.cropper;
-    if (px >= c.x && px <= c.x + c.w && py >= c.y && py <= c.y + c.h) {
-      state.canvas.style.cursor = 'grab';
-    } else {
-      state.canvas.style.cursor = 'default';
-    }
   }
 
   /* ======================================================
