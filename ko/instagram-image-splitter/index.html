@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>무료 인스타그램 이미지 분할기 및 파노라마 크로퍼 | PicEte</title>
+<!-- Google Analytics -->
+<script async="" src="/js/gtag.js"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+<script src="/js/vips-loader.js"></script>
+<meta content="인스타그램 캐러셀이나 프로필 그리드를 위해 무료로 이미지를 분할하세요. 파노라마 슬라이서, 3x3 그리드 메이커, 4:5 캐러셀 커터. 100% 무료, 브라우저에서 실행." name="description"/>
+<meta content="instagram image splitter, panorama cropper, instagram grid maker, carousel cutter, photo slicer, online image splitter, 인스타그램 이미지 분할기, 파노라마 크로퍼, 인스타그램 그리드 메이커" name="keywords"/>
+<link href="https://picete.com/ko/instagram-image-splitter/" rel="canonical"/>
+<!-- hreflang 标签 -->
+<link href="https://picete.com/instagram-image-splitter/" hreflang="en" rel="alternate"/>
+<link href="https://picete.com/zh/instagram-image-splitter/" hreflang="zh" rel="alternate"/>
+<link href="https://picete.com/ja/instagram-image-splitter/" hreflang="ja" rel="alternate"/>
+<link href="https://picete.com/ko/instagram-image-splitter/" hreflang="ko" rel="alternate"/>
+<link href="https://picete.com/de/instagram-image-splitter/" hreflang="de" rel="alternate"/>
+<link href="https://picete.com/fr/instagram-image-splitter/" hreflang="fr" rel="alternate"/>
+<link href="https://picete.com/es/instagram-image-splitter/" hreflang="es" rel="alternate"/>
+<link href="https://picete.com/pt/instagram-image-splitter/" hreflang="pt" rel="alternate"/>
+<link href="https://picete.com/ar/instagram-image-splitter/" hreflang="ar" rel="alternate"/>
+<link href="https://picete.com/instagram-image-splitter/" hreflang="x-default" rel="alternate"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="https://picete.com/ko/instagram-image-splitter/" property="og:url"/>
+<meta content="무료 인스타그램 이미지 분할기 및 파노라마 크로퍼 | PicEte" property="og:title"/>
+<meta content="인스타그램 캐러셀이나 프로필 그리드를 위해 무료로 이미지를 분할하세요. 파노라마 슬라이서, 3x3 그리드 메이커, 4:5 캐러셀 커터. 100% 무료, 브라우저에서 실행." property="og:description"/>
+<meta content="https://picete.com/images/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<!-- Schema.org -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "인스타그램 이미지 분할기",
+        "description": "인스타그램 캐러셀이나 프로필 그리드를 위해 무료로 이미지를 분할하세요. 파노라마 슬라이서, 3x3 그리드 메이커, 4:5 캐러셀 커터.",
+        "url": "https://picete.com/ko/instagram-image-splitter",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "홈",
+            "item": "https://picete.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "인스타그램 이미지 분할기",
+            "item": "https://picete.com/ko/instagram-image-splitter/"
+        }]
+    }
+    </script>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../css/style.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "인스타그램 캐러셀 게시물의 최적 화면 비율은 무엇인가요?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "인스타그램 캐러셀 게시물의 최적 화면 비율은 4:5(세로) 또는 1:1(정사각형)입니다. 4:5 비율은 더 많은 세로 화면 공간을 차지하고 참여도가 더 높은 반면, 1:1은 클래식 정사각형 형식입니다. PicEte는 두 가지를 모두 지원합니다 — 이미지에 가장 적합한 것을 선택하세요."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "인스타그램 그리드 퍼즐에는 몇 개의 조각을 사용해야 하나요?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "클래식 인스타그램 프로필 그리드 퍼즐은 3x3 레이아웃(9개 타일)을 사용합니다. 순서대로 게시하면 프로필에서 타일이 연결되어 하나의 큰 이미지가 나타납니다. 캐러셀 스트립을 위해 3x1, 6개 타일 레이아웃을 위해 3x2, 12개 타일 세로 파노라마를 위해 3x4를 시도할 수도 있습니다."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "이 도구가 이미지를 서버에 업로드하나요?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "아니요. 모든 것은 HTML5 Canvas API를 사용하여 브라우저에서 완전히 실행됩니다. 이미지는 장치를 떠나지 않습니다 — 업로드 없음, 서버 없음, 개인정보 우려 없음. 페이지가 로드된 후 인터넷 연결을 끊어도 계속 작동합니다."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "이미지를 분할하면 품질이 저하되나요?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "아니요. 각 분할 조각은 원본 해상도에서 원본 이미지의 전체 품질을 유지합니다. 개별 타일 크기는 원본의 일부를 덮기 때문에 더 작지만 픽셀 밀도와 이미지 품질은 원본과 동일하게 유지됩니다."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "분할하기 전에 자르기 영역을 조정할 수 있나요?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "네. 이미지를 로드한 후 보이는 영역을 드래그하여 이미지의 어느 부분을 분할할지 조정할 수 있습니다. 자르기 상자는 자유롭게 재배치할 수 있습니다 — 분할은 선택한 영역에만 적용되며 최종 출력에 대한 완전한 제어권을 제공합니다."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "모든 분할 조각을 한 번에 다운로드하려면 어떻게 하나요?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "'ZIP 다운로드' 버튼을 클릭하여 모든 조각을 단일 ZIP 파일로 저장하세요. 각 조각은 순차적으로 명명되므로(slice-1.png, slice-2.png 등) 인스타그램에 게시할 때 정확한 순서를 알 수 있습니다. 모바일 장치에서 개별 조각을 다운로드할 수도 있습니다."
+            }
+        }
+    ]
+}
+    </script>
+<style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+
+        /* Instagram Splitter specific styles */
+        :root {
+            --splitter-bg: var(--bg-primary, #ffffff);
+            --splitter-border: var(--border-color, #e5e7eb);
+            --splitter-text: var(--text-color, #1f2937);
+            --splitter-text-light: var(--text-light, #6b7280);
+            --splitter-primary: var(--primary-color, #2563eb);
+            --splitter-primary-hover: var(--primary-hover, #1d4ed8);
+            --splitter-bg-secondary: var(--bg-secondary, #f3f4f6);
+            --splitter-canvas-bg: #1a1a2e;
+            --splitter-overlay: rgba(0,0,0,0.55);
+        }
+
+        .ig-splitter-layout {
+            display: flex;
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+
+        .ig-control-panel {
+            flex: 0 0 320px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .ig-workbench {
+            flex: 1;
+            min-height: 500px;
+            background: var(--splitter-canvas-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--splitter-border);
+        }
+
+        .ig-control-card {
+            background: var(--splitter-bg);
+            border: 1px solid var(--splitter-border);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+        }
+
+        .ig-control-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 0 0 0.75rem 0;
+            color: var(--splitter-text);
+        }
+
+        .mode-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .mode-btn {
+            flex: 1;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--splitter-border);
+            border-radius: 8px;
+            background: var(--splitter-bg);
+            color: var(--splitter-text);
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .mode-btn:hover {
+            border-color: var(--splitter-primary);
+        }
+        .mode-btn.active {
+            background: var(--splitter-primary);
+            color: #fff;
+            border-color: var(--splitter-primary);
+        }
+
+        .ratio-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .ratio-btn {
+            flex: 1;
+            padding: 0.375rem 0.75rem;
+            border: 1px solid var(--splitter-border);
+            border-radius: 6px;
+            background: var(--splitter-bg);
+            color: var(--splitter-text);
+            cursor: pointer;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .ratio-btn:hover {
+            border-color: var(--splitter-primary);
+        }
+        .ratio-btn.active {
+            background: var(--splitter-primary);
+            color: #fff;
+            border-color: var(--splitter-primary);
+        }
+
+        .ig-control-panel label {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            margin-bottom: 0.375rem;
+            color: var(--splitter-text);
+        }
+
+        .ig-control-panel input[type="range"] {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: var(--splitter-border);
+            border-radius: 3px;
+            outline: none;
+            margin: 0.5rem 0;
+        }
+        .ig-control-panel input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--splitter-primary);
+            cursor: pointer;
+            border: 2px solid #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .ig-control-panel input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--splitter-primary);
+            cursor: pointer;
+            border: 2px solid #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .ig-control-panel select {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--splitter-border);
+            border-radius: 6px;
+            background: var(--splitter-bg);
+            color: var(--splitter-text);
+            font-size: 0.875rem;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .ig-control-panel select:hover {
+            border-color: var(--splitter-primary);
+        }
+        .ig-control-panel select:focus {
+            border-color: var(--splitter-primary);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+
+        .slice-count-display {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--splitter-primary);
+            margin-left: 0.5rem;
+        }
+
+        .ig-action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .ig-action-buttons button {
+            width: 100%;
+            padding: 0.625rem 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-download {
+            background: var(--splitter-primary);
+            color: #fff;
+        }
+        .btn-download:hover {
+            background: var(--splitter-primary-hover);
+        }
+
+        .btn-reset {
+            background: var(--splitter-bg-secondary);
+            color: var(--splitter-text);
+            border: 1px solid var(--splitter-border) !important;
+        }
+        .btn-reset:hover {
+            border-color: var(--splitter-primary);
+        }
+
+        #uploadArea {
+            border: 2px dashed var(--splitter-border);
+            border-radius: 10px;
+            padding: 2rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        #uploadArea:hover,
+        #uploadArea.dragover {
+            border-color: var(--splitter-primary);
+            background: var(--splitter-bg-secondary);
+        }
+        #uploadArea .upload-icon {
+            width: 40px;
+            height: 40px;
+            color: var(--splitter-text-light);
+            margin-bottom: 0.5rem;
+        }
+        #uploadArea .upload-text {
+            font-weight: 500;
+            color: var(--splitter-text);
+            margin: 0;
+        }
+        #uploadArea .upload-subtext {
+            font-size: 0.8125rem;
+            color: var(--splitter-text-light);
+            margin: 0.25rem 0 0.75rem 0;
+        }
+
+        #workspaceEmpty {
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            padding: 2rem;
+        }
+        #workspaceEmpty .empty-icon {
+            width: 56px;
+            height: 56px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+        #workspaceEmpty p {
+            margin: 0.25rem 0;
+            font-size: 0.9375rem;
+        }
+
+        #editorCanvas {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #downsampleNotice {
+            display: none;
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.8125rem;
+            color: #856404;
+        }
+
+        #mobileHint {
+            display: none;
+            background: var(--splitter-bg-secondary);
+            border: 1px solid var(--splitter-border);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.8125rem;
+            color: var(--splitter-text-light);
+            text-align: center;
+        }
+
+        #individualSave {
+            display: none;
+        }
+
+        #gridControls,
+        #carouselControls {
+            display: none;
+        }
+        #carouselControls.active,
+        #gridControls.active {
+            display: block;
+        }
+
+        /* Split line visual on canvas overlay */
+        .split-line-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .ig-splitter-layout {
+                flex-direction: column;
+            }
+            .ig-control-panel {
+                flex: none;
+                width: 100%;
+            }
+            .ig-workbench {
+                min-height: 350px;
+                width: 100%;
+            }
+            #individualSave {
+                display: block;
+            }
+            #mobileHint {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+<div class="container">
+<div class="logo">
+<a href="../">
+<img alt="PicEte" class="logo-img" src="../images/picete-logo.svg" width="116" height="32"/>
+</a>
+<p class="tagline">인스타그램 이미지 분할기</p>
+</div>
+<nav class="nav">
+<a class="nav-link" href="../">홈</a>
+<a class="nav-link" href="../#tools">더 많은 도구</a>
+<!-- Language Switcher -->
+<style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+<div class="lang-switcher">
+<select aria-label="언어 전환" onchange="switchLanguage(this.value)">
+<option value="en">English</option>
+<option value="zh">中文</option>
+<option value="ja">日本語</option>
+<option selected="" value="ko">한국어</option>
+<option value="de">Deutsch</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="pt">Português</option>
+<option value="ar">العربية</option>
+</select>
+</div>
+<script>
+    function switchLanguage(code) {
+        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "ko": "/ko/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|ko|de|fr|es|pt|ar)(?:\/|$)/, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+<button aria-label="테마 전환" class="theme-toggle" id="themeToggle">
+<span class="sun-icon">☀️</span>
+<span class="moon-icon">🌙</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="main">
+<section class="hero">
+<div class="container">
+<div class="breadcrumb"><a href="https://picete.com/">홈</a><span class="separator">›</span><span class="current">인스타그램 이미지 분할기</span></div>
+<h1 class="hero-title">무료 인스타그램 이미지 분할기 및 파노라마 크로퍼</h1>
+<p class="hero-subtitle">모든 이미지를 완벽한 인스타그램 캐러셀 조각이나 프로필 그리드 타일로 분할하세요. 캐러셀(4:5 또는 1:1) 또는 그리드(3x1, 3x2, 3x3, 3x4) 레이아웃 중에서 선택하세요. 자르기 영역을 조정한 다음 ZIP으로 다운로드하세요. 모두 브라우저에서, 업로드 없이.</p>
+
+<div class="ig-splitter-layout">
+<!-- Left / Top: Control Panel -->
+<div class="ig-control-panel">
+<!-- Upload Area -->
+<div id="uploadArea">
+<svg class="upload-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="17 8 12 3 7 8"></polyline>
+<line x1="12" x2="12" y1="3" y2="15"></line>
+</svg>
+<p class="upload-text">이미지를 여기에 드래그하세요</p>
+<p class="upload-subtext">또는 클릭하여 선택 — JPG, PNG, WebP 모두 지원</p>
+<input accept="image/*" hidden="" id="fileInput" type="file"/>
+</div>
+
+<!-- Mode Selection -->
+<div class="ig-control-card">
+<h3>분할 모드</h3>
+<div class="mode-group">
+<button class="mode-btn active" data-mode="carousel" onclick="IGSplitter.setMode('carousel')">캐러셀</button>
+<button class="mode-btn" data-mode="grid" onclick="IGSplitter.setMode('grid')">그리드</button>
+</div>
+</div>
+
+<!-- Carousel Controls -->
+<div id="carouselControls" class="active">
+<div class="ig-control-card">
+<h3>캐러셀 설정</h3>
+<label for="sliceCount">조각 수</label>
+<div style="display: flex; align-items: center;">
+<input id="sliceCount" max="10" min="2" oninput="IGSplitter.setSlices(this.value)" type="range" value="4"/>
+<span class="slice-count-display" id="sliceCountDisplay">4</span>
+</div>
+<label style="margin-top: 0.75rem; display: block;">화면 비율</label>
+<div class="ratio-group">
+<button class="ratio-btn active" data-ratio="4:5" onclick="IGSplitter.setRatio('4:5')">4:5</button>
+<button class="ratio-btn" data-ratio="1:1" onclick="IGSplitter.setRatio('1:1')">1:1</button>
+</div>
+</div>
+</div>
+
+<!-- Grid Controls -->
+<div id="gridControls">
+<div class="ig-control-card">
+<h3>그리드 설정</h3>
+<label for="gridLayout">그리드 레이아웃</label>
+<select id="gridLayout" onchange="IGSplitter.setGrid(this.value)">
+<option value="3x1">3 × 1 (캐러셀 스트립)</option>
+<option value="3x2">3 × 2 (6개 타일)</option>
+<option selected="" value="3x3">3 × 3 (9개 타일)</option>
+<option value="3x4">3 × 4 (12개 타일)</option>
+</select>
+</div>
+</div>
+
+<!-- Downsample Notice -->
+<div id="downsampleNotice">
+⚠️ 이미지가 매우 큽니다. 편집을 위해 축소되었습니다. 내보낸 조각에는 전체 해상도가 사용됩니다.
+</div>
+
+<!-- Action Buttons -->
+<div class="ig-action-buttons">
+<button class="btn-reset" onclick="IGSplitter.resetCrop()">자르기 상자 재설정</button>
+<button class="btn-download" onclick="IGSplitter.exportZip()">ZIP 다운로드</button>
+</div>
+
+<!-- Individual Save Area (mobile) -->
+<div id="individualSave"></div>
+
+<!-- Mobile Hint -->
+<div id="mobileHint">
+📱 모바일에서는 분할 후 아래에서 각 조각을 개별적으로 다운로드할 수 있습니다.
+</div>
+</div>
+
+<!-- Right / Bottom: Workbench -->
+<div class="ig-workbench" id="workbench">
+<canvas id="editorCanvas" style="display: none;"></canvas>
+<div id="workspaceEmpty">
+<svg class="empty-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<rect height="18" rx="2" ry="2" width="20" x="2" y="2"></rect>
+<line x1="12" x2="12" y1="2" y2="22"></line>
+<line x1="2" x2="22" y1="12" y2="12"></line>
+</svg>
+<p>이미지가 로드되지 않음</p>
+<p style="font-size: 0.8125rem;">분할을 시작하려면 이미지를 업로드하세요</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="container" style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+<a class="btn-primary" href="../" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; font-size: 1.125rem; text-decoration: none;">← PicEte 홈으로 돌아가기</a>
+</div>
+
+<section class="features-section">
+<div class="container">
+<h2 class="section-title">인스타그램 이미지 분할기를 사용하는 이유</h2>
+<div class="features-grid">
+<div class="feature-item">
+<div class="feature-icon">📱</div>
+<h3>인스타그램 캐러셀 게시물</h3>
+<p>넓거나 긴 이미지를 매끄러운 캐러셀로 분할하세요. 각 스와이프마다 다음 조각이 나타납니다. 튜토리얼, 제품 공개, 전후 비교, 시각적 스토리텔링에 완벽합니다. 최대 화면 커버리지를 위해 4:5 세로를 선택하거나 정사각형 피드 게시물을 위해 1:1을 선택하세요.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🧩</div>
+<h3>프로필 그리드 퍼즐</h3>
+<p>단일 이미지를 3x3 프로필 그리드 퍼즐로 변환하세요. 각 타일을 별도로 게시하면 인스타그램 프로필에서 전체 이미지가 연결됩니다. 이 클래식 참여 트릭은 호기심을 유도하고 프로필 방문을 증가시킵니다.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🔒</div>
+<h3>100% 프라이빗 — 업로드 없음</h3>
+<p>이미지는 브라우저를 떠나지 않습니다. 모든 것이 Canvas에서 로컬로 실행됩니다. 서버 없음, 업로드 없음, 개인정보 우려 없음. 로드 후 인터넷 연결을 끊어도 계속 작동합니다.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🎯</div>
+<h3>조정 가능한 자르기 영역</h3>
+<p>캔버스에서 보이는 영역을 드래그하여 이미지의 어느 부분을 분할할지 정확하게 선택하세요. 자르기 상자를 사용하면 조각을 생성하기 전에 완벽한 구도를 프레임할 수 있습니다.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="features-section" style="padding-top: 0;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">인스타그램용 이미지 분할 방법</h2>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">1. 분할 모드 선택</h3>
+<p style="line-height: 1.8; color: var(--text-light);">스와이프 가능한 다중 슬라이드 게시물을 만들려면 <strong>캐러셀</strong> 모드를 선택하세요. 각 조각은 캐러셀의 별도 슬라이드가 됩니다. 인스타그램 프로필 그리드용 퍼즐로 이미지를 타일링하려면 <strong>그리드</strong> 모드를 선택하세요. 모드는 이미지가 분할되는 방식과 사용 가능한 설정을 결정합니다.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">2. 이미지 업로드</h3>
+<p style="line-height: 1.8; color: var(--text-light);">사진을 드래그 앤 드롭하거나 클릭하여 찾아보세요. JPG, PNG, WebP가 모두 지원됩니다. 이미지는 브라우저에 유지됩니다 — 어디에도 업로드되지 않습니다. 최상의 결과를 위해 고해상도 이미지를 사용하여 각 조각이 인스타그램에 게시할 때 좋은 품질을 유지하도록 하세요.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">3. 조정 및 다운로드</h3>
+<p style="line-height: 1.8; color: var(--text-light);">조각 수(캐러셀) 또는 그리드 레이아웃(그리드)을 설정한 다음 캔버스에서 자르기 영역을 드래그하여 주제를 프레임하세요. <strong>ZIP 다운로드</strong>를 클릭하여 모든 조각을 하나의 아카이브로 가져오세요. 각 파일은 순차적으로 명명되므로 정확한 게시 순서를 알 수 있습니다.</p>
+</div>
+</div>
+</section>
+
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">인스타그램 이미지 분할 팁</h2>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">올바른 화면 비율 선택</h3>
+<p style="line-height: 1.8; color: var(--text-light);">인스타그램 캐러셀은 4:5 세로 이미지와 가장 잘 작동합니다 — 피드에서 더 많은 세로 공간을 차지하고 더 높은 참여도를 유도합니다. 정사각형 1:1은 클래식 형식이며 보편적으로 작동합니다. 그리드 퍼즐의 경우 각 타일이 단독으로 인식될 수 있을 만큼 충분한 시각적 콘텐츠를 갖도록 3:1 또는 4:3 원본 이미지를 사용하세요.</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">프로필 그리드 퍼즐 최적화</h3>
+<p style="line-height: 1.8; color: var(--text-light);">3x3 그리드 퍼즐은 주체가 여러 타일에 걸쳐 있는 대담하고 대비가 높은 이미지와 가장 잘 작동합니다. 분할될 때 손실되는 세부 정보가 있는 이미지는 피하세요. 프로필에서 시간순으로 볼 때 올바르게 나타나도록 타일을 역순서로(오른쪽 아래부터) 게시하세요. 이 기술을 사용하는 계정은 일관되게 2-3배 더 많은 프로필 방문을 보고합니다.</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">캐러셀 vs 그리드 — 차이점은 무엇인가요?</h3>
+<p style="line-height: 1.8; color: var(--text-light);">캐러셀은 각 조각이 슬라이드인 스와이프 가능한 다중 이미지 게시물을 만듭니다. 순차적 스토리텔링 — 튜토리얼, 단계별 가이드, 제품 갤러리 — 에 이상적입니다. 그리드 퍼즐은 이미지를 가로와 세로로 타일로 분할하여 프로필에서 연결됩니다. 둘 다 강력하지만 목적이 다릅니다. 캐러셀은 내러티브 흐름에 관한 것이고, 그리드 퍼즐은 시각적 임팩트에 관한 것입니다.</p>
+</div>
+</div>
+</section>
+
+<section class="features-section" id="faq">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">자주 묻는 질문</h2>
+<div class="faq-grid">
+<div class="faq-item">
+<h3>이 도구가 이미지를 서버에 업로드하나요?</h3>
+<p>아니요. 모든 것이 HTML5 Canvas API를 사용하여 브라우저에서 실행됩니다. 이미지는 컴퓨터를 떠나지 않습니다. 그래서 페이지가 로드된 후 인터넷 연결을 끊어도 작동합니다.</p>
+</div>
+<div class="faq-item">
+<h3>캐러셀 모드와 그리드 모드의 차이점은 무엇인가요?</h3>
+<p>캐러셀 모드는 이미지를 세로 조각으로 분할하여 인스타그램 캐러셀 게시물의 개별 슬라이드가 됩니다. 그리드 모드는 이미지를 가로와 세로로 모두 분할하여 인스타그램 프로필 그리드 퍼즐(클래식 3x3 레이아웃처럼)을 위한 타일로 만듭니다. 스토리텔링에는 캐러셀을, 프로필의 시각적 임팩트에는 그리드를 선택하세요.</p>
+</div>
+<div class="faq-item">
+<h3>인스타그램 캐러셀에는 어떤 화면 비율을 사용해야 하나요?</h3>
+<p>인스타그램은 캐러셀 게시물에 대해 4:5(세로), 1:1(정사각형), 1.91:1(가로)를 지원합니다. 4:5 비율은 더 많은 세로 화면 공간을 차지하고 일반적으로 더 나은 참여도를 얻기 때문에 권장됩니다. PicEte는 4:5와 1:1 중에서 선택할 수 있습니다 — 이미지 구도에 가장 적합한 것을 선택하세요.</p>
+</div>
+<div class="faq-item">
+<h3>이미지의 어느 부분을 분할할지 제어할 수 있나요?</h3>
+<p>네. 이미지를 로드한 후 캔버스에서 자르기 영역을 드래그하여 분할할 부분을 정확하게 선택할 수 있습니다. 보이는 영역이 경계를 정의합니다 — 해당 영역만 조각으로 분할됩니다. 이를 통해 최종 출력에 대한 완전한 창의적 제어권이 제공됩니다.</p>
+</div>
+<div class="faq-item">
+<h3>만들 수 있는 최대 조각 수는 얼마인가요?</h3>
+<p>캐러셀 모드에서는 2~10개의 조각을 만들 수 있습니다. 그리드 모드에서는 3x1(3개 타일), 3x2(6개 타일), 3x3(9개 타일), 3x4(12개 타일) 중에서 선택할 수 있습니다. 인스타그램에서 최상의 시각적 결과를 위해 3-5개 캐러셀 조각 또는 클래식 3x3 그리드를 고수하세요.</p>
+</div>
+<div class="faq-item">
+<h3>인스타그램이 분할된 이미지를 압축하나요?</h3>
+<p>네 — 인스타그램은 업로드하는 모든 것을 재압축하며, 일반 사진과 같습니다. 품질 손실은 일반적으로 사진의 경우 눈에 띄지 않지만 이미지에 미세한 텍스트나 얇은 선이 있는 경우 PNG 출력이 인스타그램의 압축 파이프라인을 통해 세부 정보를 더 잘 보존합니다.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">자주 묻는 질문</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary class="faq-question">인스타그램 캐러셀 게시물의 최적 화면 비율은 무엇인가요?</summary>
+<p class="faq-answer">인스타그램 캐러셀 게시물의 최적 화면 비율은 4:5(세로) 또는 1:1(정사각형)입니다. 4:5 비율은 더 많은 세로 화면 공간을 차지하고 참여도가 더 높은 반면, 1:1은 클래식 정사각형 형식입니다. PicEte는 두 가지를 모두 지원합니다 — 이미지에 가장 적합한 것을 선택하세요.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">인스타그램 그리드 퍼즐에는 몇 개의 조각을 사용해야 하나요?</summary>
+<p class="faq-answer">클래식 인스타그램 프로필 그리드 퍼즐은 3x3 레이아웃(9개 타일)을 사용합니다. 순서대로 게시하면 프로필에서 타일이 연결되어 하나의 큰 이미지가 나타납니다. 캐러셀 스트립을 위해 3x1, 6개 타일 레이아웃을 위해 3x2, 12개 타일 세로 파노라마를 위해 3x4를 시도할 수도 있습니다.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">이 도구가 이미지를 서버에 업로드하나요?</summary>
+<p class="faq-answer">아니요. 모든 것이 HTML5 Canvas API를 사용하여 브라우저에서 완전히 실행됩니다. 이미지는 장치를 떠나지 않습니다 — 업로드 없음, 서버 없음, 개인정보 우려 없음. 페이지가 로드된 후 인터넷 연결을 끊어도 계속 작동합니다.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">이미지를 분할하면 품질이 저하되나요?</summary>
+<p class="faq-answer">아니요. 각 분할 조각은 원본 해상도에서 원본 이미지의 전체 품질을 유지합니다. 개별 타일 크기는 원본의 일부를 덮기 때문에 더 작지만 픽셀 밀도와 이미지 품질은 원본과 동일하게 유지됩니다.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">분할하기 전에 자르기 영역을 조정할 수 있나요?</summary>
+<p class="faq-answer">네. 이미지를 로드한 후 보이는 영역을 드래그하여 이미지의 어느 부분을 분할할지 조정할 수 있습니다. 자르기 상자는 자유롭게 재배치할 수 있습니다 — 분할은 선택한 영역에만 적용되며 최종 출력에 대한 완전한 제어권을 제공합니다.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">모든 분할 조각을 한 번에 다운로드하려면 어떻게 하나요?</summary>
+<p class="faq-answer">'ZIP 다운로드' 버튼을 클릭하여 모든 조각을 단일 ZIP 파일로 저장하세요. 각 조각은 순차적으로 명명되므로(slice-1.png, slice-2.png 등) 인스타그램에 게시할 때 정확한 순서를 알 수 있습니다. 모바일 장치에서 개별 조각을 다운로드할 수도 있습니다.</p>
+</details>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>더 많은 도구</h4>
+<ul>
+<li><a href="../png-to-jpg/">PNG을 JPG로 변환</a></li>
+<li><a href="../jpg-to-png/">JPG를 PNG로 변환</a></li>
+<li><a href="../webp-to-png/">WebP를 PNG로 변환</a></li>
+<li><a href="../png-to-webp/">PNG을 WebP로 변환</a></li>
+<li><a href="../jpg-to-webp/">JPG를 WebP로 변환</a></li>
+<li><a href="../resize-image/">이미지 리사이저</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>이미지 편집</h4>
+<ul>
+<li><a href="../compress-image/">이미지 압축기</a></li>
+<li><a href="../extract-colors/">색상 팔레트 추출기</a></li>
+<li><a href="../image-to-base64/">이미지를 Base64로 변환</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>정보</h4>
+<ul>
+<li><a href="../">홈으로 돌아가기</a></li>
+<li><a href="/privacy-policy.html">개인정보 처리방침</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>더 많은 도구</h4>
+<ul>
+<li><a href="https://mockupshot.online/">MockupShot - 스크린샷 목업</a></li>
+<li><a href="https://ilovepalette.com/">ILovePalette - 색상 도구</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 PicEte. 모든 권리 보유.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const storedTheme = localStorage.getItem('theme') || 'light';
+        if (storedTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+        });
+    </script>
+<script src="../assets/js/tools/instagram-splitter.js"></script>
+</body>
+</html>
