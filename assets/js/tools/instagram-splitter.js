@@ -733,19 +733,238 @@ const IGSplitter = (function () {
   }
 
   /**
-   * exportZip()
-   * Placeholder — log to console.
+   * Get the list of slice bounding boxes (in display coordinates).
+   * Each slice: { x, y, w, h }
    */
-  function exportZip () {
-    console.log('exportZip() — not yet implemented');
+  function getSlices () {
+    const c = state.cropper;
+    const slices = [];
+
+    if (state.mode === 'carousel') {
+      const n = state.slices;
+      const sliceH = c.h / n;
+      for (let i = 0; i < n; i++) {
+        slices.push({
+          x: c.x,
+          y: c.y + sliceH * i,
+          w: c.w,
+          h: sliceH
+        });
+      }
+    } else {
+      // Grid mode
+      const layout = parseGridLayout(state.gridLayout);
+      const cols = layout.cols;
+      const rows = layout.rows;
+      const cellW = c.w / cols;
+      const cellH = c.h / rows;
+      for (let r = 0; r < rows; r++) {
+        for (let col = 0; col < cols; col++) {
+          slices.push({
+            x: c.x + cellW * col,
+            y: c.y + cellH * r,
+            w: cellW,
+            h: cellH
+          });
+        }
+      }
+    }
+
+    return slices;
+  }
+
+  /**
+   * Crop a single slice from the original image at full resolution.
+   * Returns a data URL ('image/jpeg', 0.92).
+   */
+  function cropSliceToDataURL (slice) {
+    const img = state.image;
+    const cropScaleX = state.cropScaleX;
+    const cropScaleY = state.cropScaleY;
+
+    // Map display coordinates → original image coordinates
+    const dispW = state.displayWidth;
+    const dispH = state.displayHeight;
+    const origW = state.originalWidth;
+    const origH = state.originalHeight;
+
+    // slice coordinates in display space
+    const sx = Math.max(0, slice.x);
+    const sy = Math.max(0, slice.y);
+    const sw = Math.min(slice.w, dispW - sx);
+    const sh = Math.min(slice.h, dispH - sy);
+
+    // Scale to original image coordinates
+    const scaleX = origW / dispW;
+    const scaleY = origH / dispH;
+    const ox = Math.round(sx * scaleX);
+    const oy = Math.round(sy * scaleY);
+    const ow = Math.round(sw * scaleX);
+    const oh = Math.round(sh * scaleY);
+
+    // Also apply cropScale (for downsampled images)
+    const finalX = Math.round(ox * cropScaleX);
+    const finalY = Math.round(oy * cropScaleY);
+    const finalW = Math.round(ow * cropScaleX);
+    const finalH = Math.round(oh * cropScaleY);
+
+    // Create off-screen canvas
+    const offCanvas = document.createElement('canvas');
+    offCanvas.width = finalW;
+    offCanvas.height = finalH;
+    const offCtx = offCanvas.getContext('2d');
+
+    // Fill with white background (JPEG compatible)
+    offCtx.fillStyle = '#ffffff';
+    offCtx.fillRect(0, 0, finalW, finalH);
+
+    // Draw the cropped region
+    offCtx.drawImage(img, finalX, finalY, finalW, finalH,
+                     0, 0, finalW, finalH);
+
+    return offCanvas.toDataURL('image/jpeg', 0.92);
+  }
+
+  /**
+   * exportZip()
+   * Generate a ZIP archive with all slices and trigger download.
+   */
+  async function exportZip () {
+    // 1. Check JSZip
+    if (typeof JSZip === 'undefined') {
+      alert('JSZip library not loaded. Please check your internet connection and reload the page.');
+      return;
+    }
+
+    // 2. Check image
+    if (!state.image) {
+      alert('Please upload an image first');
+      return;
+    }
+
+    // 3. Get the download button
+    const btn = document.querySelector('.btn-download');
+    const originalText = btn ? btn.textContent : 'Download ZIP';
+
+    // 4. Show loading state
+    if (btn) {
+      btn.textContent = 'Packaging...';
+      btn.disabled = true;
+    }
+
+    try {
+      // 5. Get slices
+      const slices = getSlices();
+      const prefix = state.mode === 'carousel' ? 'picete-carousel' : 'picete-grid';
+
+      // 6. Build ZIP
+      const zip = new JSZip();
+
+      for (let i = 0; i < slices.length; i++) {
+        const dataURL = cropSliceToDataURL(slices[i]);
+        // Convert data URL to blob
+        const byteString = atob(dataURL.split(',')[1]);
+        const mimeString = dataURL.split(',')[0].split(':')[1].split(';')[0];
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        for (let j = 0; j < byteString.length; j++) {
+          ia[j] = byteString.charCodeAt(j);
+        }
+        const blob = new Blob([ab], { type: mimeString });
+        zip.file(prefix + '-' + (i + 1) + '.jpg', blob);
+      }
+
+      // 7. Generate ZIP and trigger download
+      const blob = await zip.generateAsync({ type: 'blob' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'picete-instagram-splitter.zip';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      // 8. Mobile detection — show individual save view
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        document.getElementById('mobileHint').style.display = 'block';
+        exportIndividual();
+      }
+    } catch (err) {
+      console.error('ZIP export failed:', err);
+      alert('Export failed: ' + err.message);
+    } finally {
+      // 9. Restore button state
+      if (btn) {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    }
   }
 
   /**
    * exportIndividual()
-   * Placeholder — log to console.
+   * Generate individual slice images for mobile download.
    */
   function exportIndividual () {
-    console.log('exportIndividual() — not yet implemented');
+    if (!state.image) return;
+
+    const container = document.getElementById('individualSave');
+    if (!container) return;
+
+    const slices = getSlices();
+    const prefix = state.mode === 'carousel' ? 'picete-carousel' : 'picete-grid';
+
+    // Clear previous
+    container.innerHTML = '';
+
+    // Show container
+    container.style.display = 'block';
+
+    // Add title
+    const title = document.createElement('p');
+    title.textContent = 'Save each slice individually:';
+    title.style.cssText = 'font-weight: 600; margin-bottom: 0.75rem; color: var(--text-color);';
+    container.appendChild(title);
+
+    // Create grid of slice previews
+    const grid = document.createElement('div');
+    grid.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 0.75rem;';
+    container.appendChild(grid);
+
+    for (let i = 0; i < slices.length; i++) {
+      const dataURL = cropSliceToDataURL(slices[i]);
+
+      // Card
+      const card = document.createElement('div');
+      card.style.cssText = 'background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; align-items: center;';
+
+      // Image preview
+      const img = document.createElement('img');
+      img.src = dataURL;
+      img.alt = prefix + '-' + (i + 1);
+      img.style.cssText = 'width: 100%; height: auto; display: block;';
+
+      // Label
+      const label = document.createElement('span');
+      label.textContent = prefix + '-' + (i + 1);
+      label.style.cssText = 'font-size: 0.75rem; padding: 0.25rem 0.5rem; color: var(--text-light); text-align: center;';
+
+      // Download button
+      const downloadBtn = document.createElement('a');
+      downloadBtn.href = dataURL;
+      downloadBtn.download = prefix + '-' + (i + 1) + '.jpg';
+      downloadBtn.textContent = 'Save';
+      downloadBtn.style.cssText = 'display: block; width: 100%; padding: 0.5rem; background: var(--primary-color, #2563eb); color: #fff; text-align: center; text-decoration: none; font-size: 0.8125rem; font-weight: 500; border: none; cursor: pointer;';
+      downloadBtn.onclick = function (e) {
+        // No special handling needed — anchor download works on mobile
+      };
+
+      card.appendChild(img);
+      card.appendChild(label);
+      card.appendChild(downloadBtn);
+      grid.appendChild(card);
+    }
   }
 
   /* ======================================================
