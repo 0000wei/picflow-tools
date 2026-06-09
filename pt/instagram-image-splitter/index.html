@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Divisor de Imagens Instagram Gratuito & Cortador de Panoramas | PicEte</title>
+<!-- Google Analytics -->
+<script async="" src="/js/gtag.js"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+<script src="/js/vips-loader.js"></script>
+<meta content="Divida imagens para carrossel do Instagram ou grade de perfil online gratuitamente. Cortador de panoramas, criador de grade 3x3, cortador de carrossel 4:5. 100% gratuito, funciona no navegador." name="description"/>
+<meta content="divisor de imagens instagram, cortador de panorama, criador de grade instagram, cortador de carrossel, cortador de fotos, divisor de imagens online" name="keywords"/>
+<link href="https://picete.com/pt/instagram-image-splitter/" rel="canonical"/>
+<!-- hreflang 标签 -->
+<link href="https://picete.com/instagram-image-splitter/" hreflang="en" rel="alternate"/>
+<link href="https://picete.com/zh/instagram-image-splitter/" hreflang="zh" rel="alternate"/>
+<link href="https://picete.com/ja/instagram-image-splitter/" hreflang="ja" rel="alternate"/>
+<link href="https://picete.com/ko/instagram-image-splitter/" hreflang="ko" rel="alternate"/>
+<link href="https://picete.com/de/instagram-image-splitter/" hreflang="de" rel="alternate"/>
+<link href="https://picete.com/fr/instagram-image-splitter/" hreflang="fr" rel="alternate"/>
+<link href="https://picete.com/es/instagram-image-splitter/" hreflang="es" rel="alternate"/>
+<link href="https://picete.com/pt/instagram-image-splitter/" hreflang="pt" rel="alternate"/>
+<link href="https://picete.com/ar/instagram-image-splitter/" hreflang="ar" rel="alternate"/>
+<link href="https://picete.com/instagram-image-splitter/" hreflang="x-default" rel="alternate"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="https://picete.com/pt/instagram-image-splitter/" property="og:url"/>
+<meta content="Divisor de Imagens Instagram Gratuito & Cortador de Panoramas | PicEte" property="og:title"/>
+<meta content="Divida imagens para carrossel do Instagram ou grade de perfil online gratuitamente. Cortador de panoramas, criador de grade 3x3, cortador de carrossel 4:5. 100% gratuito, funciona no navegador." property="og:description"/>
+<meta content="https://picete.com/images/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<!-- Schema.org -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Divisor de Imagens Instagram",
+        "description": "Divida imagens para carrossel do Instagram ou grade de perfil online gratuitamente. Cortador de panoramas, criador de grade 3x3, cortador de carrossel 4:5.",
+        "url": "https://picete.com/pt/instagram-image-splitter",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Início",
+            "item": "https://picete.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Divisor de Imagens Instagram",
+            "item": "https://picete.com/pt/instagram-image-splitter/"
+        }]
+    }
+    </script>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../css/style.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Qual é a melhor proporção para posts de carrossel do Instagram?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A melhor proporção para posts de carrossel do Instagram é 4:5 (retrato) ou 1:1 (quadrado). A proporção 4:5 ocupa mais espaço vertical na tela e tem melhor desempenho em engajamento, enquanto 1:1 é o formato quadrado clássico. PicEte suporta ambos — escolha o que melhor se adapta à sua imagem."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Quantas fatias devo usar para um quebra-cabeça de grade do Instagram?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O quebra-cabeça clássico de grade de perfil do Instagram usa um layout 3x3 (9 blocos). Quando postado sequencialmente, os blocos se juntam no seu perfil para revelar uma imagem grande. Você também pode tentar 3x1 para uma tira de carrossel, 3x2 para um layout de 6 blocos, ou 3x4 para um panorama vertical de 12 blocos."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Esta ferramenta envia minha imagem para algum servidor?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não. Tudo funciona inteiramente no seu navegador usando a API Canvas do HTML5. Sua imagem nunca sai do seu dispositivo — sem uploads, sem servidores, sem preocupações com privacidade. Você pode até desconectar da internet depois que a página carregar e ainda funcionará."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Dividir uma imagem reduz sua qualidade?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não. Cada fatia dividida retém a qualidade completa da imagem original em sua resolução nativa. As dimensões individuais dos blocos são menores pois cobrem uma parte da original, mas a densidade de pixels e a qualidade da imagem permanecem idênticas à fonte."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Posso ajustar a área de corte antes de dividir?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. Depois de carregar uma imagem, você pode arrastar a área visível para ajustar qual parte da imagem será dividida. A caixa de corte pode ser reposicionada livremente — a divisão se aplica apenas à região selecionada, dando controle total sobre a saída final."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Como faço para baixar todas as fatias de uma vez?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Clique no botão 'Baixar ZIP' para salvar cada fatia em um único arquivo ZIP. Cada peça é nomeada sequencialmente (ex: fatia-1.png, fatia-2.png) para que você saiba a ordem exata ao postar no Instagram. Você também pode baixar peças individuais em dispositivos móveis."
+            }
+        }
+    ]
+}
+    </script>
+<style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+
+        /* Instagram Splitter specific styles */
+        :root {
+            --splitter-bg: var(--bg-primary, #ffffff);
+            --splitter-border: var(--border-color, #e5e7eb);
+            --splitter-text: var(--text-color, #1f2937);
+            --splitter-text-light: var(--text-light, #6b7280);
+            --splitter-primary: var(--primary-color, #2563eb);
+            --splitter-primary-hover: var(--primary-hover, #1d4ed8);
+            --splitter-bg-secondary: var(--bg-secondary, #f3f4f6);
+            --splitter-canvas-bg: #1a1a2e;
+            --splitter-overlay: rgba(0,0,0,0.55);
+        }
+
+        .ig-splitter-layout {
+            display: flex;
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+
+        .ig-control-panel {
+            flex: 0 0 320px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .ig-workbench {
+            flex: 1;
+            min-height: 500px;
+            background: var(--splitter-canvas-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--splitter-border);
+        }
+
+        .ig-control-card {
+            background: var(--splitter-bg);
+            border: 1px solid var(--splitter-border);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+        }
+
+        .ig-control-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 0 0 0.75rem 0;
+            color: var(--splitter-text);
+        }
+
+        .mode-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .mode-btn {
+            flex: 1;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--splitter-border);
+            border-radius: 8px;
+            background: var(--splitter-bg);
+            color: var(--splitter-text);
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .mode-btn:hover {
+            border-color: var(--splitter-primary);
+        }
+        .mode-btn.active {
+            background: var(--splitter-primary);
+            color: #fff;
+            border-color: var(--splitter-primary);
+        }
+
+        .ratio-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .ratio-btn {
+            flex: 1;
+            padding: 0.375rem 0.75rem;
+            border: 1px solid var(--splitter-border);
+            border-radius: 6px;
+            background: var(--splitter-bg);
+            color: var(--splitter-text);
+            cursor: pointer;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .ratio-btn:hover {
+            border-color: var(--splitter-primary);
+        }
+        .ratio-btn.active {
+            background: var(--splitter-primary);
+            color: #fff;
+            border-color: var(--splitter-primary);
+        }
+
+        .ig-control-panel label {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            margin-bottom: 0.375rem;
+            color: var(--splitter-text);
+        }
+
+        .ig-control-panel input[type="range"] {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: var(--splitter-border);
+            border-radius: 3px;
+            outline: none;
+            margin: 0.5rem 0;
+        }
+        .ig-control-panel input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--splitter-primary);
+            cursor: pointer;
+            border: 2px solid #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .ig-control-panel input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--splitter-primary);
+            cursor: pointer;
+            border: 2px solid #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .ig-control-panel select {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--splitter-border);
+            border-radius: 6px;
+            background: var(--splitter-bg);
+            color: var(--splitter-text);
+            font-size: 0.875rem;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .ig-control-panel select:hover {
+            border-color: var(--splitter-primary);
+        }
+        .ig-control-panel select:focus {
+            border-color: var(--splitter-primary);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+
+        .slice-count-display {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--splitter-primary);
+            margin-left: 0.5rem;
+        }
+
+        .ig-action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .ig-action-buttons button {
+            width: 100%;
+            padding: 0.625rem 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-download {
+            background: var(--splitter-primary);
+            color: #fff;
+        }
+        .btn-download:hover {
+            background: var(--splitter-primary-hover);
+        }
+
+        .btn-reset {
+            background: var(--splitter-bg-secondary);
+            color: var(--splitter-text);
+            border: 1px solid var(--splitter-border) !important;
+        }
+        .btn-reset:hover {
+            border-color: var(--splitter-primary);
+        }
+
+        #uploadArea {
+            border: 2px dashed var(--splitter-border);
+            border-radius: 10px;
+            padding: 2rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        #uploadArea:hover,
+        #uploadArea.dragover {
+            border-color: var(--splitter-primary);
+            background: var(--splitter-bg-secondary);
+        }
+        #uploadArea .upload-icon {
+            width: 40px;
+            height: 40px;
+            color: var(--splitter-text-light);
+            margin-bottom: 0.5rem;
+        }
+        #uploadArea .upload-text {
+            font-weight: 500;
+            color: var(--splitter-text);
+            margin: 0;
+        }
+        #uploadArea .upload-subtext {
+            font-size: 0.8125rem;
+            color: var(--splitter-text-light);
+            margin: 0.25rem 0 0.75rem 0;
+        }
+
+        #workspaceEmpty {
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            padding: 2rem;
+        }
+        #workspaceEmpty .empty-icon {
+            width: 56px;
+            height: 56px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+        #workspaceEmpty p {
+            margin: 0.25rem 0;
+            font-size: 0.9375rem;
+        }
+
+        #editorCanvas {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #downsampleNotice {
+            display: none;
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.8125rem;
+            color: #856404;
+        }
+
+        #mobileHint {
+            display: none;
+            background: var(--splitter-bg-secondary);
+            border: 1px solid var(--splitter-border);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.8125rem;
+            color: var(--splitter-text-light);
+            text-align: center;
+        }
+
+        #individualSave {
+            display: none;
+        }
+
+        #gridControls,
+        #carouselControls {
+            display: none;
+        }
+        #carouselControls.active,
+        #gridControls.active {
+            display: block;
+        }
+
+        /* Split line visual on canvas overlay */
+        .split-line-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .ig-splitter-layout {
+                flex-direction: column;
+            }
+            .ig-control-panel {
+                flex: none;
+                width: 100%;
+            }
+            .ig-workbench {
+                min-height: 350px;
+                width: 100%;
+            }
+            #individualSave {
+                display: block;
+            }
+            #mobileHint {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+<div class="container">
+<div class="logo">
+<a href="../">
+<img alt="PicEte" class="logo-img" src="../images/picete-logo.svg" width="116" height="32"/>
+</a>
+<p class="tagline">Divisor de Imagens Instagram</p>
+</div>
+<nav class="nav">
+<a class="nav-link" href="../">Início</a>
+<a class="nav-link" href="../#tools">Mais Ferramentas</a>
+<!-- Language Switcher -->
+<style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+<div class="lang-switcher">
+<select aria-label="Mudar idioma" onchange="switchLanguage(this.value)">
+<option value="en">English</option>
+<option value="zh">中文</option>
+<option value="ja">日本語</option>
+<option value="ko">한국어</option>
+<option value="de">Deutsch</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option selected="" value="pt">Português</option>
+<option value="ar">العربية</option>
+</select>
+</div>
+<script>
+    function switchLanguage(code) {
+        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "ko": "/ko/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ar": "/ar/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|ko|de|fr|es|pt|ar)(?:\/|$)/, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+<button aria-label="Alternar tema" class="theme-toggle" id="themeToggle">
+<span class="sun-icon">☀️</span>
+<span class="moon-icon">🌙</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="main">
+<section class="hero">
+<div class="container">
+<div class="breadcrumb"><a href="https://picete.com/">Início</a><span class="separator">›</span><span class="current">Divisor de Imagens Instagram</span></div>
+<h1 class="hero-title">Divisor de Imagens Instagram Gratuito & Cortador de Panoramas</h1>
+<p class="hero-subtitle">Divida qualquer imagem em fatias perfeitas de carrossel do Instagram ou blocos de grade de perfil. Escolha entre carrossel (4:5 ou 1:1) ou grade (3x1, 3x2, 3x3, 3x4). Ajuste a área de corte, depois baixe como ZIP. Tudo no seu navegador, nada enviado.</p>
+
+<div class="ig-splitter-layout">
+<!-- Left / Top: Control Panel -->
+<div class="ig-control-panel">
+<!-- Upload Area -->
+<div id="uploadArea">
+<svg class="upload-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="17 8 12 3 7 8"></polyline>
+<line x1="12" x2="12" y1="3" y2="15"></line>
+</svg>
+<p class="upload-text">Solte uma imagem aqui</p>
+<p class="upload-subtext">ou clique para selecionar — JPG, PNG, WebP funcionam</p>
+<input accept="image/*" hidden="" id="fileInput" type="file"/>
+</div>
+
+<!-- Mode Selection -->
+<div class="ig-control-card">
+<h3>Modo de Divisão</h3>
+<div class="mode-group">
+<button class="mode-btn active" data-mode="carousel" onclick="IGSplitter.setMode('carousel')">Carrossel</button>
+<button class="mode-btn" data-mode="grid" onclick="IGSplitter.setMode('grid')">Grade</button>
+</div>
+</div>
+
+<!-- Carousel Controls -->
+<div id="carouselControls" class="active">
+<div class="ig-control-card">
+<h3>Configurações de Carrossel</h3>
+<label for="sliceCount">Número de Fatias</label>
+<div style="display: flex; align-items: center;">
+<input id="sliceCount" max="10" min="2" oninput="IGSplitter.setSlices(this.value)" type="range" value="4"/>
+<span class="slice-count-display" id="sliceCountDisplay">4</span>
+</div>
+<label style="margin-top: 0.75rem; display: block;">Proporção</label>
+<div class="ratio-group">
+<button class="ratio-btn active" data-ratio="4:5" onclick="IGSplitter.setRatio('4:5')">4:5</button>
+<button class="ratio-btn" data-ratio="1:1" onclick="IGSplitter.setRatio('1:1')">1:1</button>
+</div>
+</div>
+</div>
+
+<!-- Grid Controls -->
+<div id="gridControls">
+<div class="ig-control-card">
+<h3>Configurações de Grade</h3>
+<label for="gridLayout">Layout da Grade</label>
+<select id="gridLayout" onchange="IGSplitter.setGrid(this.value)">
+<option value="3x1">3 × 1 (Tira de Carrossel)</option>
+<option value="3x2">3 × 2 (6 blocos)</option>
+<option selected="" value="3x3">3 × 3 (9 blocos)</option>
+<option value="3x4">3 × 4 (12 blocos)</option>
+</select>
+</div>
+</div>
+
+<!-- Downsample Notice -->
+<div id="downsampleNotice">
+⚠️ A imagem é muito grande. Foi reduzida para edição. A resolução completa será usada nas fatias exportadas.
+</div>
+
+<!-- Action Buttons -->
+<div class="ig-action-buttons">
+<button class="btn-reset" onclick="IGSplitter.resetCrop()">Redefinir Caixa de Corte</button>
+<button class="btn-download" onclick="IGSplitter.exportZip()">Baixar ZIP</button>
+</div>
+
+<!-- Individual Save Area (mobile) -->
+<div id="individualSave"></div>
+
+<!-- Mobile Hint -->
+<div id="mobileHint">
+📱 No celular, você pode baixar cada fatia individualmente abaixo após dividir.
+</div>
+</div>
+
+<!-- Right / Bottom: Workbench -->
+<div class="ig-workbench" id="workbench">
+<canvas id="editorCanvas" style="display: none;"></canvas>
+<div id="workspaceEmpty">
+<svg class="empty-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<rect height="18" rx="2" ry="2" width="20" x="2" y="2"></rect>
+<line x1="12" x2="12" y1="2" y2="22"></line>
+<line x1="2" x2="22" y1="12" y2="12"></line>
+</svg>
+<p>Nenhuma imagem carregada</p>
+<p style="font-size: 0.8125rem;">Carregue uma imagem para começar a dividir</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="container" style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+<a class="btn-primary" href="../" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; font-size: 1.125rem; text-decoration: none;">← Voltar ao Início do PicEte</a>
+</div>
+
+<section class="features-section">
+<div class="container">
+<h2 class="section-title">Por Que Usar um Divisor de Imagens Instagram</h2>
+<div class="features-grid">
+<div class="feature-item">
+<div class="feature-icon">📱</div>
+<h3>Posts de Carrossel do Instagram</h3>
+<p>Divida uma imagem larga ou alta em um carrossel perfeito. Cada deslize revela a próxima fatia. Perfeito para tutoriais, revelações de produtos, comparações antes e depois, e narrativas visuais. Escolha 4:5 retrato para cobertura máxima de tela ou 1:1 para posts quadrados no feed.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🧩</div>
+<h3>Quebra-cabeça de Grade de Perfil</h3>
+<p>Transforme uma única imagem em um quebra-cabeça de grade 3x3. Quando você posta cada bloco separadamente, a imagem completa se junta no seu perfil do Instagram. Essa técnica clássica de engajamento desperta curiosidade e aumenta visitas ao perfil.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🔒</div>
+<h3>100% Privado — Sem Upload</h3>
+<p>Sua imagem nunca sai do seu navegador. Tudo funciona localmente no Canvas. Sem servidores, sem uploads, sem preocupações com privacidade. Desconecte da internet depois de carregar e ainda funcionará.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🎯</div>
+<h3>Área de Corte Ajustável</h3>
+<p>Arraste a região visível na tela para escolher exatamente qual parte da imagem será dividida. A caixa de corte permite enquadrar a composição perfeita antes de gerar suas fatias.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="features-section" style="padding-top: 0;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">Como Dividir uma Imagem para Instagram</h2>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">1. Escolha Seu Modo de Divisão</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Selecione o modo <strong>Carrossel</strong> se quiser criar um post multipáginas deslizável. Cada fatia torna-se um slide separado no carrossel. Selecione o modo <strong>Grade</strong> se quiser transformar a imagem em um quebra-cabeça para a grade do seu perfil do Instagram. O modo determina como a imagem será dividida e quais configurações estarão disponíveis.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">2. Carregue Sua Imagem</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Arraste e solte uma foto ou clique para navegar. JPG, PNG e WebP são todos suportados. A imagem permanece no seu navegador — nada é enviado para lugar nenhum. Para melhores resultados, use uma imagem de alta resolução para que cada fatia mantenha boa qualidade ao ser postada no Instagram.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">3. Ajuste e Baixe</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Defina o número de fatias (carrossel) ou layout da grade (grade), depois arraste a área de corte na tela para enquadrar seu assunto. Clique em <strong>Baixar ZIP</strong> para obter todas as fatias em um único arquivo. Cada arquivo é nomeado sequencialmente para que você saiba a ordem exata de postagem.</p>
+</div>
+</div>
+</section>
+
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">Dicas para Divisão de Imagens Instagram</h2>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Escolha a Proporção Correta</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Carrosséis do Instagram têm melhor desempenho com imagens retrato 4:5 — elas ocupam mais espaço vertical no feed e geram maior engajamento. Quadrado 1:1 é o formato clássico e funciona universalmente. Para quebra-cabeças de grade, use uma imagem original 3:1 ou 4:3 para que cada bloco tenha conteúdo visual suficiente para ser reconhecido individualmente.</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Otimize para o Quebra-cabeça de Grade</h3>
+<p style="line-height: 1.8; color: var(--text-light);">O quebra-cabeça de grade 3x3 funciona melhor com imagens ousadas e de alto contraste onde o assunto se estende por vários blocos. Evite imagens com detalhes finos que se perdem ao dividir. Poste os blocos em ordem reversa (começando pelo inferior direito) para que apareçam corretamente quando visualizados cronologicamente no seu perfil. Contas que usam essa técnica relatam consistentemente 2-3x mais visitas ao perfil.</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Carrossel vs Grade — Qual a Diferença?</h3>
+<p style="line-height: 1.8; color: var(--text-light);">Um carrossel cria um post multi-imagem deslizável onde cada fatia é um slide. É ideal para narrativa sequencial — tutoriais, guias passo a passo, ou galerias de produtos. Um quebra-cabeça de grade divide a imagem horizontal e verticalmente em blocos que se juntam no seu perfil. Ambos são poderosos, mas servem propósitos diferentes. Carrossel é sobre fluxo narrativo; quebra-cabeça de grade é sobre impacto visual.</p>
+</div>
+</div>
+</section>
+
+<section class="features-section" id="faq">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">Perguntas Frequentes</h2>
+<div class="faq-grid">
+<div class="faq-item">
+<h3>Esta ferramenta envia minha imagem para um servidor?</h3>
+<p>Não. Tudo funciona no seu navegador usando a API Canvas do HTML5. Sua imagem nunca sai do seu computador. É por isso que funciona mesmo se você desconectar da internet depois que a página carregar.</p>
+</div>
+<div class="faq-item">
+<h3>Qual é a diferença entre o modo Carrossel e Grade?</h3>
+<p>O modo Carrossel divide sua imagem em fatias verticais que se tornam slides individuais em um post de carrossel do Instagram. O modo Grade divide a imagem horizontal e verticalmente em blocos para um quebra-cabeça de grade de perfil do Instagram (como o layout clássico 3x3). Escolha Carrossel para narrativa, Grade para impacto visual no seu perfil.</p>
+</div>
+<div class="faq-item">
+<h3>Que proporção devo usar para carrosséis do Instagram?</h3>
+<p>O Instagram suporta 4:5 (retrato), 1:1 (quadrado) e 1.91:1 (paisagem) para posts de carrossel. A proporção 4:5 é recomendada porque ocupa mais espaço vertical de tela e tende a ter melhor engajamento. PicEte permite escolher entre 4:5 e 1:1 — escolha a que melhor se adapta à composição da sua imagem.</p>
+</div>
+<div class="faq-item">
+<h3>Posso controlar qual parte da imagem será dividida?</h3>
+<p>Sim. Depois de carregar uma imagem, você pode arrastar a área de corte na tela para selecionar exatamente qual parte será dividida. A região visível define os limites — apenas essa área é dividida em fatias. Isso dá controle criativo total sobre a saída final.</p>
+</div>
+<div class="faq-item">
+<h3>Qual é o número máximo de fatias que posso criar?</h3>
+<p>No modo Carrossel, você pode criar de 2 a 10 fatias. No modo Grade, você pode escolher entre 3x1 (3 blocos), 3x2 (6 blocos), 3x3 (9 blocos) ou 3x4 (12 blocos). Para melhores resultados visuais no Instagram, mantenha 3-5 fatias de carrossel ou a grade clássica 3x3.</p>
+</div>
+<div class="faq-item">
+<h3>O Instagram vai comprimir minhas imagens divididas?</h3>
+<p>Sim — o Instagram recomprime tudo que você envia, igual a qualquer foto regular. A perda de qualidade geralmente é imperceptível para fotos, mas se sua imagem tem texto fino ou linhas finas, a saída PNG preserva detalhes melhor através do pipeline de compressão do Instagram.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">Perguntas Frequentes</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary class="faq-question">Qual é a melhor proporção para posts de carrossel do Instagram?</summary>
+<p class="faq-answer">A melhor proporção para posts de carrossel do Instagram é 4:5 (retrato) ou 1:1 (quadrado). A proporção 4:5 ocupa mais espaço vertical na tela e tem melhor desempenho em engajamento, enquanto 1:1 é o formato quadrado clássico. PicEte suporta ambos — escolha o que melhor se adapta à sua imagem.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">Quantas fatias devo usar para um quebra-cabeça de grade do Instagram?</summary>
+<p class="faq-answer">O quebra-cabeça clássico de grade de perfil do Instagram usa um layout 3x3 (9 blocos). Quando postado sequencialmente, os blocos se juntam no seu perfil para revelar uma imagem grande. Você também pode tentar 3x1 para uma tira de carrossel, 3x2 para um layout de 6 blocos, ou 3x4 para um panorama vertical de 12 blocos.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">Esta ferramenta envia minha imagem para algum servidor?</summary>
+<p class="faq-answer">Não. Tudo funciona inteiramente no seu navegador usando a API Canvas do HTML5. Sua imagem nunca sai do seu dispositivo — sem uploads, sem servidores, sem preocupações com privacidade. Você pode até desconectar da internet depois que a página carregar e ainda funcionará.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">Dividir uma imagem reduz sua qualidade?</summary>
+<p class="faq-answer">Não. Cada fatia dividida retém a qualidade completa da imagem original em sua resolução nativa. As dimensões individuais dos blocos são menores pois cobrem uma parte da original, mas a densidade de pixels e a qualidade da imagem permanecem idênticas à fonte.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">Posso ajustar a área de corte antes de dividir?</summary>
+<p class="faq-answer">Sim. Depois de carregar uma imagem, você pode arrastar a área visível para ajustar qual parte da imagem será dividida. A caixa de corte pode ser reposicionada livremente — a divisão se aplica apenas à região selecionada, dando controle total sobre a saída final.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">Como faço para baixar todas as fatias de uma vez?</summary>
+<p class="faq-answer">Clique no botão 'Baixar ZIP' para salvar cada fatia em um único arquivo ZIP. Cada peça é nomeada sequencialmente (ex: fatia-1.png, fatia-2.png) para que você saiba a ordem exata ao postar no Instagram. Você também pode baixar peças individuais em dispositivos móveis.</p>
+</details>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>Mais Ferramentas</h4>
+<ul>
+<li><a href="../png-to-jpg/">PNG para JPG</a></li>
+<li><a href="../jpg-to-png/">JPG para PNG</a></li>
+<li><a href="../webp-to-png/">WebP para PNG</a></li>
+<li><a href="../png-to-webp/">PNG para WebP</a></li>
+<li><a href="../jpg-to-webp/">JPG para WebP</a></li>
+<li><a href="../resize-image/">Redimensionador de Imagem</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Edição de Imagem</h4>
+<ul>
+<li><a href="../compress-image/">Compressor de Imagem</a></li>
+<li><a href="../extract-colors/">Extrator de Paleta de Cores</a></li>
+<li><a href="../image-to-base64/">Imagem para Base64</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Sobre</h4>
+<ul>
+<li><a href="../">Voltar ao Início</a></li>
+<li><a href="/privacy-policy.html">Política de Privacidade</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Mais Ferramentas</h4>
+<ul>
+<li><a href="https://mockupshot.online/">MockupShot - Mockup de Screenshot</a></li>
+<li><a href="https://ilovepalette.com/">ILovePalette - Ferramentas de Cor</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 PicEte. Todos os direitos reservados.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const storedTheme = localStorage.getItem('theme') || 'light';
+        if (storedTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+        });
+    </script>
+<script src="../assets/js/tools/instagram-splitter.js"></script>
+</body>
+</html>
