@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>مقسم صور إنستغرام المجاني وقص البانوراما | PicEte</title>
+<!-- Google Analytics -->
+<script async="" src="/js/gtag.js"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+<script src="/js/vips-loader.js"></script>
+<meta content="قسّم الصور لمشاركة carousel أو شبكة صور الملف الشخصي على إنستغرام مجانًا عبر الإنترنت. قص بانوراما، صانع شبكة 3×3، قص carousel 4:5. 100% مجاني، يعمل في المتصفح." name="description"/>
+<meta content="مقسم صور إنستغرام، قص البانوراما، صانع شبكة إنستغرام، قص carousel، قص الصور، مقسم صور عبر الإنترنت" name="keywords"/>
+<link href="https://picete.com/ar/instagram-image-splitter/" rel="canonical"/>
+<!-- hreflang 标签 -->
+<link href="https://picete.com/instagram-image-splitter/" hreflang="en" rel="alternate"/>
+<link href="https://picete.com/zh/instagram-image-splitter/" hreflang="zh" rel="alternate"/>
+<link href="https://picete.com/ja/instagram-image-splitter/" hreflang="ja" rel="alternate"/>
+<link href="https://picete.com/de/instagram-image-splitter/" hreflang="de" rel="alternate"/>
+<link href="https://picete.com/fr/instagram-image-splitter/" hreflang="fr" rel="alternate"/>
+<link href="https://picete.com/es/instagram-image-splitter/" hreflang="es" rel="alternate"/>
+<link href="https://picete.com/pt/instagram-image-splitter/" hreflang="pt" rel="alternate"/>
+<link href="https://picete.com/ko/instagram-image-splitter/" hreflang="ko" rel="alternate"/>
+<link href="https://picete.com/ar/instagram-image-splitter/" hreflang="ar" rel="alternate"/>
+<link href="https://picete.com/instagram-image-splitter/" hreflang="x-default" rel="alternate"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="https://picete.com/ar/instagram-image-splitter/" property="og:url"/>
+<meta content="مقسم صور إنستغرام المجاني وقص البانوراما | PicEte" property="og:title"/>
+<meta content="قسّم الصور لمشاركة carousel أو شبكة صور الملف الشخصي على إنستغرام مجانًا عبر الإنترنت. قص بانوراما، صانع شبكة 3×3، قص carousel 4:5. 100% مجاني، يعمل في المتصفح." property="og:description"/>
+<meta content="https://picete.com/images/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<!-- Schema.org -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "مقسم صور إنستغرام",
+        "description": "قسّم الصور لمشاركة carousel أو شبكة صور الملف الشخصي على إنستغرام مجانًا عبر الإنترنت. قص بانوراما، صانع شبكة 3×3، قص carousel 4:5.",
+        "url": "https://picete.com/ar/instagram-image-splitter",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "الرئيسية",
+            "item": "https://picete.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "مقسم صور إنستغرام",
+            "item": "https://picete.com/ar/instagram-image-splitter/"
+        }]
+    }
+    </script>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../css/style.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "ما هي أفضل نسبة أبعاد لمشاركات carousel على إنستغرام؟",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "أفضل نسبة أبعاد لمشاركات carousel على إنستغرام هي 4:5 (عمودي) أو 1:1 (مربع). نسبة 4:5 تشغل مساحة عمودية أكبر وتؤدي أداءً أفضل في المشاركة، بينما 1:1 هو التنسيق الكلاسيكي المربع. PicEte يدعم كلاهما — اختر ما يناسب صورتك أفضل."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "كم عدد الأجزاء الذي يجب استخدامه لشبكة صور إنستغرام؟",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "شبكة صور الملف الشخصي الكلاسيكية على إنستغرام تستخدم تخطيط 3×3 (9 مربعات). عند النشر بالتسلسل، تتلاحم المربعات على ملفك الشخصي لتكشف صورة كبيرة واحدة. يمكنك أيضًا تجربة 3×1 لشريط carousel، أو 3×2 لتخطيط 6 مربعات، أو 3×4 لبانوراما عمودية 12 مربعة."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "هل يرفع هذه الأداة صورتي إلى أي خادم؟",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "لا. كل شيء يعمل بالكامل في متصفحك باستخدام HTML5 Canvas API. صورتك لا تغادر جهازك أبدًا — لا رفعات، لا خوادم، لا قلق خصوصية. يمكنك حتى قطع الاتصال بالإنترنت بعد تحميل الصورة وستظل تعمل."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "هل تقليل تقسيم الصورة من جودتها؟",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "لا. كل جزء مقسوم يحتفظ بالجودة الكاملة للصورة الأصلية بدقتها الأصلية. أبعاد المربع الفردي أصغر لأنها تغطي جزءًا من الأصل، لكن كثافة البكسل وجودة الصورة تظل مطابقة للمصدر."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "هل يمكنني تعديل منطقة القص قبل التقسيم؟",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "نعم. بعد تحميل صورة، يمكنك سحب المنطقة المرئية لضبط أي جزء من الصورة يتم تقسيمه. يمكن إعادة تحديد موقع صندوق القص بحرية — التقسيم يطبق فقط على المنطقة المحددة، مما يمنحك تحكمًا كاملاً في المخرج النهائي."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "كيف يمكنني تنزيل جميع الأجزاء المقسومة مرة واحدة؟",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "انقر على زر 'تنزيل ZIP' لحفظ كل شريحة في ملف ZIP واحد. كل جزء يسمى تسلسليًا (مثل slice-1.png، slice-2.png) لذا تعرف الترتيب الدقيق عند النشر على إنستغرام. يمكنك أيضًا تنزيل الأجزاء الفردية على الأجهزة المحمولة."
+            }
+        }
+    ]
+}
+    </script>
+<style>
+        /* FAQ Section */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .faq-item {
+            background: var(--bg-primary, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .faq-question {
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color, #1f2937);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+            color: var(--primary-color, #2563eb);
+            transition: transform 0.2s;
+        }
+        details[open] .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            padding: 0 1.25rem 1rem 1.25rem;
+            line-height: 1.7;
+            color: var(--text-light, #6b7280);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+
+        /* Instagram Splitter specific styles */
+        :root {
+            --splitter-bg: var(--bg-primary, #ffffff);
+            --splitter-border: var(--border-color, #e5e7eb);
+            --splitter-text: var(--text-color, #1f2937);
+            --splitter-text-light: var(--text-light, #6b7280);
+            --splitter-primary: var(--primary-color, #2563eb);
+            --splitter-primary-hover: var(--primary-hover, #1d4ed8);
+            --splitter-bg-secondary: var(--bg-secondary, #f3f4f6);
+            --splitter-canvas-bg: #1a1a2e;
+            --splitter-overlay: rgba(0,0,0,0.55);
+        }
+
+        .ig-splitter-layout {
+            display: flex;
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+
+        .ig-control-panel {
+            flex: 0 0 320px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .ig-workbench {
+            flex: 1;
+            min-height: 500px;
+            background: var(--splitter-canvas-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--splitter-border);
+        }
+
+        .ig-control-card {
+            background: var(--splitter-bg);
+            border: 1px solid var(--splitter-border);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+        }
+
+        .ig-control-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 0 0 0.75rem 0;
+            color: var(--splitter-text);
+        }
+
+        .mode-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .mode-btn {
+            flex: 1;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--splitter-border);
+            border-radius: 8px;
+            background: var(--splitter-bg);
+            color: var(--splitter-text);
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .mode-btn:hover {
+            border-color: var(--splitter-primary);
+        }
+        .mode-btn.active {
+            background: var(--splitter-primary);
+            color: #fff;
+            border-color: var(--splitter-primary);
+        }
+
+        .ratio-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .ratio-btn {
+            flex: 1;
+            padding: 0.375rem 0.75rem;
+            border: 1px solid var(--splitter-border);
+            border-radius: 6px;
+            background: var(--splitter-bg);
+            color: var(--splitter-text);
+            cursor: pointer;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .ratio-btn:hover {
+            border-color: var(--splitter-primary);
+        }
+        .ratio-btn.active {
+            background: var(--splitter-primary);
+            color: #fff;
+            border-color: var(--splitter-primary);
+        }
+
+        .ig-control-panel label {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            margin-bottom: 0.375rem;
+            color: var(--splitter-text);
+        }
+
+        .ig-control-panel input[type="range"] {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: var(--splitter-border);
+            border-radius: 3px;
+            outline: none;
+            margin: 0.5rem 0;
+        }
+        .ig-control-panel input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--splitter-primary);
+            cursor: pointer;
+            border: 2px solid #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .ig-control-panel input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--splitter-primary);
+            cursor: pointer;
+            border: 2px solid #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .ig-control-panel select {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--splitter-border);
+            border-radius: 6px;
+            background: var(--splitter-bg);
+            color: var(--splitter-text);
+            font-size: 0.875rem;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .ig-control-panel select:hover {
+            border-color: var(--splitter-primary);
+        }
+        .ig-control-panel select:focus {
+            border-color: var(--splitter-primary);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+
+        .slice-count-display {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--splitter-primary);
+            margin-right: 0.5rem;
+        }
+
+        .ig-action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .ig-action-buttons button {
+            width: 100%;
+            padding: 0.625rem 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-download {
+            background: var(--splitter-primary);
+            color: #fff;
+        }
+        .btn-download:hover {
+            background: var(--splitter-primary-hover);
+        }
+
+        .btn-reset {
+            background: var(--splitter-bg-secondary);
+            color: var(--splitter-text);
+            border: 1px solid var(--splitter-border) !important;
+        }
+        .btn-reset:hover {
+            border-color: var(--splitter-primary);
+        }
+
+        #uploadArea {
+            border: 2px dashed var(--splitter-border);
+            border-radius: 10px;
+            padding: 2rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        #uploadArea:hover,
+        #uploadArea.dragover {
+            border-color: var(--splitter-primary);
+            background: var(--splitter-bg-secondary);
+        }
+        #uploadArea .upload-icon {
+            width: 40px;
+            height: 40px;
+            color: var(--splitter-text-light);
+            margin-bottom: 0.5rem;
+        }
+        #uploadArea .upload-text {
+            font-weight: 500;
+            color: var(--splitter-text);
+            margin: 0;
+        }
+        #uploadArea .upload-subtext {
+            font-size: 0.8125rem;
+            color: var(--splitter-text-light);
+            margin: 0.25rem 0 0.75rem 0;
+        }
+
+        #workspaceEmpty {
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            padding: 2rem;
+        }
+        #workspaceEmpty .empty-icon {
+            width: 56px;
+            height: 56px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+        #workspaceEmpty p {
+            margin: 0.25rem 0;
+            font-size: 0.9375rem;
+        }
+
+        #editorCanvas {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #downsampleNotice {
+            display: none;
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.8125rem;
+            color: #856404;
+        }
+
+        #mobileHint {
+            display: none;
+            background: var(--splitter-bg-secondary);
+            border: 1px solid var(--splitter-border);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.8125rem;
+            color: var(--splitter-text-light);
+            text-align: center;
+        }
+
+        #individualSave {
+            display: none;
+        }
+
+        #gridControls,
+        #carouselControls {
+            display: none;
+        }
+        #carouselControls.active,
+        #gridControls.active {
+            display: block;
+        }
+
+        /* Split line visual on canvas overlay */
+        .split-line-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .ig-splitter-layout {
+                flex-direction: column;
+            }
+            .ig-control-panel {
+                flex: none;
+                width: 100%;
+            }
+            .ig-workbench {
+                min-height: 350px;
+                width: 100%;
+            }
+            #individualSave {
+                display: block;
+            }
+            #mobileHint {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+<div class="container">
+<div class="logo">
+<a href="../">
+<img alt="PicEte" class="logo-img" src="../images/picete-logo.svg" width="116" height="32"/>
+</a>
+<p class="tagline">مقسم صور إنستغرام</p>
+</div>
+<nav class="nav">
+<a class="nav-link" href="../">الرئيسية</a>
+<a class="nav-link" href="../#tools">المزيد من الأدوات</a>
+<!-- Language Switcher -->
+<style>
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+                .lang-switcher select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 6px;
+            padding: 0.375rem 2rem 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-color, #374151);
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 12px;
+            min-width: 120px;
+        }
+        [data-theme="dark"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+        .lang-switcher select:hover {
+            border-color: var(--primary-color, #2563eb);
+        }
+        .lang-switcher select:focus-visible {
+            border-color: var(--primary-color, #2563eb);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+        /* RTL support for Arabic */
+        [dir="rtl"] .lang-switcher select {
+            background-position: left 0.5rem center;
+            padding: 0.375rem 0.75rem 0.375rem 2rem;
+        }
+        [data-theme="dark"] [dir="rtl"] .lang-switcher select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            }
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color, #e5e7eb);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            line-height: 1;
+            font-size: 1.125rem;
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-secondary, #f3f4f6);
+            border-color: var(--primary-color, #6366F1);
+        }
+        .sun-icon { display: inline; }
+        .moon-icon { display: none; }
+        [data-theme="dark"] .sun-icon { display: none; }
+        [data-theme="dark"] .moon-icon { display: inline; }
+    </style>
+<div class="lang-switcher">
+<select aria-label="تغيير اللغة" onchange="switchLanguage(this.value)">
+<option value="en">English</option>
+<option value="zh">中文</option>
+<option value="ja">日本語</option>
+<option value="de">Deutsch</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="pt">Português</option>
+<option value="ko">한국어</option>
+<option selected="" value="ar">العربية</option>
+</select>
+</div>
+<script>
+    function switchLanguage(code) {
+        var paths = {"en": "/", "zh": "/zh/", "ja": "/ja/", "de": "/de/", "fr": "/fr/", "es": "/es/", "pt": "/pt/", "ko": "/ko/", "ar": "/ar/"};
+        // Get current page path from URL
+        var path = window.location.pathname;
+
+        // Remove language prefix if present
+        var cleanPath = path.replace(/^\/(zh|ja|de|fr|es|pt|ko|ar)(?:\/|$)/, '/');
+        if (!cleanPath.startsWith('/')) cleanPath = '/' + cleanPath;
+
+        // Build target URL
+        var baseUrl = paths[code];
+        var targetPath = cleanPath;
+
+        // For homepage (index.html or trailing slash)
+        if (targetPath === '/' || targetPath === '/index.html') {
+            window.location.href = baseUrl;
+        } else {
+            // Remove leading slash before appending to base URL
+            window.location.href = baseUrl.replace(/\/$/, '') + targetPath;
+        }
+    }
+    </script>
+<button aria-label="تغيير المظهر" class="theme-toggle" id="themeToggle">
+<span class="sun-icon">☀️</span>
+<span class="moon-icon">🌙</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="main">
+<section class="hero">
+<div class="container">
+<div class="breadcrumb"><a href="https://picete.com/">الرئيسية</a><span class="separator">›</span><span class="current">مقسم صور إنستغرام</span></div>
+<h1 class="hero-title">مقسم صور إنستغرام المجاني وقص البانوراما</h1>
+<p class="hero-subtitle">قسّم أي صورة إلى شرائح carousel مثالية أو مربعات شبكة صور الملف الشخصي. اختر من carousel (4:5 أو 1:1) أو الشبكة (3×1، 3×2، 3×3، 3×4). اضبط منطقة القص، ثم نزّل كـ ZIP. كل شيء في متصفحك، لا يتم رفع شيء.</p>
+
+<div class="ig-splitter-layout">
+<!-- Left / Top: Control Panel -->
+<div class="ig-control-panel">
+<!-- Upload Area -->
+<div id="uploadArea">
+<svg class="upload-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="17 8 12 3 7 8"></polyline>
+<line x1="12" x2="12" y1="3" y2="15"></line>
+</svg>
+<p class="upload-text">اسحب وأفلت صورة هنا</p>
+<p class="upload-subtext">أو انقر للاختيار — JPG، PNG، WebP كلها مدعومة</p>
+<input accept="image/*" hidden="" id="fileInput" type="file"/>
+</div>
+
+<!-- Mode Selection -->
+<div class="ig-control-card">
+<h3>وضع التقسيم</h3>
+<div class="mode-group">
+<button class="mode-btn active" data-mode="carousel" onclick="IGSplitter.setMode('carousel')">Carousel</button>
+<button class="mode-btn" data-mode="grid" onclick="IGSplitter.setMode('grid')">الشبكة</button>
+</div>
+</div>
+
+<!-- Carousel Controls -->
+<div id="carouselControls" class="active">
+<div class="ig-control-card">
+<h3>إعدادات Carousel</h3>
+<label for="sliceCount">عدد الشرائح</label>
+<div style="display: flex; align-items: center;">
+<input id="sliceCount" max="10" min="2" oninput="IGSplitter.setSlices(this.value)" type="range" value="4"/>
+<span class="slice-count-display" id="sliceCountDisplay">4</span>
+</div>
+<label style="margin-top: 0.75rem; display: block;">نسبة الأبعاد</label>
+<div class="ratio-group">
+<button class="ratio-btn active" data-ratio="4:5" onclick="IGSplitter.setRatio('4:5')">4:5</button>
+<button class="ratio-btn" data-ratio="1:1" onclick="IGSplitter.setRatio('1:1')">1:1</button>
+</div>
+</div>
+</div>
+
+<!-- Grid Controls -->
+<div id="gridControls">
+<div class="ig-control-card">
+<h3>إعدادات الشبكة</h3>
+<label for="gridLayout">تخطيط الشبكة</label>
+<select id="gridLayout" onchange="IGSplitter.setGrid(this.value)">
+<option value="3x1">3 × 1 (شريط Carousel)</option>
+<option value="3x2">3 × 2 (6 مربعات)</option>
+<option selected="" value="3x3">3 × 3 (9 مربعات)</option>
+<option value="3x4">3 × 4 (12 مربعة)</option>
+</select>
+</div>
+</div>
+
+<!-- Downsample Notice -->
+<div id="downsampleNotice">
+⚠️ الصورة كبيرة جدًا. تم تصغيرها للتعديل. ستُستخدم الدقة الكاملة في الشرائح المُصدّرة.
+</div>
+
+<!-- Action Buttons -->
+<div class="ig-action-buttons">
+<button class="btn-reset" onclick="IGSplitter.resetCrop()">إعادة تعيين صندوق القص</button>
+<button class="btn-download" onclick="IGSplitter.exportZip()">تنزيل ZIP</button>
+</div>
+
+<!-- Individual Save Area (mobile) -->
+<div id="individualSave"></div>
+
+<!-- Mobile Hint -->
+<div id="mobileHint">
+📱 على الجوال، يمكنك تنزيل كل شريحة على حدة أدناه بعد التقسيم.
+</div>
+</div>
+
+<!-- Right / Bottom: Workbench -->
+<div class="ig-workbench" id="workbench">
+<canvas id="editorCanvas" style="display: none;"></canvas>
+<div id="workspaceEmpty">
+<svg class="empty-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<rect height="18" rx="2" ry="2" width="20" x="2" y="2"></rect>
+<line x1="12" x2="12" y1="2" y2="22"></line>
+<line x1="2" x2="22" y1="12" y2="12"></line>
+</svg>
+<p>لم يتم تحميل صورة</p>
+<p style="font-size: 0.8125rem;">حمّل صورة لبدء التقسيم</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="container" style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+<a class="btn-primary" href="../" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; font-size: 1.125rem; text-decoration: none;">→ العودة إلى PicEte الرئيسية</a>
+</div>
+
+<section class="features-section">
+<div class="container">
+<h2 class="section-title">لماذا تستخدم مقسم صور إنستغرام</h2>
+<div class="features-grid">
+<div class="feature-item">
+<div class="feature-icon">📱</div>
+<h3>مشاركات Carousel على إنستغرام</h3>
+<p>قسّم صورة عريضة أو طويلة إلى carousel سلسة. كل سحبة تكشف الشريحة التالية. مثالية للدروس التعليمية، وكشف المنتجات، والمقارنات قبل وبعد، والسرد البصري. اختر 4:5 عمودي لأقصى تغطية شاشة أو 1:1 للمشاركات المربعة.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🧩</div>
+<h3>لغز شبكة الملف الشخصي</h3>
+<p>حول صورة واحدة إلى لغز شبكة 3×3 للملف الشخصي. عند نشر كل مربع على حدة، تتلاحم الصورة الكاملة في ملفك الشخصي على إنستغرام. هذه الحيلة الكلاسيكية للمشاركة تثير الفضول وتزيد زيارات الملف الشخصي.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🔒</div>
+<h3>100% خاص — لا رفع</h3>
+<p>صورتك لا تغادر متصفحك أبدًا. كل شيء يعمل محليًا على Canvas. لا خوادم، لا رفعات، لا قلق خصوصية. قطع الاتصال بالإنترنت بعد التحميل وستظل تعمل.</p>
+</div>
+<div class="feature-item">
+<div class="feature-icon">🎯</div>
+<h3>منطقة قص قابلة للتعديل</h3>
+<p>اسحب المنطقة المرئية على اللوحة لاختيار الجزء الدقيق من الصورة الذي سيتم تقسيمه. صندوق القص يتيح لك تأطير التكوين المثالي قبل إنشاء شرائحك.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="features-section" style="padding-top: 0;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">كيفية تقسيم صورة لإنستغرام</h2>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">1. اختر وضع التقسيم</h3>
+<p style="line-height: 1.8; color: var(--text-light);">اختر وضع <strong>Carousel</strong> إذا كنت تريد إنشاء مشاركة متعددة الشرائح قابلة للسحب. كل شريحة تصبح شريحة منفصلة في الـ carousel. اختر وضع <strong>الشبكة</strong> إذا كنت تريد تحويل الصورة إلى لغز لشبكة صور ملفك الشخصي على إنستغرام. الوضع يحدد كيف يتم تقسيم الصورة والإعدادات المتاحة.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">2. حمّل صورتك</h3>
+<p style="line-height: 1.8; color: var(--text-light);">اسحب وأفلت صورة أو انقر للاستعراض. JPG و PNG و WebP كلها مدعومة. الصورة تبقى في متصفحك — لا يتم رفع شيء في أي مكان. للحصول على أفضل النتائج، استخدم صورة عالية الدقة بحيث تحتفظ كل شريحة بجودة جيدة عند النشر على إنستغرام.</p>
+</div>
+<div style="margin-bottom: 2rem;">
+<h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">3. اضبط ونزّل</h3>
+<p style="line-height: 1.8; color: var(--text-light);">اضبط عدد الشرائح (carousel) أو تخطيط الشبكة (الشبكة)، ثم اسحب منطقة القص على اللوحة لتأطير موضوعك. انقر على <strong>تنزيل ZIP</strong> للحصول على جميع الشرائح في أرشيف واحد. كل ملف يُسمى تسلسليًا لذا تعرف الترتيب الدقيق للنشر.</p>
+</div>
+</div>
+</section>
+
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">نصائح لتقسيم صور إنستغرام</h2>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">اختر نسبة الأبعاد الصحيحة</h3>
+<p style="line-height: 1.8; color: var(--text-light);">مشاركات carousel على إنستغرام تؤدي أداءً أفضل مع الصور العمودية 4:5 — تشغل مساحة عمودية أكبر في التغذية وتحقق مشاركة أعلى. المربع 1:1 هو التنسيق الكلاسيكي ويعمل بشكل عالمي. لألغاز الشبكة، استخدم صورة أصلية 3:1 أو 4:3 بحيث يكون لكل مربع محتوى بصري كافٍ ليكون معروفًا بمفرده.</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">تحسين لغز شبكة الملف الشخصي</h3>
+<p style="line-height: 1.8; color: var(--text-light);">لغز الشبكة 3×3 يعمل بشكل أفضل مع الصور الجريئة عالية التباين حيث يمتد الموضوع عبر عدة مربعات. تجنب الصور بالتفاصيل الدقيقة التي تضيع عند التقسيم. انشر المربعات بالترتيب العكسي (الأسفل الأيمن أولًا) لذا تظهر بشكل صحيح عند عرضها زمنيًا على ملفك الشخصي. الحسابات التي تستخدم هذه التقنية تبلغ باستمرار عن 2-3 ضعف زيارات الملف الشخصي أكثر.</p>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Carousel أم الشبكة — ما الفرق؟</h3>
+<p style="line-height: 1.8; color: var(--text-light);">الـ carousel ينشئ مشاركة متعددة الصور قابلة للسحب حيث كل شريحة هي شريحة. مثالية للسرد المتسلسل — دروس تعليمية، أدلة خطوة بخطوة، أو معارض المنتجات. لغز الشبكة يقسم الصورة أفقياً وعموديًا إلى مربعات تتلاحم على ملفك الشخصي. كلاهما قوي، لكنهما يخدمان أغراضًا مختلفة. Carousel عن التدفق السردي؛ لغز الشبكة عن التأثير البصري.</p>
+</div>
+</div>
+</section>
+
+<section class="features-section" id="faq">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">الأسئلة الشائعة</h2>
+<div class="faq-grid">
+<div class="faq-item">
+<h3>هل ترفع هذه الأداة صورتي إلى خادم؟</h3>
+<p>لا. كل شيء يعمل في متصفحك باستخدام HTML5 Canvas API. صورتك لا تغادر جهازك أبدًا. لهذا السبب تعمل حتى لو قطعت الاتصال بالإنترنت بعد تحميل الصفحة.</p>
+</div>
+<div class="faq-item">
+<h3>ما الفرق بين وضع Carousel ووضع الشبكة؟</h3>
+<p>وضع Carousel يقسم صورتك إلى شرائح عمودية تصبح شرائح منفصلة في مشاركة carousel على إنستغرام. وضع الشبكة يقسم الصورة أفقياً وعمودياً إلى مربعات للغز شبكة الملف الشخصي على إنستغرام (مثل التخطيط الكلاسيكي 3×3). اختر Carousel للسرد، الشبكة للتأثير البصري على ملفك الشخصي.</p>
+</div>
+<div class="faq-item">
+<h3>ما نسبة الأبعاد التي يجب استخدامها لـ carousel على إنستغرام؟</h3>
+<p>إنستغرام يدعم 4:5 (عمودي)، 1:1 (مربع)، و 1.91:1 (أفقي) لمشاركات carousel. نسبة 4:5 موصى بها لأنها تشغل مساحة عمودية أكبر وتميل للحصول على مشاركة أفضل. PicEte يتيح لك الاختيار بين 4:5 و 1:1 — اختر ما يناسب تكوين صورتك أفضل.</p>
+</div>
+<div class="faq-item">
+<h3>هل يمكنني التحكم في أي جزء من الصورة يتم تقسيمه؟</h3>
+<p>نعم. بعد تحميل صورة، يمكنك سحب منطقة القص على اللوحة لتحديد الجزء الدقيق الذي سيتم تقسيمه. المنطقة المرئية تحدد الحدود — فقط تلك المنطقة تقسّم إلى شرائح. هذا يمنحك تحكمًا إبداعيًا كاملاً في المخرج النهائي.</p>
+</div>
+<div class="faq-item">
+<h3>ما الحد الأقصى لعدد الشرائح التي يمكن إنشاؤها؟</h3>
+<p>في وضع Carousel، يمكنك إنشاء 2 إلى 10 شرائح. في وضع الشبكة، يمكنك الاختيار من 3×1 (3 مربعات)، 3×2 (6 مربعات)، 3×3 (9 مربعات)، أو 3×4 (12 مربعة). للحصول على أفضل نتائج بصرية على إنستغرام، التزم بـ 3-5 شرائح carousel أو الشبكة الكلاسيكية 3×3.</p>
+</div>
+<div class="faq-item">
+<h3>هل سيضغط إنستغرام صوري المقسومة؟</h3>
+<p>نعم — إنستغرام يعيد ضغط كل شيء ترفعه، مثل أي صورة عادية. فقدان الجودة عادة غير ملحوظ للصور، لكن إذا كانت صورتك تحتوي على نص دقيق أو خطوط رفيعة، مخرجات PNG تحتفظ بالتفاصيل بشكل أفضل عبر خط ضغط إنستغرام.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="features-section" style="background: var(--bg-secondary); padding-top: 3rem; padding-bottom: 3rem;">
+<div class="container" style="max-width: 800px;">
+<h2 class="section-title">الأسئلة الشائعة</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary class="faq-question">ما هي أفضل نسبة أبعاد لمشاركات carousel على إنستغرام؟</summary>
+<p class="faq-answer">أفضل نسبة أبعاد لمشاركات carousel على إنستغرام هي 4:5 (عمودي) أو 1:1 (مربع). نسبة 4:5 تشغل مساحة عمودية أكبر وتؤدي أداءً أفضل في المشاركة، بينما 1:1 هو التنسيق الكلاسيكي المربع. PicEte يدعم كلاهما — اختر ما يناسب صورتك أفضل.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">كم عدد الأجزاء الذي يجب استخدامه لشبكة صور إنستغرام؟</summary>
+<p class="faq-answer">شبكة صور الملف الشخصي الكلاسيكية على إنستغرام تستخدم تخطيط 3×3 (9 مربعات). عند النشر بالتسلسل، تتلاحم المربعات على ملفك الشخصي لتكشف صورة كبيرة واحدة. يمكنك أيضًا تجربة 3×1 لشريط carousel، أو 3×2 لتخطيط 6 مربعات، أو 3×4 لبانوراما عمودية 12 مربعة.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">هل يرفع هذه الأداة صورتي إلى أي خادم؟</summary>
+<p class="faq-answer">لا. كل شيء يعمل بالكامل في متصفحك باستخدام HTML5 Canvas API. صورتك لا تغادر جهازك أبدًا — لا رفعات، لا خوادم، لا قلق خصوصية. يمكنك حتى قطع الاتصال بالإنترنت بعد تحميل الصورة وستظل تعمل.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">هل تقليل تقسيم الصورة من جودتها؟</summary>
+<p class="faq-answer">لا. كل جزء مقسوم يحتفظ بالجودة الكاملة للصورة الأصلية بدقتها الأصلية. أبعاد المربع الفردي أصغر لأنها تغطي جزءًا من الأصل، لكن كثافة البكسل وجودة الصورة تظل مطابقة للمصدر.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">هل يمكنني تعديل منطقة القص قبل التقسيم؟</summary>
+<p class="faq-answer">نعم. بعد تحميل صورة، يمكنك سحب المنطقة المرئية لضبط أي جزء من الصورة يتم تقسيمه. يمكن إعادة تحديد موقع صندوق القص بحرية — التقسيم يطبق فقط على المنطقة المحددة، مما يمنحك تحكمًا كاملاً في المخرج النهائي.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">كيف يمكنني تنزيل جميع الأجزاء المقسومة مرة واحدة؟</summary>
+<p class="faq-answer">انقر على زر 'تنزيل ZIP' لحفظ كل شريحة في ملف ZIP واحد. كل جزء يسمى تسلسليًا (مثل slice-1.png، slice-2.png) لذا تعرف الترتيب الدقيق عند النشر على إنستغرام. يمكنك أيضًا تنزيل الأجزاء الفردية على الأجهزة المحمولة.</p>
+</details>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>المزيد من الأدوات</h4>
+<ul>
+<li><a href="../png-to-jpg/">PNG إلى JPG</a></li>
+<li><a href="../jpg-to-png/">JPG إلى PNG</a></li>
+<li><a href="../webp-to-png/">WebP إلى PNG</a></li>
+<li><a href="../png-to-webp/">PNG إلى WebP</a></li>
+<li><a href="../jpg-to-webp/">JPG إلى WebP</a></li>
+<li><a href="../resize-image/">تغيير حجم الصورة</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>تحرير الصور</h4>
+<ul>
+<li><a href="../compress-image/">ضاغط الصور</a></li>
+<li><a href="../extract-colors/">مستخرج لوحة الألوان</a></li>
+<li><a href="../image-to-base64/">صورة إلى Base64</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>عن</h4>
+<ul>
+<li><a href="../">العودة إلى الرئيسية</a></li>
+<li><a href="/privacy-policy.html">سياسة الخصوصية</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>المزيد من الأدوات</h4>
+<ul>
+<li><a href="https://mockupshot.online/">MockupShot — صور نموذجية للقطات الشاشة</a></li>
+<li><a href="https://ilovepalette.com/">ILovePalette — أدوات الألوان</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 PicEte. جميع الحقوق محفوظة.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const storedTheme = localStorage.getItem('theme') || 'light';
+        if (storedTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+        });
+    </script>
+<script src="../assets/js/tools/instagram-splitter.js"></script>
+</body>
+</html>
