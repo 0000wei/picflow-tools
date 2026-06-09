@@ -208,7 +208,7 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 | | **Task 2** JS 核心引擎 | ✅ |
 | | **Task 3** 裁剪框交互组件 | ✅ |
 | | **Task 4** ZIP 导出 + 移动端降级 | ✅ |
-| | **Task 5** 翻译 8 种语言（zh/ja/ko/de/fr/es/pt/ar，每语言独立委托串行） | ⏳ zh✅ ja✅ ko✅ de✅ fr✅ es⏳ |
+| | **Task 5** 翻译 8 种语言（zh/ja/ko/de/fr/es/pt/ar，每语言独立委托串行） | ⏳ zh✅ ja✅ ko✅ de✅ fr✅ es✅ pt⏳ |
 | | **Task 6** vercel.json + Navbar 集成 | ⏳ |
 | | **Task 7** 终验（E2E） | ⏳ |
 
