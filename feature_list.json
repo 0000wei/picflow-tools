@@ -4,7 +4,16 @@
     "name": "resize-image",
     "description": "Resize image to custom dimensions",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -12,7 +21,16 @@
     "name": "compress-image",
     "description": "Compress image file size",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -20,7 +38,16 @@
     "name": "png-to-jpg",
     "description": "Convert PNG images to JPG format",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -28,7 +55,16 @@
     "name": "jpg-to-png",
     "description": "Convert JPG images to PNG format",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -36,7 +72,16 @@
     "name": "webp-to-png",
     "description": "Convert WebP images to PNG format",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -44,7 +89,16 @@
     "name": "png-to-webp",
     "description": "Convert PNG images to WebP format",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -52,7 +106,16 @@
     "name": "jpg-to-webp",
     "description": "Convert JPG images to WebP format",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -60,7 +123,16 @@
     "name": "image-splitter",
     "description": "Split an image into multiple parts",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -68,7 +140,16 @@
     "name": "extract-colors",
     "description": "Extract dominant colors from an image",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -76,7 +157,16 @@
     "name": "image-to-base64",
     "description": "Convert an image to Base64 data URI",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -84,7 +174,16 @@
     "name": "resize-image-to-1080x1080",
     "description": "Resize image to 1080x1080 pixels (Instagram square)",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -92,7 +191,16 @@
     "name": "resize-image-to-1920x1080",
     "description": "Resize image to 1920x1080 pixels (HD wallpaper)",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -100,7 +208,16 @@
     "name": "resize-image-to-800x800",
     "description": "Resize image to 800x800 pixels",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -108,7 +225,16 @@
     "name": "resize-image-to-1200x630",
     "description": "Resize image to 1200x630 pixels (Facebook link share)",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -116,7 +242,16 @@
     "name": "compress-image-to-100kb",
     "description": "Compress image to under 100KB",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -124,7 +259,16 @@
     "name": "compress-image-to-50kb",
     "description": "Compress image to under 50KB",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -132,7 +276,16 @@
     "name": "compress-jpg-to-200kb",
     "description": "Compress JPG image to under 200KB",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -140,7 +293,16 @@
     "name": "png-to-jpg-for-email",
     "description": "Convert PNG to JPG optimized for email attachments",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -148,7 +310,16 @@
     "name": "webp-to-png-for-website",
     "description": "Convert WebP to PNG for website compatibility",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -156,7 +327,16 @@
     "name": "png-to-webp-for-wordpress",
     "description": "Convert PNG to WebP optimized for WordPress",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -164,7 +344,16 @@
     "name": "split-image-into-3x3",
     "description": "Split an image into a 3x3 grid",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -172,7 +361,16 @@
     "name": "split-image-into-4-parts",
     "description": "Split an image into 4 equal parts",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -180,7 +378,16 @@
     "name": "resize-image-to-512x512",
     "description": "Resize image to 512x512 pixels",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -188,7 +395,16 @@
     "name": "resize-image-to-300x250",
     "description": "Resize image to 300x250 pixels (medium rectangle ad)",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -196,7 +412,16 @@
     "name": "resize-image-to-600x600",
     "description": "Resize image to 600x600 pixels",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -204,7 +429,16 @@
     "name": "resize-image-to-1500x500",
     "description": "Resize image to 1500x500 pixels (banner)",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -212,7 +446,16 @@
     "name": "resize-image-to-200x200",
     "description": "Resize image to 200x200 pixels",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -220,7 +463,16 @@
     "name": "resize-image-to-250x250",
     "description": "Resize image to 250x250 pixels",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -228,7 +480,16 @@
     "name": "resize-image-to-728x90",
     "description": "Resize image to 728x90 pixels (leaderboard ad)",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -236,7 +497,16 @@
     "name": "resize-image-for-facebook-cover",
     "description": "Resize image to Facebook cover photo dimensions",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -244,7 +514,16 @@
     "name": "compress-image-to-200kb",
     "description": "Compress image to under 200KB",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -252,7 +531,16 @@
     "name": "compress-image-to-500kb",
     "description": "Compress image to under 500KB",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -260,7 +548,16 @@
     "name": "compress-jpg-to-100kb",
     "description": "Compress JPG image to under 100KB",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -268,7 +565,16 @@
     "name": "compress-image-for-wordpress",
     "description": "Compress image optimized for WordPress",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -276,7 +582,16 @@
     "name": "compress-image-for-website",
     "description": "Compress image optimized for websites",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -284,7 +599,16 @@
     "name": "compress-image-for-email",
     "description": "Compress image optimized for email attachments",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -292,7 +616,16 @@
     "name": "jpg-to-png-for-instagram",
     "description": "Convert JPG to PNG optimized for Instagram",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -300,7 +633,16 @@
     "name": "batch-convert-png-to-jpg",
     "description": "Batch convert multiple PNG images to JPG format",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -308,7 +650,16 @@
     "name": "homepage",
     "description": "Main landing page with tool directory",
     "type": "infrastructure",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -316,7 +667,16 @@
     "name": "privacy-policy",
     "description": "Privacy policy page",
     "type": "infrastructure",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -324,7 +684,9 @@
     "name": "mcp-guide",
     "description": "MCP integration guide page",
     "type": "infrastructure",
-    "languages": ["en"],
+    "languages": [
+      "en"
+    ],
     "status": "complete"
   },
   {
@@ -332,7 +694,16 @@
     "name": "fast-convert",
     "description": "Fast Image Converter — convert, resize and compress images in one click",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -340,7 +711,9 @@
     "name": "sitemap",
     "description": "XML sitemap with 329 URLs (40 EN tools + 7 lang homepages + 274 lang tool pages)",
     "type": "infrastructure",
-    "languages": ["en"],
+    "languages": [
+      "en"
+    ],
     "status": "complete"
   },
   {
@@ -348,7 +721,15 @@
     "name": "lang-homepages-not-in-sitemap",
     "description": "Lang homepages (zh/, ja/, de/, fr/, es/, pt/, ar/) missing from sitemap.xml",
     "type": "infrastructure",
-    "languages": ["zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -356,7 +737,9 @@
     "name": "harness-engineering-structure",
     "description": "Harness Engineering project structure refactoring (config/, docs/, scripts/, seo/ separation)",
     "type": "infrastructure",
-    "languages": ["en"],
+    "languages": [
+      "en"
+    ],
     "status": "complete"
   },
   {
@@ -364,7 +747,16 @@
     "name": "ga-self-hosted",
     "description": "GA gtag.js self-hosted locally for COEP require-corp compatibility",
     "type": "infrastructure",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -372,7 +764,16 @@
     "name": "avif-to-png",
     "description": "Convert AVIF images to PNG format using wasm-vips decoding",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -380,7 +781,16 @@
     "name": "png-to-avif",
     "description": "Convert PNG to AVIF format with fast encoding and maximum compression presets",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -388,7 +798,16 @@
     "name": "jpg-to-avif",
     "description": "Convert JPG images to AVIF format with fast encoding and maximum compression presets",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -396,7 +815,16 @@
     "name": "webp-to-avif",
     "description": "Convert WebP images to AVIF format with fast encoding and maximum compression presets",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -405,7 +833,16 @@
     "title": "RAW to JPG",
     "description": "Convert RAW photos (CR2, CR3, NEF, ARW, DNG) to JPG format",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -414,7 +851,16 @@
     "title": "RAW to PNG",
     "description": "Convert RAW photos (CR2, CR3, NEF, ARW, DNG) to PNG format",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -423,7 +869,16 @@
     "title": "RAW to WebP",
     "description": "Convert RAW photos (CR2, CR3, NEF, ARW, DNG) to WebP format",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
   },
   {
@@ -432,7 +887,26 @@
     "title": "RAW to AVIF",
     "description": "Convert RAW photos (CR2, CR3, NEF, ARW, DNG) to AVIF format",
     "type": "tool",
-    "languages": ["en", "zh", "ja", "de", "fr", "es", "pt", "ar"],
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar"
+    ],
     "status": "complete"
+  },
+  {
+    "id": "tool-048",
+    "name": "instagram-image-splitter",
+    "description": "Instagram Image Splitter & Panorama Cropper - split images for carousel or profile grid",
+    "type": "tool",
+    "languages": [
+      "en"
+    ],
+    "status": "in_progress"
   }
 ]
