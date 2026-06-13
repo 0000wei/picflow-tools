@@ -61,13 +61,22 @@ const IGSplitter = (function () {
 
   /**
    * Recalculate the crop box so it is centred on the image.
-   * The crop box's aspect ratio is determined by state.ratio,
-   * and the shorter axis is used as the base dimension.
+   * The crop box's aspect ratio is determined by mode and ratio/grid layout.
    */
   function recalculateCropBox () {
     if (!state.image) return;
 
-    const ratioVal = getRatioValue(state.ratio);
+    let ratioVal;
+    if (state.mode === 'carousel') {
+      const parts = state.ratio.split(':');
+      // For carousel, crop box aspect ratio is (slices * width) / height
+      ratioVal = (parseInt(parts[0], 10) * state.slices) / parseInt(parts[1], 10);
+    } else {
+      // For grid, crop box aspect ratio is cols / rows
+      const layout = parseGridLayout(state.gridLayout);
+      ratioVal = layout.cols / layout.rows;
+    }
+
     let cw, ch;
 
     if (state.displayWidth / state.displayHeight > ratioVal) {
@@ -239,17 +248,17 @@ const IGSplitter = (function () {
     const n = state.slices;
     if (n < 2) return;
 
-    const sliceH = c.h / n;
+    const sliceW = c.w / n;
 
     ctx.strokeStyle = 'rgba(255,255,255,0.85)';
     ctx.lineWidth = 1.5;
     ctx.setLineDash([4, 4]);
 
     for (let i = 1; i < n; i++) {
-      const y = c.y + sliceH * i;
+      const x = c.x + sliceW * i;
       ctx.beginPath();
-      ctx.moveTo(c.x, y);
-      ctx.lineTo(c.x + c.w, y);
+      ctx.moveTo(x, c.y);
+      ctx.lineTo(x, c.y + c.h);
       ctx.stroke();
     }
 
@@ -262,8 +271,8 @@ const IGSplitter = (function () {
     ctx.textAlign = 'left';
 
     for (let i = 0; i < n; i++) {
-      const y = c.y + sliceH * i + 6;
-      ctx.fillText(String(i + 1), c.x + 6, y);
+      const x = c.x + sliceW * i + 6;
+      ctx.fillText(String(i + 1), x, c.y + 6);
     }
   }
 
@@ -742,13 +751,13 @@ const IGSplitter = (function () {
 
     if (state.mode === 'carousel') {
       const n = state.slices;
-      const sliceH = c.h / n;
+      const sliceW = c.w / n;
       for (let i = 0; i < n; i++) {
         slices.push({
-          x: c.x,
-          y: c.y + sliceH * i,
-          w: c.w,
-          h: sliceH
+          x: c.x + sliceW * i,
+          y: c.y,
+          w: sliceW,
+          h: c.h
         });
       }
     } else {
@@ -795,20 +804,17 @@ const IGSplitter = (function () {
     const sh = Math.min(slice.h, dispH - sy);
 
     // Scale to original image coordinates
+    // state.originalWidth/Height is the natural image resolution
     const scaleX = origW / dispW;
     const scaleY = origH / dispH;
-    const ox = Math.round(sx * scaleX);
-    const oy = Math.round(sy * scaleY);
-    const ow = Math.round(sw * scaleX);
-    const oh = Math.round(sh * scaleY);
+    
+    // Calculate final extraction bounds directly on natural coordinates
+    const finalX = Math.round(sx * scaleX);
+    const finalY = Math.round(sy * scaleY);
+    const finalW = Math.round(sw * scaleX);
+    const finalH = Math.round(sh * scaleY);
 
-    // Also apply cropScale (for downsampled images)
-    const finalX = Math.round(ox * cropScaleX);
-    const finalY = Math.round(oy * cropScaleY);
-    const finalW = Math.round(ow * cropScaleX);
-    const finalH = Math.round(oh * cropScaleY);
-
-    // Create off-screen canvas
+    // Create off-screen canvas at the exact original image resolution
     const offCanvas = document.createElement('canvas');
     offCanvas.width = finalW;
     offCanvas.height = finalH;
@@ -818,7 +824,7 @@ const IGSplitter = (function () {
     offCtx.fillStyle = '#ffffff';
     offCtx.fillRect(0, 0, finalW, finalH);
 
-    // Draw the cropped region
+    // Draw the cropped region from original image
     offCtx.drawImage(img, finalX, finalY, finalW, finalH,
                      0, 0, finalW, finalH);
 

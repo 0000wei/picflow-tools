@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram Image Splitter & Panorama Cropper — PRD</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --border: #2a2d3a;
+    --text: #e1e4eb;
+    --text-dim: #888b98;
+    --accent: #6366f1;
+    --accent-dim: #4f46e5;
+    --green: #22c55e;
+    --yellow: #eab308;
+    --red: #ef4444;
+    --blue: #3b82f6;
+    --orange: #f97316;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 40px 24px;
+  }
+  .container { max-width: 960px; margin: 0 auto; }
+
+  /* Header */
+  .header { margin-bottom: 48px; }
+  .header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .header .meta { color: var(--text-dim); font-size: 0.9rem; display: flex; gap: 24px; flex-wrap: wrap; }
+  .header .meta span { display: flex; align-items: center; gap: 6px; }
+  .header .status-badge {
+    display: inline-block; background: var(--accent); color: #fff;
+    padding: 2px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 600;
+  }
+
+  /* Sections */
+  section { margin-bottom: 40px; }
+  h2 {
+    font-size: 1.35rem; font-weight: 700; margin-bottom: 18px;
+    padding-bottom: 8px; border-bottom: 2px solid var(--accent);
+    display: flex; align-items: center; gap: 10px;
+  }
+  h3 {
+    font-size: 1.1rem; font-weight: 600; margin: 24px 0 12px;
+    color: var(--accent);
+  }
+  h4 { font-size: 1rem; font-weight: 600; margin: 18px 0 8px; color: var(--text-dim); }
+  p { margin-bottom: 12px; color: var(--text); }
+
+  /* Tables */
+  table {
+    width: 100%; border-collapse: collapse; margin: 16px 0 24px;
+    font-size: 0.9rem;
+  }
+  th {
+    background: var(--surface); color: var(--text-dim); font-weight: 600;
+    text-align: left; padding: 10px 12px; border: 1px solid var(--border);
+  }
+  td {
+    padding: 10px 12px; border: 1px solid var(--border); vertical-align: top;
+  }
+  tr:hover td { background: rgba(99,102,241,0.04); }
+
+  /* Lists */
+  ul, ol { padding-left: 24px; margin-bottom: 16px; }
+  li { margin-bottom: 6px; }
+
+  /* Code blocks */
+  code {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 0.85rem;
+  }
+  pre {
+    background: var(--surface); padding: 16px 20px; border-radius: 8px;
+    border: 1px solid var(--border); overflow-x: auto; margin: 12px 0 20px;
+    font-size: 0.85rem; line-height: 1.5;
+  }
+  :not(pre) > code {
+    background: var(--surface); padding: 2px 6px; border-radius: 4px;
+    color: var(--accent);
+  }
+
+  /* Accent callout boxes */
+  .callout {
+    padding: 16px 20px; border-radius: 8px; margin: 16px 0 24px;
+    border-left: 4px solid;
+  }
+  .callout.info {
+    background: rgba(59,130,246,0.08); border-color: var(--blue);
+  }
+  .callout.warn {
+    background: rgba(250,204,21,0.08); border-color: var(--yellow);
+  }
+  .callout.done {
+    background: rgba(34,197,94,0.08); border-color: var(--green);
+  }
+
+  /* AC cards */
+  .ac-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px; margin: 16px 0 24px;
+  }
+  .ac-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 16px;
+  }
+  .ac-card .ac-id {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+    color: var(--accent); font-weight: 600; margin-bottom: 4px;
+  }
+  .ac-card .ac-desc { font-size: 0.9rem; }
+  .ac-card.new { border-color: var(--green); }
+  .ac-card.new .ac-id { color: var(--green); }
+
+  /* Mockup */
+  .mockup {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 0; margin: 16px 0 24px; font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem; line-height: 1.4; color: var(--text-dim); overflow: hidden;
+  }
+  .mockup .mockup-nav {
+    background: rgba(255,255,255,0.04); padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .mockup .mockup-body {
+    display: grid; grid-template-columns: 240px 1fr;
+    min-height: 300px;
+  }
+  .mockup .mockup-left {
+    padding: 16px; border-right: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .mockup .mockup-right {
+    padding: 20px; display: flex; align-items: center; justify-content: center;
+  }
+  .mockup .mockup-canvas {
+    border: 1px dashed var(--border); border-radius: 6px;
+    padding: 40px 60px; text-align: center; color: var(--text-dim);
+    position: relative; width: 100%;
+  }
+  .mockup .mockup-canvas .cutlines {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    margin-top: 10px;
+  }
+  .mockup .mockup-canvas .cutlines div {
+    background: rgba(255,255,255,0.1); padding: 20px 12px;
+  }
+  .mockup .mockup-label { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 4px; }
+  .mockup hr { border: none; border-top: 1px solid var(--border); margin: 8px 0; }
+  @media (max-width: 640px) {
+    .mockup .mockup-body { grid-template-columns: 1fr; }
+    .mockup .mockup-left { border-right: none; border-bottom: 1px solid var(--border); }
+  }
+
+  /* Phase table */
+  .phase-row { display: grid; grid-template-columns: 80px 1fr; gap: 12px; margin-bottom: 14px; }
+  .phase-tag {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700;
+    height: fit-content;
+  }
+  .phase-tag.p1 { background: var(--green); color: #000; }
+  .phase-tag.p2 { background: var(--blue); color: #fff; }
+  .phase-tag.p3 { background: var(--orange); color: #fff; }
+
+  /* Footer */
+  .footer {
+    margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border);
+    color: var(--text-dim); font-size: 0.85rem; text-align: center;
+  }
+
+  /* Tags */
+  .tag {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 0.75rem; font-weight: 600; margin: 0 2px;
+  }
+  .tag.new { background: var(--green); color: #000; }
+  .tag.updated { background: var(--blue); color: #fff; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Instagram Image Splitter &amp; Panorama Cropper</h1>
+    <div class="meta">
+      <span>📄 Product Requirements Document</span>
+      <span>📅 2026-06-09</span>
+      <span><span class="status-badge">V2.1</span></span>
+      <span>🏷️ picete / ig-tool</span>
+    </div>
+  </div>
+
+  <!-- 1. Overview -->
+  <section>
+    <h2>1. 产品概述与业务目标</h2>
+
+    <h3>1.1 产品背景</h3>
+    <p>Instagram 平台有两类刚需视觉排版：</p>
+    <ul>
+      <li><strong>无缝轮播图 (Seamless Carousel)</strong> — 将宽幅长图切分成多张，用户滑动时呈现完整长卷。</li>
+      <li><strong>主页九宫格 (Profile Grid)</strong> — 将大图切分为 3×N 网格，占据个人主页头部海报位。</li>
+    </ul>
+    <p>由于 Instagram 原生不支持切割，用户常面临切割比例不对、边缘不齐、导出顺序混乱等痛点。</p>
+
+    <h3>1.2 核心目标</h3>
+    <p>为内容创作者提供"傻瓜式"在线切图工具。用户上传图片、选择模式、拖拽选区后，一键生成完美适配 IG 比例的图片包，并按发布顺序正确命名打包。完全在浏览器端本地处理，极速且隐私安全。</p>
+  </section>
+
+  <!-- 2. Integration -->
+  <section>
+    <h2>2. 系统集成与路由架构</h2>
+    <p>新工具需无缝接入 PicEte 现有 60+ 工具生态体系。</p>
+
+    <h3>2.1 文件路径与骨架规范</h3>
+    <table>
+      <tr><th>项</th><th>规范</th></tr>
+      <tr><td>HTML 路径</td><td><code>/instagram-image-splitter/index.html</code>（英文主页面）</td></tr>
+      <tr><td>CSS/JS</td><td>复用全局样式；专属逻辑放 <code>/assets/js/tools/instagram-splitter.js</code></td></tr>
+      <tr><td>HTML 骨架</td><td>必须继承 PicEte 标准模板：Top Navbar → Theme Toggle → Language Switcher → Footer → GA</td></tr>
+      <tr><td>Navbar 入口</td><td>注册到 "Social Media Tools" 下拉菜单分类</td></tr>
+    </table>
+
+    <h3>2.2 国际化 (i18n) 与 Vercel 路由</h3>
+    <p><strong>首发语言</strong>：en, zh, ja, de, fr, es, pt, ar。<br>
+    ar 环境下 UI 布局必须支持 RTL (direction: rtl)。</p>
+
+    <p><strong>vercel.json rewrite 规则</strong>：</p>
+    <pre>{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "rewrites": [
+    { "source": "/instagram-image-splitter",
+      "destination": "/instagram-image-splitter/index.html" },
+    { "source": "/:lang(zh|ja|de|fr|es|pt|ar)/instagram-image-splitter",
+      "destination": "/:lang/instagram-image-splitter/index.html" }
+  ]
+}</pre>
+  </section>
+
+  <!-- 3. Core Specs -->
+  <section>
+    <h2>3. 核心功能与参数规格</h2>
+
+    <h3>3.1 模式一：全景轮播 (Carousel / Panorama)</h3>
+    <table>
+      <tr><th>参数</th><th>值</th></tr>
+      <tr><td>切片数量</td><td>2 ~ 10 张（滑块或下拉选择）</td></tr>
+      <tr><td>单张比例</td><td><strong>4:5</strong>（默认/推荐，选框整体宽高比 = <code>(4 × N) : 5</code>）、<strong>1:1</strong>（选框宽高比 = <code>N : 1</code>）</td></tr>
+    </table>
+
+    <h3>3.2 模式二：主页网格 (Profile Grid)</h3>
+    <table>
+      <tr><th>参数</th><th>值</th></tr>
+      <tr><td>排版</td><td>固定 3 列，支持 3×1(3张)、3×2(6张)、3×3(9张)、3×4(12张)</td></tr>
+      <tr><td>单张比例</td><td>强制 1:1（Instagram 主页缩略图固定为正方形）</td></tr>
+      <tr><td>选框宽高比</td><td><code>3 : 行数</code></td></tr>
+    </table>
+  </section>
+
+  <!-- 4. Technical Specs -->
+  <section>
+    <h2>4. 技术架构与底层处理</h2>
+
+    <table>
+      <tr><th>项</th><th>规范</th></tr>
+      <tr><td>处理引擎</td><td>HTML5 Canvas，纯浏览器端，不上传服务器</td></tr>
+      <tr><td>内存管理</td><td>上传图片后使用 <code>URL.createObjectURL(file)</code> 读取；重新上传或离开页面时 <strong>必须</strong> 调用 <code>URL.revokeObjectURL()</code> 显式释放</td></tr>
+      <tr><td>大图降采样</td><td>图片 <strong>最长边</strong> &gt; 4096px 时，在离屏 Canvas 中等比例降采样，限制最长边为 4096px，防止 iOS Safari 崩溃</td></tr>
+      <tr><td>导出格式</td><td><code>canvas.toDataURL('image/jpeg', 0.92)</code>。原图含透明通道时，先在 Canvas 上填充纯白背景 (#FFFFFF) 再切割</td></tr>
+      <tr><td>预览反馈</td><td>降采样发生时，在控制面板区域显示非阻塞提示："原图已自动压缩至 4096px 以保证兼容性"</td></tr>
+    </table>
+  </section>
+
+  <!-- 5. Interaction -->
+  <section>
+    <h2>5. 交互细节与 UI/UX</h2>
+
+    <h3>5.1 界面布局 (UI Mockup)</h3>
+    <p>桌面端左右分栏，移动端上下分栏响应式布局。</p>
+
+    <div class="mockup">
+      <div class="mockup-nav">[Navbar]  🌙  EN ▾</div>
+      <div class="mockup-body">
+        <div class="mockup-left">
+          <div class="mockup-label"><strong>控制面板</strong></div>
+          <div>[ 滑动轮播 ]  [ 主页网格 ]</div>
+          <div>切片数：<span style="color:var(--accent)">────●───</span> 4</div>
+          <div>比例：[4:5] [1:1]</div>
+          <hr>
+          <div>[ 重置裁剪框 ]</div>
+          <div>[ 下载 ZIP ]</div>
+          <hr>
+          <div style="color:var(--text-dim);font-size:0.75rem;">
+            📱 移动端：ZIP 按钮下方<br>
+            显示逐张保存视图
+          </div>
+        </div>
+        <div class="mockup-right">
+          <div class="mockup-canvas">
+            <div style="color:var(--text-dim);margin-bottom:6px;">原图</div>
+            <div class="cutlines">
+              <div style="background:rgba(99,102,241,0.12);border:1px solid var(--accent);border-radius:4px">1</div>
+              <div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.4);border-radius:4px">2</div>
+              <div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.4);border-radius:4px">3</div>
+              <div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.4);border-radius:4px">4</div>
+            </div>
+            <div style="margin-top:10px;font-size:0.7rem;color:var(--text-dim);">
+              裁剪框 · 比例锁定 16:5 · 拖拽以调整位置
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>5.2 裁剪框操作逻辑</h3>
+    <table>
+      <tr><th>行为</th><th>规则</th></tr>
+      <tr><td>初始位置</td><td>上传后裁剪框默认居中，以图片短边为基准自适应填充<br><span class="tag new">新增</span></td></tr>
+      <tr><td>缩放</td><td>拖拽四角，强制同比缩放（Aspect Ratio Locked），不可形变</td></tr>
+      <tr><td>边界</td><td>裁剪框绝对不可超出原图物理边界</td></tr>
+      <tr><td>平移</td><td>鼠标/手指在裁剪框内部按下即可拖拽</td></tr>
+      <tr><td>切割线视觉</td><td><code>box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8), inset 0 0 0 2px rgba(0,0,0,0.5)</code>——任何底色下清晰可见</td></tr>
+    </table>
+  </section>
+
+  <!-- 6. Acceptance Criteria -->
+  <section>
+    <h2>6. 验收标准 (Acceptance Criteria)</h2>
+    <p>以下为 QA 测试与发布的硬性通过标准。Original 来自 V2，<span class="tag new">新增</span> 为本版补充。</p>
+
+    <div class="ac-grid">
+      <div class="ac-card">
+        <div class="ac-id">AC-1</div>
+        <div class="ac-desc">宽高比精度：4:5 比例、N 切片时，最终选框宽高比 = (4×N) : 5，误差 ≤ ±1px</div>
+      </div>
+      <div class="ac-card">
+        <div class="ac-id">AC-2</div>
+        <div class="ac-desc">ZIP 命名与顺序：导出的 ZIP 无嵌套文件夹，文件命名严格 <code>picete-[mode]-[index].jpg</code>。Grid 模式左上角 = 1，右下角 = 行数×3</div>
+      </div>
+      <div class="ac-card">
+        <div class="ac-id">AC-3</div>
+        <div class="ac-desc">移动端降级：CSS Media Query &lt;=768px 时，ZIP 按钮下方出现逐张保存长图流 + 提示文案</div>
+      </div>
+      <div class="ac-card new">
+        <div class="ac-id">AC-4 <span class="tag new">新增</span></div>
+        <div class="ac-desc">切割完整性：全景模式下将生成的 N 张图片横向无缝拼接，必须与原图裁剪框区域完全一致（像素级对齐）</div>
+      </div>
+      <div class="ac-card new">
+        <div class="ac-id">AC-5 <span class="tag new">新增</span></div>
+        <div class="ac-desc">网格比例：Grid 模式下每张单图为精确 1:1 正方形，误差 ≤ ±1px</div>
+      </div>
+      <div class="ac-card new">
+        <div class="ac-id">AC-6 <span class="tag new">新增</span></div>
+        <div class="ac-desc">文件大小：单张导出 JPG ≤ 800KB，适配 Instagram 上传限制</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Test Strategy -->
+  <section>
+    <h2>7. 测试计划 (Test Strategy)</h2>
+
+    <table>
+      <tr><th>用例</th><th>描述</th><th>验收标准</th></tr>
+      <tr>
+        <td>极端全景图</td>
+        <td>上传 10:1 宽高比的全景图，验证生成 10 张 4:5 裁剪框不越界</td>
+        <td>裁剪框完全位于图片边界内，每张切片比例正确</td>
+      </tr>
+      <tr>
+        <td>极小图片</td>
+        <td>上传 &lt; 300×300px 的图片</td>
+        <td>前端 UI 显示错误拦截，不进入裁剪流程</td>
+      </tr>
+      <tr>
+        <td>内存泄漏验证</td>
+        <td>连续替换上传 10 张不同 10MB 原图</td>
+        <td>手动触发 GC 后，JS Heap 增量 ≤ 5MB</td>
+      </tr>
+      <tr>
+        <td>多终端覆盖</td>
+        <td>iOS Safari、Chrome for Android、桌面 Chrome/Firefox/Safari</td>
+        <td>所有核心功能正常</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- 8. Phases -->
+  <section>
+    <h2>8. 迭代规划 (Phase Map)</h2>
+
+    <div class="phase-row">
+      <div><span class="phase-tag p1">Phase 1</span></div>
+      <div>
+        <strong>MVP — 核心切图功能</strong><br>
+        全景轮播 + 主页网格 + ZIP 导出 + 移动端降级。这是首批实现的全部范围。
+      </div>
+    </div>
+    <div class="phase-row">
+      <div><span class="phase-tag p2">Phase 2</span></div>
+      <div>
+        <strong>接缝放大镜 (Seam Magnifier)</strong><br>
+        用户点击切割线时 200% 比例放大接缝处，提供 1px 级别微调按钮，辅助避开人脸或文字切割。<br>
+        <em>不在 MVP 中实现。</em>
+      </div>
+    </div>
+    <div class="phase-row">
+      <div><span class="phase-tag p3">Phase 3</span></div>
+      <div>
+        <strong>生态引流</strong><br>
+        下载后弹出"一键适配 Facebook 封面"转化按钮。"多张拼一张"的 Reverse Grid 另立独立工具。<br>
+        <em>不在本页面实现。</em>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Changelog -->
+  <section>
+    <h2>9. 变更记录 (Changelog)</h2>
+    <table>
+      <tr><th>版本</th><th>日期</th><th>变更内容</th></tr>
+      <tr><td>V1</td><td>—</td><td>初始版本——产品概念文档</td></tr>
+      <tr><td>V2</td><td>2026-06-09</td><td>补充：系统集成、技术架构、验收标准、测试计划、交互细节、i18n、Phase 剥离</td></tr>
+      <tr><td>V2.1</td><td>2026-06-09</td><td>新增 AC-4/5/6、裁剪框初始位置说明、大图降采样改为"最长边"、降采样 UI 反馈、1.91:1 移除备注</td></tr>
+    </table>
+
+    <p><strong>关于 1.91:1 模式：</strong>V1 包含该比例，V2 及 V2.1 移除。Instagram Landscape 比例使用率极低且与 4:5 模式可互相转换（用户手动裁剪为 4:5 全景后同样可用），为减少 MVP 复杂度决定保留 4:5 + 1:1 两种。</p>
+  </section>
+
+  <div class="footer">
+    PicEte · Instagram Image Splitter PRD · V2.1 · 2026-06-09
+  </div>
+
+</div>
+</body>
+</html>
