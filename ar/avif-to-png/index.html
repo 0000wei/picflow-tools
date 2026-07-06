@@ -398,20 +398,20 @@
 <h2 class="section-title">الأسئلة الشائعة</h2>
 <div class="faq-list">
 <details class="faq-item">
-<summary class="faq-question">Can I convert AVIF images to PNG without losing quality?</summary>
-<p class="faq-answer">Yes. PNG is a lossless format, so the pixel data is preserved exactly. However, note that AVIF itself uses lossy compression internally during encoding. The conversion from decoded AVIF to PNG is lossless — what you see in the AVIF is what you get in the PNG, with no additional degradation.</p>
+<summary class="faq-question">هل يمكنني تحويل صور AVIF إلى PNG دون فقدان الجودة؟</summary>
+<p class="faq-answer">نعم. PNG هو تنسيق بدون فقدان، لذلك يتم الحفاظ على بيانات البكسل تمامًا. ومع ذلك، لاحظ أن AVIF نفسه يستخدم الضغط مع فقدان البيانات داخليًا أثناء التشفير. التحويل من AVIF الذي تم فك تشفيره إلى PNG لا يفقد أي بيانات - ما تراه في AVIF هو ما تحصل عليه في PNG، دون أي تدهور إضافي.</p>
 </details>
 <details class="faq-item">
-<summary class="faq-question">Why can't this conversion use Canvas like other tools?</summary>
-<p class="faq-answer">Most browsers cannot decode AVIF images via Canvas. AVIF is a relatively new format that requires dedicated decoding libraries. Our tool uses wasm-vips, a WebAssembly port of the Vips image processing library, to decode AVIF in-browser. This ensures broad compatibility and accurate decoding without uploading your files to a server.</p>
+<summary class="faq-question">لماذا لا يمكن لهذا التحويل استخدام Canvas مثل الأدوات الأخرى؟</summary>
+<p class="faq-answer">لا تستطيع معظم المتصفحات فك تشفير صور AVIF عبر Canvas. AVIF هو تنسيق جديد نسبيًا يتطلب مكتبات مخصصة لفك التشفير. تستخدم أداتنا Wasm-vips، وهو منفذ WebAssembly لمكتبة معالجة الصور Vips، لفك تشفير AVIF داخل المتصفح. وهذا يضمن التوافق الواسع وفك التشفير الدقيق دون تحميل ملفاتك إلى الخادم.</p>
 </details>
 <details class="faq-item">
-<summary class="faq-question">Will my AVIF file transparency be preserved in PNG?</summary>
-<p class="faq-answer">Yes. AVIF supports alpha transparency, and PNG also supports it. When you convert an AVIF image with transparent areas to PNG, the transparency is fully preserved. This is a key advantage over formats like JPG which cannot handle transparency at all.</p>
+<summary class="faq-question">هل سيتم الحفاظ على شفافية ملف AVIF الخاص بي بتنسيق PNG؟</summary>
+<p class="faq-answer">نعم. يدعم AVIF شفافية ألفا، كما يدعمها PNG أيضًا. عندما تقوم بتحويل صورة AVIF بمساحات شفافة إلى PNG، يتم الحفاظ على الشفافية بالكامل. وهذه ميزة رئيسية مقارنة بتنسيقات مثل JPG التي لا يمكنها التعامل مع الشفافية على الإطلاق.</p>
 </details>
 <details class="faq-item">
-<summary class="faq-question">Is there a file size limit for AVIF to PNG conversion?</summary>
-<p class="faq-answer">There is no hard file size limit, but because conversion happens locally in your browser using WebAssembly, very large images may take longer to process and consume more memory. For typical web images under 20 MB, conversion is fast. Files are never uploaded — everything stays on your device.</p>
+<summary class="faq-question">هل هناك حد لحجم الملف لتحويل AVIF إلى PNG؟</summary>
+<p class="faq-answer">لا يوجد حد لحجم الملف الثابت، ولكن نظرًا لأن التحويل يحدث محليًا في متصفحك باستخدام WebAssembly، فقد تستغرق الصور الكبيرة جدًا وقتًا أطول للمعالجة وتستهلك المزيد من الذاكرة. بالنسبة لصور الويب النموذجية التي يقل حجمها عن 20 ميغابايت، يكون التحويل سريعًا. لا يتم تحميل الملفات مطلقًا، بل يبقى كل شيء على جهازك.</p>
 </details>
 </div>
 </div>

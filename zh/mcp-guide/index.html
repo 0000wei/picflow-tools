@@ -135,6 +135,8 @@
                 <tr><td><code>favicon</code></td><td>生成 favicon 全套（ico + png）</td><td>source, output_dir</td></tr>
                 <tr><td><code>compare-images</code></td><td>比较两张图片（MSE/SSIM/差异图）</td><td>source1, source2, metric</td></tr>
                 <tr><td><code>collage</code></td><td>拼接多张图片</td><td>sources[], direction, gap</td></tr>
+                <tr><td><code>instagram-split</code></td><td>分割为Instagram轮播图</td><td>source, tiles, ratio</td></tr>
+                <tr><td><code>social-media-crop</code></td><td>使用安全区裁剪</td><td>source, platform</td></tr>
             </tbody>
         </table>
 
@@ -159,6 +161,8 @@
                 <tr><td>"把这几张图片横向拼接"</td><td>collage</td></tr>
                 <tr><td>"转换成 base64"</td><td>image-to-base64</td></tr>
                 <tr><td>"把这 10 张图片批量缩放并压缩"</td><td>batch</td></tr>
+                <tr><td>"为Instagram轮播图分割这个"</td><td>instagram-split</td></tr>
+                <tr><td>"为我的Facebook封面裁剪这个"</td><td>social-media-crop</td></tr>
             </tbody>
         </table>
 

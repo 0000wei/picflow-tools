@@ -135,6 +135,8 @@
                 <tr><td><code>favicon</code></td><td>ファビコンスイート生成（ico + png）</td><td>source, output_dir</td></tr>
                 <tr><td><code>compare-images</code></td><td>画像比較（MSE/SSIM/差分）</td><td>source1, source2, metric</td></tr>
                 <tr><td><code>collage</code></td><td>画像の連結</td><td>sources[], direction, gap</td></tr>
+                <tr><td><code>instagram-split</code></td><td>Instagramカルーセル用に分割</td><td>source, tiles, ratio</td></tr>
+                <tr><td><code>social-media-crop</code></td><td>セーフゾーンで切り抜き</td><td>source, platform</td></tr>
             </tbody>
         </table>
 
@@ -159,6 +161,8 @@
                 <tr><td>"これらの画像を横に連結して"</td><td>collage</td></tr>
                 <tr><td>"これをBase64に変換して"</td><td>image-to-base64</td></tr>
                 <tr><td>"この10枚の画像を一括でリサイズ＆圧縮して"</td><td>batch</td></tr>
+                <tr><td>"これをInstagramカルーセル用に分割して"</td><td>instagram-split</td></tr>
+                <tr><td>"これを私のFacebookカバー用に切り抜いて"</td><td>social-media-crop</td></tr>
             </tbody>
         </table>
 

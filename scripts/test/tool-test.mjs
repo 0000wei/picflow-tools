@@ -10,7 +10,7 @@ const FIXTURE = path.resolve(__dirname, 'fixtures', 'test-photo.jpg');
 const FIXTURE_PNG = path.resolve(__dirname, 'fixtures', 'test-logo.png');
 const FIXTURE_WEBP = path.resolve(__dirname, 'fixtures', 'test-webp.webp');
 const FIXTURE_SIZE = 103361; // bytes, fixture is ~101KB
-const BASE_URL = 'https://picete.com';
+const BASE_URL = 'http://localhost:3000';
 
 async function main() {
   let passed = 0;

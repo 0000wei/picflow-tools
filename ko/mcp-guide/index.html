@@ -135,6 +135,8 @@
                 <tr><td><code>favicon</code></td><td>파비콘 세트(ico + png) 생성</td><td>source, output_dir</td></tr>
                 <tr><td><code>compare-images</code></td><td>두 이미지 비교(MSE/SSIM/diff)</td><td>source1, source2, metric</td></tr>
                 <tr><td><code>collage</code></td><td>이미지 이어 붙이기</td><td>sources[], direction, gap</td></tr>
+                <tr><td><code>instagram-split</code></td><td>인스타그램 캐러셀로 분할</td><td>source, tiles, ratio</td></tr>
+                <tr><td><code>social-media-crop</code></td><td>안전 영역으로 자르기</td><td>source, platform</td></tr>
             </tbody>
         </table>
 
@@ -159,6 +161,8 @@
                 <tr><td>"이 이미지들을 가로로 이어 붙여 줘"</td><td>collage</td></tr>
                 <tr><td>"이것을 base64로 변환해 줘"</td><td>image-to-base64</td></tr>
                 <tr><td>"이 10개 이미지를 일괄 크기 조정하고 압축해 줘"</td><td>batch</td></tr>
+                <tr><td>"인스타그램 캐러셀을 위해 이것을 분할해줘"</td><td>instagram-split</td></tr>
+                <tr><td>"내 페이스북 커버를 위해 이것을 잘라줘"</td><td>social-media-crop</td></tr>
             </tbody>
         </table>
 

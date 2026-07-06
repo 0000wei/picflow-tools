@@ -19,13 +19,13 @@
 <!-- hreflang 标签 -->
 <link href="https://picete.com/image-to-base64/" hreflang="en" rel="alternate"/>
 <link href="https://picete.com/zh/image-to-base64/" hreflang="zh" rel="alternate"/>
-<link href="https://picete.com/ja/image-to-base64/" hreflang="ja" rel="alternate">
+<link href="https://picete.com/ja/image-to-base64/" hreflang="ja" rel="alternate"/>
 <link href="https://picete.com/de/image-to-base64/" hreflang="de" rel="alternate"/>
 <link href="https://picete.com/fr/image-to-base64/" hreflang="fr" rel="alternate"/>
 <link href="https://picete.com/es/image-to-base64/" hreflang="es" rel="alternate"/>
 <link href="https://picete.com/pt/image-to-base64/" hreflang="pt" rel="alternate"/>
 <link href="https://picete.com/ar/image-to-base64/" hreflang="ar" rel="alternate"/>
-    <link href="https://picete.com/ko/image-to-base64/" hreflang="ko" rel="alternate"/>
+<link href="https://picete.com/ko/image-to-base64/" hreflang="ko" rel="alternate"/>
 <link href="https://picete.com/image-to-base64/" hreflang="x-default" rel="alternate"/>
 <!-- Open Graph -->
 <meta content="website" property="og:type"/>
@@ -175,13 +175,13 @@
         [data-theme="dark"] .sun-icon { display: none; }
         [data-theme="dark"] .moon-icon { display: inline; }
     </style>
-</link></head>
+</head>
 <body>
 <header class="header">
 <div class="container">
 <div class="logo">
 <a href="../../">
-<img alt="PicEte" class="logo-img" src="../../images/picete-logo.svg" width="116" height="32">
+<img alt="PicEte" class="logo-img" height="32" src="../../images/picete-logo.svg" width="116"/>
 </a>
 <p class="tagline">画像からBase64</p>
 </div>
@@ -266,7 +266,7 @@
 <option value="es">Español</option>
 <option value="pt">Português</option>
 <option value="ar">العربية</option>
-            <option value="ko">한국어</option>
+<option value="ko">한국어</option>
 </select>
 </div>
 <script>
@@ -417,7 +417,7 @@
 </section>
 <section class="features-section" style="padding-top: 0;">
 <div class="container" style="max-width: 800px;">
-<h2 class="section-title">How to Use This Tool</h2>
+<h2 class="section-title">このツールの使用方法</h2>
 <div style="margin-bottom: 2rem;">
 <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color);">Choose Your Input Method</h3>
 <p style="line-height: 1.8; color: var(--text-light);">Upload an image file from your device or paste a URL. The upload option handles any image format your browser supports — JPG, PNG, WebP, GIF, SVG. URL mode fetches publicly accessible images from the web, though CORS restrictions may prevent some sources from loading.</p>
@@ -445,7 +445,7 @@
 </div>
 <div style="margin-bottom: 1.5rem;">
 <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Avoid: Large Photos and Background Images</h3>
-<p style="line-height: 1.8; color: var(--text-light);">Base64 encoding increases file size by about 33%. A 100KB photo becomes a 133KB string — and that's before browser parsing overhead. For anything beyond small assets, external image files are more efficient. They cache separately, transfer with gzip compression, and don't bloat your HTML or CSS.</p>
+<p style="line-height: 1.8; color: var(--text-light);">Base64 エンコードにより、ファイル サイズが約 33% 増加します。 100 KB の写真は 133 KB の文字列になります。これはブラウザーの解析オーバーヘッドが発生する前です。小規模なアセット以外の場合は、外部画像ファイルの方が効率的です。これらは個別にキャッシュされ、gzip 圧縮で転送され、HTML や CSS が肥大化しません。</p>
 </div>
 <div style="margin-bottom: 1.5rem;">
 <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--text-color);">Avoid: Images That Change Frequently</h3>
@@ -458,27 +458,27 @@
 <h2 class="section-title">よくある質問</h2>
 <div class="faq-grid">
 <div class="faq-item">
-<h3>Does this tool upload my image anywhere?</h3>
-<p>No. Everything happens in your browser using the FileReader and Canvas APIs. Your image is processed locally and never leaves your computer. That's why it works offline after the page loads.</p>
+<h3>このツールは私の画像をどこかにアップロードしますか?</h3>
+<p>いいえ。すべては FileReader と Canvas API を使用してブラウザ内で行われます。画像はローカルで処理され、コンピューターから離れることはありません。そのため、ページが読み込まれた後はオフラインで動作します。</p>
 </div>
 <div class="faq-item">
-<h3>What's the difference between Data URL and raw Base64?</h3>
-<p>A Data URL includes the prefix like `data:image/png;base64,` followed by the encoded string. This tells the browser the data type and encoding. Raw Base64 is just the encoded characters without the prefix. Use Data URLs for web development — raw Base64 for systems that expect the string only.</p>
+<h3>データ URL と生の Base64 の違いは何ですか?</h3>
+<p>データ URL には、「data:image/png;base64」のようなプレフィックスと、それに続くエンコードされた文字列が含まれます。これにより、ブラウザにデータ型とエンコーディングが伝えられます。 Raw Base64 は、プレフィックスのないエンコードされた文字だけです。 Web 開発にはデータ URL を使用します。文字列のみを必要とするシステムには生の Base64 を使用します。</p>
 </div>
 <div class="faq-item">
-<h3>Why would I use line wrapping?</h3>
-<p>Line wrapping at 76 characters is the MIME standard for email attachments and some legacy systems. Modern web applications don't need it — in fact, unwrapped strings are slightly smaller. Only enable wrapping if you're embedding images in email templates or working with systems that require it.</p>
+<h3>なぜ行折り返しを使用するのでしょうか?</h3>
+<p>76 文字での行折り返しは、電子メールの添付ファイルおよび一部のレガシー システムの MIME 標準です。最近の Web アプリケーションではこれは必要ありません。実際、ラップされていない文字列はわずかに小さくなります。電子メール テンプレートに画像を埋め込む場合、またはそれを必要とするシステムを操作する場合にのみ、ラッピングを有効にします。</p>
 </div>
 <div class="faq-item">
-<h3>Can I paste a URL from any website?</h3>
-<p>Only if the server allows cross-origin requests. Many websites block hotlinking and don't send CORS headers, which prevents the browser from reading the image data. If URL mode fails, try downloading the image and using the upload option instead.</p>
+<h3>任意の Web サイトから URL を貼り付けることができますか?</h3>
+<p>サーバーがクロスオリジンリクエストを許可する場合のみ。多くの Web サイトはホットリンクをブロックし、CORS ヘッダーを送信しないため、ブラウザーは画像データを読み取ることができません。 URL モードが失敗した場合は、画像をダウンロードし、代わりにアップロード オプションを使用してみてください。</p>
 </div>
 <div class="faq-item">
-<h3>How large of an image can I convert?</h3>
-<p>Technically, the browser can handle very large images, but the Base64 string grows by 33% and becomes unwieldy. A 5MB image turns into a 6.7MB text string — that's millions of characters. For practical purposes, keep your images under 500KB. Large photos and backgrounds should stay as external image files.</p>
+<h3>どれくらいの大きさの画像を変換できますか?</h3>
+<p>技術的には、ブラウザは非常に大きな画像を処理できますが、Base64 文字列は 33% 増加して扱いにくくなります。 5 MB の画像は 6.7 MB のテキスト文字列に変換されます。これは数百万文字に相当します。実際的な目的のために、画像は 500 KB 未満に抑えてください。大きな写真と背景は外部画像ファイルとして保持する必要があります。</p>
 </div>
 <div class="faq-item">
-<h3>Does Base64 encoding work with animated GIFs?</h3>
+<h3>Base64 エンコードはアニメーション GIF で機能しますか?</h3>
 <p>Yes. The encoder preserves the entire file, including all frames and timing data. When you embed the Data URL in an `<img/>` tag, the animation plays just like the original GIF. The same goes for PNG transparency and WebP features — nothing is lost in the encoding process.</p>
 </div>
 </div>

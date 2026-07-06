@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
 <meta charset="utf-8"/>
@@ -24,7 +25,7 @@
 <link href="https://picete.com/es/avif-to-png/" hreflang="es" rel="alternate"/>
 <link href="https://picete.com/pt/avif-to-png/" hreflang="pt" rel="alternate"/>
 <link href="https://picete.com/ar/avif-to-png/" hreflang="ar" rel="alternate"/>
-    <link href="https://picete.com/ko/avif-to-png/" hreflang="ko" rel="alternate"/>
+<link href="https://picete.com/ko/avif-to-png/" hreflang="ko" rel="alternate"/>
 <link href="https://picete.com/avif-to-png/" hreflang="x-default" rel="alternate"/>
 <!-- Open Graph -->
 <meta content="website" property="og:type"/>
@@ -181,7 +182,7 @@
 <div class="container">
 <div class="logo">
 <a href="../">
-<img alt="PicEte" class="logo-img" src="../images/picete-logo.svg" width="116" height="32">
+<img alt="PicEte" class="logo-img" height="32" src="../images/picete-logo.svg" width="116"/>
 </a>
 <p class="tagline">AVIF to PNG 変換ツール</p>
 </div>
@@ -266,7 +267,7 @@
 <option value="es">Español</option>
 <option value="pt">Português</option>
 <option value="ar">العربية</option>
-            <option value="ko">한국어</option>
+<option value="ko">한국어</option>
 </select>
 </div>
 <script>
@@ -343,12 +344,12 @@
 <div class="feature-item">
 <div class="feature-icon">🎯</div>
 <h3>ロスレス出力</h3>
-<p>PNG preserves every pixel from the decoded AVIF without recompression artifacts. Perfect for archiving, editing, or further processing of your images.</p>
+<p>PNG は、再圧縮アーティファクトを発生させることなく、デコードされた AVIF からのすべてのピクセルを保存します。画像のアーカイブ、編集、またはさらなる処理に最適です。</p>
 </div>
 <div class="feature-item">
 <div class="feature-icon">📦</div>
 <h3>一括処理</h3>
-<p>Select multiple AVIF files at once for batch conversion. Each image is processed independently, and you can download them all at once with one click.</p>
+<p>バッチ変換するには、複数の AVIF ファイルを一度に選択します。各画像は個別に処理され、ワンクリックですべてを一度にダウンロードできます。</p>
 </div>
 <div class="feature-item">
 <div class="feature-icon">🔒</div>
@@ -398,20 +399,20 @@
 <h2 class="section-title">よくある質問</h2>
 <div class="faq-list">
 <details class="faq-item">
-<summary class="faq-question">Can I convert AVIF images to PNG without losing quality?</summary>
-<p class="faq-answer">Yes. PNG is a lossless format, so the pixel data is preserved exactly. However, note that AVIF itself uses lossy compression internally during encoding. The conversion from decoded AVIF to PNG is lossless — what you see in the AVIF is what you get in the PNG, with no additional degradation.</p>
+<summary class="faq-question">品質を損なうことなく AVIF 画像を PNG に変換できますか?</summary>
+<p class="faq-answer">はい。 PNG は可逆形式であるため、ピクセル データが正確に保存されます。ただし、AVIF 自体はエンコード中に内部で非可逆圧縮を使用することに注意してください。デコードされた AVIF から PNG への変換はロスレスです。AVIF で表示されるものは PNG で得られるものであり、さらなる劣化はありません。</p>
 </details>
 <details class="faq-item">
-<summary class="faq-question">Why can't this conversion use Canvas like other tools?</summary>
-<p class="faq-answer">Most browsers cannot decode AVIF images via Canvas. AVIF is a relatively new format that requires dedicated decoding libraries. Our tool uses wasm-vips, a WebAssembly port of the Vips image processing library, to decode AVIF in-browser. This ensures broad compatibility and accurate decoding without uploading your files to a server.</p>
+<summary class="faq-question">この変換では他のツールのように Canvas を使用できないのはなぜですか?</summary>
+<p class="faq-answer">ほとんどのブラウザは、Canvas 経由で AVIF 画像をデコードできません。 AVIF は比較的新しい形式で、専用のデコード ライブラリが必要です。私たちのツールは、Vips 画像処理ライブラリの WebAssembly ポートである wasm-vips を使用して、ブラウザ内で AVIF をデコードします。これにより、ファイルをサーバーにアップロードしなくても、幅広い互換性と正確なデコードが保証されます。</p>
 </details>
 <details class="faq-item">
-<summary class="faq-question">Will my AVIF file transparency be preserved in PNG?</summary>
-<p class="faq-answer">Yes. AVIF supports alpha transparency, and PNG also supports it. When you convert an AVIF image with transparent areas to PNG, the transparency is fully preserved. This is a key advantage over formats like JPG which cannot handle transparency at all.</p>
+<summary class="faq-question">AVIF ファイルの透明度は PNG で保持されますか?</summary>
+<p class="faq-answer">はい。 AVIF はアルファ透明度をサポートしており、PNG もアルファ透明度をサポートしています。透明な領域のある AVIF 画像を PNG に変換すると、透明度は完全に保持されます。これは、透明度をまったく処理できない JPG などの形式に比べて重要な利点です。</p>
 </details>
 <details class="faq-item">
-<summary class="faq-question">Is there a file size limit for AVIF to PNG conversion?</summary>
-<p class="faq-answer">There is no hard file size limit, but because conversion happens locally in your browser using WebAssembly, very large images may take longer to process and consume more memory. For typical web images under 20 MB, conversion is fast. Files are never uploaded — everything stays on your device.</p>
+<summary class="faq-question">AVIF から PNG への変換にファイル サイズの制限はありますか?</summary>
+<p class="faq-answer">ファイル サイズに厳密な制限はありませんが、変換は WebAssembly を使用してブラウザ内でローカルに行われるため、非常に大きな画像は処理に時間がかかり、より多くのメモリを消費する可能性があります。 20 MB 未満の一般的な Web 画像の場合、変換は高速です。ファイルはアップロードされず、すべてがデバイス上に残ります。</p>
 </details>
 </div>
 </div>

@@ -398,20 +398,20 @@
 <h2 class="section-title">常见问题</h2>
 <div class="faq-list">
 <details class="faq-item">
-<summary class="faq-question">Can I convert AVIF images to PNG without losing quality?</summary>
-<p class="faq-answer">Yes. PNG is a lossless format, so the pixel data is preserved exactly. However, note that AVIF itself uses lossy compression internally during encoding. The conversion from decoded AVIF to PNG is lossless — what you see in the AVIF is what you get in the PNG, with no additional degradation.</p>
+<summary class="faq-question">我可以在不损失质量的情况下将 AVIF 图像转换为 PNG 吗？</summary>
+<p class="faq-answer">是的。 PNG 是一种无损格式，因此像素数据被准确保留。但请注意，AVIF 本身在编码过程中内部使用有损压缩。从解码的 AVIF 到 PNG 的转换是无损的 — 您在 AVIF 中看到的就是在 PNG 中获得的，没有额外的质量下降。</p>
 </details>
 <details class="faq-item">
-<summary class="faq-question">Why can't this conversion use Canvas like other tools?</summary>
-<p class="faq-answer">Most browsers cannot decode AVIF images via Canvas. AVIF is a relatively new format that requires dedicated decoding libraries. Our tool uses wasm-vips, a WebAssembly port of the Vips image processing library, to decode AVIF in-browser. This ensures broad compatibility and accurate decoding without uploading your files to a server.</p>
+<summary class="faq-question">为什么这个转换不能像其他工具一样使用Canvas？</summary>
+<p class="faq-answer">大多数浏览器无法通过 Canvas 解码 AVIF 图像。 AVIF 是一种相对较新的格式，需要专用的解码库。我们的工具使用 wasm-vips（Vips 图像处理库的 WebAssembly 端口）来解码浏览器中的 AVIF。这可确保广泛的兼容性和准确的解码，而无需将文件上传到服务器。</p>
 </details>
 <details class="faq-item">
-<summary class="faq-question">Will my AVIF file transparency be preserved in PNG?</summary>
-<p class="faq-answer">Yes. AVIF supports alpha transparency, and PNG also supports it. When you convert an AVIF image with transparent areas to PNG, the transparency is fully preserved. This is a key advantage over formats like JPG which cannot handle transparency at all.</p>
+<summary class="faq-question">我的 AVIF 文件透明度会保留为 PNG 格式吗？</summary>
+<p class="faq-answer">是的。 AVIF 支持 Alpha 透明度，PNG 也支持。当您将具有透明区域的 AVIF 图像转换为 PNG 时，透明度会被完全保留。与 JPG 等根本无法处理透明度的格式相比，这是一个关键优势。</p>
 </details>
 <details class="faq-item">
-<summary class="faq-question">Is there a file size limit for AVIF to PNG conversion?</summary>
-<p class="faq-answer">There is no hard file size limit, but because conversion happens locally in your browser using WebAssembly, very large images may take longer to process and consume more memory. For typical web images under 20 MB, conversion is fast. Files are never uploaded — everything stays on your device.</p>
+<summary class="faq-question">AVIF 到 PNG 转换有文件大小限制吗？</summary>
+<p class="faq-answer">没有硬性文件大小限制，但由于转换是使用 WebAssembly 在浏览器本地进行的，因此非常大的图像可能需要更长的时间来处理并消耗更多内存。对于 20 MB 以下的典型网页图像，转换速度很快。文件永远不会上传 - 所有内容都保留在您的设备上。</p>
 </details>
 </div>
 </div>
