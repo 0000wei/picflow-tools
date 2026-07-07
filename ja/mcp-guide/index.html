@@ -1,15 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <title>PicEte MCP 統合ガイド — Claude、Cursor、あらゆるAIエージェントで使用する</title>
-    <meta name="description" content="MCPを介してPicEteの画像処理ツールをAIワークフローに統合する方法を解説。Claude Code、Cursor、Claude Desktop、およびMCP互換クライアントで動作します。">
-    <link rel="canonical" href="https://picete.com/ja/mcp-guide/">
-
-    <!-- Schema.org TechArticle -->
-    <script type="application/ld+json">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="index, follow" name="robots"/>
+<title>PicEte MCP 統合ガイド — Claude、Cursor、あらゆるAIエージェントで使用する</title>
+<meta content="MCPを介してPicEteの画像処理ツールをAIワークフローに統合する方法を解説。Claude Code、Cursor、Claude Desktop、およびMCP互換クライアントで動作します。" name="description"/>
+<link href="https://picete.com/ja/mcp-guide/" rel="canonical"/><link href="https://picete.com/mcp-guide/" hreflang="en" rel="alternate"/><link href="https://picete.com/zh/mcp-guide/" hreflang="zh" rel="alternate"/><link href="https://picete.com/ja/mcp-guide/" hreflang="ja" rel="alternate"/><link href="https://picete.com/de/mcp-guide/" hreflang="de" rel="alternate"/><link href="https://picete.com/fr/mcp-guide/" hreflang="fr" rel="alternate"/><link href="https://picete.com/es/mcp-guide/" hreflang="es" rel="alternate"/><link href="https://picete.com/pt/mcp-guide/" hreflang="pt" rel="alternate"/><link href="https://picete.com/ar/mcp-guide/" hreflang="ar" rel="alternate"/><link href="https://picete.com/ko/mcp-guide/" hreflang="ko" rel="alternate"/><link href="https://picete.com/mcp-guide/" hreflang="x-default" rel="alternate"/>
+<!-- Schema.org TechArticle -->
+<script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "TechArticle",
@@ -19,8 +19,7 @@
         "url": "https://picete.com/ja/mcp-guide/"
     }
     </script>
-
-    <style>
+<style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1f2937; background: #fff; }
         .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
@@ -53,27 +52,53 @@
             table { font-size: 0.85rem; }
         }
     </style>
-</head>
+<script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Mcp Guide",
+    "operatingSystem": "WebBrowser",
+    "applicationCategory": "MultimediaApplication",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    },
+    "browserRequirements": "Requires HTML5 Canvas/WebAssembly support.",
+    "features": "100% ブラウザ内ローカル処理、プライバシー保護、一括変換対応"
+}</script><script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "ホーム",
+            "item": "https://picete.com/ja/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Mcp Guide",
+            "item": "https://picete.com/ja/mcp-guide/"
+        }
+    ]
+}</script></head>
 <body>
-    <div class="container">
-        <h1>PicEte MCP 統合ガイド</h1>
-        <p class="subtitle">Claude Code、Cursor、Claude Desktop、またはMCP互換のAIクライアントでPicEteの画像処理ツールを使用しましょう。</p>
-
-        <h2>MCPとは？</h2>
-        <p><strong>Model Context Protocol（MCP）</strong>は、AIエージェント（Claude Code、Cursorなど）が外部ツールを直接呼び出せるようにするオープン標準です。<code>picete-mcp</code>を使えば、AIが画像を処理（圧縮、変換、リサイズ、色抽出など）できるようになります。<strong>ターミナルを離れず、サーバーにアップロードする必要もありません</strong>。</p>
-        <p>すべての処理は <strong>Sharp</strong> によってローカルで実行されます。データがマシンの外部に出ることは一切なく、<a href="https://picete.com">PicEte</a>と同じプライバシー保証が適用されます。</p>
-
-        <h2>クイックスタート</h2>
-        <p>以下の1コマンドでインストールして実行できます（サインアップ不要、テスト用の設定も不要）：</p>
-        <pre><code>npx -y picete-mcp</code></pre>
-        <p><span class="npm-badge">npm</span> パッケージ：<a href="https://www.npmjs.com/package/picete-mcp">picete-mcp@1.0.0</a></p>
-
-        <h2>プラットフォーム設定</h2>
-        <p>お使いのAIクライアントのMCP設定に以下を追加してください：</p>
-
-        <h3>Claude Desktop</h3>
-        <p><code>claude_desktop_config.json</code> を編集：</p>
-        <pre><code>{
+<div class="container">
+<h1>PicEte MCP 統合ガイド</h1>
+<p class="subtitle">Claude Code、Cursor、Claude Desktop、またはMCP互換のAIクライアントでPicEteの画像処理ツールを使用しましょう。</p>
+<h2>MCPとは？</h2>
+<p><strong>Model Context Protocol（MCP）</strong>は、AIエージェント（Claude Code、Cursorなど）が外部ツールを直接呼び出せるようにするオープン標準です。<code>picete-mcp</code>を使えば、AIが画像を処理（圧縮、変換、リサイズ、色抽出など）できるようになります。<strong>ターミナルを離れず、サーバーにアップロードする必要もありません</strong>。</p>
+<p>すべての処理は <strong>Sharp</strong> によってローカルで実行されます。データがマシンの外部に出ることは一切なく、<a href="https://picete.com">PicEte</a>と同じプライバシー保証が適用されます。</p>
+<h2>クイックスタート</h2>
+<p>以下の1コマンドでインストールして実行できます（サインアップ不要、テスト用の設定も不要）：</p>
+<pre><code>npx -y picete-mcp</code></pre>
+<p><span class="npm-badge">npm</span> パッケージ：<a href="https://www.npmjs.com/package/picete-mcp">picete-mcp@1.0.0</a></p>
+<h2>プラットフォーム設定</h2>
+<p>お使いのAIクライアントのMCP設定に以下を追加してください：</p>
+<h3>Claude Desktop</h3>
+<p><code>claude_desktop_config.json</code> を編集：</p>
+<pre><code>{
   "mcpServers": {
     "picete": {
       "command": "npx",
@@ -81,10 +106,9 @@
     }
   }
 }</code></pre>
-
-        <h3>Cursor</h3>
-        <p>プロジェクトルートの <code>.cursor/mcp.json</code> を編集：</p>
-        <pre><code>{
+<h3>Cursor</h3>
+<p>プロジェクトルートの <code>.cursor/mcp.json</code> を編集：</p>
+<pre><code>{
   "mcpServers": {
     "picete": {
       "command": "npx",
@@ -92,10 +116,9 @@
     }
   }
 }</code></pre>
-
-        <h3>Claude Code</h3>
-        <p><code>~/.claude/settings.json</code> を編集：</p>
-        <pre><code>{
+<h3>Claude Code</h3>
+<p><code>~/.claude/settings.json</code> を編集：</p>
+<pre><code>{
   "mcpServers": {
     "picete": {
       "command": "npx",
@@ -103,71 +126,65 @@
     }
   }
 }</code></pre>
-
-        <h2>利用可能なツール</h2>
-        <p>picete-mcpは <strong>13のツール</strong> を2つのカテゴリで提供します：</p>
-
-        <h3>アトミックツール</h3>
-        <table>
-            <thead>
-                <tr><th>ツール</th><th>機能</th><th>主なパラメータ</th></tr>
-            </thead>
-            <tbody>
-                <tr><td><code>convert</code></td><td>フォーマット変換</td><td>source, format (jpeg/png/webp/gif), quality</td></tr>
-                <tr><td><code>resize</code></td><td>画像リサイズ</td><td>source, width, height, fit, keep_aspect_ratio</td></tr>
-                <tr><td><code>compress</code></td><td>ファイルサイズ圧縮</td><td>source, quality, target_format, max_size_bytes</td></tr>
-                <tr><td><code>extract-colors</code></td><td>主要色の抽出</td><td>source, color_count（デフォルト5）</td></tr>
-                <tr><td><code>image-to-base64</code></td><td>Base64/データURL変換</td><td>source, format, data_url</td></tr>
-                <tr><td><code>split-image</code></td><td>グリッドタイル分割</td><td>source, rows, cols, overlap_px</td></tr>
-                <tr><td><code>metadata</code></td><td>画像メタデータ取得</td><td>source</td></tr>
-                <tr><td><code>batch</code></td><td>複数処理の連鎖実行</td><td>sources[], operations[]</td></tr>
-            </tbody>
-        </table>
-
-        <h3>スマートツール</h3>
-        <table>
-            <thead>
-                <tr><th>ツール</th><th>機能</th><th>主なパラメータ</th></tr>
-            </thead>
-            <tbody>
-                <tr><td><code>optimize-for-web</code></td><td>ワンクリックWeb最適化</td><td>source, max_width, quality, output_format</td></tr>
-                <tr><td><code>prepare-for-vision-api</code></td><td>AI Vision前処理＋トークン見積もり</td><td>source, max_longest_side, quality</td></tr>
-                <tr><td><code>favicon</code></td><td>ファビコンスイート生成（ico + png）</td><td>source, output_dir</td></tr>
-                <tr><td><code>compare-images</code></td><td>画像比較（MSE/SSIM/差分）</td><td>source1, source2, metric</td></tr>
-                <tr><td><code>collage</code></td><td>画像の連結</td><td>sources[], direction, gap</td></tr>
-                <tr><td><code>instagram-split</code></td><td>Instagramカルーセル用に分割</td><td>source, tiles, ratio</td></tr>
-                <tr><td><code>social-media-crop</code></td><td>セーフゾーンで切り抜き</td><td>source, platform</td></tr>
-            </tbody>
-        </table>
-
-        <h2>使用例</h2>
-        <p>自然言語でAIに指示すれば、自動的に適切なツールが呼び出されます：</p>
-
-        <table class="example-table">
-            <thead>
-                <tr><th>あなたの質問</th><th>呼び出されるツール</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>"この画像を200KB以下に圧縮して"</td><td>compress</td></tr>
-                <tr><td>"このPNGをWebPに変換して"</td><td>convert</td></tr>
-                <tr><td>"この写真を幅1200pxにリサイズして"</td><td>resize</td></tr>
-                <tr><td>"このロゴからすべてのファビコンサイズを生成して"</td><td>favicon</td></tr>
-                <tr><td>"この画像に含まれる色は？"</td><td>extract-colors</td></tr>
-                <tr><td>"この画像をWebサイト用に最適化して"</td><td>optimize-for-web</td></tr>
-                <tr><td>"この画像をGPT-4 Vision用に前処理して"</td><td>prepare-for-vision-api</td></tr>
-                <tr><td>"この画像を3×3のグリッドに分割して"</td><td>split-image</td></tr>
-                <tr><td>"この2つのスクリーンショットを比較して"</td><td>compare-images</td></tr>
-                <tr><td>"この画像のメタデータを取得して"</td><td>metadata</td></tr>
-                <tr><td>"これらの画像を横に連結して"</td><td>collage</td></tr>
-                <tr><td>"これをBase64に変換して"</td><td>image-to-base64</td></tr>
-                <tr><td>"この10枚の画像を一括でリサイズ＆圧縮して"</td><td>batch</td></tr>
-                <tr><td>"これをInstagramカルーセル用に分割して"</td><td>instagram-split</td></tr>
-                <tr><td>"これを私のFacebookカバー用に切り抜いて"</td><td>social-media-crop</td></tr>
-            </tbody>
-        </table>
-
-        <h2>開発</h2>
-        <pre><code># クローンしてビルド
+<h2>利用可能なツール</h2>
+<p>picete-mcpは <strong>13のツール</strong> を2つのカテゴリで提供します：</p>
+<h3>アトミックツール</h3>
+<table>
+<thead>
+<tr><th>ツール</th><th>機能</th><th>主なパラメータ</th></tr>
+</thead>
+<tbody>
+<tr><td><code>convert</code></td><td>フォーマット変換</td><td>source, format (jpeg/png/webp/gif), quality</td></tr>
+<tr><td><code>resize</code></td><td>画像リサイズ</td><td>source, width, height, fit, keep_aspect_ratio</td></tr>
+<tr><td><code>compress</code></td><td>ファイルサイズ圧縮</td><td>source, quality, target_format, max_size_bytes</td></tr>
+<tr><td><code>extract-colors</code></td><td>主要色の抽出</td><td>source, color_count（デフォルト5）</td></tr>
+<tr><td><code>image-to-base64</code></td><td>Base64/データURL変換</td><td>source, format, data_url</td></tr>
+<tr><td><code>split-image</code></td><td>グリッドタイル分割</td><td>source, rows, cols, overlap_px</td></tr>
+<tr><td><code>metadata</code></td><td>画像メタデータ取得</td><td>source</td></tr>
+<tr><td><code>batch</code></td><td>複数処理の連鎖実行</td><td>sources[], operations[]</td></tr>
+</tbody>
+</table>
+<h3>スマートツール</h3>
+<table>
+<thead>
+<tr><th>ツール</th><th>機能</th><th>主なパラメータ</th></tr>
+</thead>
+<tbody>
+<tr><td><code>optimize-for-web</code></td><td>ワンクリックWeb最適化</td><td>source, max_width, quality, output_format</td></tr>
+<tr><td><code>prepare-for-vision-api</code></td><td>AI Vision前処理＋トークン見積もり</td><td>source, max_longest_side, quality</td></tr>
+<tr><td><code>favicon</code></td><td>ファビコンスイート生成（ico + png）</td><td>source, output_dir</td></tr>
+<tr><td><code>compare-images</code></td><td>画像比較（MSE/SSIM/差分）</td><td>source1, source2, metric</td></tr>
+<tr><td><code>collage</code></td><td>画像の連結</td><td>sources[], direction, gap</td></tr>
+<tr><td><code>instagram-split</code></td><td>Instagramカルーセル用に分割</td><td>source, tiles, ratio</td></tr>
+<tr><td><code>social-media-crop</code></td><td>セーフゾーンで切り抜き</td><td>source, platform</td></tr>
+</tbody>
+</table>
+<h2>使用例</h2>
+<p>自然言語でAIに指示すれば、自動的に適切なツールが呼び出されます：</p>
+<table class="example-table">
+<thead>
+<tr><th>あなたの質問</th><th>呼び出されるツール</th></tr>
+</thead>
+<tbody>
+<tr><td>"この画像を200KB以下に圧縮して"</td><td>compress</td></tr>
+<tr><td>"このPNGをWebPに変換して"</td><td>convert</td></tr>
+<tr><td>"この写真を幅1200pxにリサイズして"</td><td>resize</td></tr>
+<tr><td>"このロゴからすべてのファビコンサイズを生成して"</td><td>favicon</td></tr>
+<tr><td>"この画像に含まれる色は？"</td><td>extract-colors</td></tr>
+<tr><td>"この画像をWebサイト用に最適化して"</td><td>optimize-for-web</td></tr>
+<tr><td>"この画像をGPT-4 Vision用に前処理して"</td><td>prepare-for-vision-api</td></tr>
+<tr><td>"この画像を3×3のグリッドに分割して"</td><td>split-image</td></tr>
+<tr><td>"この2つのスクリーンショットを比較して"</td><td>compare-images</td></tr>
+<tr><td>"この画像のメタデータを取得して"</td><td>metadata</td></tr>
+<tr><td>"これらの画像を横に連結して"</td><td>collage</td></tr>
+<tr><td>"これをBase64に変換して"</td><td>image-to-base64</td></tr>
+<tr><td>"この10枚の画像を一括でリサイズ＆圧縮して"</td><td>batch</td></tr>
+<tr><td>"これをInstagramカルーセル用に分割して"</td><td>instagram-split</td></tr>
+<tr><td>"これを私のFacebookカバー用に切り抜いて"</td><td>social-media-crop</td></tr>
+</tbody>
+</table>
+<h2>開発</h2>
+<pre><code># クローンしてビルド
 git clone https://github.com/0000wei/picete-mcp.git
 cd picete-mcp
 npm install
@@ -175,9 +192,8 @@ npm run build
 
 # MCPサーバーを起動
 npm start</code></pre>
-
-        <a href="https://picete.com/" class="back-link">← PicEte に戻る</a>
-        <p style="margin-top: 2rem; font-size: 0.85rem; color: #9ca3af;">Powered by <a href="https://picete.com">PicEte</a> — 無料オンライン画像ツール</p>
-    </div>
+<a class="back-link" href="https://picete.com/">← PicEte に戻る</a>
+<p style="margin-top: 2rem; font-size: 0.85rem; color: #9ca3af;">Powered by <a href="https://picete.com">PicEte</a> — 無料オンライン画像ツール</p>
+</div>
 </body>
 </html>

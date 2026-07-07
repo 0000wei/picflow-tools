@@ -7,6 +7,12 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 
 ## 已完成
 
+### 流量增长与 SEO (2026-07-07)
+- [x] **pSEO 矩阵页全面覆盖**：对全站 441 个页面更新 SoftwareApplication 和 Breadcrumbs JSON-LD 结构化数据，注入 Canonical 和 10 行 Hreflang 跨语言关联标签，打通全部多语言（9语言）关联。
+- [x] **前后效果对比滑动条 (Slider)**：对 15 个 eligible 的图片转换/压缩工具页面注入 Comparison Slider，引入 skeleton loading 骨架屏消除页面 CLS，防抖监听 state 数据自动匹配原图与转换后图片。
+- [x] **自愈与审计机制**：编写 `verify_seo_matrix.py` 自动化检测矩阵合规，在 `pSEO_matrix_generator.py` 增强 JSON-LD 子串清理、自愈补充缺失的 container ID 保证全站零报错通过。
+- [x] **修复韩语页面损坏**：全面重构、修复受损的 `ko/jpg-to-png` 和 `ko/jpg-to-avif`，保证 HTML 结构合法并完成多语言翻译。
+
 ### 工具开发（37 个 EN 工具 + 8 语言翻译）
 - [x] 核心工具集（12 个）：resize-image, compress-image, png-to-jpg, jpg-to-png, webp-to-png, png-to-webp, jpg-to-webp, image-splitter, extract-colors, image-to-base64, split-image-into-3x3, split-image-into-4-parts
 - [x] 尺寸长尾页（12 个）：resize-image-to-1080x1080, 1920x1080, 800x800, 1200x630, 512x512, 300x250, 600x600, 1500x500, 200x200, 250x250, 728x90, resize-image-for-facebook-cover

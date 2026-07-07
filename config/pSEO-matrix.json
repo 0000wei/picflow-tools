@@ -1,0 +1,34 @@
+{
+  "tools": [
+    {
+      "id": "raw-to-jpg",
+      "type": "converter",
+      "icon": "📷",
+      "slider_eligible": true
+    },
+    {
+      "id": "png-to-avif",
+      "type": "converter",
+      "icon": "🖼️",
+      "slider_eligible": true
+    },
+    {
+      "id": "compress-image",
+      "type": "compressor",
+      "icon": "📉",
+      "slider_eligible": true
+    },
+    {
+      "id": "instagram-image-splitter",
+      "type": "splitter",
+      "icon": "✂️",
+      "slider_eligible": false
+    },
+    {
+      "id": "resize-image-for-facebook-cover",
+      "type": "cropper",
+      "icon": "📘",
+      "slider_eligible": false
+    }
+  ]
+}

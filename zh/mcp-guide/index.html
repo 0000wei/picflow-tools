@@ -1,15 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <title>PicEte MCP 集成指南 — 在 Claude、Cursor 及任意 AI 代理中使用</title>
-    <meta name="description" content="了解如何通过 MCP 将 PicEte 的图片处理工具集成到您的 AI 工作流中。兼容 Claude Code、Cursor、Claude Desktop 及任何 MCP 兼容客户端。">
-    <link rel="canonical" href="https://picete.com/zh/mcp-guide/">
-
-    <!-- Schema.org TechArticle -->
-    <script type="application/ld+json">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="index, follow" name="robots"/>
+<title>PicEte MCP 集成指南 — 在 Claude、Cursor 及任意 AI 代理中使用</title>
+<meta content="了解如何通过 MCP 将 PicEte 的图片处理工具集成到您的 AI 工作流中。兼容 Claude Code、Cursor、Claude Desktop 及任何 MCP 兼容客户端。" name="description"/>
+<link href="https://picete.com/zh/mcp-guide/" rel="canonical"/><link href="https://picete.com/mcp-guide/" hreflang="en" rel="alternate"/><link href="https://picete.com/zh/mcp-guide/" hreflang="zh" rel="alternate"/><link href="https://picete.com/ja/mcp-guide/" hreflang="ja" rel="alternate"/><link href="https://picete.com/de/mcp-guide/" hreflang="de" rel="alternate"/><link href="https://picete.com/fr/mcp-guide/" hreflang="fr" rel="alternate"/><link href="https://picete.com/es/mcp-guide/" hreflang="es" rel="alternate"/><link href="https://picete.com/pt/mcp-guide/" hreflang="pt" rel="alternate"/><link href="https://picete.com/ar/mcp-guide/" hreflang="ar" rel="alternate"/><link href="https://picete.com/ko/mcp-guide/" hreflang="ko" rel="alternate"/><link href="https://picete.com/mcp-guide/" hreflang="x-default" rel="alternate"/>
+<!-- Schema.org TechArticle -->
+<script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "TechArticle",
@@ -19,8 +19,7 @@
         "url": "https://picete.com/zh/mcp-guide/"
     }
     </script>
-
-    <style>
+<style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1f2937; background: #fff; }
         .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
@@ -53,27 +52,53 @@
             table { font-size: 0.85rem; }
         }
     </style>
-</head>
+<script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Mcp Guide",
+    "operatingSystem": "WebBrowser",
+    "applicationCategory": "MultimediaApplication",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    },
+    "browserRequirements": "Requires HTML5 Canvas/WebAssembly support.",
+    "features": "100% 浏览器本地处理，保障隐私安全，支持批量转换"
+}</script><script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "首页",
+            "item": "https://picete.com/zh/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Mcp Guide",
+            "item": "https://picete.com/zh/mcp-guide/"
+        }
+    ]
+}</script></head>
 <body>
-    <div class="container">
-        <h1>PicEte MCP 集成指南</h1>
-        <p class="subtitle">在 Claude Code、Cursor、Claude Desktop 或任何兼容 MCP 的 AI 客户端中使用 PicEte 图片处理工具。</p>
-
-        <h2>什么是 MCP？</h2>
-        <p><strong>模型上下文协议（Model Context Protocol，MCP）</strong>是一项开放标准，允许 AI 代理（如 Claude Code、Cursor）直接调用外部工具。借助 <code>picete-mcp</code>，您的 AI 可以处理图片——压缩、转换、缩放、提取颜色——<strong>无需离开终端，也无需上传到任何服务器</strong>。</p>
-        <p>所有处理均通过 <strong>Sharp</strong> 在本地完成，零数据离开您的机器。与 <a href="https://picete.com">PicEte</a> 相同的隐私保障。</p>
-
-        <h2>快速开始</h2>
-        <p>一条命令即可安装并运行（无需注册，无需配置即可测试）：</p>
-        <pre><code>npx -y picete-mcp</code></pre>
-        <p><span class="npm-badge">npm</span> 包：<a href="https://www.npmjs.com/package/picete-mcp">picete-mcp@1.0.0</a></p>
-
-        <h2>平台配置</h2>
-        <p>将以下内容添加到您的 AI 客户端的 MCP 配置中：</p>
-
-        <h3>Claude Desktop</h3>
-        <p>编辑 <code>claude_desktop_config.json</code>：</p>
-        <pre><code>{
+<div class="container">
+<h1>PicEte MCP 集成指南</h1>
+<p class="subtitle">在 Claude Code、Cursor、Claude Desktop 或任何兼容 MCP 的 AI 客户端中使用 PicEte 图片处理工具。</p>
+<h2>什么是 MCP？</h2>
+<p><strong>模型上下文协议（Model Context Protocol，MCP）</strong>是一项开放标准，允许 AI 代理（如 Claude Code、Cursor）直接调用外部工具。借助 <code>picete-mcp</code>，您的 AI 可以处理图片——压缩、转换、缩放、提取颜色——<strong>无需离开终端，也无需上传到任何服务器</strong>。</p>
+<p>所有处理均通过 <strong>Sharp</strong> 在本地完成，零数据离开您的机器。与 <a href="https://picete.com">PicEte</a> 相同的隐私保障。</p>
+<h2>快速开始</h2>
+<p>一条命令即可安装并运行（无需注册，无需配置即可测试）：</p>
+<pre><code>npx -y picete-mcp</code></pre>
+<p><span class="npm-badge">npm</span> 包：<a href="https://www.npmjs.com/package/picete-mcp">picete-mcp@1.0.0</a></p>
+<h2>平台配置</h2>
+<p>将以下内容添加到您的 AI 客户端的 MCP 配置中：</p>
+<h3>Claude Desktop</h3>
+<p>编辑 <code>claude_desktop_config.json</code>：</p>
+<pre><code>{
   "mcpServers": {
     "picete": {
       "command": "npx",
@@ -81,10 +106,9 @@
     }
   }
 }</code></pre>
-
-        <h3>Cursor</h3>
-        <p>编辑项目根目录下的 <code>.cursor/mcp.json</code>：</p>
-        <pre><code>{
+<h3>Cursor</h3>
+<p>编辑项目根目录下的 <code>.cursor/mcp.json</code>：</p>
+<pre><code>{
   "mcpServers": {
     "picete": {
       "command": "npx",
@@ -92,10 +116,9 @@
     }
   }
 }</code></pre>
-
-        <h3>Claude Code</h3>
-        <p>编辑 <code>~/.claude/settings.json</code>：</p>
-        <pre><code>{
+<h3>Claude Code</h3>
+<p>编辑 <code>~/.claude/settings.json</code>：</p>
+<pre><code>{
   "mcpServers": {
     "picete": {
       "command": "npx",
@@ -103,71 +126,65 @@
     }
   }
 }</code></pre>
-
-        <h2>可用工具</h2>
-        <p>picete-mcp 提供 <strong>13 个工具</strong>，分为两类：</p>
-
-        <h3>原子工具</h3>
-        <table>
-            <thead>
-                <tr><th>工具</th><th>功能</th><th>关键参数</th></tr>
-            </thead>
-            <tbody>
-                <tr><td><code>convert</code></td><td>格式转换</td><td>source, format (jpeg/png/webp/gif), quality</td></tr>
-                <tr><td><code>resize</code></td><td>缩放图片</td><td>source, width, height, fit, keep_aspect_ratio</td></tr>
-                <tr><td><code>compress</code></td><td>压缩文件大小</td><td>source, quality, target_format, max_size_bytes</td></tr>
-                <tr><td><code>extract-colors</code></td><td>提取主色调</td><td>source, color_count（默认 5）</td></tr>
-                <tr><td><code>image-to-base64</code></td><td>转换为 base64/数据 URL</td><td>source, format, data_url</td></tr>
-                <tr><td><code>split-image</code></td><td>分割为网格瓦片</td><td>source, rows, cols, overlap_px</td></tr>
-                <tr><td><code>metadata</code></td><td>获取图片元数据</td><td>source</td></tr>
-                <tr><td><code>batch</code></td><td>链式执行多个操作</td><td>sources[], operations[]</td></tr>
-            </tbody>
-        </table>
-
-        <h3>智能工具</h3>
-        <table>
-            <thead>
-                <tr><th>工具</th><th>功能</th><th>关键参数</th></tr>
-            </thead>
-            <tbody>
-                <tr><td><code>optimize-for-web</code></td><td>一键网页优化</td><td>source, max_width, quality, output_format</td></tr>
-                <tr><td><code>prepare-for-vision-api</code></td><td>AI 视觉预处理 + Token 估算</td><td>source, max_longest_side, quality</td></tr>
-                <tr><td><code>favicon</code></td><td>生成 favicon 全套（ico + png）</td><td>source, output_dir</td></tr>
-                <tr><td><code>compare-images</code></td><td>比较两张图片（MSE/SSIM/差异图）</td><td>source1, source2, metric</td></tr>
-                <tr><td><code>collage</code></td><td>拼接多张图片</td><td>sources[], direction, gap</td></tr>
-                <tr><td><code>instagram-split</code></td><td>分割为Instagram轮播图</td><td>source, tiles, ratio</td></tr>
-                <tr><td><code>social-media-crop</code></td><td>使用安全区裁剪</td><td>source, platform</td></tr>
-            </tbody>
-        </table>
-
-        <h2>使用示例</h2>
-        <p>用自然语言告诉您的 AI——它会自动调用正确的工具：</p>
-
-        <table class="example-table">
-            <thead>
-                <tr><th>您的提问</th><th>调用的工具</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>"把这张图片压缩到 200KB 以下"</td><td>compress</td></tr>
-                <tr><td>"把这个 PNG 转换为 WebP"</td><td>convert</td></tr>
-                <tr><td>"把这照片缩放到 1200px 宽"</td><td>resize</td></tr>
-                <tr><td>"用这个 logo 生成所有 favicon 尺寸"</td><td>favicon</td></tr>
-                <tr><td>"这张图片里有哪些颜色？"</td><td>extract-colors</td></tr>
-                <tr><td>"为我的网站优化这张图片"</td><td>optimize-for-web</td></tr>
-                <tr><td>"把这张图片预处理给 GPT-4 Vision 使用"</td><td>prepare-for-vision-api</td></tr>
-                <tr><td>"把这张图片分割成 3×3 网格"</td><td>split-image</td></tr>
-                <tr><td>"比较这两张截图"</td><td>compare-images</td></tr>
-                <tr><td>"获取这张图片的元数据"</td><td>metadata</td></tr>
-                <tr><td>"把这几张图片横向拼接"</td><td>collage</td></tr>
-                <tr><td>"转换成 base64"</td><td>image-to-base64</td></tr>
-                <tr><td>"把这 10 张图片批量缩放并压缩"</td><td>batch</td></tr>
-                <tr><td>"为Instagram轮播图分割这个"</td><td>instagram-split</td></tr>
-                <tr><td>"为我的Facebook封面裁剪这个"</td><td>social-media-crop</td></tr>
-            </tbody>
-        </table>
-
-        <h2>开发构建</h2>
-        <pre><code># 克隆并构建
+<h2>可用工具</h2>
+<p>picete-mcp 提供 <strong>13 个工具</strong>，分为两类：</p>
+<h3>原子工具</h3>
+<table>
+<thead>
+<tr><th>工具</th><th>功能</th><th>关键参数</th></tr>
+</thead>
+<tbody>
+<tr><td><code>convert</code></td><td>格式转换</td><td>source, format (jpeg/png/webp/gif), quality</td></tr>
+<tr><td><code>resize</code></td><td>缩放图片</td><td>source, width, height, fit, keep_aspect_ratio</td></tr>
+<tr><td><code>compress</code></td><td>压缩文件大小</td><td>source, quality, target_format, max_size_bytes</td></tr>
+<tr><td><code>extract-colors</code></td><td>提取主色调</td><td>source, color_count（默认 5）</td></tr>
+<tr><td><code>image-to-base64</code></td><td>转换为 base64/数据 URL</td><td>source, format, data_url</td></tr>
+<tr><td><code>split-image</code></td><td>分割为网格瓦片</td><td>source, rows, cols, overlap_px</td></tr>
+<tr><td><code>metadata</code></td><td>获取图片元数据</td><td>source</td></tr>
+<tr><td><code>batch</code></td><td>链式执行多个操作</td><td>sources[], operations[]</td></tr>
+</tbody>
+</table>
+<h3>智能工具</h3>
+<table>
+<thead>
+<tr><th>工具</th><th>功能</th><th>关键参数</th></tr>
+</thead>
+<tbody>
+<tr><td><code>optimize-for-web</code></td><td>一键网页优化</td><td>source, max_width, quality, output_format</td></tr>
+<tr><td><code>prepare-for-vision-api</code></td><td>AI 视觉预处理 + Token 估算</td><td>source, max_longest_side, quality</td></tr>
+<tr><td><code>favicon</code></td><td>生成 favicon 全套（ico + png）</td><td>source, output_dir</td></tr>
+<tr><td><code>compare-images</code></td><td>比较两张图片（MSE/SSIM/差异图）</td><td>source1, source2, metric</td></tr>
+<tr><td><code>collage</code></td><td>拼接多张图片</td><td>sources[], direction, gap</td></tr>
+<tr><td><code>instagram-split</code></td><td>分割为Instagram轮播图</td><td>source, tiles, ratio</td></tr>
+<tr><td><code>social-media-crop</code></td><td>使用安全区裁剪</td><td>source, platform</td></tr>
+</tbody>
+</table>
+<h2>使用示例</h2>
+<p>用自然语言告诉您的 AI——它会自动调用正确的工具：</p>
+<table class="example-table">
+<thead>
+<tr><th>您的提问</th><th>调用的工具</th></tr>
+</thead>
+<tbody>
+<tr><td>"把这张图片压缩到 200KB 以下"</td><td>compress</td></tr>
+<tr><td>"把这个 PNG 转换为 WebP"</td><td>convert</td></tr>
+<tr><td>"把这照片缩放到 1200px 宽"</td><td>resize</td></tr>
+<tr><td>"用这个 logo 生成所有 favicon 尺寸"</td><td>favicon</td></tr>
+<tr><td>"这张图片里有哪些颜色？"</td><td>extract-colors</td></tr>
+<tr><td>"为我的网站优化这张图片"</td><td>optimize-for-web</td></tr>
+<tr><td>"把这张图片预处理给 GPT-4 Vision 使用"</td><td>prepare-for-vision-api</td></tr>
+<tr><td>"把这张图片分割成 3×3 网格"</td><td>split-image</td></tr>
+<tr><td>"比较这两张截图"</td><td>compare-images</td></tr>
+<tr><td>"获取这张图片的元数据"</td><td>metadata</td></tr>
+<tr><td>"把这几张图片横向拼接"</td><td>collage</td></tr>
+<tr><td>"转换成 base64"</td><td>image-to-base64</td></tr>
+<tr><td>"把这 10 张图片批量缩放并压缩"</td><td>batch</td></tr>
+<tr><td>"为Instagram轮播图分割这个"</td><td>instagram-split</td></tr>
+<tr><td>"为我的Facebook封面裁剪这个"</td><td>social-media-crop</td></tr>
+</tbody>
+</table>
+<h2>开发构建</h2>
+<pre><code># 克隆并构建
 git clone https://github.com/0000wei/picete-mcp.git
 cd picete-mcp
 npm install
@@ -175,9 +192,8 @@ npm run build
 
 # 启动 MCP 服务器
 npm start</code></pre>
-
-        <a href="https://picete.com/" class="back-link">← 返回 PicEte</a>
-        <p style="margin-top: 2rem; font-size: 0.85rem; color: #9ca3af;">由 <a href="https://picete.com">PicEte</a> 提供支持 — 免费在线图片工具</p>
-    </div>
+<a class="back-link" href="https://picete.com/">← 返回 PicEte</a>
+<p style="margin-top: 2rem; font-size: 0.85rem; color: #9ca3af;">由 <a href="https://picete.com">PicEte</a> 提供支持 — 免费在线图片工具</p>
+</div>
 </body>
 </html>

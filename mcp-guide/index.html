@@ -1,15 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <title>PicEte MCP Integration Guide — Use from Claude, Cursor & Any AI Agent</title>
-    <meta name="description" content="Learn how to integrate PicEte's image processing tools into your AI workflow via MCP. Works with Claude Code, Cursor, Claude Desktop, and any MCP-compatible client.">
-    <link rel="canonical" href="https://picete.com/mcp-guide/">
-
-    <!-- Schema.org TechArticle -->
-    <script type="application/ld+json">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="index, follow" name="robots"/>
+<title>PicEte MCP Integration Guide — Use from Claude, Cursor &amp; Any AI Agent</title>
+<meta content="Learn how to integrate PicEte's image processing tools into your AI workflow via MCP. Works with Claude Code, Cursor, Claude Desktop, and any MCP-compatible client." name="description"/>
+<link href="https://picete.com/mcp-guide/" rel="canonical"/><link href="https://picete.com/mcp-guide/" hreflang="en" rel="alternate"/><link href="https://picete.com/zh/mcp-guide/" hreflang="zh" rel="alternate"/><link href="https://picete.com/ja/mcp-guide/" hreflang="ja" rel="alternate"/><link href="https://picete.com/de/mcp-guide/" hreflang="de" rel="alternate"/><link href="https://picete.com/fr/mcp-guide/" hreflang="fr" rel="alternate"/><link href="https://picete.com/es/mcp-guide/" hreflang="es" rel="alternate"/><link href="https://picete.com/pt/mcp-guide/" hreflang="pt" rel="alternate"/><link href="https://picete.com/ar/mcp-guide/" hreflang="ar" rel="alternate"/><link href="https://picete.com/ko/mcp-guide/" hreflang="ko" rel="alternate"/><link href="https://picete.com/mcp-guide/" hreflang="x-default" rel="alternate"/>
+<!-- Schema.org TechArticle -->
+<script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "TechArticle",
@@ -19,8 +19,7 @@
         "url": "https://picete.com/mcp-guide/"
     }
     </script>
-
-    <style>
+<style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1f2937; background: #fff; }
         .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
@@ -53,27 +52,53 @@
             table { font-size: 0.85rem; }
         }
     </style>
-</head>
+<script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Mcp Guide",
+    "operatingSystem": "WebBrowser",
+    "applicationCategory": "MultimediaApplication",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    },
+    "browserRequirements": "Requires HTML5 Canvas/WebAssembly support.",
+    "features": "100% Client-side image processing, Privacy secured, Batch converting"
+}</script><script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://picete.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Mcp Guide",
+            "item": "https://picete.com/mcp-guide/"
+        }
+    ]
+}</script></head>
 <body>
-    <div class="container">
-        <h1>PicEte MCP Integration Guide</h1>
-        <p class="subtitle">Use PicEte's image processing tools from Claude Code, Cursor, Claude Desktop, or any MCP-compatible AI client.</p>
-
-        <h2>What is MCP?</h2>
-        <p><strong>Model Context Protocol (MCP)</strong> is an open standard that lets AI agents (like Claude Code, Cursor) call external tools directly. With <code>picete-mcp</code>, your AI can process images — compress, convert, resize, extract colors — <strong>without leaving your terminal and without uploading to any server</strong>.</p>
-        <p>All processing runs locally via <strong>Sharp</strong>. Zero data leaves your machine. Same privacy guarantee as <a href="https://picete.com">PicEte</a>.</p>
-
-        <h2>Quick Start</h2>
-        <p>Install and run with a single command (no signup, no config needed for testing):</p>
-        <pre><code>npx -y picete-mcp</code></pre>
-        <p><span class="npm-badge">npm</span> Package: <a href="https://www.npmjs.com/package/picete-mcp">picete-mcp@1.0.0</a></p>
-
-        <h2>Platform Configuration</h2>
-        <p>Add the following to your AI client's MCP configuration:</p>
-
-        <h3>Claude Desktop</h3>
-        <p>Edit <code>claude_desktop_config.json</code>:</p>
-        <pre><code>{
+<div class="container">
+<h1>PicEte MCP Integration Guide</h1>
+<p class="subtitle">Use PicEte's image processing tools from Claude Code, Cursor, Claude Desktop, or any MCP-compatible AI client.</p>
+<h2>What is MCP?</h2>
+<p><strong>Model Context Protocol (MCP)</strong> is an open standard that lets AI agents (like Claude Code, Cursor) call external tools directly. With <code>picete-mcp</code>, your AI can process images — compress, convert, resize, extract colors — <strong>without leaving your terminal and without uploading to any server</strong>.</p>
+<p>All processing runs locally via <strong>Sharp</strong>. Zero data leaves your machine. Same privacy guarantee as <a href="https://picete.com">PicEte</a>.</p>
+<h2>Quick Start</h2>
+<p>Install and run with a single command (no signup, no config needed for testing):</p>
+<pre><code>npx -y picete-mcp</code></pre>
+<p><span class="npm-badge">npm</span> Package: <a href="https://www.npmjs.com/package/picete-mcp">picete-mcp@1.0.0</a></p>
+<h2>Platform Configuration</h2>
+<p>Add the following to your AI client's MCP configuration:</p>
+<h3>Claude Desktop</h3>
+<p>Edit <code>claude_desktop_config.json</code>:</p>
+<pre><code>{
   "mcpServers": {
     "picete": {
       "command": "npx",
@@ -81,10 +106,9 @@
     }
   }
 }</code></pre>
-
-        <h3>Cursor</h3>
-        <p>Edit <code>.cursor/mcp.json</code> in your project root:</p>
-        <pre><code>{
+<h3>Cursor</h3>
+<p>Edit <code>.cursor/mcp.json</code> in your project root:</p>
+<pre><code>{
   "mcpServers": {
     "picete": {
       "command": "npx",
@@ -92,10 +116,9 @@
     }
   }
 }</code></pre>
-
-        <h3>Claude Code</h3>
-        <p>Edit <code>~/.claude/settings.json</code>:</p>
-        <pre><code>{
+<h3>Claude Code</h3>
+<p>Edit <code>~/.claude/settings.json</code>:</p>
+<pre><code>{
   "mcpServers": {
     "picete": {
       "command": "npx",
@@ -103,71 +126,65 @@
     }
   }
 }</code></pre>
-
-        <h2>Available Tools</h2>
-        <p>picete-mcp provides <strong>13 tools</strong> across two categories:</p>
-
-        <h3>Atomic Tools</h3>
-        <table>
-            <thead>
-                <tr><th>Tool</th><th>Function</th><th>Key Parameters</th></tr>
-            </thead>
-            <tbody>
-                <tr><td><code>convert</code></td><td>Format conversion</td><td>source, format (jpeg/png/webp/gif), quality</td></tr>
-                <tr><td><code>resize</code></td><td>Resize image</td><td>source, width, height, fit, keep_aspect_ratio</td></tr>
-                <tr><td><code>compress</code></td><td>Compress file size</td><td>source, quality, target_format, max_size_bytes</td></tr>
-                <tr><td><code>extract-colors</code></td><td>Extract dominant colors</td><td>source, color_count (default 5)</td></tr>
-                <tr><td><code>image-to-base64</code></td><td>Convert to base64/data URL</td><td>source, format, data_url</td></tr>
-                <tr><td><code>split-image</code></td><td>Split into grid tiles</td><td>source, rows, cols, overlap_px</td></tr>
-                <tr><td><code>metadata</code></td><td>Get image metadata</td><td>source</td></tr>
-                <tr><td><code>batch</code></td><td>Chain multiple operations</td><td>sources[], operations[]</td></tr>
-            </tbody>
-        </table>
-
-        <h3>Smart Tools</h3>
-        <table>
-            <thead>
-                <tr><th>Tool</th><th>Function</th><th>Key Parameters</th></tr>
-            </thead>
-            <tbody>
-                <tr><td><code>optimize-for-web</code></td><td>One-click web optimization</td><td>source, max_width, quality, output_format</td></tr>
-                <tr><td><code>prepare-for-vision-api</code></td><td>AI Vision preprocessing + token estimation</td><td>source, max_longest_side, quality</td></tr>
-                <tr><td><code>favicon</code></td><td>Generate favicon suite (ico + png)</td><td>source, output_dir</td></tr>
-                <tr><td><code>compare-images</code></td><td>Compare two images (MSE/SSIM/diff)</td><td>source1, source2, metric</td></tr>
-                <tr><td><code>collage</code></td><td>Stitch images together</td><td>sources[], direction, gap</td></tr>
-                <tr><td><code>instagram-split</code></td><td>Split into Instagram carousel</td><td>source, tiles, ratio</td></tr>
-                <tr><td><code>social-media-crop</code></td><td>Crop with safe zones</td><td>source, platform</td></tr>
-            </tbody>
-        </table>
-
-        <h2>Usage Examples</h2>
-        <p>Ask your AI in natural language — it will call the right tool automatically:</p>
-
-        <table class="example-table">
-            <thead>
-                <tr><th>You Say</th><th>Tool Called</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>"Compress this image to under 200KB"</td><td>compress</td></tr>
-                <tr><td>"Convert this PNG to WebP"</td><td>convert</td></tr>
-                <tr><td>"Resize this photo to 1200px wide"</td><td>resize</td></tr>
-                <tr><td>"Generate all favicon sizes from this logo"</td><td>favicon</td></tr>
-                <tr><td>"What colors are in this image?"</td><td>extract-colors</td></tr>
-                <tr><td>"Optimize this for my website"</td><td>optimize-for-web</td></tr>
-                <tr><td>"Prepare this image for GPT-4 Vision"</td><td>prepare-for-vision-api</td></tr>
-                <tr><td>"Split this image into a 3x3 grid"</td><td>split-image</td></tr>
-                <tr><td>"Compare these two screenshots"</td><td>compare-images</td></tr>
-                <tr><td>"Get the metadata of this image"</td><td>metadata</td></tr>
-                <tr><td>"Stitch these images horizontally"</td><td>collage</td></tr>
-                <tr><td>"Convert this to base64"</td><td>image-to-base64</td></tr>
-                <tr><td>"Batch resize and compress these 10 images"</td><td>batch</td></tr>
-                <tr><td>"Split this for an Instagram carousel"</td><td>instagram-split</td></tr>
-                <tr><td>"Crop this for my Facebook cover"</td><td>social-media-crop</td></tr>
-            </tbody>
-        </table>
-
-        <h2>Development</h2>
-        <pre><code># Clone and build
+<h2>Available Tools</h2>
+<p>picete-mcp provides <strong>13 tools</strong> across two categories:</p>
+<h3>Atomic Tools</h3>
+<table>
+<thead>
+<tr><th>Tool</th><th>Function</th><th>Key Parameters</th></tr>
+</thead>
+<tbody>
+<tr><td><code>convert</code></td><td>Format conversion</td><td>source, format (jpeg/png/webp/gif), quality</td></tr>
+<tr><td><code>resize</code></td><td>Resize image</td><td>source, width, height, fit, keep_aspect_ratio</td></tr>
+<tr><td><code>compress</code></td><td>Compress file size</td><td>source, quality, target_format, max_size_bytes</td></tr>
+<tr><td><code>extract-colors</code></td><td>Extract dominant colors</td><td>source, color_count (default 5)</td></tr>
+<tr><td><code>image-to-base64</code></td><td>Convert to base64/data URL</td><td>source, format, data_url</td></tr>
+<tr><td><code>split-image</code></td><td>Split into grid tiles</td><td>source, rows, cols, overlap_px</td></tr>
+<tr><td><code>metadata</code></td><td>Get image metadata</td><td>source</td></tr>
+<tr><td><code>batch</code></td><td>Chain multiple operations</td><td>sources[], operations[]</td></tr>
+</tbody>
+</table>
+<h3>Smart Tools</h3>
+<table>
+<thead>
+<tr><th>Tool</th><th>Function</th><th>Key Parameters</th></tr>
+</thead>
+<tbody>
+<tr><td><code>optimize-for-web</code></td><td>One-click web optimization</td><td>source, max_width, quality, output_format</td></tr>
+<tr><td><code>prepare-for-vision-api</code></td><td>AI Vision preprocessing + token estimation</td><td>source, max_longest_side, quality</td></tr>
+<tr><td><code>favicon</code></td><td>Generate favicon suite (ico + png)</td><td>source, output_dir</td></tr>
+<tr><td><code>compare-images</code></td><td>Compare two images (MSE/SSIM/diff)</td><td>source1, source2, metric</td></tr>
+<tr><td><code>collage</code></td><td>Stitch images together</td><td>sources[], direction, gap</td></tr>
+<tr><td><code>instagram-split</code></td><td>Split into Instagram carousel</td><td>source, tiles, ratio</td></tr>
+<tr><td><code>social-media-crop</code></td><td>Crop with safe zones</td><td>source, platform</td></tr>
+</tbody>
+</table>
+<h2>Usage Examples</h2>
+<p>Ask your AI in natural language — it will call the right tool automatically:</p>
+<table class="example-table">
+<thead>
+<tr><th>You Say</th><th>Tool Called</th></tr>
+</thead>
+<tbody>
+<tr><td>"Compress this image to under 200KB"</td><td>compress</td></tr>
+<tr><td>"Convert this PNG to WebP"</td><td>convert</td></tr>
+<tr><td>"Resize this photo to 1200px wide"</td><td>resize</td></tr>
+<tr><td>"Generate all favicon sizes from this logo"</td><td>favicon</td></tr>
+<tr><td>"What colors are in this image?"</td><td>extract-colors</td></tr>
+<tr><td>"Optimize this for my website"</td><td>optimize-for-web</td></tr>
+<tr><td>"Prepare this image for GPT-4 Vision"</td><td>prepare-for-vision-api</td></tr>
+<tr><td>"Split this image into a 3x3 grid"</td><td>split-image</td></tr>
+<tr><td>"Compare these two screenshots"</td><td>compare-images</td></tr>
+<tr><td>"Get the metadata of this image"</td><td>metadata</td></tr>
+<tr><td>"Stitch these images horizontally"</td><td>collage</td></tr>
+<tr><td>"Convert this to base64"</td><td>image-to-base64</td></tr>
+<tr><td>"Batch resize and compress these 10 images"</td><td>batch</td></tr>
+<tr><td>"Split this for an Instagram carousel"</td><td>instagram-split</td></tr>
+<tr><td>"Crop this for my Facebook cover"</td><td>social-media-crop</td></tr>
+</tbody>
+</table>
+<h2>Development</h2>
+<pre><code># Clone and build
 git clone https://github.com/0000wei/picete-mcp.git
 cd picete-mcp
 npm install
@@ -175,9 +192,8 @@ npm run build
 
 # Start the MCP server
 npm start</code></pre>
-
-        <a href="https://picete.com/" class="back-link">← Back to PicEte</a>
-        <p style="margin-top: 2rem; font-size: 0.85rem; color: #9ca3af;">Powered by <a href="https://picete.com">PicEte</a> — Free Online Image Tools</p>
-    </div>
+<a class="back-link" href="https://picete.com/">← Back to PicEte</a>
+<p style="margin-top: 2rem; font-size: 0.85rem; color: #9ca3af;">Powered by <a href="https://picete.com">PicEte</a> — Free Online Image Tools</p>
+</div>
 </body>
 </html>

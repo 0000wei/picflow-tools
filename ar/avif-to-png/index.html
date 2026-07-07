@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<html dir="rtl" lang="ar">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -14,18 +15,8 @@
     </script>
 <meta content="Free online AVIF to PNG converter. Convert AVIF images to PNG format losslessly. Supports batch conversion, local processing for privacy, no registration required." name="description"/>
 <meta content="AVIF to PNG, AVIF to PNG converter, online image converter, AVIF decoder, batch conversion, free tool" name="keywords"/>
-<link href="https://picete.com/ar/avif-to-png/" rel="canonical"/>
+<link href="https://picete.com/ar/avif-to-png/" rel="canonical"/><link href="https://picete.com/avif-to-png/" hreflang="en" rel="alternate"/><link href="https://picete.com/zh/avif-to-png/" hreflang="zh" rel="alternate"/><link href="https://picete.com/ja/avif-to-png/" hreflang="ja" rel="alternate"/><link href="https://picete.com/de/avif-to-png/" hreflang="de" rel="alternate"/><link href="https://picete.com/fr/avif-to-png/" hreflang="fr" rel="alternate"/><link href="https://picete.com/es/avif-to-png/" hreflang="es" rel="alternate"/><link href="https://picete.com/pt/avif-to-png/" hreflang="pt" rel="alternate"/><link href="https://picete.com/ar/avif-to-png/" hreflang="ar" rel="alternate"/><link href="https://picete.com/ko/avif-to-png/" hreflang="ko" rel="alternate"/><link href="https://picete.com/avif-to-png/" hreflang="x-default" rel="alternate"/>
 <!-- hreflang tags -->
-<link href="https://picete.com/avif-to-png/" hreflang="en" rel="alternate"/>
-<link href="https://picete.com/zh/avif-to-png/" hreflang="zh" rel="alternate"/>
-<link href="https://picete.com/ja/avif-to-png/" hreflang="ja" rel="alternate"/>
-<link href="https://picete.com/de/avif-to-png/" hreflang="de" rel="alternate"/>
-<link href="https://picete.com/fr/avif-to-png/" hreflang="fr" rel="alternate"/>
-<link href="https://picete.com/es/avif-to-png/" hreflang="es" rel="alternate"/>
-<link href="https://picete.com/pt/avif-to-png/" hreflang="pt" rel="alternate"/>
-<link href="https://picete.com/ar/avif-to-png/" hreflang="ar" rel="alternate"/>
-    <link href="https://picete.com/ko/avif-to-png/" hreflang="ko" rel="alternate"/>
-<link href="https://picete.com/avif-to-png/" hreflang="x-default" rel="alternate"/>
 <!-- Open Graph -->
 <meta content="website" property="og:type"/>
 <meta content="https://picete.com/avif-to-png/" property="og:url"/>
@@ -35,31 +26,6 @@
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
 <!-- Schema.org -->
-<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication"
-        "url": "https://picete.com/ar/avif-to-png",
-        "applicationCategory": "MultimediaApplication",
-        "operatingSystem": "Any"
-    }
-    </script>
-<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [{
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://picete.com/"
-        }, {
-            "@type": "ListItem",
-            "position": 2,
-            "item": "https://picete.com/ar/avif-to-png/"
-        }]
-    }
-    </script>
 <link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="../favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../llms.txt" rel="llms" title="PicEte LLM Context"/>
@@ -69,46 +35,6 @@
 <!-- vips-loader for AVIF decoding -->
 <script src="/js/vips-loader.js"></script>
 <!-- FAQ Structured Data -->
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {
-            "@type": "Question",
-            "name": "هل يمكنني تحويل صور AVIF إلى PNG دون فقدان الجودة؟",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "نعم. PNG هو تنسيق بدون فقدان، لذا يتم الحفاظ على بيانات البكسل بدقة. ومع ذلك، لاحظ أن AVIF نفسه يستخدم ضغطاً مع فقدان داخلياً أثناء الترميز. التحويل من AVIF المفكوك إلى PNG هو بدون فقدان — ما تراه في AVIF هو ما تحصل عليه في PNG، دون أي تدهور إضافي."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "لماذا لا يمكن لهذا التحويل استخدام Canvas مثل الأدوات الأخرى؟",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "معظم المتصفحات لا تستطيع فك تشفير صور AVIF عبر Canvas. AVIF هو تنسيق جديد نسبياً يتطلب مكتبات فك تشفير مخصصة. تستخدم أداتنا wasm-vips، وهي منفذ WebAssembly لمكتبة معالجة الصور Vips، لفك تشفير AVIF داخل المتصفح. هذا يضمن توافقاً واسعاً وفك تشفير دقيق دون رفع ملفاتك إلى خادم."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "هل سيتم الحفاظ على شفافية ملف AVIF في PNG؟",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "نعم. AVIF يدعم شفافية ألفا، ويدعمها PNG أيضاً. عند تحويل صورة AVIF ذات مناطق شفافة إلى PNG، يتم الحفاظ على الشفافية بالكامل. هذه ميزة رئيسية على تنسيقات مثل JPG التي لا تستطيع التعامل مع الشفافية على الإطلاق."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "هل هناك حد لحجم الملف لتحويل AVIF إلى PNG؟",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "لا يوجد حد صارم لحجم الملف، لكن لأن التحويل يحدث محلياً في متصفحك باستخدام WebAssembly، قد تستغرق الصور الكبيرة جداً وقتاً أطول للمعالجة وتستهلك ذاكرة أكبر. للصور النموذجية للويب تحت 20 ميغابايت، يكون التحويل سريعاً. لا يتم رفع الملفات أبداً — كل شيء يبقى على جهازك."
-            }
-        }
-    ]
-}
-    </script>
 <style>
         /* FAQ Section */
         .faq-list {
@@ -175,13 +101,80 @@
         [data-theme="dark"] .sun-icon { display: none; }
         [data-theme="dark"] .moon-icon { display: inline; }
     </style>
-</head>
+<script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Avif To Png",
+    "operatingSystem": "WebBrowser",
+    "applicationCategory": "MultimediaApplication",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    },
+    "browserRequirements": "Requires HTML5 Canvas/WebAssembly support.",
+    "features": "معالجة محلية 100% في المتصفح، أمان الخصوصية، تحويل دفعات"
+}</script><script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "الرئيسية",
+            "item": "https://picete.com/ar/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Avif To Png",
+            "item": "https://picete.com/ar/avif-to-png/"
+        }
+    ]
+}</script><script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "هل يمكنني تحويل صور AVIF إلى PNG دون فقدان الجودة؟",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "نعم. PNG هو تنسيق بدون فقدان، لذلك يتم الحفاظ على بيانات البكسل تمامًا. ومع ذلك، لاحظ أن AVIF نفسه يستخدم الضغط مع فقدان البيانات داخليًا أثناء التشفير. التحويل من AVIF الذي تم فك تشفيره إلى PNG لا يفقد أي بيانات - ما تراه في AVIF هو ما تحصل عليه في PNG، دون أي تدهور إضافي."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "لماذا لا يمكن لهذا التحويل استخدام Canvas مثل الأدوات الأخرى؟",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "لا تستطيع معظم المتصفحات فك تشفير صور AVIF عبر Canvas. AVIF هو تنسيق جديد نسبيًا يتطلب مكتبات مخصصة لفك التشفير. تستخدم أداتنا Wasm-vips، وهو منفذ WebAssembly لمكتبة معالجة الصور Vips، لفك تشفير AVIF داخل المتصفح. وهذا يضمن التوافق الواسع وفك التشفير الدقيق دون تحميل ملفاتك إلى الخادم."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "هل سيتم الحفاظ على شفافية ملف AVIF الخاص بي بتنسيق PNG؟",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "نعم. يدعم AVIF شفافية ألفا، كما يدعمها PNG أيضًا. عندما تقوم بتحويل صورة AVIF بمساحات شفافة إلى PNG، يتم الحفاظ على الشفافية بالكامل. وهذه ميزة رئيسية مقارنة بتنسيقات مثل JPG التي لا يمكنها التعامل مع الشفافية على الإطلاق."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "هل هناك حد لحجم الملف لتحويل AVIF إلى PNG؟",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "لا يوجد حد لحجم الملف الثابت، ولكن نظرًا لأن التحويل يحدث محليًا في متصفحك باستخدام WebAssembly، فقد تستغرق الصور الكبيرة جدًا وقتًا أطول للمعالجة وتستهلك المزيد من الذاكرة. بالنسبة لصور الويب النموذجية التي يقل حجمها عن 20 ميغابايت، يكون التحويل سريعًا. لا يتم تحميل الملفات مطلقًا، بل يبقى كل شيء على جهازك."
+            }
+        }
+    ]
+}</script></head>
 <body>
 <header class="header">
 <div class="container">
 <div class="logo">
 <a href="../">
-<img alt="PicEte" class="logo-img" src="../images/picete-logo.svg" width="116" height="32">
+<img alt="PicEte" class="logo-img" height="32" src="../images/picete-logo.svg" width="116"/>
 </a>
 <p class="tagline">محول AVIF إلى PNG</p>
 </div>
@@ -266,7 +259,7 @@
 <option value="es">Español</option>
 <option value="pt">Português</option>
 <option value="ar">العربية</option>
-            <option value="ko">한국어</option>
+<option value="ko">한국어</option>
 </select>
 </div>
 <script>
@@ -319,8 +312,27 @@
 <button class="btn-secondary" id="resetBtn">اختيار مرة أخرى</button>
 </div>
 </div>
-<div class="download-section" style="display: none;">
+<div class="download-section" id="downloadSection" style="display: none;">
 <h3>اكتمل التحويل!</h3>
+<div class="image-comparison-slider" id="comparisonSlider" style="display: none; margin: 1.5rem auto; max-width: 800px;">
+<div class="slider-aspect-ratio-holder" style="aspect-ratio: 16 / 9; position: relative; overflow: hidden; width: 100%; border-radius: 8px; border: 1px solid var(--border-color, #e5e7eb);">
+<div class="slider-skeleton" style="position: absolute; inset: 0; background: linear-gradient(90deg, var(--bg-secondary, #f3f4f6) 25%, var(--border-color, #e5e7eb) 50%, var(--bg-secondary, #f3f4f6) 75%); background-size: 200% 100%; animation: loading-shimmer 1.5s infinite;"></div>
+<div class="slider-container" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.3s ease;">
+<img alt="Original" class="img-original" src="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;"/>
+<div class="img-compressed-wrapper" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 50%; overflow: hidden; pointer-events: none; border-left: 2px solid var(--primary-color, #2563eb);">
+<img alt="تحويل" class="img-compressed" src="" style="position: absolute; top: 0; left: 0; height: 100%; object-fit: contain; pointer-events: none;"/>
+</div>
+<div class="slider-handle" style="position: absolute; top: 0; bottom: 0; left: 50%; width: 40px; margin-left: -20px; cursor: ew-resize; display: flex; align-items: center; justify-content: center; z-index: 10;">
+<div class="slider-handle-button" style="width: 40px; height: 40px; border-radius: 50%; background: var(--primary-color, #2563eb); border: 4px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; font-weight: bold; user-select: none;">
+                          ↔
+                        </div>
+</div>
+</div>
+</div>
+<div class="slider-info" style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-light, #6b7280); text-align: center;">
+                    Original: <span class="size-orig">0 KB</span> | تحويل: <span class="size-conv">0 KB</span> (<span class="size-diff">-0%</span>)
+                  </div>
+</div>
 <div class="download-grid" id="downloadGrid"></div>
 <button class="btn-primary" id="downloadAllBtn">تنزيل كل PNG</button>
 <button class="btn-link" id="startOverBtn">تحويل المزيد من الصور</button>
@@ -627,5 +639,5 @@
     };
 })();
 </script>
-</body>
+<script defer="True" src="/js/image-comparison-slider.js"></script></body>
 </html>
