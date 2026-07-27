@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PicEte Image Optimizer - Free WordPress Image Compression Plugin</title>
+<!-- Google Analytics -->
+<script async="" src="/js/gtag.js"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H72N80TEBW');
+    </script>
+<meta content="Free WordPress image compression plugin. Lossy JPEG/PNG optimization, WebP conversion, bulk optimization. Zero ads, unlimited compression, local processing." name="description"/>
+<meta content="wordpress image compression, wordpress plugin, image optimizer, webp converter, free wordpress plugin" name="keywords"/>
+<link href="https://picete.com/wordpress-plugin/" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="https://picete.com/wordpress-plugin/" property="og:url"/>
+<meta content="PicEte Image Optimizer - Free WordPress Image Compression Plugin" property="og:title"/>
+<meta content="Free unlimited image compression for WordPress. Lossy JPEG/PNG/WebP optimization with zero ads." property="og:description"/>
+<meta content="https://picete.com/images/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../css/style.css" rel="stylesheet"/>
+<style>
+/* ---- Hero ---- */
+.wp-hero {
+    padding: 5rem 0 3rem;
+    text-align: center;
+    background: linear-gradient(135deg, var(--bg-color) 0%, var(--bg-secondary) 100%);
+}
+.wp-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+.wp-hero .subtitle {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.6;
+}
+.wp-hero .badge {
+    display: inline-block;
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--primary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.wp-hero .cta-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.wp-hero .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.wp-hero .btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79,70,229,0.3);
+}
+.wp-hero .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-secondary);
+    color: var(--text-color);
+    padding: 0.85rem 2rem;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s;
+}
+.wp-hero .btn-secondary:hover {
+    border-color: var(--primary-color);
+}
+.wp-hero .stats {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+}
+.wp-hero .stat-item {
+    text-align: center;
+}
+.wp-hero .stat-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    display: block;
+}
+.wp-hero .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* ---- Comparison Slider ---- */
+.comparison-section {
+    padding: 3rem 0;
+}
+.comparison-section h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+.comparison-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    cursor: ew-resize;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.comparison-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.comparison-after {
+    position: absolute;
+    top: 0; left: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+.comparison-after img {
+    display: block;
+    width: auto;
+    height: 100%;
+    max-width: none;
+    position: absolute;
+    top: 0; left: 0;
+}
+.comparison-handle {
+    position: absolute;
+    top: 0; left: 50%;
+    width: 3px;
+    height: 100%;
+    background: #fff;
+    transform: translateX(-50%);
+    z-index: 2;
+    pointer-events: none;
+}
+.comparison-handle::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    border: 2px solid var(--primary-color);
+}
+.comparison-handle::after {
+    content: '↔';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: var(--primary-color);
+    z-index: 3;
+    font-weight: bold;
+}
+.comparison-labels {
+    display: flex;
+    justify-content: space-between;
+    max-width: 700px;
+    margin: 0.75rem auto 0;
+    padding: 0 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+.comparison-labels span {
+    background: var(--bg-secondary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* ---- Features ---- */
+.features-section {
+    padding: 3rem 0;
+    background: var(--bg-secondary);
+}
+.features-section h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.feature-card {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: box-shadow 0.2s;
+}
+.feature-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.feature-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+.feature-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.4rem;
+}
+.feature-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ---- Benchmark Table ---- */
+.benchmark-section {
+    padding: 3rem 0;
+}
+.benchmark-section h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+.benchmark-table {
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.benchmark-table th {
+    background: var(--bg-secondary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 2px solid var(--border-color);
+}
+.benchmark-table td {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+}
+.benchmark-table tr:last-child td { border-bottom: none; }
+.benchmark-table .highlight {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+.benchmark-note {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 0.75rem;
+    max-width: 700px;
+    margin-left: auto; margin-right: auto;
+}
+
+/* ---- Specs & CTA ---- */
+.specs-section {
+    padding: 3rem 0;
+    background: var(--bg-secondary);
+}
+.specs-section h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.spec-item {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+}
+.spec-item .label {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+.spec-item .value {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.cta-section {
+    padding: 4rem 0;
+    text-align: center;
+}
+.cta-section h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+}
+.cta-section p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+.cta-section .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border-radius: 10px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.cta-section .btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79,70,229,0.3);
+}
+
+/* ---- FAQ ---- */
+.faq-section {
+    padding: 3rem 0;
+}
+.faq-section h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.faq-item {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.faq-question {
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+.faq-question::after {
+    content: '+';
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    transition: transform 0.2s;
+}
+details[open] .faq-question::after {
+    content: '−';
+}
+.faq-answer {
+    padding: 0 1.25rem 1rem 1.25rem;
+    line-height: 1.7;
+    color: var(--text-light);
+}
+.faq-answer a {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .wp-hero {
+    background: linear-gradient(135deg, var(--bg-color) 0%, #141D2E 100%);
+}
+[data-theme="dark"] .wp-hero .badge {
+    background: rgba(129, 140, 248, 0.15);
+}
+[data-theme="dark"] .comparison-wrapper {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .wp-hero h1 { font-size: 1.7rem; }
+    .wp-hero .stats { gap: 1.5rem; }
+    .wp-hero .stat-number { font-size: 1.4rem; }
+    .features-grid { grid-template-columns: 1fr; }
+    .specs-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="container">
+<div class="logo">
+<a href="../">
+<img alt="PicEte" class="logo-img" height="32" src="../images/picete-logo.svg" width="116"/>
+</a>
+<p class="tagline">WordPress Plugin</p>
+</div>
+<nav class="nav">
+<a class="nav-link" href="../">Home</a>
+<a class="nav-link" href="../#tools">More Tools</a>
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+<span class="sun-icon">☀️</span>
+<span class="moon-icon">🌙</span>
+</button>
+</nav>
+</div>
+</header>
+
+<main>
+<!-- Hero -->
+<section class="wp-hero">
+<div class="container">
+<span class="badge">🚀 Free WordPress Plugin</span>
+<h1>PicEte Image Optimizer</h1>
+<p class="subtitle">Lossy compression, WebP conversion, and bulk optimization — 100% free, zero ads, all on your own server.</p>
+<div class="cta-group">
+<a class="btn-primary" href="https://wordpress.org/plugins/picete-image-optimizer/" target="_blank" rel="noopener">
+⬇ Download from WordPress.org
+</a>
+<a class="btn-secondary" href="https://github.com/0000wei/picete-wordpress-plugin" target="_blank" rel="noopener">
+📖 View on GitHub
+</a>
+</div>
+<div class="stats">
+<div class="stat-item">
+<span class="stat-number">60-70%</span>
+<span class="stat-label">JPEG Savings</span>
+</div>
+<div class="stat-item">
+<span class="stat-number">50-70%</span>
+<span class="stat-label">PNG Savings</span>
+</div>
+<div class="stat-item">
+<span class="stat-number">35-50%</span>
+<span class="stat-label">WebP Savings</span>
+</div>
+<div class="stat-item">
+<span class="stat-number">100%</span>
+<span class="stat-label">Free &amp; Private</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Comparison Slider -->
+<section class="comparison-section">
+<div class="container">
+<h2>See the Difference</h2>
+<div class="comparison-wrapper" id="comparisonWrapper">
+<img src="../images/bench-sample.jpg" alt="Original image" id="comparisonImg"/>
+<div class="comparison-after" id="comparisonAfter">
+<img src="../images/bench-sample-compressed.jpg" alt="Compressed image"/>
+</div>
+<div class="comparison-handle" id="comparisonHandle"></div>
+</div>
+<div class="comparison-labels">
+<span>Original · 2.4 MB</span>
+<span>Compressed · 680 KB (Q80)</span>
+</div>
+</div>
+</section>
+
+<!-- Features -->
+<section class="features-section">
+<div class="container">
+<h2>Why PicEte?</h2>
+<div class="features-grid">
+<div class="feature-card">
+<span class="feature-icon">🎚️</span>
+<h3>1–100 Quality Control</h3>
+<p>Fine-tune compression with a precise slider. Real-time preview before applying.</p>
+</div>
+<div class="feature-card">
+<span class="feature-icon">🌐</span>
+<h3>Automatic WebP</h3>
+<p>Every image size gets a WebP copy. Zero configuration needed.</p>
+</div>
+<div class="feature-card">
+<span class="feature-icon">📦</span>
+<h3>Bulk Optimize</h3>
+<p>Re-optimize your entire media library. Handles 10,000+ images with cursor pagination.</p>
+</div>
+<div class="feature-card">
+<span class="feature-icon">🔒</span>
+<h3>100% Local</h3>
+<p>All processing happens on your server. Zero external API calls, your data never leaves.</p>
+</div>
+<div class="feature-card">
+<span class="feature-icon">🛡️</span>
+<h3>Secure Backups</h3>
+<p>Automatic backups before compression. Configurable retention. One-click restore.</p>
+</div>
+<div class="feature-card">
+<span class="feature-icon">⚡</span>
+<h3>Three Drivers</h3>
+<p>CLI (jpegoptim/pngquant), Imagick, or GD — auto-selects the best available.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Benchmark Table -->
+<section class="benchmark-section">
+<div class="container">
+<h2>Compression Benchmark</h2>
+<table class="benchmark-table">
+<thead>
+<tr><th>Format</th><th>PicEte</th><th>Industry Average</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>JPEG</strong></td><td class="highlight">60-70%</td><td>40-60%</td></tr>
+<tr><td><strong>PNG</strong></td><td class="highlight">50-70%</td><td>30-50%</td></tr>
+<tr><td><strong>WebP</strong></td><td class="highlight">35-50%</td><td>25-40%</td></tr>
+</tbody>
+</table>
+<p class="benchmark-note">Based on Imagick driver at Q80. Actual results vary by image type.</p>
+</div>
+</section>
+
+<!-- Server Requirements -->
+<section class="specs-section">
+<div class="container">
+<h2>Server Requirements</h2>
+<div class="specs-grid">
+<div class="spec-item">
+<span class="label">PHP</span>
+<span class="value">7.4 — 8.3</span>
+</div>
+<div class="spec-item">
+<span class="label">WordPress</span>
+<span class="value">6.0 — 6.6</span>
+</div>
+<div class="spec-item">
+<span class="label">MySQL</span>
+<span class="value">5.7+ / MariaDB 10.3+</span>
+</div>
+<div class="spec-item">
+<span class="label">Extensions</span>
+<span class="value">Imagick / GD</span>
+</div>
+<div class="spec-item">
+<span class="label">CLI (Optional)</span>
+<span class="value">jpegoptim + pngquant</span>
+</div>
+<div class="spec-item">
+<span class="label">License</span>
+<span class="value">GPL-3.0-or-later</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+<div class="container">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary class="faq-question">Is this really free?</summary>
+<p class="faq-answer">Yes, 100% free. No ads, no limits, no upgrade prompts. PicEte is a brand extension of <a href="https://picete.com" target="_blank" rel="noopener">PicEte.com</a> — supported by our free online image tools.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">Does my data leave my server?</summary>
+<p class="faq-answer">No. All compression happens locally using PHP extensions or CLI tools. Zero external API calls. Your images never leave your site.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">Can I optimize my existing media library?</summary>
+<p class="faq-answer">Yes. Use the Bulk Optimize button in Media Library. It processes images using cursor-based pagination — handles tens of thousands of images without timeout.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">How does it compare to TinyPNG?</summary>
+<p class="faq-answer">Our Imagick-based quantizer achieves similar savings for most PNG images (50-70%). For maximum compression, the plugin auto-detects and uses <code>pngquant</code> if installed on your server — the same algorithm TinyPNG uses.</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">What about backups?</summary>
+<p class="faq-answer">Original images are automatically backed up before compression. Backups are stored in a protected directory (<code>uploads/picete-backups/</code>) with .htaccess deny rules. Configurable retention (days + max total storage).</p>
+</details>
+<details class="faq-item">
+<summary class="faq-question">Does it support next-gen formats?</summary>
+<p class="faq-answer">Yes. Automatic WebP conversion for all image sizes (thumbnail through full). The plugin also reinvents HTML to serve WebP via <code>&lt;picture&gt;</code> tags when supported by the browser.</p>
+</details>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+<div class="container">
+<h2>Ready to speed up your WordPress site?</h2>
+<p>Free, unlimited, zero-ad image optimization. Install from WordPress.org.</p>
+<a class="btn-primary" href="https://wordpress.org/plugins/picete-image-optimizer/" target="_blank" rel="noopener">
+⬇ Download from WordPress.org
+</a>
+</div>
+</section>
+</main>
+
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>More Tools</h4>
+<ul>
+<li><a href="../compress-image/">Image Compressor</a></li>
+<li><a href="../png-to-jpg/">PNG to JPG</a></li>
+<li><a href="../jpg-to-png/">JPG to PNG</a></li>
+<li><a href="../resize-image/">Image Resizer</a></li>
+<li><a href="../png-to-webp/">PNG to WebP</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>About</h4>
+<ul>
+<li><a href="../">Back to Home</a></li>
+<li><a href="/privacy-policy.html">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Partners</h4>
+<ul>
+<li><a href="https://mockupshot.online/" target="_blank" rel="noopener">MockupShot</a></li>
+<li><a href="https://ilovepalette.com/" target="_blank" rel="noopener">ILovePalette</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 PicEte. All rights reserved. <a href="../wordpress-plugin/">WordPress Plugin</a></p>
+</div>
+</div>
+</footer>
+
+<script>
+// Theme toggle
+(function() {
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved) html.setAttribute('data-theme', saved);
+
+    toggle.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+    });
+})();
+
+// Comparison slider
+(function() {
+    const wrapper = document.getElementById('comparisonWrapper');
+    const after = document.getElementById('comparisonAfter');
+    const handle = document.getElementById('comparisonHandle');
+    let isDragging = false;
+
+    function setPosition(x) {
+        const rect = wrapper.getBoundingClientRect();
+        let pos = ((x - rect.left) / rect.width) * 100;
+        pos = Math.max(5, Math.min(95, pos));
+        after.style.width = pos + '%';
+        handle.style.left = pos + '%';
+    }
+
+    wrapper.addEventListener('mousedown', (e) => { isDragging = true; setPosition(e.clientX); });
+    document.addEventListener('mousemove', (e) => { if (isDragging) setPosition(e.clientX); });
+    document.addEventListener('mouseup', () => { isDragging = false; });
+
+    wrapper.addEventListener('touchstart', (e) => { setPosition(e.touches[0].clientX); });
+    wrapper.addEventListener('touchmove', (e) => { setPosition(e.touches[0].clientX); });
+})();
+</script>
+</body>
+</html>
