@@ -16,6 +16,7 @@
 <meta content="https://picete.com/images/og-image.png" property="og:image"/>
 <link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="../css/style.css" rel="stylesheet"/>
+<script src="/js/vips-worker.js"></script>
 <!-- FAQ Structured Data -->
 <style>
         /* FAQ Section */
@@ -397,6 +398,104 @@
         localStorage.setItem('picete_theme', next || 'light');
     };
 })();
+</script>
+<script>
+// === Web Worker PNG Compression ===
+let compressionWorker = null;
+let pendingRequestId = 0;
+
+function initCompressionWorker() {
+    try {
+        compressionWorker = new Worker('/js/vips-worker.js');
+        compressionWorker.onmessage = handleWorkerMessage;
+        compressionWorker.onerror = (e) => { console.error('[compress] Worker error:', e); };
+    } catch (e) {
+        console.warn('[compress] Worker init failed:', e);
+        compressionWorker = null;
+    }
+}
+
+function handleWorkerMessage(e) {
+    const msg = e.data;
+    if (msg.type === 'ready') return;
+    if (msg.type === 'error') { console.error('[compress] Worker error:', msg.message); }
+}
+
+function waitForWorkerResult(requestId) {
+    return new Promise((resolve, reject) => {
+        const handler = (e) => {
+            const msg = e.data;
+            if (msg.type === 'result' && msg.id === requestId) {
+                compressionWorker.removeEventListener('message', handler);
+                resolve(msg);
+            } else if (msg.type === 'error' && msg.id === requestId) {
+                compressionWorker.removeEventListener('message', handler);
+                reject(new Error(msg.message));
+            }
+        };
+        compressionWorker.addEventListener('message', handler);
+    });
+}
+
+function getPngOptions(quality) {
+    let Q, dither;
+    if (quality >= 90)      { Q = 90; dither = 0.3; }
+    else if (quality >= 80) { Q = 80; dither = 0.4; }
+    else if (quality >= 70) { Q = 70; dither = 0.5; }
+    else if (quality >= 60) { Q = 60; dither = 0.5; }
+    else if (quality >= 50) { Q = 50; dither = 0.3; }
+    else                    { Q = 40; dither = 0.2; }
+    return { palette: true, compression: 9, Q, dither, effort: 7, keep: 0 };
+}
+
+async function compressToTarget(file, targetBytes) {
+    if (!compressionWorker) initCompressionWorker();
+    const useWorker = compressionWorker !== null;
+
+    let lastResult = null;
+    for (let q = 90; q >= 30; q -= 10) {
+        const options = getPngOptions(q);
+        try {
+            if (useWorker) {
+                const requestId = ++pendingRequestId;
+                const arrayBuffer = await file.arrayBuffer();
+                compressionWorker.postMessage({ type: 'compress', id: requestId, file: arrayBuffer, options }, [arrayBuffer]);
+                const result = await waitForWorkerResult(requestId);
+                lastResult = { blob: result.blob, q };
+                if (result.blob.size <= targetBytes) return lastResult;
+            } else {
+                const blob = await compressWithCanvas(file, q / 100);
+                lastResult = { blob, q };
+                if (blob.size <= targetBytes) return lastResult;
+            }
+        } catch(e) { continue; }
+    }
+    return lastResult;
+}
+
+function compressWithCanvas(file, quality) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const img = new Image();
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0);
+                canvas.toBlob(blob => {
+                    if (!blob) { reject(new Error('Canvas compression failed')); return; }
+                    resolve(blob);
+                }, 'image/png', quality);
+            };
+            img.onerror = () => reject(new Error('Failed to load image'));
+            img.src = e.target.result;
+        };
+        reader.onerror = () => reject(new Error('Failed to read file'));
+        reader.readAsDataURL(file);
+    });
+}
 </script>
 <script defer="True" src="/js/image-comparison-slider.js"></script></body>
 </html>
