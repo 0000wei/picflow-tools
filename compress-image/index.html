@@ -894,17 +894,6 @@
             if (firstResult) {
                 const mode = document.getElementById('losslessToggle')?.checked ? 'Lossless' : 'Lossy (Quantized)';
                 document.getElementById('modeDisplay').textContent = mode;
-                // 如果压缩结果包含 fallback 信息，展示
-                const ditherVal = firstResult.ditherUsed !== undefined ? firstResult.ditherUsed : '—';
-                document.getElementById('ditherDisplay').textContent = ditherVal;
-            }
-
-            // 更新压缩报告（Phase 2 新增）
-            const firstResult = state.compressedImages[0];
-            if (firstResult) {
-                const mode = document.getElementById('losslessToggle')?.checked ? 'Lossless' : 'Lossy (Quantized)';
-                document.getElementById('modeDisplay').textContent = mode;
-                // 如果压缩结果包含 fallback 信息，展示
                 const ditherVal = firstResult.ditherUsed !== undefined ? firstResult.ditherUsed : '—';
                 document.getElementById('ditherDisplay').textContent = ditherVal;
             }
