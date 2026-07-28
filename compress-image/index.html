@@ -324,6 +324,12 @@
 <span>Smaller file (low quality)</span>
 <span>Higher quality (larger file)</span>
 </div>
+<div class="lossless-toggle" style="margin-top: 0.75rem;">
+<label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+<input type="checkbox" id="losslessToggle">
+<span style="font-size: 0.875rem;">Lossless Mode (strip metadata + max compression)</span>
+</label>
+</div>
 </div>
 <div style="margin-top: 1rem; padding: 1rem; background: var(--bg-secondary); border-radius: 0.5rem;">
 <p style="font-size: 0.875rem; color: var(--text-light);">
@@ -508,6 +514,116 @@
         const downloadAllBtn = document.getElementById('downloadAllBtn');
         const startOverBtn = document.getElementById('startOverBtn');
 
+        // === Web Worker 相关变量（Phase 0.2 新增）===
+        let compressionWorker = null;
+        let pendingRequestId = 0;
+        let workerReady = false;
+        let debounceTimer = null;
+        let lastSliderValue = 80;
+
+        // === PNG 参数函数（Phase 0.2 新增）===
+        function getPngOptions(quality) {
+            const isLossless = document.getElementById('losslessToggle')?.checked || false;
+            if (isLossless) {
+                return { compression: 9, palette: false, keep: 0 };
+            }
+            // 映射表（基于真实照片 1920×1281 测试，压缩率 ≈50-74%）
+            let Q, dither;
+            if (quality >= 90)      { Q = 90; dither = 0.3; }
+            else if (quality >= 80) { Q = 80; dither = 0.4; }
+            else if (quality >= 70) { Q = 70; dither = 0.5; }
+            else if (quality >= 60) { Q = 60; dither = 0.5; }
+            else if (quality >= 50) { Q = 50; dither = 0.3; }
+            else                    { Q = 40; dither = 0.2; }
+            return { palette: true, compression: 9, Q, dither, effort: 7, keep: 0 };
+        }
+
+        // === 自适应 Dither 函数（Phase 0.2 新增）===
+        function detectImageType(imageData) {
+            const step = Math.max(1, Math.floor(Math.sqrt(imageData.width * imageData.height) / 4));
+            let totalDiff = 0, samples = 0;
+            for (let y = 0; y < imageData.height; y += step) {
+                for (let x = 0; x < imageData.width; x += step) {
+                    const i = (y * imageData.width + x) * 4;
+                    const dr = imageData.data[i] - imageData.data[i + 4] || 0;
+                    const dg = imageData.data[i + 1] - imageData.data[i + 5] || 0;
+                    const db = imageData.data[i + 2] - imageData.data[i + 6] || 0;
+                    totalDiff += Math.sqrt(dr*dr + dg*dg + db*db);
+                    samples++;
+                }
+            }
+            return (totalDiff / samples) < 30 ? 'flat' : 'photo';
+        }
+
+        // === Web Worker 初始化（Phase 0.2 新增）===
+        function initCompressionWorker() {
+            try {
+                compressionWorker = new Worker('/js/vips-worker.js');
+                compressionWorker.onmessage = handleWorkerMessage;
+                compressionWorker.onerror = (e) => {
+                    console.error('[compress] Worker error:', e);
+                    workerReady = false;
+                };
+            } catch (e) {
+                console.warn('[compress] Worker init failed, will use Canvas:', e);
+                compressionWorker = null;
+            }
+        }
+
+        // === Worker 消息处理（Phase 0.2 新增）===
+        function handleWorkerMessage(e) {
+            const msg = e.data;
+            if (msg.type === 'ready') {
+                workerReady = true;
+                console.log('[compress] Worker ready');
+                return;
+            }
+            if (msg.type === 'error') {
+                console.error('[compress] Worker error for', msg.id, ':', msg.message);
+                // 尝试 Canvas fallback（如果还有原始文件数据）
+                return;
+            }
+            if (msg.type === 'result') {
+                console.log('[compress] Worker result for', msg.id, '- size:', msg.blob.size);
+                // 结果处理将在 waitForWorkerResult 中完成
+            }
+        }
+
+        // === 等待 Worker 结果（Phase 0.2 新增）===
+        function waitForWorkerResult(requestId) {
+            return new Promise((resolve, reject) => {
+                const handler = (e) => {
+                    const msg = e.data;
+                    if (msg.type === 'result' && msg.id === requestId) {
+                        compressionWorker.removeEventListener('message', handler);
+                        resolve(msg);
+                    } else if (msg.type === 'error' && msg.id === requestId) {
+                        compressionWorker.removeEventListener('message', handler);
+                        reject(new Error(msg.message));
+                    }
+                };
+                compressionWorker.addEventListener('message', handler);
+            });
+        }
+
+        // === 熔断压缩函数（Phase 0.2 新增）===
+        async function compressWithFallback(file, options, vips) {
+            const arrayBuffer = await file.arrayBuffer();
+            const originalSize = arrayBuffer.byteLength;
+            let image;
+            try {
+                image = vips.Image.newFromBuffer(new Uint8Array(arrayBuffer));
+                const output = image.writeToBuffer('.png', options);
+                if (output.byteLength >= originalSize) {
+                    // 熔断：压缩后 ≥ 原图，用原图
+                    return { blob: new Blob([arrayBuffer], { type: file.type }), fallback: true };
+                }
+                return { blob: new Blob([output.buffer], { type: 'image/png' }), fallback: false };
+            } finally {
+                if (image) image.delete();
+            }
+        }
+
         selectBtn.addEventListener('click', () => fileInput.click());
         fileInput.addEventListener('change', (e) => handleFiles(Array.from(e.target.files)));
         uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
@@ -517,7 +633,20 @@
             uploadArea.classList.remove('dragover');
             handleFiles(Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/')));
         });
-        qualitySlider.addEventListener('input', (e) => qualityValue.textContent = e.target.value);
+
+        // === 300ms 防抖（Phase 0.2 新增）===
+        qualitySlider.addEventListener('input', (e) => {
+            qualityValue.textContent = e.target.value;
+            lastSliderValue = parseInt(e.target.value);
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                // 如果有已选中的单张图片，触发实时预览
+                if (state.uploadedFiles.length === 1) {
+                    pendingRequestId++;  // 取消旧请求
+                    compressImages();
+                }
+            }, 300);
+        });
         compressBtn.addEventListener('click', compressImages);
         resetBtn.addEventListener('click', reset);
         downloadAllBtn.addEventListener('click', downloadAll);
@@ -562,11 +691,17 @@
             state.compressedImages = [];
             let processed = 0;
 
-            // 尝试加载 wasm-vips
+            // 尝试 Worker 初始化（Phase 0.2）
+            if (!compressionWorker) initCompressionWorker();
+            const useWorker = compressionWorker && workerReady;
+
+            // 尝试加载 wasm-vips（用于 JPEG 或 Worker fallback）
             const vips = await VipsLoader.load();
             const useVips = vips !== null;
 
-            if (useVips) {
+            if (useWorker) {
+                console.log('[compress-image] Using Worker for PNG compression');
+            } else if (useVips) {
                 console.log('[compress-image] Using wasm-vips for compression');
             } else {
                 console.log('[compress-image] Falling back to Canvas API');
@@ -574,28 +709,52 @@
 
             for (let i = 0; i < state.uploadedFiles.length; i++) {
                 const file = state.uploadedFiles[i];
+                const requestId = ++pendingRequestId;
+                const isPng = file.type === 'image/png';
 
                 try {
-                    if (useVips) {
-                        // === wasm-vips 路径 ===
-                        // 浏览器端 API: ImageSource.newFromBuffer → Image.newFromSource
+                    if (useWorker && isPng) {
+                        // === Worker 路径（仅 PNG）===
+                        const arrayBuffer = await file.arrayBuffer();
+                        const options = getPngOptions(parseInt(qualitySlider.value));
+                        compressionWorker.postMessage({
+                            type: 'compress',
+                            id: requestId,
+                            file: arrayBuffer,
+                            options
+                        }, [arrayBuffer]);  // Transferable
+
+                        // 等待 Worker 结果
+                        const result = await waitForWorkerResult(requestId);
+                        const blob = result.blob;
+                        const url = URL.createObjectURL(blob);
+                        const originalSize = state.originalSizes[i];
+                        const compressedSize = blob.size;
+                        const saved = originalSize - compressedSize;
+                        const percent = ((saved / originalSize) * 100).toFixed(1);
+
+                        state.compressedImages[i] = {
+                            url,
+                            name: file.name,
+                            size: compressedSize,
+                            originalSize,
+                            saved,
+                            percent,
+                            fallback: result.fallback || false
+                        };
+                    } else if (useVips && !isPng) {
+                        // === JPEG 走 wasm-vips 路径（使用正确 API）===
                         const arrayBuffer = await file.arrayBuffer();
                         const uint8Array = new Uint8Array(arrayBuffer);
-                        const imgSource = vips.ImageSource.newFromBuffer(uint8Array);
-                        const image = vips.Image.newFromSource(imgSource, '');
-                        imgSource.delete();
+                        const image = vips.Image.newFromBuffer(uint8Array);
 
-                        // 确定输出格式和质量参数
-                        const isPng = file.type === 'image/png';
-                        const ext = isPng ? '.png' : '.jpg';
-                        const outputBuffer = isPng
-                            ? image.writeToBuffer(ext, {})
-                            : image.writeToBuffer(ext, { Q: Math.round(quality * 100) });
+                        // JPEG 压缩参数
+                        const outputBuffer = image.writeToBuffer('.jpg', { Q: Math.round(quality * 100) });
 
                         // 释放 wasm-vips 内存
                         image.delete();
 
-                        const blob = new Blob([outputBuffer.buffer], { type: isPng ? 'image/png' : 'image/jpeg' });
+                        const blob = new Blob([outputBuffer.buffer], { type: 'image/jpeg' });
                         const url = URL.createObjectURL(blob);
                         const originalSize = state.originalSizes[i];
                         const compressedSize = blob.size;
@@ -610,8 +769,27 @@
                             saved,
                             percent
                         };
+                    } else if (useVips && isPng) {
+                        // === PNG 走 wasm-vips fallback（Worker 不可用时）===
+                        const options = getPngOptions(parseInt(qualitySlider.value));
+                        const result = await compressWithFallback(file, options, vips);
+                        const url = URL.createObjectURL(result.blob);
+                        const originalSize = state.originalSizes[i];
+                        const compressedSize = result.blob.size;
+                        const saved = originalSize - compressedSize;
+                        const percent = ((saved / originalSize) * 100).toFixed(1);
+
+                        state.compressedImages[i] = {
+                            url,
+                            name: file.name,
+                            size: compressedSize,
+                            originalSize,
+                            saved,
+                            percent,
+                            fallback: result.fallback || false
+                        };
                     } else {
-                        // === Canvas 回退路径 ===
+                        // === Canvas fallback（完整保留）===
                         const result = await compressWithCanvas(file, quality);
                         const originalSize = state.originalSizes[i];
                         const compressedSize = result.blob.size;
@@ -629,7 +807,7 @@
                     }
                 } catch (err) {
                     console.error('[compress-image] Error compressing file:', file.name, err);
-                    // 如果 wasm-vips 失败，回退到 Canvas
+                    // 如果所有路径都失败，回退到 Canvas
                     try {
                         const result = await compressWithCanvas(file, quality);
                         const originalSize = state.originalSizes[i];
@@ -711,10 +889,10 @@
             downloadGrid.innerHTML = state.compressedImages.map((img, i) => `
                 <div class="download-item">
                     <img src="${img.url}" alt="${img.name}">
-                    <h4>${img.name}</h4>
+                    <h4>${img.name}${img.fallback ? ' <span style="font-size: 0.75rem; color: #F59E0B; background: #FEF3C7; padding: 0.125rem 0.375rem; border-radius: 0.25rem;">Original kept</span>' : ''}</h4>
                     <p>
                         ${formatSize(img.originalSize)} → ${formatSize(img.size)}<br>
-                        <strong style="color: #10B981;">Saved ${img.percent}%</strong>
+                        <strong style="color: ${img.fallback ? '#F59E0B' : '#10B981'};">${img.fallback ? 'No size reduction' : 'Saved ' + img.percent + '%'}</strong>
                     </p>
                     <button class="btn-primary" onclick="downloadOne(${i})">Download</button>
                 </div>
