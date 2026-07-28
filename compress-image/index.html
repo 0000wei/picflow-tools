@@ -522,6 +522,7 @@
         // === Web Worker 相关变量（Phase 0.2 新增）===
         let compressionWorker = null;
         let pendingRequestId = 0;
+        let workerReady = false;
         let debounceTimer = null;
         let lastSliderValue = 80;
 
@@ -581,6 +582,7 @@
         function handleWorkerMessage(e) {
             const msg = e.data;
             if (msg.type === 'ready') {
+                workerReady = true;
                 console.log('[compress] Worker ready');
                 return;
             }
@@ -704,18 +706,23 @@
             let processed = 0;
 
             // 尝试 Worker 初始化（Phase 0.2）
-            // 不检查 workerReady — Worker 内部有懒初始化（initVips）
+            // Worker 内部 importScripts('/js/lib/vips.js') 可能失败（Emscripten Worker 兼容性）
+            // 即使成功，Worker 也需要 10-30s 加载 wasm-vips
+            // 策略：Worker 就绪且快速响应 → 用 Worker；否则用主线程 VipsLoader
             if (!compressionWorker) initCompressionWorker();
-            const useWorker = compressionWorker !== null;
 
-            // 尝试加载 wasm-vips（用于 JPEG 或 Worker 不可用时的 PNG fallback）
+            // 尝试加载主线程 wasm-vips（优先用 Worker，但不等待它就绪）
             const vips = await VipsLoader.load();
             const useVips = vips !== null;
+
+            // 只在 Worker 已就绪时使用（收到 'ready' 消息标记）
+            // 否则 fallback 到主线程 VipsLoader（已验证可用）
+            const useWorker = compressionWorker !== null && workerReady;
 
             if (useWorker) {
                 console.log('[compress-image] Using Worker for PNG compression');
             } else if (useVips) {
-                console.log('[compress-image] Using wasm-vips for compression');
+                console.log('[compress-image] Using main-thread wasm-vips for compression');
             } else {
                 console.log('[compress-image] Falling back to Canvas API');
             }
