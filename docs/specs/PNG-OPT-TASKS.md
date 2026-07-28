@@ -23,7 +23,25 @@ bash scripts/init.sh 2>/dev/null || echo "无 init.sh"
 - 每个 Phase 完成后：独立验证 → 审计 → 用户确认 → commit → 再继续
 - 每个 Phase 的 commit 独立，不可合并
 
-## 3. 执行回路（每 Task 都要遵循）
+## 3. 执行回路 + 预委托强制检查清单（每 Task 都要遵循）
+
+### 3a. 预委托检查清单（每次委托前必须逐项确认）
+
+```
+[ ] 执行通道选择：
+    [ ] 可以 delegate_task（文件 < 500 行，纯逻辑任务） → 必须用 delegate_task
+    [ ] 需要 claude -p PTY（文件 > 500 行，大 HTML 修改） → 必须在审计中标注 I1 已知风险
+[ ] delegate_task 时：
+    [ ] context 中写明 "先读源文件" + 文件路径列表
+    [ ] tool_trace 在 task 完成后验证包含 read_file 调用
+[ ] claude -p 时：
+    [ ] 审计中标注「先读指令无执行证据」
+    [ ] prompt 文件中写明 "先读" + 文件路径列表
+[ ] 委托上下文与 SPEC done_criteria 逐条对照一致
+[ ] 验证标准已包含：函数存在性 + 控制流正确性 + 边界条件
+```
+
+### 3b. 执行回路
 
 ```
 1. Hermes 编写委托上下文（prompt 文件）
@@ -445,4 +463,35 @@ git push
 | Sc | WIP=1 规则 | ✅ | 显式声明 |
 | L1 | 会话初始化 | ✅ | §1 启动流程已列 |
 | L2 | 会话结束清理 | ✅ | §6 清理清单已列 |
-| MM | Hermes 不写功能代码 | ⏳ | 全部委托 Claude Code |
+|| MM | Hermes 不写功能代码 | ⏳ | 全部委托 Claude Code |
+
+---
+
+## 8. 审计教训（本 Session 发现，后续 Session 强制执行）
+
+### 8.1 I1 执行通道纪律
+
+| 违规次数 | 问题 | 强制措施 |
+|---------|------|---------|
+| 4/5 Task | 已知 delegate_task 更好但用了 claude -p | §3a 预委托检查清单硬性要求 |
+
+### 8.2 V1 验证深度纪律
+
+| 违规 | 根因 | 强制措施 |
+|------|------|---------|
+| V1-002 P0 Bug 漏检 | 验证只查 grep 不查控制流 | 验证标准必须包含：函数存在性 + 控制流追踪 + 边界条件检查 |
+
+### 8.3 Claude Code 缺陷率
+
+```
+5 个编码 Task → 3 个有需修复的缺陷（60%）
+  - Task 0: newFromFile MEMFS 陷阱
+  - Task 2: Worker 时序 Bug (P0)
+  - Task 4: duplicate const (P1)
+```
+
+**结论：** Claude Code 产出不可信任。独立验证必须：
+1. grep 函数存在性（基础）
+2. 追踪控制流（关键路径是否正确）
+3. 检查边界条件（熔断/超时/错误处理）
+4. 浏览器 E2E 测试（最终验证）
