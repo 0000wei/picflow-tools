@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PNG Palette Quantization Verification</title>
+<script src="/js/vips-loader.js"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+  th, td { border: 1px solid #d1d5db; padding: 0.5rem; text-align: center; font-size: 0.875rem; }
+  th { background: #f3f4f6; font-weight: 600; }
+  .pass { color: #059669; font-weight: bold; }
+  .fail { color: #dc2626; font-weight: bold; }
+  .warn { color: #d97706; }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; margin-top: 1.5rem; }
+  .summary { padding: 1rem; border-radius: 0.5rem; margin: 1rem 0; }
+  .summary.pass { background: #ecfdf5; border: 1px solid #10b981; }
+  .summary.fail { background: #fef2f2; border: 1px solid #ef4444; }
+  .summary.warn { background: #fffbeb; border: 1px solid #f59e0b; }
+  #status { font-size: 1.125rem; margin: 1rem 0; }
+  .progress { color: #6b7280; }
+  .env-table { margin: 1rem 0; }
+  .env-table th, .env-table td { text-align: left; }
+</style>
+</head>
+<body>
+<h1>WASM-vips PNG Palette Quantization Verification</h1>
+
+<div id="envResults"></div>
+<div id="status" class="progress">Loading wasm-vips...</div>
+<div id="summary"></div>
+<div id="testResults"></div>
+
+<script>
+(async function() {
+  'use strict';
+
+  // 环境检测
+  function renderEnvTable() {
+    const sab = typeof SharedArrayBuffer !== 'undefined';
+    const coi = self.crossOriginIsolated;
+    const envDiv = document.getElementById('envResults');
+    envDiv.innerHTML = '<h2>Environment Check</h2>' +
+      '<table class="env-table"><thead><tr><th>Check</th><th>Status</th></tr></thead>' +
+      '<tbody>' +
+      '<tr><td>SharedArrayBuffer available</td><td>' + (sab ? '<span class="pass">YES ✅</span>' : '<span class="fail">NO ❌</span>') + '</td></tr>' +
+      '<tr><td>crossOriginIsolated</td><td>' + (coi ? '<span class="pass">YES ✅</span>' : '<span class="fail">NO ❌</span>') + '</td></tr>' +
+      '</tbody></table>';
+  }
+
+  // 测试图片列表
+  const TEST_FILES = [
+    'test-photo-320x240.png',
+    'test-photo-1920x1080.png',
+    'test-solid-white.png',
+    'test-solid-red.png'
+  ];
+
+  // 运行所有测试
+  async function runTests(vips) {
+    const results = [];
+    const statusDiv = document.getElementById('status');
+
+    for (let i = 0; i < TEST_FILES.length; i++) {
+      const file = TEST_FILES[i];
+      statusDiv.textContent = 'Testing: ' + file + ' (' + (i + 1) + '/' + TEST_FILES.length + ')';
+
+      const result = {
+        file: file,
+        originalSize: null,
+        baselineSize: null,
+        testA: null,  // colours=64
+        testAError: null,
+        testB: null,  // Q-only
+        testBError: null,
+        testC: null,  // keep=0
+        testCError: null,
+        notes: []
+      };
+
+      try {
+        // 加载图片（使用 Web API fetch + ArrayBuffer，而非 Emscripten MEMFS）
+        const resp = await fetch('/images/' + file);
+        if (!resp.ok) throw new Error('HTTP ' + resp.status + ' loading ' + file);
+        const arrayBuffer = await resp.arrayBuffer();
+        const uint8Array = new Uint8Array(arrayBuffer);
+        const imgSource = vips.ImageSource.newFromBuffer(uint8Array);
+        const image = vips.Image.newFromSource(imgSource, '');
+        imgSource.delete();
+        result.originalSize = arrayBuffer.byteLength;
+
+        // 测试 1: 基线（无 palette）
+        try {
+          const baselineBuffer = image.writeToBuffer('.png', {});
+          result.baselineSize = baselineBuffer.byteLength;
+        } catch (e) {
+          result.baselineSize = null;
+          result.notes.push('Baseline failed: ' + e.message);
+        }
+
+        // 测试 A: palette + colours 硬编码
+        try {
+          const bufferA = image.writeToBuffer('.png', {
+            palette: true,
+            colours: 64,
+            Q: 80,
+            effort: 7
+          });
+          result.testA = bufferA.byteLength;
+        } catch (e) {
+          result.testAError = e.message || String(e);
+        }
+
+        // 测试 B: palette + Q-only（自动色数）
+        try {
+          const bufferB = image.writeToBuffer('.png', {
+            palette: true,
+            Q: 80,
+            effort: 7
+          });
+          result.testB = bufferB.byteLength;
+        } catch (e) {
+          result.testBError = e.message || String(e);
+        }
+
+        // 测试 C: palette + keep=0（元数据剥离）
+        try {
+          const bufferC = image.writeToBuffer('.png', {
+            palette: true,
+            compression: 9,
+            keep: 0
+          });
+          result.testC = bufferC.byteLength;
+        } catch (e) {
+          result.testCError = e.message || String(e);
+        }
+
+      } catch (e) {
+        result.notes.push('Load failed: ' + e.message);
+      } finally {
+        // 确保 C++ 侧内存释放
+        if (typeof image !== 'undefined' && image) {
+          try { image.delete(); } catch(e) { /* ignore */ }
+        }
+      }
+
+      results.push(result);
+    }
+
+    return results;
+  }
+
+  // 计算节省百分比
+  function calcSavePercent(newSize, baseline) {
+    if (!baseline || !newSize || baseline === 0) return '-';
+    const save = ((baseline - newSize) / baseline * 100).toFixed(1);
+    return save + '%';
+  }
+
+  // 渲染结果表格
+  function renderResults(results) {
+    const container = document.getElementById('testResults');
+
+    let html = '<h2>Test Results</h2>' +
+      '<table><thead>' +
+      '<tr>' +
+      '<th>File</th>' +
+      '<th>Original</th>' +
+      '<th>Baseline</th>' +
+      '<th>Test A<br>(colours=64)</th>' +
+      '<th>Save A</th>' +
+      '<th>Test B<br>(Q-only)</th>' +
+      '<th>Save B</th>' +
+      '<th>Test C<br>(keep=0)</th>' +
+      '<th>Save C</th>' +
+      '<th>Notes</th>' +
+      '</tr></thead><tbody>';
+
+    results.forEach(r => {
+      html += '<tr>' +
+        '<td>' + r.file + '</td>' +
+        '<td>' + (r.originalSize ? (r.originalSize / 1024).toFixed(1) + ' KB' : '-') + '</td>' +
+        '<td>' + (r.baselineSize ? (r.baselineSize / 1024).toFixed(1) + ' KB' : '<span class="fail">ERR</span>') + '</td>' +
+        '<td>' + (r.testA ? (r.testA / 1024).toFixed(1) + ' KB' : (r.testAError ? '<span class="fail">ERR</span>' : '-')) + '</td>' +
+        '<td>' + (r.testA && r.baselineSize ? calcSavePercent(r.testA, r.baselineSize) : '-') + '</td>' +
+        '<td>' + (r.testB ? (r.testB / 1024).toFixed(1) + ' KB' : (r.testBError ? '<span class="fail">ERR</span>' : '-')) + '</td>' +
+        '<td>' + (r.testB && r.baselineSize ? calcSavePercent(r.testB, r.baselineSize) : '-') + '</td>' +
+        '<td>' + (r.testC ? (r.testC / 1024).toFixed(1) + ' KB' : (r.testCError ? '<span class="fail">ERR</span>' : '-')) + '</td>' +
+        '<td>' + (r.testC && r.baselineSize ? calcSavePercent(r.testC, r.baselineSize) : '-') + '</td>' +
+        '<td style="text-align:left; font-size: 0.75rem;">' + r.notes.join('<br>') + '</td>' +
+        '</tr>';
+    });
+
+    html += '</tbody></table>';
+    container.innerHTML = html;
+  }
+
+  // 生成 Notes 列逻辑
+  function analyzeResults(results) {
+    results.forEach(r => {
+      // 清空现有 notes，只保留关键信息
+      r.notes = [];
+
+      if (r.testAError) {
+        r.notes.push('<span class="fail">palette NOT supported ❌</span>');
+      } else if (r.testB && r.testA) {
+        const ratio = r.testB / r.testA;
+        if (ratio < 1.1) {
+          r.notes.push('<span class="pass">Q-only ≈ colours=64 ✅</span>');
+        } else {
+          r.notes.push('<span class="warn">Q-only larger (' + ratio.toFixed(2) + 'x) ⚠️</span>');
+        }
+      } else if (r.testBError && r.testA) {
+        r.notes.push('<span class="warn">Q-only FAILED ⚠️</span>');
+      }
+
+      if (r.testCError) {
+        r.notes.push('<span class="warn">keep=0 FAILED ⚠️</span>');
+      }
+    });
+  }
+
+  // 总体结论
+  function renderSummary(results) {
+    const summaryDiv = document.getElementById('summary');
+
+    const successCount = results.filter(r => r.testA && !r.testAError).length;
+    const failCount = results.filter(r => r.testAError).length;
+
+    let summaryHtml = '<h2>Summary</h2><div class="summary ';
+
+    if (failCount === 0) {
+      summaryHtml += 'pass"><span class="pass">✅ Palette quantization is supported.</span> All ' + successCount + ' tests passed.';
+    } else if (successCount === 0) {
+      summaryHtml += 'fail"><span class="fail">❌ Palette quantization is NOT supported.</span> All ' + failCount + ' tests failed.';
+    } else {
+      summaryHtml += 'warn"><span class="warn">⚠️ Partial support.</span> ' + successCount + ' passed, ' + failCount + ' failed.';
+    }
+
+    summaryHtml += '</div>';
+    summaryDiv.innerHTML = summaryHtml;
+  }
+
+  // 主流程
+  renderEnvTable();
+
+  const vips = await VipsLoader.load();
+  const statusDiv = document.getElementById('status');
+
+  if (!vips) {
+    statusDiv.innerHTML = '<span class="fail">Failed to load wasm-vips: ' +
+      (VipsLoader.error || 'Unknown error') + '</span>';
+    document.getElementById('summary').innerHTML = '<div class="summary fail">Cannot run tests without wasm-vips.</div>';
+    return;
+  }
+
+  statusDiv.innerHTML = '<span class="pass">wasm-vips loaded (version ' + vips.version() + ')</span>';
+
+  const results = await runTests(vips);
+  analyzeResults(results);
+  renderResults(results);
+  renderSummary(results);
+
+  statusDiv.innerHTML += ' — All tests completed.';
+})();
+</script>
+</body>
+</html>

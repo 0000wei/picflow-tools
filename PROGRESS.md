@@ -245,6 +245,15 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 ### 2026-07-28 — avif-to-png 页面 merge 冲突修复 + CTR 优化
 - [x] **修复 avif-to-png/index.html P0 级结构损坏**：文件被提交时含有未解决的 git merge 冲突标记（`<<<<<<<`/`=======`/`>>>>>>>`），导致双重 `<html>`、`<title>`、OG 标签，Google 无法正确解析。已解决冲突保留版本 B（关键词前置的 title），删除版本 A + 冲突标记共 651 行。
 - [x] **优化 title/meta/OG 提升 CTR**：title 从 `AVIF to PNG - Free Online AVIF to PNG Converter | PicEte`（56c, 关键词重复）改为 `AVIF to PNG Converter - Free, No Upload, Private | PicEte`（57c），og:title/og:description 与 title/description 对齐。
-- [x] **提交**: `17c837c fix(seo): resolve avif-to-png merge conflict, optimize title/OG for CTR`
-- [x] **SPEC**: `specs/picete-avif-to-png-fix-spec.md`
+|- [x] **提交**: `17c837c fix(seo): resolve avif-to-png merge conflict, optimize title/OG for CTR`
+|- [x] **SPEC**: `specs/picete-avif-to-png-fix-spec.md`
+
+### 2026-07-28 — PNG 压缩优化 Phase 0 (Task 0): 量化能力验证环境搭建
+|- [x] **Task 0 — 生成测试 PNG + 验证页面**: 创建 4 张测试 PNG（渐变图 320×240/1920×1080、纯白/纯红 100×100），创建独立验证页面 `docs/reports/png-palette-verify.html`，含三项测试（colours 硬编码/Q-only 自动色数/keep=0 元数据剥离）和环境检测（SAB/crossOriginIsolated）。验证使用 `newFromBuffer` + `newFromSource` 浏览器 API 模式，含 try/finally 内存清理。
+|- [ ] **Phase 0 (手动)**: 在浏览器中打开 `http://localhost:3000/docs/reports/png-palette-verify.html` 运行验证脚本，产出验证报告。
+|- [ ] **Phase 0.1**: Web Worker 架构层 (`js/vips-worker.js`)
+|- [ ] **Phase 0.2**: PNG 压缩参数注入 + 自适应 Dither (`compress-image/index.html`)
+|- [ ] **Phase 1**: 长尾目标大小页同步 (50/100/200/500KB)
+|- [ ] **Phase 2**: FAQ 修正 + 压缩报告 UI
+|
 
