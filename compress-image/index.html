@@ -791,8 +791,11 @@
                         };
                     } else if (useVips && isPng) {
                         // === PNG 走 wasm-vips fallback（Worker 不可用时）===
+                        console.log('[compress] Using main-thread wasm-vips for PNG, quality=' + qualitySlider.value);
                         const options = getPngOptions(parseInt(qualitySlider.value));
+                        console.log('[compress] PNG options:', JSON.stringify(options));
                         const result = await compressWithFallback(file, options, vips);
+                        console.log('[compress] compressWithFallback result:', result.fallback ? 'FALLBACK' : 'OK', 'size:', result.blob.size);
                         const url = URL.createObjectURL(result.blob);
                         const originalSize = state.originalSizes[i];
                         const compressedSize = result.blob.size;
