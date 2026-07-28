@@ -565,7 +565,11 @@
                 compressionWorker = new Worker('/js/vips-worker.js');
                 compressionWorker.onmessage = handleWorkerMessage;
                 compressionWorker.onerror = (e) => {
-                    console.error('[compress] Worker error:', e);
+                    console.error('[compress] Worker error event — will fall back to Canvas');
+                    // 触发待处理的 waitForWorkerResult 拒绝（通过发送假 error 消息）
+                    // 注意：onerror 和 onmessage 独立，不能直接 reject 已有 Promise
+                    // 所以让 waitForWorkerResult 超时后自行降级
+                    compressionWorker = null;  // 标记 Worker 不可用，下次用 Canvas
                 };
             } catch (e) {
                 console.warn('[compress] Worker init failed, will use Canvas:', e);
@@ -592,14 +596,20 @@
         }
 
         // === 等待 Worker 结果（Phase 0.2 新增）===
-        function waitForWorkerResult(requestId) {
+        function waitForWorkerResult(requestId, timeoutMs = 8000) {
             return new Promise((resolve, reject) => {
+                const timer = setTimeout(() => {
+                    compressionWorker.removeEventListener('message', handler);
+                    reject(new Error('Worker timeout after ' + timeoutMs + 'ms'));
+                }, timeoutMs);
                 const handler = (e) => {
                     const msg = e.data;
                     if (msg.type === 'result' && msg.id === requestId) {
+                        clearTimeout(timer);
                         compressionWorker.removeEventListener('message', handler);
                         resolve(msg);
                     } else if (msg.type === 'error' && msg.id === requestId) {
+                        clearTimeout(timer);
                         compressionWorker.removeEventListener('message', handler);
                         reject(new Error(msg.message));
                     }
