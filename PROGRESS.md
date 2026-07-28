@@ -250,10 +250,8 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 
 ### 2026-07-28 — PNG 压缩优化 Phase 0 (Task 0): 量化能力验证环境搭建
 |- [x] **Task 0 — 生成测试 PNG + 验证页面**: 创建 4 张测试 PNG（渐变图 320×240/1920×1080、纯白/纯红 100×100），创建独立验证页面 `docs/reports/png-palette-verify.html`，含三项测试（colours 硬编码/Q-only 自动色数/keep=0 元数据剥离）和环境检测（SAB/crossOriginIsolated）。验证使用 `newFromBuffer` + `newFromSource` 浏览器 API 模式，含 try/finally 内存清理。
-|- [ ] **Phase 0 (手动)**: 在浏览器中打开 `http://localhost:3000/docs/reports/png-palette-verify.html` 运行验证脚本，产出验证报告。
-|- [ ] **Phase 0.1**: Web Worker 架构层 (`js/vips-worker.js`)
-|- [ ] **Phase 0.2**: PNG 压缩参数注入 + 自适应 Dither (`compress-image/index.html`)
+|- [x] **Phase 0 (手动)**: 浏览器验证 palette 量化可用，产出验证报告。
+|- [x] **Phase 0.1**: Web Worker 架构层 (`js/vips-worker.js`) ✅
+|- [ ] **Phase 0.2**: PNG 压缩参数注入 + 自适应 Dither + 熔断机制 (`compress-image/index.html`)
 |- [ ] **Phase 1**: 长尾目标大小页同步 (50/100/200/500KB)
 |- [ ] **Phase 2**: FAQ 修正 + 压缩报告 UI
-|
-
