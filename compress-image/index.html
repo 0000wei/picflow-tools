@@ -566,11 +566,8 @@
                 compressionWorker = new Worker('/js/vips-worker.js');
                 compressionWorker.onmessage = handleWorkerMessage;
                 compressionWorker.onerror = (e) => {
-                    console.error('[compress] Worker error event — will fall back to Canvas');
-                    // 触发待处理的 waitForWorkerResult 拒绝（通过发送假 error 消息）
-                    // 注意：onerror 和 onmessage 独立，不能直接 reject 已有 Promise
-                    // 所以让 waitForWorkerResult 超时后自行降级
-                    compressionWorker = null;  // 标记 Worker 不可用，下次用 Canvas
+                    console.error('[compress] Worker error — falling back to main-thread VipsLoader');
+                    compressionWorker = null;
                 };
             } catch (e) {
                 console.warn('[compress] Worker init failed, will use Canvas:', e);
@@ -629,9 +626,7 @@
                 image = vips.Image.newFromBuffer(new Uint8Array(arrayBuffer));
                 const output = image.writeToBuffer('.png', options);
                 const outputSize = output.byteLength;
-                console.log('[compress] raw output sizes — original:', originalSize, 'compressed:', outputSize, 'diff:', (originalSize - outputSize));
                 if (outputSize >= originalSize) {
-                    // 熔断：压缩后 ≥ 原图，用原图
                     return { blob: new Blob([arrayBuffer], { type: file.type }), fallback: true, _compSize: outputSize };
                 }
                 return { blob: new Blob([output.buffer], { type: 'image/png' }), fallback: false, _compSize: outputSize };
@@ -793,11 +788,8 @@
                         };
                     } else if (useVips && isPng) {
                         // === PNG 走 wasm-vips fallback（Worker 不可用时）===
-                        console.log('[compress] Using main-thread wasm-vips for PNG, quality=' + qualitySlider.value);
                         const options = getPngOptions(parseInt(qualitySlider.value));
-                        console.log('[compress] PNG options:', JSON.stringify(options));
                         const result = await compressWithFallback(file, options, vips);
-                        console.log('[compress] compressWithFallback result:', result.fallback ? 'FALLBACK' : 'OK', 'compressed:', (result._compSize || '?'), 'original:', result._compSize !== undefined ? 'see above' : '?');
                         const url = URL.createObjectURL(result.blob);
                         const originalSize = state.originalSizes[i];
                         const compressedSize = result.blob.size;

@@ -254,4 +254,4 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 |- [x] **Phase 0.1**: Web Worker 架构层 (`js/vips-worker.js`) ✅
 |- [x] **Phase 0.2**: PNG 压缩参数注入 + 自适应 Dither + 熔断机制 (`compress-image/index.html`) ✅
 |- [x] **Phase 1**: 长尾目标大小页同步 (50/100/200/500KB) ✅
-|- [ ] **Phase 2**: FAQ 修正 + 压缩报告 UI
+|- [x] **Phase 2**: FAQ 修正 + 压缩报告 UI ✅
