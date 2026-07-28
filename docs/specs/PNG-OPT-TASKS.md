@@ -183,14 +183,14 @@ const compressionWorker = new Worker('/js/vips-worker.js');
   - 使用 requestId 递增计数，Worker 返回结果时检查 id 是否仍匹配
 - Canvas fallback 路径保持不变
 
-**3. PNG 参数构建逻辑：**
+**3. PNG 参数构建逻辑 + 熔断机制：**
 ```javascript
 function getPngOptions(quality) {
     const isLossless = document.getElementById('losslessToggle')?.checked || false;
     if (isLossless) {
         return { compression: 9, palette: false, keep: 0 };
     }
-    // 映射表
+    // 映射表（基于真实照片 1920×1281 测试，压缩率 ≈50-74%）
     let Q, dither;
     if (quality >= 90)      { Q = 90; dither = 0.3; }
     else if (quality >= 80) { Q = 80; dither = 0.4; }
@@ -199,6 +199,23 @@ function getPngOptions(quality) {
     else if (quality >= 50) { Q = 50; dither = 0.3; }
     else                    { Q = 40; dither = 0.2; }
     return { palette: true, compression: 9, Q, dither, effort: 7, keep: 0 };
+}
+
+// ⚠️ 熔断：压缩后 ≥ 原图 → 返回原图（Phase 0 验证发现极小文件 palette chunk 开销可能超过原图）
+async function compressWithFallback(file, options) {
+    const arrayBuffer = await file.arrayBuffer();
+    const originalSize = arrayBuffer.byteLength;
+    let image;
+    try {
+        image = vips.Image.newFromBuffer(new Uint8Array(arrayBuffer));
+        const output = image.writeToBuffer('.png', options);
+        if (output.byteLength >= originalSize) {
+            return { blob: new Blob([arrayBuffer], { type: file.type }), fallback: true };
+        }
+        return { blob: new Blob([output.buffer], { type: 'image/png' }), fallback: false };
+    } finally {
+        if (image) image.delete();
+    }
 }
 ```
 
@@ -248,13 +265,14 @@ function detectImageType(imageData) {
 - 不做对比滑块（那是 Phase 2）
 
 #### 验证标准
-- [ ] `compress-image/index.html` 包含 `<script src="/js/vips-worker.js">` 或 Worker 初始化
+- [ ] `compress-image/index.html` 包含 `Worker` 初始化（grep -c 'new Worker'）
 - [ ] `compress-image/index.html` 包含 `getPngOptions()` 函数（grep -c 'getPngOptions'）
 - [ ] `compress-image/index.html` 包含 `detectImageType()` 函数（grep -c 'detectImageType'）
+- [ ] `compress-image/index.html` 包含 `compressWithFallback()` 熔断函数（grep -c 'compressWithFallback'）
 - [ ] 无损模式 toggle 存在（grep -c 'losslessToggle'）
 - [ ] 300ms debounce 逻辑存在（grep -c 'debounce\\|setTimeout.*300'）
-- [ ] Node.js 语法检查通过：`node -e "require('fs').readFileSync('compress-image/index.html','utf8')"` — 实际上 HTML 无法 node --check，用 grep 确认主要函数存在即可
 - [ ] Canvas fallback 仍然存在（grep -c 'compressWithCanvas' ≥ 1）
+- [ ] **熔断逻辑检查**：压缩后体积 ≥ 原图时返回原图（grep -c 'byteLength.*>=.*originalSize\\|fallback' ≥ 1）
 
 ---
 

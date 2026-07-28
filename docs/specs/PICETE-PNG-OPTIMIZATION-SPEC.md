@@ -133,22 +133,20 @@ keep: 0                  ← 剥离所有元数据
 
 > ⚠️ **Phase 0 验证确认：** `colours` 参数不被当前 WASM 版本支持（触发 `VipsForeignSavePngTarget` 错误）。色数通过 `Q` 值由量化器自动计算，无需显式指定 `colours`。
 
-**质量滑块映射（quality slider → PNG Q）—— v1.1 修正（含色数下限保底）：**
+**质量滑块映射（quality slider → PNG Q）—— 经 Phase 0 真实图片验证（自然照片 1920×1281）：**
 
-> ⚠️ **色数下限保底 64 色：** 低于 64 色后节省的体积（几十字节到几 KB）与画质损失（色彩断层 Banding 概率指数级上升）的性价比极低。故 <50 档锚定在 64 色，通过调低 dither 等级而非继续砍色数来换取体积。
+| 滑块值 | PNG Q | dither | 预期压缩率（真实照片） | 用途 |
+|--------|-------|--------|----------------------|------|
+| 90-100 | 90 | 0.3 | ~50% | 最高质量，几乎无损 |
+| 80-89 | 80 | 0.4 | ~60% | 高质量，适合印刷/Web |
+| 70-79 | 70 | 0.5 | ~65% | 中等，适合网页 |
+| 60-69 | 60 | 0.5 | ~69% | 高压缩，适合缩略图 |
+| 50-59 | 50 | 0.3 | ~72% | 极限压缩 |
+| <50 | 40 | 0.2 | ~74% | 极低质量预览 |
+
+> **⚠️ 压缩率预期说明：** 上表中的"预期压缩率"基于真实自然照片测试（1920×1281, 2.5 MB）。合成图/渐变图的压缩率会显著偏高（可达 90%+），但这不代表真实场景。详见 Phase 0 验证报告 `docs/reports/phase0-verification-report.html` 第 11 节"偏差分析"。
 >
-> **长期优化方向（Phase 0 验证关键项）：** libvips 底层量化器可能能仅通过 Q 值自动计算最优色数。如果 `{palette: true, Q: qValue}`（不传 colours）能产出合理结果，应优先使用动态色数而非硬编码映射表。
-
-| 滑块值 | PNG Q | 预期色数 | dither | 用途 |
-|--------|-------|---------|--------|------|
-| 90-100 | 90 | ~256 | 0.3 | 最高质量，几乎无损 |
-| 80-89 | 80 | ~192 | 0.4 | 高质量，适合印刷 |
-| 70-79 | 70 | ~128 | 0.5 | 中等，适合网页 |
-| 60-69 | 60 | ~96 | 0.5 | 高压缩，适合缩略图 |
-| 50-59 | 50 | **64（下限）** | 0.3 | 极限压缩，dither 降低以减少噪点 |
-| <50 | 40 | **64（下限）** | 0.2 | 极低质量，最小 dither 保可看 |
-
-> **注：** `<50` 和 `50-59` 档位的色数相同（64 色下限），区别仅在于 dither 强度。低于 64 色后 Banding 概率指数级上升，节省的体积仅几十字节到几 KB，性价比极低。色数由量化器根据 `Q` 值自动计算，无需也不支持显式 `colours` 参数。
+> **色数说明：** 色数由量化器自动计算，映射表中不再列出色数。Phase 0 验证确认 `colours` 参数不被支持（PNG IHDR 位深限制）。
 
 #### B. 无损 PNG 压缩（用户选择无损时）
 
@@ -163,11 +161,50 @@ keep: 0                  ← 仅剥离元数据
 
 #### C. Alpha 通道特殊处理
 
-当图像含 alpha 通道时，量化 Palette 模式（PLTE + tRNS）能保留透明度。但需注意：
-- 半透明像素多时（如渐变阴影），量化可能导致 banding 伪影
-- 解决方案：检测 Alpha 通道使用情况，半透明区域多的图像降低 dither 或跳过量化
+当图像含 alpha 通道时，量化 Palette 模式（PLTE + tRNS）能保留透明度。Phase 0 验证确认：
+- RGBA 径向渐变（512×512, 262K 半透明像素）→ **100% Alpha 保留**
+- UI 截图（含半透明阴影）→ **无黑边/锯齿**
+- 半透明像素多时仍建议降低 dither 以减少潜在 banding
 
-#### D. 自适应 Dither 调整（用户审核反馈 2.4）
+#### D. 智能体积熔断机制（Phase 0 验证新增 — 硬性架构要求）
+
+**问题：** 极小源文件（< 3 KB）在 palette 量化后 chunk 固定开销可能超过原图，导致体积增大（test-photo-800x600.png 从 2.8 KB → 117.5 KB，test-fully-transparent.png 从 0.3 KB → 0.4 KB）。
+
+**架构要求（硬性，不可协商）：**
+
+```javascript
+function compressWithFallback(image, opts, originalSize) {
+    const output = image.writeToBuffer('.png', opts);
+    if (output.byteLength >= originalSize) {
+        // 熔断：压缩后体积不减小 → 返回原图
+        return { buffer: originalBytes, fallback: true };
+    }
+    return { buffer: output.buffer, fallback: false };
+}
+```
+
+- 熔断阈值：**compressedSize >= originalSize**
+- 不设容忍窗口（如 5%），严格 ≥ 即触发
+- Phase 0 验证：3 张真实图片（2.5 MB / 7.2 KB / 1.9 MB）均未误触发
+
+#### E. 内存安全要求（Phase 0 验证确认）
+
+50 次连续压缩测试零泄漏。已验证的安全模式：
+
+```javascript
+let image;
+try {
+    image = vips.Image.newFromBuffer(uint8Array);
+    const output = image.writeToBuffer('.png', opts);
+    // ... 使用 output
+} finally {
+    if (image) image.delete();
+}
+```
+
+在 Web Worker 中同样适用——`postMessage` 发送结果前完成 delete。
+
+#### F. 自适应 Dither 调整（用户审核反馈 2.4）
 
 **核心观察：** 固定 dither=0.5 对扁平化 UI 图标会引入不必要的噪点，反而破坏 PNG filter 连续性、降低压缩率。
 
