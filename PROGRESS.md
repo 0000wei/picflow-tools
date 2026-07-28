@@ -238,4 +238,13 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 | 翻译页面数 | 350 |
 | 总页面数 | 400 |
 | Sitemap URL 数 | 393 |
-| Git 提交数 | 170 |
+| Git 提交数 | 171 |
+
+## Session 历史
+
+### 2026-07-28 — avif-to-png 页面 merge 冲突修复 + CTR 优化
+- [x] **修复 avif-to-png/index.html P0 级结构损坏**：文件被提交时含有未解决的 git merge 冲突标记（`<<<<<<<`/`=======`/`>>>>>>>`），导致双重 `<html>`、`<title>`、OG 标签，Google 无法正确解析。已解决冲突保留版本 B（关键词前置的 title），删除版本 A + 冲突标记共 651 行。
+- [x] **优化 title/meta/OG 提升 CTR**：title 从 `AVIF to PNG - Free Online AVIF to PNG Converter | PicEte`（56c, 关键词重复）改为 `AVIF to PNG Converter - Free, No Upload, Private | PicEte`（57c），og:title/og:description 与 title/description 对齐。
+- [x] **提交**: `17c837c fix(seo): resolve avif-to-png merge conflict, optimize title/OG for CTR`
+- [x] **SPEC**: `specs/picete-avif-to-png-fix-spec.md`
+
