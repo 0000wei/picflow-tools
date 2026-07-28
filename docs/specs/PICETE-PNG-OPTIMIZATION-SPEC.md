@@ -17,6 +17,7 @@
 ```javascript
 const isPng = file.type === 'image/png';
 const ext = isPng ? '.png' : '.jpg';
+// ⚠️ PNG 使用 {} 空选项，压缩几乎无效（见本 SPEC）
 const outputBuffer = isPng
     ? image.writeToBuffer(ext, {})       // ← 空选项！
     : image.writeToBuffer(ext, { Q: Math.round(quality * 100) });
@@ -109,17 +110,28 @@ Libvips 的 `writeToBuffer('.png', opts)` 支持的选项（来自 pngsave C 源
 
 ### 3.2 核心策略
 
+**图片加载（Phase 0 验证 — `ImageSource` 未编译）：**
+```javascript
+// ❌ 不可用（ImageSource 未编译）:
+// const imgSource = vips.ImageSource.newFromBuffer(uint8Array);
+// const image = vips.Image.newFromSource(imgSource, '');
+
+// ✅ 正确:
+const image = vips.Image.newFromBuffer(uint8Array);
+```
+
 #### A. 有损 PNG 压缩（压缩比最高，对标 TinyPNG）
 
 ```
 compression: 9          ← 最大 deflate
 palette: true            ← 启用量化
-colours: 256             ← 最大调色板尺寸
-Q: quality_value         ← 用户质量滑块映射到量化质量
-dither: 0.5              ← 中度 Floyd-Steinberg 抖动
+Q: quality_value         ← 用户质量滑块映射到量化质量（量化器自动计算色数）
+dither: 0.5              ← Floyd-Steinberg 抖动
 effort: 7                ← 高量化努力
 keep: 0                  ← 剥离所有元数据
 ```
+
+> ⚠️ **Phase 0 验证确认：** `colours` 参数不被当前 WASM 版本支持（触发 `VipsForeignSavePngTarget` 错误）。色数通过 `Q` 值由量化器自动计算，无需显式指定 `colours`。
 
 **质量滑块映射（quality slider → PNG Q）—— v1.1 修正（含色数下限保底）：**
 
@@ -136,7 +148,7 @@ keep: 0                  ← 剥离所有元数据
 | 50-59 | 50 | **64（下限）** | 0.3 | 极限压缩，dither 降低以减少噪点 |
 | <50 | 40 | **64（下限）** | 0.2 | 极低质量，最小 dither 保可看 |
 
-> **注：** `<50` 和 `50-59` 档位的色数相同（64 色下限），区别仅在于 dither 强度。低于 64 色后 Banding 概率指数级上升，节省的体积仅几十字节到几 KB，性价比极低。
+> **注：** `<50` 和 `50-59` 档位的色数相同（64 色下限），区别仅在于 dither 强度。低于 64 色后 Banding 概率指数级上升，节省的体积仅几十字节到几 KB，性价比极低。色数由量化器根据 `Q` 值自动计算，无需也不支持显式 `colours` 参数。
 
 #### B. 无损 PNG 压缩（用户选择无损时）
 

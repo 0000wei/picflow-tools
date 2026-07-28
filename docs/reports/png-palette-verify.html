@@ -80,14 +80,46 @@
       };
 
       try {
-        // 加载图片（使用 Web API fetch + ArrayBuffer，而非 Emscripten MEMFS）
+        // 检测 vips API 表层（dump 所有非内部属性）
+        const apiKeys = [];
+        for (const key in vips) {
+          if (typeof vips[key] === 'function' && !key.startsWith('_') && !key.startsWith('on')) {
+            apiKeys.push(key);
+          }
+        }
+        console.log('=== vips API top-level functions ===');
+        console.log(apiKeys.sort().join(', '));
+        console.log('=== vips.Image ===');
+        if (vips.Image) {
+          const imgKeys = Object.getOwnPropertyNames(vips.Image).filter(k => typeof vips.Image[k] === 'function');
+          console.log('Static methods:', imgKeys.sort().join(', '));
+        } else {
+          console.log('vips.Image is', typeof vips.Image);
+        }
+        console.log('=== vips.ImageSource ===');
+        console.log('vips.ImageSource is', typeof vips.ImageSource);
+
+        // 加载图片
         const resp = await fetch('/images/' + file);
         if (!resp.ok) throw new Error('HTTP ' + resp.status + ' loading ' + file);
         const arrayBuffer = await resp.arrayBuffer();
         const uint8Array = new Uint8Array(arrayBuffer);
-        const imgSource = vips.ImageSource.newFromBuffer(uint8Array);
-        const image = vips.Image.newFromSource(imgSource, '');
-        imgSource.delete();
+
+        let image;
+        let loadMethod = 'unknown';
+        // 尝试多种加载方式
+        if (vips.ImageSource && typeof vips.ImageSource.newFromBuffer === 'function') {
+          const imgSource = vips.ImageSource.newFromBuffer(uint8Array);
+          image = vips.Image.newFromSource(imgSource, '');
+          imgSource.delete();
+          loadMethod = 'ImageSource';
+        } else if (vips.Image && typeof vips.Image.newFromBuffer === 'function') {
+          image = vips.Image.newFromBuffer(uint8Array);
+          loadMethod = 'Image.newFromBuffer';
+        } else {
+          throw new Error('No known image loading API available. Keys: ' + Object.keys(vips).filter(k => !k.startsWith('_')).join(','));
+        }
+        result.notes.push('load: ' + loadMethod);
         result.originalSize = arrayBuffer.byteLength;
 
         // 测试 1: 基线（无 palette）
@@ -110,6 +142,7 @@
           result.testA = bufferA.byteLength;
         } catch (e) {
           result.testAError = e.message || String(e);
+          console.log('Test A failed:', file, result.testAError);
         }
 
         // 测试 B: palette + Q-only（自动色数）
@@ -199,11 +232,9 @@
   // 生成 Notes 列逻辑
   function analyzeResults(results) {
     results.forEach(r => {
-      // 清空现有 notes，只保留关键信息
-      r.notes = [];
-
+      // 追加分析结果到已有 notes（不清空，保留 Baseline 错误信息）
       if (r.testAError) {
-        r.notes.push('<span class="fail">palette NOT supported ❌</span>');
+        r.notes.push('<span class="fail">palette with colours=64 FAILED: ' + r.testAError + ' ❌</span>');
       } else if (r.testB && r.testA) {
         const ratio = r.testB / r.testA;
         if (ratio < 1.1) {
@@ -227,18 +258,26 @@
 
     const successCount = results.filter(r => r.testA && !r.testAError).length;
     const failCount = results.filter(r => r.testAError).length;
+    const qOnlyCount = results.filter(r => r.testB && !r.testBError).length;
+    const keep0Count = results.filter(r => r.testC && !r.testCError).length;
 
     let summaryHtml = '<h2>Summary</h2><div class="summary ';
 
-    if (failCount === 0) {
-      summaryHtml += 'pass"><span class="pass">✅ Palette quantization is supported.</span> All ' + successCount + ' tests passed.';
-    } else if (successCount === 0) {
-      summaryHtml += 'fail"><span class="fail">❌ Palette quantization is NOT supported.</span> All ' + failCount + ' tests failed.';
+    if (qOnlyCount === results.length) {
+      summaryHtml += 'pass"><span class="pass">✅ Palette quantization SUPPORTED (Q-only mode).</span> ';
+      summaryHtml += 'Test B (Q-only): ' + qOnlyCount + '/' + results.length + ' passed. ';
+      summaryHtml += 'Test C (keep=0): ' + keep0Count + '/' + results.length + ' passed. ';
+      if (failCount > 0) summaryHtml += 'Test A (colours=64): ' + failCount + ' failed (use Q-only mode).';
+    } else if (successCount === 0 && failCount === results.length) {
+      summaryHtml += 'fail"><span class="fail">❌ Palette quantization NOT supported.</span> All test A failed.';
     } else {
-      summaryHtml += 'warn"><span class="warn">⚠️ Partial support.</span> ' + successCount + ' passed, ' + failCount + ' failed.';
+      summaryHtml += 'warn"><span class="warn">⚠️ Partial or indeterminate.</span> ' + successCount + ' passed, ' + failCount + ' failed.';
     }
 
     summaryHtml += '</div>';
+
+    // Also dump raw test results to console for debugging
+    console.log('Raw results:', JSON.stringify(results, null, 2));
     summaryDiv.innerHTML = summaryHtml;
   }
 
