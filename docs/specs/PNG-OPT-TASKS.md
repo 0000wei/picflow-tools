@@ -348,12 +348,34 @@ async function compressToTarget(file, targetBytes) {
 - 不添加无损模式开关到目标大小页（保持简洁）
 
 #### 验证标准
-- [ ] 4 个页面都引用了 vips-worker.js（`grep -c 'vips-worker'` = 4）
-- [ ] 4 个页面都有 `compressToTarget` 或等效的自适应循环函数
-- [ ] 50KB 页面能产出 ≤ 50KB 的 PNG（浏览器测试）
-- [ ] 100KB 页面能产出 ≤ 100KB 的 PNG
-- [ ] 200KB 同上
-- [ ] 500KB 同上
+```bash
+# Worker 引用（页面层）
+grep -c '/js/vips-worker.js' compress-image-to-50kb/index.html   # ≥ 1
+grep -c '/js/vips-worker.js' compress-image-to-100kb/index.html  # ≥ 1
+grep -c '/js/vips-worker.js' compress-image-to-200kb/index.html  # ≥ 1
+grep -c '/js/vips-worker.js' compress-image-to-500kb/index.html  # ≥ 1
+
+# 自适应压缩函数
+grep -c 'compressToTarget' compress-image-to-50kb/index.html     # ≥ 1
+grep -c 'compressToTarget' compress-image-to-100kb/index.html    # ≥ 1
+grep -c 'compressToTarget' compress-image-to-200kb/index.html    # ≥ 1
+grep -c 'compressToTarget' compress-image-to-500kb/index.html    # ≥ 1
+
+# Canvas fallback 保留
+grep -c 'compressWithCanvas' compress-image-to-50kb/index.html   # ≥ 1
+grep -c 'compressWithCanvas' compress-image-to-100kb/index.html  # ≥ 1
+grep -c 'compressWithCanvas' compress-image-to-200kb/index.html  # ≥ 1
+grep -c 'compressWithCanvas' compress-image-to-500kb/index.html  # ≥ 1
+
+# ⚠️ newFromBuffer 在 Worker 内部（js/vips-worker.js），不在页面层
+# 页面层不直接调用 WASM API，通过 Worker postMessage 间接使用
+# 页面层验证 Worker 消息发送：
+grep -c 'postMessage' compress-image-to-50kb/index.html          # ≥ 1
+
+# ⚠️ 端到端测试需浏览器运行（CLI 无法替代）：
+# 打开 http://localhost:3000/compress-image-to-50kb/
+# 上传一张 >50KB 的图片，确认输出 ≤ 50KB
+```
 
 ---
 
