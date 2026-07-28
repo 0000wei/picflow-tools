@@ -28,7 +28,10 @@ bash scripts/init.sh 2>/dev/null || echo "无 init.sh"
 ```
 1. Hermes 编写委托上下文（prompt 文件）
 2. 用户确认委托上下文
-3. Claude Code 执行（cat prompt | claude -p --dangerously-skip-permissions, pty=true）
+3. 选择执行通道：
+   a) 优先使用 delegate_task（可获 tool_trace 验证先读指令的执行证据）
+   b) 文件大/需 PTY 交互时使用 cat prompt | claude -p --dangerously-skip-permissions (pty=true)
+   c) 使用 stdin 管道时，在审计中标注"先读指令无执行证据"为已知风险
 4. Hermes 独立验证（读取文件、grep、语法检查）
 5. 验证通过 → 更新 PROGRESS.md → git add + commit
 6. 验证不通过 → 修正委托上下文 → 重新委托
@@ -95,7 +98,8 @@ bash scripts/init.sh 2>/dev/null || echo "无 init.sh"
 #### ⚠️ 先读
 - `compress-image/index.html`（全文，理解当前流程）
 - `js/vips-loader.js`（理解 wasm-vips 加载方式）
-- SPEC Phase 0.1 节（Worker 通信协议、防抖 cancel 模式）
+- `docs/reports/png-palette-verification-report.md`（Phase 0 验证确认的 API）
+- SPEC §3.2-A/E（PNG 参数和内存安全要求）
 
 #### 委托上下文
 
@@ -105,40 +109,40 @@ bash scripts/init.sh 2>/dev/null || echo "无 init.sh"
 
 **Worker 接收消息格式：**
 ```javascript
-{ type: 'compress', id: '<uuid>', file: ArrayBuffer, options: { palette, colours, Q, dither, effort, compression, keep } }
+{ type: 'compress', id: '<uuid>', file: ArrayBuffer, options: { palette, Q, dither, effort, compression, keep } }
 { type: 'cancel', id: '<uuid>' }
 ```
 
+> ⚠️ 注意：options 中不含 `colours`——Phase 0 验证确认此参数不被 WASM 版本支持（PNG IHDR 位深限制）。色数由 Q 值自动计算。
+
 **Worker 发送消息格式：**
 ```javascript
+{ type: 'ready' }
 { type: 'progress', id: '<uuid>', stage: 'decode'|'quantize'|'compress'|'done', progress: 0-100 }
 { type: 'result', id: '<uuid>', blob: Blob, stats: { originalBytes, compressedBytes } }
 { type: 'error', id: '<uuid>', message: '...' }
 ```
 
 **核心逻辑：**
-1. Worker 内部加载 wasm-vips（self.importScripts 加载 vips-loader.js，或直接加载 js/lib/vips.js）
+1. Worker 内使用 `importScripts('/js/lib/vips.js')` 加载 wasm-vips（不能使用 VipsLoader——它依赖 DOM）
 2. 收到 compress 消息时：
-   - 如果有正在执行的旧任务且 id 不同 → 调用旧 Image 的 delete() 清理
-   - 解码 file (ArrayBuffer) → ImageSource → Image
-   - 按 options 参数调用 writeToBuffer
-   - 将结果 Blob 和统计 postMessage 回主线程
-   - try/finally 确保 image.delete() 和 source.delete() 一直执行
-3. 收到 cancel 消息时：
-   - 如果 id 匹配当前任务 → 立即清理并标记取消
-4. 所有 delete() 调用放在 try/finally 中
+   - 如果有正在执行的旧任务且 id 不同 → 调用 `abortCurrentTask()` 清理
+   - 使用 `vips.Image.newFromBuffer(uint8Array)` 加载图片（Phase 0 验证确认，`ImageSource` 未编译）
+   - 按 options 参数调用 `writeToBuffer`
+   - 将 Blob 和统计 postMessage 回主线程（使用 Transferable 优化）
+   - try/finally 确保 image.delete()
+3. 收到 cancel 消息时：调用 `abortCurrentTask()`
+4. 所有 delete() 放在 try/finally 中
 
-**异常安全要求：**
+**异常安全要求（Phase 0 验证确认的 API）：**
 ```javascript
-let currentImage = null;
-let currentSource = null;
+let image;
 try {
-    currentSource = vips.ImageSource.newFromBuffer(bytes);
-    currentImage = vips.Image.newFromSource(currentSource, '');
+    image = vips.Image.newFromBuffer(uint8Array);
+    const output = image.writeToBuffer('.png', options);
     // ... 处理
 } finally {
-    if (currentImage) { currentImage.delete(); currentImage = null; }
-    if (currentSource) { currentSource.delete(); currentSource = null; }
+    if (image) image.delete();
 }
 ```
 
@@ -147,11 +151,31 @@ try {
 - 不修改 vips-loader.js
 
 #### 验证标准
-- [ ] `js/vips-worker.js` 存在
-- [ ] `node --check js/vips-worker.js` 通过
-- [ ] 包含 compress/cancel 消息处理
-- [ ] 所有 delete() 在 try/finally 中（`grep -c 'finally' js/vips-worker.js` ≥ 1）
-- [ ] 支持 `currentTaskId` 取消机制（`grep -c 'currentTaskId' js/vips-worker.js` ≥ 1）
+```bash
+# 文件存在
+test -f js/vips-worker.js
+
+# 语法检查
+node --check js/vips-worker.js
+
+# 消息处理
+grep -c "'compress'" js/vips-worker.js    # ≥ 1
+grep -c "'cancel'" js/vips-worker.js      # ≥ 1
+
+# 内存安全
+grep -c 'finally' js/vips-worker.js       # ≥ 1
+grep -c '\.delete()' js/vips-worker.js    # ≥ 1
+
+# 取消机制
+grep -c 'currentTaskId' js/vips-worker.js  # ≥ 1
+
+# 正确 API（ImageSource = 0）
+grep -c 'ImageSource' js/vips-worker.js    # = 0
+grep -c 'newFromBuffer' js/vips-worker.js  # ≥ 1
+
+# 通信
+grep -c 'postMessage' js/vips-worker.js    # ≥ 4
+```
 
 ---
 
