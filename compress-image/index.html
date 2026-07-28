@@ -628,11 +628,13 @@
             try {
                 image = vips.Image.newFromBuffer(new Uint8Array(arrayBuffer));
                 const output = image.writeToBuffer('.png', options);
-                if (output.byteLength >= originalSize) {
+                const outputSize = output.byteLength;
+                console.log('[compress] raw output sizes — original:', originalSize, 'compressed:', outputSize, 'diff:', (originalSize - outputSize));
+                if (outputSize >= originalSize) {
                     // 熔断：压缩后 ≥ 原图，用原图
-                    return { blob: new Blob([arrayBuffer], { type: file.type }), fallback: true };
+                    return { blob: new Blob([arrayBuffer], { type: file.type }), fallback: true, _compSize: outputSize };
                 }
-                return { blob: new Blob([output.buffer], { type: 'image/png' }), fallback: false };
+                return { blob: new Blob([output.buffer], { type: 'image/png' }), fallback: false, _compSize: outputSize };
             } finally {
                 if (image) image.delete();
             }
@@ -795,7 +797,7 @@
                         const options = getPngOptions(parseInt(qualitySlider.value));
                         console.log('[compress] PNG options:', JSON.stringify(options));
                         const result = await compressWithFallback(file, options, vips);
-                        console.log('[compress] compressWithFallback result:', result.fallback ? 'FALLBACK' : 'OK', 'size:', result.blob.size);
+                        console.log('[compress] compressWithFallback result:', result.fallback ? 'FALLBACK' : 'OK', 'compressed:', (result._compSize || '?'), 'original:', result._compSize !== undefined ? 'see above' : '?');
                         const url = URL.createObjectURL(result.blob);
                         const originalSize = state.originalSizes[i];
                         const compressedSize = result.blob.size;
