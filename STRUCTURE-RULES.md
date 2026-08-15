@@ -48,3 +48,4 @@ picete/
 - `.well-known/` 目录已在 `.gitignore` 中忽略（用于 Let's Encrypt 等验证）
 - `__pycache__/` 已在 `.gitignore` 中忽略
 - 新增脚本或文档请按上表放入对应目录
+- 例外：`generate-test-pngs.py` 刻意保留在根目录（测试 PNG 生成器）— fleet-sync 要求与主克隆中已有的未跟踪副本字节级一致，禁止移动或改写（Makefile `lint-root-files` 白名单已收录）
