@@ -19,7 +19,8 @@ SLIDER_ELIGIBLE_TOOLS = {
     # Convert tools
     'png-to-jpg', 'jpg-to-png', 'webp-to-png', 'png-to-webp', 'jpg-to-webp',
     'avif-to-png', 'png-to-avif', 'jpg-to-avif', 'webp-to-avif',
-    'raw-to-jpg', 'raw-to-png', 'raw-to-webp', 'raw-to-avif'
+    'raw-to-jpg', 'raw-to-png', 'raw-to-webp', 'raw-to-avif',
+    'webp-to-jpg'
 }
 
 def get_tool_directories(root_dir):

@@ -709,7 +709,7 @@
   {
     "id": "seo-001",
     "name": "sitemap",
-    "description": "XML sitemap with 329 URLs (40 EN tools + 7 lang homepages + 274 lang tool pages)",
+    "description": "XML sitemap with 460 URLs (homepage + 50 EN tools + privacy + 8 lang homepages + 400 lang tool pages)",
     "type": "infrastructure",
     "languages": [
       "en"
@@ -908,5 +908,23 @@
       "en"
     ],
     "status": "in_progress"
+  },
+  {
+    "id": "tool-049",
+    "name": "webp-to-jpg",
+    "description": "Convert WebP images to JPG format",
+    "type": "tool",
+    "languages": [
+      "en",
+      "zh",
+      "ja",
+      "de",
+      "fr",
+      "es",
+      "pt",
+      "ar",
+      "ko"
+    ],
+    "status": "complete"
   }
 ]

@@ -3,7 +3,7 @@
 # generate-sitemap.sh — auto-generate sitemap.xml for PicEte
 #
 # Scans root-level tool directories (those with index.html),
-# and all 7 language mirrors (zh/ ja/ de/ fr/ es/ pt/ ar/).
+# and all 8 language mirrors (zh/ ja/ de/ fr/ es/ pt/ ar/ ko/).
 # Outputs to seo/sitemap.xml
 # ============================================================
 set -euo pipefail
@@ -16,7 +16,7 @@ TODAY="$(date +%Y-%m-%d)"
 # Directories to exclude at root level
 EXCLUDE_DIRS="zh|ja|de|fr|es|pt|ar|ko|css|js|images|config|docs|scripts|seo|.git|__pycache__|.well-known|convert"
 
-# Language codes (7 languages)
+# Language codes (8 languages)
 LANG_CODES="zh ja de fr es pt ar ko"
 
 # Start XML
@@ -51,7 +51,7 @@ for dir in "${PROJECT_ROOT}"/*/; do
   # Base tools: single-purpose tools
   # Long-tail: more specific variants
   case "${dirname}" in
-    batch-convert-png-to-jpg|compress-image|compress-image-for-email|compress-image-for-website|compress-image-for-wordpress|compress-image-to-100kb|compress-image-to-200kb|compress-image-to-500kb|compress-image-to-50kb|compress-jpg-to-100kb|compress-jpg-to-200kb|extract-colors|fast-convert|image-splitter|image-to-base64|jpg-to-png|jpg-to-png-for-instagram|jpg-to-webp|mcp-guide|png-to-jpg|png-to-jpg-for-email|png-to-webp|png-to-webp-for-wordpress|resize-image|resize-image-for-facebook-cover|resize-image-to-1080x1080|resize-image-to-1200x630|resize-image-to-1500x500|resize-image-to-1920x1080|resize-image-to-200x200|resize-image-to-250x250|resize-image-to-300x250|resize-image-to-512x512|resize-image-to-600x600|resize-image-to-728x90|resize-image-to-800x800|split-image-into-3x3|split-image-into-4-parts|webp-to-png|webp-to-png-for-website|avif-to-png|png-to-avif|jpg-to-avif|webp-to-avif|raw-to-jpg|raw-to-png|raw-to-webp|raw-to-avif)
+    batch-convert-png-to-jpg|compress-image|compress-image-for-email|compress-image-for-website|compress-image-for-wordpress|compress-image-to-100kb|compress-image-to-200kb|compress-image-to-500kb|compress-image-to-50kb|compress-jpg-to-100kb|compress-jpg-to-200kb|extract-colors|fast-convert|image-splitter|instagram-image-splitter|image-to-base64|jpg-to-png|jpg-to-png-for-instagram|jpg-to-webp|mcp-guide|png-to-jpg|png-to-jpg-for-email|png-to-webp|png-to-webp-for-wordpress|resize-image|resize-image-for-facebook-cover|resize-image-to-1080x1080|resize-image-to-1200x630|resize-image-to-1500x500|resize-image-to-1920x1080|resize-image-to-200x200|resize-image-to-250x250|resize-image-to-300x250|resize-image-to-512x512|resize-image-to-600x600|resize-image-to-728x90|resize-image-to-800x800|split-image-into-3x3|split-image-into-4-parts|webp-to-png|webp-to-png-for-website|webp-to-jpg|avif-to-png|png-to-avif|jpg-to-avif|webp-to-avif|raw-to-jpg|raw-to-png|raw-to-webp|raw-to-avif)
       cat >> "${SITEMAP_FILE}" << EOF
   <url>
     <loc>${BASE_URL}/${dirname}/</loc>

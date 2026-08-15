@@ -1,7 +1,7 @@
 PROJ_ROOT := $(shell pwd)
 
 # ── Tool dirs: exclude reserved/auxiliary directories ─────────────────────────
-RESERVED := zh ja de fr es pt ar ko css js images config docs scripts seo .git __pycache__ node_modules
+RESERVED := zh ja de fr es pt ar ko css js images config docs scripts seo .git __pycache__ node_modules assets picete-mcp-dev rawtest specs wordpress-plugin
 # Compute tool directories: everything under root that is a directory AND not in RESERVED
 TOOL_DIRS := $(shell cd "$(PROJ_ROOT)" && for d in */; do \
   d=$${d%/}; \
@@ -95,6 +95,18 @@ verify-config-files:
 	  echo "  ✗ config/mcp.json MISSING"; error=1; \
 	fi; \
 	\
+	rootmcp="$(PROJ_ROOT)/mcp.json"; \
+	if [ -f "$$rootmcp" ]; then \
+	  if cmp -s "$$cfg" "$$rootmcp"; then \
+	    echo "  ✓ root mcp.json matches config/mcp.json"; \
+	  else \
+	    echo "  ✗ root mcp.json differs from config/mcp.json (run: make sync-config)"; \
+	    error=1; \
+	  fi; \
+	else \
+	  echo "  ✗ root mcp.json MISSING (run: make sync-config)"; error=1; \
+	fi; \
+	\
 	vc="$(PROJ_ROOT)/vercel.json"; \
 	if [ -f "$$vc" ]; then \
 	  echo "  ✓ vercel.json"; \
@@ -119,6 +131,14 @@ verify-root-files:
 	  fi; \
 	done; \
 	[ "$$error" -eq 0 ] || (echo "FAIL: Required root files missing"; exit 1)
+
+# ==============================================================================
+# sync — sync root-deployed copies from their owners
+# ==============================================================================
+.PHONY: sync-config
+sync-config:
+	@cp config/mcp.json mcp.json
+	@echo "✓ Synced config/mcp.json → mcp.json (root copy)"
 
 # ==============================================================================
 # lint — code quality checks
@@ -146,7 +166,7 @@ lint-gitignore:
 .PHONY: lint-root-files
 lint-root-files:
 	@echo "── Root file allowlist check ──"
-	@ALLOWED_FILES="STRUCTURE-RULES.md AGENTS.md README.md .gitignore vercel.json Makefile PROGRESS.md feature_list.json index.html privacy-policy.html sitemap.xml robots.txt package.json package-lock.json"; \
+	@ALLOWED_FILES="STRUCTURE-RULES.md AGENTS.md README.md .gitignore vercel.json Makefile PROGRESS.md feature_list.json index.html favicon.ico favicon.svg privacy-policy.html sitemap.xml robots.txt llms.txt mcp.json package.json package-lock.json test-cover-1200x628.jpg test-cover-1920x1080.png"; \
 	RESERVED_DIRS="zh ja de fr es pt ar ko css js images config docs scripts seo .git __pycache__ node_modules"; \
 	error=0; \
 	for item in $(PROJ_ROOT)/*; do \

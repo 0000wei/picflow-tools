@@ -1,0 +1,89 @@
+{
+  "mcpServers": {
+    "picete-image-tools": {
+      "description": "Free online image processing. Convert, resize, and compress images in the browser.",
+      "url": "https://picete.com",
+      "tools": [
+        {
+          "name": "picete_convert_format",
+          "description": "Convert image from one format to another (PNG ↔ JPG ↔ WebP). Opens the tool page and uploads a file.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "source_path": {
+                "type": "string",
+                "description": "Local file path of the source image"
+              },
+              "target_format": {
+                "type": "string",
+                "enum": ["jpeg", "png", "webp"],
+                "description": "Target image format"
+              },
+              "quality": {
+                "type": "integer",
+                "minimum": 10,
+                "maximum": 100,
+                "default": 85,
+                "description": "Output quality (10-100)"
+              },
+              "page": {
+                "type": "string",
+                "default": "auto",
+                "description": "Which tool page to use. 'auto' picks the best page based on source/target format."
+              }
+            },
+            "required": ["source_path", "target_format"]
+          }
+        },
+        {
+          "name": "picete_resize",
+          "description": "Resize an image to custom dimensions.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "source_path": {
+                "type": "string",
+                "description": "Local file path of the source image"
+              },
+              "width": {
+                "type": "integer",
+                "description": "Target width in pixels"
+              },
+              "height": {
+                "type": "integer",
+                "description": "Target height in pixels"
+              },
+              "maintain_aspect": {
+                "type": "boolean",
+                "default": true,
+                "description": "Lock aspect ratio when resizing"
+              }
+            },
+            "required": ["source_path", "width", "height"]
+          }
+        },
+        {
+          "name": "picete_compress",
+          "description": "Compress an image to reduce file size.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "source_path": {
+                "type": "string",
+                "description": "Local file path of the source image"
+              },
+              "quality": {
+                "type": "integer",
+                "minimum": 10,
+                "maximum": 100,
+                "default": 80,
+                "description": "Compression quality (lower = smaller file)"
+              }
+            },
+            "required": ["source_path"]
+          }
+        }
+      ]
+    }
+  }
+}
