@@ -6,7 +6,7 @@
 
 ## ✨ Features
 
-- **Format Converter** — PNG ↔ JPG, WebP ↔ PNG, JPG ↔ WebP
+- **Format Converter** — PNG ↔ JPG, WebP ↔ PNG, JPG ↔ WebP, WebP ↔ JPG
 - **Image Resizer** — Resize to any dimensions
 - **Image Compressor** — Reduce file size while keeping quality
 - **Image Grid Splitter** — Split images into grid tiles
