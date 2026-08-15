@@ -52,6 +52,10 @@ paths:
     summary: Convert JPG to WebP
     description: Upload JPG files and download as WebP. Good compression for web use.
 
+  /webp-to-jpg/:
+    summary: Convert WebP to JPG
+    description: Upload WebP files and download as JPG. Quality slider controls JPEG compression.
+
   /resize-image/:
     summary: Resize images
     description: Upload images and set custom width/height. Maintain aspect ratio option.

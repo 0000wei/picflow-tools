@@ -95,6 +95,18 @@ verify-config-files:
 	  echo "  ✗ config/mcp.json MISSING"; error=1; \
 	fi; \
 	\
+	rootmcp="$(PROJ_ROOT)/mcp.json"; \
+	if [ -f "$$rootmcp" ]; then \
+	  if cmp -s "$$cfg" "$$rootmcp"; then \
+	    echo "  ✓ root mcp.json matches config/mcp.json"; \
+	  else \
+	    echo "  ✗ root mcp.json differs from config/mcp.json (run: make sync-config)"; \
+	    error=1; \
+	  fi; \
+	else \
+	  echo "  ✗ root mcp.json MISSING (run: make sync-config)"; error=1; \
+	fi; \
+	\
 	vc="$(PROJ_ROOT)/vercel.json"; \
 	if [ -f "$$vc" ]; then \
 	  echo "  ✓ vercel.json"; \
@@ -119,6 +131,14 @@ verify-root-files:
 	  fi; \
 	done; \
 	[ "$$error" -eq 0 ] || (echo "FAIL: Required root files missing"; exit 1)
+
+# ==============================================================================
+# sync — sync root-deployed copies from their owners
+# ==============================================================================
+.PHONY: sync-config
+sync-config:
+	@cp config/mcp.json mcp.json
+	@echo "✓ Synced config/mcp.json → mcp.json (root copy)"
 
 # ==============================================================================
 # lint — code quality checks

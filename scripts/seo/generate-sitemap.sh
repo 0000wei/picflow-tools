@@ -3,7 +3,7 @@
 # generate-sitemap.sh — auto-generate sitemap.xml for PicEte
 #
 # Scans root-level tool directories (those with index.html),
-# and all 7 language mirrors (zh/ ja/ de/ fr/ es/ pt/ ar/).
+# and all 8 language mirrors (zh/ ja/ de/ fr/ es/ pt/ ar/ ko/).
 # Outputs to seo/sitemap.xml
 # ============================================================
 set -euo pipefail
@@ -16,7 +16,7 @@ TODAY="$(date +%Y-%m-%d)"
 # Directories to exclude at root level
 EXCLUDE_DIRS="zh|ja|de|fr|es|pt|ar|ko|css|js|images|config|docs|scripts|seo|.git|__pycache__|.well-known|convert"
 
-# Language codes (7 languages)
+# Language codes (8 languages)
 LANG_CODES="zh ja de fr es pt ar ko"
 
 # Start XML
