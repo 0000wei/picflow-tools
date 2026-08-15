@@ -84,6 +84,6 @@ npx serve .
 
 ## 跨语言目录
 
-当前支持：en (根目录), zh, ja, es, pt, fr, de, ar
+当前支持：en (根目录), zh, ja, es, pt, fr, de, ar, ko
 
 每种语言一套完整页面。新增语言 = 新建目录 + 翻译内容 + vercel.json 无需修改。

@@ -1,7 +1,7 @@
 # PicEte 项目进度
 
 ## 项目概述
-PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图片处理工具，支持 8 种语言（EN/ZH/JA/DE/FR/ES/PT/AR），部署在 Vercel 上。
+PicEte 是一个在线图片处理工具站（picete.com），提供 49 个图片处理工具，支持 8 种翻译语言（ZH/JA/DE/FR/ES/PT/AR/KO），部署在 Vercel 上。
 
 ---
 
@@ -233,7 +233,7 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 
 | 指标 | 数值 |
 |------|------|
-| 工具总数 (EN) | 50 |
+| 工具总数 (EN) | 49 |
 | 翻译语言 | 8 (zh/ja/de/fr/es/pt/ar/ko) |
 | 翻译页面数 | 400 |
 | 总页面数 | 460 |

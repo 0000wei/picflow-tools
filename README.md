@@ -22,7 +22,7 @@ All processing happens locally in your browser using wasm-vips (libvips compiled
 
 ## 🌐 Multi-Language
 
-Available in 7 languages: 中文 (zh), 日本語 (ja), Deutsch (de), Français (fr), Español (es), Português (pt), العربية (ar). Language selection is user-driven, no automatic redirect — SEO-friendly.
+Available in 8 languages: 中文 (zh), 日本語 (ja), Deutsch (de), Français (fr), Español (es), Português (pt), العربية (ar), 한국어 (ko). Language selection is user-driven, no automatic redirect — SEO-friendly.
 
 ## 🚀 Live Demo
 
