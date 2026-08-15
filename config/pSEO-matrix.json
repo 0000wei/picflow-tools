@@ -29,6 +29,12 @@
       "type": "cropper",
       "icon": "📘",
       "slider_eligible": false
+    },
+    {
+      "id": "webp-to-jpg",
+      "type": "converter",
+      "icon": "🔄",
+      "slider_eligible": true
     }
   ]
 }
