@@ -242,6 +242,14 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 48 个图�
 
 ## Session 历史
 
+### 2026-08-15 — 首轮长尾 SEO 优化 (Round 1, branch fm/picete-lt-round1-k1)
+- [x] **新增 webp-to-jpg 工具页**：根 + 8 语言镜像（zh/ar/de/es/fr/ja/ko/pt），纯 Canvas 前端转换（无上传、无服务器），含 h2.hero-title、SoftwareApplication/BreadcrumbList/FAQPage JSON-LD、canonical + 10 行 hreflang、OG 对齐；注册进 config/pSEO-matrix.json + SLIDER_ELIGIBLE_TOOLS。
+- [x] **CTR 标题优化**：resize-image-to-1080x1080/1200x630/1500x500/200x200/512x512/728x90 + resize-image-for-facebook-cover（根 + ar/es/de 等多语言镜像），标题与 GSC 实际搜索意图对齐（ASCII 尺寸、exact 尺寸描述），og:title/og:description 同步。
+- [x] **内部链接 Related Tools 块**：webp-to-png / png-to-jpg / jpg-to-png 及其 8 语言镜像规范化到统一家族集合（png-to-jpg, jpg-to-png, webp-to-png, webp-to-jpg, resize-image, compress-image）；修复 self-link、语言镜像页 `../../` 深度错误（原本链到 EN 页）、补齐 webp-to-jpg 反向链接。
+- [x] **站点卫生**：sitemap 白名单补 webp-to-jpg + instagram-image-splitter 并重新生成（313 → 460 URLs，seo/ 同步根）；robots.txt 移除指向 privacy-policy.html 的无效 Sitemap 行（根 + seo/）；补根路径 llms.txt 与 mcp.json（原 404）；Makefile lint-root-files 白名单加入 llms.txt/mcp.json。
+- [x] **修复 9 个工具页 commit 冲突标记损坏**：7d75d5b 误提交未解决冲突标记（`<<<<<<< Updated upstream`）到 fast-convert / instagram-image-splitter / webp-to-avif / jpg-to-avif / png-to-avif / raw-to-*，已恢复为损坏前内容并统一 title/og:title。
+- [x] **提交**：`d48d615` feat(webp-to-jpg) · `59fe41c` fix(pages) 冲突修复 · `bdfef48` fix(seo) CTR 标题 · `2014aac` fix(seo) 内链规范化 · `d027531` chore(seo) 站点卫生
+
 ### 2026-07-28 — avif-to-png 页面 merge 冲突修复 + CTR 优化
 - [x] **修复 avif-to-png/index.html P0 级结构损坏**：文件被提交时含有未解决的 git merge 冲突标记（`<<<<<<<`/`=======`/`>>>>>>>`），导致双重 `<html>`、`<title>`、OG 标签，Google 无法正确解析。已解决冲突保留版本 B（关键词前置的 title），删除版本 A + 冲突标记共 651 行。
 - [x] **优化 title/meta/OG 提升 CTR**：title 从 `AVIF to PNG - Free Online AVIF to PNG Converter | PicEte`（56c, 关键词重复）改为 `AVIF to PNG Converter - Free, No Upload, Private | PicEte`（57c），og:title/og:description 与 title/description 对齐。
