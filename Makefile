@@ -166,7 +166,7 @@ lint-gitignore:
 .PHONY: lint-root-files
 lint-root-files:
 	@echo "── Root file allowlist check ──"
-	@ALLOWED_FILES="STRUCTURE-RULES.md AGENTS.md README.md .gitignore vercel.json Makefile PROGRESS.md feature_list.json index.html favicon.ico favicon.svg privacy-policy.html sitemap.xml robots.txt llms.txt mcp.json package.json package-lock.json generate-test-pngs.py test-cover-1200x628.jpg test-cover-1920x1080.png"; \
+	@ALLOWED_FILES="STRUCTURE-RULES.md AGENTS.md CLAUDE.md README.md .gitignore vercel.json Makefile PROGRESS.md feature_list.json index.html favicon.ico favicon.svg privacy-policy.html sitemap.xml robots.txt llms.txt mcp.json package.json package-lock.json generate-test-pngs.py test-cover-1200x628.jpg test-cover-1920x1080.png"; \
 	RESERVED_DIRS="zh ja de fr es pt ar ko css js images config docs scripts seo .git __pycache__ node_modules"; \
 	error=0; \
 	for item in $(PROJ_ROOT)/*; do \

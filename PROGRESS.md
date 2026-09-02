@@ -242,6 +242,15 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 49 个图�
 
 ## Session 历史
 
+### 2026-08-17 — 格式转换页内链加权 (Round 2, branch fm/picete-fmt-seo-k1)
+- [x] **内链加权 campaign**：为 7 个格式转换页（avif-to-png, webp-to-jpg, jpg-to-avif, png-to-avif, webp-to-avif, jpg-to-webp, webp-to-png）增加内链权重 — 这些页在 GSC pos 50-62 有真实需求（avif to png = 171 impr）但因缺少内链无流量；on-page SEO 已达标，本次几乎全是内链工作。
+- [x] **首页补 WebP to JPG 卡片**：round-1 新页此前零首页入口，现加入首页 tool-item 网格。
+- [x] **Related Tools 区块**：为缺少的 5 页（jpg-to-webp, avif-to-png, jpg-to-avif, png-to-avif, webp-to-avif）新增 Related Tools 区块并交叉链接格式簇；jpg-to-png 的 related-tools 补 AVIF 家族链接；webp-to-jpg / webp-to-png 的既有区块补充 AVIF 家族。
+- [x] **Footer 链接**：image-splitter, resize-image 及 11 个 exact-size resize 页 footer 补 webp-to-jpg + AVIF 家族链接。
+- [x] **约束**：仅 EN 根页面（本地化镜像按 brief 不做）；锚文本为自然关键词短语（如 'AVIF to PNG'），无关键词堆砌、无 self-link、所有 href 已校验指向现有页面；sitemap 覆盖已确认存在且未变（无新目录）。
+- [x] **站点卫生**：AGENTS.md 补标准 "Maintaining this file" 段 + CLAUDE.md 符号链接（经 fleet 的 fm-ensure-agents-md.sh 维护脚本）；Makefile `lint-root-files` 白名单收录 CLAUDE.md。
+- [x] **提交**：`139fdb6` feat(seo): weight format-conversion pages with internal links
+
 ### 2026-08-15 — 首轮长尾 SEO 优化 (Round 1, branch fm/picete-lt-round1-k1)
 - [x] **新增 webp-to-jpg 工具页**：根 + 8 语言镜像（zh/ar/de/es/fr/ja/ko/pt），纯 Canvas 前端转换（无上传、无服务器），含 h2.hero-title、SoftwareApplication/BreadcrumbList/FAQPage JSON-LD、canonical + 10 行 hreflang、OG 对齐；注册进 config/pSEO-matrix.json + SLIDER_ELIGIBLE_TOOLS。
 - [x] **CTR 标题优化**：resize-image-to-1080x1080/1200x630/1500x500/200x200/512x512/728x90 + resize-image-for-facebook-cover（根 + ar/es/de 等多语言镜像），标题与 GSC 实际搜索意图对齐（ASCII 尺寸、exact 尺寸描述），og:title/og:description 同步。
