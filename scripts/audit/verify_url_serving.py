@@ -156,12 +156,16 @@ def check_page(url, lang, tool, errors):
     for raw in parser.jsonld:
         try:
             data = json.loads(raw)
-        except json.JSONDecodeError:
+        except json.JSONDecodeError as e:
+            errors.append(f'{url}: JSON-LD block failed to parse: {e}')
             continue
         t = data.get('@type')
         if t in ('SoftwareApplication', 'WebApplication'):
             u = data.get('url')
-            if u is not None and u != expected:
+            valid_urls = {expected}
+            if tool is None:
+                valid_urls.add(SITE + '/')
+            if u is not None and u not in valid_urls:
                 errors.append(f'{url}: JSON-LD {t}.url={u}, expected {expected}')
         elif t == 'BreadcrumbList':
             items = data.get('itemListElement', [])

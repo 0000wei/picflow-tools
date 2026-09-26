@@ -42,7 +42,7 @@ REL_URL_PAREN_BARE = re.compile(r'(\(\s*)/([^\s()#?<>]+)/(\))')
 
 # Homepage JSON-LD "url" must equal the homepage canonical exactly:
 # "url": "https://picete.com" -> "url": "https://picete.com/"
-HOME_JSONLD_URL = re.compile(r'("url"\s*:\s*"https://picete\.com")(?=[\s,}])')
+HOME_JSONLD_URL = re.compile(r'("url"\s*:\s*"https://picete\.com)(?=")')
 
 
 def collect_files():
@@ -88,7 +88,7 @@ def fix_content(content, is_txt):
         content = HOME_JSONLD_URL.sub(r'\1/', content)
     else:
         for pattern, repl in (
-            (REL_URL_PAREN_AFTER_COMMA, r'\1/\2'),
+            (REL_URL_PAREN_AFTER_COMMA, r'\1/\2)'),
             (REL_URL_PAREN_BARE, r'\1/\2\3'),
         ):
             n += len(pattern.findall(content))
@@ -100,11 +100,11 @@ def main():
     total_files = 0
     total_repls = 0
     for path in collect_files():
-        with open(path, 'r', encoding='utf-8') as f:
+        with open(path, 'r', encoding='utf-8', newline='') as f:
             original = f.read()
         fixed, n = fix_content(original, path.endswith('.txt'))
         if n:
-            with open(path, 'w', encoding='utf-8') as f:
+            with open(path, 'w', encoding='utf-8', newline='') as f:
                 f.write(fixed)
             total_files += 1
             total_repls += n
