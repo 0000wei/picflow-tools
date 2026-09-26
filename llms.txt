@@ -5,17 +5,17 @@
 ## Core Tools
 
 ### Format Conversion
-- **PNG to JPG** — https://picete.com/png-to-jpg/
-- **JPG to PNG** — https://picete.com/jpg-to-png/
-- **WebP to PNG** — https://picete.com/webp-to-png/
-- **PNG to WebP** — https://picete.com/png-to-webp/
-- **JPG to WebP** — https://picete.com/jpg-to-webp/
-- **WebP to JPG** — https://picete.com/webp-to-jpg/
+- **PNG to JPG** — https://picete.com/png-to-jpg
+- **JPG to PNG** — https://picete.com/jpg-to-png
+- **WebP to PNG** — https://picete.com/webp-to-png
+- **PNG to WebP** — https://picete.com/png-to-webp
+- **JPG to WebP** — https://picete.com/jpg-to-webp
+- **WebP to JPG** — https://picete.com/webp-to-jpg
 
 ### Image Editing
-- **Image Resizer** — https://picete.com/resize-image/
-- **Image Compressor** — https://picete.com/compress-image/
-- **Facebook Cover Cropper** — https://picete.com/resize-image-for-facebook-cover/
+- **Image Resizer** — https://picete.com/resize-image
+- **Image Compressor** — https://picete.com/compress-image
+- **Facebook Cover Cropper** — https://picete.com/resize-image-for-facebook-cover
 
 ## How It Works
 
@@ -30,11 +30,11 @@ Key parameters per tool:
 
 PicEte does not have a server-side API. Image processing is purely client-side via Canvas API.
 
-**For AI agents with MCP support:** install and use the [picete-mcp](https://www.npmjs.com/package/picete-mcp) package for local image processing via Sharp. See [MCP Integration Guide](/mcp-guide/) for setup instructions. Available tools: convert, resize, compress, extract-colors, image-to-base64, split-image, metadata, batch, optimize-for-web, prepare-for-vision-api, favicon, compare-images, collage.
+**For AI agents with MCP support:** install and use the [picete-mcp](https://www.npmjs.com/package/picete-mcp) package for local image processing via Sharp. See [MCP Integration Guide](/mcp-guide) for setup instructions. Available tools: convert, resize, compress, extract-colors, image-to-base64, split-image, metadata, batch, optimize-for-web, prepare-for-vision-api, favicon, compare-images, collage.
 
 However, an AI agent can also use PicEte through a headless browser:
 
-1. Navigate to a tool page (e.g., /resize-image/)
+1. Navigate to a tool page (e.g., /resize-image)
 2. Upload an image via the file input or drag-and-drop
 3. Configure options (format, quality, dimensions)
 4. Click the process button

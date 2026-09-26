@@ -41,7 +41,7 @@ def check_file(file_path, tool_name, lang):
     
     # 1. Canonical Link Check
     canonical = soup.find('link', rel='canonical')
-    expected_canonical = f"https://picete.com/{tool_name}/" if lang == 'en' else f"https://picete.com/{lang}/{tool_name}/"
+    expected_canonical = f"https://picete.com/{tool_name}" if lang == 'en' else f"https://picete.com/{lang}/{tool_name}"
     if not canonical:
         errors.append("Missing canonical link tag.")
     elif canonical.get('href') != expected_canonical:

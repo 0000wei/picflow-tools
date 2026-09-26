@@ -76,11 +76,11 @@ def extract_faqs_from_html(soup):
 def generate_hreflang_tags(tool_name):
     """Generate the standard 10-line hreflang alternate tags."""
     lines = [
-        f'<link rel="alternate" hreflang="en" href="https://picete.com/{tool_name}/" />'
+        f'<link rel="alternate" hreflang="en" href="https://picete.com/{tool_name}" />'
     ]
     for lang in LOCALES:
-        lines.append(f'<link rel="alternate" hreflang="{lang}" href="https://picete.com/{lang}/{tool_name}/" />')
-    lines.append(f'<link rel="alternate" hreflang="x-default" href="https://picete.com/{tool_name}/" />')
+        lines.append(f'<link rel="alternate" hreflang="{lang}" href="https://picete.com/{lang}/{tool_name}" />')
+    lines.append(f'<link rel="alternate" hreflang="x-default" href="https://picete.com/{tool_name}" />')
     return '\n'.join(lines)
 
 def update_html_seo(file_path, tool_name, lang):
@@ -93,7 +93,7 @@ def update_html_seo(file_path, tool_name, lang):
 
     # 1. Update Canonical link
     canonical_tag = soup.find('link', rel='canonical')
-    expected_canonical = f"https://picete.com/{tool_name}/" if lang == 'en' else f"https://picete.com/{lang}/{tool_name}/"
+    expected_canonical = f"https://picete.com/{tool_name}" if lang == 'en' else f"https://picete.com/{lang}/{tool_name}"
     if canonical_tag:
         canonical_tag['href'] = expected_canonical
     else:
@@ -159,8 +159,8 @@ def update_html_seo(file_path, tool_name, lang):
     }
     
     # Build Breadcrumb Schema
-    home_url = "https://picete.com/" if lang == 'en' else f"https://picete.com/{lang}/"
-    tool_url = f"https://picete.com/{tool_name}/" if lang == 'en' else f"https://picete.com/{lang}/{tool_name}/"
+    home_url = "https://picete.com/" if lang == 'en' else f"https://picete.com/{lang}"
+    tool_url = f"https://picete.com/{tool_name}" if lang == 'en' else f"https://picete.com/{lang}/{tool_name}"
     breadcrumb_schema_data = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",

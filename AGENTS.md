@@ -42,6 +42,8 @@ npx serve .
 
 部署：`git push` 到 master → Vercel 自动部署到 https://picete.com。
 
+URL 约定：线上权威 URL 为**无斜杠**（`vercel.json` cleanUrls/trailingSlash）；任何新页面/生成器/内链必须用无斜杠声明（首页 `https://picete.com/` 除外）。URL 类改动用 `scripts/audit/verify_url_serving.py` 验证，残留用 `scripts/fix/fix_trailing_slash_urls.py` 修复。
+
 此项目的所有开发工作必须严格遵循 Harness Engineering 方法论。每次任务必须完成五子系统审计（I/S/V/Scope/L），任何一步未完成不得标记完成。
 
 ---
