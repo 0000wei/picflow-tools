@@ -27,7 +27,7 @@ for (const entry of fs.readdirSync(ROOT, { withFileTypes: true })) {
   if (entry.isDirectory() && !EXCLUDE_DIRS.has(entry.name)) {
     if (fs.existsSync(path.join(ROOT, entry.name, 'index.html'))) {
       if (longTailRegex.test(entry.name)) {
-        addUrl(`${BASE_URL}/${entry.name}/`, 'weekly', '0.9');
+        addUrl(`${BASE_URL}/${entry.name}`, 'weekly', '0.9');
       }
     }
   }
@@ -42,10 +42,10 @@ if (fs.existsSync(path.join(ROOT, 'privacy-policy.html'))) {
 for (const lang of LANG_CODES) {
   const langDir = path.join(ROOT, lang);
   if (fs.existsSync(langDir)) {
-    addUrl(`${BASE_URL}/${lang}/`, 'daily', '1.0');
+    addUrl(`${BASE_URL}/${lang}`, 'daily', '1.0');
     for (const entry of fs.readdirSync(langDir, { withFileTypes: true })) {
       if (entry.isDirectory() && fs.existsSync(path.join(langDir, entry.name, 'index.html'))) {
-        addUrl(`${BASE_URL}/${lang}/${entry.name}/`, 'weekly', '0.9');
+        addUrl(`${BASE_URL}/${lang}/${entry.name}`, 'weekly', '0.9');
       }
     }
   }

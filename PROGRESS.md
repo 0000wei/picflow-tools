@@ -7,6 +7,11 @@ PicEte 是一个在线图片处理工具站（picete.com），提供 49 个图�
 
 ## 已完成
 
+### 2026-09-26 — URL 斜杠自指冲突修复 (branch fm/picete-url-fix-k7)
+- [x] **统一声明 URL 为无斜杠**：线上 `trailingSlash:false` 服务无斜杠 200、斜杠 308，但 sitemap/canonical/og:url/hreflang/JSON-LD/内链全声明斜杠版形成自指矛盾。共修复 10,997 处 / 461 个内容文件（含根+seo 双份 sitemap 重新生成）。
+- [x] **生成来源修复**：`generate-sitemap.js/.sh`、`pSEO_matrix_generator.py`、`verify_seo_matrix.py` 的 URL 构造点全部改为无斜杠；新增 `scripts/fix/fix_trailing_slash_urls.py`（统一一次性修复）与 `scripts/audit/verify_url_serving.py`（镜像 Vercel 语义的本地 HTTP 验证）。
+- [x] **验证 PASS**：sitemap 460/460 loc 直接 200；29 页抽样（含 es/ar/pt/ko/zh/de 本地化、尺寸页、splitter 页、avif/webp 转换页）canonical/og:url/hreflang 集群/JSON-LD 全一致；详见 `docs/reports/URL-SLASH-UNIFICATION-REPORT.md`。
+
 ### 流量增长与 SEO (2026-07-07)
 - [x] **pSEO 矩阵页全面覆盖**：对全站 441 个页面更新 SoftwareApplication 和 Breadcrumbs JSON-LD 结构化数据，注入 Canonical 和 10 行 Hreflang 跨语言关联标签，打通全部多语言（9语言）关联。
 - [x] **前后效果对比滑动条 (Slider)**：对 15 个 eligible 的图片转换/压缩工具页面注入 Comparison Slider，引入 skeleton loading 骨架屏消除页面 CLS，防抖监听 state 数据自动匹配原图与转换后图片。
